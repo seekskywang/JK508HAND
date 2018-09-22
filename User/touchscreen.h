@@ -1,0 +1,36 @@
+#ifndef __TOUCH_SCREEN_H
+#define	__TOUCH_SCREEN_H
+
+#include "stm32f4xx.h"
+
+
+#define TOUCH_XPLUS_GPIO_PORT     GPIOA
+#define TOUCH_XPLUS_GPIO_CLK      RCC_AHB1Periph_GPIOA
+#define TOUCH_XPLUS_GPIO_PIN      GPIO_Pin_1
+#define TOUCH_XPLUS_PINSOURCE     GPIO_PinSource1
+#define TOUCH_XPLUS_CHANNEL		  ADC_Channel_1
+
+#define TOUCH_XMINUS_GPIO_PORT     GPIOA
+#define TOUCH_XMINUS_GPIO_CLK      RCC_AHB1Periph_GPIOA
+#define TOUCH_XMINUS_GPIO_PIN      GPIO_Pin_1
+#define TOUCH_XMINUS_PINSOURCE     GPIO_PinSource1
+#define TOUCH_XMINUS_CHANNEL		  ADC_Channel_1
+
+#define TOUCH_YPLUS_GPIO_PORT     GPIOA
+#define TOUCH_YPLUS_GPIO_CLK      RCC_AHB1Periph_GPIOA
+#define TOUCH_YPLUS_GPIO_PIN      GPIO_Pin_0
+#define TOUCH_YPLUS_PINSOURCE     GPIO_PinSource0
+#define TOUCH_YPLUS_CHANNEL		  ADC_Channel_0
+
+
+#define TOUCH_YMINUS_GPIO_PORT     GPIOA
+#define TOUCH_YMINUS_GPIO_CLK      RCC_AHB1Periph_GPIOA
+#define TOUCH_YMINUS_GPIO_PIN      GPIO_Pin_1
+#define TOUCH_YMINUS_PINSOURCE     GPIO_PinSource1
+#define TOUCH_YMINUS_CHANNEL	   ADC_Channel_1
+
+void Touch_GPIO_Config(void);
+
+
+#endif /* __TOUCH_SCREEN_H */
+
