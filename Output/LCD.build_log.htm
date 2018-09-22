@@ -27,16 +27,16 @@ Project File Date:  09/13/2018
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 5 (build 528)', folder: 'D:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'LCD'
-compiling stm32f4xx_it.c...
-..\..\User\stm32f4xx_it.c(206): warning:  #177-D: variable "bcount"  was declared but never referenced
-        static u8 bcount;
-..\..\User\stm32f4xx_it.c(207): warning:  #177-D: variable "btbuff"  was declared but never referenced
-        static u16 btbuff;
-..\..\User\stm32f4xx_it.c(208): warning:  #177-D: variable "recflag"  was declared but never referenced
-        static u8 recflag = 0;
-..\..\User\stm32f4xx_it.c: 3 warnings, 0 errors
+compiling bsp_lcd.c...
+..\..\User\lcd\bsp_lcd.c(930): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+                        capercent = (float)(cap-58)/42.0;
+..\..\User\lcd\bsp_lcd.c(2044): warning:  #550-D: variable "k"  was set but never used
+    float k = 0, rad1 = 0, rad2 = 0;
+..\..\User\lcd\bsp_lcd.c(2101): warning:  #550-D: variable "k"  was set but never used
+    float k = 0, rad1 = 0, rad2 = 0;
+..\..\User\lcd\bsp_lcd.c: 3 warnings, 0 errors
 linking...
-Program Size: Code=120452 RO-data=98388 RW-data=592 ZI-data=68464  
+Program Size: Code=120932 RO-data=98388 RW-data=592 ZI-data=68464  
 FromELF: creating hex file...
 "..\..\Output\LCD.axf" - 0 Error(s), 3 Warning(s).
 
@@ -52,7 +52,7 @@ Package Vendor: Keil
   D:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:01
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>

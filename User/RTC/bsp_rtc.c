@@ -87,13 +87,14 @@ void RTC_TimeAndDate_Show(void)
 		if(page_flag != poweron)
 		{
 			//液晶显示时间
-			sprintf(LCDTemp,"%0.2d:%0.2d", 
+			sprintf(LCDTemp,"%0.2d:%0.2d:%0.2d", 
 			RTC_TimeStructure.RTC_Hours,
-			RTC_TimeStructure.RTC_Minutes);
+			RTC_TimeStructure.RTC_Minutes,
+			RTC_TimeStructure.RTC_Seconds);
 			
 			LCD_SetTextColor(LCD_COLOR_YELLOW);  		
 			LCD_SetBackColor(LCD_COLOR_BACK);				
-			LCD_DisplayStringLine(2,558,(uint8_t *)LCDTemp);
+			LCD_DisplayStringLine(5,510,(uint8_t *)LCDTemp);
 		}
 		
 		usbreadtime[0] = (u8)((2000 + RTC_DateStructure.RTC_Year) >> 8);//年高位

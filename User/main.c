@@ -1170,6 +1170,43 @@ void TempDisplay(void)
 			cal_disp(6,CH6TEMP - COR6);
 			cal_disp(7,CH7TEMP - COR7);
 			cal_disp(8,CH8TEMP - COR8);
+		}else if(cor_page == page2){
+			cal_disp(1,CH9TEMP - COR9);
+			cal_disp(2,CH10TEMP - COR10);
+			cal_disp(3,CH11TEMP - COR11);
+			cal_disp(4,CH12TEMP - COR12);
+			cal_disp(5,CH13TEMP - COR13);
+			cal_disp(6,CH14TEMP - COR14);
+			cal_disp(7,CH15TEMP - COR15);
+			cal_disp(8,CH16TEMP - COR16);
+		}else if(cor_page == page3){
+			cal_disp(1,CH17TEMP - COR17);
+			cal_disp(2,CH18TEMP - COR18);
+			cal_disp(3,CH19TEMP - COR19);
+			cal_disp(4,CH20TEMP - COR20);
+			cal_disp(5,CH21TEMP - COR21);
+			cal_disp(6,CH22TEMP - COR22);
+			cal_disp(7,CH23TEMP - COR23);
+			cal_disp(8,CH24TEMP - COR24);
+		}else if(cor_page == page4){
+			cal_disp(1,CH25TEMP - COR25);
+			cal_disp(2,CH26TEMP - COR26);
+			cal_disp(3,CH27TEMP - COR27);
+			cal_disp(4,CH28TEMP - COR28);
+			cal_disp(5,CH29TEMP - COR29);
+			cal_disp(6,CH30TEMP - COR30);
+			cal_disp(7,CH31TEMP - COR31);
+			cal_disp(8,CH32TEMP - COR32);
+		}
+		else if(cor_page == page5){
+			cal_disp(1,CH33TEMP - COR33);
+			cal_disp(2,CH34TEMP - COR34);
+			cal_disp(3,CH35TEMP - COR35);
+			cal_disp(4,CH36TEMP - COR36);
+			cal_disp(5,CH37TEMP - COR37);
+			cal_disp(6,CH38TEMP - COR38);
+			cal_disp(7,CH39TEMP - COR39);
+			cal_disp(8,CH40TEMP - COR40);
 		}
 	}
 	

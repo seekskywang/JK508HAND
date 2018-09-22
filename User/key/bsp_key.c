@@ -13033,6 +13033,7 @@ void ACC_HANDLE(void)
 			k = cor_page * 8 + (op_flag - 83);
 			Correction[k] = 0;
 			maxfocus_on(op_flag - 82,Correction[k]);
+			Save_flag();
 		}break;
 	}
 }

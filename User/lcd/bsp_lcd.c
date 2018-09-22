@@ -923,25 +923,25 @@ void DrawBattery(u8 cap)
 		if(charge != status || (b != cap && charge == 0x00))
 		{
 			LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-			LCD_DrawFullRect(500,10,50,23);
+			LCD_DrawFullRect(500-48,10,50,23);
 		}
 		if(charge == 0x00)
 		{
 			capercent = (float)(cap-58)/42.0;
 			LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_BACK);
-			LCD_DrawUniLine(500,10,500,30);
-			LCD_DrawUniLine(500,10,540,10);
-			LCD_DrawUniLine(500,30,540,30);
-			LCD_DrawUniLine(540,10,540,15);
-			LCD_DrawUniLine(540,15,545,15);
-			LCD_DrawUniLine(545,15,545,25);
-			LCD_DrawUniLine(540,25,545,25);
-			LCD_DrawUniLine(540,25,540,30);
+			LCD_DrawUniLine(500-48,10,500-48,30);
+			LCD_DrawUniLine(500-48,10,540-48,10);
+			LCD_DrawUniLine(500-48,30,540-48,30);
+			LCD_DrawUniLine(540-48,10,540-48,15);
+			LCD_DrawUniLine(540-48,15,545-48,15);
+			LCD_DrawUniLine(545-48,15,545-48,25);
+			LCD_DrawUniLine(540-48,25,545-48,25);
+			LCD_DrawUniLine(540-48,25,540-48,30);
 			
 			if(cap > 58)
 			{
 				LCD_SetColors(LCD_COLOR_GREEN,LCD_COLOR_BACK);
-				LCD_DrawFullRect(502,12,(int)(37*capercent),17);
+				LCD_DrawFullRect(502-48,12,(int)(37*capercent),17);
 			}
 			status = 0x00;
 			b = cap;
@@ -957,32 +957,32 @@ void DrawBattery(u8 cap)
 void DrawCharge(void)
 {
 	LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_BACK);
-	LCD_DrawUniLine(510,10,510,13);
-	LCD_DrawUniLine(514,10,514,13);
-	LCD_DrawUniLine(507,15,517,15);
-	LCD_DrawFullRect(508,16,9,7);
-	LCD_DrawUniLine(509,23,515,23);
-	LCD_DrawUniLine(510,24,514,24);
-	LCD_DrawUniLine(511,25,513,25);
-	LCD_DrawUniLine(512,26,512,32);
+	LCD_DrawUniLine(510-16,10,510-16,13);
+	LCD_DrawUniLine(514-16,10,514-16,13);
+	LCD_DrawUniLine(507-16,15,517-16,15);
+	LCD_DrawFullRect(508-16,16,9,7);
+	LCD_DrawUniLine(509-16,23,515-16,23);
+	LCD_DrawUniLine(510-16,24,514-16,24);
+	LCD_DrawUniLine(511-16,25,513-16,25);
+	LCD_DrawUniLine(512-16,26,512-16,32);
 }
 //绘制U盘未连接图标
 void DrawUdisk1(void)
 {
 	LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-	LCD_DrawFullRect(448,10,15,23);
+	LCD_DrawFullRect(448-16,10,15,23);
 	LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_BACK);
-	LCD_DrawFullRect(450,10,11,2);
-	LCD_DrawFullRect(450,12,2,6);
-	LCD_DrawFullRect(459,12,2,6);
-	LCD_DrawFullRect(453,14,2,2);
-	LCD_DrawFullRect(456,14,2,2);
-	LCD_DrawFullRect(448,18,15,2);
-	LCD_DrawFullRect(448,20,2,11);
-	LCD_DrawFullRect(461,20,2,11);
-	LCD_DrawFullRect(448,31,15,2);
-	LCD_DrawUniLine(452,22,458,28);
-	LCD_DrawUniLine(458,22,452,28);
+	LCD_DrawFullRect(450-16,10,11,2);
+	LCD_DrawFullRect(450-16,12,2,6);
+	LCD_DrawFullRect(459-16,12,2,6);
+	LCD_DrawFullRect(453-16,14,2,2);
+	LCD_DrawFullRect(456-16,14,2,2);
+	LCD_DrawFullRect(448-16,18,15,2);
+	LCD_DrawFullRect(448-16,20,2,11);
+	LCD_DrawFullRect(461-16,20,2,11);
+	LCD_DrawFullRect(448-16,31,15,2);
+	LCD_DrawUniLine(452-16,22,458-16,28);
+	LCD_DrawUniLine(458-16,22,452-16,28);
 	
 }
 

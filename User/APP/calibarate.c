@@ -159,14 +159,14 @@ void page_cal(void)
 	cal_disp(7,CH7TEMP - COR7);
 	cal_disp(8,CH8TEMP - COR8);
 	
-	maxfocus_on(1,COR1);
-	maxfocus_off(2,COR2);
-	maxfocus_off(3,COR3);
-	maxfocus_off(4,COR4);
-	maxfocus_off(5,COR5);
-	maxfocus_off(6,COR6);
-	maxfocus_off(7,COR7);
-	maxfocus_off(8,COR8);
+//	maxfocus_on(1,COR1);
+//	maxfocus_off(2,COR2);
+//	maxfocus_off(3,COR3);
+//	maxfocus_off(4,COR4);
+//	maxfocus_off(5,COR5);
+//	maxfocus_off(6,COR6);
+//	maxfocus_off(7,COR7);
+//	maxfocus_off(8,COR8);
 	
 	if(LANG == chs)
 	{
