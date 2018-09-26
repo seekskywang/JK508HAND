@@ -118,7 +118,7 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>DLGUARM</Key>
-          <Name>滘&amp;</Name>
+          <Name>/</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -322,6 +322,11 @@
           <count>34</count>
           <WinNumber>1</WinNumber>
           <ItemText>charge</ItemText>
+        </Ww>
+        <Ww>
+          <count>35</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>usbsendbuf</ItemText>
         </Ww>
       </WatchWindow1>
       <WatchWindow2>
