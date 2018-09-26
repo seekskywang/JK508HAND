@@ -32,6 +32,7 @@
 #include  "usbd_desc.h"
 #include "./internalFlash/bsp_internalFlash.h"
 #include "./ch376/ch376.h"
+#include "touchscreen.h"
 #include "./FILESYS/FILESYS.h"
 #include <string.h>
 
@@ -251,7 +252,7 @@ int main(void)
 	 
 	/* 获取 Flash Device ID */
 	DeviceID = SPI_FLASH_ReadDeviceID();
-	
+	Touch_GPIO_Config();
 	Delay(200);
 	  
 	
@@ -332,6 +333,7 @@ int main(void)
 //	SECTOR_REC = 2;
 	while(1)
 	{
+		watch = GPIO_ReadInputDataBit(TOUCH_YPLUS_GPIO_PORT,TOUCH_YPLUS_GPIO_PIN);
 		/* 显示时间和日期 */	
 		RTC_TimeAndDate_Show();
 		/*按键扫描*/		

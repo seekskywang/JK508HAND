@@ -66,5 +66,6 @@
 ..\..\output\main.o: ..\..\USBD_FS_HID\usbd_desc.h
 ..\..\output\main.o: ..\..\User\./internalFlash/bsp_internalFlash.h
 ..\..\output\main.o: ..\..\User\./ch376/ch376.h
+..\..\output\main.o: ..\..\User\touchscreen.h
 ..\..\output\main.o: ..\..\User\./FILESYS/FILESYS.h
 ..\..\output\main.o: ..\..\User\./ch376/ch376.h
