@@ -1575,7 +1575,7 @@ void UsbDataHandle(void)
 					}
 					USBD_HID_SendReport(&USB_OTG_dev,usbsendbuf,64);//数据回显
 				}else if(usbbuf[2] == 0x02 && usbbuf[3] == 0x58){//读取单位
-					
+					free(csend);
 					csendlen = 9;				
 					csend = (u8*)malloc(sizeof(u8) * csendlen);
 					memset(csend, 0, csendlen);//初始化，每个元素都为零
