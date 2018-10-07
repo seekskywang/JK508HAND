@@ -90,7 +90,7 @@ void page_his(void)
 //		LCD_SetColors(LCD_COLOR_RED,LCD_COLOR_BACK);
 //		LCD_DrawUniLine(111 + j,(int)(400-((Data_buf[j] - YLLIMIT)*enrate)),112+j,(400-((Data_buf[j+1] - YLLIMIT)*enrate)));
 //	}
-	for(j = 0; j < 499; j++)
+	for(j = 0; j < 498; j++)
 	{
 		if(CH1_SW == ch_on && hisdata[0][j] < YHLIMIT && hisdata[0][j] > YLLIMIT)
 		{

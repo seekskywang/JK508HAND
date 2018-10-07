@@ -32,7 +32,7 @@ void Touch_GPIO_Config(void)
 	/*开启相关的GPIO外设时钟*/
 	RCC_AHB1PeriphClockCmd (TOUCH_XPLUS_GPIO_CLK|TOUCH_XMINUS_GPIO_CLK|TOUCH_YPLUS_GPIO_CLK|
 	TOUCH_YMINUS_GPIO_CLK,ENABLE); 
-	
+
 	GPIO_InitStructure.GPIO_Pin = TOUCH_YPLUS_GPIO_PIN;/*选择引脚*/     
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;/*设置引脚为输入模式*/   
     GPIO_InitStructure.GPIO_OType = GPIO_OType_OD;

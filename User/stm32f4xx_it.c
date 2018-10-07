@@ -323,7 +323,7 @@ void DEBUG_USART_IRQHandler(void)
 //								SECTOR_REC++;
 //							}
 //						}
-						if(count > 498)
+						if(count > 497)
 						{						
 							count = 0;
 							memcpy(hisdata,G_Data,sizeof(G_Data));
