@@ -13015,7 +13015,7 @@ void ESC_HANDLE(void)
 }
 void ACC_HANDLE(void)
 {
-	u8 i;
+//	u8 i;
 	//	CH376FileCreatePath("//jk508//test.txt");
 	//	CH376FileClose(TRUE);
 	//	SPI_Flash_PowerDown();

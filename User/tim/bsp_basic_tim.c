@@ -20,6 +20,9 @@
 #include "./key/bsp_key.h" 
 #include "./lcd/bsp_lcd.h"
 #include "./ch376/ch376.h"
+#include  "usbd_hid_core.h"
+#include  "usbd_usr.h"
+#include  "usbd_desc.h"
 #include "jk508.h"
 
 extern u8 key_value;
@@ -28,6 +31,7 @@ extern u8 count_flag;
 u8 tempreq[8] = {0x01,0x03,0x00,0x00,0x00,0x10,0x44,0x06};
 u8 reqcode;
 u8 brightness;
+extern __ALIGN_BEGIN USB_OTG_CORE_HANDLE  USB_OTG_dev __ALIGN_END;
  /**
   * @brief  基本定时器 TIMx,x[6,7]中断优先级配置
   * @param  无
@@ -189,6 +193,12 @@ void BASIC_TIM_IRQHandler (void)
 	if(TIM_GetITStatus( BASIC_TIM, TIM_IT_Update) != RESET )
 	{
 		Key_Scan();//按键扫描
+		DCD_EP_PrepareRx(&USB_OTG_dev,HID_OUT_EP,usbbuf,64);//接收PC数据
+		if(UsbHidReceiveComplete)                         //接收到数据
+		{
+			UsbHidReceiveComplete=0;
+			UsbDataHandle();
+		}
 		if(sendcount == 20)
 		{
 			for(i=0;i<8;i++)

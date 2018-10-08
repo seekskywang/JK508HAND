@@ -47,4 +47,16 @@
 ..\..\output\bsp_basic_tim.o: ..\..\User\./ch376/ch376.h
 ..\..\output\bsp_basic_tim.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 ..\..\output\bsp_basic_tim.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+..\..\output\bsp_basic_tim.o: ..\..\USBD_FS_HID\usbd_hid_core.h
+..\..\output\bsp_basic_tim.o: ..\..\USBD_FS_Lib\USBD_inc\usbd_ioreq.h
+..\..\output\bsp_basic_tim.o: ..\..\USBD_FS_Lib\USBD_inc\usbd_def.h
+..\..\output\bsp_basic_tim.o: ..\..\USBD_FS_Lib\USBD_inc\usbd_conf.h
+..\..\output\bsp_basic_tim.o: ..\..\USBD_FS_Lib\USBD_inc\usb_conf.h
+..\..\output\bsp_basic_tim.o: ..\..\USBD_FS_Lib\USBD_inc\usbd_core.h
+..\..\output\bsp_basic_tim.o: ..\..\USBD_FS_Lib\USBD_inc\usb_dcd.h
+..\..\output\bsp_basic_tim.o: ..\..\USBD_FS_Lib\USBD_inc\usb_core.h
+..\..\output\bsp_basic_tim.o: ..\..\USBD_FS_Lib\USBD_inc\usb_regs.h
+..\..\output\bsp_basic_tim.o: ..\..\USBD_FS_Lib\USBD_inc\usb_defines.h
+..\..\output\bsp_basic_tim.o: ..\..\USBD_FS_HID\usbd_usr.h
+..\..\output\bsp_basic_tim.o: ..\..\USBD_FS_HID\usbd_desc.h
 ..\..\output\bsp_basic_tim.o: ..\..\User\jk508.h

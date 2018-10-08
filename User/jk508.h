@@ -46,6 +46,7 @@ extern u8 usbstatus;
 extern __IO uint32_t FlashID;
 extern u16 graphcount;
 extern u8 reflag;
+extern char UsbHidReceiveComplete;
 
 
 void page_home(void);
@@ -80,6 +81,8 @@ void InitBrt(void);
 void TempDisplay(void);
 void Sprint_temp(float temp);
 void Check_limits(u8 chn);
+void UsbDataHandle(void);
+extern u8 usbbuf[0x40];
 uint16_t CRC16(uint8_t *puchMsg, uint8_t Len);
 uint32_t Flash_EnableReadProtection(void);
 uint32_t Flash_DisableReadProtection(void);

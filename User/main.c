@@ -39,8 +39,8 @@
 /** @defgroup APP_HID_Private_Variables
   * @{
   */ 
-extern char UsbHidReceiveComplete;
-void UsbDataHandle(void);
+
+
 void TempDisplay(void);
 u8 usbbuf[0x40];
 u8 usbsendbuf[0x40];
@@ -219,6 +219,7 @@ float ch_temp[40];
 
 int main(void)
 {
+	u8 test[9] = {0X01,0X03,0X02,0X58,0X00,0X01,0X02,0X00,0X05};
 	 __IO uint32_t i = 0;
 //	u8 res;
   /*!< At this stage the microcontroller clock setting is already configured, 
@@ -326,14 +327,14 @@ int main(void)
 		Read_flag();
 		Read_Sflag();
 	}
-	
+	watch = CRC16(test,9);
 //	page_home();
 //	watch = sizeof(TempHLimits);
 	
 //	SECTOR_REC = 2;
 	while(1)
 	{
-		watch = GPIO_ReadInputDataBit(TOUCH_YPLUS_GPIO_PORT,TOUCH_YPLUS_GPIO_PIN);
+//		watch = GPIO_ReadInputDataBit(TOUCH_YPLUS_GPIO_PORT,TOUCH_YPLUS_GPIO_PIN);
 		/* 显示时间和日期 */	
 		RTC_TimeAndDate_Show();
 		/*按键扫描*/		
@@ -342,12 +343,12 @@ int main(void)
 		DrawBattery(battery);
 		
 		TempDisplay();
-		DCD_EP_PrepareRx(&USB_OTG_dev,HID_OUT_EP,usbbuf,64);//接收PC数据
-		if(UsbHidReceiveComplete)                         //接收到数据
-		{
-			UsbHidReceiveComplete=0;
-			UsbDataHandle();
-		}
+//		DCD_EP_PrepareRx(&USB_OTG_dev,HID_OUT_EP,usbbuf,64);//接收PC数据
+//		if(UsbHidReceiveComplete)                         //接收到数据
+//		{
+//			UsbHidReceiveComplete=0;
+//			UsbDataHandle();
+//		}
 	
 //		Draw_graph();
 //		LCD_Test();
@@ -1379,8 +1380,14 @@ void UsbDataHandle(void)
 					{
 						for(i = 0; i < usbbuf[5]; i++)
 						{
-							usbsendbuf[7+i*2] = RecBuff[5+usbbuf[3]+i*2];
-							usbsendbuf[8+i*2] = RecBuff[6+usbbuf[3]+i*2];
+							if(RecBuff[5+usbbuf[3]+i*2] == 0X4E && RecBuff[6+usbbuf[3]+i*2] == 0X1F)
+							{
+								usbsendbuf[7+i*2] = 0xE0;
+								usbsendbuf[8+i*2] = 0xE0;
+							}else{
+								usbsendbuf[7+i*2] = (u8)((((u16)RecBuff[5+usbbuf[3]+i*2] << 8) + RecBuff[6+usbbuf[3]+i*2] - (int)(Correction[usbbuf[3] + i] * 10)) >> 8);
+								usbsendbuf[8+i*2] = (u8)(((u16)RecBuff[5+usbbuf[3]+i*2] << 8) + RecBuff[6+usbbuf[3]+i*2] - (int)(Correction[usbbuf[3] + i] * 10));
+							}
 	//						usbsendbuf[7+i*2] = 0;
 	//						usbsendbuf[8+i*2] = 0;
 						}
@@ -1391,6 +1398,7 @@ void UsbDataHandle(void)
 						sendcrc = CRC16(csend,csendlen);
 						usbsendbuf[7+(usbbuf[5] - usbbuf[3])*2] = (u8)(sendcrc >> 8);
 						usbsendbuf[8+(usbbuf[5] - usbbuf[3])*2] = (u8)(sendcrc);
+						USBD_HID_SendReport(&USB_OTG_dev,usbsendbuf,64);//数据回显
 	//					for(i = 9 + (usbbuf[5] - usbbuf[3])*2; i < 64 ; i++)
 	//					{
 	//						usbsendbuf[i] = 0;
@@ -1410,8 +1418,9 @@ void UsbDataHandle(void)
 						sendcrc = CRC16(csend,csendlen);
 						usbsendbuf[7+(usbbuf[5])*2] = (u8)(sendcrc >> 8);
 						usbsendbuf[8+(usbbuf[5])*2] = (u8)(sendcrc);
+						USBD_HID_SendReport(&USB_OTG_dev,usbsendbuf,64);//数据回显
 					}
-					USBD_HID_SendReport(&USB_OTG_dev,usbsendbuf,64);//数据回显
+					
 //					for(i = 0;i < 8;i++)
 //					{
 //						csendlen = 23;				
@@ -1853,7 +1862,6 @@ void UsbDataHandle(void)
 					
 					UNIT = usbbuf[8];
 					
-
 					for(i = 0;i < csendlen; i++)
 					{
 						csend[i] = usbsendbuf[i];

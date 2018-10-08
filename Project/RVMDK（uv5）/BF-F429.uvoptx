@@ -118,7 +118,6 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>DLGUARM</Key>
-          <Name>\?</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -327,6 +326,21 @@
           <count>35</count>
           <WinNumber>1</WinNumber>
           <ItemText>watch</ItemText>
+        </Ww>
+        <Ww>
+          <count>36</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>puchMsg</ItemText>
+        </Ww>
+        <Ww>
+          <count>37</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>puchMsg[8]</ItemText>
+        </Ww>
+        <Ww>
+          <count>38</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>RecBuff</ItemText>
         </Ww>
       </WatchWindow1>
       <WatchWindow2>

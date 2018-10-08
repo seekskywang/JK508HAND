@@ -171,7 +171,7 @@ __ALIGN_BEGIN static uint8_t USBD_HID_CfgDesc[USB_HID_CONFIG_DESC_SIZ] __ALIGN_E
   0x01,         /*bConfigurationValue: Configuration value*/
   0x00,         /*iConfiguration: Index of string descriptor describing
   the configuration*/
-  0xE0,         /*bmAttributes: bus powered and Support Remote Wake-up */
+  0xC0,         /*bmAttributes: bus powered and Support Remote Wake-up */
   0x32,         /*MaxPower 100 mA: this current is used for detecting Vbus*/
   
   /************** Descriptor of Joystick Mouse interface ****************/

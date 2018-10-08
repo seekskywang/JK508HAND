@@ -203,9 +203,9 @@ void DEBUG_USART_IRQHandler(void)
 	static u8 Total_Len = 0;
 	static u8 uinitflag = 0;
 	static u8 multicount = 0;
-	static u8 bcount;
-	static u16 btbuff;
-	static u8 recflag = 0;
+//	static u8 bcount;
+//	static u16 btbuff;
+//	static u8 recflag = 0;
 	static float graphbuf[16];
 	
 

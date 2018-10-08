@@ -269,7 +269,7 @@ void RTC_TimeAndDate_Show(void)
 				LCD_SetTextColor(LCD_COLOR_WHITE);
 				LCD_SetBackColor(LCD_COLOR_BACK);
 				DISP_CNL_S(420,530-80,(uint8_t *)LCDTemp);
-			}else if(count == 499){
+			}else if(count == 498){
 				rec_num ++;
 //				Save_flag();
 				LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
