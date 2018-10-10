@@ -62,7 +62,10 @@ void power_on(void);
 void Save_flag(void);
 void Read_flag(void);
 void Save_history(u16 rec);
-void Read_history(void);
+void Read_history(u16 rec);
+void Save_time(u16 rec);
+void Read_time(u16 rec);
+
 u8 udisk_scan(void);
 void Delay(__IO u32 nCount);
 void minfocus_on(u8 c,float lmt);
@@ -82,6 +85,10 @@ void TempDisplay(void);
 void Sprint_temp(float temp);
 void Check_limits(u8 chn);
 void UsbDataHandle(void);
+void Save_Sflag(void);
+void Read_Sflag(void);
+int hex_to_bcd(int data);
+
 extern u8 usbbuf[0x40];
 uint16_t CRC16(uint8_t *puchMsg, uint8_t Len);
 uint32_t Flash_EnableReadProtection(void);

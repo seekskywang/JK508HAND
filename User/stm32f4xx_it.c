@@ -207,7 +207,8 @@ void DEBUG_USART_IRQHandler(void)
 //	static u16 btbuff;
 //	static u8 recflag = 0;
 	static float graphbuf[16];
-	
+//	static u16 savebuf;
+	static u8 hisbuf[16][2];
 
 	u8 i;
 	char buf[10];
@@ -291,7 +292,6 @@ void DEBUG_USART_IRQHandler(void)
 					}
 					
 					
-					
 					if(multicount == 1 && page_flag == poweron)
 					{
 						LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_BLACK);
@@ -312,18 +312,20 @@ void DEBUG_USART_IRQHandler(void)
 						}
 //						if(page_flag != history)
 //						{
-//							for(i=0;i<16;i++)
+							for(i=0;i<16;i++)
+							{
+//								savebuf = hex_to_bcd((int)(graphbuf[i]/MULTI * 10));
+								Data_buf[i][count%8 * 2] = hisbuf[i][0]/MULTI;
+								Data_buf[i][count%8 * 2 + 1] = hisbuf[i][1]/MULTI;
+							}
+//							if(count > 0 && (count + 1) % 8 == 0)
 //							{
-//								Data_buf[i][count%16] = graphbuf[i]/MULTI;
-//							}
-//							if(count > 0 && count%16 == 0)
-//							{
-//								recflag = 1;
+////								recflag = 1;
 //								Save_history(SECTOR_REC);
-//								SECTOR_REC++;
+//								SECTOR_REC += 2;
 //							}
 //						}
-						if(count > 497)
+						if(count > 494)
 						{						
 							count = 0;
 							memcpy(hisdata,G_Data,sizeof(G_Data));
@@ -336,26 +338,30 @@ void DEBUG_USART_IRQHandler(void)
 						
 						for(i = 0;i<16;i++)
 						{
+							hisbuf[i][0] = 0;
+							hisbuf[i][1] = 0;
 							graphbuf[i] = 0;
 						}
 						for(i=0;i<16;i++)
 						{
+							hisbuf[i][0] += RecBuff[2*(i+1)+3];
+							hisbuf[i][1] += RecBuff[2*(i+1)+4];
 							graphbuf[i] += ch_temp[i];							
 						}
 						multicount++;
 					}else{
 						for(i=0;i<16;i++)
 						{
-							graphbuf[i] += ch_temp[i];							
+							hisbuf[i][0] += RecBuff[2*(i+1)+3];
+							hisbuf[i][1] += RecBuff[2*(i+1)+4];
+							graphbuf[i] += ch_temp[i];
 						}
 						multicount++;
 					}
 					
 					
-					ReCount = 0;
-					
-				}
-				
+					ReCount = 0;					
+				}				
 			}
 		}
 

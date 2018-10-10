@@ -874,9 +874,9 @@ void DrawGridLine(void)
 {
 	u8 i,j;
 	LCD_SetColors(LCD_COLOR_GREY,LCD_COLOR_GREY);
-	LCD_DrawRect(110-80,50,501,351);
+	LCD_DrawRect(110-80,50,498,351);
 	LCD_SetColors(LCD_COLOR_BLACK,LCD_COLOR_BLACK);
-	LCD_DrawFullRect(111-80,51,500,350);
+	LCD_DrawFullRect(111-80,51,497,350);
 	LCD_SetColors(LCD_COLOR_GREY,LCD_COLOR_GREY);
 	for(j = 0;j < 6;j++)
 	{

@@ -350,8 +350,6 @@ int main(void)
 //			UsbDataHandle();
 //		}
 	
-//		Draw_graph();
-//		LCD_Test();
 	}
 }
 
@@ -1234,6 +1232,7 @@ void Read_flag(void)
 	SPI_FLASH_BufferRead((void *)TempLLimits,SPI_FLASH_PageSize*2, sizeof(TempLLimits));
 	SPI_FLASH_BufferRead((void *)YLIMIT,SPI_FLASH_PageSize*3, sizeof(YLIMIT));
 	SPI_FLASH_BufferRead((void*)Correction,SPI_FLASH_PageSize*4, sizeof(Correction));
+	Read_Sflag();
 	//	Read_history();
 }
 
@@ -1330,7 +1329,7 @@ void UsbDataHandle(void)
 	u8 creclen;
 	u8 csendlen;
 
-	u16 voltage;//电压
+		u16 voltage;//电压
 	u16 current;
 	u32 power;  //功率
 	u16 frequancy;
@@ -1380,7 +1379,7 @@ void UsbDataHandle(void)
 					{
 						for(i = 0; i < usbbuf[5]; i++)
 						{
-							if(RecBuff[5+usbbuf[3]+i*2] == 0X4E && RecBuff[6+usbbuf[3]+i*2] == 0X1F)
+							if((((u16)RecBuff[5+usbbuf[3]+i*2] << 8) + RecBuff[6+usbbuf[3]+i*2] - (int)(Correction[usbbuf[3] + i] * 10)) == 4E1F)
 							{
 								usbsendbuf[7+i*2] = 0xE0;
 								usbsendbuf[8+i*2] = 0xE0;
@@ -1668,18 +1667,30 @@ void UsbDataHandle(void)
 					usbsendbuf[4] = usbbuf[4];
 					usbsendbuf[5] = usbbuf[5];
 					usbsendbuf[6] = 0x0C;
-					usbsendbuf[7] = (u8)(voltage >> 8);
-					usbsendbuf[8] = (u8)voltage;
-					usbsendbuf[9] = (u8)(current >> 8);
-					usbsendbuf[10] = (u8)current;
-					usbsendbuf[11] = (u8)(power >> 24);
-					usbsendbuf[12] = (u8)(power >> 16);
-					usbsendbuf[13] = (u8)(power >> 8);
-					usbsendbuf[14] = (u8)power;
-					usbsendbuf[15] = (u8)(frequancy >> 8);
-					usbsendbuf[16] = (u8)frequancy;
-					usbsendbuf[17] = (u8)(PF >> 8);
-					usbsendbuf[18] = (u8)PF;
+//					usbsendbuf[7] = (u8)(voltage >> 8);
+//					usbsendbuf[8] = (u8)voltage;
+//					usbsendbuf[9] = (u8)(current >> 8);
+//					usbsendbuf[10] = (u8)current;
+//					usbsendbuf[11] = (u8)(power >> 24);
+//					usbsendbuf[12] = (u8)(power >> 16);
+//					usbsendbuf[13] = (u8)(power >> 8);
+//					usbsendbuf[14] = (u8)power;
+//					usbsendbuf[15] = (u8)(frequancy >> 8);
+//					usbsendbuf[16] = (u8)frequancy;
+//					usbsendbuf[17] = (u8)(PF >> 8);
+//					usbsendbuf[18] = (u8)PF;
+					usbsendbuf[7] = 0xE0;
+					usbsendbuf[8] = 0xE0;
+					usbsendbuf[9] = 0xE0;
+					usbsendbuf[10] = 0xE0;
+					usbsendbuf[11] = 0xE0;
+					usbsendbuf[12] = 0xE0;
+					usbsendbuf[13] = 0xE0;
+					usbsendbuf[14] = 0xE0;
+					usbsendbuf[15] = 0xE0;
+					usbsendbuf[16] = 0xE0;
+					usbsendbuf[17] = 0xE0;
+					usbsendbuf[18] = 0xE0;
 					
 					for(i = 0;i < csendlen; i++)
 					{
@@ -1922,6 +1933,22 @@ void Check_limits(u8 chn)
 	}else{
 		LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_BACK);
 	}
+}
+
+//BCD转换
+int hex_to_bcd(int data)
+{
+    unsigned char temp;
+	unsigned int bcd_data;
+	
+	temp = data%100;
+	bcd_data = ((unsigned int)data)/100<<8;
+	bcd_data = bcd_data|temp/10<<4;
+	bcd_data = bcd_data|temp%10;
+
+//    temp = (((data/10)<<4) + (data%10));
+    return bcd_data;
+	
 }
 /*********************************************END OF FILE**********************/
 

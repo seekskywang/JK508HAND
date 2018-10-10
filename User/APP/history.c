@@ -90,7 +90,7 @@ void page_his(void)
 //		LCD_SetColors(LCD_COLOR_RED,LCD_COLOR_BACK);
 //		LCD_DrawUniLine(111 + j,(int)(400-((Data_buf[j] - YLLIMIT)*enrate)),112+j,(400-((Data_buf[j+1] - YLLIMIT)*enrate)));
 //	}
-	for(j = 0; j < 498; j++)
+	for(j = 0; j < 495; j++)
 	{
 		if(CH1_SW == ch_on && hisdata[0][j] < YHLIMIT && hisdata[0][j] > YLLIMIT)
 		{
@@ -330,12 +330,22 @@ void page_his(void)
 void Save_history(u16 rec)
 {
 //	SPI_FLASH_SectorErase(rec*4096);
-	SPI_FLASH_BufferWrite((void*)hisdata,SPI_FLASH_PageSize*16*rec, sizeof(hisdata));
+	SPI_FLASH_BufferWrite((void*)Data_buf,SPI_FLASH_PageSize*16*rec, sizeof(Data_buf));
 }
 
-void Read_history(void)
+void Read_history(u16 rec)
 {
 	SPI_FLASH_BufferRead((void *)hisdata,SPI_FLASH_PageSize*16, sizeof(hisdata));
+}
+
+void Save_time(u16 rec)
+{
+	SPI_FLASH_BufferWrite((void*)time_buf,SPI_FLASH_PageSize*16*rec, sizeof(time_buf));
+}
+
+void Read_time(u16 rec)
+{
+	SPI_FLASH_BufferRead((void *)time_buf,SPI_FLASH_PageSize*16, sizeof(time_buf));
 }
 
 void Save_Sflag(void)

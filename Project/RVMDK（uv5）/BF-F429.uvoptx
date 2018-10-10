@@ -118,6 +118,7 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>DLGUARM</Key>
+          <Name>/</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -310,7 +311,7 @@
         <Ww>
           <count>32</count>
           <WinNumber>1</WinNumber>
-          <ItemText>hisdata</ItemText>
+          <ItemText>hisdata,0x10</ItemText>
         </Ww>
         <Ww>
           <count>33</count>
@@ -341,6 +342,21 @@
           <count>38</count>
           <WinNumber>1</WinNumber>
           <ItemText>RecBuff</ItemText>
+        </Ww>
+        <Ww>
+          <count>39</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>his_config[0]</ItemText>
+        </Ww>
+        <Ww>
+          <count>40</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>Data_buf</ItemText>
+        </Ww>
+        <Ww>
+          <count>41</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>hisbuf</ItemText>
         </Ww>
       </WatchWindow1>
       <WatchWindow2>
