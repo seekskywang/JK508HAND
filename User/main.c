@@ -1341,27 +1341,33 @@ void UsbDataHandle(void)
 		{
 			free(crec);
 			free(csend);
-			readcrc = usbbuf[6] << 8|usbbuf[7];
-			creclen = 6;
-			crec = (u8 *)malloc(sizeof(u8) * creclen);
-			memset(crec, 0, creclen);//初始化，每个元素都为零
-			for(i = 0;i < 6;i++)
+			if(usbbuf[2] == 0 && usbbuf[3] == 0)
 			{
-				crec[i] = usbbuf[i];
-			}
-//			crec[0] = 01;
-//			crec[1] = 03;
-//			crec[2] = usbbuf[2];
-//			crec[3] = usbbuf[3];
-//			crec[4] = usbbuf[4];
-//			crec[5] = usbbuf[5];
+				readcrc = usbbuf[4] << 8|usbbuf[5];
+				creclen = 4;
+				crec = (u8 *)malloc(sizeof(u8) * creclen);
+				memset(crec, 0, creclen);//初始化，每个元素都为零
+				for(i = 0;i < 4;i++)
+				{
+					crec[i] = usbbuf[i];
+				}
+			}else{
+				readcrc = usbbuf[6] << 8|usbbuf[7];
+				creclen = 6;
+				crec = (u8 *)malloc(sizeof(u8) * creclen);
+				memset(crec, 0, creclen);//初始化，每个元素都为零
+				for(i = 0;i < 6;i++)
+				{
+					crec[i] = usbbuf[i];
+				}				
+			}				
 			crcwatch = CRC16(crec,creclen);
 			if(CRC16(crec,creclen) == readcrc)//CRC校验
 			{
 				
-				if(usbbuf[2] == 0 && usbbuf[4] == 0 && ((usbbuf[5] < 129)))//读实时数据
+				if(usbbuf[2] == 0 && usbbuf[3] == 0)//读实时数据
 				{
-					csendlen = 7 + (usbbuf[5])*2;				
+					csendlen = 38;				
 					csend = (u8*)malloc(sizeof(u8) * csendlen);				
 					memset(csend, 0, csendlen);//初始化，每个元素都为零
 					//发送数据CRC校验长度
@@ -1371,21 +1377,21 @@ void UsbDataHandle(void)
 					usbsendbuf[1] = 0x03;
 					usbsendbuf[2] = usbbuf[2];
 					usbsendbuf[3] = usbbuf[3];
-					usbsendbuf[4] = usbbuf[4];
-					usbsendbuf[5] = usbbuf[5];
-					usbsendbuf[6] = usbbuf[5]*2;
+					usbsendbuf[4] = 0x00;
+					usbsendbuf[5] = 0x10;
+//					usbsendbuf[6] = usbbuf[5]*2;
 					
-					if(usbbuf[5] + usbbuf[3] <= 16)
-					{
-						for(i = 0; i < usbbuf[5]; i++)
+//					if(usbsendbuf[5]<= 16)
+//					{
+						for(i = 0; i < usbsendbuf[5]; i++)
 						{
 							if((((u16)RecBuff[5+usbbuf[3]+i*2] << 8) + RecBuff[6+usbbuf[3]+i*2] - (int)(Correction[usbbuf[3] + i] * 10)) == 4E1F)
 							{
+								usbsendbuf[6+i*2] = 0xE0;
 								usbsendbuf[7+i*2] = 0xE0;
-								usbsendbuf[8+i*2] = 0xE0;
 							}else{
-								usbsendbuf[7+i*2] = (u8)((((u16)RecBuff[5+usbbuf[3]+i*2] << 8) + RecBuff[6+usbbuf[3]+i*2] - (int)(Correction[usbbuf[3] + i] * 10)) >> 8);
-								usbsendbuf[8+i*2] = (u8)(((u16)RecBuff[5+usbbuf[3]+i*2] << 8) + RecBuff[6+usbbuf[3]+i*2] - (int)(Correction[usbbuf[3] + i] * 10));
+								usbsendbuf[6+i*2] = (u8)((((u16)RecBuff[5+usbbuf[3]+i*2] << 8) + RecBuff[6+usbbuf[3]+i*2] - (int)(Correction[usbbuf[3] + i] * 10)) >> 8);
+								usbsendbuf[7+i*2] = (u8)(((u16)RecBuff[5+usbbuf[3]+i*2] << 8) + RecBuff[6+usbbuf[3]+i*2] - (int)(Correction[usbbuf[3] + i] * 10));
 							}
 	//						usbsendbuf[7+i*2] = 0;
 	//						usbsendbuf[8+i*2] = 0;
@@ -1395,30 +1401,31 @@ void UsbDataHandle(void)
 							csend[i] = usbsendbuf[i];
 						}
 						sendcrc = CRC16(csend,csendlen);
-						usbsendbuf[7+(usbbuf[5] - usbbuf[3])*2] = (u8)(sendcrc >> 8);
-						usbsendbuf[8+(usbbuf[5] - usbbuf[3])*2] = (u8)(sendcrc);
-						USBD_HID_SendReport(&USB_OTG_dev,usbsendbuf,64);//数据回显
-	//					for(i = 9 + (usbbuf[5] - usbbuf[3])*2; i < 64 ; i++)
-	//					{
-	//						usbsendbuf[i] = 0;
-	//					}
-					}else{
-						for(i = 0; i < usbbuf[5]; i++)
-						{
-							usbsendbuf[7+i*2] = 0xE0;
-							usbsendbuf[8+i*2] = 0xE0;
-	//						usbsendbuf[7+i*2] = 0;
-	//						usbsendbuf[8+i*2] = 0;
-						}
-						for(i = 0;i < csendlen; i++)
-						{
-							csend[i] = usbsendbuf[i];
-						}
-						sendcrc = CRC16(csend,csendlen);
-						usbsendbuf[7+(usbbuf[5])*2] = (u8)(sendcrc >> 8);
-						usbsendbuf[8+(usbbuf[5])*2] = (u8)(sendcrc);
-						USBD_HID_SendReport(&USB_OTG_dev,usbsendbuf,64);//数据回显
-					}
+						usbsendbuf[6+(usbsendbuf[5])*2] = (u8)(sendcrc >> 8);
+						usbsendbuf[7+(usbsendbuf[5])*2] = (u8)(sendcrc);
+//						for(i = 8 + (usbsendbuf[5])*2; i < 64 ; i++)
+//						{
+//							usbsendbuf[i] = 0;
+//						}
+						USBD_HID_SendReport(&USB_OTG_dev,usbsendbuf,64);//数据回显						
+//					}
+//					else{
+//						for(i = 0; i < usbbuf[5]; i++)
+//						{
+//							usbsendbuf[7+i*2] = 0xE0;
+//							usbsendbuf[8+i*2] = 0xE0;
+//	//						usbsendbuf[7+i*2] = 0;
+//	//						usbsendbuf[8+i*2] = 0;
+//						}
+//						for(i = 0;i < csendlen; i++)
+//						{
+//							csend[i] = usbsendbuf[i];
+//						}
+//						sendcrc = CRC16(csend,csendlen);
+//						usbsendbuf[7+(usbbuf[5])*2] = (u8)(sendcrc >> 8);
+//						usbsendbuf[8+(usbbuf[5])*2] = (u8)(sendcrc);
+//						USBD_HID_SendReport(&USB_OTG_dev,usbsendbuf,64);//数据回显
+//					}
 					
 //					for(i = 0;i < 8;i++)
 //					{
