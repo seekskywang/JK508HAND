@@ -13035,6 +13035,7 @@ void ACC_HANDLE(void)
 			maxfocus_on(op_flag - 82,Correction[k]);
 			Save_flag();
 		}break;
+		default:Erase_all();
 	}
 }
 /*********************************************END OF FILE**********************/

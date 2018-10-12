@@ -331,7 +331,7 @@ int main(void)
 //	page_home();
 //	watch = sizeof(TempHLimits);
 	
-//	SECTOR_REC = 2;
+//	SECTOR_REC = 0;
 	while(1)
 	{
 //		watch = GPIO_ReadInputDataBit(TOUCH_YPLUS_GPIO_PORT,TOUCH_YPLUS_GPIO_PIN);
@@ -1956,6 +1956,17 @@ int hex_to_bcd(int data)
 //    temp = (((data/10)<<4) + (data%10));
     return bcd_data;
 	
+}
+
+//flashÈ«²¿²Á³ý
+void Erase_all(void)
+{
+	u16 i;
+	for(i = 2;i < 64;i++)
+	{
+		Delay(9999);
+		SPI_FLASH_SectorErase(i*4096);
+	}
 }
 /*********************************************END OF FILE**********************/
 

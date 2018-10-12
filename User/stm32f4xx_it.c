@@ -321,15 +321,17 @@ void DEBUG_USART_IRQHandler(void)
 //							if(count > 0 && (count + 1) % 8 == 0)
 //							{
 ////								recflag = 1;
-//								Save_history(SECTOR_REC);
-//								SECTOR_REC += 2;
+//								SECTOR_REC ++;
+//								Save_history(SECTOR_REC);								
+//								Save_Sflag();
 //							}
 //						}
 						if(count > 494)
-						{						
+						{			
+							
 							count = 0;
-							memcpy(hisdata,G_Data,sizeof(G_Data));
-							memcpy(histime,time_buf,sizeof(time_buf));
+//							memcpy(hisdata,G_Data,sizeof(G_Data));
+//							memcpy(histime,time_buf,sizeof(time_buf));
 						}else{
 							count++;
 						}

@@ -186,6 +186,7 @@ void RTC_TimeAndDate_Show(void)
 			time_buf[count/50][4] = RTC_TimeStructure.RTC_Hours;
 			time_buf[count/50][5] = RTC_TimeStructure.RTC_Minutes;
 			time_buf[count/50][6] = RTC_TimeStructure.RTC_Seconds;
+//			Save_time(SECTOR_REC);
 		}
 		
 		if(page_flag == sysset)

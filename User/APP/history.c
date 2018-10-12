@@ -60,6 +60,7 @@ void page_his(void)
 	
 	
 	
+	
    /*初始化后默认使用前景层*/
 	LCD_SetLayer(LCD_FOREGROUND_LAYER); 
 	/*默认设置不透明	，该函数参数为不透明度，范围 0-0xff ，0为全透明，0xff为不透明*/
@@ -85,6 +86,8 @@ void page_his(void)
 	
 	
 	DrawGridLine();
+	Read_history(1);
+	Read_time(1);
 //	for(j = 0; j < 500; j++)
 //	{
 //		LCD_SetColors(LCD_COLOR_RED,LCD_COLOR_BACK);
@@ -330,26 +333,35 @@ void page_his(void)
 void Save_history(u16 rec)
 {
 //	SPI_FLASH_SectorErase(rec*4096);
-	SPI_FLASH_BufferWrite((void*)Data_buf,SPI_FLASH_PageSize*16*rec, sizeof(Data_buf));
+	SPI_FLASH_BufferWrite((void*)Data_buf,8192+SPI_FLASH_PageSize*(rec-1), sizeof(Data_buf));
+	
 }
 
 void Read_history(u16 rec)
-{
-	SPI_FLASH_BufferRead((void *)hisdata,SPI_FLASH_PageSize*16, sizeof(hisdata));
+{	u8 read_buf[15872];
+	u8 i,j,k;
+	SPI_FLASH_BufferRead((void *)read_buf,8192+15872*(rec-1), sizeof(read_buf));
+	for(i = 0;i < 496;i ++)
+	{
+		for(j = 0;j < 16;j++)
+		{
+//			hisdata[j][i] = read_buff[];
+		}
+	}
 }
 
 void Save_time(u16 rec)
 {
-	SPI_FLASH_BufferWrite((void*)time_buf,SPI_FLASH_PageSize*16*rec, sizeof(time_buf));
+	SPI_FLASH_BufferWrite((void*)time_buf,15880192+SPI_FLASH_PageSize*(rec/62-1), sizeof(time_buf));
 }
 
 void Read_time(u16 rec)
 {
-	SPI_FLASH_BufferRead((void *)time_buf,SPI_FLASH_PageSize*16, sizeof(time_buf));
+	SPI_FLASH_BufferRead((void *)histime,15880192+SPI_FLASH_PageSize*(rec/62-1), sizeof(histime));
 }
-
+	
 void Save_Sflag(void)
-{
+{`
 	SPI_FLASH_SectorErase(1*4096);
 	SPI_FLASH_BufferWrite((void*)his_config,SPI_FLASH_PageSize*16, sizeof(his_config));
 }
