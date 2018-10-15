@@ -27,42 +27,16 @@ Project File Date:  09/13/2018
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 5 (build 528)', folder: 'D:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'LCD'
-compiling main.c...
-..\..\User\main.c(472): warning:  #177-D: variable "i"  was declared but never referenced
-        u8 i;
-..\..\User\main.c(1327): warning:  #177-D: variable "j"  was declared but never referenced
-        u8 j;
-..\..\User\main.c(1332): warning:  #177-D: variable "voltage"  was declared but never referenced
-                u16 voltage;//电压
-..\..\User\main.c(1333): warning:  #177-D: variable "current"  was declared but never referenced
-        u16 current;
-..\..\User\main.c(1334): warning:  #177-D: variable "power"  was declared but never referenced
-        u32 power;  //功率
-..\..\User\main.c(1335): warning:  #177-D: variable "frequancy"  was declared but never referenced
-        u16 frequancy;
-..\..\User\main.c(1336): warning:  #177-D: variable "PF"  was declared but never referenced
-        u16 PF;//功率因数
-..\..\User\main.c: 7 warnings, 0 errors
 compiling stm32f4xx_it.c...
-compiling fonts.c...
-..\..\User\font\fonts.c(13379): warning:  #550-D: variable "pos"  was set but never used
-      unsigned int pos;
-..\..\User\font\fonts.c: 1 warning, 0 errors
-compiling bsp_spi_flash.c...
-compiling bsp_key.c...
-..\..\User\key\bsp_key.c(13038): warning:  #223-D: function "Erase_all" declared implicitly
-                default:Erase_all();
-..\..\User\key\bsp_key.c: 1 warning, 0 errors
-compiling home.c...
-compiling history.c...
-..\..\User\APP\history.c(342): warning:  #177-D: variable "k"  was declared but never referenced
-        u8 i,j,k;
-..\..\User\APP\history.c(364): error:  #7: unrecognized token
-  {`
-..\..\User\APP\history.c(364): error:  #29: expected an expression
-  {`
-..\..\User\APP\history.c: 1 warning, 2 errors
-"..\..\Output\LCD.axf" - 2 Error(s), 10 Warning(s).
+..\..\User\stm32f4xx_it.c(304): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+                                                        G_Data[i][count] = (graphbuf[i][0]/
+ULTI * 256 + graphbuf[i][1]/
+ULTI)/10.0 - Correction[i];                                                     
+..\..\User\stm32f4xx_it.c: 1 warning, 0 errors
+linking...
+Program Size: Code=121636 RO-data=98388 RW-data=596 ZI-data=68716  
+FromELF: creating hex file...
+"..\..\Output\LCD.axf" - 0 Error(s), 1 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -76,8 +50,7 @@ Package Vendor: Keil
   D:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
 
 <h2>Collection of Component Files used:</h2>
-Target not created.
-Build Time Elapsed:  00:00:11
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>

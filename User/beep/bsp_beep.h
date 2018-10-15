@@ -7,7 +7,7 @@
 /******************** BEEP 引脚配置参数定义 **************************/
 #define BEEP_GPIO_CLK      RCC_AHB1Periph_GPIOI
 #define BEEP_PORT          GPIOI
-#define BEEP_PIN           GPIO_Pin_11
+#define BEEP_PIN           GPIO_Pin_5
 
 
 

@@ -332,22 +332,26 @@ void page_his(void)
 
 void Save_history(u16 rec)
 {
-//	SPI_FLASH_SectorErase(rec*4096);
+//	SPI_FLASH_SectorErase(8192 + 4096 * (rec-1));
 	SPI_FLASH_BufferWrite((void*)Data_buf,8192+SPI_FLASH_PageSize*(rec-1), sizeof(Data_buf));
 	
 }
 
 void Read_history(u16 rec)
-{	u8 read_buf[15872];
+{	
+	u8 read_buf[16][16];
 	u8 i,j,k;
-	SPI_FLASH_BufferRead((void *)read_buf,8192+15872*(rec-1), sizeof(read_buf));
-	for(i = 0;i < 496;i ++)
+	for(i = 0;i < 62;i++)
 	{
-		for(j = 0;j < 16;j++)
+		SPI_FLASH_BufferRead((void *)read_buf,8192+15872*(rec-1)+i*256, sizeof(read_buf));
+		for(j = 0;j < 16;j ++)
 		{
-//			hisdata[j][i] = read_buff[];
+			for(k = 0;k < 8;k++)
+			{
+				hisdata[j][i*8+k] = (read_buf[j][k%8*2] * 256 +  read_buf[j][k%8*2+1])/10.0;
+			}
 		}
-	}
+	}	
 }
 
 void Save_time(u16 rec)
@@ -361,7 +365,7 @@ void Read_time(u16 rec)
 }
 	
 void Save_Sflag(void)
-{`
+{
 	SPI_FLASH_SectorErase(1*4096);
 	SPI_FLASH_BufferWrite((void*)his_config,SPI_FLASH_PageSize*16, sizeof(his_config));
 }

@@ -161,7 +161,7 @@
         <Ww>
           <count>2</count>
           <WinNumber>1</WinNumber>
-          <ItemText>charge</ItemText>
+          <ItemText>SECTOR_REC</ItemText>
         </Ww>
         <Ww>
           <count>3</count>
@@ -327,6 +327,16 @@
           <count>35</count>
           <WinNumber>1</WinNumber>
           <ItemText>read_buf</ItemText>
+        </Ww>
+        <Ww>
+          <count>36</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>Check</ItemText>
+        </Ww>
+        <Ww>
+          <count>37</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>serec</ItemText>
         </Ww>
       </WatchWindow1>
       <WatchWindow2>

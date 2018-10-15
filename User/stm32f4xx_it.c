@@ -203,11 +203,8 @@ void DEBUG_USART_IRQHandler(void)
 	static u8 Total_Len = 0;
 	static u8 uinitflag = 0;
 	static u8 multicount = 0;
-//	static u8 bcount;
-//	static u16 btbuff;
-//	static u8 recflag = 0;
-	static float graphbuf[16];
-//	static u16 savebuf;
+//	static float graphbuf[16];
+	static u8 graphbuf[16][2];
 	static u8 hisbuf[16][2];
 
 	u8 i;
@@ -304,7 +301,7 @@ void DEBUG_USART_IRQHandler(void)
 					{
 						for(i=0;i<16;i++)
 						{
-							G_Data[i][count] = graphbuf[i]/MULTI - Correction[i];							
+							G_Data[i][count] = (graphbuf[i][0]/MULTI * 256 + graphbuf[i][1]/MULTI)/10.0 - Correction[i];							
 						}
 						if(page_flag == graph)
 						{
@@ -318,17 +315,23 @@ void DEBUG_USART_IRQHandler(void)
 								Data_buf[i][count%8 * 2] = hisbuf[i][0]/MULTI;
 								Data_buf[i][count%8 * 2 + 1] = hisbuf[i][1]/MULTI;
 							}
-//							if(count > 0 && (count + 1) % 8 == 0)
-//							{
-////								recflag = 1;
-//								SECTOR_REC ++;
-//								Save_history(SECTOR_REC);								
-//								Save_Sflag();
-//							}
+//							Save_history(1);
+							if(count > 0 && (count + 1) % 8 == 0)
+							{
+//								recflag = 1;
+								if(SECTOR_REC > 62)
+								{
+									
+								}else{
+									SECTOR_REC ++;
+									Save_history(SECTOR_REC);								
+									Save_Sflag();
+								}
+								
+							}
 //						}
 						if(count > 494)
-						{			
-							
+						{
 							count = 0;
 //							memcpy(hisdata,G_Data,sizeof(G_Data));
 //							memcpy(histime,time_buf,sizeof(time_buf));
@@ -342,13 +345,17 @@ void DEBUG_USART_IRQHandler(void)
 						{
 							hisbuf[i][0] = 0;
 							hisbuf[i][1] = 0;
-							graphbuf[i] = 0;
+//							graphbuf[i] = 0;
+							graphbuf[i][0] = 0;
+							graphbuf[i][1] = 0;
 						}
 						for(i=0;i<16;i++)
 						{
 							hisbuf[i][0] += RecBuff[2*(i+1)+3];
 							hisbuf[i][1] += RecBuff[2*(i+1)+4];
-							graphbuf[i] += ch_temp[i];							
+//							graphbuf[i] += ch_temp[i];
+							graphbuf[i][0] = RecBuff[2*(i+1)+3];
+							graphbuf[i][1] += RecBuff[2*(i+1)+4];
 						}
 						multicount++;
 					}else{
@@ -356,14 +363,14 @@ void DEBUG_USART_IRQHandler(void)
 						{
 							hisbuf[i][0] += RecBuff[2*(i+1)+3];
 							hisbuf[i][1] += RecBuff[2*(i+1)+4];
-							graphbuf[i] += ch_temp[i];
+//							graphbuf[i] += ch_temp[i];
+							graphbuf[i][0] = RecBuff[2*(i+1)+3];
+							graphbuf[i][1] += RecBuff[2*(i+1)+4];
 						}
 						multicount++;
 					}
-					
-					
-					ReCount = 0;					
-				}				
+					ReCount = 0;
+				}
 			}
 		}
 
@@ -375,7 +382,7 @@ void DEBUG_USART_IRQHandler(void)
   * @param  None
   * @retval None
   */
-#ifdef USE_USB_OTG_HS  
+#ifdef USE_USB_OTG_HS
 void OTG_HS_IRQHandler(void)
 {
   USBD_OTG_ISR_Handler (&USB_OTG_dev);

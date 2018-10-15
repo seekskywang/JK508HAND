@@ -343,6 +343,9 @@ int main(void)
 		DrawBattery(battery);
 		
 		TempDisplay();
+		BEEP_ON;
+		Delay(0xfff);
+		BEEP_OFF;
 //		DCD_EP_PrepareRx(&USB_OTG_dev,HID_OUT_EP,usbbuf,64);//接收PC数据
 //		if(UsbHidReceiveComplete)                         //接收到数据
 //		{
@@ -1232,7 +1235,7 @@ void Read_flag(void)
 	SPI_FLASH_BufferRead((void *)TempLLimits,SPI_FLASH_PageSize*2, sizeof(TempLLimits));
 	SPI_FLASH_BufferRead((void *)YLIMIT,SPI_FLASH_PageSize*3, sizeof(YLIMIT));
 	SPI_FLASH_BufferRead((void*)Correction,SPI_FLASH_PageSize*4, sizeof(Correction));
-	Read_Sflag();
+//	Read_Sflag();
 	//	Read_history();
 }
 
@@ -1961,12 +1964,12 @@ int hex_to_bcd(int data)
 //flash全部擦除
 void Erase_all(void)
 {
-	u16 i;
-	for(i = 2;i < 64;i++)
-	{
-		Delay(9999);
-		SPI_FLASH_SectorErase(i*4096);
-	}
+	static u16 serec = 2;
+	static u8 Check[4096];
+	SPI_FLASH_SectorErase(serec*4096);
+	Delay(500);
+//	SPI_FLASH_BufferRead((void *)Check,serec*4096, sizeof(Check));
+	serec ++;
 }
 /*********************************************END OF FILE**********************/
 
