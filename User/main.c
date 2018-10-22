@@ -326,6 +326,7 @@ int main(void)
 		Delay(500);
 		Read_flag();
 		Read_Sflag();
+		Read_Flash_Init_Handle();
 	}
 	watch = CRC16(test,9);
 //	page_home();
@@ -1970,6 +1971,36 @@ void Erase_all(void)
 	Delay(500);
 //	SPI_FLASH_BufferRead((void *)Check,serec*4096, sizeof(Check));
 	serec ++;
+}
+
+//读flash初始值处理
+void Read_Flash_Init_Handle(void)
+{
+	u16 i;
+	for(i=0;i<39;i++)
+	{
+		if(Correction[i] < -1800)
+		{
+			Correction[i] = 0;
+		}
+		if(TempHLimits[i] < -1800)
+		{
+			TempHLimits[i] = 0;
+		}
+		if(TempLLimits[i] < -1800)
+		{
+			TempLLimits[i] = 0;
+		}
+	}
+	
+	for(i=0;i<3;i++)
+	{
+		if(YLIMIT[i] < -1800)
+		{
+			YLIMIT[i] = 0;
+		}
+	}
+	
 }
 /*********************************************END OF FILE**********************/
 

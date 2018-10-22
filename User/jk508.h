@@ -65,6 +65,7 @@ void Save_history(u16 rec);
 void Read_history(u16 rec);
 void Save_time(u16 rec);
 void Read_time(u16 rec);
+void Read_Flash_Init_Handle(void);
 
 u8 udisk_scan(void);
 void Delay(__IO u32 nCount);
