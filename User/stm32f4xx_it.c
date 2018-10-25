@@ -206,7 +206,8 @@ void DEBUG_USART_IRQHandler(void)
 //	static float graphbuf[16];
 	static u8 graphbuf[16][2];
 	static u8 hisbuf[16][2];
-
+	static u16 hisconv;
+	static u16 corconv;
 	u8 i;
 	char buf[10];
 	
@@ -306,26 +307,32 @@ void DEBUG_USART_IRQHandler(void)
 						if(page_flag == graph)
 						{
 							Draw_graph();
+							DrawTime();
 						}
 //						if(page_flag != history)
 //						{
 							for(i=0;i<16;i++)
 							{
 //								savebuf = hex_to_bcd((int)(graphbuf[i]/MULTI * 10));
-								Data_buf[i][count%8 * 2] = hisbuf[i][0]/MULTI;
-								Data_buf[i][count%8 * 2 + 1] = hisbuf[i][1]/MULTI;
+								hisconv = (u16)(hisbuf[i][0]/MULTI)<<8;
+								hisconv = hisconv + hisbuf[i][1]/MULTI;
+								corconv = (u16)(Correction[i]*10);
+//								Data_buf[i][count%8 * 2] = hisbuf[i][0]/MULTI;
+//								Data_buf[i][count%8 * 2 + 1] = hisbuf[i][1]/MULTI;
+								Data_buf[i][count%8 * 2] = (u8)((hisconv - corconv)>>8);
+								Data_buf[i][count%8 * 2 + 1] = (u8)(hisconv - corconv);
 							}
 //							Save_history(1);
 							if(count > 0 && (count + 1) % 8 == 0)
 							{
 //								recflag = 1;
-								if(SECTOR_REC > 62)
+								if(SECTOR_REC < 62000)
 								{
-									
-								}else{
 									SECTOR_REC ++;
 									Save_history(SECTOR_REC);								
-									Save_Sflag();
+									Save_Sflag();									
+								}else{
+									SECTOR_REC = 0;
 								}
 								
 							}
@@ -354,7 +361,7 @@ void DEBUG_USART_IRQHandler(void)
 							hisbuf[i][0] += RecBuff[2*(i+1)+3];
 							hisbuf[i][1] += RecBuff[2*(i+1)+4];
 //							graphbuf[i] += ch_temp[i];
-							graphbuf[i][0] = RecBuff[2*(i+1)+3];
+							graphbuf[i][0] += RecBuff[2*(i+1)+3];
 							graphbuf[i][1] += RecBuff[2*(i+1)+4];
 						}
 						multicount++;
@@ -364,7 +371,7 @@ void DEBUG_USART_IRQHandler(void)
 							hisbuf[i][0] += RecBuff[2*(i+1)+3];
 							hisbuf[i][1] += RecBuff[2*(i+1)+4];
 //							graphbuf[i] += ch_temp[i];
-							graphbuf[i][0] = RecBuff[2*(i+1)+3];
+							graphbuf[i][0] += RecBuff[2*(i+1)+3];
 							graphbuf[i][1] += RecBuff[2*(i+1)+4];
 						}
 						multicount++;

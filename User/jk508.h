@@ -89,6 +89,8 @@ void UsbDataHandle(void);
 void Save_Sflag(void);
 void Read_Sflag(void);
 int hex_to_bcd(int data);
+void DrawTime(void);
+void hispage(u16 page);
 
 extern u8 usbbuf[0x40];
 uint16_t CRC16(uint8_t *puchMsg, uint8_t Len);
@@ -97,7 +99,7 @@ uint32_t Flash_DisableReadProtection(void);
 
 //历史数据存储配置
 #define SECTOR_REC					his_config[0]
-
+#define TIME_REC					his_config[1]
 //串口请求命令
 #define CODETEMP					0
 

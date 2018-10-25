@@ -2553,6 +2553,7 @@ void FUNC4_HANDLE(void)
 /*按键功能函数FUNC_5*/
 void FUNC5_HANDLE(void)
 {
+	static u16 i;
 	switch(page_flag)
 	{
 		case display:
@@ -3994,7 +3995,12 @@ void FUNC5_HANDLE(void)
 		}break;
 		case graphset:
 		{
-			page_his();
+			page_gset();
+		}break;
+		case history:
+		{
+			i++;
+			hispage(i);
 		}break;
 	}
 }

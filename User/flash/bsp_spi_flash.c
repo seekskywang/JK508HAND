@@ -117,6 +117,34 @@ void SPI_FLASH_SectorErase(u32 SectorAddr)
 
 
  /**
+  * @brief  擦除FLASH扇区
+  * @param  SectorAddr：要擦除的扇区地址
+  * @retval 无
+  */
+void SPI_FLASH_SectorBlock(u32 SectorAddr)
+{
+  /* 发送FLASH写使能命令 */
+  SPI_FLASH_WriteEnable();
+  SPI_FLASH_WaitForWriteEnd();
+  /* 擦除扇区 */
+  /* 选择FLASH: CS低电平 */
+  SPI_FLASH_CS_LOW();
+  /* 发送扇区擦除指令*/
+  SPI_FLASH_SendByte(W25X_BlockErase);
+  /*发送擦除扇区地址的高位*/
+  SPI_FLASH_SendByte((SectorAddr & 0xFF0000) >> 16);
+  /* 发送擦除扇区地址的中位 */
+  SPI_FLASH_SendByte((SectorAddr & 0xFF00) >> 8);
+  /* 发送擦除扇区地址的低位 */
+  SPI_FLASH_SendByte(SectorAddr & 0xFF);
+  /* 停止信号 FLASH: CS 高电平 */
+  SPI_FLASH_CS_HIGH();
+  /* 等待擦除完毕*/
+  SPI_FLASH_WaitForWriteEnd();
+}
+
+
+ /**
   * @brief  擦除FLASH扇区，整片擦除
   * @param  无
   * @retval 无

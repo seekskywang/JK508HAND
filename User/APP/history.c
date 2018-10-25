@@ -83,11 +83,11 @@ void page_his(void)
 		sprintf(buf,"%d",(int)(YHLIMIT - range * i));
 		DISP_CNL_S(40 + 50*i,10/*90*/,(uint8_t* )buf);
 	}
-	
+	Read_history(3);
+	Read_time(3);
 	
 	DrawGridLine();
-	Read_history(1);
-	Read_time(1);
+	
 //	for(j = 0; j < 500; j++)
 //	{
 //		LCD_SetColors(LCD_COLOR_RED,LCD_COLOR_BACK);
@@ -188,7 +188,7 @@ void page_his(void)
 	sprintf(timetemp,"%0.2d:%0.2d:%0.2d",
 			histime[0][4],
 			histime[0][5],
-			histime[0][6]);		
+			histime[0][6]);
 	DISP_CNL_S(402,80-80,(uint8_t *)timetemp);
 	
 	sprintf(timetemp,"%0.2d:%0.2d:%0.2d",
@@ -333,6 +333,10 @@ void page_his(void)
 void Save_history(u16 rec)
 {
 //	SPI_FLASH_SectorErase(8192 + 4096 * (rec-1));
+	if(rec%16 == 1)
+	{
+		SPI_FLASH_SectorErase(8192+4096*(rec/16));
+	}
 	SPI_FLASH_BufferWrite((void*)Data_buf,8192+SPI_FLASH_PageSize*(rec-1), sizeof(Data_buf));
 	
 }
@@ -356,12 +360,16 @@ void Read_history(u16 rec)
 
 void Save_time(u16 rec)
 {
-	SPI_FLASH_BufferWrite((void*)time_buf,15880192+SPI_FLASH_PageSize*(rec/62-1), sizeof(time_buf));
+	if(rec%16 == 1)
+	{
+		SPI_FLASH_SectorErase(15880192+4096*(rec/16));
+	}
+	SPI_FLASH_BufferWrite((void*)time_buf,15880192+SPI_FLASH_PageSize*(rec-1), sizeof(time_buf));
 }
 
 void Read_time(u16 rec)
 {
-	SPI_FLASH_BufferRead((void *)histime,15880192+SPI_FLASH_PageSize*(rec/62-1), sizeof(histime));
+	SPI_FLASH_BufferRead((void *)histime,15880192+SPI_FLASH_PageSize*(rec-1), sizeof(histime));
 }
 	
 void Save_Sflag(void)
@@ -373,4 +381,11 @@ void Save_Sflag(void)
 void Read_Sflag(void)
 {
 	SPI_FLASH_BufferRead((void *)his_config,SPI_FLASH_PageSize*16, sizeof(his_config));
+}
+
+void hispage(u16 page)
+{
+	Read_history(page);
+	Read_time(page);
+	page_his();
 }

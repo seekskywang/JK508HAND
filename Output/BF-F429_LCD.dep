@@ -1526,7 +1526,7 @@ I (..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_dma2d.h)(0x555C4781)
 I (..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_fmc.h)(0x5AB60952)
 I (..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_ltdc.h)(0x555C4781)
 I (..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sai.h)(0x555C4781)
-F (..\..\User\main.c)(0x5BCD3757)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\..\Libraries\CMSIS\Include -I ..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\..\User -I ..\..\User\APP -I ..\..\User\FATFS -I ..\..\USBD_FS_HID -I ..\..\USBD_FS_Lib\USBD_inc-I.\RTE\_LCD-ID:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx -DUSE_USB_OTG_FS --C99-o ..\..\output\main.o --omf_browse ..\..\output\main.crf --depend ..\..\output\main.d)
+F (..\..\User\main.c)(0x5BD1A5BC)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\..\Libraries\CMSIS\Include -I ..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\..\User -I ..\..\User\APP -I ..\..\User\FATFS -I ..\..\USBD_FS_HID -I ..\..\USBD_FS_Lib\USBD_inc-I.\RTE\_LCD-ID:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx -DUSE_USB_OTG_FS --C99-o ..\..\output\main.o --omf_browse ..\..\output\main.crf --depend ..\..\output\main.d)
 I (..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x5B52F04B)
 I (..\..\Libraries\CMSIS\Include\core_cm4.h)(0x5559F3AD)
 I (D:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5B5BDE5D)
@@ -1573,10 +1573,10 @@ I (..\..\User\./font/fonts.h)(0x5B8F3ADE)
 I (..\..\User\./key/bsp_key.h)(0x5B80BE00)
 I (..\..\User\./beep/bsp_beep.h)(0x5BC3F7B1)
 I (..\..\User\./tim/bsp_basic_tim.h)(0x5B9CAC64)
-I (..\..\User\./flash/bsp_spi_flash.h)(0x5BC054D6)
+I (..\..\User\./flash/bsp_spi_flash.h)(0x5BD1AD34)
 I (..\..\User\./systick/bsp_SysTick.h)(0x55EF9B2D)
 I (..\..\User\./RTC/bsp_rtc.h)(0x5BA5EF86)
-I (..\..\User\jk508.h)(0x5BCA86E8)
+I (..\..\User\jk508.h)(0x5BD1B14A)
 I (D:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x588B8344)
 I (D:\Keil_v5\ARM\ARMCC\include\string.h)(0x588B8344)
 I (..\..\USBD_FS_HID\usbd_hid_core.h)(0x5537461C)
@@ -1595,7 +1595,7 @@ I (..\..\User\./internalFlash/bsp_internalFlash.h)(0x56FCA07C)
 I (..\..\User\./ch376/ch376.h)(0x5B97A32C)
 I (..\..\User\touchscreen.h)(0x5BAB1910)
 I (..\..\User\./FILESYS/FILESYS.h)(0x5B9768AA)
-F (..\..\User\stm32f4xx_it.c)(0x5BC44AE3)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\..\Libraries\CMSIS\Include -I ..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\..\User -I ..\..\User\APP -I ..\..\User\FATFS -I ..\..\USBD_FS_HID -I ..\..\USBD_FS_Lib\USBD_inc-I.\RTE\_LCD-ID:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx -DUSE_USB_OTG_FS --C99-o ..\..\output\stm32f4xx_it.o --omf_browse ..\..\output\stm32f4xx_it.crf --depend ..\..\output\stm32f4xx_it.d)
+F (..\..\User\stm32f4xx_it.c)(0x5BD1AECD)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\..\Libraries\CMSIS\Include -I ..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\..\User -I ..\..\User\APP -I ..\..\User\FATFS -I ..\..\USBD_FS_HID -I ..\..\USBD_FS_Lib\USBD_inc-I.\RTE\_LCD-ID:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx -DUSE_USB_OTG_FS --C99-o ..\..\output\stm32f4xx_it.o --omf_browse ..\..\output\stm32f4xx_it.crf --depend ..\..\output\stm32f4xx_it.d)
 I (..\..\User\stm32f4xx_it.h)(0x56371D82)
 I (..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x5B52F04B)
 I (..\..\Libraries\CMSIS\Include\core_cm4.h)(0x5559F3AD)
@@ -1638,7 +1638,7 @@ I (..\..\User\./led/bsp_led.h)(0x5B83DCCD)
 I (..\..\User\./key/bsp_key.h)(0x5B80BE00)
 I (..\..\User\./usart/bsp_debug_usart.h)(0x5B7B5D90)
 I (D:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x588B8344)
-I (..\..\User\jk508.h)(0x5BCA86E8)
+I (..\..\User\jk508.h)(0x5BD1B14A)
 I (D:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x588B8344)
 I (D:\Keil_v5\ARM\ARMCC\include\string.h)(0x588B8344)
 I (..\..\USBD_FS_Lib\USBD_inc\usb_core.h)(0x5274AA96)
@@ -1652,7 +1652,7 @@ I (..\..\USBD_FS_Lib\USBD_inc\usbd_conf.h)(0x5BBC563E)
 I (..\..\User\./lcd/bsp_lcd.h)(0x5BA5DF3D)
 I (..\..\User\./sdram/bsp_sdram.h)(0x5B7776CA)
 I (..\..\User\./font/fonts.h)(0x5B8F3ADE)
-I (..\..\User\./flash/bsp_spi_flash.h)(0x5BC054D6)
+I (..\..\User\./flash/bsp_spi_flash.h)(0x5BD1AD34)
 F (..\..\User\led\bsp_led.c)(0x5AD53EEB)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\..\Libraries\CMSIS\Include -I ..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\..\User -I ..\..\User\APP -I ..\..\User\FATFS -I ..\..\USBD_FS_HID -I ..\..\USBD_FS_Lib\USBD_inc-I.\RTE\_LCD-ID:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx -DUSE_USB_OTG_FS --C99-o ..\..\output\bsp_led.o --omf_browse ..\..\output\bsp_led.crf --depend ..\..\output\bsp_led.d)
 I (..\..\User\./led/bsp_led.h)(0x5B83DCCD)
 I (..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x5B52F04B)
@@ -1732,7 +1732,7 @@ I (..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_fmc.h)(0x5AB60952)
 I (..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_ltdc.h)(0x555C4781)
 I (..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sai.h)(0x555C4781)
 I (D:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x588B8344)
-F (..\..\User\lcd\bsp_lcd.c)(0x5BC02F49)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\..\Libraries\CMSIS\Include -I ..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\..\User -I ..\..\User\APP -I ..\..\User\FATFS -I ..\..\USBD_FS_HID -I ..\..\USBD_FS_Lib\USBD_inc-I.\RTE\_LCD-ID:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx -DUSE_USB_OTG_FS --C99-o ..\..\output\bsp_lcd.o --omf_browse ..\..\output\bsp_lcd.crf --depend ..\..\output\bsp_lcd.d)
+F (..\..\User\lcd\bsp_lcd.c)(0x5BD18816)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\..\Libraries\CMSIS\Include -I ..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\..\User -I ..\..\User\APP -I ..\..\User\FATFS -I ..\..\USBD_FS_HID -I ..\..\USBD_FS_Lib\USBD_inc-I.\RTE\_LCD-ID:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx -DUSE_USB_OTG_FS --C99-o ..\..\output\bsp_lcd.o --omf_browse ..\..\output\bsp_lcd.crf --depend ..\..\output\bsp_lcd.d)
 I (..\..\User\./lcd/bsp_lcd.h)(0x5BA5DF3D)
 I (..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x5B52F04B)
 I (..\..\Libraries\CMSIS\Include\core_cm4.h)(0x5559F3AD)
@@ -1774,13 +1774,13 @@ I (..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sai.h)(0x555C4781)
 I (..\..\User\./sdram/bsp_sdram.h)(0x5B7776CA)
 I (D:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x588B8344)
 I (..\..\User\./font/fonts.h)(0x5B8F3ADE)
-I (..\..\User\jk508.h)(0x5BCA86E8)
+I (..\..\User\jk508.h)(0x5BD1B14A)
 I (D:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x588B8344)
 I (D:\Keil_v5\ARM\ARMCC\include\string.h)(0x588B8344)
 F (..\..\User\font\fonts.c)(0x5B8F2B0F)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\..\Libraries\CMSIS\Include -I ..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\..\User -I ..\..\User\APP -I ..\..\User\FATFS -I ..\..\USBD_FS_HID -I ..\..\USBD_FS_Lib\USBD_inc-I.\RTE\_LCD-ID:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx -DUSE_USB_OTG_FS --C99-o ..\..\output\fonts.o --omf_browse ..\..\output\fonts.crf --depend ..\..\output\fonts.d)
 I (..\..\User\./font/fonts.h)(0x5B8F3ADE)
 I (D:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5B5BDE5D)
-I (..\..\User\./flash/bsp_spi_flash.h)(0x5BC054D6)
+I (..\..\User\./flash/bsp_spi_flash.h)(0x5BD1AD34)
 I (..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x5B52F04B)
 I (..\..\Libraries\CMSIS\Include\core_cm4.h)(0x5559F3AD)
 I (..\..\Libraries\CMSIS\Include\core_cmInstr.h)(0x5559F3AD)
@@ -1858,8 +1858,8 @@ I (..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_fmc.h)(0x5AB60952)
 I (..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_ltdc.h)(0x555C4781)
 I (..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sai.h)(0x555C4781)
 I (D:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x588B8344)
-F (..\..\User\flash\bsp_spi_flash.c)(0x5BA47C36)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\..\Libraries\CMSIS\Include -I ..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\..\User -I ..\..\User\APP -I ..\..\User\FATFS -I ..\..\USBD_FS_HID -I ..\..\USBD_FS_Lib\USBD_inc-I.\RTE\_LCD-ID:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx -DUSE_USB_OTG_FS --C99-o ..\..\output\bsp_spi_flash.o --omf_browse ..\..\output\bsp_spi_flash.crf --depend ..\..\output\bsp_spi_flash.d)
-I (..\..\User\./flash/bsp_spi_flash.h)(0x5BC054D6)
+F (..\..\User\flash\bsp_spi_flash.c)(0x5BD1AD0A)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\..\Libraries\CMSIS\Include -I ..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\..\User -I ..\..\User\APP -I ..\..\User\FATFS -I ..\..\USBD_FS_HID -I ..\..\USBD_FS_Lib\USBD_inc-I.\RTE\_LCD-ID:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx -DUSE_USB_OTG_FS --C99-o ..\..\output\bsp_spi_flash.o --omf_browse ..\..\output\bsp_spi_flash.crf --depend ..\..\output\bsp_spi_flash.d)
+I (..\..\User\./flash/bsp_spi_flash.h)(0x5BD1AD34)
 I (..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x5B52F04B)
 I (..\..\Libraries\CMSIS\Include\core_cm4.h)(0x5559F3AD)
 I (D:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5B5BDE5D)
@@ -1898,7 +1898,7 @@ I (..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_fmc.h)(0x5AB60952)
 I (..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_ltdc.h)(0x555C4781)
 I (..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sai.h)(0x555C4781)
 I (D:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x588B8344)
-F (..\..\User\key\bsp_key.c)(0x5BC3F990)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\..\Libraries\CMSIS\Include -I ..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\..\User -I ..\..\User\APP -I ..\..\User\FATFS -I ..\..\USBD_FS_HID -I ..\..\USBD_FS_Lib\USBD_inc-I.\RTE\_LCD-ID:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx -DUSE_USB_OTG_FS --C99-o ..\..\output\bsp_key.o --omf_browse ..\..\output\bsp_key.crf --depend ..\..\output\bsp_key.d)
+F (..\..\User\key\bsp_key.c)(0x5BD1B3B5)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\..\Libraries\CMSIS\Include -I ..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\..\User -I ..\..\User\APP -I ..\..\User\FATFS -I ..\..\USBD_FS_HID -I ..\..\USBD_FS_Lib\USBD_inc-I.\RTE\_LCD-ID:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx -DUSE_USB_OTG_FS --C99-o ..\..\output\bsp_key.o --omf_browse ..\..\output\bsp_key.crf --depend ..\..\output\bsp_key.d)
 I (..\..\User\./key/bsp_key.h)(0x5B80BE00)
 I (..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x5B52F04B)
 I (..\..\Libraries\CMSIS\Include\core_cm4.h)(0x5559F3AD)
@@ -1942,14 +1942,14 @@ I (..\..\User\./sdram/bsp_sdram.h)(0x5B7776CA)
 I (D:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x588B8344)
 I (..\..\User\./font/fonts.h)(0x5B8F3ADE)
 I (..\..\User\./beep/bsp_beep.h)(0x5BC3F7B1)
-I (..\..\User\./flash/bsp_spi_flash.h)(0x5BC054D6)
+I (..\..\User\./flash/bsp_spi_flash.h)(0x5BD1AD34)
 I (..\..\User\./tim/bsp_basic_tim.h)(0x5B9CAC64)
 I (..\..\User\./RTC/bsp_rtc.h)(0x5BA5EF86)
 I (..\..\User\./ch376/ch376.h)(0x5B97A32C)
 I (D:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x588B8344)
 I (D:\Keil_v5\ARM\ARMCC\include\string.h)(0x588B8344)
 I (..\..\User\./FILESYS/FILESYS.h)(0x5B9768AA)
-I (..\..\User\jk508.h)(0x5BCA86E8)
+I (..\..\User\jk508.h)(0x5BD1B14A)
 F (..\..\User\systick\bsp_SysTick.c)(0x5B2DD7D1)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\..\Libraries\CMSIS\Include -I ..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\..\User -I ..\..\User\APP -I ..\..\User\FATFS -I ..\..\USBD_FS_HID -I ..\..\USBD_FS_Lib\USBD_inc-I.\RTE\_LCD-ID:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx -DUSE_USB_OTG_FS --C99-o ..\..\output\bsp_systick.o --omf_browse ..\..\output\bsp_systick.crf --depend ..\..\output\bsp_systick.d)
 I (..\..\User\./systick/bsp_SysTick.h)(0x55EF9B2D)
 I (..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x5B52F04B)
@@ -1989,7 +1989,7 @@ I (..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_dma2d.h)(0x555C4781)
 I (..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_fmc.h)(0x5AB60952)
 I (..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_ltdc.h)(0x555C4781)
 I (..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sai.h)(0x555C4781)
-F (..\..\User\beep\bsp_beep.c)(0x5BC3F957)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\..\Libraries\CMSIS\Include -I ..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\..\User -I ..\..\User\APP -I ..\..\User\FATFS -I ..\..\USBD_FS_HID -I ..\..\USBD_FS_Lib\USBD_inc-I.\RTE\_LCD-ID:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx -DUSE_USB_OTG_FS --C99-o ..\..\output\bsp_beep.o --omf_browse ..\..\output\bsp_beep.crf --depend ..\..\output\bsp_beep.d)
+F (..\..\User\beep\bsp_beep.c)(0x5BD1A694)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\..\Libraries\CMSIS\Include -I ..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\..\User -I ..\..\User\APP -I ..\..\User\FATFS -I ..\..\USBD_FS_HID -I ..\..\USBD_FS_Lib\USBD_inc-I.\RTE\_LCD-ID:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx -DUSE_USB_OTG_FS --C99-o ..\..\output\bsp_beep.o --omf_browse ..\..\output\bsp_beep.crf --depend ..\..\output\bsp_beep.d)
 I (..\..\User\./beep/bsp_beep.h)(0x5BC3F7B1)
 I (..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x5B52F04B)
 I (..\..\Libraries\CMSIS\Include\core_cm4.h)(0x5559F3AD)
@@ -2088,8 +2088,8 @@ I (..\..\USBD_FS_Lib\USBD_inc\usb_regs.h)(0x5274A71C)
 I (..\..\USBD_FS_Lib\USBD_inc\usb_defines.h)(0x5161120C)
 I (..\..\USBD_FS_HID\usbd_usr.h)(0x4F6B3AC6)
 I (..\..\USBD_FS_HID\usbd_desc.h)(0x4F6B3AD6)
-I (..\..\User\jk508.h)(0x5BCA86E8)
-F (..\..\User\RTC\bsp_rtc.c)(0x5BC451DC)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\..\Libraries\CMSIS\Include -I ..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\..\User -I ..\..\User\APP -I ..\..\User\FATFS -I ..\..\USBD_FS_HID -I ..\..\USBD_FS_Lib\USBD_inc-I.\RTE\_LCD-ID:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx -DUSE_USB_OTG_FS --C99-o ..\..\output\bsp_rtc.o --omf_browse ..\..\output\bsp_rtc.crf --depend ..\..\output\bsp_rtc.d)
+I (..\..\User\jk508.h)(0x5BD1B14A)
+F (..\..\User\RTC\bsp_rtc.c)(0x5BD1AFD7)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\..\Libraries\CMSIS\Include -I ..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\..\User -I ..\..\User\APP -I ..\..\User\FATFS -I ..\..\USBD_FS_HID -I ..\..\USBD_FS_Lib\USBD_inc-I.\RTE\_LCD-ID:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx -DUSE_USB_OTG_FS --C99-o ..\..\output\bsp_rtc.o --omf_browse ..\..\output\bsp_rtc.crf --depend ..\..\output\bsp_rtc.d)
 I (..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x5B52F04B)
 I (..\..\Libraries\CMSIS\Include\core_cm4.h)(0x5559F3AD)
 I (D:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5B5BDE5D)
@@ -2133,7 +2133,7 @@ I (D:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x588B8344)
 I (..\..\User\./lcd/bsp_lcd.h)(0x5BA5DF3D)
 I (..\..\User\./sdram/bsp_sdram.h)(0x5B7776CA)
 I (..\..\User\./font/fonts.h)(0x5B8F3ADE)
-I (..\..\User\jk508.h)(0x5BCA86E8)
+I (..\..\User\jk508.h)(0x5BD1B14A)
 I (D:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x588B8344)
 I (D:\Keil_v5\ARM\ARMCC\include\string.h)(0x588B8344)
 F (..\..\User\internalFlash\bsp_internalFlash.c)(0x5B7E2651)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\..\Libraries\CMSIS\Include -I ..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\..\User -I ..\..\User\APP -I ..\..\User\FATFS -I ..\..\USBD_FS_HID -I ..\..\USBD_FS_Lib\USBD_inc-I.\RTE\_LCD-ID:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx -DUSE_USB_OTG_FS --C99-o ..\..\output\bsp_internalflash.o --omf_browse ..\..\output\bsp_internalflash.crf --depend ..\..\output\bsp_internalflash.d)
@@ -2219,7 +2219,7 @@ I (D:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x588B8344)
 I (..\..\User\./lcd/bsp_lcd.h)(0x5BA5DF3D)
 I (..\..\User\./sdram/bsp_sdram.h)(0x5B7776CA)
 I (..\..\User\./font/fonts.h)(0x5B8F3ADE)
-I (..\..\User\jk508.h)(0x5BCA86E8)
+I (..\..\User\jk508.h)(0x5BD1B14A)
 I (D:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x588B8344)
 I (D:\Keil_v5\ARM\ARMCC\include\string.h)(0x588B8344)
 I (..\..\User\touchscreen.h)(0x5BAB1910)
@@ -2265,7 +2265,7 @@ I (..\..\User\./ch376/ch376.h)(0x5B97A32C)
 I (D:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x588B8344)
 I (D:\Keil_v5\ARM\ARMCC\include\string.h)(0x588B8344)
 I (..\..\User\./systick/bsp_SysTick.h)(0x55EF9B2D)
-I (..\..\User\jk508.h)(0x5BCA86E8)
+I (..\..\User\jk508.h)(0x5BD1B14A)
 F (..\..\User\FILESYS\FILESYS.c)(0x5B9789FE)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\..\Libraries\CMSIS\Include -I ..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\..\User -I ..\..\User\APP -I ..\..\User\FATFS -I ..\..\USBD_FS_HID -I ..\..\USBD_FS_Lib\USBD_inc-I.\RTE\_LCD-ID:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx -DUSE_USB_OTG_FS --C99-o ..\..\output\filesys.o --omf_browse ..\..\output\filesys.crf --depend ..\..\output\filesys.d)
 I (..\..\User\./FILESYS/FILESYS.h)(0x5B9768AA)
 I (..\..\User\./ch376/ch376.h)(0x5B97A32C)
@@ -2308,9 +2308,9 @@ I (..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_ltdc.h)(0x555C4781)
 I (..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sai.h)(0x555C4781)
 I (D:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x588B8344)
 I (D:\Keil_v5\ARM\ARMCC\include\string.h)(0x588B8344)
-I (..\..\User\jk508.h)(0x5BCA86E8)
+I (..\..\User\jk508.h)(0x5BD1B14A)
 F (..\..\±Ø¶ÁËµÃ÷.txt)(0x57737D4B)()
-F (..\..\User\APP\home.c)(0x5BBBF2A2)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\..\Libraries\CMSIS\Include -I ..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\..\User -I ..\..\User\APP -I ..\..\User\FATFS -I ..\..\USBD_FS_HID -I ..\..\USBD_FS_Lib\USBD_inc-I.\RTE\_LCD-ID:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx -DUSE_USB_OTG_FS --C99-o ..\..\output\home.o --omf_browse ..\..\output\home.crf --depend ..\..\output\home.d)
+F (..\..\User\APP\home.c)(0x5BD18513)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\..\Libraries\CMSIS\Include -I ..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\..\User -I ..\..\User\APP -I ..\..\User\FATFS -I ..\..\USBD_FS_HID -I ..\..\USBD_FS_Lib\USBD_inc-I.\RTE\_LCD-ID:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx -DUSE_USB_OTG_FS --C99-o ..\..\output\home.o --omf_browse ..\..\output\home.crf --depend ..\..\output\home.d)
 I (..\..\User\./led/bsp_led.h)(0x5B83DCCD)
 I (..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x5B52F04B)
 I (..\..\Libraries\CMSIS\Include\core_cm4.h)(0x5559F3AD)
@@ -2356,8 +2356,8 @@ I (..\..\User\./font/fonts.h)(0x5B8F3ADE)
 I (..\..\User\./key/bsp_key.h)(0x5B80BE00)
 I (..\..\User\./beep/bsp_beep.h)(0x5BC3F7B1)
 I (..\..\User\./tim/bsp_basic_tim.h)(0x5B9CAC64)
-I (..\..\User\./flash/bsp_spi_flash.h)(0x5BC054D6)
-I (..\..\User\jk508.h)(0x5BCA86E8)
+I (..\..\User\./flash/bsp_spi_flash.h)(0x5BD1AD34)
+I (..\..\User\jk508.h)(0x5BD1B14A)
 I (D:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x588B8344)
 I (D:\Keil_v5\ARM\ARMCC\include\string.h)(0x588B8344)
 F (..\..\User\APP\system.c)(0x5B8A3D2B)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\..\Libraries\CMSIS\Include -I ..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\..\User -I ..\..\User\APP -I ..\..\User\FATFS -I ..\..\USBD_FS_HID -I ..\..\USBD_FS_Lib\USBD_inc-I.\RTE\_LCD-ID:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx -DUSE_USB_OTG_FS --C99-o ..\..\output\system.o --omf_browse ..\..\output\system.crf --depend ..\..\output\system.d)
@@ -2406,7 +2406,7 @@ I (..\..\User\./font/fonts.h)(0x5B8F3ADE)
 I (..\..\User\./key/bsp_key.h)(0x5B80BE00)
 I (..\..\User\./beep/bsp_beep.h)(0x5BC3F7B1)
 I (..\..\User\./tim/bsp_basic_tim.h)(0x5B9CAC64)
-I (..\..\User\jk508.h)(0x5BCA86E8)
+I (..\..\User\jk508.h)(0x5BD1B14A)
 I (D:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x588B8344)
 I (D:\Keil_v5\ARM\ARMCC\include\string.h)(0x588B8344)
 F (..\..\User\APP\settings.c)(0x5B874CBB)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\..\Libraries\CMSIS\Include -I ..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\..\User -I ..\..\User\APP -I ..\..\User\FATFS -I ..\..\USBD_FS_HID -I ..\..\USBD_FS_Lib\USBD_inc-I.\RTE\_LCD-ID:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx -DUSE_USB_OTG_FS --C99-o ..\..\output\settings.o --omf_browse ..\..\output\settings.crf --depend ..\..\output\settings.d)
@@ -2455,7 +2455,7 @@ I (..\..\User\./font/fonts.h)(0x5B8F3ADE)
 I (..\..\User\./key/bsp_key.h)(0x5B80BE00)
 I (..\..\User\./beep/bsp_beep.h)(0x5BC3F7B1)
 I (..\..\User\./tim/bsp_basic_tim.h)(0x5B9CAC64)
-I (..\..\User\jk508.h)(0x5BCA86E8)
+I (..\..\User\jk508.h)(0x5BD1B14A)
 I (D:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x588B8344)
 I (D:\Keil_v5\ARM\ARMCC\include\string.h)(0x588B8344)
 F (..\..\User\APP\separation.c)(0x5B9B259C)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\..\Libraries\CMSIS\Include -I ..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\..\User -I ..\..\User\APP -I ..\..\User\FATFS -I ..\..\USBD_FS_HID -I ..\..\USBD_FS_Lib\USBD_inc-I.\RTE\_LCD-ID:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx -DUSE_USB_OTG_FS --C99-o ..\..\output\separation.o --omf_browse ..\..\output\separation.crf --depend ..\..\output\separation.d)
@@ -2504,7 +2504,7 @@ I (..\..\User\./font/fonts.h)(0x5B8F3ADE)
 I (..\..\User\./key/bsp_key.h)(0x5B80BE00)
 I (..\..\User\./beep/bsp_beep.h)(0x5BC3F7B1)
 I (..\..\User\./tim/bsp_basic_tim.h)(0x5B9CAC64)
-I (..\..\User\jk508.h)(0x5BCA86E8)
+I (..\..\User\jk508.h)(0x5BD1B14A)
 I (D:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x588B8344)
 I (D:\Keil_v5\ARM\ARMCC\include\string.h)(0x588B8344)
 F (..\..\User\APP\sysinfo.c)(0x5B30376F)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\..\Libraries\CMSIS\Include -I ..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\..\User -I ..\..\User\APP -I ..\..\User\FATFS -I ..\..\USBD_FS_HID -I ..\..\USBD_FS_Lib\USBD_inc-I.\RTE\_LCD-ID:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx -DUSE_USB_OTG_FS --C99-o ..\..\output\sysinfo.o --omf_browse ..\..\output\sysinfo.crf --depend ..\..\output\sysinfo.d)
@@ -2553,10 +2553,10 @@ I (..\..\User\./font/fonts.h)(0x5B8F3ADE)
 I (..\..\User\./key/bsp_key.h)(0x5B80BE00)
 I (..\..\User\./beep/bsp_beep.h)(0x5BC3F7B1)
 I (..\..\User\./tim/bsp_basic_tim.h)(0x5B9CAC64)
-I (..\..\User\jk508.h)(0x5BCA86E8)
+I (..\..\User\jk508.h)(0x5BD1B14A)
 I (D:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x588B8344)
 I (D:\Keil_v5\ARM\ARMCC\include\string.h)(0x588B8344)
-F (..\..\User\APP\graph.c)(0x5BB9AE82)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\..\Libraries\CMSIS\Include -I ..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\..\User -I ..\..\User\APP -I ..\..\User\FATFS -I ..\..\USBD_FS_HID -I ..\..\USBD_FS_Lib\USBD_inc-I.\RTE\_LCD-ID:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx -DUSE_USB_OTG_FS --C99-o ..\..\output\graph.o --omf_browse ..\..\output\graph.crf --depend ..\..\output\graph.d)
+F (..\..\User\APP\graph.c)(0x5BD11138)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\..\Libraries\CMSIS\Include -I ..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\..\User -I ..\..\User\APP -I ..\..\User\FATFS -I ..\..\USBD_FS_HID -I ..\..\USBD_FS_Lib\USBD_inc-I.\RTE\_LCD-ID:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx -DUSE_USB_OTG_FS --C99-o ..\..\output\graph.o --omf_browse ..\..\output\graph.crf --depend ..\..\output\graph.d)
 I (..\..\User\./led/bsp_led.h)(0x5B83DCCD)
 I (..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x5B52F04B)
 I (..\..\Libraries\CMSIS\Include\core_cm4.h)(0x5559F3AD)
@@ -2602,7 +2602,7 @@ I (..\..\User\./font/fonts.h)(0x5B8F3ADE)
 I (..\..\User\./key/bsp_key.h)(0x5B80BE00)
 I (..\..\User\./beep/bsp_beep.h)(0x5BC3F7B1)
 I (..\..\User\./tim/bsp_basic_tim.h)(0x5B9CAC64)
-I (..\..\User\jk508.h)(0x5BCA86E8)
+I (..\..\User\jk508.h)(0x5BD1B14A)
 I (D:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x588B8344)
 I (D:\Keil_v5\ARM\ARMCC\include\string.h)(0x588B8344)
 I (..\..\User\./RTC/bsp_rtc.h)(0x5BA5EF86)
@@ -2652,10 +2652,10 @@ I (..\..\User\./font/fonts.h)(0x5B8F3ADE)
 I (..\..\User\./key/bsp_key.h)(0x5B80BE00)
 I (..\..\User\./beep/bsp_beep.h)(0x5BC3F7B1)
 I (..\..\User\./tim/bsp_basic_tim.h)(0x5B9CAC64)
-I (..\..\User\jk508.h)(0x5BCA86E8)
+I (..\..\User\jk508.h)(0x5BD1B14A)
 I (D:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x588B8344)
 I (D:\Keil_v5\ARM\ARMCC\include\string.h)(0x588B8344)
-F (..\..\User\APP\history.c)(0x5BC444CF)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\..\Libraries\CMSIS\Include -I ..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\..\User -I ..\..\User\APP -I ..\..\User\FATFS -I ..\..\USBD_FS_HID -I ..\..\USBD_FS_Lib\USBD_inc-I.\RTE\_LCD-ID:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx -DUSE_USB_OTG_FS --C99-o ..\..\output\history.o --omf_browse ..\..\output\history.crf --depend ..\..\output\history.d)
+F (..\..\User\APP\history.c)(0x5BD1B4DF)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\..\Libraries\CMSIS\Include -I ..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\..\User -I ..\..\User\APP -I ..\..\User\FATFS -I ..\..\USBD_FS_HID -I ..\..\USBD_FS_Lib\USBD_inc-I.\RTE\_LCD-ID:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx -DUSE_USB_OTG_FS --C99-o ..\..\output\history.o --omf_browse ..\..\output\history.crf --depend ..\..\output\history.d)
 I (..\..\User\./led/bsp_led.h)(0x5B83DCCD)
 I (..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x5B52F04B)
 I (..\..\Libraries\CMSIS\Include\core_cm4.h)(0x5559F3AD)
@@ -2701,8 +2701,8 @@ I (..\..\User\./font/fonts.h)(0x5B8F3ADE)
 I (..\..\User\./key/bsp_key.h)(0x5B80BE00)
 I (..\..\User\./beep/bsp_beep.h)(0x5BC3F7B1)
 I (..\..\User\./tim/bsp_basic_tim.h)(0x5B9CAC64)
-I (..\..\User\./flash/bsp_spi_flash.h)(0x5BC054D6)
-I (..\..\User\jk508.h)(0x5BCA86E8)
+I (..\..\User\./flash/bsp_spi_flash.h)(0x5BD1AD34)
+I (..\..\User\jk508.h)(0x5BD1B14A)
 I (D:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x588B8344)
 I (D:\Keil_v5\ARM\ARMCC\include\string.h)(0x588B8344)
 I (..\..\User\./RTC/bsp_rtc.h)(0x5BA5EF86)
@@ -2752,7 +2752,7 @@ I (..\..\User\./font/fonts.h)(0x5B8F3ADE)
 I (..\..\User\./key/bsp_key.h)(0x5B80BE00)
 I (..\..\User\./beep/bsp_beep.h)(0x5BC3F7B1)
 I (..\..\User\./tim/bsp_basic_tim.h)(0x5B9CAC64)
-I (..\..\User\jk508.h)(0x5BCA86E8)
+I (..\..\User\jk508.h)(0x5BD1B14A)
 I (D:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x588B8344)
 I (D:\Keil_v5\ARM\ARMCC\include\string.h)(0x588B8344)
 F (..\..\User\APP\power_on.c)(0x5B8DDC66)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\..\Libraries\CMSIS\Include -I ..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\..\User -I ..\..\User\APP -I ..\..\User\FATFS -I ..\..\USBD_FS_HID -I ..\..\USBD_FS_Lib\USBD_inc-I.\RTE\_LCD-ID:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx -DUSE_USB_OTG_FS --C99-o ..\..\output\power_on.o --omf_browse ..\..\output\power_on.crf --depend ..\..\output\power_on.d)
@@ -2801,10 +2801,10 @@ I (..\..\User\./font/fonts.h)(0x5B8F3ADE)
 I (..\..\User\./key/bsp_key.h)(0x5B80BE00)
 I (..\..\User\./beep/bsp_beep.h)(0x5BC3F7B1)
 I (..\..\User\./tim/bsp_basic_tim.h)(0x5B9CAC64)
-I (..\..\User\jk508.h)(0x5BCA86E8)
+I (..\..\User\jk508.h)(0x5BD1B14A)
 I (D:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x588B8344)
 I (D:\Keil_v5\ARM\ARMCC\include\string.h)(0x588B8344)
-F (..\..\USBD_FS_Lib\USBD-src\usb_core.c)(0x5BA5A6B7)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\..\Libraries\CMSIS\Include -I ..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\..\User -I ..\..\User\APP -I ..\..\User\FATFS -I ..\..\USBD_FS_HID -I ..\..\USBD_FS_Lib\USBD_inc-I.\RTE\_LCD-ID:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx -DUSE_USB_OTG_FS --C99-o ..\..\output\usb_core.o --omf_browse ..\..\output\usb_core.crf --depend ..\..\output\usb_core.d)
+F (..\..\USBD_FS_Lib\USBD-src\usb_core.c)(0x5BD1840B)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\..\Libraries\CMSIS\Include -I ..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include -I ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I ..\..\User -I ..\..\User\APP -I ..\..\User\FATFS -I ..\..\USBD_FS_HID -I ..\..\USBD_FS_Lib\USBD_inc-I.\RTE\_LCD-ID:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F429xx -DUSE_STDPERIPH_DRIVER -DSTM32F429_439xx -DUSE_USB_OTG_FS --C99-o ..\..\output\usb_core.o --omf_browse ..\..\output\usb_core.crf --depend ..\..\output\usb_core.d)
 I (..\..\USBD_FS_Lib\USBD_inc\usb_core.h)(0x5274AA96)
 I (..\..\USBD_FS_Lib\USBD_inc\usb_conf.h)(0x549A9744)
 I (..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x5B52F04B)

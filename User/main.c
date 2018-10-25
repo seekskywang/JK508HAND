@@ -332,7 +332,7 @@ int main(void)
 //	page_home();
 //	watch = sizeof(TempHLimits);
 	
-//	SECTOR_REC = 0;
+
 	while(1)
 	{
 //		watch = GPIO_ReadInputDataBit(TOUCH_YPLUS_GPIO_PORT,TOUCH_YPLUS_GPIO_PIN);
@@ -576,7 +576,7 @@ void TempDisplay(void)
 				}
 				DISP_TEMP_L(235,470,(uint8_t*)buf,CH7_SW);
 				Check_limits(8);
-				sprintf(buf,"%.1f",CH8TEMP - COR7);
+				sprintf(buf,"%.1f",CH8TEMP - COR8);
 				if(CH8TEMP < 100)
 				{
 					strcat(buf,"  ");
@@ -1236,7 +1236,7 @@ void Read_flag(void)
 	SPI_FLASH_BufferRead((void *)TempLLimits,SPI_FLASH_PageSize*2, sizeof(TempLLimits));
 	SPI_FLASH_BufferRead((void *)YLIMIT,SPI_FLASH_PageSize*3, sizeof(YLIMIT));
 	SPI_FLASH_BufferRead((void*)Correction,SPI_FLASH_PageSize*4, sizeof(Correction));
-//	Read_Sflag();
+	Read_Sflag();
 	//	Read_history();
 }
 
@@ -1949,17 +1949,19 @@ void Check_limits(u8 chn)
 //BCD转换
 int hex_to_bcd(int data)
 {
-    unsigned char temp;
-	unsigned int bcd_data;
-	
-	temp = data%100;
-	bcd_data = ((unsigned int)data)/100<<8;
-	bcd_data = bcd_data|temp/10<<4;
-	bcd_data = bcd_data|temp%10;
+//   int binaryInput = 0x202; 
+   int bcdResult = 0;
+   int shift = 0;
 
-//    temp = (((data/10)<<4) + (data%10));
-    return bcd_data;
-	
+//   printf("Binary: 0x%x (dec: %d)\n", binaryInput , binaryInput );
+
+   while (data > 0) {
+      bcdResult |= (data % 10) << (shift++ << 2);
+      data /= 10;
+   }
+
+//   printf("BCD: 0x%x (dec: %d)\n", bcdResult , bcdResult );
+   return bcdResult;
 }
 
 //flash全部擦除
@@ -1968,9 +1970,13 @@ void Erase_all(void)
 	static u16 serec = 2;
 	static u8 Check[4096];
 	SPI_FLASH_SectorErase(serec*4096);
+	SPI_FLASH_SectorErase(15880192+serec*4096);
 	Delay(500);
 //	SPI_FLASH_BufferRead((void *)Check,serec*4096, sizeof(Check));
 	serec ++;
+	SECTOR_REC = 0;
+	TIME_REC = 0;
+	Save_Sflag();
 }
 
 //读flash初始值处理

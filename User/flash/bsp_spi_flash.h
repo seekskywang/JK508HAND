@@ -89,6 +89,7 @@
 void SPI_FLASH_Init(void);
 void SPI_FLASH_SectorErase(u32 SectorAddr);
 void SPI_FLASH_BulkErase(void);
+void SPI_FLASH_SectorBlock(u32 SectorAddr);										  
 void SPI_FLASH_PageWrite(u8* pBuffer, u32 WriteAddr, u16 NumByteToWrite);
 void SPI_FLASH_BufferWrite(u8* pBuffer, u32 WriteAddr, u16 NumByteToWrite);
 void SPI_FLASH_BufferRead(u8* pBuffer, u32 ReadAddr, u16 NumByteToRead);
