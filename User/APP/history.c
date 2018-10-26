@@ -83,8 +83,8 @@ void page_his(void)
 		sprintf(buf,"%d",(int)(YHLIMIT - range * i));
 		DISP_CNL_S(40 + 50*i,10/*90*/,(uint8_t* )buf);
 	}
-	Read_history(3);
-	Read_time(3);
+//	Read_history(1);
+//	Read_time(1);
 	
 	DrawGridLine();
 	
@@ -326,6 +326,10 @@ void page_his(void)
 	LCD_DrawLine(540,400-50,10,LCD_DIR_HORIZONTAL);
 	LCD_SetBackColor(LCD_COLOR_BACK);
 	DISP_CNL_S(390-50,10+540,"016");
+	
+	LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_BACK);
+	sprintf(buf,"%d/%d",hpage,TIME_REC);
+	LCD_DisplayStringLine(400,550,buf);
 
 	page_flag = history;
 }

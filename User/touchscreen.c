@@ -33,21 +33,21 @@ void Touch_GPIO_Config(void)
 	RCC_AHB1PeriphClockCmd (TOUCH_XPLUS_GPIO_CLK|TOUCH_XMINUS_GPIO_CLK|TOUCH_YPLUS_GPIO_CLK|
 	TOUCH_YMINUS_GPIO_CLK,ENABLE); 
 
-	GPIO_InitStructure.GPIO_Pin = TOUCH_YPLUS_GPIO_PIN;/*选择引脚*/     
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;/*设置引脚为输入模式*/   
-    GPIO_InitStructure.GPIO_OType = GPIO_OType_OD;
+	GPIO_InitStructure.GPIO_Pin = TOUCH_YPLUS_GPIO_PIN|TOUCH_YMINUS_GPIO_PORT;/*选择引脚*/     
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;/*设置引脚为输入模式*/   
+    GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
     GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP; /*设置引脚为上拉模式*/	  
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_25MHz;/*设置引脚速率为2MHz */    
 	GPIO_Init(TOUCH_YPLUS_GPIO_PORT, &GPIO_InitStructure);
 	
-	GPIO_InitStructure.GPIO_Pin = TOUCH_XMINUS_GPIO_PIN;/*选择引脚*/     
+	GPIO_InitStructure.GPIO_Pin = TOUCH_XMINUS_GPIO_PIN|TOUCH_XPLUS_GPIO_PORT;/*选择引脚*/     
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;/*设置引脚为输出模式*/   
     GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;/*设置引脚的输出类型为推挽输出*/    
     GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP; /*设置引脚为上拉模式*/	  
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_25MHz;/*设置引脚速率为2MHz */    
 	GPIO_Init(TOUCH_XMINUS_GPIO_PORT, &GPIO_InitStructure);
 	
-	GPIO_ResetBits(TOUCH_XMINUS_GPIO_PORT,TOUCH_XMINUS_GPIO_PIN);
+//	GPIO_ResetBits(TOUCH_XMINUS_GPIO_PORT,TOUCH_XMINUS_GPIO_PIN);
 	
 }
 

@@ -186,13 +186,6 @@ void RTC_TimeAndDate_Show(void)
 			time_buf[count/50][4] = RTC_TimeStructure.RTC_Hours;
 			time_buf[count/50][5] = RTC_TimeStructure.RTC_Minutes;
 			time_buf[count/50][6] = RTC_TimeStructure.RTC_Seconds;
-			if(TIME_REC < 1000)
-			{
-				TIME_REC++;
-				Save_time(TIME_REC);
-			}else{
-				TIME_REC = 0;
-			}
 			
 		}
 		

@@ -41,6 +41,7 @@ u8 bit_flag = 1;
 u8 dot_flag = 0;
 u8 neg_flag = 0;
 u8 input_flag = 0;
+u16 hpage;
 char data[17];
 float offset[40];
 
@@ -3999,8 +4000,8 @@ void FUNC5_HANDLE(void)
 		}break;
 		case history:
 		{
-			i++;
-			hispage(i);
+			hpage++;
+			hispage(hpage);
 		}break;
 	}
 }
@@ -6257,6 +6258,23 @@ void ENTER_HANDLE(void)
 				maxfocus_on(op_flag - 82,Correction[k]);				
 			}
 			Save_flag();
+		}break;
+		case history:
+		{
+			if(input_flag == 1)
+			{
+				
+				if(atoi(data) > TIME_REC)
+				{
+					clear_input();
+					hispage(hpage);
+				}else{
+					hpage = atoi(data);
+					clear_input();
+					hispage(hpage);
+				}
+				
+			}
 		}break;
 	}
 }
@@ -12777,6 +12795,10 @@ void KEY1_HANDLE(void)
 		{
 			input_num("1");			
 		}break;
+		case history:
+		{
+			input_num("1");			
+		}break;
 	}
 }
 
@@ -12793,6 +12815,10 @@ void KEY2_HANDLE(void)
 			input_num("2");
 		}break;
 		case calibrate:
+		{
+			input_num("2");			
+		}break;
+		case history:
 		{
 			input_num("2");			
 		}break;
@@ -12815,6 +12841,10 @@ void KEY3_HANDLE(void)
 		{
 			input_num("3");			
 		}break;
+		case history:
+		{
+			input_num("3");			
+		}break;
 	}
 }
 
@@ -12831,6 +12861,10 @@ void KEY4_HANDLE(void)
 			input_num("4");
 		}break;
 		case calibrate:
+		{
+			input_num("4");			
+		}break;
+		case history:
 		{
 			input_num("4");			
 		}break;
@@ -12853,6 +12887,10 @@ void KEY5_HANDLE(void)
 		{
 			input_num("5");			
 		}break;
+		case history:
+		{
+			input_num("5");			
+		}break;
 	}
 }
 
@@ -12869,6 +12907,10 @@ void KEY6_HANDLE(void)
 			input_num("6");
 		}break;
 		case calibrate:
+		{
+			input_num("6");			
+		}break;
+		case history:
 		{
 			input_num("6");			
 		}break;
@@ -12891,6 +12933,10 @@ void KEY7_HANDLE(void)
 		{
 			input_num("7");			
 		}break;
+		case history:
+		{
+			input_num("7");			
+		}break;
 	}
 }
 
@@ -12907,6 +12953,10 @@ void KEY8_HANDLE(void)
 			input_num("8");
 		}break;
 		case calibrate:
+		{
+			input_num("8");			
+		}break;
+		case history:
 		{
 			input_num("8");			
 		}break;
@@ -12929,6 +12979,10 @@ void KEY9_HANDLE(void)
 		{
 			input_num("9");			
 		}break;
+		case history:
+		{
+			input_num("9");			
+		}break;
 	}
 }
 
@@ -12945,6 +12999,10 @@ void KEY0_HANDLE(void)
 			input_num("0");
 		}break;
 		case calibrate:
+		{
+			input_num("0");			
+		}break;
+		case history:
 		{
 			input_num("0");			
 		}break;
@@ -12983,6 +13041,10 @@ void BACK_HANDLE(void)
 			del_num();
 		}break;
 		case calibrate:
+		{
+			del_num();			
+		}break;
+		case history:
 		{
 			del_num();			
 		}break;

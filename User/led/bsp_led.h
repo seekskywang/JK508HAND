@@ -6,9 +6,9 @@
 //引脚定义
 /*******************************************************/
 //R 红色灯
-#define LED1_PIN                  GPIO_Pin_10                 
-#define LED1_GPIO_PORT            GPIOH                      
-#define LED1_GPIO_CLK             RCC_AHB1Periph_GPIOH
+#define LED1_PIN                  GPIO_Pin_1                 
+#define LED1_GPIO_PORT            GPIOB                      
+#define LED1_GPIO_CLK             RCC_AHB1Periph_GPIOB
 
 //G 绿色灯
 #define LED2_PIN                  GPIO_Pin_11                 

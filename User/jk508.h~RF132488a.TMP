@@ -47,7 +47,6 @@ extern __IO uint32_t FlashID;
 extern u16 graphcount;
 extern u8 reflag;
 extern char UsbHidReceiveComplete;
-extern u16 hpage;
 
 
 void page_home(void);
