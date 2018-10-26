@@ -363,6 +363,11 @@
           <WinNumber>1</WinNumber>
           <ItemText>hpage</ItemText>
         </Ww>
+        <Ww>
+          <count>43</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>ADC_ConvertedValue</ItemText>
+        </Ww>
       </WatchWindow1>
       <WatchWindow2>
         <Ww>

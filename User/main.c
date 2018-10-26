@@ -275,7 +275,7 @@ int main(void)
 	/*CH376“˝Ω≈≈‰÷√≥ı ºªØ*/
 	CH376_GPIO_Init();
     
-	
+	Touch_Init();
 //	Delay_ms(100);
 	
 	Init_CH376();

@@ -49,17 +49,10 @@ compiling main.c...
 ..\..\User\main.c(1977): warning:  #177-D: variable "Check"  was declared but never referenced
         static u8 Check[4096];
 ..\..\User\main.c: 10 warnings, 0 errors
-compiling touchscreen.c...
-..\..\User\touchscreen.c(36): error:  #31: expression must have integral type
-        GPIO_InitStructure.GPIO_Pin = 
-OUCH_YPLUS_GPIO_PIN|
-OUCH_YMINUS_GPIO_PORT;/*选择引脚*/     
-..\..\User\touchscreen.c(43): error:  #31: expression must have integral type
-        GPIO_InitStructure.GPIO_Pin = 
-OUCH_XMINUS_GPIO_PIN|
-OUCH_XPLUS_GPIO_PORT;/*选择引脚*/     
-..\..\User\touchscreen.c: 0 warnings, 2 errors
-"..\..\Output\LCD.axf" - 2 Error(s), 10 Warning(s).
+linking...
+Program Size: Code=122912 RO-data=98388 RW-data=608 ZI-data=68720  
+FromELF: creating hex file...
+"..\..\Output\LCD.axf" - 0 Error(s), 10 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -73,8 +66,7 @@ Package Vendor: Keil
   D:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
 
 <h2>Collection of Component Files used:</h2>
-Target not created.
-Build Time Elapsed:  00:00:03
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>
