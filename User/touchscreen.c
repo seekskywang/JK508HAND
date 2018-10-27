@@ -40,12 +40,20 @@ void Touch_GPIO_Config(void)
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_25MHz;/*设置引脚速率为2MHz */    
 	GPIO_Init(TOUCH_YPLUS_GPIO_PORT, &GPIO_InitStructure);
 	
-	GPIO_InitStructure.GPIO_Pin = TOUCH_XMINUS_GPIO_PIN|TOUCH_XPLUS_GPIO_PIN;/*选择引脚*/     
+	GPIO_InitStructure.GPIO_Pin = TOUCH_XMINUS_GPIO_PIN;/*选择引脚*/     
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;/*设置引脚为输出模式*/   
     GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;/*设置引脚的输出类型为推挽输出*/    
     GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP; /*设置引脚为上拉模式*/	  
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_25MHz;/*设置引脚速率为2MHz */    
 	GPIO_Init(TOUCH_XMINUS_GPIO_PORT, &GPIO_InitStructure);
+	
+	GPIO_InitStructure.GPIO_Pin = TOUCH_XPLUS_GPIO_PIN;/*选择引脚*/     
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;/*设置引脚为输出模式*/   
+    GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;/*设置引脚的输出类型为推挽输出*/    
+    GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP; /*设置引脚为上拉模式*/	  
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_25MHz;/*设置引脚速率为2MHz */    
+	GPIO_Init(TOUCH_XPLUS_GPIO_PORT, &GPIO_InitStructure);
+	
 	
 //	GPIO_ResetBits(TOUCH_XMINUS_GPIO_PORT,TOUCH_XMINUS_GPIO_PIN);
 }
@@ -141,9 +149,9 @@ static void Rheostat_ADC_Mode_Config(void)
 	
   // 配置 ADC 通道转换顺序和采样时间周期
   ADC_RegularChannelConfig(RHEOSTAT_ADC, ADC_CHANNEL0, 1, 
-	                         ADC_SampleTime_3Cycles);
+	                         ADC_SampleTime_144Cycles);
   ADC_RegularChannelConfig(RHEOSTAT_ADC, ADC_CHANNEL1, 2, 
-	                         ADC_SampleTime_3Cycles); 
+	                         ADC_SampleTime_144Cycles); 
 
   // 使能DMA请求 after last transfer (Single-ADC mode)
   ADC_DMARequestAfterLastTransferCmd(RHEOSTAT_ADC, ENABLE);
@@ -160,4 +168,17 @@ void Touch_Init(void)
 {
 	AD_GPIO_Config();
 	Rheostat_ADC_Mode_Config();
+}
+
+static void set_yz(void){	X_P1;	X_N1;	Y_P0;	Y_N0;}
+static void set_yy(void){	X_P0;	X_N1;	Y_P1;	Y_N0;}
+static void set_xx(void){	X_P1;	X_N0;	Y_P0;	Y_N1;}
+static void set_mid(void){	X_P0;	X_N1;	Y_P1;	Y_N0;}
+
+
+void Touch_Scan(void)
+{
+	set_yz();
+//	set_xx();
+	set_xx();
 }

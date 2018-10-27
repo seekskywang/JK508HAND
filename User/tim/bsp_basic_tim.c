@@ -193,6 +193,7 @@ void BASIC_TIM_IRQHandler (void)
 	if(TIM_GetITStatus( BASIC_TIM, TIM_IT_Update) != RESET )
 	{
 		Key_Scan();//按键扫描
+		Touch_Scan();//触摸扫描
 		DCD_EP_PrepareRx(&USB_OTG_dev,HID_OUT_EP,usbbuf,64);//接收PC数据
 		if(UsbHidReceiveComplete)                         //接收到数据
 		{
