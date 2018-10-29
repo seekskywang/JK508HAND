@@ -990,19 +990,19 @@ void DrawUdisk1(void)
 void DrawUdisk2(void)
 {
 	LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-	LCD_DrawFullRect(448,10,15,23);
+	LCD_DrawFullRect(448-16,10,15,23);
 	LCD_SetColors(LCD_COLOR_GREEN,LCD_COLOR_BACK);
-	LCD_DrawFullRect(450,10,11,2);
-	LCD_DrawFullRect(450,12,2,6);
-	LCD_DrawFullRect(459,12,2,6);
-	LCD_DrawFullRect(453,14,2,2);
-	LCD_DrawFullRect(456,14,2,2);
-	LCD_DrawFullRect(448,18,15,2);
-	LCD_DrawFullRect(448,20,2,11);
-	LCD_DrawFullRect(461,20,2,11);
-	LCD_DrawFullRect(448,31,15,2);
-	LCD_DrawUniLine(451,25,454,28);
-	LCD_DrawUniLine(455,27,459,23);
+	LCD_DrawFullRect(450-16,10,11,2);
+	LCD_DrawFullRect(450-16,12,2,6);
+	LCD_DrawFullRect(459-16,12,2,6);
+	LCD_DrawFullRect(453-16,14,2,2);
+	LCD_DrawFullRect(456-16,14,2,2);
+	LCD_DrawFullRect(448-16,18,15,2);
+	LCD_DrawFullRect(448-16,20,2,11);
+	LCD_DrawFullRect(461-16,20,2,11);
+	LCD_DrawFullRect(448-16,31,15,2);
+	LCD_DrawUniLine(451-16,25,454-16,28);
+	LCD_DrawUniLine(455-16,27,459-16,23);
 	
 }
 /**

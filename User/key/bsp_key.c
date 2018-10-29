@@ -12783,6 +12783,10 @@ void KEY1_HANDLE(void)
 {		
 	switch(page_flag)
 	{
+		case display:
+		{
+			Utest();
+		}break;
 		case separation:
 		{
 			input_num("1");			
@@ -13084,8 +13088,7 @@ void ESC_HANDLE(void)
 void ACC_HANDLE(void)
 {
 //	u8 i;
-	//	CH376FileCreatePath("//jk508//test.txt");
-	//	CH376FileClose(TRUE);
+	
 	//	SPI_Flash_PowerDown();
 	//		SPI_Flash_WAKEUP();
 	//	for(i=1;i<11;i++)
@@ -13106,4 +13109,31 @@ void ACC_HANDLE(void)
 		default:Erase_all();
 	}
 }
+
+void Utest(void)
+{
+	u8 buf[64];
+	u8	TarName[64];
+	char str[64];
+	static u8 s;
+	
+	
+	strcpy( (char *)TarName, "\\TESTTEST.xls" ); /* 目标文件名 */
+	s = CH376FileCreatePath( TarName );  	/* 新建多级目录下的文件,支持多级目录路径,输入缓冲区必须在RAM中 */
+	CH376ByteLocate(0xFFFFFFFF);
+	
+	sprintf(str,"s=%02x ",(unsigned short)s );
+	//////// 写入
+	strcpy((char *)buf, "Test ,Hello World!" );
+	s = CH376ByteWrite( buf, strlen((const char *)buf), NULL ); /* 以字节为单位向当前位置写入数据块 */
+	//printf("s=%02x \n",(unsigned short)s );
+	s = CH376FileClose(TRUE);   /* 关闭文件,对于字节读写建议自动更新文件长度 */
+	sprintf(str,"s=%02x",(unsigned short)s );
+
+//	CH376FileCreate("jk508.txt");
+//	strcpy((char *)buf, "Test ,Hello World!" );
+//	CH376ByteWrite( buf, strlen((const char *)buf), NULL ); /* 以字节为单位向当前位置写入数据块 */
+//	CH376FileClose(TRUE);
+}
+
 /*********************************************END OF FILE**********************/

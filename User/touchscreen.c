@@ -178,7 +178,30 @@ static void set_mid(void){	X_P0;	X_N1;	Y_P1;	Y_N0;}
 
 void Touch_Scan(void)
 {
-	set_yz();
+	static u8 i;
+	if(i%4 < 2)
+	{
+		set_yy();
+	}else{
+		set_xx();
+	}
+	i++;
 //	set_xx();
-	set_xx();
+//	set_mid();
+}
+
+void TouchCal(void)
+{
+	LCD_Clear(LCD_COLOR_WHITE);
+	LCD_SetColors(LCD_COLOR_RED,LCD_COLOR_WHITE);
+	LCD_DrawFullCircle(10,10,10);
+	LCD_DrawFullCircle(10,470,10);
+	LCD_DrawFullCircle(630,10,10);
+	LCD_DrawFullCircle(630,470,10);
+	page_flag = touchcal;
+}
+
+void XP1(void)
+{
+	
 }

@@ -118,6 +118,7 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>DLGUARM</Key>
+          <Name>岓:</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -1156,7 +1157,7 @@
       <GroupNumber>4</GroupNumber>
       <FileNumber>59</FileNumber>
       <FileType>1</FileType>
-      <tvExp>0</tvExp>
+      <tvExp>1</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\User\FILESYS\FILESYS.c</PathWithFileName>

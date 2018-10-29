@@ -280,10 +280,7 @@ int main(void)
 	
 	Init_CH376();
 	
-//	if(res == USB_INT_SUCCESS)
-//	{
-//		udisk = udisk_scan();
-//	}
+
 	
 	/* RTC配置：选择时钟源，设置RTC_CLK的分频系数 */
 	RTC_CLK_Config();
@@ -1930,7 +1927,7 @@ u8 udisk_scan(void)
 	if(usbstatus != CONNECTED)
 	{		
 		res = CH376DiskMount( );
-		if(res == USB_INT_SUCCESS)
+		if(res == USB_INT_SUCCESS && page_flag != touchcal)
 		{
 			DrawUdisk2();
 			usbstatus = CONNECTED;

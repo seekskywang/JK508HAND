@@ -93,6 +93,7 @@ void Read_Sflag(void);
 int hex_to_bcd(int data);
 void DrawTime(void);
 void hispage(u16 page);
+void TouchCal(void);
 
 extern u8 usbbuf[0x40];
 uint16_t CRC16(uint8_t *puchMsg, uint8_t Len);
@@ -428,6 +429,7 @@ uint32_t Flash_DisableReadProtection(void);
 #define history			 7
 #define calibrate		 8
 #define poweron 		 9
+#define touchcal		 10
 
 /* 选项标志位 */
 #define home_type        0

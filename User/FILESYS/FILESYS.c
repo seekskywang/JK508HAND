@@ -937,7 +937,7 @@ u8	CH376SecLocate( u32 offset )
 	xWriteCH376Data( (u8)(offset>>16) );
 	xWriteCH376Data( 0 );                                                               /* 超出最大文件尺寸 */
 	xEndCH376Cmd( );
-	return( Wait376Interrupt( ) );
+	return( Wait376Interrupt() );
 }
 
 /*******************************************************************************

@@ -111,6 +111,7 @@ void ACC_HANDLE(void);
 void input_num(char* num);
 void clear_input(void);
 void del_num(void);
+void Utest(void);
 //uint8_t Key_Scan(GPIO_TypeDef* GPIOx,u16 GPIO_Pin);
 
 #endif /* __LED_H */
