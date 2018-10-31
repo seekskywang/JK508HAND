@@ -30,12 +30,23 @@ Build target 'LCD'
 compiling bsp_key.c...
 ..\..\User\key\bsp_key.c(2557): warning:  #177-D: variable "i"  was declared but never referenced
         static u16 i;
-..\..\User\key\bsp_key.c: 1 warning, 0 errors
-compiling FILESYS.c...
+..\..\User\key\bsp_key.c(13133): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "const char *restrict"
+                strcpy((char *)TarName,filename);
+..\..\User\key\bsp_key.c(13199): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "const char *restrict"
+        strcpy((char *)TarName,filename);
+..\..\User\key\bsp_key.c(13204): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "char *restrict"
+        sprintf(buf, "\n%d\t20%02d-%02d-%02d\t%02d:%02d:%02d"
+..\..\User\key\bsp_key.c(13220): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "char *restrict"
+                        strcpy(buf,"\tN/A");
+..\..\User\key\bsp_key.c(13222): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "char *restrict"
+                        sprintf(buf,"\t%.1f",ch_temp[i]);
+..\..\User\key\bsp_key.c(13124): warning:  #550-D: variable "s"  was set but never used
+        static u8 s;
+..\..\User\key\bsp_key.c: 7 warnings, 0 errors
 linking...
-Program Size: Code=123932 RO-data=98388 RW-data=612 ZI-data=68716  
+Program Size: Code=124572 RO-data=98504 RW-data=620 ZI-data=68844  
 FromELF: creating hex file...
-"..\..\Output\LCD.axf" - 0 Error(s), 1 Warning(s).
+"..\..\Output\LCD.axf" - 0 Error(s), 7 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -49,7 +60,7 @@ Package Vendor: Keil
   D:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:06
+Build Time Elapsed:  00:00:04
 </pre>
 </body>
 </html>

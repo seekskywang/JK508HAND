@@ -12826,6 +12826,10 @@ void KEY2_HANDLE(void)
 		{
 			input_num("2");			
 		}break;
+		case display:
+		{
+			 CH376FileClose(TRUE);
+		}break;
 	}
 }
 
@@ -13110,30 +13114,121 @@ void ACC_HANDLE(void)
 	}
 }
 
+
 void Utest(void)
 {
-	u8 buf[64];
-	u8	TarName[64];
-	char str[64];
+	u8 buf[200];
+	u8 i;
+	static u8 filename[64];
+	static u8 TarName[64];
 	static u8 s;
-	
-	
-	strcpy( (char *)TarName, "\\TESTTEST.xls" ); /* 目标文件名 */
-	s = CH376FileCreatePath( TarName );  	/* 新建多级目录下的文件,支持多级目录路径,输入缓冲区必须在RAM中 */
-	CH376ByteLocate(0xFFFFFFFF);
-	
-	sprintf(str,"s=%02x ",(unsigned short)s );
+	static u8 fileflag;
+	static u32 udcount;
+	if(fileflag == 0)
+	{
+		sprintf((char *)filename, "/%02d%02d%02d%02d.XLS",MONTH
+											,DATE
+											,HOURS
+											,MINUTES); /* 目标文件名 */
+		strcpy((char *)TarName,filename);
+//		s = CH376FileCreatePath("\\TEST.XLS");
+		s = CH376FileCreatePath(TarName);
+		fileflag = 1;
+		switch(TCTYPE)
+		{
+			case TCT:
+			{
+				sprintf((char *)buf,"热电偶类型:T");
+			}break;
+			case TCK:
+			{
+				sprintf((char *)buf,"热电偶类型:K");
+			}break;
+			case TCJ:
+			{
+				sprintf((char *)buf,"热电偶类型:J");
+			}break;
+			case TCN:
+			{
+				sprintf((char *)buf,"热电偶类型:N");
+			}break;
+			case TCE:
+			{
+				sprintf((char *)buf,"热电偶类型:E");
+			}break;
+			case TCS:
+			{
+				sprintf((char *)buf,"热电偶类型:S");
+			}break;
+			case TCR:
+			{
+				sprintf((char *)buf,"热电偶类型:R");
+			}break;
+			case TCB:
+			{
+				sprintf((char *)buf,"热电偶类型:B");
+			}break;
+			case PT100:
+			{
+				sprintf((char *)buf,"热电偶类型:PT100");
+			}break;
+		}
+		s = CH376ByteWrite( buf, strlen((const char *)buf), NULL );
+		switch(UNIT)
+		{
+			case C:
+			{
+				sprintf((char *)buf,"\t单位:℃\n");
+			}break;
+			case F:
+			{
+				sprintf((char *)buf,"\t单位:℉\n");
+			}break;
+			case K:
+			{
+				sprintf((char *)buf,"\t单位:K\n");
+			}break;
+		}
+		s = CH376ByteWrite(buf, strlen((const char *)buf), NULL );
+		CH376ByteLocate(0xFFFFFFFF);
+		sprintf((char *)buf,"\t日期\t时间\t通道1\t通道2\t通道3\t通道4\t通道5\t通道6\t通道7\t通道8\t通道9\t通道10\t通道11\t通道12\t通道13\t通道14\t通道15\t通道16");
+		s = CH376ByteWrite(buf, strlen((const char *)buf), NULL );
+		s = CH376FileClose(TRUE);
+	}
+//	s = CH376FileOpenPath("\\TEST.XLS");
+	strcpy((char *)TarName,filename);
+	s = CH376FileOpenPath(TarName);
+	s = CH376ByteLocate(0xFFFFFFFF);
 	//////// 写入
-	strcpy((char *)buf, "Test ,Hello World!" );
-	s = CH376ByteWrite( buf, strlen((const char *)buf), NULL ); /* 以字节为单位向当前位置写入数据块 */
-	//printf("s=%02x \n",(unsigned short)s );
-	s = CH376FileClose(TRUE);   /* 关闭文件,对于字节读写建议自动更新文件长度 */
-	sprintf(str,"s=%02x",(unsigned short)s );
+	udcount++;
+	sprintf(buf, "\n%d\t20%02d-%02d-%02d\t%02d:%02d:%02d"
+											,udcount
+											,YEAR
+											,MONTH
+											,DATE
+											,HOURS
+											,MINUTES
+											,SECONDS
+											); /* 目标文件名 */
+	s = CH376ByteWrite( buf, strlen((const char *)buf), NULL ); 
+	
+	for(i=0;i<16;i++)
+	{
 
-//	CH376FileCreate("jk508.txt");
+		if(ch_temp[i] > 1999)
+		{
+			strcpy(buf,"\tN/A");
+		}else{
+			sprintf(buf,"\t%.1f",ch_temp[i]);
+		}
+
+		s = s = CH376ByteWrite( buf, strlen((const char *)buf), NULL );
+	}
 //	strcpy((char *)buf, "Test ,Hello World!" );
-//	CH376ByteWrite( buf, strlen((const char *)buf), NULL ); /* 以字节为单位向当前位置写入数据块 */
-//	CH376FileClose(TRUE);
+	
+	
+	//printf("s=%02x \n",(unsigned short)s );
+	s = CH376FileClose(TRUE);
 }
 
 /*********************************************END OF FILE**********************/

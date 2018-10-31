@@ -189,6 +189,7 @@ void BASIC_TIM_IRQHandler (void)
 	static u8 sendcount;
 	static u16 dim_time;
 	static u8 dimflag;
+	static u8 usave;
 	u8 i;
 	if(TIM_GetITStatus( BASIC_TIM, TIM_IT_Update) != RESET )
 	{
@@ -211,6 +212,14 @@ void BASIC_TIM_IRQHandler (void)
 				udisk_scan();
 			}
 			sendcount = 0;
+		}
+		if(usave == 30)
+		{
+			if(usbstatus == CONNECTED)
+			{
+				Utest();
+			}
+			usave = 0;
 		}
 		if(key_value == 0xFF && dimflag == 0)
 		{			
@@ -262,6 +271,7 @@ void BASIC_TIM_IRQHandler (void)
 			dim_time = 0;
 		}
 		sendcount ++;
+		usave ++;
 		TIM_ClearITPendingBit(BASIC_TIM,TIM_IT_Update);
 	}
 }
