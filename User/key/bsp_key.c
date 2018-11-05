@@ -13138,39 +13138,39 @@ void Utest(void)
 		{
 			case TCT:
 			{
-				sprintf((char *)buf,"热电偶类型:T");
+				sprintf((char *)buf,"热电偶类型:T-%d",TCT);
 			}break;
 			case TCK:
 			{
-				sprintf((char *)buf,"热电偶类型:K");
+				sprintf((char *)buf,"热电偶类型:K-%d",TCK);
 			}break;
 			case TCJ:
 			{
-				sprintf((char *)buf,"热电偶类型:J");
+				sprintf((char *)buf,"热电偶类型:J-%d",TCJ);
 			}break;
 			case TCN:
 			{
-				sprintf((char *)buf,"热电偶类型:N");
+				sprintf((char *)buf,"热电偶类型:N-%d",TCN);
 			}break;
 			case TCE:
 			{
-				sprintf((char *)buf,"热电偶类型:E");
+				sprintf((char *)buf,"热电偶类型:E-%d",TCE);
 			}break;
 			case TCS:
 			{
-				sprintf((char *)buf,"热电偶类型:S");
+				sprintf((char *)buf,"热电偶类型:S-%d",TCS);
 			}break;
 			case TCR:
 			{
-				sprintf((char *)buf,"热电偶类型:R");
+				sprintf((char *)buf,"热电偶类型:R-%d",TCR);
 			}break;
 			case TCB:
 			{
-				sprintf((char *)buf,"热电偶类型:B");
+				sprintf((char *)buf,"热电偶类型:B-%d",TCB);
 			}break;
 			case PT100:
 			{
-				sprintf((char *)buf,"热电偶类型:PT100");
+				sprintf((char *)buf,"热电偶类型:PT100-%d",PT100);
 			}break;
 		}
 		s = CH376ByteWrite( buf, strlen((const char *)buf), NULL );
@@ -13178,15 +13178,15 @@ void Utest(void)
 		{
 			case C:
 			{
-				sprintf((char *)buf,"\t单位:℃\n");
+				sprintf((char *)buf,"\t单位:℃-%d\n",C);
 			}break;
 			case F:
 			{
-				sprintf((char *)buf,"\t单位:℉\n");
+				sprintf((char *)buf,"\t单位:℉-%d\n",F);
 			}break;
 			case K:
 			{
-				sprintf((char *)buf,"\t单位:K\n");
+				sprintf((char *)buf,"\t单位:K-%d\n",K);
 			}break;
 		}
 		s = CH376ByteWrite(buf, strlen((const char *)buf), NULL );

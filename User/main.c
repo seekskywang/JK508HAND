@@ -331,7 +331,6 @@ int main(void)
 //	page_home();
 //	watch = sizeof(TempHLimits);
 	
-
 	while(1)
 	{
 
@@ -1629,7 +1628,7 @@ void UsbDataHandle(void)
 					USBD_HID_SendReport(&USB_OTG_dev,usbsendbuf,64);//数据回显
 				}else if(usbbuf[2] == 0xEE && usbbuf[3] == 0xEE){//检测连接状态
 					
-					csendlen = 15;				
+					csendlen = 18;				
 					csend = (u8*)malloc(sizeof(u8) * csendlen);				
 					memset(csend, 0, csendlen);//初始化，每个元素都为零
 					//发送数据CRC校验长度
@@ -1643,23 +1642,26 @@ void UsbDataHandle(void)
 					usbsendbuf[4] = usbbuf[4];
 					usbsendbuf[5] = usbbuf[5];
 					usbsendbuf[6] = 0x4A;
-					usbsendbuf[7] = 0x4E;
-					usbsendbuf[8] = 0x4B;
-					usbsendbuf[9] = 0x4F;
-					usbsendbuf[10] = 0x35;
-					usbsendbuf[11] = 0x30;
-					usbsendbuf[12] = 0x38;
-					usbsendbuf[13] = 0x7C;
-					usbsendbuf[14] = 0xA3;
+					usbsendbuf[7] = 0x4B;
+					usbsendbuf[8] = 0x35;
+					usbsendbuf[9] = 0x30;
+					usbsendbuf[10] = 0x38;
+					usbsendbuf[11] = 0x00;
+					usbsendbuf[12] = 0x00;
+					usbsendbuf[13] = CHNUM;
+					usbsendbuf[14] = 0x00;
+					usbsendbuf[15] = 0x00;
+					usbsendbuf[16] = 0x00;
+					usbsendbuf[17] = 0x00;
 
 					for(i = 0;i < csendlen; i++)
 					{
 						csend[i] = usbsendbuf[i];
 					}
 					sendcrc = CRC16(csend,csendlen);
-					usbsendbuf[15] = (u8)(sendcrc >> 8);
-					usbsendbuf[16] = (u8)(sendcrc);
-					for(i = 17; i < 64 ; i++)
+					usbsendbuf[18] = (u8)(sendcrc >> 8);
+					usbsendbuf[19] = (u8)(sendcrc);
+					for(i = 20; i < 64 ; i++)
 					{
 						usbsendbuf[i] = 0;
 					}

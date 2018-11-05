@@ -3,7 +3,7 @@
 <title>Static Call Graph - [..\..\Output\LCD.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\..\Output\LCD.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Wed Oct 31 09:47:59 2018
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Mon Nov 05 16:32:28 2018
 <BR><P>
 <H3>Maximum Stack Usage =        584 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -3779,7 +3779,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM6_DAC_IRQHandler
 </UL>
 
-<P><STRONG><a name="[1d2]"></a>UsbDataHandle</STRONG> (Thumb, 2184 bytes, Stack size 48 bytes, main.o(i.UsbDataHandle))
+<P><STRONG><a name="[1d2]"></a>UsbDataHandle</STRONG> (Thumb, 2152 bytes, Stack size 48 bytes, main.o(i.UsbDataHandle))
 <BR><BR>[Stack]<UL><LI>Max Depth = 184<LI>Call Chain = UsbDataHandle &rArr; Save_flag &rArr; SPI_FLASH_BufferWrite &rArr; SPI_FLASH_PageWrite &rArr; SPI_FLASH_WaitForWriteEnd &rArr; SPI_FLASH_SendByte &rArr; SPI_TIMEOUT_UserCallback &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_WriteBackupRegister
@@ -3796,7 +3796,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM6_DAC_IRQHandler
 </UL>
 
-<P><STRONG><a name="[16c]"></a>Utest</STRONG> (Thumb, 400 bytes, Stack size 240 bytes, bsp_key.o(i.Utest))
+<P><STRONG><a name="[16c]"></a>Utest</STRONG> (Thumb, 426 bytes, Stack size 240 bytes, bsp_key.o(i.Utest))
 <BR><BR>[Stack]<UL><LI>Max Depth = 400<LI>Call Chain = Utest &rArr; CH376FileCreatePath &rArr; CH376FileOpenDir &rArr; CH376FileOpen &rArr; CH376SetFileName &rArr; CH376SendCmdWaitInt &rArr; Wait376Interrupt &rArr; CH376GetIntStatus &rArr; xWriteCH376Cmd &rArr; SPIx_ReadWriteByte &rArr; SPI_TIMEOUT_UserCallback &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
@@ -3860,6 +3860,7 @@ Global Symbols
 <LI><a href="#[1de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cal_disp
 <LI><a href="#[1a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_TimeAndDate_Show
 <LI><a href="#[1dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TempDisplay
+<LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_sysinfo
 <LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_sys
 <LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_his
 <LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_graph
@@ -4480,8 +4481,8 @@ Global Symbols
 <LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC1_HANDLE
 </UL>
 
-<P><STRONG><a name="[163]"></a>page_sysinfo</STRONG> (Thumb, 482 bytes, Stack size 24 bytes, sysinfo.o(i.page_sysinfo))
-<BR><BR>[Stack]<UL><LI>Max Depth = 140<LI>Call Chain = page_sysinfo &rArr; DrawMenu &rArr; DrawUdisk2 &rArr; LCD_DrawFullRect &rArr; DMA2D_Init
+<P><STRONG><a name="[163]"></a>page_sysinfo</STRONG> (Thumb, 490 bytes, Stack size 32 bytes, sysinfo.o(i.page_sysinfo))
+<BR><BR>[Stack]<UL><LI>Max Depth = 148<LI>Call Chain = page_sysinfo &rArr; DrawMenu &rArr; DrawUdisk2 &rArr; LCD_DrawFullRect &rArr; DMA2D_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[217]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetLayer
 <LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
@@ -4492,6 +4493,7 @@ Global Symbols
 <LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawsysinfomenu
 <LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
 <LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawInstruction
+<LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC5_HANDLE
 </UL>

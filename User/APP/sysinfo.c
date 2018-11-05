@@ -38,7 +38,7 @@ extern union
 
 void page_sysinfo(void)
 {
-	
+	char buf[10];
   /*初始化后默认使用前景层*/
 	LCD_SetLayer(LCD_FOREGROUND_LAYER); 
 	/*默认设置不透明	，该函数参数为不透明度，范围 0-0xff ，0为全透明，0xff为不透明*/
@@ -90,6 +90,7 @@ void page_sysinfo(void)
 		LCD_DisplayStringLine(50,170,"JK508");
 		LCD_DisplayStringLine(94,170,"手持多路温度测试仪");
 		LCD_DisplayStringLine(130,170,"T,K,J,N,E,S,R,B,PT100");
+		sprintf(buf,"%03d",CHNUM);
 		LCD_DisplayStringLine(170,170,"016");
 		LCD_DisplayStringLine(210,170,"REV 1.0");
 		LCD_DisplayStringLine(250,170,"");
