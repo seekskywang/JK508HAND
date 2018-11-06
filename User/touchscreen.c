@@ -23,6 +23,11 @@
 #include "touchscreen.h"
 
 __IO uint16_t ADC_ConvertedValue[RHEOSTAT_NOFCHANEL]={0};
+u16 Xconvert;
+u16 Yconvert;
+u32 corpara[20];
+u16 XCOOR;
+u16 YCOOR;
 
 void Touch_GPIO_Config(void) 
 {
@@ -178,16 +183,60 @@ static void set_mid(void){	X_P0;	X_N1;	Y_P1;	Y_N0;}
 
 void Touch_Scan(void)
 {
-	static u8 i;
+	static u8 i,j,k;
+	static u16 ADX[5];
+	static u16 ADY[5];
+	u32 var32;
+//	for(i=0;i<100;i++)
+//	{
+//		if((i%2) == 0)
+//		{
+//			set_xx();
+//			ADX[a++] = ADC_ConvertedValue[i];
+//		}else if((i%2) == 1){
+//			set_yy();
+//			ADY[b++] = ADC_ConvertedValue[i];
+//		}
+//	}
 	if(i%4 < 2)
 	{
 		set_yy();
+		ADY[j] = ADC_ConvertedValue[1];
+		if(j<5)
+		{
+			j++;
+		}else{
+			j = 0;
+		}
 	}else{
 		set_xx();
+		ADX[k] = ADC_ConvertedValue[0];
+		if(k<5)
+		{
+			k++;
+		}else{
+			k = 0;
+		}
 	}
 	i++;
-//	set_xx();
-//	set_mid();
+	Xconvert = (ADX[1] + ADX[3])/2/40;
+	Yconvert = (ADY[1] + ADY[3])/2/40;
+	
+
+	if(Xconvert <= 3)
+	{
+		XCOOR = 0;
+	}else{
+		XCOOR = (int)(6.88*(float)Xconvert-24.4);
+	}
+	
+	if(Yconvert <= 3)
+	{
+		YCOOR = 0;
+	}else{
+		YCOOR = 480 - (int)(5.22*(float)Yconvert-16.1);
+	}
+	
 }
 
 void TouchCal(void)
@@ -201,7 +250,138 @@ void TouchCal(void)
 	page_flag = touchcal;
 }
 
-void XP1(void)
+void TouchHandle(u16 x,u16 y)
 {
+	switch(page_flag)
+	{
+		case display:
+		{
+			
+		}break;
+	}
+}
+
+void XYCAL(u8 step)
+{
+	static vu32 Modify_A_READ;
+	static vu32 Modify_C_READ;
+	static vu32 Modify_A_ACT;
+		
+	static vu32 Modify_B_READ;
+	static vu32 Modify_D_READ;
+	static vu32 Modify_B_ACT;
 	
+    if(step == 1)
+    {
+        Modify_A_READ += Xconvert;//测量电压值		
+    }else if(step == 2){
+		Modify_A_READ += Xconvert;
+		Modify_A_READ = Modify_A_READ/2;
+		Modify_A_ACT = 0x0A;//读取低段
+	}else if(step == 3){
+		Modify_B_READ += Xconvert;
+	}else if(step == 4){
+        vu16 var16;
+        vu32 var32a;
+        vu32 var32b;
+        
+        vu16 var16a;
+        vu32 var32c;
+        vu32 var32d;
+        Modify_B_READ +=Xconvert;//测量电压值
+		Modify_B_READ = Modify_B_READ/2;
+
+        Modify_B_ACT = 0x0276;//读取高段
+//        if(flag_OverV==1)//只有当有数据写入时才能将校准数据写入FLASH
+//        {
+            var32a = Modify_B_ACT;
+            var32a = var32a - Modify_A_ACT;
+            var32a = var32a << 12;
+            var16 = Modify_B_READ - Modify_A_READ;
+            var32a = var32a / var16;
+            XCOR = var32a;
+            var32a=0;
+            var32a = Modify_B_ACT;
+            var32a = var32a << 12;
+            var32b = Modify_B_READ;
+            var32b = var32b * XCOR;
+            if (var32a < var32b)
+            {
+                var32b = var32b - var32a;
+                XOffset = var32b;
+                Polar1 |= 0x01;
+            }
+            else 
+            {
+                var32a = var32a - var32b;
+                XOffset = var32a;
+                Polar1 &= ~0x01;
+            }
+//        }
+		Save_flag();
+		Modify_A_READ = 0;
+		Modify_C_READ = 0;
+		Modify_A_ACT = 0;
+		Modify_B_READ = 0;
+		Modify_D_READ = 0;
+		Modify_B_ACT = 0;
+		
+    }
+	
+	if(step == 5)
+    {
+        Modify_A_READ += Yconvert;//测量电压值		
+    }else if(step == 6){
+		Modify_A_READ += Yconvert;
+		Modify_A_READ = Modify_A_READ/2;
+		Modify_A_ACT = 0x0A;//读取低段
+	}else if(step == 7){
+		Modify_B_READ += Yconvert;
+	}else if(step == 8){
+        vu16 var16;
+        vu32 var32a;
+        vu32 var32b;
+        
+        vu16 var16a;
+        vu32 var32c;
+        vu32 var32d;
+        Modify_B_READ +=Yconvert;//测量电压值
+		Modify_B_READ = Modify_B_READ/2;
+
+        Modify_B_ACT = 0x01D6;//读取高段
+//        if(flag_OverV==1)//只有当有数据写入时才能将校准数据写入FLASH
+//        {
+            var32a = Modify_B_ACT;
+            var32a = var32a - Modify_A_ACT;
+            var32a = var32a << 12;
+            var16 = Modify_B_READ - Modify_A_READ;
+            var32a = var32a / var16;
+            YCOR = var32a;
+            var32a=0;
+            var32a = Modify_B_ACT;
+            var32a = var32a << 12;
+            var32b = Modify_B_READ;
+            var32b = var32b * YCOR;
+            if (var32a < var32b)
+            {
+                var32b = var32b - var32a;
+                YOffset = var32b;
+                Polar2 |= 0x01;
+            }
+            else 
+            {
+                var32a = var32a - var32b;
+                YOffset = var32a;
+                Polar2 &= ~0x01;
+            }
+//        }
+		Save_flag();
+		Modify_A_READ = 0;
+		Modify_C_READ = 0;
+		Modify_A_ACT = 0;
+		Modify_B_READ = 0;
+		Modify_D_READ = 0;
+		Modify_B_ACT = 0;
+		
+    }
 }

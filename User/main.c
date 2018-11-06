@@ -220,7 +220,7 @@ float ch_temp[40];
 int main(void)
 {
 	static u8 powerstat;
-	static u8 ledstat;
+//	static u8 ledstat;
 	u8 test[9] = {0X01,0X03,0X02,0X58,0X00,0X01,0X02,0X00,0X05};
 	 __IO uint32_t i = 0;
 //	u8 res;
@@ -475,7 +475,7 @@ void TempDisplay(void)
 {
 	char buf[10];
 	static u8 eqmtstatus;
-	u8 i;
+//	u8 i;
 		
 	if(page_flag == display)
 	{		
@@ -1228,6 +1228,7 @@ void Save_flag(void)
 	SPI_FLASH_BufferWrite((void*)TempLLimits,SPI_FLASH_PageSize*2, sizeof(TempLLimits));
 	SPI_FLASH_BufferWrite((void*)YLIMIT,SPI_FLASH_PageSize*3, sizeof(YLIMIT));
 	SPI_FLASH_BufferWrite((void*)Correction,SPI_FLASH_PageSize*4, sizeof(Correction));
+	SPI_FLASH_BufferWrite((void*)corpara,SPI_FLASH_PageSize*5, sizeof(corpara));
 //	Save_Sflag();
 }
 
@@ -1238,6 +1239,7 @@ void Read_flag(void)
 	SPI_FLASH_BufferRead((void *)TempLLimits,SPI_FLASH_PageSize*2, sizeof(TempLLimits));
 	SPI_FLASH_BufferRead((void *)YLIMIT,SPI_FLASH_PageSize*3, sizeof(YLIMIT));
 	SPI_FLASH_BufferRead((void*)Correction,SPI_FLASH_PageSize*4, sizeof(Correction));
+	SPI_FLASH_BufferRead((void*)corpara,SPI_FLASH_PageSize*5, sizeof(corpara));
 	Read_Sflag();
 	//	Read_history();
 }
@@ -1330,16 +1332,16 @@ void Read_flag(void)
 void UsbDataHandle(void)
 {
 	u8 i;
-	u8 j;
+//	u8 j;
 	uint16_t sendcrc;
 	u8 creclen;
 	u8 csendlen;
 
-		u16 voltage;//电压
-	u16 current;
-	u32 power;  //功率
-	u16 frequancy;
-	u16 PF;//功率因数
+//	u16 voltage;//电压
+//	u16 current;
+//	u32 power;  //功率
+//	u16 frequancy;
+//	u16 PF;//功率因数
 	
 	if(usbbuf[0] == 0x01)
 	{
@@ -1973,7 +1975,7 @@ int hex_to_bcd(int data)
 void Erase_all(void)
 {
 	static u16 serec = 2;
-	static u8 Check[4096];
+//	static u8 Check[4096];
 	SPI_FLASH_SectorErase(serec*4096);
 	SPI_FLASH_SectorErase(15880192+serec*4096);
 	Delay(500);

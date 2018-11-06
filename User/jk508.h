@@ -36,6 +36,7 @@ extern u8 tempreq[8];
 extern u8 usbreadtime[7];
 extern u16 his_config[10];
 extern u8 reqcode;
+extern u32 corpara[20];
 //extern u8 usbreadtime;
 extern u8 eqmtstatus;
 extern u8 cor_page;
@@ -94,6 +95,7 @@ int hex_to_bcd(int data);
 void DrawTime(void);
 void hispage(u16 page);
 void TouchCal(void);
+void XYCAL(u8 step);
 
 extern u8 usbbuf[0x40];
 uint16_t CRC16(uint8_t *puchMsg, uint8_t Len);
@@ -399,6 +401,14 @@ uint32_t Flash_DisableReadProtection(void);
 #define   BRTS						savedata[49]  //亮度标志位
 #define   DIM						savedata[50]  //降低亮度标志位
 #define   CHNUM						savedata[51]//设备通道数
+
+/* 校准参数 */
+#define   XCOR						corpara[0]  
+#define   XOffset					corpara[1]
+#define   YCOR						corpara[2]
+#define   YOffset					corpara[3]
+#define   Polar1					corpara[4]
+#define   Polar2					corpara[5]
 
 /*USB状态*/
 #define UNKNOWN		     2

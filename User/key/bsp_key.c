@@ -12785,7 +12785,7 @@ void KEY1_HANDLE(void)
 	{
 		case display:
 		{
-			Utest();
+			TouchCal();
 		}break;
 		case separation:
 		{
@@ -12802,6 +12802,10 @@ void KEY1_HANDLE(void)
 		case history:
 		{
 			input_num("1");			
+		}break;
+		case touchcal:
+		{
+			XYCAL(1);
 		}break;
 	}
 }
@@ -12828,7 +12832,11 @@ void KEY2_HANDLE(void)
 		}break;
 		case display:
 		{
-			 CH376FileClose(TRUE);
+//			 CH376FileClose(TRUE);
+		}break;
+		case touchcal:
+		{
+			XYCAL(2);
 		}break;
 	}
 }
@@ -12853,6 +12861,10 @@ void KEY3_HANDLE(void)
 		{
 			input_num("3");			
 		}break;
+		case touchcal:
+		{
+			XYCAL(3);
+		}break;
 	}
 }
 
@@ -12875,6 +12887,10 @@ void KEY4_HANDLE(void)
 		case history:
 		{
 			input_num("4");			
+		}break;
+		case touchcal:
+		{
+			XYCAL(4);
 		}break;
 	}
 }
@@ -12899,6 +12915,10 @@ void KEY5_HANDLE(void)
 		{
 			input_num("5");			
 		}break;
+		case touchcal:
+		{
+			XYCAL(5);
+		}break;
 	}
 }
 
@@ -12921,6 +12941,10 @@ void KEY6_HANDLE(void)
 		case history:
 		{
 			input_num("6");			
+		}break;
+		case touchcal:
+		{
+			XYCAL(6);
 		}break;
 	}
 }
@@ -12945,6 +12969,10 @@ void KEY7_HANDLE(void)
 		{
 			input_num("7");			
 		}break;
+		case touchcal:
+		{
+			XYCAL(7);
+		}break;
 	}
 }
 
@@ -12967,6 +12995,10 @@ void KEY8_HANDLE(void)
 		case history:
 		{
 			input_num("8");			
+		}break;
+		case touchcal:
+		{
+			XYCAL(8);
 		}break;
 	}
 }

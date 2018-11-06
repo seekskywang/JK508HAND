@@ -118,7 +118,7 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>DLGUARM</Key>
-          <Name>/</Name>
+          <Name>$?</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -367,6 +367,36 @@
           <count>43</count>
           <WinNumber>1</WinNumber>
           <ItemText>ADC_ConvertedValue</ItemText>
+        </Ww>
+        <Ww>
+          <count>44</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>ADX</ItemText>
+        </Ww>
+        <Ww>
+          <count>45</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>ADY</ItemText>
+        </Ww>
+        <Ww>
+          <count>46</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>Xconvert</ItemText>
+        </Ww>
+        <Ww>
+          <count>47</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>Yconvert</ItemText>
+        </Ww>
+        <Ww>
+          <count>48</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>XCOOR</ItemText>
+        </Ww>
+        <Ww>
+          <count>49</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>YCOOR</ItemText>
         </Ww>
       </WatchWindow1>
       <WatchWindow2>

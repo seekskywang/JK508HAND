@@ -30,30 +30,25 @@ Build target 'LCD'
 compiling main.c...
 ..\..\User\main.c(222): warning:  #550-D: variable "powerstat"  was set but never used
         static u8 powerstat;
-..\..\User\main.c(223): warning:  #177-D: variable "ledstat"  was declared but never referenced
-        static u8 ledstat;
-..\..\User\main.c(478): warning:  #177-D: variable "i"  was declared but never referenced
-        u8 i;
-..\..\User\main.c(1333): warning:  #177-D: variable "j"  was declared but never referenced
-        u8 j;
-..\..\User\main.c(1338): warning:  #177-D: variable "voltage"  was declared but never referenced
-                u16 voltage;//电压
-..\..\User\main.c(1339): warning:  #177-D: variable "current"  was declared but never referenced
-        u16 current;
-..\..\User\main.c(1340): warning:  #177-D: variable "power"  was declared but never referenced
-        u32 power;  //功率
-..\..\User\main.c(1341): warning:  #177-D: variable "frequancy"  was declared but never referenced
-        u16 frequancy;
-..\..\User\main.c(1342): warning:  #177-D: variable "PF"  was declared but never referenced
-        u16 PF;//功率因数
-..\..\User\main.c(1976): warning:  #177-D: variable "Check"  was declared but never referenced
-        static u8 Check[4096];
-..\..\User\main.c: 10 warnings, 0 errors
-compiling home.c...
+..\..\User\main.c: 1 warning, 0 errors
+compiling touchscreen.c...
+..\..\User\touchscreen.c(230): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+                XCOOR = (int)(6.88*(float)Xconvert-24.4);
+..\..\User\touchscreen.c(237): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+                YCOOR = 480 - (int)(5.22*(float)Yconvert-16.1);
+..\..\User\touchscreen.c(189): warning:  #177-D: variable "var32"  was declared but never referenced
+        u32 var32;
+..\..\User\touchscreen.c(387): warning:  #1-D: last line of file ends without a newline
+  }
+..\..\User\touchscreen.c(178): warning:  #177-D: function "set_yz"  was declared but never referenced
+  static void set_yz(void){     X_P1;   X_N1;   Y_P0;   Y_N0;}
+..\..\User\touchscreen.c(181): warning:  #177-D: function "set_mid"  was declared but never referenced
+  static void set_mid(void){    X_P0;   X_N1;   Y_P1;   Y_N0;}
+..\..\User\touchscreen.c: 6 warnings, 0 errors
 linking...
-Program Size: Code=124588 RO-data=98504 RW-data=620 ZI-data=68844  
+Program Size: Code=125700 RO-data=98504 RW-data=652 ZI-data=68948  
 FromELF: creating hex file...
-"..\..\Output\LCD.axf" - 0 Error(s), 10 Warning(s).
+"..\..\Output\LCD.axf" - 0 Error(s), 7 Warning(s).
 
 <h2>Software Packages used:</h2>
 
