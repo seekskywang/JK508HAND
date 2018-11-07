@@ -219,7 +219,7 @@ float ch_temp[40];
 
 int main(void)
 {
-	static u8 powerstat;
+//	static u8 powerstat;
 //	static u8 ledstat;
 	u8 test[9] = {0X01,0X03,0X02,0X58,0X00,0X01,0X02,0X00,0X05};
 	 __IO uint32_t i = 0;
@@ -341,6 +341,8 @@ int main(void)
 		RTC_TimeAndDate_Show();
 		/*按键扫描*/		
 		Key_Function();
+		TouchHandle(XCOOR,YCOOR);
+//		Touch_Scan();
 //		CH1TEMP = (RecBuff[21] * 256 + RecBuff[22])/10.0;
 		DrawBattery(battery);
 		
@@ -348,7 +350,7 @@ int main(void)
 		BEEP_ON;
 		Delay(0xfff);
 		BEEP_OFF;
-		powerstat = GPIO_ReadInputDataBit(GPIOI,GPIO_Pin_11);
+//		powerstat = GPIO_ReadInputDataBit(GPIOI,GPIO_Pin_11);
 //		DCD_EP_PrepareRx(&USB_OTG_dev,HID_OUT_EP,usbbuf,64);//接收PC数据
 //		if(UsbHidReceiveComplete)                         //接收到数据
 //		{

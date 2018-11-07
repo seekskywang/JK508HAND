@@ -27,28 +27,34 @@ Project File Date:  09/13/2018
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 5 (build 528)', folder: 'D:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'LCD'
-compiling main.c...
-..\..\User\main.c(222): warning:  #550-D: variable "powerstat"  was set but never used
-        static u8 powerstat;
-..\..\User\main.c: 1 warning, 0 errors
 compiling touchscreen.c...
 ..\..\User\touchscreen.c(230): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-                XCOOR = (int)(6.88*(float)Xconvert-24.4);
+                XCOOR = (int)(8.49*(float)Xconvert-15.48);
 ..\..\User\touchscreen.c(237): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-                YCOOR = 480 - (int)(5.22*(float)Yconvert-16.1);
+                YCOOR = 480 - (int)(6.38*(float)Yconvert-9.16);
 ..\..\User\touchscreen.c(189): warning:  #177-D: variable "var32"  was declared but never referenced
         u32 var32;
-..\..\User\touchscreen.c(387): warning:  #1-D: last line of file ends without a newline
+..\..\User\touchscreen.c(266): warning:  #223-D: function "focus_on" declared implicitly
+                                                focus_on(CH1_SW);
+..\..\User\touchscreen.c(269): warning:  #223-D: function "focus_on" declared implicitly
+                                                focus_on(CH9_SW);
+..\..\User\touchscreen.c(272): warning:  #223-D: function "focus_on" declared implicitly
+                                                focus_on(CH17_SW);
+..\..\User\touchscreen.c(275): warning:  #223-D: function "focus_on" declared implicitly
+                                                focus_on(CH25_SW);
+..\..\User\touchscreen.c(278): warning:  #223-D: function "focus_on" declared implicitly
+                                                focus_on(CH33_SW);
+..\..\User\touchscreen.c(417): warning:  #1-D: last line of file ends without a newline
   }
 ..\..\User\touchscreen.c(178): warning:  #177-D: function "set_yz"  was declared but never referenced
   static void set_yz(void){     X_P1;   X_N1;   Y_P0;   Y_N0;}
 ..\..\User\touchscreen.c(181): warning:  #177-D: function "set_mid"  was declared but never referenced
   static void set_mid(void){    X_P0;   X_N1;   Y_P1;   Y_N0;}
-..\..\User\touchscreen.c: 6 warnings, 0 errors
+..\..\User\touchscreen.c: 11 warnings, 0 errors
 linking...
-Program Size: Code=125700 RO-data=98504 RW-data=652 ZI-data=68948  
+Program Size: Code=126044 RO-data=98724 RW-data=648 ZI-data=68944  
 FromELF: creating hex file...
-"..\..\Output\LCD.axf" - 0 Error(s), 7 Warning(s).
+"..\..\Output\LCD.axf" - 0 Error(s), 11 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -62,7 +68,7 @@ Package Vendor: Keil
   D:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:03
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>

@@ -76,6 +76,7 @@ void page_sys(void)
 //		LCD_DisplayStringLine(134,10,"ÕËºÅ");
 		LCD_DisplayStringLine(134,10,"±³¹â");
 		LCD_DisplayStringLine(174,10,"½µµÍÁÁ¶È");
+		LCD_DisplayStringLine(214,10,"´¥ÃþÆÁ");
 	}else{
 		LCD_SetTextColor(LCD_COLOR_HLT);  		
 		LCD_SetBackColor(LCD_COLOR_BACK);
@@ -88,6 +89,7 @@ void page_sys(void)
 //		LCD_DisplayStringLine(130,10,"ACCOUNT");
 		LCD_DisplayStringLine(130,10,"BRIGHTNESS");
 		LCD_DisplayStringLine(170,10,"DIM BRIGHT");
+		LCD_DisplayStringLine(210,10,"TOUCH PANEL");
 	}
 	
 	LCD_SetTextColor(LCD_COLOR_BLACK);
@@ -112,7 +114,7 @@ void page_sys(void)
 		LCD_DisplayStringLine(130,170,(uint8_t*)buf);
 		if(DIM == DOFF)
 		{
-			LCD_DisplayStringLine(172,170,"¹Ø±Õ");
+			LCD_DisplayStringLine(174,170,"¹Ø±Õ");
 		}else if(DIM == D5){
 			sprintf(buf,"%d",5);
 			LCD_DisplayStringLine(172,170,(uint8_t*)buf);
@@ -126,7 +128,12 @@ void page_sys(void)
 			sprintf(buf,"%d",30);
 			LCD_DisplayStringLine(172,170,(uint8_t*)buf);
 		}
-		
+		if(TOUCH == op_on)
+		{
+			LCD_DisplayStringLine(214,170,"´ò¿ª");
+		}else{
+			LCD_DisplayStringLine(214,170,"¹Ø±Õ");
+		}
 	}else{
 		LCD_DisplayStringLine(50,170,"ENGLISH");
 		LCD_SetTextColor(LCD_COLOR_YELLOW);
@@ -164,6 +171,13 @@ void page_sys(void)
 		}else if(DIM == D30){
 			sprintf(buf,"%d",30);
 			LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+		}
+		
+		if(TOUCH == op_on)
+		{
+			LCD_DisplayStringLine(212,170,"ON");
+		}else{
+			LCD_DisplayStringLine(212,170,"OFF");
 		}
 	}
 	LCD_SetTextColor(LCD_COLOR_YELLOW);

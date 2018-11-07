@@ -49,8 +49,6 @@ extern u16 graphcount;
 extern u8 reflag;
 extern char UsbHidReceiveComplete;
 extern u16 hpage;
-extern u16 XCOOR;
-extern u16 YCOOR;
 
 
 void page_home(void);
@@ -98,7 +96,6 @@ void DrawTime(void);
 void hispage(u16 page);
 void TouchCal(void);
 void XYCAL(u8 step);
-void TouchHandle(u16 x,u16 y);
 
 extern u8 usbbuf[0x40];
 uint16_t CRC16(uint8_t *puchMsg, uint8_t Len);
@@ -404,7 +401,6 @@ uint32_t Flash_DisableReadProtection(void);
 #define   BRTS						savedata[49]  //亮度标志位
 #define   DIM						savedata[50]  //降低亮度标志位
 #define   CHNUM						savedata[51]//设备通道数
-#define   TOUCH						savedata[52]//设备通道数
 
 /* 校准参数 */
 #define   XCOR						corpara[0]  
@@ -539,7 +535,6 @@ uint32_t Flash_DisableReadProtection(void);
 #define set_c8		 	 90
 #define set_brt			 91//亮度
 #define set_dim		     92//降低亮度
-#define set_touch		 93//触摸屏设置
 
 /* 字体标志位 */
 #define big	             0
@@ -600,9 +595,9 @@ uint32_t Flash_DisableReadProtection(void);
 #define op_off          0
 
 /* 触摸有效范围 */
-#define BIGCH1X1		5			
-#define BIGCH1X2		70
-#define BIGCH1Y1		90			
-#define BIGCH1Y2		140
+#define BIGCH1X1		10			
+#define BIGCH1X2		60
+#define BIGCH1Y1		100			
+#define BIGCH1Y2		132
 
 #endif

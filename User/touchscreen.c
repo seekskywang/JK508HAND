@@ -219,23 +219,24 @@ void Touch_Scan(void)
 		}
 	}
 	i++;
-	Xconvert = (ADX[1] + ADX[3])/2/40;
-	Yconvert = (ADY[1] + ADY[3])/2/40;
+	Xconvert = (ADX[1] + ADX[3])/2/50;
+	Yconvert = (ADY[1] + ADY[3])/2/50;
 	
 
-	if(Xconvert <= 3)
+	if(Xconvert <= 4)
 	{
 		XCOOR = 0;
 	}else{
-		XCOOR = (int)(6.88*(float)Xconvert-24.4);
+		XCOOR = (int)(8.49*(float)Xconvert-15.48);
 	}
 	
 	if(Yconvert <= 3)
 	{
 		YCOOR = 0;
 	}else{
-		YCOOR = 480 - (int)(5.22*(float)Yconvert-16.1);
+		YCOOR = 480 - (int)(6.38*(float)Yconvert-9.16);
 	}
+	
 	
 }
 
@@ -256,7 +257,36 @@ void TouchHandle(u16 x,u16 y)
 	{
 		case display:
 		{
-			
+			if(FONT == big)
+			{
+				if(x >= BIGCH1X1 && x < BIGCH1X2 && y > BIGCH1Y1 && y < BIGCH1Y2 )
+				{
+					if(ch_page == page1)
+					{
+						focus_on(CH1_SW);
+						LCD_DisplayStringLine_48(100,10,"001");
+					}else if(ch_page == page2){
+						focus_on(CH9_SW);
+						LCD_DisplayStringLine_48(100,10,"009");
+					}else if(ch_page == page3){
+						focus_on(CH17_SW);
+						LCD_DisplayStringLine_48(100,10,"017");
+					}else if(ch_page == page4){
+						focus_on(CH25_SW);
+						LCD_DisplayStringLine_48(100,10,"025");
+					}else if(ch_page == page5){
+						focus_on(CH33_SW);
+						LCD_DisplayStringLine_48(100,10,"033");
+					}
+					if(LANG == chs)
+					{
+						DrawInstruction("Í¨µÀÉèÖÃ");
+					}else{
+						DrawInstruction("Channel set");
+					}
+					op_flag = home_ch1;
+				}			
+			}
 		}break;
 	}
 }

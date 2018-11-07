@@ -8420,7 +8420,7 @@ void UP_HANDLE(void)
 						if(DIM == DOFF)
 						{
 //							brightness = 10;
-							LCD_DisplayStringLine(172,170,"关闭");
+							LCD_DisplayStringLine(174,170,"关闭");
 						}else if(DIM == D5){
 							sprintf(buf,"%d",5);
 							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
@@ -10551,7 +10551,7 @@ void DOWN_HANDLE(void)
 					{
 						if(DIM == DOFF)
 						{
-							LCD_DisplayStringLine(172,170,"关闭");
+							LCD_DisplayStringLine(174,170,"关闭");
 						}else if(DIM == D5){
 							sprintf(buf,"%d",5);
 							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
@@ -10590,6 +10590,63 @@ void DOWN_HANDLE(void)
 						DrawInstruction("Reduce brightness");
 					}
 					op_flag = set_dim;
+				}break;
+				case set_dim:
+				{
+					focus_off1();
+					if(LANG == chs)
+					{
+						if(DIM == DOFF)
+						{
+							LCD_DisplayStringLine(174,170,"关闭");
+						}else if(DIM == D5){
+							sprintf(buf,"%d",5);
+							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+						}else if(DIM == D10){
+							sprintf(buf,"%d",10);
+							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+						}else if(DIM == D15){
+							sprintf(buf,"%d",15);
+							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+						}else if(DIM == D30){
+							sprintf(buf,"%d",30);
+							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+						}
+					}else if(LANG  == eng){
+						if(DIM == DOFF)
+						{
+							LCD_DisplayStringLine(172,170,"OFF");
+						}else if(DIM == D5){
+							sprintf(buf,"%d",5);
+							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+						}else if(DIM == D10){
+							sprintf(buf,"%d",10);
+							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+						}else if(DIM == D15){
+							sprintf(buf,"%d",15);
+							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+						}else if(DIM == D30){
+							sprintf(buf,"%d",30);
+							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+						}
+					}
+					focus_on1();
+					if(LANG == chs)
+					{
+						if(TOUCH == op_on)
+						{
+							LCD_DisplayStringLine(214,170,"打开");
+						}else{
+							LCD_DisplayStringLine(214,170,"关闭");
+						}
+					}else if(LANG  == eng){
+						if(TOUCH == op_on)
+						{
+							LCD_DisplayStringLine(212,170,"ON");
+						}else{
+							LCD_DisplayStringLine(212,170,"OFF");
+						}
+					}
 				}break;
 			}
 		}break;

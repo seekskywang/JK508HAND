@@ -73,7 +73,7 @@ static void TIM_Mode_Config(void)
 
   /* 累计 TIM_Period个后产生一个更新或者中断*/		
   //当定时器从0计数到4999，即为5000次，为一个定时周期
-  TIM_TimeBaseStructure.TIM_Period = 400-1;       
+  TIM_TimeBaseStructure.TIM_Period = 100-1;       
 	
 	//定时器时钟源TIMxCLK = 2 * PCLK1  
   //				PCLK1 = HCLK / 4 
@@ -142,7 +142,7 @@ void TIM_PWMOUTPUT_Config(u8 duty)
 
   /* 累计 TIM_Period个后产生一个更新或者中断*/		
   //当定时器从0计数到8999，即为9000次，为一个定时周期
-  TIM_TimeBaseStructure.TIM_Period = 100-1;       
+  TIM_TimeBaseStructure.TIM_Period = 200-1;       
 	
 	// 高级控制定时器时钟源TIMxCLK = HCLK/2=90MHz 
 	// 设定定时器频率为=TIMxCLK/(TIM_Prescaler+1)=100KHz
