@@ -322,7 +322,7 @@ int main(void)
 	FlashID = SPI_FLASH_ReadID();
 	if (FlashID == sFLASH_ID) 
 	{
-		Delay(500);
+//		Delay(500);
 		Read_flag();
 		Read_Sflag();
 		Read_Flash_Init_Handle();
@@ -341,7 +341,12 @@ int main(void)
 		RTC_TimeAndDate_Show();
 		/*°´¼üÉ¨Ãè*/		
 		Key_Function();
-		TouchHandle(XCOOR,YCOOR);
+		
+		if(touchflag == 1)
+		{
+			Delay(1000);
+			TouchHandle(XCOOR,YCOOR);
+		}
 //		Touch_Scan();
 //		CH1TEMP = (RecBuff[21] * 256 + RecBuff[22])/10.0;
 		DrawBattery(battery);

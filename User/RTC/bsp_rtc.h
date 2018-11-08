@@ -4,13 +4,13 @@
 #include "stm32f4xx.h"
 
 // 时钟源宏定义
-//#define RTC_CLOCK_SOURCE_LSE      
-#define RTC_CLOCK_SOURCE_LSI
+#define RTC_CLOCK_SOURCE_LSE      
+//#define RTC_CLOCK_SOURCE_LSI
 
 // 异步分频因子
-#define ASYNCHPREDIV         0X7E
+#define ASYNCHPREDIV         0X7F
 // 同步分频因子
-#define SYNCHPREDIV          0X0108
+#define SYNCHPREDIV          0XFF
 extern u8 date_time[6];
 
 

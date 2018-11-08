@@ -142,7 +142,7 @@ void TIM_PWMOUTPUT_Config(u8 duty)
 
   /* 累计 TIM_Period个后产生一个更新或者中断*/		
   //当定时器从0计数到8999，即为9000次，为一个定时周期
-  TIM_TimeBaseStructure.TIM_Period = 200-1;       
+  TIM_TimeBaseStructure.TIM_Period = 100-1;       
 	
 	// 高级控制定时器时钟源TIMxCLK = HCLK/2=90MHz 
 	// 设定定时器频率为=TIMxCLK/(TIM_Prescaler+1)=100KHz
@@ -195,6 +195,7 @@ void BASIC_TIM_IRQHandler (void)
 	{
 		Key_Scan();//按键扫描
 		Touch_Scan();//触摸扫描
+		
 		DCD_EP_PrepareRx(&USB_OTG_dev,HID_OUT_EP,usbbuf,64);//接收PC数据
 		if(UsbHidReceiveComplete)                         //接收到数据
 		{
@@ -226,37 +227,37 @@ void BASIC_TIM_IRQHandler (void)
 			if(DIM == DOFF)
 			{				
 			}else if(DIM == D5){
-				if(dim_time < 7500)
+				if(dim_time < 7500*4)
 				{
 					dim_time++;
-				}else if(dim_time == 7500)
+				}else if(dim_time == 7500*4)
 				{
 					TIM_PWMOUTPUT_Config(10);
 					dimflag = 1;
 				}
 			}else if(DIM == D10){
-				if(dim_time < 15000)
+				if(dim_time < 15000*4)
 				{
 					dim_time++;
-				}else if(dim_time == 15000)
+				}else if(dim_time == 15000*4)
 				{
 					TIM_PWMOUTPUT_Config(10);
 					dimflag = 1;
 				}
 			}else if(DIM == D15){
-				if(dim_time < 22500)
+				if(dim_time < 22500*4)
 				{
 					dim_time++;
-				}else if(dim_time == 22500)
+				}else if(dim_time == 22500*4)
 				{
 					TIM_PWMOUTPUT_Config(10);
 					dimflag = 1;
 				}
 			}else if(DIM == D30){
-				if(dim_time < 45000)
+				if(dim_time < 45000*4)
 				{
 					dim_time++;
-				}else if(dim_time == 45000)
+				}else if(dim_time == 45000*4)
 				{
 					TIM_PWMOUTPUT_Config(10);
 					dimflag = 1;

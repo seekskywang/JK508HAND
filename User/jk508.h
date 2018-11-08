@@ -51,6 +51,7 @@ extern char UsbHidReceiveComplete;
 extern u16 hpage;
 extern u16 XCOOR;
 extern u16 YCOOR;
+extern u8 touchflag;
 
 
 void page_home(void);
@@ -99,6 +100,7 @@ void hispage(u16 page);
 void TouchCal(void);
 void XYCAL(u8 step);
 void TouchHandle(u16 x,u16 y);
+void ChannelSwtichBig(void);
 
 extern u8 usbbuf[0x40];
 uint16_t CRC16(uint8_t *puchMsg, uint8_t Len);
@@ -600,9 +602,44 @@ uint32_t Flash_DisableReadProtection(void);
 #define op_off          0
 
 /* 触摸有效范围 */
-#define BIGCH1X1		5			
-#define BIGCH1X2		70
+/*大字体*/
+//左列横坐标
+#define BIGCHLX1		5			
+#define BIGCHLX2		70
+//右列横坐标
+#define BIGCHRX1		325			
+#define BIGCHRX2		390
+//纵坐标
 #define BIGCH1Y1		90			
 #define BIGCH1Y2		140
+
+#define BIGCH2Y1		160			
+#define BIGCH2Y2		210
+
+#define BIGCH3Y1		230			
+#define BIGCH3Y2		280
+
+#define BIGCH4Y1		300			
+#define BIGCH4Y2		350
+
+/*热电偶类型设置*/
+#define TCTYPEX1		90			
+#define TCTYPEX2		160
+#define TCTYPEY1		45			
+#define TCTYPEY2		80
+/*底部菜单*/
+#define MENU1X1			5			
+#define MENU1X2			120
+#define MENU2X1			135			
+#define MENU2X2			250
+#define MENU3X1			5			
+#define MENU3X2			120
+#define MENU4X1			5			
+#define MENU4X2			120
+#define MENU5X1			5			
+#define MENU5X2			120
+#define MENUY1			135			
+#define MENUY2			250
+
 
 #endif

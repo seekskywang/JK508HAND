@@ -28,70 +28,16 @@ Project File Date:  09/13/2018
 *** Using Compiler 'V5.06 update 5 (build 528)', folder: 'D:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'LCD'
 compiling main.c...
+compiling stm32f4xx_it.c...
+..\..\User\stm32f4xx_it.c(305): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+                                                        G_Data[i][count] = (graphbuf[i][0]/
+ULTI * 256 + graphbuf[i][1]/
+ULTI)/10.0 - Correction[i];                                                     
+..\..\User\stm32f4xx_it.c: 1 warning, 0 errors
+compiling bsp_lcd.c...
+..\..\User\lcd\bsp_lcd.c(2044): warning:  #550-D: variable "k"  was set but never used
+    float k = 0, rad1 = 0, rad2 = 0;
+..\..\User\lcd\bsp_lcd.c(2101): warning:  #550-D: variable "k"  was set but never used
+    float k = 0, rad1 = 0, rad2 = 0;
+..\..\User\lcd\bsp_lcd.c: 2 warnings, 0 errors
 compiling bsp_key.c...
-..\..\User\key\bsp_key.c(2557): warning:  #177-D: variable "i"  was declared but never referenced
-        static u16 i;
-..\..\User\key\bsp_key.c(13222): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "const char *restrict"
-                strcpy((char *)TarName,filename);
-..\..\User\key\bsp_key.c(13288): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "const char *restrict"
-        strcpy((char *)TarName,filename);
-..\..\User\key\bsp_key.c(13293): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "char *restrict"
-        sprintf(buf, "\n%d\t20%02d-%02d-%02d\t%02d:%02d:%02d"
-..\..\User\key\bsp_key.c(13309): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "char *restrict"
-                        strcpy(buf,"\tN/A");
-..\..\User\key\bsp_key.c(13311): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "char *restrict"
-                        sprintf(buf,"\t%.1f",ch_temp[i]);
-..\..\User\key\bsp_key.c(13213): warning:  #550-D: variable "s"  was set but never used
-        static u8 s;
-..\..\User\key\bsp_key.c: 7 warnings, 0 errors
-compiling bsp_rtc.c...
-compiling touchscreen.c...
-..\..\User\touchscreen.c(230): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-                XCOOR = (int)(8.49*(float)Xconvert-15.48);
-..\..\User\touchscreen.c(237): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-                YCOOR = 480 - (int)(6.38*(float)Yconvert-9.16);
-..\..\User\touchscreen.c(189): warning:  #177-D: variable "var32"  was declared but never referenced
-        u32 var32;
-..\..\User\touchscreen.c(266): warning:  #223-D: function "focus_on" declared implicitly
-                                                focus_on(CH1_SW);
-..\..\User\touchscreen.c(269): warning:  #223-D: function "focus_on" declared implicitly
-                                                focus_on(CH9_SW);
-..\..\User\touchscreen.c(272): warning:  #223-D: function "focus_on" declared implicitly
-                                                focus_on(CH17_SW);
-..\..\User\touchscreen.c(275): warning:  #223-D: function "focus_on" declared implicitly
-                                                focus_on(CH25_SW);
-..\..\User\touchscreen.c(278): warning:  #223-D: function "focus_on" declared implicitly
-                                                focus_on(CH33_SW);
-..\..\User\touchscreen.c(417): warning:  #1-D: last line of file ends without a newline
-  }
-..\..\User\touchscreen.c(178): warning:  #177-D: function "set_yz"  was declared but never referenced
-  static void set_yz(void){     X_P1;   X_N1;   Y_P0;   Y_N0;}
-..\..\User\touchscreen.c(181): warning:  #177-D: function "set_mid"  was declared but never referenced
-  static void set_mid(void){    X_P0;   X_N1;   Y_P1;   Y_N0;}
-..\..\User\touchscreen.c: 11 warnings, 0 errors
-compiling graph.c...
-compiling history.c...
-..\..\User\APP\history.c(332): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-        LCD_DisplayStringLine(400,550,buf);
-..\..\User\APP\history.c: 1 warning, 0 errors
-linking...
-Program Size: Code=126220 RO-data=98724 RW-data=652 ZI-data=68948  
-FromELF: creating hex file...
-"..\..\Output\LCD.axf" - 0 Error(s), 19 Warning(s).
-
-<h2>Software Packages used:</h2>
-
-Package Vendor: Keil
-                http://www.keil.com/pack/Keil.STM32F4xx_DFP.2.12.0.pack
-                Keil.STM32F4xx_DFP.2.12.0
-                STMicroelectronics STM32F4 Series Device Support, Drivers and Examples
-
-<h2>Collection of Component include folders:</h2>
-  .\RTE\_LCD
-  D:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
-
-<h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:08
-</pre>
-</body>
-</html>

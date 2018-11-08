@@ -2866,7 +2866,7 @@ void FUNC5_HANDLE(void)
 								LCD_DisplayStringLine_48(170,330,"030");
 							}
 							
-							if(CH31_SW == ch_off)							{
+							if(CH31_SW == ch_off){
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
 								LCD_DisplayStringLine_48(240,330,"031");
