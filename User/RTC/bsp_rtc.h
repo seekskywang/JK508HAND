@@ -8,7 +8,7 @@
 #define RTC_CLOCK_SOURCE_LSI
 
 // 异步分频因子
-#define ASYNCHPREDIV         0X7F
+#define ASYNCHPREDIV         0X7E
 // 同步分频因子
 #define SYNCHPREDIV          0X0108
 extern u8 date_time[6];

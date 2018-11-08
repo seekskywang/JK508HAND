@@ -187,7 +187,7 @@ void TIMx_Configuration(void)
 void BASIC_TIM_IRQHandler (void)
 {
 	static u8 sendcount;
-	static u16 dim_time;
+	static u32 dim_time;
 	static u8 dimflag;
 	static u8 usave;
 	u8 i;
