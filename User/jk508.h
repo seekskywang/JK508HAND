@@ -101,6 +101,8 @@ void TouchCal(void);
 void XYCAL(u8 step);
 void TouchHandle(u16 x,u16 y);
 void ChannelSwtichBig(void);
+void ChannelSwtichMid(void);
+void ChannelSwtichSml(void);
 
 extern u8 usbbuf[0x40];
 uint16_t CRC16(uint8_t *puchMsg, uint8_t Len);
@@ -622,6 +624,83 @@ uint32_t Flash_DisableReadProtection(void);
 #define BIGCH4Y1		300			
 #define BIGCH4Y2		350
 
+/*中字体*/
+//左列横坐标
+#define MIDCHLX1		5			
+#define MIDCHLX2		55
+//中列横坐标
+#define MIDCHMX1		205			
+#define MIDCHMX2		255
+//右列横坐标
+#define MIDCHRX1		405			
+#define MIDCHRX2		455
+//纵坐标
+#define MIDCH1Y1		100			
+#define MIDCH1Y2		125
+
+#define MIDCH2Y1		140			
+#define MIDCH2Y2		165
+
+#define MIDCH3Y1		180			
+#define MIDCH3Y2		205
+
+#define MIDCH4Y1		220			
+#define MIDCH4Y2		245
+
+#define MIDCH5Y1		260			
+#define MIDCH5Y2		285
+
+#define MIDCH6Y1		300			
+#define MIDCH6Y2		325
+
+#define MIDCH7Y1		340			
+#define MIDCH7Y2		365
+
+#define MIDCH8Y1		380			
+#define MIDCH8Y2		405
+
+/*小字体*/
+//左列横坐标
+#define SMLCHLX1		5			
+#define SMLCHLX2		35
+//中列1横坐标
+#define SMLCHM1X1		130			
+#define SMLCHM1X2		160
+//中列2横坐标
+#define SMLCHM2X1		255			
+#define SMLCHM2X2		285
+//中列3横坐标
+#define SMLCHM3X1		380			
+#define SMLCHM3X2		405
+//右列横坐标
+#define SMLCHRX1		503			
+#define SMLCHRX2		528
+
+//纵坐标
+#define SMLCH1Y1		100			
+#define SMLCH1Y2		120
+
+#define SMLCH2Y1		140			
+#define SMLCH2Y2		160
+
+#define SMLCH3Y1		180			
+#define SMLCH3Y2		200
+
+#define SMLCH4Y1		220			
+#define SMLCH4Y2		240
+
+#define SMLCH5Y1		260			
+#define SMLCH5Y2		280
+
+#define SMLCH6Y1		300			
+#define SMLCH6Y2		320
+
+#define SMLCH7Y1		340			
+#define SMLCH7Y2		360
+
+#define SMLCH8Y1		380			
+#define SMLCH8Y2		400
+
 /*热电偶类型设置*/
 #define TCTYPEX1		90			
 #define TCTYPEX2		160
@@ -632,14 +711,15 @@ uint32_t Flash_DisableReadProtection(void);
 #define MENU1X2			120
 #define MENU2X1			135			
 #define MENU2X2			250
-#define MENU3X1			5			
-#define MENU3X2			120
-#define MENU4X1			5			
-#define MENU4X2			120
-#define MENU5X1			5			
-#define MENU5X2			120
-#define MENUY1			135			
-#define MENUY2			250
+#define MENU3X1			260			
+#define MENU3X2			375
+#define MENU4X1			388			
+#define MENU4X2			505
+#define MENU5X1			515			
+#define MENU5X2			630
+
+#define MENUY1			445	
+#define MENUY2			480
 
 
 #endif

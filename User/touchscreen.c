@@ -298,7 +298,231 @@ void TouchHandle(u16 x,u16 y)
 					}else{
 						LCD_DisplayStringLine(450,550,"MORE");
 					}
+					if(LANG == chs)
+					{
+						DrawInstruction("热电偶型号选择");
+					}else{
+						DrawInstruction("Thermocouple model select");
+					}
 					op_flag = type_1;
+					press = 1;
+				}
+				
+				if(x >= MENU1X1 && x <= MENU1X2 && y >= MENUY1 && y <= MENUY2)
+				{
+					switch(op_flag)
+					{
+						case type_1:
+						{
+							DrawMenu();//重绘菜单栏
+							Drawhomemenu();
+							LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BLUE);
+							LCD_DrawFullRect(96,47,100,31);
+							LCD_SetTextColor(LCD_COLOR_YELLOW);
+							LCD_SetBackColor(LCD_COLOR_BACK);					
+							LCD_DisplayStringLine(47,100,"TC-T");
+							op_flag = home_type;
+							TCTYPE = TCT;
+							Save_flag();
+							}break;
+						case type_2:
+						{
+							DrawMenu();//重绘菜单栏
+							Drawhomemenu();
+							LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BLUE);
+							LCD_DrawFullRect(96,47,100,31);
+							LCD_SetTextColor(LCD_COLOR_YELLOW);
+							LCD_SetBackColor(LCD_COLOR_BACK);
+							LCD_DisplayStringLine(47,100,"TC-E");
+							op_flag = home_type;
+							TCTYPE = TCE;
+							Save_flag();					
+						}break;
+						case type_3:
+						{
+							DrawMenu();//重绘菜单栏
+							Drawhomemenu();
+							LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BLUE);
+							LCD_DrawFullRect(96,47,100,31);
+							LCD_SetTextColor(LCD_COLOR_YELLOW);
+							LCD_SetBackColor(LCD_COLOR_BACK);
+							LCD_DisplayStringLine(47,100,"PT100");
+							op_flag = home_type;
+							TCTYPE = PT100;
+							Save_flag();
+						}break;
+						default:
+						{
+							page_home();
+						}break;
+					}
+					press = 1;
+				}
+				if(x >= MENU2X1 && x <= MENU2X2 && y >= MENUY1 && y <= MENUY2)
+				{
+					switch(op_flag)
+					{
+						case type_1:
+						{
+							DrawMenu();//重绘菜单栏
+							Drawhomemenu();
+							LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BLUE);
+							LCD_DrawFullRect(96,47,100,31);
+							LCD_SetTextColor(LCD_COLOR_YELLOW);
+							LCD_SetBackColor(LCD_COLOR_BACK);
+							LCD_DisplayStringLine(47,100,"TC-K");
+							op_flag = home_type;
+							TCTYPE = TCK;
+							Save_flag();
+						}break;
+						case type_2:
+						{
+							DrawMenu();//重绘菜单栏
+							Drawhomemenu();
+							LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BLUE);
+							LCD_DrawFullRect(96,47,100,31);
+							LCD_SetTextColor(LCD_COLOR_YELLOW);
+							LCD_SetBackColor(LCD_COLOR_BACK);
+							LCD_DisplayStringLine(47,100,"TC-S");
+							op_flag = home_type;
+							TCTYPE = TCS;
+							Save_flag();
+						}break;
+						default:
+						{
+							page_graph();
+						}break;
+					}
+					press = 1;
+				}
+				if(x >= MENU3X1 && x <= MENU3X2 && y >= MENUY1 && y <= MENUY2)
+				{
+					switch(op_flag)
+					{
+						case type_1:
+						{
+							DrawMenu();//重绘菜单栏
+							Drawhomemenu();
+							LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BLUE);
+							LCD_DrawFullRect(96,47,100,31);
+							LCD_SetTextColor(LCD_COLOR_YELLOW);
+							LCD_SetBackColor(LCD_COLOR_BACK);
+							LCD_DisplayStringLine(47,100,"TC-J");
+							op_flag = home_type;
+							TCTYPE = TCJ;
+							Save_flag();
+						}break;
+						case type_2:
+						{
+							DrawMenu();//重绘菜单栏
+							Drawhomemenu();
+							LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BLUE);
+							LCD_DrawFullRect(96,47,100,31);
+							LCD_SetTextColor(LCD_COLOR_YELLOW);
+							LCD_SetBackColor(LCD_COLOR_BACK);
+							LCD_DisplayStringLine(47,100,"TC-R");
+							op_flag = home_type;
+							TCTYPE = TCR;
+							Save_flag();
+						}break;
+						default:
+						{
+							page_sys();
+						}break;
+					}
+					press = 1;
+				}
+				if(x >= MENU4X1 && x <= MENU4X2 && y >= MENUY1 && y <= MENUY2)
+				{
+					switch(op_flag)
+					{
+						case type_1:
+						{
+							DrawMenu();//重绘菜单栏
+							Drawhomemenu();
+							LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BLUE);
+							LCD_DrawFullRect(96,47,100,31);
+							LCD_SetTextColor(LCD_COLOR_YELLOW);
+							LCD_SetBackColor(LCD_COLOR_BACK);
+							LCD_DisplayStringLine(47,100,"TC-N");
+							op_flag = home_type;
+							TCTYPE = TCN;
+							Save_flag();
+						}break;
+						case type_2:
+						{
+							DrawMenu();//重绘菜单栏
+							Drawhomemenu();
+							LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BLUE);
+							LCD_DrawFullRect(96,47,100,31);
+							LCD_SetTextColor(LCD_COLOR_YELLOW);
+							LCD_SetBackColor(LCD_COLOR_BACK);
+							LCD_DisplayStringLine(47,100,"TC-B");
+							op_flag = home_type;
+							TCTYPE = TCB;
+							Save_flag();
+						}break;
+						default:
+						{
+							page_set();
+						}break;
+					}
+					press = 1;
+				}
+				if(x >= MENU5X1 && x <= MENU5X2 && y >= MENUY1 && y <= MENUY2)
+				{
+					switch(op_flag)
+					{
+						case type_1:
+						{
+							DrawMenu();//重绘菜单栏
+							LCD_SetTextColor(LCD_COLOR_YELLOW);
+							LCD_SetBackColor(LCD_COLOR_BLACK);
+							LCD_DisplayStringLine(450,35,"TC-E");
+							LCD_DisplayStringLine(450,157,"TC-S");
+							LCD_DisplayStringLine(450,295,"TC-R");
+							LCD_DisplayStringLine(450,420,"TC-B");
+							if(LANG == chs)
+							{
+								LCD_DisplayStringLine(450,550,"更多");
+							}else{
+								LCD_DisplayStringLine(450,550,"MORE");
+							}
+							op_flag = type_2;						
+						}break;
+						case type_2:
+						{
+							DrawMenu();//重绘菜单栏
+							LCD_SetTextColor(LCD_COLOR_YELLOW);
+							LCD_SetBackColor(LCD_COLOR_BLACK);
+							LCD_DisplayStringLine(450,35,"PT100");
+							if(LANG == chs)
+							{
+								LCD_DisplayStringLine(450,550,"更多");
+							}else{
+								LCD_DisplayStringLine(450,550,"MORE");
+							}
+							op_flag = type_3;						
+						}break;
+						case type_3:
+						{
+							DrawMenu();//重绘菜单栏
+							LCD_SetTextColor(LCD_COLOR_YELLOW);
+							LCD_SetBackColor(LCD_COLOR_BLACK);
+							LCD_DisplayStringLine(450,35,"TC-T");
+							LCD_DisplayStringLine(450,157,"TC-K");
+							LCD_DisplayStringLine(450,295,"TC-J");
+							LCD_DisplayStringLine(450,420,"TC-N");
+							if(LANG == chs)
+							{
+								LCD_DisplayStringLine(450,550,"更多");
+							}else{
+								LCD_DisplayStringLine(450,550,"MORE");
+							}
+							op_flag = type_1;						
+						}break;						
+					}
+					press = 1;
 				}
 				if(FONT == big)
 				{
@@ -617,6 +841,730 @@ void TouchHandle(u16 x,u16 y)
 							}
 						}
 						ChannelSwtichBig();
+					}
+				}else if(FONT == middle){
+					if(x >= MIDCHLX1 && x <= MIDCHLX2 && y >= MIDCH1Y1 && y <= MIDCH1Y2)
+					{
+						
+						if(ch_page == page1)
+						{
+							if(CH1_SW == ch_on)
+							{
+								CH1_SW = ch_off;
+							}else{
+								CH1_SW = ch_on;
+							}
+						}else if(ch_page == page2){
+							if(CH25_SW == ch_on)
+							{
+								CH25_SW = ch_off;
+							}else{
+								CH25_SW = ch_on;
+							}
+						}
+						ChannelSwtichMid();
+					}else if(x >= MIDCHLX1 && x <= MIDCHLX2 && y >= MIDCH2Y1 && y <= MIDCH2Y2){
+						if(ch_page == page1)
+						{
+							if(CH2_SW == ch_on)
+							{
+								CH2_SW = ch_off;
+							}else{
+								CH2_SW = ch_on;
+							}
+						}else if(ch_page == page2){
+							if(CH26_SW == ch_on)
+							{
+								CH26_SW = ch_off;
+							}else{
+								CH26_SW = ch_on;
+							}
+						}
+						ChannelSwtichMid();
+					}else if(x >= MIDCHLX1 && x <= MIDCHLX2 && y >= MIDCH3Y1 && y <= MIDCH3Y2){
+						if(ch_page == page1)
+						{
+							if(CH3_SW == ch_on)
+							{
+								CH3_SW = ch_off;
+							}else{
+								CH3_SW = ch_on;
+							}
+						}else if(ch_page == page2){
+							if(CH27_SW == ch_on)
+							{
+								CH27_SW = ch_off;
+							}else{
+								CH27_SW = ch_on;
+							}
+						}
+						ChannelSwtichMid();
+					}else if(x >= MIDCHLX1 && x <= MIDCHLX2 && y >= MIDCH4Y1 && y <= MIDCH4Y2){
+						if(ch_page == page1)
+						{
+							if(CH4_SW == ch_on)
+							{
+								CH4_SW = ch_off;
+							}else{
+								CH4_SW = ch_on;
+							}
+						}else if(ch_page == page2){
+							if(CH28_SW == ch_on)
+							{
+								CH28_SW = ch_off;
+							}else{
+								CH28_SW = ch_on;
+							}
+						}
+						ChannelSwtichMid();
+					}else if(x >= MIDCHLX1 && x <= MIDCHLX2 && y >= MIDCH5Y1 && y <= MIDCH5Y2)
+					{
+						if(ch_page == page1)
+						{
+							if(CH5_SW == ch_on)
+							{
+								CH5_SW = ch_off;
+							}else{
+								CH5_SW = ch_on;
+							}
+						}else if(ch_page == page2){
+							if(CH29_SW == ch_on)
+							{
+								CH29_SW = ch_off;
+							}else{
+								CH29_SW = ch_on;
+							}
+						}
+						ChannelSwtichMid();
+					}else if(x >= MIDCHLX1 && x <= MIDCHLX2 && y >= MIDCH6Y1 && y <= MIDCH6Y2){
+						if(ch_page == page1)
+						{
+							if(CH6_SW == ch_on)
+							{
+								CH6_SW = ch_off;
+							}else{
+								CH6_SW = ch_on;
+							}
+						}else if(ch_page == page2){
+							if(CH30_SW == ch_on)
+							{
+								CH30_SW = ch_off;
+							}else{
+								CH30_SW = ch_on;
+							}
+						}
+						ChannelSwtichMid();
+					}else if(x >= MIDCHLX1 && x <= MIDCHLX2 && y >= MIDCH7Y1 && y <= MIDCH7Y2){
+						if(ch_page == page1)
+						{
+							if(CH7_SW == ch_on)
+							{
+								CH7_SW = ch_off;
+							}else{
+								CH7_SW = ch_on;
+							}
+						}else if(ch_page == page2){
+							if(CH31_SW == ch_on)
+							{
+								CH31_SW = ch_off;
+							}else{
+								CH31_SW = ch_on;
+							}
+						}
+						ChannelSwtichMid();
+					}else if(x >= MIDCHLX1 && x <= MIDCHLX2 && y >= MIDCH8Y1 && y <= MIDCH8Y2){
+						if(ch_page == page1)
+						{
+							if(CH8_SW == ch_on)
+							{
+								CH8_SW = ch_off;
+							}else{
+								CH8_SW = ch_on;
+							}
+						}else if(ch_page == page2){
+							if(CH32_SW == ch_on)
+							{
+								CH32_SW = ch_off;
+							}else{
+								CH32_SW = ch_on;
+							}
+						}
+						ChannelSwtichMid();
+					}else if(x >= MIDCHMX1 && x <= MIDCHMX2 && y >= MIDCH1Y1 && y <= MIDCH1Y2)
+					{
+						
+						if(ch_page == page1)
+						{
+							if(CH9_SW == ch_on)
+							{
+								CH9_SW = ch_off;
+							}else{
+								CH9_SW = ch_on;
+							}
+						}else if(ch_page == page2){
+							if(CH33_SW == ch_on)
+							{
+								CH33_SW = ch_off;
+							}else{
+								CH33_SW = ch_on;
+							}
+						}
+						ChannelSwtichMid();
+					}else if(x >= MIDCHMX1 && x <= MIDCHMX2 && y >= MIDCH2Y1 && y <= MIDCH2Y2){
+						if(ch_page == page1)
+						{
+							if(CH10_SW == ch_on)
+							{
+								CH10_SW = ch_off;
+							}else{
+								CH10_SW = ch_on;
+							}
+						}else if(ch_page == page2){
+							if(CH34_SW == ch_on)
+							{
+								CH34_SW = ch_off;
+							}else{
+								CH34_SW = ch_on;
+							}
+						}
+						ChannelSwtichMid();
+					}else if(x >= MIDCHMX1 && x <= MIDCHMX2 && y >= MIDCH3Y1 && y <= MIDCH3Y2){
+						if(ch_page == page1)
+						{
+							if(CH11_SW == ch_on)
+							{
+								CH11_SW = ch_off;
+							}else{
+								CH11_SW = ch_on;
+							}
+						}else if(ch_page == page2){
+							if(CH35_SW == ch_on)
+							{
+								CH35_SW = ch_off;
+							}else{
+								CH35_SW = ch_on;
+							}
+						}
+						ChannelSwtichMid();
+					}else if(x >= MIDCHMX1 && x <= MIDCHMX2 && y >= MIDCH4Y1 && y <= MIDCH4Y2){
+						if(ch_page == page1)
+						{
+							if(CH12_SW == ch_on)
+							{
+								CH12_SW = ch_off;
+							}else{
+								CH12_SW = ch_on;
+							}
+						}else if(ch_page == page2){
+							if(CH36_SW == ch_on)
+							{
+								CH36_SW = ch_off;
+							}else{
+								CH36_SW = ch_on;
+							}
+						}
+						ChannelSwtichMid();
+					}else if(x >= MIDCHMX1 && x <= MIDCHMX2 && y >= MIDCH5Y1 && y <= MIDCH5Y2)
+					{
+						if(ch_page == page1)
+						{
+							if(CH13_SW == ch_on)
+							{
+								CH13_SW = ch_off;
+							}else{
+								CH13_SW = ch_on;
+							}
+						}else if(ch_page == page2){
+							if(CH37_SW == ch_on)
+							{
+								CH37_SW = ch_off;
+							}else{
+								CH37_SW = ch_on;
+							}
+						}
+						ChannelSwtichMid();
+					}else if(x >= MIDCHMX1 && x <= MIDCHMX2 && y >= MIDCH6Y1 && y <= MIDCH6Y2){
+						if(ch_page == page1)
+						{
+							if(CH14_SW == ch_on)
+							{
+								CH14_SW = ch_off;
+							}else{
+								CH14_SW = ch_on;
+							}
+						}else if(ch_page == page2){
+							if(CH38_SW == ch_on)
+							{
+								CH38_SW = ch_off;
+							}else{
+								CH38_SW = ch_on;
+							}
+						}
+						ChannelSwtichMid();
+					}else if(x >= MIDCHMX1 && x <= MIDCHMX2 && y >= MIDCH7Y1 && y <= MIDCH7Y2){
+						if(ch_page == page1)
+						{
+							if(CH15_SW == ch_on)
+							{
+								CH15_SW = ch_off;
+							}else{
+								CH15_SW = ch_on;
+							}
+						}else if(ch_page == page2){
+							if(CH39_SW == ch_on)
+							{
+								CH39_SW = ch_off;
+							}else{
+								CH39_SW = ch_on;
+							}
+						}
+						ChannelSwtichMid();
+					}else if(x >= MIDCHMX1 && x <= MIDCHMX2 && y >= MIDCH8Y1 && y <= MIDCH8Y2){
+						if(ch_page == page1)
+						{
+							if(CH16_SW == ch_on)
+							{
+								CH16_SW = ch_off;
+							}else{
+								CH16_SW = ch_on;
+							}
+						}else if(ch_page == page2){
+							if(CH40_SW == ch_on)
+							{
+								CH40_SW = ch_off;
+							}else{
+								CH40_SW = ch_on;
+							}
+						}
+						ChannelSwtichMid();
+					}else if(x >= MIDCHRX1 && x <= MIDCHRX2 && y >= MIDCH1Y1 && y <= MIDCH1Y2)
+					{
+						
+						if(ch_page == page1)
+						{
+							if(CH17_SW == ch_on)
+							{
+								CH17_SW = ch_off;
+							}else{
+								CH17_SW = ch_on;
+							}
+						}
+						ChannelSwtichMid();
+					}else if(x >= MIDCHRX1 && x <= MIDCHRX2 && y >= MIDCH2Y1 && y <= MIDCH2Y2){
+						if(ch_page == page1)
+						{
+							if(CH18_SW == ch_on)
+							{
+								CH18_SW = ch_off;
+							}else{
+								CH18_SW = ch_on;
+							}
+						}
+						ChannelSwtichMid();
+					}else if(x >= MIDCHRX1 && x <= MIDCHRX2 && y >= MIDCH3Y1 && y <= MIDCH3Y2){
+						if(ch_page == page1)
+						{
+							if(CH19_SW == ch_on)
+							{
+								CH19_SW = ch_off;
+							}else{
+								CH19_SW = ch_on;
+							}
+						}
+						ChannelSwtichMid();
+					}else if(x >= MIDCHRX1 && x <= MIDCHRX2 && y >= MIDCH4Y1 && y <= MIDCH4Y2){
+						if(ch_page == page1)
+						{
+							if(CH20_SW == ch_on)
+							{
+								CH20_SW = ch_off;
+							}else{
+								CH20_SW = ch_on;
+							}
+						}
+						ChannelSwtichMid();
+					}else if(x >= MIDCHRX1 && x <= MIDCHRX2 && y >= MIDCH5Y1 && y <= MIDCH5Y2)
+					{
+						if(ch_page == page1)
+						{
+							if(CH21_SW == ch_on)
+							{
+								CH21_SW = ch_off;
+							}else{
+								CH21_SW = ch_on;
+							}
+						}
+						ChannelSwtichMid();
+					}else if(x >= MIDCHRX1 && x <= MIDCHRX2 && y >= MIDCH6Y1 && y <= MIDCH6Y2){
+						if(ch_page == page1)
+						{
+							if(CH22_SW == ch_on)
+							{
+								CH22_SW = ch_off;
+							}else{
+								CH22_SW = ch_on;
+							}
+						}
+						ChannelSwtichMid();
+					}else if(x >= MIDCHRX1 && x <= MIDCHRX2 && y >= MIDCH7Y1 && y <= MIDCH7Y2){
+						if(ch_page == page1)
+						{
+							if(CH23_SW == ch_on)
+							{
+								CH23_SW = ch_off;
+							}else{
+								CH23_SW = ch_on;
+							}
+						}
+						ChannelSwtichMid();
+					}else if(x >= MIDCHRX1 && x <= MIDCHRX2 && y >= MIDCH8Y1 && y <= MIDCH8Y2){
+						if(ch_page == page1)
+						{
+							if(CH24_SW == ch_on)
+							{
+								CH24_SW = ch_off;
+							}else{
+								CH24_SW = ch_on;
+							}
+						}
+						ChannelSwtichMid();
+					}
+				}else if(FONT == small){
+					if(x >= SMLCHLX1 && x <= SMLCHLX2 && y >= SMLCH1Y1 && y <= SMLCH1Y2)
+					{
+						
+						if(CH1_SW == ch_on)
+						{
+							CH1_SW = ch_off;
+						}else{
+							CH1_SW = ch_on;
+						}
+						ChannelSwtichSml();
+					}else if(x >= SMLCHLX1 && x <= SMLCHLX2 && y >= SMLCH2Y1 && y <= SMLCH2Y2){
+						if(CH2_SW == ch_on)
+						{
+							CH2_SW = ch_off;
+						}else{
+							CH2_SW = ch_on;
+						}
+						ChannelSwtichSml();
+					}else if(x >= SMLCHLX1 && x <= SMLCHLX2 && y >= SMLCH3Y1 && y <= SMLCH3Y2){
+						if(CH3_SW == ch_on)
+						{
+							CH3_SW = ch_off;
+						}else{
+							CH3_SW = ch_on;
+						}
+						ChannelSwtichSml();
+					}else if(x >= SMLCHLX1 && x <= SMLCHLX2 && y >= SMLCH4Y1 && y <= SMLCH4Y2){
+						if(CH4_SW == ch_on)
+						{
+							CH4_SW = ch_off;
+						}else{
+							CH4_SW = ch_on;
+						}
+						ChannelSwtichSml();
+					}else if(x >= SMLCHLX1 && x <= SMLCHLX2 && y >= SMLCH5Y1 && y <= SMLCH5Y2)
+					{
+						if(CH5_SW == ch_on)
+						{
+							CH5_SW = ch_off;
+						}else{
+							CH5_SW = ch_on;
+						}
+						ChannelSwtichSml();
+					}else if(x >= SMLCHLX1 && x <= SMLCHLX2 && y >= SMLCH6Y1 && y <= SMLCH6Y2){
+						if(CH6_SW == ch_on)
+						{
+							CH6_SW = ch_off;
+						}else{
+							CH6_SW = ch_on;
+						}
+						ChannelSwtichSml();
+					}else if(x >= SMLCHLX1 && x <= SMLCHLX2 && y >= SMLCH7Y1 && y <= SMLCH7Y2){
+						if(CH7_SW == ch_on)
+						{
+							CH7_SW = ch_off;
+						}else{
+							CH7_SW = ch_on;
+						}
+						ChannelSwtichSml();
+					}else if(x >= SMLCHLX2 && x <= SMLCH7Y1 && y >= SMLCH8Y1 && y <= SMLCH8Y2){
+						if(CH8_SW == ch_on)
+						{
+							CH8_SW = ch_off;
+						}else{
+							CH8_SW = ch_on;
+						}
+						ChannelSwtichSml();
+					}else if(x >= SMLCHM1X1 && x <= SMLCHM1X2 && y >= SMLCH1Y1 && y <= SMLCH1Y2)
+					{
+						
+						if(CH9_SW == ch_on)
+						{
+							CH9_SW = ch_off;
+						}else{
+							CH9_SW = ch_on;
+						}
+						ChannelSwtichSml();
+					}else if(x >= SMLCHM1X1 && x <= SMLCHM1X2 && y >= SMLCH2Y1 && y <= SMLCH2Y2){
+						if(CH10_SW == ch_on)
+						{
+							CH10_SW = ch_off;
+						}else{
+							CH10_SW = ch_on;
+						}
+						ChannelSwtichSml();
+					}else if(x >= SMLCHM1X1 && x <= SMLCHM1X2 && y >= SMLCH3Y1 && y <= SMLCH3Y2){
+						if(CH11_SW == ch_on)
+						{
+							CH11_SW = ch_off;
+						}else{
+							CH11_SW = ch_on;
+						}
+						ChannelSwtichSml();
+					}else if(x >= SMLCHM1X1 && x <= SMLCHM1X2 && y >= SMLCH4Y1 && y <= SMLCH4Y2){
+						if(CH12_SW == ch_on)
+						{
+							CH12_SW = ch_off;
+						}else{
+							CH12_SW = ch_on;
+						}
+						ChannelSwtichSml();
+					}else if(x >= SMLCHM1X1 && x <= SMLCHM1X2 && y >= SMLCH5Y1 && y <= SMLCH5Y2)
+					{
+						if(CH13_SW == ch_on)
+						{
+							CH13_SW = ch_off;
+						}else{
+							CH13_SW = ch_on;
+						}
+						ChannelSwtichSml();
+					}else if(x >= SMLCHM1X1 && x <= SMLCHM1X2 && y >= SMLCH6Y1 && y <= SMLCH6Y2){
+						if(CH14_SW == ch_on)
+						{
+							CH14_SW = ch_off;
+						}else{
+							CH14_SW = ch_on;
+						}
+						ChannelSwtichSml();
+					}else if(x >= SMLCHM1X1 && x <= SMLCHM1X2 && y >= SMLCH7Y1 && y <= SMLCH7Y2){
+						if(CH15_SW == ch_on)
+						{
+							CH15_SW = ch_off;
+						}else{
+							CH15_SW = ch_on;
+						}
+						ChannelSwtichSml();
+					}else if(x >= SMLCHM1X1 && x <= SMLCHM1X2 && y >= SMLCH8Y1 && y <= SMLCH8Y2){
+						if(CH16_SW == ch_on)
+						{
+							CH16_SW = ch_off;
+						}else{
+							CH16_SW = ch_on;
+						}
+						ChannelSwtichSml();
+					}else if(x >= SMLCHM2X1 && x <= SMLCHM2X2 && y >= SMLCH1Y1 && y <= SMLCH1Y2)
+					{
+						
+						if(CH17_SW == ch_on)
+						{
+							CH17_SW = ch_off;
+						}else{
+							CH17_SW = ch_on;
+						}
+						ChannelSwtichSml();
+					}else if(x >= SMLCHM2X1 && x <= SMLCHM2X2 && y >= SMLCH2Y1 && y <= SMLCH2Y2){
+						if(CH18_SW == ch_on)
+						{
+							CH18_SW = ch_off;
+						}else{
+							CH18_SW = ch_on;
+						}
+						ChannelSwtichSml();
+					}else if(x >= SMLCHM2X1 && x <= SMLCHM2X2 && y >= SMLCH3Y1 && y <= SMLCH3Y2){
+						if(CH19_SW == ch_on)
+						{
+							CH19_SW = ch_off;
+						}else{
+							CH19_SW = ch_on;
+						}
+						ChannelSwtichSml();
+					}else if(x >= SMLCHM2X1 && x <= SMLCHM2X2 && y >= SMLCH4Y1 && y <= SMLCH4Y2){
+						if(CH20_SW == ch_on)
+						{
+							CH20_SW = ch_off;
+						}else{
+							CH20_SW = ch_on;
+						}
+						ChannelSwtichSml();
+					}else if(x >= SMLCHM2X1 && x <= SMLCHM2X2 && y >= SMLCH5Y1 && y <= SMLCH5Y2)
+					{
+						if(CH21_SW == ch_on)
+						{
+							CH21_SW = ch_off;
+						}else{
+							CH21_SW = ch_on;
+						}
+						ChannelSwtichSml();
+					}else if(x >= SMLCHM2X1 && x <= SMLCHM2X2 && y >= SMLCH6Y1 && y <= SMLCH6Y2){
+						if(CH22_SW == ch_on)
+						{
+							CH22_SW = ch_off;
+						}else{
+							CH22_SW = ch_on;
+						}
+						ChannelSwtichSml();
+					}else if(x >= SMLCHM2X1 && x <= SMLCHM2X2 && y >= SMLCH7Y1 && y <= SMLCH7Y2){
+						if(CH23_SW == ch_on)
+						{
+							CH23_SW = ch_off;
+						}else{
+							CH23_SW = ch_on;
+						}
+						ChannelSwtichSml();
+					}else if(x >= SMLCHM2X1 && x <= SMLCHM2X2 && y >= SMLCH8Y1 && y <= SMLCH8Y2){
+						if(CH24_SW == ch_on)
+						{
+							CH24_SW = ch_off;
+						}else{
+							CH24_SW = ch_on;
+						}
+						ChannelSwtichSml();
+					}else if(x >= SMLCHM3X1 && x <= SMLCHM3X2 && y >= SMLCH1Y1 && y <= SMLCH1Y2)
+					{
+						
+						if(CH25_SW == ch_on)
+						{
+							CH25_SW = ch_off;
+						}else{
+							CH25_SW = ch_on;
+						}
+						ChannelSwtichSml();
+					}else if(x >= SMLCHM3X1 && x <= SMLCHM3X2 && y >= SMLCH2Y1 && y <= SMLCH2Y2){
+						if(CH26_SW == ch_on)
+						{
+							CH26_SW = ch_off;
+						}else{
+							CH26_SW = ch_on;
+						}
+						ChannelSwtichSml();
+					}else if(x >= SMLCHM3X1 && x <= SMLCHM3X2 && y >= SMLCH3Y1 && y <= SMLCH3Y2){
+						if(CH27_SW == ch_on)
+						{
+							CH27_SW = ch_off;
+						}else{
+							CH27_SW = ch_on;
+						}
+						ChannelSwtichSml();
+					}else if(x >= SMLCHM3X1 && x <= SMLCHM3X2 && y >= SMLCH4Y1 && y <= SMLCH4Y2){
+						if(CH28_SW == ch_on)
+						{
+							CH28_SW = ch_off;
+						}else{
+							CH28_SW = ch_on;
+						}
+						ChannelSwtichSml();
+					}else if(x >= SMLCHM3X1 && x <= SMLCHM3X2 && y >= SMLCH5Y1 && y <= SMLCH5Y2)
+					{
+						if(CH29_SW == ch_on)
+						{
+							CH29_SW = ch_off;
+						}else{
+							CH29_SW = ch_on;
+						}
+						ChannelSwtichSml();
+					}else if(x >= SMLCHM3X1 && x <= SMLCHM3X2 && y >= SMLCH6Y1 && y <= SMLCH6Y2){
+						if(CH30_SW == ch_on)
+						{
+							CH30_SW = ch_off;
+						}else{
+							CH30_SW = ch_on;
+						}
+						ChannelSwtichSml();
+					}else if(x >= SMLCHM3X1 && x <= SMLCHM3X2 && y >= SMLCH7Y1 && y <= SMLCH7Y2){
+						if(CH31_SW == ch_on)
+						{
+							CH31_SW = ch_off;
+						}else{
+							CH31_SW = ch_on;
+						}
+						ChannelSwtichSml();
+					}else if(x >= SMLCHM3X1 && x <= SMLCHM3X2 && y >= SMLCH8Y1 && y <= SMLCH8Y2){
+						if(CH32_SW == ch_on)
+						{
+							CH32_SW = ch_off;
+						}else{
+							CH32_SW = ch_on;
+						}
+						ChannelSwtichSml();
+					}else if(x >= SMLCHRX1 && x <= SMLCHRX2 && y >= SMLCH1Y1 && y <= SMLCH1Y2)
+					{
+						
+						if(CH33_SW == ch_on)
+						{
+							CH33_SW = ch_off;
+						}else{
+							CH33_SW = ch_on;
+						}
+						ChannelSwtichSml();
+					}else if(x >= SMLCHRX1 && x <= SMLCHRX2 && y >= SMLCH2Y1 && y <= SMLCH2Y2){
+						if(CH34_SW == ch_on)
+						{
+							CH34_SW = ch_off;
+						}else{
+							CH34_SW = ch_on;
+						}
+						ChannelSwtichSml();
+					}else if(x >= SMLCHRX1 && x <= SMLCHRX2 && y >= SMLCH3Y1 && y <= SMLCH3Y2){
+						if(CH35_SW == ch_on)
+						{
+							CH35_SW = ch_off;
+						}else{
+							CH35_SW = ch_on;
+						}
+						ChannelSwtichSml();
+					}else if(x >= SMLCHRX1 && x <= SMLCHRX2 && y >= SMLCH4Y1 && y <= SMLCH4Y2){
+						if(CH36_SW == ch_on)
+						{
+							CH36_SW = ch_off;
+						}else{
+							CH36_SW = ch_on;
+						}
+						ChannelSwtichSml();
+					}else if(x >= SMLCHRX1 && x <= SMLCHRX2 && y >= SMLCH5Y1 && y <= SMLCH5Y2)
+					{
+						if(CH37_SW == ch_on)
+						{
+							CH37_SW = ch_off;
+						}else{
+							CH37_SW = ch_on;
+						}
+						ChannelSwtichSml();
+					}else if(x >= SMLCHRX1 && x <= SMLCHRX2 && y >= SMLCH6Y1 && y <= SMLCH6Y2){
+						if(CH38_SW == ch_on)
+						{
+							CH38_SW = ch_off;
+						}else{
+							CH38_SW = ch_on;
+						}
+						ChannelSwtichSml();
+					}else if(x >= SMLCHRX1 && x <= SMLCHRX2 && y >= SMLCH7Y1 && y <= SMLCH7Y2){
+						if(CH39_SW == ch_on)
+						{
+							CH39_SW = ch_off;
+						}else{
+							CH39_SW = ch_on;
+						}
+						ChannelSwtichSml();
+					}else if(x >= SMLCHRX1 && x <= SMLCHRX2 && y >= SMLCH8Y1 && y <= SMLCH8Y2){
+						if(CH40_SW == ch_on)
+						{
+							CH40_SW = ch_off;
+						}else{
+							CH40_SW = ch_on;
+						}
+						ChannelSwtichSml();
 					}
 				}
 				
@@ -1098,6 +2046,912 @@ void ChannelSwtichBig(void)
 			LCD_SetTextColor(LCD_COLOR_HLT);
 			LCD_DisplayStringLine_48(310,330,"040");
 		}
+	}
+	press = 1;
+	if(LANG == chs)
+	{
+		DrawInstruction("通道设置");
+	}else{
+		DrawInstruction("Channel set");
+	}
+	Save_flag();
+}
+
+void ChannelSwtichMid(void)
+{
+	if(ch_page == page1)
+	{
+		if(CH1_SW == ch_off)
+		{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+			DISP_CNL_M(100,10,"001");
+		}else if(CH1_SW == ch_on){
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_HLT);
+			DISP_CNL_M(100,10,"001");
+		}
+		
+		if(CH2_SW == ch_off)
+		{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+			DISP_CNL_M(140,10,"002");
+		}else if(CH2_SW == ch_on){
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_HLT);
+			DISP_CNL_M(140,10,"002");
+		}
+		
+		if(CH3_SW == ch_off)
+		{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+			DISP_CNL_M(180,10,"003");
+		}else if(CH3_SW == ch_on){
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_HLT);
+			DISP_CNL_M(180,10,"003");
+		}
+		
+		if(CH4_SW == ch_off)
+		{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+			DISP_CNL_M(220,10,"004");
+		}else if(CH4_SW == ch_on){
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_HLT);
+			DISP_CNL_M(220,10,"004");
+		}
+		
+		if(CH5_SW == ch_off)
+		{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+			DISP_CNL_M(260,10,"005");
+		}else if(CH5_SW == ch_on){
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_HLT);
+			DISP_CNL_M(260,10,"005");
+		}
+		
+		if(CH6_SW == ch_off)
+		{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+			DISP_CNL_M(300,10,"006");
+		}else if(CH6_SW == ch_on){
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_HLT);
+			DISP_CNL_M(300,10,"006");
+		}
+		
+		if(CH7_SW == ch_off)
+		{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+			DISP_CNL_M(340,10,"007");
+		}else if(CH7_SW == ch_on){
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_HLT);
+			DISP_CNL_M(340,10,"007");
+		}
+		
+		if(CH8_SW == ch_off)
+		{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+			DISP_CNL_M(380,10,"008");
+		}else if(CH8_SW == ch_on){
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_HLT);
+			DISP_CNL_M(380,10,"008");
+		}
+		
+		if(CH9_SW == ch_off)
+		{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+			DISP_CNL_M(100,210,"009");
+		}else if(CH9_SW == ch_on){
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_HLT);
+			DISP_CNL_M(100,210,"009");
+		}
+		
+		if(CH10_SW == ch_off)
+		{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+			DISP_CNL_M(140,210,"010");
+		}else if(CH10_SW == ch_on){
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_HLT);
+			DISP_CNL_M(140,210,"010");
+		}
+		
+		if(CH11_SW == ch_off)
+		{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+			DISP_CNL_M(180,210,"011");
+		}else if(CH11_SW == ch_on){
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_HLT);
+			DISP_CNL_M(180,210,"011");
+		}
+		
+		if(CH12_SW == ch_off)
+		{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+			DISP_CNL_M(220,210,"012");
+		}else if(CH12_SW == ch_on){
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_HLT);
+			DISP_CNL_M(220,210,"012");
+		}
+		
+		if(CH13_SW == ch_off)
+		{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+			DISP_CNL_M(260,210,"013");
+		}else if(CH13_SW == ch_on){
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_HLT);
+			DISP_CNL_M(260,210,"013");
+		}
+		
+		if(CH14_SW == ch_off)
+		{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+			DISP_CNL_M(300,210,"014");
+		}else if(CH14_SW == ch_on){
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_HLT);
+			DISP_CNL_M(300,210,"014");
+		}
+		
+		if(CH15_SW == ch_off)
+		{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+			DISP_CNL_M(340,210,"015");
+		}else if(CH15_SW == ch_on){
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_HLT);
+			DISP_CNL_M(340,210,"015");
+		}
+		
+		if(CH16_SW == ch_off)
+		{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+			DISP_CNL_M(380,210,"016");
+		}else if(CH16_SW == ch_on){
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_HLT);
+			DISP_CNL_M(380,210,"016");
+		}
+		
+		if(CH17_SW == ch_off)
+		{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+			DISP_CNL_M(100,410,"017");
+		}else if(CH17_SW == ch_on){
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_HLT);
+			DISP_CNL_M(100,410,"017");
+		}
+		
+		if(CH18_SW == ch_off)
+		{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+			DISP_CNL_M(140,410,"018");
+		}else if(CH18_SW == ch_on){
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_HLT);
+			DISP_CNL_M(140,410,"018");
+		}
+		
+		if(CH19_SW == ch_off)
+		{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+			DISP_CNL_M(180,410,"019");
+		}else if(CH19_SW == ch_on){
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_HLT);
+			DISP_CNL_M(180,410,"019");
+		}
+		
+		if(CH20_SW == ch_off)
+		{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+			DISP_CNL_M(220,410,"020");
+		}else if(CH20_SW == ch_on){
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_HLT);
+			DISP_CNL_M(220,410,"020");
+		}
+		
+		if(CH21_SW == ch_off)
+		{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+			DISP_CNL_M(260,410,"021");
+		}else if(CH21_SW == ch_on){
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_HLT);
+			DISP_CNL_M(260,410,"021");
+		}
+		
+		if(CH22_SW == ch_off)
+		{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+			DISP_CNL_M(300,410,"022");
+		}else if(CH22_SW == ch_on){
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_HLT);
+			DISP_CNL_M(300,410,"022");
+		}
+		
+		if(CH23_SW == ch_off)
+		{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+			DISP_CNL_M(340,410,"023");
+		}else if(CH23_SW == ch_on){
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_HLT);
+			DISP_CNL_M(340,410,"023");
+		}
+		
+		if(CH24_SW == ch_off)
+		{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+			DISP_CNL_M(380,410,"024");
+		}else if(CH24_SW == ch_on){
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_HLT);
+			DISP_CNL_M(380,410,"024");
+		}
+	}else if(ch_page == page2){
+		if(CH25_SW == ch_off)
+		{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+			DISP_CNL_M(100,10,"025");
+		}else{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_HLT);
+			DISP_CNL_M(100,10,"025");
+		}
+		
+		if(CH26_SW == ch_off)
+		{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+			DISP_CNL_M(140,10,"026");
+		}else{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_HLT);
+			DISP_CNL_M(140,10,"026");
+		}
+		
+		if(CH27_SW == ch_off)
+		{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+			DISP_CNL_M(180,10,"027");
+		}else{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_HLT);
+			DISP_CNL_M(180,10,"027");
+		}
+		
+		if(CH28_SW == ch_off)
+		{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+			DISP_CNL_M(220,10,"028");
+		}else{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_HLT);
+			DISP_CNL_M(220,10,"028");
+		}
+		
+		if(CH29_SW == ch_off)
+		{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+			DISP_CNL_M(260,10,"029");
+		}else{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_HLT);
+			DISP_CNL_M(260,10,"029");
+		}
+		
+		if(CH30_SW == ch_off)
+		{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+			DISP_CNL_M(300,10,"030");
+		}else{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_HLT);
+			DISP_CNL_M(300,10,"030");
+		}
+		
+		if(CH31_SW == ch_off)
+		{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+			DISP_CNL_M(340,10,"031");
+		}else{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_HLT);
+			DISP_CNL_M(340,10,"031");
+		}
+		
+		if(CH32_SW == ch_off)
+		{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+			DISP_CNL_M(380,10,"032");
+		}else{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_HLT);
+			DISP_CNL_M(380,10,"032");
+		}
+		
+		if(CH33_SW == ch_off)
+		{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+			DISP_CNL_M(100,210,"033");
+		}else{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_HLT);
+			DISP_CNL_M(100,210,"033");
+		}
+		
+		if(CH34_SW == ch_off)
+		{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+			DISP_CNL_M(140,210,"034");
+		}else{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_HLT);
+			DISP_CNL_M(140,210,"034");
+		}
+		
+		if(CH35_SW == ch_off)
+		{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+			DISP_CNL_M(180,210,"035");
+		}else{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_HLT);
+			DISP_CNL_M(180,210,"035");
+		}
+		
+		if(CH36_SW == ch_off)
+		{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+			DISP_CNL_M(220,210,"036");
+		}else{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_HLT);
+			DISP_CNL_M(220,210,"036");
+		}
+		
+		if(CH37_SW == ch_off)
+		{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+			DISP_CNL_M(260,210,"037");
+		}else{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_HLT);
+			DISP_CNL_M(260,210,"037");
+		}
+		
+		if(CH38_SW == ch_off)
+		{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+			DISP_CNL_M(300,210,"038");
+		}else{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_HLT);
+			DISP_CNL_M(300,210,"038");
+		}
+		
+		if(CH39_SW == ch_off)
+		{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+			DISP_CNL_M(340,210,"039");
+		}else{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_HLT);
+			DISP_CNL_M(340,210,"039");
+		}
+		
+		if(CH40_SW == ch_off)
+		{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+			DISP_CNL_M(380,210,"040");
+		}else{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_HLT);
+			DISP_CNL_M(380,210,"040");
+		}
+	}
+	
+	press = 1;
+	if(LANG == chs)
+	{
+		DrawInstruction("通道设置");
+	}else{
+		DrawInstruction("Channel set");
+	}
+	Save_flag();
+}
+
+void ChannelSwtichSml(void)
+{
+	if(CH1_SW == ch_off)
+	{
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+		DISP_CNL_S(100,10,"001");
+	}else if(CH1_SW == ch_on){
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_HLT);
+		DISP_CNL_S(100,10,"001");
+	}
+	
+	if(CH2_SW == ch_off)
+	{
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+		DISP_CNL_S(140,10,"002");
+	}else if(CH2_SW == ch_on){
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_HLT);
+		DISP_CNL_S(140,10,"002");
+	}
+	
+	if(CH3_SW == ch_off)
+	{
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+		DISP_CNL_S(180,10,"003");
+	}else if(CH3_SW == ch_on){
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_HLT);
+		DISP_CNL_S(180,10,"003");
+	}
+	
+	if(CH4_SW == ch_off)
+	{
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+		DISP_CNL_S(220,10,"004");
+	}else if(CH4_SW == ch_on){
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_HLT);
+		DISP_CNL_S(220,10,"004");
+	}
+	
+	if(CH5_SW == ch_off)
+	{
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+		DISP_CNL_S(260,10,"005");
+	}else if(CH5_SW == ch_on){
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_HLT);
+		DISP_CNL_S(260,10,"005");
+	}
+	
+	if(CH6_SW == ch_off)
+	{
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+		DISP_CNL_S(300,10,"006");
+	}else if(CH6_SW == ch_on){
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_HLT);
+		DISP_CNL_S(300,10,"006");
+	}
+	
+	if(CH7_SW == ch_off)
+	{
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+		DISP_CNL_S(340,10,"007");
+	}else if(CH7_SW == ch_on){
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_HLT);
+		DISP_CNL_S(340,10,"007");
+	}
+	
+	if(CH8_SW == ch_off)
+	{
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+		DISP_CNL_S(380,10,"008");
+	}else if(CH8_SW == ch_on){
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_HLT);
+		DISP_CNL_S(380,10,"008");
+	}
+	
+	if(CH9_SW == ch_off)
+	{
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+		DISP_CNL_S(100,134,"009");
+	}else if(CH9_SW == ch_on){
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_HLT);
+		DISP_CNL_S(100,134,"009");
+	}
+	
+	if(CH10_SW == ch_off)
+	{
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+		DISP_CNL_S(140,134,"010");
+	}else if(CH10_SW == ch_on){
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_HLT);
+		DISP_CNL_S(140,134,"010");
+	}
+	
+	if(CH11_SW == ch_off)
+	{
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+		DISP_CNL_S(180,134,"011");
+	}else if(CH11_SW == ch_on){
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_HLT);
+		DISP_CNL_S(180,134,"011");
+	}
+	
+	if(CH12_SW == ch_off)
+	{
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+		DISP_CNL_S(220,134,"012");
+	}else if(CH12_SW == ch_on){
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_HLT);
+		DISP_CNL_S(220,134,"012");
+	}
+	
+	if(CH13_SW == ch_off)
+	{
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+		DISP_CNL_S(260,134,"013");
+	}else if(CH13_SW == ch_on){
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_HLT);
+		DISP_CNL_S(260,134,"013");
+	}
+	
+	if(CH14_SW == ch_off)
+	{
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+		DISP_CNL_S(300,134,"014");
+	}else if(CH14_SW == ch_on){
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_HLT);
+		DISP_CNL_S(300,134,"014");
+	}
+	
+	if(CH15_SW == ch_off)
+	{
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+		DISP_CNL_S(340,134,"015");
+	}else if(CH15_SW == ch_on){
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_HLT);
+		DISP_CNL_S(340,134,"015");
+	}
+	
+	if(CH16_SW == ch_off)
+	{
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+		DISP_CNL_S(380,134,"016");
+	}else if(CH16_SW == ch_on){
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_HLT);
+		DISP_CNL_S(380,134,"016");
+	}
+	
+	if(CH17_SW == ch_off)
+	{
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+		DISP_CNL_S(100,258,"017");
+	}else if(CH17_SW == ch_on){
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_HLT);
+		DISP_CNL_S(100,258,"017");
+	}
+	
+	if(CH18_SW == ch_off)
+	{
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+		DISP_CNL_S(140,258,"018");
+	}else if(CH18_SW == ch_on){
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_HLT);
+		DISP_CNL_S(140,258,"018");
+	}
+	
+	if(CH19_SW == ch_off)
+	{
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+		DISP_CNL_S(180,258,"019");
+	}else if(CH19_SW == ch_on){
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_HLT);
+		DISP_CNL_S(180,258,"019");
+	}
+	
+	if(CH20_SW == ch_off)
+	{
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+		DISP_CNL_S(220,258,"020");
+	}else if(CH20_SW == ch_on){
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_HLT);
+		DISP_CNL_S(220,258,"020");
+	}
+	
+	if(CH21_SW == ch_off)
+	{
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+		DISP_CNL_S(260,258,"021");
+	}else if(CH21_SW == ch_on){
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_HLT);
+		DISP_CNL_S(260,258,"021");
+	}
+	
+	if(CH22_SW == ch_off)
+	{
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+		DISP_CNL_S(300,258,"022");
+	}else if(CH22_SW == ch_on){
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_HLT);
+		DISP_CNL_S(300,258,"022");
+	}
+	
+	if(CH23_SW == ch_off)
+	{
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+		DISP_CNL_S(340,258,"023");
+	}else if(CH23_SW == ch_on){
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_HLT);
+		DISP_CNL_S(340,258,"023");
+	}
+	
+	if(CH24_SW == ch_off)
+	{
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+		DISP_CNL_S(380,258,"024");
+	}else if(CH24_SW == ch_on){
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_HLT);
+		DISP_CNL_S(380,258,"024");
+	}
+	
+	if(CH25_SW == ch_off)
+	{
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+		DISP_CNL_S(100,382,"025");
+	}else if(CH25_SW == ch_on){
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_HLT);
+		DISP_CNL_S(100,382,"025");
+	}
+	
+	if(CH26_SW == ch_off)
+	{
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+		DISP_CNL_S(140,382,"026");
+	}else if(CH26_SW == ch_on){
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_HLT);
+		DISP_CNL_S(140,382,"026");
+	}
+	
+	if(CH27_SW == ch_off)
+	{
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+		DISP_CNL_S(180,382,"027");
+	}else if(CH27_SW == ch_on){
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_HLT);
+		DISP_CNL_S(180,382,"027");
+	}
+	
+	if(CH28_SW == ch_off)
+	{
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+		DISP_CNL_S(220,382,"028");
+	}else if(CH28_SW == ch_on){
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_HLT);
+		DISP_CNL_S(220,382,"028");
+	}
+	
+	if(CH29_SW == ch_off)
+	{
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+		DISP_CNL_S(260,382,"029");
+	}else if(CH29_SW == ch_on){
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_HLT);
+		DISP_CNL_S(260,382,"029");
+	}
+	
+	if(CH30_SW == ch_off)
+	{
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+		DISP_CNL_S(300,382,"030");
+	}else if(CH30_SW == ch_on){
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_HLT);
+		DISP_CNL_S(300,382,"030");
+	}
+	
+	if(CH31_SW == ch_off)
+	{
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+		DISP_CNL_S(340,382,"031");
+	}else if(CH31_SW == ch_on){
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_HLT);
+		DISP_CNL_S(340,382,"031");
+	}
+	
+	if(CH32_SW == ch_off)
+	{
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+		DISP_CNL_S(380,382,"032");
+	}else if(CH32_SW == ch_on){
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_HLT);
+		DISP_CNL_S(380,382,"032");
+	}
+	
+	if(CH33_SW == ch_off)
+	{
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+		DISP_CNL_S(100,506,"033");
+	}else if(CH33_SW == ch_on){
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_HLT);
+		DISP_CNL_S(100,506,"033");
+	}
+	
+	if(CH34_SW == ch_off)
+	{
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+		DISP_CNL_S(140,506,"034");
+	}else if(CH34_SW == ch_on){
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_HLT);
+		DISP_CNL_S(140,506,"034");
+	}
+	
+	if(CH35_SW == ch_off)
+	{
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+		DISP_CNL_S(180,506,"035");
+	}else if(CH35_SW == ch_on){
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_HLT);
+		DISP_CNL_S(180,506,"035");
+	}
+	
+	if(CH36_SW == ch_off)
+	{
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+		DISP_CNL_S(220,506,"036");
+	}else if(CH36_SW == ch_on){
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_HLT);
+		DISP_CNL_S(220,506,"036");
+	}
+	
+	if(CH37_SW == ch_off)
+	{
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+		DISP_CNL_S(260,506,"037");
+	}else if(CH37_SW == ch_on){
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_HLT);
+		DISP_CNL_S(260,506,"037");
+	}
+	
+	if(CH38_SW == ch_off)
+	{
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+		DISP_CNL_S(300,506,"038");
+	}else if(CH38_SW == ch_on){
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_HLT);
+		DISP_CNL_S(300,506,"038");
+	}
+	
+	if(CH39_SW == ch_off)
+	{
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+		DISP_CNL_S(340,506,"039");
+	}else if(CH39_SW == ch_on){
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_HLT);
+		DISP_CNL_S(340,506,"039");
+	}
+	
+	if(CH40_SW == ch_off)
+	{
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+		DISP_CNL_S(380,506,"040");
+	}else if(CH40_SW == ch_on){
+		LCD_SetBackColor(LCD_COLOR_BACK);
+		LCD_SetTextColor(LCD_COLOR_HLT);
+		DISP_CNL_S(380,506,"040");
 	}
 	press = 1;
 	if(LANG == chs)

@@ -44,7 +44,7 @@ u8 input_flag = 0;
 u16 hpage;
 char data[17];
 float offset[40];
-
+u8 keystat;
 u8 date_time[6] = {0,1,1,0,0,0};
 
 extern union 
@@ -1591,8 +1591,8 @@ void Key_Function(void)
 	static u8 key_new;
 	key_new = key_value;
 	if(key_value != 0XFF)
-	{
-		if(key_old != key_new)
+	{		
+		if(key_old != key_new && keystat == 0)
 		{
 			switch(key_value)
 			{
@@ -1719,9 +1719,11 @@ void Key_Function(void)
 				break;
 				default:break;
 			}
+			keystat = 1;
 			key_old = key_value;
 		}			
 	}else{
+		keystat = 0;
 		key_value = 0xff;
 		key_old = 0;
 	}		

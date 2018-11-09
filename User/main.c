@@ -356,12 +356,12 @@ int main(void)
 		Delay(0xfff);
 		BEEP_OFF;
 //		powerstat = GPIO_ReadInputDataBit(GPIOI,GPIO_Pin_11);
-//		DCD_EP_PrepareRx(&USB_OTG_dev,HID_OUT_EP,usbbuf,64);//接收PC数据
-//		if(UsbHidReceiveComplete)                         //接收到数据
-//		{
-//			UsbHidReceiveComplete=0;
-//			UsbDataHandle();
-//		}
+		DCD_EP_PrepareRx(&USB_OTG_dev,HID_OUT_EP,usbbuf,64);//接收PC数据
+		if(UsbHidReceiveComplete)                         //接收到数据
+		{			
+			UsbDataHandle();
+			UsbHidReceiveComplete=0;
+		}
 	
 	}
 }
@@ -1402,8 +1402,8 @@ void UsbDataHandle(void)
 						{
 							if((((u16)RecBuff[5+usbbuf[3]+i*2] << 8) + RecBuff[6+usbbuf[3]+i*2] - (int)(Correction[usbbuf[3] + i] * 10)) == 4E1F)
 							{
-								usbsendbuf[6+i*2] = 0xE0;
-								usbsendbuf[7+i*2] = 0xE0;
+								usbsendbuf[6+i*2] = 0xFF;
+								usbsendbuf[7+i*2] = 0xFF;
 							}else{
 								usbsendbuf[6+i*2] = (u8)((((u16)RecBuff[5+usbbuf[3]+i*2] << 8) + RecBuff[6+usbbuf[3]+i*2] - (int)(Correction[usbbuf[3] + i] * 10)) >> 8);
 								usbsendbuf[7+i*2] = (u8)(((u16)RecBuff[5+usbbuf[3]+i*2] << 8) + RecBuff[6+usbbuf[3]+i*2] - (int)(Correction[usbbuf[3] + i] * 10));
@@ -1704,7 +1704,7 @@ void UsbDataHandle(void)
 //					usbsendbuf[16] = (u8)frequancy;
 //					usbsendbuf[17] = (u8)(PF >> 8);
 //					usbsendbuf[18] = (u8)PF;
-					usbsendbuf[7] = 0xE0;
+					usbsendbuf[7] = 0xFF;
 					usbsendbuf[8] = 0xE0;
 					usbsendbuf[9] = 0xE0;
 					usbsendbuf[10] = 0xE0;

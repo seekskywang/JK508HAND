@@ -196,13 +196,13 @@ void BASIC_TIM_IRQHandler (void)
 		Key_Scan();//按键扫描
 		Touch_Scan();//触摸扫描
 		
-		DCD_EP_PrepareRx(&USB_OTG_dev,HID_OUT_EP,usbbuf,64);//接收PC数据
-		if(UsbHidReceiveComplete)                         //接收到数据
-		{
-			UsbHidReceiveComplete=0;
-			UsbDataHandle();
-		}
-		if(sendcount == 20)
+//		DCD_EP_PrepareRx(&USB_OTG_dev,HID_OUT_EP,usbbuf,64);//接收PC数据
+//		if(UsbHidReceiveComplete)                         //接收到数据
+//		{
+//			UsbHidReceiveComplete=0;
+//			UsbDataHandle();
+//		}
+		if(sendcount == 20*4)
 		{
 			for(i=0;i<8;i++)
 			{

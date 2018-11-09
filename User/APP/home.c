@@ -139,7 +139,7 @@ extern union
 
 void page_home(void)
 {
-	CHNUM = 8;
+	CHNUM = 16;
   /*初始化后默认使用前景层*/
 	LCD_SetLayer(LCD_FOREGROUND_LAYER); 
 	/*默认设置不透明	，该函数参数为不透明度，范围 0-0xff ，0为全透明，0xff为不透明*/
@@ -467,93 +467,95 @@ void page_home(void)
 			LCD_SetTextColor(LCD_COLOR_HLT);
 			DISP_CNL_M(380,210,"016");
 		}
-		
-		if(CH17_SW == ch_off)
+		if(CHNUM > 16)
 		{
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-			DISP_CNL_M(100,410,"017");
-		}else if(CH17_SW == ch_on){
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_HLT);
-			DISP_CNL_M(100,410,"017");
-		}
-		
-		if(CH18_SW == ch_off)
-		{
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-			DISP_CNL_M(140,410,"018");
-		}else if(CH18_SW == ch_on){
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_HLT);
-			DISP_CNL_M(140,410,"018");
-		}
-		
-		if(CH19_SW == ch_off)
-		{
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-			DISP_CNL_M(180,410,"019");
-		}else if(CH19_SW == ch_on){
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_HLT);
-			DISP_CNL_M(180,410,"019");
-		}
-		
-		if(CH20_SW == ch_off)
-		{
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-			DISP_CNL_M(220,410,"020");
-		}else if(CH20_SW == ch_on){
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_HLT);
-			DISP_CNL_M(220,410,"020");
-		}
-		
-		if(CH21_SW == ch_off)
-		{
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-			DISP_CNL_M(260,410,"021");
-		}else if(CH21_SW == ch_on){
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_HLT);
-			DISP_CNL_M(260,410,"021");
-		}
-		
-		if(CH22_SW == ch_off)
-		{
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-			DISP_CNL_M(300,410,"022");
-		}else if(CH22_SW == ch_on){
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_HLT);
-			DISP_CNL_M(300,410,"022");
-		}
-		
-		if(CH23_SW == ch_off)
-		{
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-			DISP_CNL_M(340,410,"023");
-		}else if(CH23_SW == ch_on){
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_HLT);
-			DISP_CNL_M(340,410,"023");
-		}
-		
-		if(CH24_SW == ch_off)
-		{
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-			DISP_CNL_M(380,410,"024");
-		}else if(CH24_SW == ch_on){
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_HLT);
-			DISP_CNL_M(380,410,"024");
+			if(CH17_SW == ch_off)
+			{
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+				DISP_CNL_M(100,410,"017");
+			}else if(CH17_SW == ch_on){
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_HLT);
+				DISP_CNL_M(100,410,"017");
+			}
+			
+			if(CH18_SW == ch_off)
+			{
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+				DISP_CNL_M(140,410,"018");
+			}else if(CH18_SW == ch_on){
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_HLT);
+				DISP_CNL_M(140,410,"018");
+			}
+			
+			if(CH19_SW == ch_off)
+			{
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+				DISP_CNL_M(180,410,"019");
+			}else if(CH19_SW == ch_on){
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_HLT);
+				DISP_CNL_M(180,410,"019");
+			}
+			
+			if(CH20_SW == ch_off)
+			{
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+				DISP_CNL_M(220,410,"020");
+			}else if(CH20_SW == ch_on){
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_HLT);
+				DISP_CNL_M(220,410,"020");
+			}
+			
+			if(CH21_SW == ch_off)
+			{
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+				DISP_CNL_M(260,410,"021");
+			}else if(CH21_SW == ch_on){
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_HLT);
+				DISP_CNL_M(260,410,"021");
+			}
+			
+			if(CH22_SW == ch_off)
+			{
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+				DISP_CNL_M(300,410,"022");
+			}else if(CH22_SW == ch_on){
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_HLT);
+				DISP_CNL_M(300,410,"022");
+			}
+			
+			if(CH23_SW == ch_off)
+			{
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+				DISP_CNL_M(340,410,"023");
+			}else if(CH23_SW == ch_on){
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_HLT);
+				DISP_CNL_M(340,410,"023");
+			}
+			
+			if(CH24_SW == ch_off)
+			{
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+				DISP_CNL_M(380,410,"024");
+			}else if(CH24_SW == ch_on){
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_HLT);
+				DISP_CNL_M(380,410,"024");
+			}
 		}
 		
 		
@@ -738,269 +740,271 @@ void page_home(void)
 			LCD_SetTextColor(LCD_COLOR_HLT);
 			DISP_CNL_S(380,134,"016");
 		}
-		
-		if(CH17_SW == ch_off)
+		if(CHNUM > 16)
 		{
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-			DISP_CNL_S(100,258,"017");
-		}else if(CH17_SW == ch_on){
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_HLT);
-			DISP_CNL_S(100,258,"017");
-		}
-		
-		if(CH18_SW == ch_off)
-		{
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-			DISP_CNL_S(140,258,"018");
-		}else if(CH18_SW == ch_on){
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_HLT);
-			DISP_CNL_S(140,258,"018");
-		}
-		
-		if(CH19_SW == ch_off)
-		{
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-			DISP_CNL_S(180,258,"019");
-		}else if(CH19_SW == ch_on){
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_HLT);
-			DISP_CNL_S(180,258,"019");
-		}
-		
-		if(CH20_SW == ch_off)
-		{
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-			DISP_CNL_S(220,258,"020");
-		}else if(CH20_SW == ch_on){
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_HLT);
-			DISP_CNL_S(220,258,"020");
-		}
-		
-		if(CH21_SW == ch_off)
-		{
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-			DISP_CNL_S(260,258,"021");
-		}else if(CH21_SW == ch_on){
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_HLT);
-			DISP_CNL_S(260,258,"021");
-		}
-		
-		if(CH22_SW == ch_off)
-		{
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-			DISP_CNL_S(300,258,"022");
-		}else if(CH22_SW == ch_on){
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_HLT);
-			DISP_CNL_S(300,258,"022");
-		}
-		
-		if(CH23_SW == ch_off)
-		{
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-			DISP_CNL_S(340,258,"023");
-		}else if(CH23_SW == ch_on){
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_HLT);
-			DISP_CNL_S(340,258,"023");
-		}
-		
-		if(CH24_SW == ch_off)
-		{
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-			DISP_CNL_S(380,258,"024");
-		}else if(CH24_SW == ch_on){
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_HLT);
-			DISP_CNL_S(380,258,"024");
-		}
-		
-		if(CH25_SW == ch_off)
-		{
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-			DISP_CNL_S(100,382,"025");
-		}else if(CH25_SW == ch_on){
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_HLT);
-			DISP_CNL_S(100,382,"025");
-		}
-		
-		if(CH26_SW == ch_off)
-		{
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-			DISP_CNL_S(140,382,"026");
-		}else if(CH26_SW == ch_on){
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_HLT);
-			DISP_CNL_S(140,382,"026");
-		}
-		
-		if(CH27_SW == ch_off)
-		{
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-			DISP_CNL_S(180,382,"027");
-		}else if(CH27_SW == ch_on){
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_HLT);
-			DISP_CNL_S(180,382,"027");
-		}
-		
-		if(CH28_SW == ch_off)
-		{
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-			DISP_CNL_S(220,382,"028");
-		}else if(CH28_SW == ch_on){
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_HLT);
-			DISP_CNL_S(220,382,"028");
-		}
-		
-		if(CH29_SW == ch_off)
-		{
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-			DISP_CNL_S(260,382,"029");
-		}else if(CH29_SW == ch_on){
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_HLT);
-			DISP_CNL_S(260,382,"029");
-		}
-		
-		if(CH30_SW == ch_off)
-		{
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-			DISP_CNL_S(300,382,"030");
-		}else if(CH30_SW == ch_on){
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_HLT);
-			DISP_CNL_S(300,382,"030");
-		}
-		
-		if(CH31_SW == ch_off)
-		{
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-			DISP_CNL_S(340,382,"031");
-		}else if(CH31_SW == ch_on){
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_HLT);
-			DISP_CNL_S(340,382,"031");
-		}
-		
-		if(CH32_SW == ch_off)
-		{
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-			DISP_CNL_S(380,382,"032");
-		}else if(CH32_SW == ch_on){
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_HLT);
-			DISP_CNL_S(380,382,"032");
-		}
-		
-		if(CH33_SW == ch_off)
-		{
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-			DISP_CNL_S(100,506,"033");
-		}else if(CH33_SW == ch_on){
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_HLT);
-			DISP_CNL_S(100,506,"033");
-		}
-		
-		if(CH34_SW == ch_off)
-		{
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-			DISP_CNL_S(140,506,"034");
-		}else if(CH34_SW == ch_on){
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_HLT);
-			DISP_CNL_S(140,506,"034");
-		}
-		
-		if(CH35_SW == ch_off)
-		{
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-			DISP_CNL_S(180,506,"035");
-		}else if(CH35_SW == ch_on){
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_HLT);
-			DISP_CNL_S(180,506,"035");
-		}
-		
-		if(CH36_SW == ch_off)
-		{
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-			DISP_CNL_S(220,506,"036");
-		}else if(CH36_SW == ch_on){
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_HLT);
-			DISP_CNL_S(220,506,"036");
-		}
-		
-		if(CH37_SW == ch_off)
-		{
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-			DISP_CNL_S(260,506,"037");
-		}else if(CH37_SW == ch_on){
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_HLT);
-			DISP_CNL_S(260,506,"037");
-		}
-		
-		if(CH38_SW == ch_off)
-		{
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-			DISP_CNL_S(300,506,"038");
-		}else if(CH38_SW == ch_on){
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_HLT);
-			DISP_CNL_S(300,506,"038");
-		}
-		
-		if(CH39_SW == ch_off)
-		{
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-			DISP_CNL_S(340,506,"039");
-		}else if(CH39_SW == ch_on){
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_HLT);
-			DISP_CNL_S(340,506,"039");
-		}
-		
-		if(CH40_SW == ch_off)
-		{
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-			DISP_CNL_S(380,506,"040");
-		}else if(CH40_SW == ch_on){
-			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_SetTextColor(LCD_COLOR_HLT);
-			DISP_CNL_S(380,506,"040");
+			if(CH17_SW == ch_off)
+			{
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+				DISP_CNL_S(100,258,"017");
+			}else if(CH17_SW == ch_on){
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_HLT);
+				DISP_CNL_S(100,258,"017");
+			}
+			
+			if(CH18_SW == ch_off)
+			{
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+				DISP_CNL_S(140,258,"018");
+			}else if(CH18_SW == ch_on){
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_HLT);
+				DISP_CNL_S(140,258,"018");
+			}
+			
+			if(CH19_SW == ch_off)
+			{
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+				DISP_CNL_S(180,258,"019");
+			}else if(CH19_SW == ch_on){
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_HLT);
+				DISP_CNL_S(180,258,"019");
+			}
+			
+			if(CH20_SW == ch_off)
+			{
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+				DISP_CNL_S(220,258,"020");
+			}else if(CH20_SW == ch_on){
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_HLT);
+				DISP_CNL_S(220,258,"020");
+			}
+			
+			if(CH21_SW == ch_off)
+			{
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+				DISP_CNL_S(260,258,"021");
+			}else if(CH21_SW == ch_on){
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_HLT);
+				DISP_CNL_S(260,258,"021");
+			}
+			
+			if(CH22_SW == ch_off)
+			{
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+				DISP_CNL_S(300,258,"022");
+			}else if(CH22_SW == ch_on){
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_HLT);
+				DISP_CNL_S(300,258,"022");
+			}
+			
+			if(CH23_SW == ch_off)
+			{
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+				DISP_CNL_S(340,258,"023");
+			}else if(CH23_SW == ch_on){
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_HLT);
+				DISP_CNL_S(340,258,"023");
+			}
+			
+			if(CH24_SW == ch_off)
+			{
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+				DISP_CNL_S(380,258,"024");
+			}else if(CH24_SW == ch_on){
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_HLT);
+				DISP_CNL_S(380,258,"024");
+			}
+			
+			if(CH25_SW == ch_off)
+			{
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+				DISP_CNL_S(100,382,"025");
+			}else if(CH25_SW == ch_on){
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_HLT);
+				DISP_CNL_S(100,382,"025");
+			}
+			
+			if(CH26_SW == ch_off)
+			{
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+				DISP_CNL_S(140,382,"026");
+			}else if(CH26_SW == ch_on){
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_HLT);
+				DISP_CNL_S(140,382,"026");
+			}
+			
+			if(CH27_SW == ch_off)
+			{
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+				DISP_CNL_S(180,382,"027");
+			}else if(CH27_SW == ch_on){
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_HLT);
+				DISP_CNL_S(180,382,"027");
+			}
+			
+			if(CH28_SW == ch_off)
+			{
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+				DISP_CNL_S(220,382,"028");
+			}else if(CH28_SW == ch_on){
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_HLT);
+				DISP_CNL_S(220,382,"028");
+			}
+			
+			if(CH29_SW == ch_off)
+			{
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+				DISP_CNL_S(260,382,"029");
+			}else if(CH29_SW == ch_on){
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_HLT);
+				DISP_CNL_S(260,382,"029");
+			}
+			
+			if(CH30_SW == ch_off)
+			{
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+				DISP_CNL_S(300,382,"030");
+			}else if(CH30_SW == ch_on){
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_HLT);
+				DISP_CNL_S(300,382,"030");
+			}
+			
+			if(CH31_SW == ch_off)
+			{
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+				DISP_CNL_S(340,382,"031");
+			}else if(CH31_SW == ch_on){
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_HLT);
+				DISP_CNL_S(340,382,"031");
+			}
+			
+			if(CH32_SW == ch_off)
+			{
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+				DISP_CNL_S(380,382,"032");
+			}else if(CH32_SW == ch_on){
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_HLT);
+				DISP_CNL_S(380,382,"032");
+			}
+			
+			if(CH33_SW == ch_off)
+			{
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+				DISP_CNL_S(100,506,"033");
+			}else if(CH33_SW == ch_on){
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_HLT);
+				DISP_CNL_S(100,506,"033");
+			}
+			
+			if(CH34_SW == ch_off)
+			{
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+				DISP_CNL_S(140,506,"034");
+			}else if(CH34_SW == ch_on){
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_HLT);
+				DISP_CNL_S(140,506,"034");
+			}
+			
+			if(CH35_SW == ch_off)
+			{
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+				DISP_CNL_S(180,506,"035");
+			}else if(CH35_SW == ch_on){
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_HLT);
+				DISP_CNL_S(180,506,"035");
+			}
+			
+			if(CH36_SW == ch_off)
+			{
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+				DISP_CNL_S(220,506,"036");
+			}else if(CH36_SW == ch_on){
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_HLT);
+				DISP_CNL_S(220,506,"036");
+			}
+			
+			if(CH37_SW == ch_off)
+			{
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+				DISP_CNL_S(260,506,"037");
+			}else if(CH37_SW == ch_on){
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_HLT);
+				DISP_CNL_S(260,506,"037");
+			}
+			
+			if(CH38_SW == ch_off)
+			{
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+				DISP_CNL_S(300,506,"038");
+			}else if(CH38_SW == ch_on){
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_HLT);
+				DISP_CNL_S(300,506,"038");
+			}
+			
+			if(CH39_SW == ch_off)
+			{
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+				DISP_CNL_S(340,506,"039");
+			}else if(CH39_SW == ch_on){
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_HLT);
+				DISP_CNL_S(340,506,"039");
+			}
+			
+			if(CH40_SW == ch_off)
+			{
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+				DISP_CNL_S(380,506,"040");
+			}else if(CH40_SW == ch_on){
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_SetTextColor(LCD_COLOR_HLT);
+				DISP_CNL_S(380,506,"040");
+			}
 		}
 
 		
