@@ -72,6 +72,9 @@ void Save_time(u16 rec);
 void Read_time(u16 rec);
 void Read_Flash_Init_Handle(void);
 void Erase_all(void);
+u8 PowerOffDetect(void);
+void PowerOffHandle(void);
+
 
 u8 udisk_scan(void);
 void Delay(__IO u32 nCount);
@@ -103,6 +106,7 @@ void TouchHandle(u16 x,u16 y);
 void ChannelSwtichBig(void);
 void ChannelSwtichMid(void);
 void ChannelSwtichSml(void);
+void SetTctype(u8 type);
 
 extern u8 usbbuf[0x40];
 uint16_t CRC16(uint8_t *puchMsg, uint8_t Len);

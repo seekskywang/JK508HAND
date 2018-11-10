@@ -210,6 +210,7 @@ void DEBUG_USART_IRQHandler(void)
 	static u16 corconv;
 	u8 i;
 	char buf[10];
+	int16_t tempbuf;
 	
 //	u16 ureadcrc;
 //	u8 *ucrc;
@@ -275,7 +276,15 @@ void DEBUG_USART_IRQHandler(void)
 //					}
 					for(i=0;i<16;i++)
 					{
-						ch_temp[i] = (RecBuff[2*(i+1)+3] * 256 + RecBuff[2*(i+1)+4])/10.0;
+						tempbuf = RecBuff[2*(i+1)+3]<<8;
+						tempbuf = tempbuf + RecBuff[2*(i+1)+4];
+						if(tempbuf < 0)
+						{
+							ch_temp[i] = tempbuf/10;
+						}else{
+							ch_temp[i] = tempbuf/10;
+						}
+//						ch_temp[i] = (RecBuff[2*(i+1)+3] * 256 + RecBuff[2*(i+1)+4])/10.0;
 						if(count == 0 && page_flag == poweron)
 						{
 							InitBrt();//¿ª»úÁÁ¶È

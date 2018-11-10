@@ -329,7 +329,7 @@ void page_his(void)
 	
 	LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_BACK);
 	sprintf(buf,"%d/%d",hpage,TIME_REC);
-	LCD_DisplayStringLine(400,550,buf);
+	LCD_DisplayStringLine(370,550,buf);
 
 	page_flag = history;
 }

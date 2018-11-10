@@ -858,7 +858,22 @@ void DrawDim(void)
 		LCD_DisplayStringLine(450,548,"30");
 	}
 }
-
+/*触摸屏设置菜单*/
+void DrawTouch(void)
+{
+	if(LANG == chs)
+	{
+		LCD_SetTextColor(LCD_COLOR_YELLOW);
+		LCD_SetBackColor(LCD_COLOR_BLACK);
+		LCD_DisplayStringLine(445,35,"打开");
+						LCD_DisplayStringLine(445,157,"关闭");;
+	}else if(LANG == eng){
+		LCD_SetTextColor(LCD_COLOR_YELLOW);
+		LCD_SetBackColor(LCD_COLOR_BLACK);
+		LCD_DisplayStringLine(445,35,"ON");
+		LCD_DisplayStringLine(445,157,"OFF");
+	}
+}
 /*左下角选项说明*/
 void DrawInstruction(uint8_t *ptr)
 {

@@ -613,6 +613,7 @@ void 	 Drawtime2(void);
 void 	 Drawtime(void);
 void 	 DrawBrt(void);
 void 	 DrawDim(void);
+void 	 DrawTouch(void);
 void 	 DrawUnit(void);
 void 	 DrawGridLine(void);
 void 	 DrawBattery(u8 cap);

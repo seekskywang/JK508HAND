@@ -1162,7 +1162,37 @@ void dim_set(u8 key)
 	op_sw = op_off;
 	Save_flag();
 }
-
+/*触摸屏设置*/
+void touch_set(u8 key)
+{
+	DrawMenu();//重绘菜单栏
+	Drawsysmenu();
+	LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
+	LCD_DrawFullRect(170,210,55,32);
+	focus_on1();
+	if(LANG == chs)
+	{
+		if(key == 1)
+		{
+			LCD_DisplayStringLine(214,170,"打开");
+			TOUCH = op_on;
+		}else if(key == 2){
+			LCD_DisplayStringLine(214,170,"关闭");
+			TOUCH = op_off;
+		}
+	}else if(LANG == eng){
+		if(key == 1)
+		{
+			LCD_DisplayStringLine(212,170,"ON");
+			TOUCH = op_on;
+		}else if(key == 2){
+			LCD_DisplayStringLine(212,170,"OFF");
+			TOUCH = op_off;
+		}
+	}
+	op_sw = op_off;
+	Save_flag();
+}
 
 /**
   * @brief  配置按键用到的I/O口
@@ -1753,6 +1783,7 @@ void FUNC1_HANDLE(void)
 					op_flag = home_type;
 					TCTYPE = TCT;
 					Save_flag();
+					SetTctype(TCTYPE);
 					}break;
 				case type_2:
 				{
@@ -1765,7 +1796,8 @@ void FUNC1_HANDLE(void)
 					LCD_DisplayStringLine(47,100,"TC-E");
 					op_flag = home_type;
 					TCTYPE = TCE;
-					Save_flag();					
+					Save_flag();
+					SetTctype(TCTYPE);					
 				}break;
 				case type_3:
 				{
@@ -1779,6 +1811,7 @@ void FUNC1_HANDLE(void)
 					op_flag = home_type;
 					TCTYPE = PT100;
 					Save_flag();
+					SetTctype(TCTYPE);
 				}break;
 				default:
 				{
@@ -1829,6 +1862,10 @@ void FUNC1_HANDLE(void)
 					case set_dim:
 					{
 						dim_set(1);
+					}break;
+					case set_touch:
+					{
+						touch_set(1);
 					}break;
 				}
 			}else{
@@ -2014,6 +2051,7 @@ void FUNC2_HANDLE(void)
 					op_flag = home_type;
 					TCTYPE = TCK;
 					Save_flag();
+					SetTctype(TCTYPE);
 				}break;
 				case type_2:
 				{
@@ -2027,6 +2065,7 @@ void FUNC2_HANDLE(void)
 					op_flag = home_type;
 					TCTYPE = TCS;
 					Save_flag();
+					SetTctype(TCTYPE);
 				}break;
 				default:
 				{
@@ -2077,6 +2116,10 @@ void FUNC2_HANDLE(void)
 					case set_dim:
 					{
 						dim_set(2);
+					}break;
+					case set_touch:
+					{
+						touch_set(2);
 					}break;
 				}
 			}else{
@@ -2259,6 +2302,7 @@ void FUNC3_HANDLE(void)
 					op_flag = home_type;
 					TCTYPE = TCJ;
 					Save_flag();
+					SetTctype(TCTYPE);
 				}break;
 				case type_2:
 				{
@@ -2272,6 +2316,7 @@ void FUNC3_HANDLE(void)
 					op_flag = home_type;
 					TCTYPE = TCR;
 					Save_flag();
+					SetTctype(TCTYPE);
 				}break;
 				default:
 				{
@@ -2446,6 +2491,7 @@ void FUNC4_HANDLE(void)
 					op_flag = home_type;
 					TCTYPE = TCN;
 					Save_flag();
+					SetTctype(TCTYPE);
 				}break;
 				case type_2:
 				{
@@ -2459,6 +2505,7 @@ void FUNC4_HANDLE(void)
 					op_flag = home_type;
 					TCTYPE = TCB;
 					Save_flag();
+					SetTctype(TCTYPE);
 				}break;
 				default:
 				{
@@ -6180,6 +6227,12 @@ void ENTER_HANDLE(void)
 					DrawDim();
 					op_sw = op_on;
 				}break;
+				case set_touch:
+				{
+					DrawMenu();
+					DrawTouch();
+					op_sw = op_on;
+				}break;
 			}
 		}break;
 		case graph:
@@ -8478,6 +8531,64 @@ void UP_HANDLE(void)
 					
 					op_flag = set_brt;
 				}break;
+				case set_touch:
+				{
+					focus_on1();
+					if(LANG == chs)
+					{
+						if(DIM == DOFF)
+						{
+							LCD_DisplayStringLine(174,170,"关闭");
+						}else if(DIM == D5){
+							sprintf(buf,"%d",5);
+							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+						}else if(DIM == D10){
+							sprintf(buf,"%d",10);
+							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+						}else if(DIM == D15){
+							sprintf(buf,"%d",15);
+							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+						}else if(DIM == D30){
+							sprintf(buf,"%d",30);
+							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+						}
+					}else if(LANG  == eng){
+						if(DIM == DOFF)
+						{
+							LCD_DisplayStringLine(172,170,"OFF");
+						}else if(DIM == D5){
+							sprintf(buf,"%d",5);
+							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+						}else if(DIM == D10){
+							sprintf(buf,"%d",10);
+							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+						}else if(DIM == D15){
+							sprintf(buf,"%d",15);
+							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+						}else if(DIM == D30){
+							sprintf(buf,"%d",30);
+							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+						}
+					}
+					focus_off1();
+					if(LANG == chs)
+					{
+						if(TOUCH == op_on)
+						{
+							LCD_DisplayStringLine(214,170,"打开");
+						}else{
+							LCD_DisplayStringLine(214,170,"关闭");
+						}
+					}else if(LANG  == eng){
+						if(TOUCH == op_on)
+						{
+							LCD_DisplayStringLine(212,170,"ON");
+						}else{
+							LCD_DisplayStringLine(212,170,"OFF");
+						}
+					}
+					op_flag = set_dim;
+				}break;
 			}
 		}break;
 		case graphset:
@@ -10649,6 +10760,7 @@ void DOWN_HANDLE(void)
 							LCD_DisplayStringLine(212,170,"OFF");
 						}
 					}
+					op_flag = set_touch;
 				}break;
 			}
 		}break;

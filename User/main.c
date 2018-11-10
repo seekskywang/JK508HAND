@@ -219,7 +219,7 @@ float ch_temp[40];
 
 int main(void)
 {
-//	static u8 powerstat;
+	static u8 powerstat;
 //	static u8 ledstat;
 	u8 test[9] = {0X01,0X03,0X02,0X58,0X00,0X01,0X02,0X00,0X05};
 	 __IO uint32_t i = 0;
@@ -342,10 +342,13 @@ int main(void)
 		/*按键扫描*/		
 		Key_Function();
 		
-		if(touchflag == 1)
+		if(TOUCH == op_on)
 		{
-			Delay(1000);
-			TouchHandle(XCOOR,YCOOR);
+			if(touchflag == 1)
+			{
+				Delay(1000);
+				TouchHandle(XCOOR,YCOOR);
+			}
 		}
 //		Touch_Scan();
 //		CH1TEMP = (RecBuff[21] * 256 + RecBuff[22])/10.0;
@@ -355,7 +358,7 @@ int main(void)
 		BEEP_ON;
 		Delay(0xfff);
 		BEEP_OFF;
-//		powerstat = GPIO_ReadInputDataBit(GPIOI,GPIO_Pin_11);
+		powerstat = GPIO_ReadInputDataBit(GPIOI,GPIO_Pin_11);
 		DCD_EP_PrepareRx(&USB_OTG_dev,HID_OUT_EP,usbbuf,64);//接收PC数据
 		if(UsbHidReceiveComplete)                         //接收到数据
 		{			
@@ -1705,17 +1708,17 @@ void UsbDataHandle(void)
 //					usbsendbuf[17] = (u8)(PF >> 8);
 //					usbsendbuf[18] = (u8)PF;
 					usbsendbuf[7] = 0xFF;
-					usbsendbuf[8] = 0xE0;
-					usbsendbuf[9] = 0xE0;
-					usbsendbuf[10] = 0xE0;
-					usbsendbuf[11] = 0xE0;
-					usbsendbuf[12] = 0xE0;
-					usbsendbuf[13] = 0xE0;
-					usbsendbuf[14] = 0xE0;
-					usbsendbuf[15] = 0xE0;
-					usbsendbuf[16] = 0xE0;
-					usbsendbuf[17] = 0xE0;
-					usbsendbuf[18] = 0xE0;
+					usbsendbuf[8] = 0xFF;
+					usbsendbuf[9] = 0xFF;
+					usbsendbuf[10] = 0xFF;
+					usbsendbuf[11] = 0xFF;
+					usbsendbuf[12] = 0xFF;
+					usbsendbuf[13] = 0xFF;
+					usbsendbuf[14] = 0xFF;
+					usbsendbuf[15] = 0xFF;
+					usbsendbuf[16] = 0xFF;
+					usbsendbuf[17] = 0xFF;
+					usbsendbuf[18] = 0xFF;
 					
 					for(i = 0;i < csendlen; i++)
 					{
@@ -1729,6 +1732,7 @@ void UsbDataHandle(void)
 					{
 						usbsendbuf[i] = 0;
 					}
+					
 					USBD_HID_SendReport(&USB_OTG_dev,usbsendbuf,64);//数据回显
 				}
 			}
@@ -2020,6 +2024,16 @@ void Read_Flash_Init_Handle(void)
 			YLIMIT[i] = 0;
 		}
 	}
+	
+}
+//关机检测
+u8 PowerOffDetect(void)
+{
+	return GPIO_ReadInputDataBit(GPIOI,GPIO_Pin_11);
+}
+//检测到关机后的处理
+void PowerOffHandle(void)
+{
 	
 }
 /*********************************************END OF FILE**********************/

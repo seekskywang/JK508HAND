@@ -118,7 +118,7 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>DLGUARM</Key>
-          <Name>/</Name>
+          <Name>腆 </Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -397,6 +397,11 @@
           <count>49</count>
           <WinNumber>1</WinNumber>
           <ItemText>YCOOR</ItemText>
+        </Ww>
+        <Ww>
+          <count>50</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>powerstat</ItemText>
         </Ww>
       </WatchWindow1>
       <WatchWindow2>
