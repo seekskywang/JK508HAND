@@ -23,7 +23,6 @@
 #include "jk508.h"
 
 
-
 void power_on(void)
 {
 //	u8 i;
@@ -45,16 +44,23 @@ void power_on(void)
 //		DISP_INS(5+i*20,336,(uint8_t*)buf);
 //		Delay(500);
 //	}
+	
 	LCD_SetColors(LCD_COLOR_GR7,LCD_COLOR_BLACK);
 	DISP_SYS(0,0,"JKOS");
 	LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_BLACK);
 	DISP_INS(50,0,"REV 1.0");
 	DISP_INS(200,0,"JK508 Multi-channel Temp.Meter");
 	DISP_INS(230,0,"REV 1.0");
-
+	
 	
 	
 	page_flag = poweron;
 	
 	
+}
+
+void DrawLogo(u16 x,u16 y)
+{
+	LCD_SetColors(LCD_COLOR_GR7,LCD_COLOR_BLACK);
+	/*J*/
 }

@@ -2660,11 +2660,11 @@ void FUNC5_HANDLE(void)
 				}break;
 				default:
 				{
-					if(FONT == big)
+					if(FONT == big && CHNUM > 8)
 					{
 						LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
 						LCD_DrawFullRect(10,100,600,310);
-						if(ch_page == page1)
+						if(ch_page == page1 && CHNUM > 8)
 						{
 							
 							LCD_SetBackColor(LCD_COLOR_BACK);
@@ -2757,7 +2757,7 @@ void FUNC5_HANDLE(void)
 								LCD_DisplayStringLine_48(310,330,"016");
 							}
 							ch_page = page2;
-						}else if(ch_page == page2){
+						}else if(ch_page == page2 && CHNUM > 16){
 							LCD_SetBackColor(LCD_COLOR_BACK);
 							LCD_SetTextColor(LCD_COLOR_HLT);
 							if(CH17_SW == ch_off)
@@ -2849,7 +2849,7 @@ void FUNC5_HANDLE(void)
 							}
 							ch_page = page3;
 						}else if(ch_page == page3){
-							if(CH25_SW == ch_off)
+							if(CH25_SW == ch_off && CHNUM > 16)
 							{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
@@ -2936,7 +2936,7 @@ void FUNC5_HANDLE(void)
 								LCD_DisplayStringLine_48(310,330,"032");
 							}
 							ch_page = page4;
-						}else if(ch_page == page4){
+						}else if(ch_page == page4 && CHNUM > 16){
 							if(CH33_SW == ch_off)
 							{
 								LCD_SetBackColor(LCD_COLOR_BACK);
@@ -3025,7 +3025,7 @@ void FUNC5_HANDLE(void)
 								LCD_DisplayStringLine_48(310,330,"040");
 							}
 							ch_page = page5;
-						}else if(ch_page == page5){
+						}else if(ch_page == page5 && CHNUM > 16){
 							if(CH1_SW == ch_off)
 							{
 								LCD_SetBackColor(LCD_COLOR_BACK);
@@ -3116,7 +3116,7 @@ void FUNC5_HANDLE(void)
 							ch_page = page1;
 						}
 					}else if(FONT == middle){
-						if(ch_page == page1)
+						if(ch_page == page1 && CHNUM > 24)
 						{
 							LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
 							LCD_DrawFullRect(10,100,550,310);
@@ -3689,344 +3689,350 @@ void FUNC5_HANDLE(void)
 		}break;
 		case separation:
 		{
-			switch(spt_page)
+			if(CHNUM > 8)
 			{
-				case page1:
+				switch(spt_page)
 				{
-					LCD_SetTextColor(LCD_COLOR_LIGHTBLUE);	
-					LCD_SetBackColor(LCD_COLOR_BACK);
-					LCD_DisplayStringLine(80,10,"009");
-					LCD_DisplayStringLine(120,10,"010");
-					LCD_DisplayStringLine(160,10,"011");
-					LCD_DisplayStringLine(200,10,"012");
-					LCD_DisplayStringLine(240,10,"013");
-					LCD_DisplayStringLine(280,10,"014");
-					LCD_DisplayStringLine(320,10,"015");
-					LCD_DisplayStringLine(360,10,"016");
-					minfocus_on(1,CH9MIN);
-					minfocus_off(2,CH10MIN);
-					minfocus_off(3,CH11MIN);
-					minfocus_off(4,CH12MIN);
-					minfocus_off(5,CH13MIN);
-					minfocus_off(6,CH14MIN);
-					minfocus_off(7,CH15MIN);
-					minfocus_off(8,CH16MIN);
-					
-					maxfocus_off(1,CH9MAX);
-					maxfocus_off(2,CH10MAX);
-					maxfocus_off(3,CH11MAX);
-					maxfocus_off(4,CH12MAX);
-					maxfocus_off(5,CH13MAX);
-					maxfocus_off(6,CH14MAX);
-					maxfocus_off(7,CH15MAX);
-					maxfocus_off(8,CH16MAX);
-					
-					op_flag = set_min1;
-					spt_page = page2;
-				}break;
-				case page2:
-				{
-					LCD_SetTextColor(LCD_COLOR_LIGHTBLUE);	
-					LCD_SetBackColor(LCD_COLOR_BACK);
-					LCD_DisplayStringLine(80,10,"017");
-					LCD_DisplayStringLine(120,10,"018");
-					LCD_DisplayStringLine(160,10,"019");
-					LCD_DisplayStringLine(200,10,"020");
-					LCD_DisplayStringLine(240,10,"021");
-					LCD_DisplayStringLine(280,10,"022");
-					LCD_DisplayStringLine(320,10,"023");
-					LCD_DisplayStringLine(360,10,"024");
-					minfocus_on(1,CH17MIN);
-					minfocus_off(2,CH18MIN);
-					minfocus_off(3,CH19MIN);
-					minfocus_off(4,CH20MIN);
-					minfocus_off(5,CH21MIN);
-					minfocus_off(6,CH22MIN);
-					minfocus_off(7,CH23MIN);
-					minfocus_off(8,CH24MIN);
-					
-					maxfocus_off(1,CH17MAX);
-					maxfocus_off(2,CH18MAX);
-					maxfocus_off(3,CH19MAX);
-					maxfocus_off(4,CH20MAX);
-					maxfocus_off(5,CH21MAX);
-					maxfocus_off(6,CH22MAX);
-					maxfocus_off(7,CH23MAX);
-					maxfocus_off(8,CH24MAX);
-					
-					op_flag = set_min1;
-					spt_page = page3;
-				}break;
-				case page3:
-				{
-					LCD_SetTextColor(LCD_COLOR_LIGHTBLUE);	
-					LCD_SetBackColor(LCD_COLOR_BACK);
-					LCD_DisplayStringLine(80,10,"025");
-					LCD_DisplayStringLine(120,10,"026");
-					LCD_DisplayStringLine(160,10,"027");
-					LCD_DisplayStringLine(200,10,"028");
-					LCD_DisplayStringLine(240,10,"029");
-					LCD_DisplayStringLine(280,10,"030");
-					LCD_DisplayStringLine(320,10,"031");
-					LCD_DisplayStringLine(360,10,"032");
-					minfocus_on(1,CH25MIN);
-					minfocus_off(2,CH26MIN);
-					minfocus_off(3,CH27MIN);
-					minfocus_off(4,CH28MIN);
-					minfocus_off(5,CH29MIN);
-					minfocus_off(6,CH30MIN);
-					minfocus_off(7,CH31MIN);
-					minfocus_off(8,CH32MIN);
-					
-					maxfocus_off(1,CH25MAX);
-					maxfocus_off(2,CH26MAX);
-					maxfocus_off(3,CH27MAX);
-					maxfocus_off(4,CH28MAX);
-					maxfocus_off(5,CH29MAX);
-					maxfocus_off(6,CH30MAX);
-					maxfocus_off(7,CH31MAX);
-					maxfocus_off(8,CH32MAX);
-					
-					op_flag = set_min1;
-					spt_page = page4;
-				}break;
-				case page4:
-				{
-					LCD_SetTextColor(LCD_COLOR_LIGHTBLUE);	
-					LCD_SetBackColor(LCD_COLOR_BACK);
-					LCD_DisplayStringLine(80,10,"033");
-					LCD_DisplayStringLine(120,10,"034");
-					LCD_DisplayStringLine(160,10,"035");
-					LCD_DisplayStringLine(200,10,"036");
-					LCD_DisplayStringLine(240,10,"037");
-					LCD_DisplayStringLine(280,10,"038");
-					LCD_DisplayStringLine(320,10,"039");
-					LCD_DisplayStringLine(360,10,"040");
-					minfocus_on(1,CH33MIN);
-					minfocus_off(2,CH34MIN);
-					minfocus_off(3,CH35MIN);
-					minfocus_off(4,CH36MIN);
-					minfocus_off(5,CH37MIN);
-					minfocus_off(6,CH38MIN);
-					minfocus_off(7,CH39MIN);
-					minfocus_off(8,CH40MIN);
-					
-					maxfocus_off(1,CH33MAX);
-					maxfocus_off(2,CH34MAX);
-					maxfocus_off(3,CH35MAX);
-					maxfocus_off(4,CH36MAX);
-					maxfocus_off(5,CH37MAX);
-					maxfocus_off(6,CH38MAX);
-					maxfocus_off(7,CH39MAX);
-					maxfocus_off(8,CH40MAX);
-					
-					op_flag = set_min1;
-					spt_page = page5;
-				}break;
-				case page5:
-				{
-					LCD_SetTextColor(LCD_COLOR_LIGHTBLUE);	
-					LCD_SetBackColor(LCD_COLOR_BACK);
-					LCD_DisplayStringLine(80,10,"001");
-					LCD_DisplayStringLine(120,10,"002");
-					LCD_DisplayStringLine(160,10,"003");
-					LCD_DisplayStringLine(200,10,"004");
-					LCD_DisplayStringLine(240,10,"005");
-					LCD_DisplayStringLine(280,10,"006");
-					LCD_DisplayStringLine(320,10,"007");
-					LCD_DisplayStringLine(360,10,"008");
-					minfocus_on(1,CH1MIN);
-					minfocus_off(2,CH2MIN);
-					minfocus_off(3,CH3MIN);
-					minfocus_off(4,CH4MIN);
-					minfocus_off(5,CH5MIN);
-					minfocus_off(6,CH6MIN);
-					minfocus_off(7,CH7MIN);
-					minfocus_off(8,CH8MIN);
-					
-					maxfocus_off(1,CH1MAX);
-					maxfocus_off(2,CH2MAX);
-					maxfocus_off(3,CH3MAX);
-					maxfocus_off(4,CH4MAX);
-					maxfocus_off(5,CH5MAX);
-					maxfocus_off(6,CH6MAX);
-					maxfocus_off(7,CH7MAX);
-					maxfocus_off(8,CH8MAX);
-					
-					op_flag = set_min1;
-					spt_page = page1;
-				}break;
+					case page1:
+					{
+						LCD_SetTextColor(LCD_COLOR_LIGHTBLUE);	
+						LCD_SetBackColor(LCD_COLOR_BACK);
+						LCD_DisplayStringLine(80,10,"009");
+						LCD_DisplayStringLine(120,10,"010");
+						LCD_DisplayStringLine(160,10,"011");
+						LCD_DisplayStringLine(200,10,"012");
+						LCD_DisplayStringLine(240,10,"013");
+						LCD_DisplayStringLine(280,10,"014");
+						LCD_DisplayStringLine(320,10,"015");
+						LCD_DisplayStringLine(360,10,"016");
+						minfocus_on(1,CH9MIN);
+						minfocus_off(2,CH10MIN);
+						minfocus_off(3,CH11MIN);
+						minfocus_off(4,CH12MIN);
+						minfocus_off(5,CH13MIN);
+						minfocus_off(6,CH14MIN);
+						minfocus_off(7,CH15MIN);
+						minfocus_off(8,CH16MIN);
+						
+						maxfocus_off(1,CH9MAX);
+						maxfocus_off(2,CH10MAX);
+						maxfocus_off(3,CH11MAX);
+						maxfocus_off(4,CH12MAX);
+						maxfocus_off(5,CH13MAX);
+						maxfocus_off(6,CH14MAX);
+						maxfocus_off(7,CH15MAX);
+						maxfocus_off(8,CH16MAX);
+						
+						op_flag = set_min1;
+						spt_page = page2;
+					}break;
+					case page2:
+					{
+						LCD_SetTextColor(LCD_COLOR_LIGHTBLUE);	
+						LCD_SetBackColor(LCD_COLOR_BACK);
+						LCD_DisplayStringLine(80,10,"017");
+						LCD_DisplayStringLine(120,10,"018");
+						LCD_DisplayStringLine(160,10,"019");
+						LCD_DisplayStringLine(200,10,"020");
+						LCD_DisplayStringLine(240,10,"021");
+						LCD_DisplayStringLine(280,10,"022");
+						LCD_DisplayStringLine(320,10,"023");
+						LCD_DisplayStringLine(360,10,"024");
+						minfocus_on(1,CH17MIN);
+						minfocus_off(2,CH18MIN);
+						minfocus_off(3,CH19MIN);
+						minfocus_off(4,CH20MIN);
+						minfocus_off(5,CH21MIN);
+						minfocus_off(6,CH22MIN);
+						minfocus_off(7,CH23MIN);
+						minfocus_off(8,CH24MIN);
+						
+						maxfocus_off(1,CH17MAX);
+						maxfocus_off(2,CH18MAX);
+						maxfocus_off(3,CH19MAX);
+						maxfocus_off(4,CH20MAX);
+						maxfocus_off(5,CH21MAX);
+						maxfocus_off(6,CH22MAX);
+						maxfocus_off(7,CH23MAX);
+						maxfocus_off(8,CH24MAX);
+						
+						op_flag = set_min1;
+						spt_page = page3;
+					}break;
+					case page3:
+					{
+						LCD_SetTextColor(LCD_COLOR_LIGHTBLUE);	
+						LCD_SetBackColor(LCD_COLOR_BACK);
+						LCD_DisplayStringLine(80,10,"025");
+						LCD_DisplayStringLine(120,10,"026");
+						LCD_DisplayStringLine(160,10,"027");
+						LCD_DisplayStringLine(200,10,"028");
+						LCD_DisplayStringLine(240,10,"029");
+						LCD_DisplayStringLine(280,10,"030");
+						LCD_DisplayStringLine(320,10,"031");
+						LCD_DisplayStringLine(360,10,"032");
+						minfocus_on(1,CH25MIN);
+						minfocus_off(2,CH26MIN);
+						minfocus_off(3,CH27MIN);
+						minfocus_off(4,CH28MIN);
+						minfocus_off(5,CH29MIN);
+						minfocus_off(6,CH30MIN);
+						minfocus_off(7,CH31MIN);
+						minfocus_off(8,CH32MIN);
+						
+						maxfocus_off(1,CH25MAX);
+						maxfocus_off(2,CH26MAX);
+						maxfocus_off(3,CH27MAX);
+						maxfocus_off(4,CH28MAX);
+						maxfocus_off(5,CH29MAX);
+						maxfocus_off(6,CH30MAX);
+						maxfocus_off(7,CH31MAX);
+						maxfocus_off(8,CH32MAX);
+						
+						op_flag = set_min1;
+						spt_page = page4;
+					}break;
+					case page4:
+					{
+						LCD_SetTextColor(LCD_COLOR_LIGHTBLUE);	
+						LCD_SetBackColor(LCD_COLOR_BACK);
+						LCD_DisplayStringLine(80,10,"033");
+						LCD_DisplayStringLine(120,10,"034");
+						LCD_DisplayStringLine(160,10,"035");
+						LCD_DisplayStringLine(200,10,"036");
+						LCD_DisplayStringLine(240,10,"037");
+						LCD_DisplayStringLine(280,10,"038");
+						LCD_DisplayStringLine(320,10,"039");
+						LCD_DisplayStringLine(360,10,"040");
+						minfocus_on(1,CH33MIN);
+						minfocus_off(2,CH34MIN);
+						minfocus_off(3,CH35MIN);
+						minfocus_off(4,CH36MIN);
+						minfocus_off(5,CH37MIN);
+						minfocus_off(6,CH38MIN);
+						minfocus_off(7,CH39MIN);
+						minfocus_off(8,CH40MIN);
+						
+						maxfocus_off(1,CH33MAX);
+						maxfocus_off(2,CH34MAX);
+						maxfocus_off(3,CH35MAX);
+						maxfocus_off(4,CH36MAX);
+						maxfocus_off(5,CH37MAX);
+						maxfocus_off(6,CH38MAX);
+						maxfocus_off(7,CH39MAX);
+						maxfocus_off(8,CH40MAX);
+						
+						op_flag = set_min1;
+						spt_page = page5;
+					}break;
+					case page5:
+					{
+						LCD_SetTextColor(LCD_COLOR_LIGHTBLUE);	
+						LCD_SetBackColor(LCD_COLOR_BACK);
+						LCD_DisplayStringLine(80,10,"001");
+						LCD_DisplayStringLine(120,10,"002");
+						LCD_DisplayStringLine(160,10,"003");
+						LCD_DisplayStringLine(200,10,"004");
+						LCD_DisplayStringLine(240,10,"005");
+						LCD_DisplayStringLine(280,10,"006");
+						LCD_DisplayStringLine(320,10,"007");
+						LCD_DisplayStringLine(360,10,"008");
+						minfocus_on(1,CH1MIN);
+						minfocus_off(2,CH2MIN);
+						minfocus_off(3,CH3MIN);
+						minfocus_off(4,CH4MIN);
+						minfocus_off(5,CH5MIN);
+						minfocus_off(6,CH6MIN);
+						minfocus_off(7,CH7MIN);
+						minfocus_off(8,CH8MIN);
+						
+						maxfocus_off(1,CH1MAX);
+						maxfocus_off(2,CH2MAX);
+						maxfocus_off(3,CH3MAX);
+						maxfocus_off(4,CH4MAX);
+						maxfocus_off(5,CH5MAX);
+						maxfocus_off(6,CH6MAX);
+						maxfocus_off(7,CH7MAX);
+						maxfocus_off(8,CH8MAX);
+						
+						op_flag = set_min1;
+						spt_page = page1;
+					}break;
+				}
 			}
 		}break;
 		case calibrate:
 		{
-			switch(cor_page)
+			if(CHNUM > 8)
 			{
-				case page1:
+				switch(cor_page)
 				{
-					LCD_SetTextColor(LCD_COLOR_LIGHTBLUE);	
-					LCD_SetBackColor(LCD_COLOR_BACK);
-					LCD_DisplayStringLine(80,10,"009");
-					LCD_DisplayStringLine(120,10,"010");
-					LCD_DisplayStringLine(160,10,"011");
-					LCD_DisplayStringLine(200,10,"012");
-					LCD_DisplayStringLine(240,10,"013");
-					LCD_DisplayStringLine(280,10,"014");
-					LCD_DisplayStringLine(320,10,"015");
-					LCD_DisplayStringLine(360,10,"016");
-					minfocus_off(1,CH9TEMP);
-					minfocus_off(2,CH10TEMP);
-					minfocus_off(3,CH11TEMP);
-					minfocus_off(4,CH12TEMP);
-					minfocus_off(5,CH13TEMP);
-					minfocus_off(6,CH14TEMP);
-					minfocus_off(7,CH15TEMP);
-					minfocus_off(8,CH16TEMP);
-					
-					maxfocus_on(1,COR9);
-					maxfocus_off(2,COR10);
-					maxfocus_off(3,COR11);
-					maxfocus_off(4,COR12);
-					maxfocus_off(5,COR13);
-					maxfocus_off(6,COR14);
-					maxfocus_off(7,COR15);
-					maxfocus_off(8,COR16);
-					
-					op_flag = set_c1;
-					cor_page = page2;
-				}break;
-				case page2:
-				{
-					LCD_SetTextColor(LCD_COLOR_LIGHTBLUE);	
-					LCD_SetBackColor(LCD_COLOR_BACK);
-					LCD_DisplayStringLine(80,10,"017");
-					LCD_DisplayStringLine(120,10,"018");
-					LCD_DisplayStringLine(160,10,"019");
-					LCD_DisplayStringLine(200,10,"020");
-					LCD_DisplayStringLine(240,10,"021");
-					LCD_DisplayStringLine(280,10,"022");
-					LCD_DisplayStringLine(320,10,"023");
-					LCD_DisplayStringLine(360,10,"024");
-					minfocus_off(1,CH17TEMP);
-					minfocus_off(2,CH18TEMP);
-					minfocus_off(3,CH19TEMP);
-					minfocus_off(4,CH20TEMP);
-					minfocus_off(5,CH21TEMP);
-					minfocus_off(6,CH22TEMP);
-					minfocus_off(7,CH23TEMP);
-					minfocus_off(8,CH24TEMP);
-					
-					maxfocus_on(1,COR17);
-					maxfocus_off(2,COR18);
-					maxfocus_off(3,COR19);
-					maxfocus_off(4,COR20);
-					maxfocus_off(5,COR21);
-					maxfocus_off(6,COR22);
-					maxfocus_off(7,COR23);
-					maxfocus_off(8,COR24);
-					
-					op_flag = set_c1;
-					cor_page = page3;
-				}break;
-				case page3:
-				{
-					LCD_SetTextColor(LCD_COLOR_LIGHTBLUE);	
-					LCD_SetBackColor(LCD_COLOR_BACK);
-					LCD_DisplayStringLine(80,10,"025");
-					LCD_DisplayStringLine(120,10,"026");
-					LCD_DisplayStringLine(160,10,"027");
-					LCD_DisplayStringLine(200,10,"028");
-					LCD_DisplayStringLine(240,10,"029");
-					LCD_DisplayStringLine(280,10,"030");
-					LCD_DisplayStringLine(320,10,"031");
-					LCD_DisplayStringLine(360,10,"032");
-					minfocus_off(1,CH25TEMP);
-					minfocus_off(2,CH26TEMP);
-					minfocus_off(3,CH27TEMP);
-					minfocus_off(4,CH28TEMP);
-					minfocus_off(5,CH29TEMP);
-					minfocus_off(6,CH30TEMP);
-					minfocus_off(7,CH31TEMP);
-					minfocus_off(8,CH32TEMP);
-					
-					maxfocus_on(1,COR25);
-					maxfocus_off(2,COR26);
-					maxfocus_off(3,COR27);
-					maxfocus_off(4,COR28);
-					maxfocus_off(5,COR29);
-					maxfocus_off(6,COR30);
-					maxfocus_off(7,COR31);
-					maxfocus_off(8,COR32);
-					
-					op_flag = set_c1;
-					cor_page = page4;
-				}break;
-				case page4:
-				{
-					LCD_SetTextColor(LCD_COLOR_LIGHTBLUE);	
-					LCD_SetBackColor(LCD_COLOR_BACK);
-					LCD_DisplayStringLine(80,10,"033");
-					LCD_DisplayStringLine(120,10,"034");
-					LCD_DisplayStringLine(160,10,"035");
-					LCD_DisplayStringLine(200,10,"036");
-					LCD_DisplayStringLine(240,10,"037");
-					LCD_DisplayStringLine(280,10,"038");
-					LCD_DisplayStringLine(320,10,"039");
-					LCD_DisplayStringLine(360,10,"040");
-					minfocus_off(1,CH33TEMP);
-					minfocus_off(2,CH34TEMP);
-					minfocus_off(3,CH35TEMP);
-					minfocus_off(4,CH36TEMP);
-					minfocus_off(5,CH37TEMP);
-					minfocus_off(6,CH38TEMP);
-					minfocus_off(7,CH39TEMP);
-					minfocus_off(8,CH40TEMP);
-					
-					maxfocus_on(1,COR33);
-					maxfocus_off(2,COR34);
-					maxfocus_off(3,COR35);
-					maxfocus_off(4,COR36);
-					maxfocus_off(5,COR37);
-					maxfocus_off(6,COR38);
-					maxfocus_off(7,COR39);
-					maxfocus_off(8,COR40);
-					
-					op_flag = set_c1;
-					cor_page = page5;
-				}break;
-				case page5:
-				{
-					LCD_SetTextColor(LCD_COLOR_LIGHTBLUE);	
-					LCD_SetBackColor(LCD_COLOR_BACK);
-					LCD_DisplayStringLine(80,10,"001");
-					LCD_DisplayStringLine(120,10,"002");
-					LCD_DisplayStringLine(160,10,"003");
-					LCD_DisplayStringLine(200,10,"004");
-					LCD_DisplayStringLine(240,10,"005");
-					LCD_DisplayStringLine(280,10,"006");
-					LCD_DisplayStringLine(320,10,"007");
-					LCD_DisplayStringLine(360,10,"008");
-					minfocus_off(1,CH1TEMP);
-					minfocus_off(2,CH2TEMP);
-					minfocus_off(3,CH3TEMP);
-					minfocus_off(4,CH4TEMP);
-					minfocus_off(5,CH5TEMP);
-					minfocus_off(6,CH6TEMP);
-					minfocus_off(7,CH7TEMP);
-					minfocus_off(8,CH8TEMP);
-					
-					maxfocus_on(1,COR1);
-					maxfocus_off(2,COR2);
-					maxfocus_off(3,COR3);
-					maxfocus_off(4,COR4);
-					maxfocus_off(5,COR5);
-					maxfocus_off(6,COR6);
-					maxfocus_off(7,COR7);
-					maxfocus_off(8,COR8);
-					
-					op_flag = set_min1;
-					cor_page = page1;
-				}break;
+					case page1:
+					{
+						LCD_SetTextColor(LCD_COLOR_LIGHTBLUE);	
+						LCD_SetBackColor(LCD_COLOR_BACK);
+						LCD_DisplayStringLine(80,10,"009");
+						LCD_DisplayStringLine(120,10,"010");
+						LCD_DisplayStringLine(160,10,"011");
+						LCD_DisplayStringLine(200,10,"012");
+						LCD_DisplayStringLine(240,10,"013");
+						LCD_DisplayStringLine(280,10,"014");
+						LCD_DisplayStringLine(320,10,"015");
+						LCD_DisplayStringLine(360,10,"016");
+						minfocus_off(1,CH9TEMP);
+						minfocus_off(2,CH10TEMP);
+						minfocus_off(3,CH11TEMP);
+						minfocus_off(4,CH12TEMP);
+						minfocus_off(5,CH13TEMP);
+						minfocus_off(6,CH14TEMP);
+						minfocus_off(7,CH15TEMP);
+						minfocus_off(8,CH16TEMP);
+						
+						maxfocus_on(1,COR9);
+						maxfocus_off(2,COR10);
+						maxfocus_off(3,COR11);
+						maxfocus_off(4,COR12);
+						maxfocus_off(5,COR13);
+						maxfocus_off(6,COR14);
+						maxfocus_off(7,COR15);
+						maxfocus_off(8,COR16);
+						
+						op_flag = set_c1;
+						cor_page = page2;
+					}break;
+					case page2:
+					{
+						LCD_SetTextColor(LCD_COLOR_LIGHTBLUE);	
+						LCD_SetBackColor(LCD_COLOR_BACK);
+						LCD_DisplayStringLine(80,10,"017");
+						LCD_DisplayStringLine(120,10,"018");
+						LCD_DisplayStringLine(160,10,"019");
+						LCD_DisplayStringLine(200,10,"020");
+						LCD_DisplayStringLine(240,10,"021");
+						LCD_DisplayStringLine(280,10,"022");
+						LCD_DisplayStringLine(320,10,"023");
+						LCD_DisplayStringLine(360,10,"024");
+						minfocus_off(1,CH17TEMP);
+						minfocus_off(2,CH18TEMP);
+						minfocus_off(3,CH19TEMP);
+						minfocus_off(4,CH20TEMP);
+						minfocus_off(5,CH21TEMP);
+						minfocus_off(6,CH22TEMP);
+						minfocus_off(7,CH23TEMP);
+						minfocus_off(8,CH24TEMP);
+						
+						maxfocus_on(1,COR17);
+						maxfocus_off(2,COR18);
+						maxfocus_off(3,COR19);
+						maxfocus_off(4,COR20);
+						maxfocus_off(5,COR21);
+						maxfocus_off(6,COR22);
+						maxfocus_off(7,COR23);
+						maxfocus_off(8,COR24);
+						
+						op_flag = set_c1;
+						cor_page = page3;
+					}break;
+					case page3:
+					{
+						LCD_SetTextColor(LCD_COLOR_LIGHTBLUE);	
+						LCD_SetBackColor(LCD_COLOR_BACK);
+						LCD_DisplayStringLine(80,10,"025");
+						LCD_DisplayStringLine(120,10,"026");
+						LCD_DisplayStringLine(160,10,"027");
+						LCD_DisplayStringLine(200,10,"028");
+						LCD_DisplayStringLine(240,10,"029");
+						LCD_DisplayStringLine(280,10,"030");
+						LCD_DisplayStringLine(320,10,"031");
+						LCD_DisplayStringLine(360,10,"032");
+						minfocus_off(1,CH25TEMP);
+						minfocus_off(2,CH26TEMP);
+						minfocus_off(3,CH27TEMP);
+						minfocus_off(4,CH28TEMP);
+						minfocus_off(5,CH29TEMP);
+						minfocus_off(6,CH30TEMP);
+						minfocus_off(7,CH31TEMP);
+						minfocus_off(8,CH32TEMP);
+						
+						maxfocus_on(1,COR25);
+						maxfocus_off(2,COR26);
+						maxfocus_off(3,COR27);
+						maxfocus_off(4,COR28);
+						maxfocus_off(5,COR29);
+						maxfocus_off(6,COR30);
+						maxfocus_off(7,COR31);
+						maxfocus_off(8,COR32);
+						
+						op_flag = set_c1;
+						cor_page = page4;
+					}break;
+					case page4:
+					{
+						LCD_SetTextColor(LCD_COLOR_LIGHTBLUE);	
+						LCD_SetBackColor(LCD_COLOR_BACK);
+						LCD_DisplayStringLine(80,10,"033");
+						LCD_DisplayStringLine(120,10,"034");
+						LCD_DisplayStringLine(160,10,"035");
+						LCD_DisplayStringLine(200,10,"036");
+						LCD_DisplayStringLine(240,10,"037");
+						LCD_DisplayStringLine(280,10,"038");
+						LCD_DisplayStringLine(320,10,"039");
+						LCD_DisplayStringLine(360,10,"040");
+						minfocus_off(1,CH33TEMP);
+						minfocus_off(2,CH34TEMP);
+						minfocus_off(3,CH35TEMP);
+						minfocus_off(4,CH36TEMP);
+						minfocus_off(5,CH37TEMP);
+						minfocus_off(6,CH38TEMP);
+						minfocus_off(7,CH39TEMP);
+						minfocus_off(8,CH40TEMP);
+						
+						maxfocus_on(1,COR33);
+						maxfocus_off(2,COR34);
+						maxfocus_off(3,COR35);
+						maxfocus_off(4,COR36);
+						maxfocus_off(5,COR37);
+						maxfocus_off(6,COR38);
+						maxfocus_off(7,COR39);
+						maxfocus_off(8,COR40);
+						
+						op_flag = set_c1;
+						cor_page = page5;
+					}break;
+					case page5:
+					{
+						LCD_SetTextColor(LCD_COLOR_LIGHTBLUE);	
+						LCD_SetBackColor(LCD_COLOR_BACK);
+						LCD_DisplayStringLine(80,10,"001");
+						LCD_DisplayStringLine(120,10,"002");
+						LCD_DisplayStringLine(160,10,"003");
+						LCD_DisplayStringLine(200,10,"004");
+						LCD_DisplayStringLine(240,10,"005");
+						LCD_DisplayStringLine(280,10,"006");
+						LCD_DisplayStringLine(320,10,"007");
+						LCD_DisplayStringLine(360,10,"008");
+						minfocus_off(1,CH1TEMP);
+						minfocus_off(2,CH2TEMP);
+						minfocus_off(3,CH3TEMP);
+						minfocus_off(4,CH4TEMP);
+						minfocus_off(5,CH5TEMP);
+						minfocus_off(6,CH6TEMP);
+						minfocus_off(7,CH7TEMP);
+						minfocus_off(8,CH8TEMP);
+						
+						maxfocus_on(1,COR1);
+						maxfocus_off(2,COR2);
+						maxfocus_off(3,COR3);
+						maxfocus_off(4,COR4);
+						maxfocus_off(5,COR5);
+						maxfocus_off(6,COR6);
+						maxfocus_off(7,COR7);
+						maxfocus_off(8,COR8);
+						
+						op_flag = set_min1;
+						cor_page = page1;
+					}break;
+				}
 			}
 			if(LANG == chs)
 			{
@@ -6400,7 +6406,7 @@ void UP_HANDLE(void)
 					}else if(FONT == middle){
 						LCD_SetTextColor(LCD_COLOR_YELLOW);
 						LCD_SetBackColor(LCD_COLOR_BACK);
-						if(tc_type == TCK)
+						if(TCTYPE == TCK)
 						{
 							LCD_DisplayStringLine(47,100,"TC-K");
 						}else if(TCTYPE == TCT){
@@ -10836,7 +10842,7 @@ void RIGHT_HANDLE(void)
 						}
 						
 						op_flag = home_ch5;
-					}else if(FONT == middle){
+					}else if(FONT == middle && CHNUM > 8){
 						if(ch_page == page1)
 						{
 							focus_off(CH1_SW);
@@ -10850,7 +10856,7 @@ void RIGHT_HANDLE(void)
 							DISP_CNL_M(100,210,"033");
 						}
 						op_flag = home_ch9;
-					}else if(FONT == small){
+					}else if(FONT == small && CHNUM > 8){
 						if(ch_page == page1)
 						{
 							focus_off(CH1_SW);
@@ -10903,7 +10909,7 @@ void RIGHT_HANDLE(void)
 						}
 						
 						op_flag = home_ch6;
-					}else if(FONT == middle){
+					}else if(FONT == middle && CHNUM > 8){
 						if(ch_page == page1)
 						{
 							focus_off(CH2_SW);
@@ -10917,7 +10923,7 @@ void RIGHT_HANDLE(void)
 							DISP_CNL_M(140,210,"034");
 						}
 						op_flag = home_ch10;
-					}else if(FONT == small){
+					}else if(FONT == small && CHNUM > 8){
 						if(ch_page == page1)
 						{
 							focus_off(CH2_SW);
@@ -10970,7 +10976,7 @@ void RIGHT_HANDLE(void)
 						}
 						
 						op_flag = home_ch7;
-					}else if(FONT == middle){
+					}else if(FONT == middle && CHNUM > 8){
 						if(ch_page == page1)
 						{
 							focus_off(CH3_SW);
@@ -10984,7 +10990,7 @@ void RIGHT_HANDLE(void)
 							DISP_CNL_M(180,210,"035");
 						}
 						op_flag = home_ch11;
-					}else if(FONT == small){
+					}else if(FONT == small && CHNUM > 8){
 						if(ch_page == page1)
 						{
 							focus_off(CH3_SW);
@@ -11037,7 +11043,7 @@ void RIGHT_HANDLE(void)
 						}
 						
 						op_flag = home_ch8;
-					}else if(FONT == middle){
+					}else if(FONT == middle && CHNUM > 8){
 						if(ch_page == page1)
 						{
 							focus_off(CH4_SW);
@@ -11052,7 +11058,7 @@ void RIGHT_HANDLE(void)
 						}
 						op_flag = home_ch12;
 						
-					}else if(FONT == small){
+					}else if(FONT == small && CHNUM > 8){
 						if(ch_page == page1)
 						{
 							focus_off(CH4_SW);
@@ -11066,7 +11072,7 @@ void RIGHT_HANDLE(void)
 				}break;
 				case home_ch5:
 				{
-					if(FONT == middle){
+					if(FONT == middle && CHNUM > 8){
 						if(ch_page == page1)
 						{
 							focus_off(CH5_SW);
@@ -11080,7 +11086,7 @@ void RIGHT_HANDLE(void)
 							DISP_CNL_M(260,210,"037");
 						}
 						op_flag = home_ch13;
-					}else if(FONT == small){
+					}else if(FONT == small && CHNUM > 8){
 						if(ch_page == page1)
 						{
 							focus_off(CH5_SW);
@@ -11093,7 +11099,7 @@ void RIGHT_HANDLE(void)
 				}break;
 				case home_ch6:
 				{
-					if(FONT == middle){
+					if(FONT == middle && CHNUM > 8){
 						if(ch_page == page1)
 						{
 							focus_off(CH6_SW);
@@ -11107,7 +11113,7 @@ void RIGHT_HANDLE(void)
 							DISP_CNL_M(300,210,"038");
 						}
 						op_flag = home_ch14;
-					}else if(FONT == small){
+					}else if(FONT == small && CHNUM > 8){
 						if(ch_page == page1)
 						{
 							focus_off(CH6_SW);
@@ -11120,7 +11126,7 @@ void RIGHT_HANDLE(void)
 				}break;
 				case home_ch7:
 				{
-					if(FONT == middle){
+					if(FONT == middle && CHNUM > 8){
 						if(ch_page == page1)
 						{
 							focus_off(CH7_SW);
@@ -11134,7 +11140,7 @@ void RIGHT_HANDLE(void)
 							DISP_CNL_M(340,210,"039");
 						}
 						op_flag = home_ch15;
-					}else if(FONT == small){
+					}else if(FONT == small && CHNUM > 8){
 						if(ch_page == page1)
 						{
 							focus_off(CH7_SW);
@@ -11147,7 +11153,7 @@ void RIGHT_HANDLE(void)
 				}break;
 				case home_ch8:
 				{
-					if(FONT == middle){
+					if(FONT == middle && CHNUM > 8){
 						if(ch_page == page1)
 						{
 							focus_off(CH8_SW);
@@ -11161,7 +11167,7 @@ void RIGHT_HANDLE(void)
 							DISP_CNL_M(380,210,"040");
 						}
 						op_flag = home_ch16;
-					}else if(FONT == small){
+					}else if(FONT == small && CHNUM > 8){
 						if(ch_page == page1)
 						{
 							focus_off(CH8_SW);
@@ -11884,7 +11890,7 @@ void LEFT_HANDLE(void)
 				
 				case home_ch5:
 				{
-					if(ch_page == page1)
+					if(ch_page == page1 && FONT == big)
 					{
 						focus_off(CH5_SW);
 						LCD_DisplayStringLine_48(100,330,"005");
@@ -11902,7 +11908,7 @@ void LEFT_HANDLE(void)
 						LCD_DisplayStringLine_48(100,330,"037");
 					}
 					
-					if(ch_page == page1)
+					if(ch_page == page1 && FONT == big)
 					{
 						focus_on(CH1_SW);
 						LCD_DisplayStringLine_48(100,10,"001");
@@ -11924,7 +11930,7 @@ void LEFT_HANDLE(void)
 				}break;
 				case home_ch6:
 				{
-					if(ch_page == page1)
+					if(ch_page == page1 && FONT == big)
 					{
 						focus_off(CH6_SW);
 						LCD_DisplayStringLine_48(170,330,"006");
@@ -11942,7 +11948,7 @@ void LEFT_HANDLE(void)
 						LCD_DisplayStringLine_48(170,330,"038");
 					}
 					
-					if(ch_page == page1)
+					if(ch_page == page1 && FONT == big)
 					{
 						focus_on(CH2_SW);
 						LCD_DisplayStringLine_48(170,10,"002");
@@ -11964,7 +11970,7 @@ void LEFT_HANDLE(void)
 				}break;
 				case home_ch7:
 				{
-					if(ch_page == page1)
+					if(ch_page == page1 && FONT == big)
 					{
 						focus_off(CH7_SW);
 						LCD_DisplayStringLine_48(240,330,"007");
@@ -11982,7 +11988,7 @@ void LEFT_HANDLE(void)
 						LCD_DisplayStringLine_48(240,330,"039");
 					}
 					
-					if(ch_page == page1)
+					if(ch_page == page1 && FONT == big)
 					{
 						focus_on(CH3_SW);
 						LCD_DisplayStringLine_48(240,10,"003");
@@ -12004,7 +12010,7 @@ void LEFT_HANDLE(void)
 				}break;
 				case home_ch8:
 				{
-					if(ch_page == page1)
+					if(ch_page == page1 && FONT == big)
 					{
 						focus_off(CH8_SW);
 						LCD_DisplayStringLine_48(310,330,"008");
@@ -12022,7 +12028,7 @@ void LEFT_HANDLE(void)
 						LCD_DisplayStringLine_48(310,330,"040");
 					}
 					
-					if(ch_page == page1)
+					if(ch_page == page1 && FONT == big)
 					{
 						focus_on(CH4_SW);
 						LCD_DisplayStringLine_48(310,10,"004");

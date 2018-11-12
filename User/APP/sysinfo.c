@@ -101,6 +101,7 @@ void page_sysinfo(void)
 		LCD_DisplayStringLine(50,220,"JK508 Handheld");
 		LCD_DisplayStringLine(90,220,"Muti-Channel Temp Meter");
 		LCD_DisplayStringLine(130,220,"T,K,J,N,E,S,R,B,PT100");
+		sprintf(buf,"%03d",CHNUM);
 		LCD_DisplayStringLine(170,220,"016");
 		LCD_DisplayStringLine(210,220,"REV 1.0");
 		LCD_DisplayStringLine(250,220,"");

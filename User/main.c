@@ -808,94 +808,97 @@ void TempDisplay(void)
 					strcat(buf," ");
 				}
 				DISP_TEMP_M(380,90,(uint8_t*)buf,CH8_SW);
-				Check_limits(9);
-				sprintf(buf,"%.1f",CH9TEMP - COR9);
-				if(CH9TEMP < 100)
+				if(CHNUM > 8)
 				{
-					strcat(buf,"  ");
-				}else if(CH9TEMP < 1000){
-					strcat(buf," ");
+					Check_limits(9);
+					sprintf(buf,"%.1f",CH9TEMP - COR9);
+					if(CH9TEMP < 100)
+					{
+						strcat(buf,"  ");
+					}else if(CH9TEMP < 1000){
+						strcat(buf," ");
+					}
+					DISP_TEMP_M(100,290,(uint8_t*)buf,CH9_SW);
+					Check_limits(10);
+					sprintf(buf,"%.1f",CH10TEMP - COR10);
+					if(CH10TEMP < 100)
+					{
+						strcat(buf,"  ");
+					}else if(CH10TEMP < 1000){
+						strcat(buf," ");
+					}
+					DISP_TEMP_M(140,290,(uint8_t*)buf,CH10_SW);
+					Check_limits(11);
+					sprintf(buf,"%.1f",CH11TEMP - COR11);
+					if(CH11TEMP < 100)
+					{
+						strcat(buf,"  ");
+					}else if(CH11TEMP < 1000){
+						strcat(buf," ");
+					}
+					DISP_TEMP_M(180,290,(uint8_t*)buf,CH11_SW);
+					Check_limits(12);
+					sprintf(buf,"%.1f",CH12TEMP - COR12);
+					if(CH12TEMP < 100)
+					{
+						strcat(buf,"  ");
+					}else if(CH12TEMP < 1000){
+						strcat(buf," ");
+					}
+					DISP_TEMP_M(220,290,(uint8_t*)buf,CH12_SW);
+					Check_limits(13);
+					sprintf(buf,"%.1f",CH13TEMP - COR13);
+					if(CH13TEMP < 100)
+					{
+						strcat(buf,"  ");
+					}else if(CH13TEMP < 1000){
+						strcat(buf," ");
+					}
+					DISP_TEMP_M(260,290,(uint8_t*)buf,CH13_SW);
+					Check_limits(14);
+					sprintf(buf,"%.1f",CH14TEMP - COR14);
+					if(CH14TEMP < 100)
+					{
+						strcat(buf,"  ");
+					}else if(CH14TEMP < 1000){
+						strcat(buf," ");
+					}
+					DISP_TEMP_M(300,290,(uint8_t*)buf,CH14_SW);
+					Check_limits(15);
+					sprintf(buf,"%.1f",CH15TEMP - COR15);
+					if(CH15TEMP < 100)
+					{
+						strcat(buf,"  ");
+					}else if(CH15TEMP < 1000){
+						strcat(buf," ");
+					}
+					DISP_TEMP_M(340,290,(uint8_t*)buf,CH15_SW);
+					Check_limits(16);
+					sprintf(buf,"%.1f",CH16TEMP - COR16);
+					if(CH16TEMP < 100)
+					{
+						strcat(buf,"  ");
+					}else if(CH16TEMP < 1000){
+						strcat(buf," ");
+					}
+					DISP_TEMP_M(380,290,(uint8_t*)buf,CH16_SW);
+					sprintf(buf,"%.1f",CH17TEMP);
+					DISP_TEMP_M(100,490,(uint8_t*)buf,CH17_SW);
+					sprintf(buf,"%.1f",CH18TEMP);
+					DISP_TEMP_M(140,490,(uint8_t*)buf,CH18_SW);
+					sprintf(buf,"%.1f",CH19TEMP);
+					DISP_TEMP_M(180,490,(uint8_t*)buf,CH19_SW);
+					sprintf(buf,"%.1f",CH20TEMP);
+					DISP_TEMP_M(220,490,(uint8_t*)buf,CH20_SW);
+					sprintf(buf,"%.1f",CH21TEMP);
+					DISP_TEMP_M(260,490,(uint8_t*)buf,CH21_SW);
+					sprintf(buf,"%.1f",CH22TEMP);
+					DISP_TEMP_M(300,490,(uint8_t*)buf,CH22_SW);
+					sprintf(buf,"%.1f",CH23TEMP);
+					DISP_TEMP_M(340,490,(uint8_t*)buf,CH23_SW);
+					sprintf(buf,"%.1f",CH24TEMP);
+					DISP_TEMP_M(380,490,(uint8_t*)buf,CH24_SW); 
 				}
-				DISP_TEMP_M(100,290,(uint8_t*)buf,CH9_SW);
-				Check_limits(10);
-				sprintf(buf,"%.1f",CH10TEMP - COR10);
-				if(CH10TEMP < 100)
-				{
-					strcat(buf,"  ");
-				}else if(CH10TEMP < 1000){
-					strcat(buf," ");
-				}
-				DISP_TEMP_M(140,290,(uint8_t*)buf,CH10_SW);
-				Check_limits(11);
-				sprintf(buf,"%.1f",CH11TEMP - COR11);
-				if(CH11TEMP < 100)
-				{
-					strcat(buf,"  ");
-				}else if(CH11TEMP < 1000){
-					strcat(buf," ");
-				}
-				DISP_TEMP_M(180,290,(uint8_t*)buf,CH11_SW);
-				Check_limits(12);
-				sprintf(buf,"%.1f",CH12TEMP - COR12);
-				if(CH12TEMP < 100)
-				{
-					strcat(buf,"  ");
-				}else if(CH12TEMP < 1000){
-					strcat(buf," ");
-				}
-				DISP_TEMP_M(220,290,(uint8_t*)buf,CH12_SW);
-				Check_limits(13);
-				sprintf(buf,"%.1f",CH13TEMP - COR13);
-				if(CH13TEMP < 100)
-				{
-					strcat(buf,"  ");
-				}else if(CH13TEMP < 1000){
-					strcat(buf," ");
-				}
-				DISP_TEMP_M(260,290,(uint8_t*)buf,CH13_SW);
-				Check_limits(14);
-				sprintf(buf,"%.1f",CH14TEMP - COR14);
-				if(CH14TEMP < 100)
-				{
-					strcat(buf,"  ");
-				}else if(CH14TEMP < 1000){
-					strcat(buf," ");
-				}
-				DISP_TEMP_M(300,290,(uint8_t*)buf,CH14_SW);
-				Check_limits(15);
-				sprintf(buf,"%.1f",CH15TEMP - COR15);
-				if(CH15TEMP < 100)
-				{
-					strcat(buf,"  ");
-				}else if(CH15TEMP < 1000){
-					strcat(buf," ");
-				}
-				DISP_TEMP_M(340,290,(uint8_t*)buf,CH15_SW);
-				Check_limits(16);
-				sprintf(buf,"%.1f",CH16TEMP - COR16);
-				if(CH16TEMP < 100)
-				{
-					strcat(buf,"  ");
-				}else if(CH16TEMP < 1000){
-					strcat(buf," ");
-				}
-				DISP_TEMP_M(380,290,(uint8_t*)buf,CH16_SW);
-				sprintf(buf,"%.1f",CH17TEMP);
-				DISP_TEMP_M(100,490,(uint8_t*)buf,CH17_SW);
-				sprintf(buf,"%.1f",CH18TEMP);
-				DISP_TEMP_M(140,490,(uint8_t*)buf,CH18_SW);
-				sprintf(buf,"%.1f",CH19TEMP);
-				DISP_TEMP_M(180,490,(uint8_t*)buf,CH19_SW);
-				sprintf(buf,"%.1f",CH20TEMP);
-				DISP_TEMP_M(220,490,(uint8_t*)buf,CH20_SW);
-				sprintf(buf,"%.1f",CH21TEMP);
-				DISP_TEMP_M(260,490,(uint8_t*)buf,CH21_SW);
-				sprintf(buf,"%.1f",CH22TEMP);
-				DISP_TEMP_M(300,490,(uint8_t*)buf,CH22_SW);
-				sprintf(buf,"%.1f",CH23TEMP);
-				DISP_TEMP_M(340,490,(uint8_t*)buf,CH23_SW);
-				sprintf(buf,"%.1f",CH24TEMP);
-				DISP_TEMP_M(380,490,(uint8_t*)buf,CH24_SW); 
 				
 			}else if(ch_page == page2){
 //				LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_BACK);
@@ -1006,176 +1009,182 @@ void TempDisplay(void)
 					strcat(buf," ");
 				}				
 				DISP_TEMP_S(380,60,(uint8_t*)buf,CH8_SW);
-				Check_limits(9);
-				sprintf(buf,"%.1f",CH9TEMP - COR9);
-				if(CH9TEMP < 100)
+				if(CHNUM > 8)
 				{
-					strcat(buf,"  ");
-				}else if(CH9TEMP < 1000){
-					strcat(buf," ");
+					Check_limits(9);
+					sprintf(buf,"%.1f",CH9TEMP - COR9);
+					if(CH9TEMP < 100)
+					{
+						strcat(buf,"  ");
+					}else if(CH9TEMP < 1000){
+						strcat(buf," ");
+					}
+					DISP_TEMP_S(100,184,(uint8_t*)buf,CH9_SW);
+					Check_limits(10);
+					sprintf(buf,"%.1f",CH10TEMP - COR10);
+					if(CH10TEMP < 100)
+					{
+						strcat(buf,"  ");
+					}else if(CH10TEMP < 1000){
+						strcat(buf," ");
+					}
+					DISP_TEMP_S(140,184,(uint8_t*)buf,CH10_SW);
+					Check_limits(11);
+					sprintf(buf,"%.1f",CH11TEMP - COR11);
+					if(CH11TEMP < 100)
+					{
+						strcat(buf,"  ");
+					}else if(CH11TEMP < 1000){
+						strcat(buf," ");
+					}
+					DISP_TEMP_S(180,184,(uint8_t*)buf,CH11_SW);
+					Check_limits(12);
+					sprintf(buf,"%.1f",CH12TEMP - COR12);
+					if(CH12TEMP < 100)
+					{
+						strcat(buf,"  ");
+					}else if(CH12TEMP < 1000){
+						strcat(buf," ");
+					}
+					DISP_TEMP_S(220,184,(uint8_t*)buf,CH12_SW);
+					Check_limits(13);
+					sprintf(buf,"%.1f",CH13TEMP - COR13);
+					if(CH13TEMP < 100)
+					{
+						strcat(buf,"  ");
+					}else if(CH13TEMP < 1000){
+						strcat(buf," ");
+					}
+					DISP_TEMP_S(260,184,(uint8_t*)buf,CH13_SW);
+					Check_limits(14);
+					sprintf(buf,"%.1f",CH14TEMP - COR14);
+					if(CH14TEMP < 100)
+					{
+						strcat(buf,"  ");
+					}else if(CH14TEMP < 1000){
+						strcat(buf," ");
+					}
+					DISP_TEMP_S(300,184,(uint8_t*)buf,CH14_SW);
+					Check_limits(15);
+					sprintf(buf,"%.1f",CH15TEMP - COR15);
+					if(CH15TEMP < 100)
+					{
+						strcat(buf,"  ");
+					}else if(CH15TEMP < 1000){
+						strcat(buf," ");
+					}
+					DISP_TEMP_S(340,184,(uint8_t*)buf,CH15_SW);
+					Check_limits(16);
+					sprintf(buf,"%.1f",CH16TEMP - COR16);
+					if(CH16TEMP < 100)
+					{
+						strcat(buf,"  ");
+					}else if(CH16TEMP < 1000){
+						strcat(buf," ");
+					}
+					DISP_TEMP_S(380,184,(uint8_t*)buf,CH16_SW);
+					sprintf(buf,"%.1f",CH17TEMP);
+					DISP_TEMP_S(100,308,(uint8_t*)buf,CH17_SW);
+					sprintf(buf,"%.1f",CH18TEMP);
+					DISP_TEMP_S(140,308,(uint8_t*)buf,CH18_SW);
+					sprintf(buf,"%.1f",CH19TEMP);
+					DISP_TEMP_S(180,308,(uint8_t*)buf,CH19_SW);
+					sprintf(buf,"%.1f",CH20TEMP);
+					DISP_TEMP_S(220,308,(uint8_t*)buf,CH20_SW);
+					sprintf(buf,"%.1f",CH21TEMP);
+					DISP_TEMP_S(260,308,(uint8_t*)buf,CH21_SW);
+					sprintf(buf,"%.1f",CH22TEMP);
+					DISP_TEMP_S(300,308,(uint8_t*)buf,CH22_SW);
+					sprintf(buf,"%.1f",CH23TEMP);
+					DISP_TEMP_S(340,308,(uint8_t*)buf,CH23_SW);
+					sprintf(buf,"%.1f",CH24TEMP);
+					DISP_TEMP_S(380,308,(uint8_t*)buf,CH24_SW); 			
+					sprintf(buf,"%.1f",CH25TEMP);
+					DISP_TEMP_S(100,432,(uint8_t*)buf,CH25_SW);
+					sprintf(buf,"%.1f",CH26TEMP);
+					DISP_TEMP_S(140,432,(uint8_t*)buf,CH26_SW);
+					sprintf(buf,"%.1f",CH27TEMP);
+					DISP_TEMP_S(180,432,(uint8_t*)buf,CH27_SW);
+					sprintf(buf,"%.1f",CH28TEMP);
+					DISP_TEMP_S(220,432,(uint8_t*)buf,CH28_SW);
+					sprintf(buf,"%.1f",CH29TEMP);
+					DISP_TEMP_S(260,432,(uint8_t*)buf,CH29_SW);
+					sprintf(buf,"%.1f",CH30TEMP);
+					DISP_TEMP_S(300,432,(uint8_t*)buf,CH30_SW);
+					sprintf(buf,"%.1f",CH31TEMP);
+					DISP_TEMP_S(340,432,(uint8_t*)buf,CH31_SW);
+					sprintf(buf,"%.1f",CH32TEMP);	
+					DISP_TEMP_S(380,432,(uint8_t*)buf,CH32_SW);
+					sprintf(buf,"%.1f",CH33TEMP);
+					DISP_TEMP_S(100,556,(uint8_t*)buf,CH33_SW);
+					sprintf(buf,"%.1f",CH34TEMP);
+					DISP_TEMP_S(140,556,(uint8_t*)buf,CH34_SW);
+					sprintf(buf,"%.1f",CH35TEMP);
+					DISP_TEMP_S(180,556,(uint8_t*)buf,CH35_SW);
+					sprintf(buf,"%.1f",CH37TEMP);
+					DISP_TEMP_S(220,556,(uint8_t*)buf,CH36_SW);
+					sprintf(buf,"%.1f",CH37TEMP);
+					DISP_TEMP_S(260,556,(uint8_t*)buf,CH37_SW);
+					sprintf(buf,"%.1f",CH38TEMP);
+					DISP_TEMP_S(300,556,(uint8_t*)buf,CH38_SW);
+					sprintf(buf,"%.1f",CH39TEMP);
+					DISP_TEMP_S(340,556,(uint8_t*)buf,CH39_SW);
+					sprintf(buf,"%.1f",CH40TEMP);
+					DISP_TEMP_S(380,556,(uint8_t*)buf,CH40_SW);
 				}
-				DISP_TEMP_S(100,184,(uint8_t*)buf,CH9_SW);
-				Check_limits(10);
-				sprintf(buf,"%.1f",CH10TEMP - COR10);
-				if(CH10TEMP < 100)
-				{
-					strcat(buf,"  ");
-				}else if(CH10TEMP < 1000){
-					strcat(buf," ");
-				}
-				DISP_TEMP_S(140,184,(uint8_t*)buf,CH10_SW);
-				Check_limits(11);
-				sprintf(buf,"%.1f",CH11TEMP - COR11);
-				if(CH11TEMP < 100)
-				{
-					strcat(buf,"  ");
-				}else if(CH11TEMP < 1000){
-					strcat(buf," ");
-				}
-				DISP_TEMP_S(180,184,(uint8_t*)buf,CH11_SW);
-				Check_limits(12);
-				sprintf(buf,"%.1f",CH12TEMP - COR12);
-				if(CH12TEMP < 100)
-				{
-					strcat(buf,"  ");
-				}else if(CH12TEMP < 1000){
-					strcat(buf," ");
-				}
-				DISP_TEMP_S(220,184,(uint8_t*)buf,CH12_SW);
-				Check_limits(13);
-				sprintf(buf,"%.1f",CH13TEMP - COR13);
-				if(CH13TEMP < 100)
-				{
-					strcat(buf,"  ");
-				}else if(CH13TEMP < 1000){
-					strcat(buf," ");
-				}
-				DISP_TEMP_S(260,184,(uint8_t*)buf,CH13_SW);
-				Check_limits(14);
-				sprintf(buf,"%.1f",CH14TEMP - COR14);
-				if(CH14TEMP < 100)
-				{
-					strcat(buf,"  ");
-				}else if(CH14TEMP < 1000){
-					strcat(buf," ");
-				}
-				DISP_TEMP_S(300,184,(uint8_t*)buf,CH14_SW);
-				Check_limits(15);
-				sprintf(buf,"%.1f",CH15TEMP - COR15);
-				if(CH15TEMP < 100)
-				{
-					strcat(buf,"  ");
-				}else if(CH15TEMP < 1000){
-					strcat(buf," ");
-				}
-				DISP_TEMP_S(340,184,(uint8_t*)buf,CH15_SW);
-				Check_limits(16);
-				sprintf(buf,"%.1f",CH16TEMP - COR16);
-				if(CH16TEMP < 100)
-				{
-					strcat(buf,"  ");
-				}else if(CH16TEMP < 1000){
-					strcat(buf," ");
-				}
-				DISP_TEMP_S(380,184,(uint8_t*)buf,CH16_SW);
-				sprintf(buf,"%.1f",CH17TEMP);
-				DISP_TEMP_S(100,308,(uint8_t*)buf,CH17_SW);
-				sprintf(buf,"%.1f",CH18TEMP);
-				DISP_TEMP_S(140,308,(uint8_t*)buf,CH18_SW);
-				sprintf(buf,"%.1f",CH19TEMP);
-				DISP_TEMP_S(180,308,(uint8_t*)buf,CH19_SW);
-				sprintf(buf,"%.1f",CH20TEMP);
-				DISP_TEMP_S(220,308,(uint8_t*)buf,CH20_SW);
-				sprintf(buf,"%.1f",CH21TEMP);
-				DISP_TEMP_S(260,308,(uint8_t*)buf,CH21_SW);
-				sprintf(buf,"%.1f",CH22TEMP);
-				DISP_TEMP_S(300,308,(uint8_t*)buf,CH22_SW);
-				sprintf(buf,"%.1f",CH23TEMP);
-				DISP_TEMP_S(340,308,(uint8_t*)buf,CH23_SW);
-				sprintf(buf,"%.1f",CH24TEMP);
-				DISP_TEMP_S(380,308,(uint8_t*)buf,CH24_SW); 			
-				sprintf(buf,"%.1f",CH25TEMP);
-				DISP_TEMP_S(100,432,(uint8_t*)buf,CH25_SW);
-				sprintf(buf,"%.1f",CH26TEMP);
-				DISP_TEMP_S(140,432,(uint8_t*)buf,CH26_SW);
-				sprintf(buf,"%.1f",CH27TEMP);
-				DISP_TEMP_S(180,432,(uint8_t*)buf,CH27_SW);
-				sprintf(buf,"%.1f",CH28TEMP);
-				DISP_TEMP_S(220,432,(uint8_t*)buf,CH28_SW);
-				sprintf(buf,"%.1f",CH29TEMP);
-				DISP_TEMP_S(260,432,(uint8_t*)buf,CH29_SW);
-				sprintf(buf,"%.1f",CH30TEMP);
-				DISP_TEMP_S(300,432,(uint8_t*)buf,CH30_SW);
-				sprintf(buf,"%.1f",CH31TEMP);
-				DISP_TEMP_S(340,432,(uint8_t*)buf,CH31_SW);
-				sprintf(buf,"%.1f",CH32TEMP);	
-				DISP_TEMP_S(380,432,(uint8_t*)buf,CH32_SW);
-				sprintf(buf,"%.1f",CH33TEMP);
-				DISP_TEMP_S(100,556,(uint8_t*)buf,CH33_SW);
-				sprintf(buf,"%.1f",CH34TEMP);
-				DISP_TEMP_S(140,556,(uint8_t*)buf,CH34_SW);
-				sprintf(buf,"%.1f",CH35TEMP);
-				DISP_TEMP_S(180,556,(uint8_t*)buf,CH35_SW);
-				sprintf(buf,"%.1f",CH37TEMP);
-				DISP_TEMP_S(220,556,(uint8_t*)buf,CH36_SW);
-				sprintf(buf,"%.1f",CH37TEMP);
-				DISP_TEMP_S(260,556,(uint8_t*)buf,CH37_SW);
-				sprintf(buf,"%.1f",CH38TEMP);
-				DISP_TEMP_S(300,556,(uint8_t*)buf,CH38_SW);
-				sprintf(buf,"%.1f",CH39TEMP);
-				DISP_TEMP_S(340,556,(uint8_t*)buf,CH39_SW);
-				sprintf(buf,"%.1f",CH40TEMP);
-				DISP_TEMP_S(380,556,(uint8_t*)buf,CH40_SW);
 		}
 	}else if(page_flag == graph){
 		LCD_SetColors(LCD_COLOR_RED,LCD_COLOR_BACK);
 		sprintf(buf,"%.1f",CH1TEMP - COR1);
-		DISP_CNL_S(40,585,(uint8_t*)buf);
+		DISP_CNL_S(40+20,585,(uint8_t*)buf);
 		LCD_SetColors(LCD_COLOR_GREEN,LCD_COLOR_BACK);		
 		sprintf(buf,"%.1f",CH2TEMP - COR2);
-		DISP_CNL_S(60,585,(uint8_t*)buf);
+		DISP_CNL_S(60+20,585,(uint8_t*)buf);
 		LCD_SetColors(LCD_COLOR_MAGENTA,LCD_COLOR_BACK);		
 		sprintf(buf,"%.1f",CH3TEMP - COR3);
-		DISP_CNL_S(80,585,(uint8_t*)buf);
+		DISP_CNL_S(80+20,585,(uint8_t*)buf);
 		LCD_SetColors(LCD_COLOR_CYAN,LCD_COLOR_BACK);		
 		sprintf(buf,"%.1f",CH4TEMP - COR4);
-		DISP_CNL_S(100,585,(uint8_t*)buf);
+		DISP_CNL_S(100+20,585,(uint8_t*)buf);
 		LCD_SetColors(LCD_COLOR_YELLOW,LCD_COLOR_BACK);		
 		sprintf(buf,"%.1f",CH5TEMP - COR5);
-		DISP_CNL_S(120,585,(uint8_t*)buf);
+		DISP_CNL_S(120+20,585,(uint8_t*)buf);
 		LCD_SetColors(LCD_COLOR_HLT,LCD_COLOR_BACK);		
 		sprintf(buf,"%.1f",CH6TEMP - COR6);
-		DISP_CNL_S(140,585,(uint8_t*)buf);
+		DISP_CNL_S(140+20,585,(uint8_t*)buf);
 		LCD_SetColors(LCD_COLOR_BT,LCD_COLOR_BACK);		
 		sprintf(buf,"%.1f",CH7TEMP - COR7);
-		DISP_CNL_S(160,585,(uint8_t*)buf);
+		DISP_CNL_S(160+20,585,(uint8_t*)buf);
 		LCD_SetColors(LCD_COLOR_BLUE,LCD_COLOR_BACK);		
 		sprintf(buf,"%.1f",CH8TEMP - COR8);
-		DISP_CNL_S(180,585,(uint8_t*)buf);
-		LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_BACK);		
-		sprintf(buf,"%.1f",CH9TEMP - COR9);
-		DISP_CNL_S(200,585,(uint8_t*)buf);
-		LCD_SetColors(LCD_COLOR_GR1,LCD_COLOR_BACK);		
-		sprintf(buf,"%.1f",CH10TEMP - COR10);
-		DISP_CNL_S(220,585,(uint8_t*)buf);
-		LCD_SetColors(LCD_COLOR_GR2,LCD_COLOR_BACK);		
-		sprintf(buf,"%.1f",CH11TEMP - COR11);
-		DISP_CNL_S(240,585,(uint8_t*)buf);
-		LCD_SetColors(LCD_COLOR_GR3,LCD_COLOR_BACK);		
-		sprintf(buf,"%.1f",CH12TEMP - COR12);
-		DISP_CNL_S(260,585,(uint8_t*)buf);
-		LCD_SetColors(LCD_COLOR_GR4,LCD_COLOR_BACK);		
-		sprintf(buf,"%.1f",CH13TEMP - COR13);
-		DISP_CNL_S(280,585,(uint8_t*)buf);
-		LCD_SetColors(LCD_COLOR_GR5,LCD_COLOR_BACK);		
-		sprintf(buf,"%.1f",CH14TEMP - COR14);
-		DISP_CNL_S(300,585,(uint8_t*)buf);
-		LCD_SetColors(LCD_COLOR_GR6,LCD_COLOR_BACK);		
-		sprintf(buf,"%.1f",CH15TEMP - COR15);
-		DISP_CNL_S(320,585,(uint8_t*)buf);
-		LCD_SetColors(LCD_COLOR_GR7,LCD_COLOR_BACK);		
-		sprintf(buf,"%.1f",CH16TEMP - COR16);
-		DISP_CNL_S(340,585,(uint8_t*)buf);
+		DISP_CNL_S(180+20,585,(uint8_t*)buf);
+		if(CHNUM > 8)
+		{
+			LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_BACK);		
+			sprintf(buf,"%.1f",CH9TEMP - COR9);
+			DISP_CNL_S(200+20,585,(uint8_t*)buf);
+			LCD_SetColors(LCD_COLOR_GR1,LCD_COLOR_BACK);		
+			sprintf(buf,"%.1f",CH10TEMP - COR10);
+			DISP_CNL_S(220+20,585,(uint8_t*)buf);
+			LCD_SetColors(LCD_COLOR_GR2,LCD_COLOR_BACK);		
+			sprintf(buf,"%.1f",CH11TEMP - COR11);
+			DISP_CNL_S(240+20,585,(uint8_t*)buf);
+			LCD_SetColors(LCD_COLOR_GR3,LCD_COLOR_BACK);		
+			sprintf(buf,"%.1f",CH12TEMP - COR12);
+			DISP_CNL_S(260+20,585,(uint8_t*)buf);
+			LCD_SetColors(LCD_COLOR_GR4,LCD_COLOR_BACK);		
+			sprintf(buf,"%.1f",CH13TEMP - COR13);
+			DISP_CNL_S(280+20,585,(uint8_t*)buf);
+			LCD_SetColors(LCD_COLOR_GR5,LCD_COLOR_BACK);		
+			sprintf(buf,"%.1f",CH14TEMP - COR14);
+			DISP_CNL_S(300+20,585,(uint8_t*)buf);
+			LCD_SetColors(LCD_COLOR_GR6,LCD_COLOR_BACK);		
+			sprintf(buf,"%.1f",CH15TEMP - COR15);
+			DISP_CNL_S(320+20,585,(uint8_t*)buf);
+			LCD_SetColors(LCD_COLOR_GR7,LCD_COLOR_BACK);		
+			sprintf(buf,"%.1f",CH16TEMP - COR16);
+			DISP_CNL_S(340+20,585,(uint8_t*)buf);
+		}
 	}else if(page_flag == calibrate){
 		if(cor_page == page1)
 		{
@@ -2034,7 +2043,13 @@ u8 PowerOffDetect(void)
 //检测到关机后的处理
 void PowerOffHandle(void)
 {
-	
+	static u8 offflag;
+	if(offflag == 0)
+	{
+		TIME_REC++;
+		SECTOR_REC = TIME_REC * 62;
+		Save_Sflag();
+	}
 }
 /*********************************************END OF FILE**********************/
 
