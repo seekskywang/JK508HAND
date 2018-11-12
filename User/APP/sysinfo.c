@@ -91,7 +91,7 @@ void page_sysinfo(void)
 		LCD_DisplayStringLine(94,170,"手持多路温度测试仪");
 		LCD_DisplayStringLine(130,170,"T,K,J,N,E,S,R,B,PT100");
 		sprintf(buf,"%03d",CHNUM);
-		LCD_DisplayStringLine(170,170,"016");
+		LCD_DisplayStringLine(170,170,(uint8_t *)buf);
 		LCD_DisplayStringLine(210,170,"REV 1.0");
 		LCD_DisplayStringLine(250,170,"");
 		LCD_DisplayStringLine(290,170,"REV A0");
@@ -102,7 +102,7 @@ void page_sysinfo(void)
 		LCD_DisplayStringLine(90,220,"Muti-Channel Temp Meter");
 		LCD_DisplayStringLine(130,220,"T,K,J,N,E,S,R,B,PT100");
 		sprintf(buf,"%03d",CHNUM);
-		LCD_DisplayStringLine(170,220,"016");
+		LCD_DisplayStringLine(170,220,(uint8_t *)buf);
 		LCD_DisplayStringLine(210,220,"REV 1.0");
 		LCD_DisplayStringLine(250,220,"");
 		LCD_DisplayStringLine(290,220,"REV A0");
