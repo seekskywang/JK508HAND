@@ -220,6 +220,7 @@ float ch_temp[40];
 int main(void)
 {
 	static u8 powerstat;
+	uint8_t  buf[0x40];
 //	static u8 ledstat;
 	u8 test[9] = {0X01,0X03,0X02,0X58,0X00,0X01,0X02,0X00,0X05};
 	 __IO uint32_t i = 0;
@@ -355,15 +356,21 @@ int main(void)
 		DrawBattery(battery);
 		
 		TempDisplay();
-		BEEP_ON;
-		Delay(0xfff);
-		BEEP_OFF;
-		powerstat = GPIO_ReadInputDataBit(GPIOI,GPIO_Pin_11);
-		DCD_EP_PrepareRx(&USB_OTG_dev,HID_OUT_EP,usbbuf,64);//接收PC数据
-		if(UsbHidReceiveComplete)                         //接收到数据
-		{			
-			UsbDataHandle();
+//		BEEP_ON;
+//		Delay(0xfff);
+//		BEEP_OFF;
+//		powerstat = GPIO_ReadInputDataBit(GPIOI,GPIO_Pin_11);
+//		DCD_EP_PrepareRx(&USB_OTG_dev,HID_OUT_EP,usbbuf,64);//接收PC数据
+//		if(UsbHidReceiveComplete)                         //接收到数据
+//		{			
+//			UsbDataHandle();
+//			UsbHidReceiveComplete=0;
+//		}
+		 DCD_EP_PrepareRx(&USB_OTG_dev,HID_OUT_EP,buf,64);//??PC??
+		if(UsbHidReceiveComplete)                         //?????
+		{
 			UsbHidReceiveComplete=0;
+			USBD_HID_SendReport (&USB_OTG_dev, buf, 64);    //???Д
 		}
 	
 	}
