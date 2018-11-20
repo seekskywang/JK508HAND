@@ -256,6 +256,11 @@ void focus_on1(void)
 			LCD_SetBackColor(LCD_COLOR_YELLOW);
 			LCD_SetTextColor(LCD_COLOR_BLACK);
 		}break;
+		case display:
+		{
+			LCD_SetBackColor(LCD_COLOR_YELLOW);
+			LCD_SetTextColor(LCD_COLOR_BLACK);
+		}break;
 	}
 }
 
@@ -269,6 +274,11 @@ void focus_off1(void)
 			LCD_SetTextColor(LCD_COLOR_YELLOW);
 		}break;
 		case sysset:
+		{
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetTextColor(LCD_COLOR_YELLOW);
+		}break;
+		case display:
 		{
 			LCD_SetBackColor(LCD_COLOR_BACK);
 			LCD_SetTextColor(LCD_COLOR_YELLOW);
@@ -1813,6 +1823,27 @@ void FUNC1_HANDLE(void)
 					Save_flag();
 					SetTctype(TCTYPE);
 				}break;
+				case set_font:
+				{
+					if(op_sw == op_on)
+					{
+						DrawMenu();//重绘菜单栏
+						Drawsetmenu();
+						focus_on1();
+						if(LANG == chs)
+						{
+							LCD_DisplayStringLine(47,290,"小");
+						}else{
+							LCD_DisplayStringLine(47,290,"S");
+						}
+						FONT = small;
+						op_sw = op_off;
+						Save_flag();
+						page_home();
+					}else{
+						page_home();
+					}
+				}break;
 				default:
 				{
 					page_home();
@@ -1939,26 +1970,7 @@ void FUNC1_HANDLE(void)
 						page_home();
 					}
 				}break;
-				case set_font:
-				{
-					if(op_sw == op_on)
-					{
-						DrawMenu();//重绘菜单栏
-						Drawsetmenu();
-						focus_on1();
-						if(LANG == chs)
-						{
-							LCD_DisplayStringLine(170,150,"小");
-						}else{
-							LCD_DisplayStringLine(170,150,"S");
-						}
-						FONT = small;
-						op_sw = op_off;
-						Save_flag();
-					}else{
-						page_home();
-					}
-				}break;
+				
 				case set_spd:
 				{
 					if(op_sw == op_on)
@@ -2066,6 +2078,27 @@ void FUNC2_HANDLE(void)
 					TCTYPE = TCS;
 					Save_flag();
 					SetTctype(TCTYPE);
+				}break;
+				case set_font:
+				{
+					if(op_sw == op_on)
+					{
+						DrawMenu();//重绘菜单栏
+						Drawsetmenu();
+						focus_on1();
+						if(LANG == chs)
+						{
+							LCD_DisplayStringLine(47,290,"中");
+						}else{
+							LCD_DisplayStringLine(47,290,"M");
+						}
+						FONT = middle;
+						op_sw = op_off;
+						Save_flag();
+						page_home();
+					}else{
+						page_graph();
+					}
 				}break;
 				default:
 				{
@@ -2188,26 +2221,7 @@ void FUNC2_HANDLE(void)
 						page_graph();
 					}
 				}break;
-				case set_font:
-				{
-					if(op_sw == op_on)
-					{
-						DrawMenu();//重绘菜单栏
-						Drawsetmenu();
-						focus_on1();
-						if(LANG == chs)
-						{
-							LCD_DisplayStringLine(170,150,"中");
-						}else{
-							LCD_DisplayStringLine(170,150,"M");
-						}
-						FONT = middle;
-						op_sw = op_off;
-						Save_flag();
-					}else{
-						page_graph();
-					}
-				}break;
+				
 				case set_spd:
 				{
 					if(op_sw == op_on)
@@ -2318,6 +2332,27 @@ void FUNC3_HANDLE(void)
 					Save_flag();
 					SetTctype(TCTYPE);
 				}break;
+				case set_font:
+				{
+					if(op_sw == op_on)
+					{
+						DrawMenu();//重绘菜单栏
+						Drawsetmenu();
+						focus_on1();
+						if(LANG == chs)
+						{
+							LCD_DisplayStringLine(47,290,"大");
+						}else{
+							LCD_DisplayStringLine(47,290,"L");
+						}
+						FONT = big;
+						op_sw = op_off;
+						Save_flag();
+						page_home();
+					}else{
+						page_sys();
+					}
+				}break;
 				default:
 				{
 					page_sys();
@@ -2380,26 +2415,7 @@ void FUNC3_HANDLE(void)
 						page_sys();
 					}
 				}break;
-				case set_font:
-				{
-					if(op_sw == op_on)
-					{
-						DrawMenu();//重绘菜单栏
-						Drawsetmenu();
-						focus_on1();
-						if(LANG == chs)
-						{
-							LCD_DisplayStringLine(170,150,"大");
-						}else{
-							LCD_DisplayStringLine(170,150,"L");
-						}
-						FONT = big;
-						op_sw = op_off;
-						Save_flag();
-					}else{
-						page_sys();
-					}
-				}break;
+				
 				case set_spd:
 				{
 					if(op_sw == op_on)
@@ -3567,7 +3583,7 @@ void FUNC5_HANDLE(void)
 						}
 					}
 					
-					if(FONT == big || FONT == middle){
+					if((FONT == big || FONT == middle)&&CHNUM > 8){
 						LCD_SetTextColor(LCD_COLOR_BLACK);
 						LCD_SetBackColor(LCD_COLOR_YELLOW);
 						if(TCTYPE == TCK)
@@ -4086,6 +4102,23 @@ void ENTER_HANDLE(void)
 						LCD_DisplayStringLine(450,550,"MORE");
 					}
 					op_flag = type_1;
+				}break;
+				case set_font:
+				{
+					DrawMenu();//重绘菜单栏
+					LCD_SetTextColor(LCD_COLOR_YELLOW);
+					LCD_SetBackColor(LCD_COLOR_BLACK);
+					if(LANG == chs)
+					{
+						LCD_DisplayStringLine(445,48,"小");
+						LCD_DisplayStringLine(445,173,"中");
+						LCD_DisplayStringLine(445,298,"大");
+					}else{
+						LCD_DisplayStringLine(445,48,"S");
+						LCD_DisplayStringLine(445,173,"M");
+						LCD_DisplayStringLine(445,298,"L");
+					}
+					op_sw = op_on;
 				}break;
 				case home_ch1:
 				{
@@ -6112,23 +6145,7 @@ void ENTER_HANDLE(void)
 					LCD_DisplayStringLine(445,303,"F");
 					op_sw = op_on;
 				}break;
-				case set_font:
-				{
-					DrawMenu();//重绘菜单栏
-					LCD_SetTextColor(LCD_COLOR_YELLOW);
-					LCD_SetBackColor(LCD_COLOR_BLACK);
-					if(LANG == chs)
-					{
-						LCD_DisplayStringLine(445,48,"小");
-						LCD_DisplayStringLine(445,173,"中");
-						LCD_DisplayStringLine(445,298,"大");
-					}else{
-						LCD_DisplayStringLine(445,48,"S");
-						LCD_DisplayStringLine(445,173,"M");
-						LCD_DisplayStringLine(445,298,"L");
-					}
-					op_sw = op_on;
-				}break;
+				
 				case set_spd:
 				{
 					DrawMenu();//重绘菜单栏
@@ -7809,32 +7826,61 @@ void UP_HANDLE(void)
 					}
 					op_flag = set_beep;
 				}break;
-				case set_font:
+//				case set_font:
+//				{
+//					focus_off1();
+//					if(FONT == big){
+//						if(LANG == chs)
+//						{
+//							LCD_DisplayStringLine(170,150,"大");
+//						}else{
+//							LCD_DisplayStringLine(170,150,"L");
+//						}
+//					}else if(FONT == middle){
+//						if(LANG == chs)
+//						{
+//							LCD_DisplayStringLine(170,150,"中");
+//						}else{
+//							LCD_DisplayStringLine(170,150,"M");
+//						}
+//					}else if(FONT == small){
+//						if(LANG == chs)
+//						{
+//							LCD_DisplayStringLine(170,150,"小");
+//						}else{
+//							LCD_DisplayStringLine(170,150,"S");
+//						}
+//					}
+//					
+//					
+////					focus_on1();
+//					LCD_SetColors(LCD_COLOR_YELLOW,LCD_COLOR_YELLOW);
+//					LCD_DrawFullRect(150,127,24,31);
+//					if(UNIT == C){
+//						LCD_SetTextColor(LCD_COLOR_BLACK);
+////						LCD_SetBackColor(LCD_COLOR_YELLOW);
+//						DISP_CNL_S(127,150,"o");
+//						LCD_DisplayStringLine(127,155,"C");
+//					}else if(UNIT == F){
+//						LCD_SetTextColor(LCD_COLOR_BLACK);
+//						DISP_CNL_S(127,150,"o");
+//						LCD_DisplayStringLine(127,155,"F");
+//					}else{
+//						LCD_SetTextColor(LCD_COLOR_BLACK);
+//						LCD_DisplayStringLine(127,155,"K");
+//					}
+//					if(LANG == chs)
+//					{
+//						DrawInstruction("温度单位选择");
+//					}else{
+//						DrawInstruction("Select temperature unit");
+//					}
+//					op_flag = set_unit;	
+//				}break;				
+				case set_file:
 				{
 					focus_off1();
-					if(FONT == big){
-						if(LANG == chs)
-						{
-							LCD_DisplayStringLine(170,150,"大");
-						}else{
-							LCD_DisplayStringLine(170,150,"L");
-						}
-					}else if(FONT == middle){
-						if(LANG == chs)
-						{
-							LCD_DisplayStringLine(170,150,"中");
-						}else{
-							LCD_DisplayStringLine(170,150,"M");
-						}
-					}else if(FONT == small){
-						if(LANG == chs)
-						{
-							LCD_DisplayStringLine(170,150,"小");
-						}else{
-							LCD_DisplayStringLine(170,150,"S");
-						}
-					}
-					
+					LCD_DisplayStringLine(317,150,"AUTO");
 					
 //					focus_on1();
 					LCD_SetColors(LCD_COLOR_YELLOW,LCD_COLOR_YELLOW);
@@ -7858,43 +7904,7 @@ void UP_HANDLE(void)
 					}else{
 						DrawInstruction("Select temperature unit");
 					}
-					op_flag = set_unit;	
-				}break;				
-				case set_file:
-				{
-					focus_off1();
-					LCD_DisplayStringLine(317,150,"AUTO");
-					
-					focus_on1();
-					if(FONT == big){
-						if(LANG == chs)
-						{
-							LCD_DisplayStringLine(170,150,"大");
-						}else{
-							LCD_DisplayStringLine(170,150,"L");
-						}
-					}else if(FONT == middle){
-						if(LANG == chs)
-						{
-							LCD_DisplayStringLine(170,150,"中");
-						}else{
-							LCD_DisplayStringLine(170,150,"M");
-						}
-					}else if(FONT == small){
-						if(LANG == chs)
-						{
-							LCD_DisplayStringLine(170,150,"小");
-						}else{
-							LCD_DisplayStringLine(170,150,"S");
-						}
-					}
-					if(LANG == chs)
-					{
-						DrawInstruction("通道字体设置");
-					}else{
-						DrawInstruction("Font Set");
-					}
-					op_flag = set_font;					
+					op_flag = set_unit;					
 				}break;
 				case set_baud:
 				{
@@ -10001,64 +10011,6 @@ void DOWN_HANDLE(void)
 					}
 					
 					focus_on1();
-					if(FONT == big){
-						if(LANG == chs)
-						{
-							LCD_DisplayStringLine(170,150,"大");
-						}else{
-							LCD_DisplayStringLine(170,150,"L");
-						}
-					}else if(FONT == middle){
-						if(LANG == chs)
-						{
-							LCD_DisplayStringLine(170,150,"中");
-						}else{
-							LCD_DisplayStringLine(170,150,"M");
-						}
-					}else if(FONT == small){
-						if(LANG == chs)
-						{
-							LCD_DisplayStringLine(170,150,"小");
-						}else{
-							LCD_DisplayStringLine(170,150,"S");
-						}
-					}
-					if(LANG == chs)
-					{
-						DrawInstruction("通道字体设置");
-					}else{
-						DrawInstruction("Font Set");
-					}
-					op_flag = set_font;
-				}break;
-				case set_font:
-				{
-					focus_off1();
-					if(FONT == big){
-						if(LANG == chs)
-						{
-							LCD_DisplayStringLine(170,150,"大");
-						}else{
-							LCD_DisplayStringLine(170,150,"L");
-						}
-					}else if(FONT == middle){
-						if(LANG == chs)
-						{
-							LCD_DisplayStringLine(170,150,"中");
-						}else{
-							LCD_DisplayStringLine(170,150,"M");
-						}
-					}else if(FONT == small){
-						if(LANG == chs)
-						{
-							LCD_DisplayStringLine(170,150,"小");
-						}else{
-							LCD_DisplayStringLine(170,150,"S");
-						}
-					}
-					
-					
-					focus_on1();
 					LCD_DisplayStringLine(317,150,"AUTO");
 					op_flag = set_file;
 					if(LANG == chs)
@@ -10067,7 +10019,44 @@ void DOWN_HANDLE(void)
 					}else{
 						DrawInstruction("Input file name prefix");
 					}
-				}break;				
+				}break;
+//				case set_font:
+//				{
+//					focus_off1();
+//					if(FONT == big){
+//						if(LANG == chs)
+//						{
+//							LCD_DisplayStringLine(170,150,"大");
+//						}else{
+//							LCD_DisplayStringLine(170,150,"L");
+//						}
+//					}else if(FONT == middle){
+//						if(LANG == chs)
+//						{
+//							LCD_DisplayStringLine(170,150,"中");
+//						}else{
+//							LCD_DisplayStringLine(170,150,"M");
+//						}
+//					}else if(FONT == small){
+//						if(LANG == chs)
+//						{
+//							LCD_DisplayStringLine(170,150,"小");
+//						}else{
+//							LCD_DisplayStringLine(170,150,"S");
+//						}
+//					}
+//					
+//					
+//					focus_on1();
+//					LCD_DisplayStringLine(317,150,"AUTO");
+//					op_flag = set_file;
+//					if(LANG == chs)
+//					{
+//						DrawInstruction("文件名的前缀");
+//					}else{
+//						DrawInstruction("Input file name prefix");
+//					}
+//				}break;				
 				case set_spd:
 				{
 					focus_off1();
@@ -10801,6 +10790,54 @@ void RIGHT_HANDLE(void)
 		{
 			switch(op_flag)
 			{
+				case home_type:
+				{
+					focus_off1();
+					if(TCTYPE == TCK)
+					{
+						LCD_DisplayStringLine(47,100,"TC-K");
+					}else if(TCTYPE == TCT){
+						LCD_DisplayStringLine(47,100,"TC-T");
+					}else if(TCTYPE == TCJ){
+						LCD_DisplayStringLine(47,100,"TC-J");
+					}else if(TCTYPE == TCN){
+						LCD_DisplayStringLine(47,100,"TC-N");
+					}else if(TCTYPE == TCE){
+						LCD_DisplayStringLine(47,100,"TC-E");
+					}else if(TCTYPE == TCS){
+						LCD_DisplayStringLine(47,100,"TC-S");
+					}else if(TCTYPE == TCR){
+						LCD_DisplayStringLine(47,100,"TC-R");
+					}else if(TCTYPE == TCB){
+						LCD_DisplayStringLine(47,100,"TC-B");
+					}else if(TCTYPE == PT100){
+						LCD_DisplayStringLine(47,100,"PT100");
+					}
+					focus_on1();
+					if(FONT == big){
+						if(LANG == chs)
+						{
+							LCD_DisplayStringLine(47,290,"大");
+						}else{
+							LCD_DisplayStringLine(47,290,"L");
+						}
+					}else if(FONT == middle){
+						if(LANG == chs)
+						{
+							LCD_DisplayStringLine(47,290,"中");
+						}else{
+							LCD_DisplayStringLine(47,290,"M");
+						}
+					}else if(FONT == small){
+						if(LANG == chs)
+						{
+							LCD_DisplayStringLine(47,290,"小");
+						}else{
+							LCD_DisplayStringLine(47,290,"S");
+						}
+					}
+					op_flag = set_font;
+				}break;
 				case home_ch1:
 				{
 					if(FONT == big)
@@ -11575,6 +11612,7 @@ void RIGHT_HANDLE(void)
 		{
 			switch(op_flag)
 			{
+				
 				case set_filter:
 				{
 					focus_off1();
@@ -11887,6 +11925,54 @@ void LEFT_HANDLE(void)
 		{
 			switch(op_flag)
 			{
+				case set_font:
+				{
+					focus_on1();
+					if(TCTYPE == TCK)
+					{
+						LCD_DisplayStringLine(47,100,"TC-K");
+					}else if(TCTYPE == TCT){
+						LCD_DisplayStringLine(47,100,"TC-T");
+					}else if(TCTYPE == TCJ){
+						LCD_DisplayStringLine(47,100,"TC-J");
+					}else if(TCTYPE == TCN){
+						LCD_DisplayStringLine(47,100,"TC-N");
+					}else if(TCTYPE == TCE){
+						LCD_DisplayStringLine(47,100,"TC-E");
+					}else if(TCTYPE == TCS){
+						LCD_DisplayStringLine(47,100,"TC-S");
+					}else if(TCTYPE == TCR){
+						LCD_DisplayStringLine(47,100,"TC-R");
+					}else if(TCTYPE == TCB){
+						LCD_DisplayStringLine(47,100,"TC-B");
+					}else if(TCTYPE == PT100){
+						LCD_DisplayStringLine(47,100,"PT100");
+					}
+					focus_off1();
+					if(FONT == big){
+						if(LANG == chs)
+						{
+							LCD_DisplayStringLine(47,290,"大");
+						}else{
+							LCD_DisplayStringLine(47,290,"L");
+						}
+					}else if(FONT == middle){
+						if(LANG == chs)
+						{
+							LCD_DisplayStringLine(47,290,"中");
+						}else{
+							LCD_DisplayStringLine(47,290,"M");
+						}
+					}else if(FONT == small){
+						if(LANG == chs)
+						{
+							LCD_DisplayStringLine(47,290,"小");
+						}else{
+							LCD_DisplayStringLine(47,290,"S");
+						}
+					}
+					op_flag = home_type;
+				}break;
 				
 				case home_ch5:
 				{

@@ -77,7 +77,7 @@ void page_set(void)
 		LCD_DisplayStringLine(50,10,"比较");
 		LCD_DisplayStringLine(90,10,"讯响");
 		LCD_DisplayStringLine(130,10,"单位");
-		LCD_DisplayStringLine(170,10,"字体");
+//		LCD_DisplayStringLine(170,10,"字体");
 		LCD_DisplayStringLine(280,10,"U盘设置");
 		LCD_DisplayStringLine(320,10,"文件名");
 		LCD_DisplayStringLine(50,360,"速度");
@@ -91,7 +91,7 @@ void page_set(void)
 		LCD_DisplayStringLine(50,10,"COMP");
 		LCD_DisplayStringLine(90,10,"BEEP");
 		LCD_DisplayStringLine(127,10,"UNIT");
-		LCD_DisplayStringLine(170,10,"FONT");
+//		LCD_DisplayStringLine(170,10,"FONT");
 		LCD_DisplayStringLine(280,10,"USBHDD SET");
 		LCD_DisplayStringLine(317,10,"NAME");
 		LCD_DisplayStringLine(50,360,"SPEED");
@@ -149,28 +149,28 @@ void page_set(void)
 		LCD_DisplayStringLine(127,155,"K");
 	}
 	
-	if(FONT == big){
-		if(LANG == chs)
-		{
-			LCD_DisplayStringLine(170,150,"大");
-		}else{
-			LCD_DisplayStringLine(170,150,"L");
-		}
-	}else if(FONT == middle){
-		if(LANG == chs)
-		{
-			LCD_DisplayStringLine(170,150,"中");
-		}else{
-			LCD_DisplayStringLine(170,150,"M");
-		}
-	}else if(FONT == small){
-		if(LANG == chs)
-		{
-			LCD_DisplayStringLine(170,150,"小");
-		}else{
-			LCD_DisplayStringLine(170,150,"S");
-		}
-	}
+//	if(FONT == big){
+//		if(LANG == chs)
+//		{
+//			LCD_DisplayStringLine(170,150,"大");
+//		}else{
+//			LCD_DisplayStringLine(170,150,"L");
+//		}
+//	}else if(FONT == middle){
+//		if(LANG == chs)
+//		{
+//			LCD_DisplayStringLine(170,150,"中");
+//		}else{
+//			LCD_DisplayStringLine(170,150,"M");
+//		}
+//	}else if(FONT == small){
+//		if(LANG == chs)
+//		{
+//			LCD_DisplayStringLine(170,150,"小");
+//		}else{
+//			LCD_DisplayStringLine(170,150,"S");
+//		}
+//	}
 	
 	LCD_DisplayStringLine(317,150,"AUTO");
 	

@@ -160,6 +160,7 @@ void page_home(void)
 		LCD_DisplayStringLine(0,10, "<      >");
 		LCD_DisplayStringLine(5,26, "测量显示");
 		LCD_DisplayStringLine(50,10,"型号");
+		LCD_DisplayStringLine(47,200,"字体");
 			
 		DrawInstruction("热电偶型号选择");
 	}else{
@@ -168,6 +169,7 @@ void page_home(void)
 //		LCD_DisplayStringLine(0,10, "");
 		LCD_DisplayStringLine(3,10,"<DISP>");
 		LCD_DisplayStringLine(47,10,"MODEL");
+		LCD_DisplayStringLine(47,200,"FONT");
 		
 		DrawInstruction("Thermocouple model select");
 	}
@@ -196,13 +198,40 @@ void page_home(void)
 	}else if(TCTYPE == PT100){
 		LCD_DisplayStringLine(47,100,"PT100");
 	}
+	
+
+	LCD_SetTextColor(LCD_COLOR_YELLOW);
+	LCD_SetBackColor(LCD_COLOR_BACK);
+	if(FONT == big){
+		if(LANG == chs)
+		{
+			LCD_DisplayStringLine(47,290,"大");
+		}else{
+			LCD_DisplayStringLine(47,290,"L");
+		}
+	}else if(FONT == middle){
+		if(LANG == chs)
+		{
+			LCD_DisplayStringLine(47,290,"中");
+		}else{
+			LCD_DisplayStringLine(47,290,"M");
+		}
+	}else if(FONT == small){
+		if(LANG == chs)
+		{
+			LCD_DisplayStringLine(47,290,"小");
+		}else{
+			LCD_DisplayStringLine(47,290,"S");
+		}
+	}
+	
 	Drawhomemenu();
 	
 	if(FONT == big)
 	{
 		if(CH1_SW == ch_off)
 		{
-			LCD_SetBackColor(LCD_COLOR_BACK);
+			LCD_SetBackColor(LCD_COLOR_HLT);
 			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
 			LCD_DisplayStringLine_48(100,10,"001");
 		}else if(CH1_SW == ch_on){

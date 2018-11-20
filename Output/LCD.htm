@@ -3,9 +3,9 @@
 <title>Static Call Graph - [..\..\Output\LCD.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\..\Output\LCD.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Wed Nov 14 16:08:54 2018
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Tue Nov 20 16:15:43 2018
 <BR><P>
-<H3>Maximum Stack Usage =        648 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        656 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
 main &rArr; Key_Function &rArr; ENTER_HANDLE &rArr; hispage &rArr; Read_history &rArr; SPI_FLASH_BufferRead &rArr; SPI_FLASH_SendByte &rArr; SPI_TIMEOUT_UserCallback &rArr; __2printf
 <P>
@@ -1166,12 +1166,12 @@ Global Symbols
 <P><STRONG><a name="[fc]"></a>DCD_Init</STRONG> (Thumb, 146 bytes, Stack size 16 bytes, usb_dcd.o(i.DCD_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = DCD_Init &rArr; USB_OTG_CoreInitDev &rArr; USB_OTG_FlushTxFifo &rArr; USB_OTG_BSP_uDelay
 </UL>
-<BR>[Calls]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_OTG_SetCurrentMode
-<LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_OTG_SelectCore
+<BR>[Calls]<UL><LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_OTG_SelectCore
 <LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_OTG_EnableGlobalInt
 <LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_OTG_DisableGlobalInt
 <LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_OTG_CoreInitDev
 <LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_OTG_CoreInit
+<LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_OTG_SetCurrentMode
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBD_Init
 </UL>
@@ -1338,7 +1338,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[17d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Function
 </UL>
 
-<P><STRONG><a name="[113]"></a>DOWN_HANDLE</STRONG> (Thumb, 10072 bytes, Stack size 160 bytes, bsp_key.o(i.DOWN_HANDLE))
+<P><STRONG><a name="[113]"></a>DOWN_HANDLE</STRONG> (Thumb, 9872 bytes, Stack size 160 bytes, bsp_key.o(i.DOWN_HANDLE))
 <BR><BR>[Stack]<UL><LI>Max Depth = 308<LI>Call Chain = DOWN_HANDLE &rArr; maxfocus_on &rArr; DrawInstruction &rArr; LCD_DrawFullRect &rArr; DMA2D_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
@@ -1709,8 +1709,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC5_HANDLE
 </UL>
 
-<P><STRONG><a name="[144]"></a>ENTER_HANDLE</STRONG> (Thumb, 10068 bytes, Stack size 152 bytes, bsp_key.o(i.ENTER_HANDLE))
-<BR><BR>[Stack]<UL><LI>Max Depth = 552<LI>Call Chain = ENTER_HANDLE &rArr; hispage &rArr; Read_history &rArr; SPI_FLASH_BufferRead &rArr; SPI_FLASH_SendByte &rArr; SPI_TIMEOUT_UserCallback &rArr; __2printf
+<P><STRONG><a name="[144]"></a>ENTER_HANDLE</STRONG> (Thumb, 10204 bytes, Stack size 160 bytes, bsp_key.o(i.ENTER_HANDLE))
+<BR><BR>[Stack]<UL><LI>Max Depth = 560<LI>Call Chain = ENTER_HANDLE &rArr; hispage &rArr; Read_history &rArr; SPI_FLASH_BufferRead &rArr; SPI_FLASH_SendByte &rArr; SPI_TIMEOUT_UserCallback &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
@@ -1782,7 +1782,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[1c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDRAM_InitSequence
 </UL>
 
-<P><STRONG><a name="[14f]"></a>FUNC1_HANDLE</STRONG> (Thumb, 784 bytes, Stack size 32 bytes, bsp_key.o(i.FUNC1_HANDLE))
+<P><STRONG><a name="[14f]"></a>FUNC1_HANDLE</STRONG> (Thumb, 792 bytes, Stack size 32 bytes, bsp_key.o(i.FUNC1_HANDLE))
 <BR><BR>[Stack]<UL><LI>Max Depth = 208<LI>Call Chain = FUNC1_HANDLE &rArr; dim_set &rArr; Save_flag &rArr; SPI_FLASH_BufferWrite &rArr; SPI_FLASH_PageWrite &rArr; SPI_FLASH_WaitForWriteEnd &rArr; SPI_FLASH_SendByte &rArr; SPI_TIMEOUT_UserCallback &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_home
@@ -1811,10 +1811,11 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[17d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Function
 </UL>
 
-<P><STRONG><a name="[15a]"></a>FUNC2_HANDLE</STRONG> (Thumb, 696 bytes, Stack size 32 bytes, bsp_key.o(i.FUNC2_HANDLE))
+<P><STRONG><a name="[15a]"></a>FUNC2_HANDLE</STRONG> (Thumb, 718 bytes, Stack size 32 bytes, bsp_key.o(i.FUNC2_HANDLE))
 <BR><BR>[Stack]<UL><LI>Max Depth = 332<LI>Call Chain = FUNC2_HANDLE &rArr; page_his &rArr; DrawGridLine &rArr; LCD_DrawRect &rArr; LCD_DrawLine &rArr; DMA2D_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
+<BR>[Calls]<UL><LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_home
+<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
 <LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
 <LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
 <LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Save_flag
@@ -1840,10 +1841,11 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[17d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Function
 </UL>
 
-<P><STRONG><a name="[161]"></a>FUNC3_HANDLE</STRONG> (Thumb, 514 bytes, Stack size 32 bytes, bsp_key.o(i.FUNC3_HANDLE))
+<P><STRONG><a name="[161]"></a>FUNC3_HANDLE</STRONG> (Thumb, 530 bytes, Stack size 32 bytes, bsp_key.o(i.FUNC3_HANDLE))
 <BR><BR>[Stack]<UL><LI>Max Depth = 208<LI>Call Chain = FUNC3_HANDLE &rArr; dim_set &rArr; Save_flag &rArr; SPI_FLASH_BufferWrite &rArr; SPI_FLASH_PageWrite &rArr; SPI_FLASH_WaitForWriteEnd &rArr; SPI_FLASH_SendByte &rArr; SPI_TIMEOUT_UserCallback &rArr; __2printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
+<BR>[Calls]<UL><LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_home
+<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
 <LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
 <LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
 <LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_CNL_S
@@ -1889,7 +1891,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[17d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Function
 </UL>
 
-<P><STRONG><a name="[169]"></a>FUNC5_HANDLE</STRONG> (Thumb, 7418 bytes, Stack size 40 bytes, bsp_key.o(i.FUNC5_HANDLE))
+<P><STRONG><a name="[169]"></a>FUNC5_HANDLE</STRONG> (Thumb, 7426 bytes, Stack size 40 bytes, bsp_key.o(i.FUNC5_HANDLE))
 <BR><BR>[Stack]<UL><LI>Max Depth = 440<LI>Call Chain = FUNC5_HANDLE &rArr; hispage &rArr; Read_history &rArr; SPI_FLASH_BufferRead &rArr; SPI_FLASH_SendByte &rArr; SPI_TIMEOUT_UserCallback &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
@@ -2090,7 +2092,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[17d]"></a>Key_Function</STRONG> (Thumb, 218 bytes, Stack size 16 bytes, bsp_key.o(i.Key_Function))
-<BR><BR>[Stack]<UL><LI>Max Depth = 568<LI>Call Chain = Key_Function &rArr; ENTER_HANDLE &rArr; hispage &rArr; Read_history &rArr; SPI_FLASH_BufferRead &rArr; SPI_FLASH_SendByte &rArr; SPI_TIMEOUT_UserCallback &rArr; __2printf
+<BR><BR>[Stack]<UL><LI>Max Depth = 576<LI>Call Chain = Key_Function &rArr; ENTER_HANDLE &rArr; hispage &rArr; Read_history &rArr; SPI_FLASH_BufferRead &rArr; SPI_FLASH_SendByte &rArr; SPI_TIMEOUT_UserCallback &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[17e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UP_HANDLE
 <LI><a href="#[180]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RIGHT_HANDLE
@@ -2575,7 +2577,7 @@ Global Symbols
 <LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_cal
 </UL>
 
-<P><STRONG><a name="[17f]"></a>LEFT_HANDLE</STRONG> (Thumb, 5162 bytes, Stack size 104 bytes, bsp_key.o(i.LEFT_HANDLE))
+<P><STRONG><a name="[17f]"></a>LEFT_HANDLE</STRONG> (Thumb, 5388 bytes, Stack size 104 bytes, bsp_key.o(i.LEFT_HANDLE))
 <BR><BR>[Stack]<UL><LI>Max Depth = 244<LI>Call Chain = LEFT_HANDLE &rArr; minfocus_on &rArr; DrawInstruction &rArr; LCD_DrawFullRect &rArr; DMA2D_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
@@ -2772,7 +2774,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_CLK_Config
 </UL>
 
-<P><STRONG><a name="[180]"></a>RIGHT_HANDLE</STRONG> (Thumb, 5124 bytes, Stack size 88 bytes, bsp_key.o(i.RIGHT_HANDLE))
+<P><STRONG><a name="[180]"></a>RIGHT_HANDLE</STRONG> (Thumb, 5380 bytes, Stack size 88 bytes, bsp_key.o(i.RIGHT_HANDLE))
 <BR><BR>[Stack]<UL><LI>Max Depth = 236<LI>Call Chain = RIGHT_HANDLE &rArr; maxfocus_on &rArr; DrawInstruction &rArr; LCD_DrawFullRect &rArr; DMA2D_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
@@ -3395,7 +3397,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM6_DAC_IRQHandler
 </UL>
 
-<P><STRONG><a name="[17e]"></a>UP_HANDLE</STRONG> (Thumb, 10336 bytes, Stack size 192 bytes, bsp_key.o(i.UP_HANDLE))
+<P><STRONG><a name="[17e]"></a>UP_HANDLE</STRONG> (Thumb, 10116 bytes, Stack size 192 bytes, bsp_key.o(i.UP_HANDLE))
 <BR><BR>[Stack]<UL><LI>Max Depth = 340<LI>Call Chain = UP_HANDLE &rArr; maxfocus_on &rArr; DrawInstruction &rArr; LCD_DrawFullRect &rArr; DMA2D_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
@@ -3737,7 +3739,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[1fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBD_Init
 </UL>
 
-<P><STRONG><a name="[1fd]"></a>USB_OTG_BSP_Init</STRONG> (Thumb, 106 bytes, Stack size 24 bytes, usb_bsp.o(i.USB_OTG_BSP_Init))
+<P><STRONG><a name="[1fd]"></a>USB_OTG_BSP_Init</STRONG> (Thumb, 104 bytes, Stack size 24 bytes, usb_bsp.o(i.USB_OTG_BSP_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = USB_OTG_BSP_Init &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinAFConfig
@@ -3749,8 +3751,8 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[20f]"></a>USB_OTG_BSP_mDelay</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, usb_bsp.o(i.USB_OTG_BSP_mDelay))
-<BR><BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_OTG_SetCurrentMode
-<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_OTG_CoreInit
+<BR><BR>[Called By]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_OTG_CoreInit
+<LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_OTG_SetCurrentMode
 </UL>
 
 <P><STRONG><a name="[212]"></a>USB_OTG_BSP_uDelay</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, usb_bsp.o(i.USB_OTG_BSP_uDelay))
@@ -4165,7 +4167,7 @@ Global Symbols
 <LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
 </UL>
 
-<P><STRONG><a name="[117]"></a>focus_off1</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, bsp_key.o(i.focus_off1))
+<P><STRONG><a name="[117]"></a>focus_off1</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, bsp_key.o(i.focus_off1))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = focus_off1
 </UL>
 <BR>[Calls]<UL><LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
@@ -4189,7 +4191,7 @@ Global Symbols
 <LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
 </UL>
 
-<P><STRONG><a name="[118]"></a>focus_on1</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, bsp_key.o(i.focus_on1))
+<P><STRONG><a name="[118]"></a>focus_on1</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, bsp_key.o(i.focus_on1))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = focus_on1
 </UL>
 <BR>[Calls]<UL><LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
@@ -4261,7 +4263,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[84]"></a>main</STRONG> (Thumb, 346 bytes, Stack size 80 bytes, main.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 648<LI>Call Chain = main &rArr; Key_Function &rArr; ENTER_HANDLE &rArr; hispage &rArr; Read_history &rArr; SPI_FLASH_BufferRead &rArr; SPI_FLASH_SendByte &rArr; SPI_TIMEOUT_UserCallback &rArr; __2printf
+<BR><BR>[Stack]<UL><LI>Max Depth = 656<LI>Call Chain = main &rArr; Key_Function &rArr; ENTER_HANDLE &rArr; hispage &rArr; Read_history &rArr; SPI_FLASH_BufferRead &rArr; SPI_FLASH_SendByte &rArr; SPI_TIMEOUT_UserCallback &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWR_BackupAccessCmd
 <LI><a href="#[195]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LTDC_Cmd
@@ -4561,7 +4563,7 @@ Global Symbols
 <LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC2_HANDLE
 </UL>
 
-<P><STRONG><a name="[159]"></a>page_home</STRONG> (Thumb, 3802 bytes, Stack size 40 bytes, home.o(i.page_home))
+<P><STRONG><a name="[159]"></a>page_home</STRONG> (Thumb, 3940 bytes, Stack size 40 bytes, home.o(i.page_home))
 <BR><BR>[Stack]<UL><LI>Max Depth = 156<LI>Call Chain = page_home &rArr; DrawMenu &rArr; DrawUdisk2 &rArr; LCD_DrawFullRect &rArr; DMA2D_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[222]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetLayer
@@ -4580,6 +4582,8 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IRQHandler
 <LI><a href="#[1eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchHandle
+<LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC3_HANDLE
+<LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC2_HANDLE
 <LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC1_HANDLE
 </UL>
 
@@ -4604,7 +4608,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC5_HANDLE
 </UL>
 
-<P><STRONG><a name="[168]"></a>page_set</STRONG> (Thumb, 728 bytes, Stack size 32 bytes, settings.o(i.page_set))
+<P><STRONG><a name="[168]"></a>page_set</STRONG> (Thumb, 646 bytes, Stack size 32 bytes, settings.o(i.page_set))
 <BR><BR>[Stack]<UL><LI>Max Depth = 148<LI>Call Chain = page_set &rArr; DrawMenu &rArr; DrawUdisk2 &rArr; LCD_DrawFullRect &rArr; DMA2D_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[222]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetLayer
