@@ -362,7 +362,7 @@ void Read_history(u16 rec)
 				hisdata[j][i*8+k] = (read_buf[j][k%8*2] * 256 +  read_buf[j][k%8*2+1])/10.0;
 			}
 		}
-	}	
+	}
 }
 
 void Save_time(u16 rec)

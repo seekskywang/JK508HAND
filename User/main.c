@@ -360,18 +360,13 @@ int main(void)
 //		Delay(0xfff);
 //		BEEP_OFF;
 //		powerstat = GPIO_ReadInputDataBit(GPIOI,GPIO_Pin_11);
-//		DCD_EP_PrepareRx(&USB_OTG_dev,HID_OUT_EP,usbbuf,64);//接收PC数据
-//		if(UsbHidReceiveComplete)                         //接收到数据
-//		{			
-//			UsbDataHandle();
-//			UsbHidReceiveComplete=0;
-//		}
-		 DCD_EP_PrepareRx(&USB_OTG_dev,HID_OUT_EP,buf,64);//??PC??
-		if(UsbHidReceiveComplete)                         //?????
-		{
+		DCD_EP_PrepareRx(&USB_OTG_dev,HID_OUT_EP,usbbuf,64);//接收PC数据
+		if(UsbHidReceiveComplete)                         //接收到数据
+		{			
+			UsbDataHandle();
 			UsbHidReceiveComplete=0;
-			USBD_HID_SendReport (&USB_OTG_dev, buf, 64);    //???Д
 		}
+
 	
 	}
 }
