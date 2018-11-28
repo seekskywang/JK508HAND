@@ -24,6 +24,7 @@
 #include "./ch376/ch376.h"
 #include "./FILESYS/FILESYS.h"
 #include "jk508.h"
+#include "./usart/bsp_debug_usart.h"
 
 u8 key_value;
 extern u16 count;
@@ -13044,11 +13045,14 @@ void LEFT_HANDLE(void)
 
 void KEY1_HANDLE(void)
 {		
+	u8 i;
 	switch(page_flag)
 	{
 		case display:
 		{
-			TouchCal();
+//			TouchCal();
+//			DrawPowOff();
+			DrawLogo(200,250);
 		}break;
 		case separation:
 		{
@@ -13069,6 +13073,13 @@ void KEY1_HANDLE(void)
 		case touchcal:
 		{
 			XYCAL(1);
+		}break;
+		default:
+		{
+			for(i=0;i<8;i++)
+			{
+				Usart_SendByte(DEBUG_USART,tempreq[i]);//请求温度数据
+			}
 		}break;
 	}
 }

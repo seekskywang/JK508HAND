@@ -25,12 +25,19 @@
 #include  "usbd_desc.h"
 #include "jk508.h"
 
+void MODS_Poll(void);
+void RecHandle(void);
+
 extern u8 key_value;
 extern u16 count;
 extern u8 count_flag;
 u8 tempreq[8] = {0x01,0x03,0x00,0x00,0x00,0x10,0x44,0x06};
 u8 reqcode;
 u8 brightness;
+u32 Tick_10ms=0;
+u32 OldTick;
+extern u8 ReCount;
+extern u8 g_mods_timeout;
 extern __ALIGN_BEGIN USB_OTG_CORE_HANDLE  USB_OTG_dev __ALIGN_END;
  /**
   * @brief  基本定时器 TIMx,x[6,7]中断优先级配置
@@ -195,33 +202,32 @@ void BASIC_TIM_IRQHandler (void)
 	{
 		Key_Scan();//按键扫描
 		Touch_Scan();//触摸扫描
+		Tick_10ms++;
+//		MODS_Poll();
 		
-//		DCD_EP_PrepareRx(&USB_OTG_dev,HID_OUT_EP,usbbuf,64);//接收PC数据
-//		if(UsbHidReceiveComplete)                         //接收到数据
-//		{
-//			UsbHidReceiveComplete=0;
-//			UsbDataHandle();
-//		}
-		if(sendcount == 20*4 && PowerOffDetect)
+		if(sendcount == 20*5 && GPIO_ReadInputDataBit(GPIOI,GPIO_Pin_11))
 		{
+//			USART_ITConfig(DEBUG_USART, USART_IT_RXNE, DISABLE);
 			for(i=0;i<8;i++)
 			{
 				Usart_SendByte(DEBUG_USART,tempreq[i]);//请求温度数据
 			}
+//			USART_ITConfig(DEBUG_USART, USART_IT_RXNE, ENABLE);
 			if(page_flag != poweron)
 			{
 				udisk_scan();
 			}
+			
 			sendcount = 0;
 		}
-		if(usave == 30)
-		{
-			if(usbstatus == CONNECTED)
-			{
-				Utest();
-			}
-			usave = 0;
-		}
+//		if(usave == 200)
+//		{
+//			if(usbstatus == CONNECTED)
+//			{
+//				Utest();
+//			}
+//			usave = 0;
+//		}
 		if(key_value == 0xFF && dimflag == 0)
 		{			
 			if(DIM == DOFF)
@@ -272,11 +278,208 @@ void BASIC_TIM_IRQHandler (void)
 			dim_time = 0;
 		}
 		sendcount ++;
-		usave ++;
+//		usave ++;
 		TIM_ClearITPendingBit(BASIC_TIM,TIM_IT_Update);
 	}
 }
 
+void MODS_Poll(void)
+{
+	static u32 testi;
+	testi = ReCount;
+	//判断通讯接收是否超时
+	if(OldTick!=Tick_10ms)
+  	{  
+	  OldTick=Tick_10ms;
+	   if(g_mods_timeout>0)
+      { 
+	    g_mods_timeout--;
+      }
+	  if(g_mods_timeout==0 && ReCount>0)   //有数但超时了
+      { 
+		// goto err_ret;
+	
+      }
+      else if(g_mods_timeout==0 && ReCount==0) //没数超时了
+         return;
+      else //没超时了，继续收
+         return;
+	}
+	else   //没有到10ms，不进入解析
+		return;
+	//g_mods_timeout = 0;	 					/* 清标志 */
+
+	if (ReCount < 30)				/* 接收到的数据小于4个字节就认为错误 */
+	{
+		goto err_ret;
+	}
+	RecHandle();
+	err_ret:
+	#if 0										/* 姝ら儴鍒嗕负浜嗕覆鍙ｆ墦鍗扮粨鏋?瀹為檯杩愮敤涓彲涓嶈 */
+//		g_tPrint.Rxlen = g_tModS.RxCount;
+//		memcpy(g_tPrint.RxBuf, g_tModS.RxBuf, g_tModS.RxCount);
+
+	#endif
+	
+//	ReCount = 0;	
+}
+
+void RecHandle(void)
+{
+	static uint8_t ucTemp;
+	static u8 Total_Len = 0;
+	static u8 uinitflag = 0;
+	static u8 multicount = 0;
+//	static float graphbuf[16];
+	static u8 graphbuf[16][2];
+	static u8 hisbuf[16][2];
+	static u16 hisconv;
+	static u16 corconv;
+	u8 i;
+	char buf[10];
+	static int16_t tempbuf;
+	
+	if(ReCount != 39)
+	{
+		return;
+	}else{
+			charge = RecBuff[3];
+			battery = RecBuff[4];
+//					if(bcount == 3)
+//					{
+//						battery = btbuff/3;
+//						DrawBattery(battery);
+//						btbuff = 0;
+//						bcount = 0;
+//					}else{
+//						btbuff += RecBuff[4];
+//						bcount++;
+//					}
+			for(i=0;i<16;i++)
+			{
+				tempbuf = RecBuff[2*(i+1)+3]<<8;
+				tempbuf = tempbuf + RecBuff[2*(i+1)+4];
+				if(tempbuf < 0)
+				{
+					ch_temp[i] = (float)tempbuf/10;
+				}else{
+					ch_temp[i] = (float)tempbuf/10;
+				}
+//						ch_temp[i] = (RecBuff[2*(i+1)+3] * 256 + RecBuff[2*(i+1)+4])/10.0;
+				if(count == 0 && page_flag == poweron)
+				{
+					InitBrt();//开机亮度
+					LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_BLACK);
+					DISP_INS(5+i*20,5,"Initializing Channel");
+					sprintf(buf,"%03d",i+1);
+					DISP_INS(5+i*20,336,(uint8_t*)buf);
+					DISP_INS(5+i*20,384,"...");
+					Delay(0x3fffff);
+				}
+				
+			}
+			
+			
+			if(multicount == 1 && page_flag == poweron)
+			{
+				LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_BLACK);
+				DISP_INS(325,5,"Done!");
+				Delay(0xffffff);
+				page_home();
+			}
+			
+			if(multicount%(int)MULTI == 0 && multicount != 0)
+			{
+				for(i=0;i<16;i++)
+				{
+					G_Data[i][count] = (graphbuf[i][0]/MULTI * 256 + graphbuf[i][1]/MULTI)/10.0 - Correction[i];							
+				}
+				if(page_flag == graph)
+				{
+					Draw_graph();
+					DrawTime();
+				}
+//						if(page_flag != history)
+//						{
+					for(i=0;i<16;i++)
+					{
+//								savebuf = hex_to_bcd((int)(graphbuf[i]/MULTI * 10));
+						hisconv = (u16)(hisbuf[i][0]/MULTI)<<8;
+						hisconv = hisconv + hisbuf[i][1]/MULTI;
+						corconv = (u16)(Correction[i]*10);
+//								Data_buf[i][count%8 * 2] = hisbuf[i][0]/MULTI;
+//								Data_buf[i][count%8 * 2 + 1] = hisbuf[i][1]/MULTI;
+						Data_buf[i][count%8 * 2] = (u8)((hisconv - corconv)>>8);
+						Data_buf[i][count%8 * 2 + 1] = (u8)(hisconv - corconv);
+					}
+//							Save_history(1);
+					if(count > 0 && (count + 1) % 8 == 0)
+					{
+//								recflag = 1;
+						if(SECTOR_REC < 62000)
+						{
+							SECTOR_REC ++;
+							Save_history(SECTOR_REC);								
+							Save_Sflag();									
+						}else{
+							SECTOR_REC = 0;
+						}
+						
+					}
+//						}
+				if(count == 450)
+				{
+					if(TIME_REC < 1000)
+					{
+						TIME_REC++;
+						Save_time(TIME_REC);
+						Save_Sflag();
+					}else{
+						TIME_REC = 0;
+					}
+				}
+				if(count > 494)
+				{
+					count = 0;
+//							memcpy(hisdata,G_Data,sizeof(G_Data));
+//							memcpy(histime,time_buf,sizeof(time_buf));
+				}else{
+					count++;
+				}
+				multicount=0;
+				
+				for(i = 0;i<16;i++)
+				{
+					hisbuf[i][0] = 0;
+					hisbuf[i][1] = 0;
+//							graphbuf[i] = 0;
+					graphbuf[i][0] = 0;
+					graphbuf[i][1] = 0;
+				}
+
+				for(i=0;i<16;i++)
+				{
+					hisbuf[i][0] += RecBuff[2*(i+1)+3];
+					hisbuf[i][1] += RecBuff[2*(i+1)+4];
+//							graphbuf[i] += ch_temp[i];
+					graphbuf[i][0] += RecBuff[2*(i+1)+3];
+					graphbuf[i][1] += RecBuff[2*(i+1)+4];
+				}
+				multicount++;
+			}else{
+				for(i=0;i<16;i++)
+				{
+					hisbuf[i][0] += RecBuff[2*(i+1)+3];
+					hisbuf[i][1] += RecBuff[2*(i+1)+4];
+//							graphbuf[i] += ch_temp[i];
+					graphbuf[i][0] += RecBuff[2*(i+1)+3];
+					graphbuf[i][1] += RecBuff[2*(i+1)+4];
+				}
+				multicount++;
+			}
+			ReCount = 0;
+		}
+}
 
 void SetTctype(u8 type)
 {

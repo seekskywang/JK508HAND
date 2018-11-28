@@ -29,7 +29,7 @@ extern float TempLLimits[40];
 extern float YLIMIT[3];
 extern float Correction[40];
 extern float ch_temp[40];
-extern u8 RecBuff[40];
+extern u8 RecBuff[39];
 extern u8 usbsendbuf[0x40];
 extern u8 savedata[80];
 extern u8 tempreq[8];
@@ -52,6 +52,7 @@ extern u16 hpage;
 extern u16 XCOOR;
 extern u16 YCOOR;
 extern u8 touchflag;
+extern u8 tempreq[8];
 
 
 void page_home(void);
@@ -452,6 +453,7 @@ uint32_t Flash_DisableReadProtection(void);
 #define calibrate		 8
 #define poweron 		 9
 #define touchcal		 10
+#define poweroff 		 11
 
 /* 选项标志位 */
 #define home_type        0

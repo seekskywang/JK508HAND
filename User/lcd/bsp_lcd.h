@@ -620,6 +620,7 @@ void 	 DrawBattery(u8 cap);
 void 	 DrawCharge(void);
 void 	 DrawUdisk1(void);
 void 	 DrawUdisk2(void);
+void 	 DrawPowOff(void);
 void 	 DrawInstruction(uint8_t *ptr);
 void     LCD_DrawChar(uint16_t Xpos, uint16_t Ypos, const uint16_t *c);
 void     LCD_DisplayChar(uint16_t Line, uint16_t Column, uint8_t Ascii);

@@ -83,7 +83,7 @@ void RTC_TimeAndDate_Show(void)
 	// 每秒打印一次
   	if(Rtctmp != RTC_TimeStructure.RTC_Seconds)
     {					
-		if(page_flag != poweron && page_flag != touchcal)
+		if(page_flag != poweron && page_flag != touchcal && GPIO_ReadInputDataBit(GPIOI,GPIO_Pin_11) == 1)
 		{
 			//液晶显示时间
 			sprintf(LCDTemp,"%0.2d:%0.2d:%0.2d", 

@@ -81,7 +81,7 @@ void page_his(void)
 	for(i = 0;i < 7;i ++)
 	{
 		sprintf(buf,"%d",(int)(YHLIMIT - range * i));
-		DISP_CNL_S(40 + 50*i,10/*90*/,(uint8_t* )buf);
+		DISP_CNL_S(40 + 50*i,5/*90*/,(uint8_t* )buf);
 	}
 //	Read_history(1);
 //	Read_time(1);

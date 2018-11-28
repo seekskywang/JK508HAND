@@ -57,12 +57,16 @@ extern uint32_t USBD_OTG_EP1IN_ISR_Handler (USB_OTG_CORE_HANDLE *pdev);
 extern uint32_t USBD_OTG_EP1OUT_ISR_Handler (USB_OTG_CORE_HANDLE *pdev);
 #endif
 
-u8 RecBuff[40];
+u8 RecBuff[39];
 u16 ureadcrc;
 u8 *ucrc;
 u8 charge;
 u8 battery;
 u8 reflag;
+u8 ReCount=0;
+u8 g_mods_timeout = 0;
+static u8 watchuart[39];
+static u8 watchcount;
 /** @addtogroup STM32F429I_DISCOVERY_Examples
   * @{
   */
@@ -198,8 +202,7 @@ void SysTick_Handler(void)
 
 void DEBUG_USART_IRQHandler(void)
 {
-	uint8_t ucTemp;
-	static u8 ReCount=0;
+	static uint8_t ucTemp;
 	static u8 Total_Len = 0;
 	static u8 uinitflag = 0;
 	static u8 multicount = 0;
@@ -211,19 +214,24 @@ void DEBUG_USART_IRQHandler(void)
 	u8 i;
 	char buf[10];
 	static int16_t tempbuf;
-	
+
 //	u16 ureadcrc;
 //	u8 *ucrc;
 	u8 ucrclen;
 	if(uinitflag == 0)
 	{
 		LCD_SetColors(LCD_COLOR_BLACK,LCD_COLOR_BLACK);
-		LCD_DrawFullRect(0,0,640,480);
+		LCD_DrawFullRect(0,0,640,480); 
 		uinitflag = 1;
 	}
 	if(USART_GetITStatus(DEBUG_USART,USART_IT_RXNE)!=RESET)
 	{
-		
+		USART_ClearITPendingBit(DEBUG_USART, USART_IT_RXNE);
+//		g_mods_timeout = 2;		
+//		if(ReCount < 39)
+//		{
+//			RecBuff[ReCount++] = USART_ReceiveData( DEBUG_USART );
+//		}
 		ucTemp = USART_ReceiveData( DEBUG_USART );
 		if(ReCount == 0)
 		{
@@ -231,13 +239,17 @@ void DEBUG_USART_IRQHandler(void)
 			{
 				ReCount=1;
 				RecBuff[0]=ucTemp;
+			}else{
+				ReCount = 0;
 			}
 		}else if(ReCount == 1){
 			if(ucTemp == 0x03)
 			{
 				RecBuff[1] = ucTemp;
-				Total_Len = 23;
+//				Total_Len = 23;
 				ReCount ++;
+			}else{
+				ReCount = 0;
 			}
 		}else if(ReCount == 2){
 			if(ucTemp == 0x22)
@@ -246,6 +258,8 @@ void DEBUG_USART_IRQHandler(void)
 				Total_Len = 39;
 				
 				ReCount ++;
+			}else{
+				ReCount = 0;
 			}
 		}else if(ReCount > 2){
 			RecBuff[ReCount] = ucTemp;
@@ -397,10 +411,14 @@ void DEBUG_USART_IRQHandler(void)
 						multicount++;
 					}
 					ReCount = 0;
+					if(usbstatus == CONNECTED)
+					{
+						Utest();
+					}
 				}
 			}
 		}
-
+		
 	}
 }
 

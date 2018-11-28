@@ -55,6 +55,7 @@ u8 *csend;
 u16 datasize;
 u8 usbstatus = UNKNOWN;
 u16 watch;
+
 //u8 p1,p2,p3,p4,p5,p6,p7,p8;
 
 
@@ -218,12 +219,14 @@ float ch_temp[40];
   */
 
 int main(void)
+
 {
 	static u8 powerstat;
 	uint8_t  buf[0x40];
 //	static u8 ledstat;
 	u8 test[9] = {0X01,0X03,0X02,0X58,0X00,0X01,0X02,0X00,0X05};
 	 __IO uint32_t i = 0;
+	static u8 reqtempcount;
 //	u8 res;
   /*!< At this stage the microcontroller clock setting is already configured, 
   this is done through SystemInit() function which is called from startup
@@ -339,33 +342,40 @@ int main(void)
 //		ledstat = GPIO_ReadInputDataBit(GPIOB,GPIO_Pin_1);
 //		watch = GPIO_ReadInputDataBit(TOUCH_YPLUS_GPIO_PORT,TOUCH_YPLUS_GPIO_PIN);
 		/* 显示时间和日期 */	
-		RTC_TimeAndDate_Show();
-		/*按键扫描*/		
-		Key_Function();
 		
-		if(TOUCH == op_on)
+		powerstat = GPIO_ReadInputDataBit(GPIOI,GPIO_Pin_11);
+		if(powerstat == 0 && page_flag != poweron && page_flag != poweroff)
 		{
-			if(touchflag == 1)
+			PowerOffHandle();
+		}else{
+			RTC_TimeAndDate_Show();
+			/*按键扫描*/		
+			Key_Function();
+			if(TOUCH == op_on)
 			{
-				Delay(1000);
-				TouchHandle(XCOOR,YCOOR);
+				if(touchflag == 1)
+				{
+					Delay(1000);
+					TouchHandle(XCOOR,YCOOR);
+				}
+			}
+	//		Touch_Scan();
+	//		CH1TEMP = (RecBuff[21] * 256 + RecBuff[22])/10.0;
+			DrawBattery(battery);
+			
+			TempDisplay();
+	//		BEEP_ON;
+	//		Delay(0xfff);
+	//		BEEP_OFF;
+			
+			DCD_EP_PrepareRx(&USB_OTG_dev,HID_OUT_EP,usbbuf,64);//接收PC数据
+			if(UsbHidReceiveComplete)                         //接收到数据
+			{
+				UsbDataHandle();
+				UsbHidReceiveComplete=0;
 			}
 		}
-//		Touch_Scan();
-//		CH1TEMP = (RecBuff[21] * 256 + RecBuff[22])/10.0;
-		DrawBattery(battery);
 		
-		TempDisplay();
-//		BEEP_ON;
-//		Delay(0xfff);
-//		BEEP_OFF;
-//		powerstat = GPIO_ReadInputDataBit(GPIOI,GPIO_Pin_11);
-		DCD_EP_PrepareRx(&USB_OTG_dev,HID_OUT_EP,usbbuf,64);//接收PC数据
-		if(UsbHidReceiveComplete)                         //接收到数据
-		{			
-			UsbDataHandle();
-			UsbHidReceiveComplete=0;
-		}
 
 	
 	}
@@ -535,6 +545,12 @@ void TempDisplay(void)
 					strcat(buf," ");
 				}
 				DISP_TEMP_L(95,150,(uint8_t*)buf,CH1_SW);
+//				if(CH1TEMP < 1999)
+//				{
+//					DISP_TEMP_L(95,150,(uint8_t*)buf,CH1_SW);
+//				}else{
+//					LCD_DrawFullRect(180,110,80,3);
+//				}
 				Check_limits(2);
 				sprintf(buf,"%.1f",CH2TEMP - COR2);
 				if(CH2TEMP < 100)
@@ -2045,13 +2061,16 @@ u8 PowerOffDetect(void)
 //检测到关机后的处理
 void PowerOffHandle(void)
 {
+	page_flag = poweroff;
 	static u8 offflag;
+	DrawPowOff();
 	if(offflag == 0)
 	{
 		TIME_REC++;
 		SECTOR_REC = TIME_REC * 62;
 		Save_Sflag();
 	}
+	
 }
 /*********************************************END OF FILE**********************/
 

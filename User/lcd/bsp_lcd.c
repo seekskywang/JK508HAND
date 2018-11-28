@@ -1020,6 +1020,23 @@ void DrawUdisk2(void)
 	LCD_DrawUniLine(455-16,27,459-16,23);
 	
 }
+
+//绘制关机画面
+void DrawPowOff(void)
+{
+	LCD_Clear(LCD_COLOR_WHITE);
+	LCD_SetColors(LCD_COLOR_RED,LCD_COLOR_RED);
+	LCD_DrawCircle(100,100,16);
+	LCD_DrawCircle(100,100,15);
+	LCD_DrawCircle(100,100,14);
+	LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_WHITE);
+	LCD_DrawFullRect(95,74,11,20);
+	LCD_SetColors(LCD_COLOR_RED,LCD_COLOR_RED);
+	LCD_DrawFullRect(98,80,5,20);
+	LCD_SetColors(LCD_COLOR_RED,LCD_COLOR_WHITE);
+	LCD_DisplayStringLine(85,120,"Power Off");
+	
+}
 /**
   * @brief  Draws a character on LCD.
   * @param  Xpos: the Line where to display the character shape.
