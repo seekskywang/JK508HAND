@@ -244,13 +244,13 @@ int main(void)
 	LCD_SetLayer(LCD_FOREGROUND_LAYER);
 	LCD_Clear(LCD_COLOR_BLACK);
 
-	power_on();
+	
 	
 	SysTick_Init();
 	Delay(500);
 	/* LED 端口初始化 */
 //	LED_GPIO_Config();	 
-	
+	power_on();
 	/* 16M串行flash W25Q128初始化 */
 	SPI_FLASH_Init();
 	
