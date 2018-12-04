@@ -161,6 +161,7 @@ void page_home(void)
 		LCD_DisplayStringLine(5,26, "测量显示");
 		LCD_DisplayStringLine(50,10,"型号");
 		LCD_DisplayStringLine(47,200,"字体");
+		LCD_DisplayStringLine(47,390,"页码");
 			
 		DrawInstruction("热电偶型号选择");
 	}else{
@@ -170,6 +171,7 @@ void page_home(void)
 		LCD_DisplayStringLine(3,10,"<DISP>");
 		LCD_DisplayStringLine(47,10,"MODEL");
 		LCD_DisplayStringLine(47,200,"FONT");
+		LCD_DisplayStringLine(47,390,"PAGE");
 		
 		DrawInstruction("Thermocouple model select");
 	}
@@ -1038,10 +1040,7 @@ void page_home(void)
 					DISP_CNL_S(380,506,"040");
 				}
 			}
-		}
-
-		
-		
+		}	
 		LCD_SetBackColor(LCD_COLOR_BACK);
 		LCD_SetTextColor(LCD_COLOR_WHITE);
 	}

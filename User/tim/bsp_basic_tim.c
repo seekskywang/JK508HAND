@@ -21,6 +21,7 @@
 #include "./lcd/bsp_lcd.h"
 #include "./ch376/ch376.h"
 #include  "usbd_hid_core.h"
+#include "./beep/bsp_beep.h"
 #include  "usbd_usr.h"
 #include  "usbd_desc.h"
 #include "jk508.h"
@@ -55,6 +56,21 @@ static void TIMx_NVIC_Configuration(void)
     NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;	 
 	  // 设置子优先级
     NVIC_InitStructure.NVIC_IRQChannelSubPriority = 3;	
+    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+    NVIC_Init(&NVIC_InitStructure);
+}
+
+static void TIM7_NVIC_Configuration(void)
+{
+    NVIC_InitTypeDef NVIC_InitStructure; 
+    // 设置中断组为0
+    NVIC_PriorityGroupConfig(NVIC_PriorityGroup_0);		
+		// 设置中断来源
+    NVIC_InitStructure.NVIC_IRQChannel = BEEP_TIM_IRQn; 	
+		// 设置抢占优先级
+    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;	 
+	  // 设置子优先级
+    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 4;	
     NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
     NVIC_Init(&NVIC_InitStructure);
 }
@@ -102,6 +118,38 @@ static void TIM_Mode_Config(void)
 	TIM_Cmd(BASIC_TIM, ENABLE);	
 }
 
+static void TIM_7_Config(void)
+{
+	TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
+
+	// 开启TIMx_CLK,x[6,7] 
+	RCC_APB1PeriphClockCmd(BEEP_TIM_CLK, ENABLE); 
+
+  /* 累计 TIM_Period个后产生一个更新或者中断*/		
+  //当定时器从0计数到4999，即为5000次，为一个定时周期
+	TIM_TimeBaseStructure.TIM_Period = 10-1;       
+	
+	//定时器时钟源TIMxCLK = 2 * PCLK1  
+  //				PCLK1 = HCLK / 4 
+  //				=> TIMxCLK=HCLK/2=SystemCoreClock/2=90MHz
+	// 设定定时器频率为=TIMxCLK/(TIM_Prescaler+1)=10000Hz
+	TIM_TimeBaseStructure.TIM_Prescaler = 9000-1;	
+	
+	// 初始化定时器TIMx, x[2,3,4,5]
+	TIM_TimeBaseInit(BEEP_TIM, &TIM_TimeBaseStructure);
+	
+	
+	// 清除定时器更新中断标志位
+	TIM_ClearFlag(BEEP_TIM, TIM_FLAG_Update);
+	
+	// 开启定时器更新中断
+	TIM_ITConfig(BEEP_TIM,TIM_IT_Update,ENABLE);
+	
+	// 使能定时器
+	TIM_Cmd(BEEP_TIM, ENABLE);	
+}
+
+
 /**
   * @brief  配置TIM复用输出PWM时用到的I/O
   * @param  无
@@ -125,6 +173,7 @@ static void TIMx_GPIO_Config(void)
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz; 
 	GPIO_Init(LTDC_BL_GPIO_PORT, &GPIO_InitStructure);
 }
+
 
 
 /*
@@ -187,8 +236,27 @@ void TIMx_Configuration(void)
 	TIMx_NVIC_Configuration();	
     TIM_Mode_Config();
 	
+//	TIM_7_Config();
+//	TIM7_NVIC_Configuration();
+	
 	TIMx_GPIO_Config();  
 	TIM_PWMOUTPUT_Config(brightness);
+}
+
+void BEEP_TIM_IRQHandler(void)
+{
+	static u8 beepsw;
+	if(TIM_GetITStatus( BEEP_TIM, TIM_IT_Update) != RESET )
+	{
+		if(beepsw == 0)
+		{
+			BEEP_ON;
+		}else{
+			BEEP_OFF;
+		}
+		beepsw = !beepsw;
+		TIM_ClearITPendingBit(BEEP_TIM,TIM_IT_Update);
+	}
 }
 
 void BASIC_TIM_IRQHandler (void)
@@ -204,7 +272,6 @@ void BASIC_TIM_IRQHandler (void)
 		Touch_Scan();//触摸扫描
 		Tick_10ms++;
 //		MODS_Poll();
-		
 		if(sendcount == 20*5 && GPIO_ReadInputDataBit(GPIOI,GPIO_Pin_11))
 		{
 //			USART_ITConfig(DEBUG_USART, USART_IT_RXNE, DISABLE);

@@ -89,84 +89,92 @@ void page_graph(void)
 	
 	for(j = 0; j < count - 1; j++)
 	{
-		if(CH1_SW == ch_on && G_Data[0][j] < YHLIMIT && G_Data[0][j] > YLLIMIT)
+		if(CH1_SW == ch_on && G_Data[0][j] < YHLIMIT && G_Data[0][j] > YLLIMIT && G_Data[0][j+1] < YHLIMIT && G_Data[0][j+1] > YLLIMIT)
 		{
 			LCD_SetColors(LCD_COLOR_RED,LCD_COLOR_BACK);
+//			if(G_Data[0][j] > YHLIMIT)
+//			{
+//				G_Data[0][j] = YHLIMIT;
+//			}
+//			if(G_Data[0][j+1] > YHLIMIT)
+//			{
+//				G_Data[0][j+1] = YHLIMIT;
+//			}
 			LCD_DrawUniLine(111-80 + j,(int)(400-((G_Data[0][j] - YLLIMIT)*enrate)),112 - 80 + j,(400-((G_Data[0][j+1] - YLLIMIT)*enrate)));
 		}
-		if(CH2_SW == ch_on && G_Data[1][j] < YHLIMIT && G_Data[1][j] > YLLIMIT)
-		{
+		if(CH2_SW == ch_on && G_Data[1][j] < YHLIMIT && G_Data[1][j] > YLLIMIT && G_Data[1][j+1] < YHLIMIT && G_Data[1][j+1] > YLLIMIT)
+		{         
 			LCD_SetColors(LCD_COLOR_GREEN,LCD_COLOR_BACK);
 			LCD_DrawUniLine(111-80 + j,(int)(400-((G_Data[1][j] - YLLIMIT)*enrate)),112 - 80 + j,(400-((G_Data[1][j+1] - YLLIMIT)*enrate)));
 		}
-		if(CH3_SW == ch_on && G_Data[2][j] < YHLIMIT && G_Data[2][j] > YLLIMIT)
+		if(CH3_SW == ch_on && G_Data[2][j] < YHLIMIT && G_Data[2][j] > YLLIMIT && G_Data[2][j+1] < YHLIMIT && G_Data[2][j+1] > YLLIMIT)
 		{
 			LCD_SetColors(LCD_COLOR_MAGENTA,LCD_COLOR_BACK);
 			LCD_DrawUniLine(111-80 + j,(int)(400-((G_Data[2][j] - YLLIMIT)*enrate)),112 - 80 + j,(400-((G_Data[2][j+1] - YLLIMIT)*enrate)));
 		}
-		if(CH4_SW == ch_on && G_Data[3][j] < YHLIMIT && G_Data[3][j] > YLLIMIT)
+		if(CH4_SW == ch_on && G_Data[3][j] < YHLIMIT && G_Data[3][j] > YLLIMIT && G_Data[3][j+1] < YHLIMIT && G_Data[3][j+1] > YLLIMIT)
 		{
 			LCD_SetColors(LCD_COLOR_CYAN,LCD_COLOR_BACK);
 			LCD_DrawUniLine(111-80 + j,(int)(400-((G_Data[3][j] - YLLIMIT)*enrate)),112 - 80 + j,(400-((G_Data[3][j+1] - YLLIMIT)*enrate)));
 		}		
-		if(CH5_SW == ch_on && G_Data[4][j] < YHLIMIT && G_Data[4][j] > YLLIMIT)
+		if(CH5_SW == ch_on && G_Data[4][j] < YHLIMIT && G_Data[4][j] > YLLIMIT && G_Data[4][j+1] < YHLIMIT && G_Data[4][j+1] > YLLIMIT)
 		{
 			LCD_SetColors(LCD_COLOR_YELLOW,LCD_COLOR_BACK);
 			LCD_DrawUniLine(111-80 + j,(int)(400-((G_Data[4][j] - YLLIMIT)*enrate)),112 - 80 + j,(400-((G_Data[4][j+1] - YLLIMIT)*enrate)));
 		}
-		if(CH6_SW == ch_on && G_Data[5][j] < YHLIMIT && G_Data[5][j] > YLLIMIT)
+		if(CH6_SW == ch_on && G_Data[5][j] < YHLIMIT && G_Data[5][j] > YLLIMIT && G_Data[5][j+1] < YHLIMIT && G_Data[5][j+1] > YLLIMIT)
 		{
 			LCD_SetColors(LCD_COLOR_HLT,LCD_COLOR_BACK);
 			LCD_DrawUniLine(111-80 + j,(int)(400-((G_Data[5][j] - YLLIMIT)*enrate)),112 - 80 + j,(400-((G_Data[5][j+1] - YLLIMIT)*enrate)));
 		}
-		if(CH7_SW == ch_on && G_Data[6][j] < YHLIMIT && G_Data[6][j] > YLLIMIT)
+		if(CH7_SW == ch_on && G_Data[6][j] < YHLIMIT && G_Data[6][j] > YLLIMIT && G_Data[6][j+1] < YHLIMIT && G_Data[6][j+1] > YLLIMIT)
 		{
 			LCD_SetColors(LCD_COLOR_BT,LCD_COLOR_BACK);
 			LCD_DrawUniLine(111-80 + j,(int)(400-((G_Data[6][j] - YLLIMIT)*enrate)),112 - 80 + j,(400-((G_Data[6][j+1] - YLLIMIT)*enrate)));
 		}
-		if(CH8_SW == ch_on && G_Data[7][j] < YHLIMIT && G_Data[7][j] > YLLIMIT)
+		if(CH8_SW == ch_on && G_Data[7][j] < YHLIMIT && G_Data[7][j] > YLLIMIT && G_Data[7][j+1] < YHLIMIT && G_Data[7][j+1] > YLLIMIT)
 		{
 			LCD_SetColors(LCD_COLOR_BLUE,LCD_COLOR_BACK);
 			LCD_DrawUniLine(111-80 + j,(int)(400-((G_Data[7][j] - YLLIMIT)*enrate)),112 - 80 + j,(400-((G_Data[7][j+1] - YLLIMIT)*enrate)));
 		}
 		if(CHNUM > 8)
 		{
-			if(CH9_SW == ch_on && G_Data[8][j] < YHLIMIT && G_Data[8][j] > YLLIMIT)
+			if(CH9_SW == ch_on && G_Data[8][j] < YHLIMIT && G_Data[8][j] > YLLIMIT && G_Data[8][j+1] < YHLIMIT && G_Data[8][j+1] > YLLIMIT)
 			{
 				LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_BACK);
 				LCD_DrawUniLine(111-80 + j,(int)(400-((G_Data[8][j] - YLLIMIT)*enrate)),112 - 80 + j,(400-((G_Data[8][j+1] - YLLIMIT)*enrate)));
 			}
-			if(CH10_SW == ch_on && G_Data[1][9] < YHLIMIT && G_Data[1][9] > YLLIMIT)
+			if(CH10_SW == ch_on && G_Data[1][9] < YHLIMIT && G_Data[1][9] > YLLIMIT && G_Data[9][j+1] < YHLIMIT && G_Data[9][j+1] > YLLIMIT)
 			{
 				LCD_SetColors(LCD_COLOR_GR1,LCD_COLOR_BACK);
 				LCD_DrawUniLine(111-80 + j,(int)(400-((G_Data[9][j] - YLLIMIT)*enrate)),112 - 80 + j,(400-((G_Data[9][j+1] - YLLIMIT)*enrate)));
 			}
-			if(CH11_SW == ch_on && G_Data[10][j] < YHLIMIT && G_Data[10][j] > YLLIMIT)
+			if(CH11_SW == ch_on && G_Data[10][j] < YHLIMIT && G_Data[10][j] > YLLIMIT && G_Data[10][j+1] < YHLIMIT && G_Data[10][j+1] > YLLIMIT)
 			{
 				LCD_SetColors(LCD_COLOR_GR2,LCD_COLOR_BACK);
 				LCD_DrawUniLine(111-80 + j,(int)(400-((G_Data[10][j] - YLLIMIT)*enrate)),112 - 80 + j,(400-((G_Data[10][j+1] - YLLIMIT)*enrate)));
 			}
-			if(CH12_SW == ch_on && G_Data[11][j] < YHLIMIT && G_Data[11][j] > YLLIMIT)
+			if(CH12_SW == ch_on && G_Data[11][j] < YHLIMIT && G_Data[11][j] > YLLIMIT && G_Data[11][j+1] < YHLIMIT && G_Data[11][j+1] > YLLIMIT)
 			{
 				LCD_SetColors(LCD_COLOR_GR3,LCD_COLOR_BACK);
 				LCD_DrawUniLine(111-80 + j,(int)(400-((G_Data[11][j] - YLLIMIT)*enrate)),112 - 80 + j,(400-((G_Data[11][j+1] - YLLIMIT)*enrate)));
 			}
-			if(CH13_SW == ch_on && G_Data[12][j] < YHLIMIT && G_Data[12][j] > YLLIMIT)
+			if(CH13_SW == ch_on && G_Data[12][j] < YHLIMIT && G_Data[12][j] > YLLIMIT && G_Data[12][j+1] < YHLIMIT && G_Data[12][j+1] > YLLIMIT)
 			{
 				LCD_SetColors(LCD_COLOR_GR4,LCD_COLOR_BACK);
 				LCD_DrawUniLine(111-80 + j,(int)(400-((G_Data[12][j] - YLLIMIT)*enrate)),112 - 80 + j,(400-((G_Data[12][j+1] - YLLIMIT)*enrate)));
 			}
-			if(CH14_SW == ch_on && G_Data[13][j] < YHLIMIT && G_Data[13][j] > YLLIMIT)
+			if(CH14_SW == ch_on && G_Data[13][j] < YHLIMIT && G_Data[13][j] > YLLIMIT && G_Data[13][j+1] < YHLIMIT && G_Data[13][j+1] > YLLIMIT)
 			{
 				LCD_SetColors(LCD_COLOR_GR5,LCD_COLOR_BACK);
 				LCD_DrawUniLine(111-80 + j,(int)(400-((G_Data[13][j] - YLLIMIT)*enrate)),112 - 80 + j,(400-((G_Data[13][j+1] - YLLIMIT)*enrate)));
 			}
-			if(CH15_SW == ch_on && G_Data[14][j] < YHLIMIT && G_Data[14][j] > YLLIMIT)
+			if(CH15_SW == ch_on && G_Data[14][j] < YHLIMIT && G_Data[14][j] > YLLIMIT && G_Data[14][j+1] < YHLIMIT && G_Data[14][j+1] > YLLIMIT)
 			{
 				LCD_SetColors(LCD_COLOR_GR6,LCD_COLOR_BACK);
 				LCD_DrawUniLine(111-80 + j,(int)(400-((G_Data[14][j] - YLLIMIT)*enrate)),112 - 80 + j,(400-((G_Data[14][j+1] - YLLIMIT)*enrate)));
 			}
-			if(CH16_SW == ch_on && G_Data[15][j] < YHLIMIT && G_Data[15][j] > YLLIMIT)
+			if(CH16_SW == ch_on && G_Data[15][j] < YHLIMIT && G_Data[15][j] > YLLIMIT && G_Data[15][j+1] < YHLIMIT && G_Data[15][j+1] > YLLIMIT)
 			{
 				LCD_SetColors(LCD_COLOR_GR7,LCD_COLOR_BACK);
 				LCD_DrawUniLine(111-80 + j,(int)(400-((G_Data[15][j] - YLLIMIT)*enrate)),112 - 80 + j,(400-((G_Data[15][j+1] - YLLIMIT)*enrate)));

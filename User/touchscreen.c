@@ -283,6 +283,25 @@ void TouchHandle(u16 x,u16 y)
 		{
 			case display:
 			{
+				if(x >= FONTX1 && x <= FONTX2 && y >= FONTY1 && y <= FONTY2)
+				{
+					DrawMenu();//重绘菜单栏
+					LCD_SetTextColor(LCD_COLOR_YELLOW);
+					LCD_SetBackColor(LCD_COLOR_BLACK);
+					if(LANG == chs)
+					{
+						LCD_DisplayStringLine(445,48,"小");
+						LCD_DisplayStringLine(445,173,"中");
+						LCD_DisplayStringLine(445,298,"大");
+					}else{
+						LCD_DisplayStringLine(445,48,"S");
+						LCD_DisplayStringLine(445,173,"M");
+						LCD_DisplayStringLine(445,298,"L");
+					}
+					op_flag = set_font;
+					op_sw = op_on;
+					press = 1;
+				}
 				if(x >= TCTYPEX1 && x <= TCTYPEX2 && y >= TCTYPEY1 && y <= TCTYPEY2)
 				{
 					DrawMenu();//重绘菜单栏
@@ -351,6 +370,27 @@ void TouchHandle(u16 x,u16 y)
 							TCTYPE = PT100;
 							Save_flag();
 						}break;
+						case set_font:
+						{
+							if(op_sw == op_on)
+							{
+								DrawMenu();//重绘菜单栏
+								Drawsetmenu();
+								focus_on1();
+								if(LANG == chs)
+								{
+									LCD_DisplayStringLine(47,290,"小");
+								}else{
+									LCD_DisplayStringLine(47,290,"S");
+								}
+								FONT = small;
+								op_sw = op_off;
+								Save_flag();
+								page_home();
+							}else{
+								page_home();
+							}
+						}break;
 						default:
 						{
 							page_home();
@@ -388,6 +428,27 @@ void TouchHandle(u16 x,u16 y)
 							TCTYPE = TCS;
 							Save_flag();
 						}break;
+						case set_font:
+						{
+							if(op_sw == op_on)
+							{
+								DrawMenu();//重绘菜单栏
+								Drawsetmenu();
+								focus_on1();
+								if(LANG == chs)
+								{
+									LCD_DisplayStringLine(47,290,"中");
+								}else{
+									LCD_DisplayStringLine(47,290,"M");
+								}
+								FONT = middle;
+								op_sw = op_off;
+								Save_flag();
+								page_home();
+							}else{
+								page_graph();
+							}
+						}break;
 						default:
 						{
 							page_graph();
@@ -424,6 +485,27 @@ void TouchHandle(u16 x,u16 y)
 							op_flag = home_type;
 							TCTYPE = TCR;
 							Save_flag();
+						}break;
+						case set_font:
+						{
+							if(op_sw == op_on)
+							{
+								DrawMenu();//重绘菜单栏
+								Drawsetmenu();
+								focus_on1();
+								if(LANG == chs)
+								{
+									LCD_DisplayStringLine(47,290,"大");
+								}else{
+									LCD_DisplayStringLine(47,290,"L");
+								}
+								FONT = big;
+								op_sw = op_off;
+								Save_flag();
+								page_home();
+							}else{
+								page_sys();
+							}
 						}break;
 						default:
 						{
@@ -1569,9 +1651,123 @@ void TouchHandle(u16 x,u16 y)
 				}
 				
 			}break;
+			case graph:
+			{
+				if(x >= MENU1X1 && x <= MENU1X2 && y >= MENUY1 && y <= MENUY2)
+				{
+					page_home();
+					press = 1;
+				}
+				if(x >= MENU2X1 && x <= MENU2X2 && y >= MENUY1 && y <= MENUY2)
+				{
+					page_his();
+					press = 1;
+				}
+				if(x >= MENU3X1 && x <= MENU3X2 && y >= MENUY1 && y <= MENUY2)
+				{
+					page_sys();
+					press = 1;
+				}
+				if(x >= MENU4X1 && x <= MENU4X2 && y >= MENUY1 && y <= MENUY2)
+				{
+					
+					page_set();
+					press = 1;
+				}
+				if(x >= MENU5X1 && x <= MENU5X2 && y >= MENUY1 && y <= MENUY2)
+				{
+					page_gset();
+					press = 1;
+				}
+			}break;
+			case sysset:
+			{
+				if(x >= MENU1X1 && x <= MENU1X2 && y >= MENUY1 && y <= MENUY2)
+				{
+					switch(op_flag)
+					{
+						case set_lang:
+						{
+							LCD_SetTextColor(LCD_COLOR_BLACK);
+							LCD_SetBackColor(LCD_COLOR_YELLOW);
+							LCD_DisplayStringLine(50,170,"ENGLISH");
+							LANG = eng;
+							page_sys();
+							op_sw = op_off;
+							Save_flag();
+						}break;
+						default:
+						{
+							page_home();
+							press = 1;
+						}
+					}
+					
+				}
+				if(x >= MENU2X1 && x <= MENU2X2 && y >= MENUY1 && y <= MENUY2)
+				{
+					switch(op_flag)
+					{
+						case set_lang:
+						{
+							
+						}break;
+						default:
+						{
+							page_home();
+							press = 1;
+						}
+					}
+				}
+				if(x >= MENU3X1 && x <= MENU3X2 && y >= MENUY1 && y <= MENUY2)
+				{
+					switch(op_flag)
+					{
+						case set_lang:
+						{
+							
+						}break;
+						default:
+						{
+							page_home();
+							press = 1;
+						}
+					}
+				}
+				if(x >= MENU4X1 && x <= MENU4X2 && y >= MENUY1 && y <= MENUY2)
+				{
+					
+					switch(op_flag)
+					{
+						case set_lang:
+						{
+							
+						}break;
+						default:
+						{
+							page_home();
+							press = 1;
+						}
+					}
+				}
+				if(x >= MENU5X1 && x <= MENU5X2 && y >= MENUY1 && y <= MENUY2)
+				{
+					switch(op_flag)
+					{
+						case set_lang:
+						{
+							
+						}break;
+						default:
+						{
+							page_home();
+							press = 1;
+						}
+					}
+				}
+			}break;
 		}
 		
-
 	}
 }
 

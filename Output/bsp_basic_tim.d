@@ -57,6 +57,7 @@
 ..\..\output\bsp_basic_tim.o: ..\..\USBD_FS_Lib\USBD_inc\usb_core.h
 ..\..\output\bsp_basic_tim.o: ..\..\USBD_FS_Lib\USBD_inc\usb_regs.h
 ..\..\output\bsp_basic_tim.o: ..\..\USBD_FS_Lib\USBD_inc\usb_defines.h
+..\..\output\bsp_basic_tim.o: ..\..\User\./beep/bsp_beep.h
 ..\..\output\bsp_basic_tim.o: ..\..\USBD_FS_HID\usbd_usr.h
 ..\..\output\bsp_basic_tim.o: ..\..\USBD_FS_HID\usbd_desc.h
 ..\..\output\bsp_basic_tim.o: ..\..\User\jk508.h

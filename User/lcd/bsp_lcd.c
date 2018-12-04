@@ -2426,7 +2426,7 @@ void LCD_DrawFullCircle(uint16_t Xpos, uint16_t Ypos, uint16_t Radius)
     CurX++;
   }
   
-  LCD_DrawCircle(Xpos, Ypos, Radius);  
+  LCD_DrawCircle(Xpos, Ypos, Radius);
 }
 
 /**

@@ -8,6 +8,7 @@
 extern u8 op_flag;
 extern u8 page_flag;
 extern u8 key_value;
+extern u8 op_sw;
 extern u8 ch_page;
 extern u8 bit_flag;
 extern u8 tc_type;
@@ -712,6 +713,13 @@ uint32_t Flash_DisableReadProtection(void);
 #define TCTYPEX2		160
 #define TCTYPEY1		45			
 #define TCTYPEY2		80
+
+/*字体设置*/
+#define FONTX1		270			
+#define FONTX2		295
+#define FONTY1		45			
+#define FONTY2		80
+
 /*底部菜单*/
 #define MENU1X1			5			
 #define MENU1X2			120

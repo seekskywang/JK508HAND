@@ -95,82 +95,82 @@ void page_his(void)
 //	}
 	for(j = 0; j < 495; j++)
 	{
-		if(CH1_SW == ch_on && hisdata[0][j] < YHLIMIT && hisdata[0][j] > YLLIMIT)
+		if(CH1_SW == ch_on && hisdata[0][j] < YHLIMIT && hisdata[0][j] > YLLIMIT && hisdata[0][j+1] < YHLIMIT && hisdata[0][j+1] > YLLIMIT)
 		{
 			LCD_SetColors(LCD_COLOR_RED,LCD_COLOR_BACK);
 			LCD_DrawUniLine(111-80 + j,(int)(400-((hisdata[0][j] - YLLIMIT)*enrate)),112 - 80 + j,(400-((hisdata[0][j+1] - YLLIMIT)*enrate)));
 		}
-		if(CH2_SW == ch_on && hisdata[1][j] < YHLIMIT && hisdata[1][j] > YLLIMIT)
+		if(CH2_SW == ch_on && hisdata[1][j] < YHLIMIT && hisdata[1][j] > YLLIMIT && hisdata[1][j+1] < YHLIMIT && hisdata[1][j+1] > YLLIMIT)
 		{
 			LCD_SetColors(LCD_COLOR_GREEN,LCD_COLOR_BACK);
 			LCD_DrawUniLine(111-80 + j,(int)(400-((hisdata[1][j] - YLLIMIT)*enrate)),112 - 80 + j,(400-((hisdata[1][j+1] - YLLIMIT)*enrate)));
 		}
-		if(CH3_SW == ch_on && hisdata[2][j] < YHLIMIT && hisdata[2][j] > YLLIMIT)
+		if(CH3_SW == ch_on && hisdata[2][j] < YHLIMIT && hisdata[2][j] > YLLIMIT && hisdata[2][j+1] < YHLIMIT && hisdata[2][j+1] > YLLIMIT)
 		{
 			LCD_SetColors(LCD_COLOR_MAGENTA,LCD_COLOR_BACK);
 			LCD_DrawUniLine(111-80 + j,(int)(400-((hisdata[2][j] - YLLIMIT)*enrate)),112 - 80 + j,(400-((hisdata[2][j+1] - YLLIMIT)*enrate)));
 		}
-		if(CH4_SW == ch_on && hisdata[3][j] < YHLIMIT && hisdata[3][j] > YLLIMIT)
+		if(CH4_SW == ch_on && hisdata[3][j] < YHLIMIT && hisdata[3][j] > YLLIMIT && hisdata[3][j+1] < YHLIMIT && hisdata[3][j+1] > YLLIMIT)
 		{
 			LCD_SetColors(LCD_COLOR_CYAN,LCD_COLOR_BACK);
 			LCD_DrawUniLine(111-80 + j,(int)(400-((hisdata[3][j] - YLLIMIT)*enrate)),112 - 80 + j,(400-((hisdata[3][j+1] - YLLIMIT)*enrate)));
 		}		
-		if(CH5_SW == ch_on && hisdata[4][j] < YHLIMIT && hisdata[4][j] > YLLIMIT)
+		if(CH5_SW == ch_on && hisdata[4][j] < YHLIMIT && hisdata[4][j] > YLLIMIT && hisdata[4][j+1] < YHLIMIT && hisdata[4][j+1] > YLLIMIT)
 		{
 			LCD_SetColors(LCD_COLOR_YELLOW,LCD_COLOR_BACK);
 			LCD_DrawUniLine(111-80 + j,(int)(400-((hisdata[4][j] - YLLIMIT)*enrate)),112 - 80 + j,(400-((hisdata[4][j+1] - YLLIMIT)*enrate)));
 		}
-		if(CH6_SW == ch_on && hisdata[5][j] < YHLIMIT && hisdata[5][j] > YLLIMIT)
+		if(CH6_SW == ch_on && hisdata[5][j] < YHLIMIT && hisdata[5][j] > YLLIMIT && hisdata[5][j+1] < YHLIMIT && hisdata[5][j+1] > YLLIMIT)
 		{
 			LCD_SetColors(LCD_COLOR_HLT,LCD_COLOR_BACK);
 			LCD_DrawUniLine(111-80 + j,(int)(400-((hisdata[5][j] - YLLIMIT)*enrate)),112 - 80 + j,(400-((hisdata[5][j+1] - YLLIMIT)*enrate)));
 		}
-		if(CH7_SW == ch_on && hisdata[6][j] < YHLIMIT && hisdata[6][j] > YLLIMIT)
+		if(CH7_SW == ch_on && hisdata[6][j] < YHLIMIT && hisdata[6][j] > YLLIMIT && hisdata[6][j+1] < YHLIMIT && hisdata[6][j+1] > YLLIMIT)
 		{
 			LCD_SetColors(LCD_COLOR_BT,LCD_COLOR_BACK);
 			LCD_DrawUniLine(111-80 + j,(int)(400-((hisdata[6][j] - YLLIMIT)*enrate)),112 - 80 + j,(400-((hisdata[6][j+1] - YLLIMIT)*enrate)));
 		}
-		if(CH8_SW == ch_on && hisdata[7][j] < YHLIMIT && hisdata[7][j] > YLLIMIT)
+		if(CH8_SW == ch_on && hisdata[7][j] < YHLIMIT && hisdata[7][j] > YLLIMIT && hisdata[7][j+1] < YHLIMIT && hisdata[7][j+1] > YLLIMIT)
 		{
 			LCD_SetColors(LCD_COLOR_BLUE,LCD_COLOR_BACK);
 			LCD_DrawUniLine(111-80 + j,(int)(400-((hisdata[7][j] - YLLIMIT)*enrate)),112 - 80 + j,(400-((hisdata[7][j+1] - YLLIMIT)*enrate)));
 		}
-		if(CH9_SW == ch_on && hisdata[8][j] < YHLIMIT && hisdata[8][j] > YLLIMIT)
+		if(CH9_SW == ch_on && hisdata[8][j] < YHLIMIT && hisdata[8][j] > YLLIMIT && hisdata[8][j+1] < YHLIMIT && hisdata[8][j+1] > YLLIMIT)
 		{
 			LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_BACK);
 			LCD_DrawUniLine(111-80 + j,(int)(400-((hisdata[8][j] - YLLIMIT)*enrate)),112 - 80 + j,(400-((hisdata[8][j+1] - YLLIMIT)*enrate)));
 		}
-		if(CH10_SW == ch_on && hisdata[1][9] < YHLIMIT && hisdata[1][9] > YLLIMIT)
+		if(CH10_SW == ch_on && hisdata[1][9] < YHLIMIT && hisdata[1][9] > YLLIMIT && hisdata[9][j+1] < YHLIMIT && hisdata[9][j+1] > YLLIMIT)
 		{
 			LCD_SetColors(LCD_COLOR_GR1,LCD_COLOR_BACK);
 			LCD_DrawUniLine(111-80 + j,(int)(400-((hisdata[9][j] - YLLIMIT)*enrate)),112 - 80 + j,(400-((hisdata[9][j+1] - YLLIMIT)*enrate)));
 		}
-		if(CH11_SW == ch_on && hisdata[10][j] < YHLIMIT && hisdata[10][j] > YLLIMIT)
+		if(CH11_SW == ch_on && hisdata[10][j] < YHLIMIT && hisdata[10][j] > YLLIMIT && hisdata[10][j+1] < YHLIMIT && hisdata[10][j+1] > YLLIMIT)
 		{
 			LCD_SetColors(LCD_COLOR_GR2,LCD_COLOR_BACK);
 			LCD_DrawUniLine(111-80 + j,(int)(400-((hisdata[10][j] - YLLIMIT)*enrate)),112 - 80 + j,(400-((hisdata[10][j+1] - YLLIMIT)*enrate)));
 		}
-		if(CH12_SW == ch_on && hisdata[11][j] < YHLIMIT && hisdata[11][j] > YLLIMIT)
+		if(CH12_SW == ch_on && hisdata[11][j] < YHLIMIT && hisdata[11][j] > YLLIMIT && hisdata[11][j+1] < YHLIMIT && hisdata[11][j+1] > YLLIMIT)
 		{
 			LCD_SetColors(LCD_COLOR_GR3,LCD_COLOR_BACK);
 			LCD_DrawUniLine(111-80 + j,(int)(400-((hisdata[11][j] - YLLIMIT)*enrate)),112 - 80 + j,(400-((hisdata[11][j+1] - YLLIMIT)*enrate)));
 		}
-		if(CH13_SW == ch_on && hisdata[12][j] < YHLIMIT && hisdata[12][j] > YLLIMIT)
+		if(CH13_SW == ch_on && hisdata[12][j] < YHLIMIT && hisdata[12][j] > YLLIMIT && hisdata[12][j+1] < YHLIMIT && hisdata[12][j+1] > YLLIMIT)
 		{
 			LCD_SetColors(LCD_COLOR_GR4,LCD_COLOR_BACK);
 			LCD_DrawUniLine(111-80 + j,(int)(400-((hisdata[12][j] - YLLIMIT)*enrate)),112 - 80 + j,(400-((hisdata[12][j+1] - YLLIMIT)*enrate)));
 		}
-		if(CH14_SW == ch_on && hisdata[13][j] < YHLIMIT && hisdata[13][j] > YLLIMIT)
+		if(CH14_SW == ch_on && hisdata[13][j] < YHLIMIT && hisdata[13][j] > YLLIMIT && hisdata[13][j+1] < YHLIMIT && hisdata[13][j+1] > YLLIMIT)
 		{
 			LCD_SetColors(LCD_COLOR_GR5,LCD_COLOR_BACK);
 			LCD_DrawUniLine(111-80 + j,(int)(400-((hisdata[13][j] - YLLIMIT)*enrate)),112 - 80 + j,(400-((hisdata[13][j+1] - YLLIMIT)*enrate)));
 		}
-		if(CH15_SW == ch_on && hisdata[14][j] < YHLIMIT && hisdata[14][j] > YLLIMIT)
+		if(CH15_SW == ch_on && hisdata[14][j] < YHLIMIT && hisdata[14][j] > YLLIMIT && hisdata[14][j+1] < YHLIMIT && hisdata[14][j+1] > YLLIMIT)
 		{
 			LCD_SetColors(LCD_COLOR_GR6,LCD_COLOR_BACK);
 			LCD_DrawUniLine(111-80 + j,(int)(400-((hisdata[14][j] - YLLIMIT)*enrate)),112 - 80 + j,(400-((hisdata[14][j+1] - YLLIMIT)*enrate)));
 		}
-		if(CH16_SW == ch_on && hisdata[15][j] < YHLIMIT && hisdata[15][j] > YLLIMIT)
+		if(CH16_SW == ch_on && hisdata[15][j] < YHLIMIT && hisdata[15][j] > YLLIMIT && hisdata[15][j+1] < YHLIMIT && hisdata[15][j+1] > YLLIMIT)
 		{
 			LCD_SetColors(LCD_COLOR_GR7,LCD_COLOR_BACK);
 			LCD_DrawUniLine(111-80 + j,(int)(400-((hisdata[15][j] - YLLIMIT)*enrate)),112 - 80 + j,(400-((hisdata[15][j+1] - YLLIMIT)*enrate)));
@@ -331,8 +331,8 @@ void page_his(void)
 	}
 	
 	LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_BACK);
-	sprintf(buf,"%d/%d",hpage,TIME_REC);
-	LCD_DisplayStringLine(390,550,buf);
+	sprintf(buf,"%d/%d",hpage,1000);
+	DISP_CNL_S(390,550,buf);
 
 	page_flag = history;
 }
@@ -345,7 +345,7 @@ void Save_history(u16 rec)
 		SPI_FLASH_SectorErase(8192+4096*(rec/16));
 	}
 	SPI_FLASH_BufferWrite((void*)Data_buf,8192+SPI_FLASH_PageSize*(rec-1), sizeof(Data_buf));
-	
+	memset(Data_buf,0,sizeof(time_buf));
 }
 
 void Read_history(u16 rec)
@@ -367,15 +367,18 @@ void Read_history(u16 rec)
 
 void Save_time(u16 rec)
 {
+	
 	if(rec%16 == 1)
 	{
 		SPI_FLASH_SectorErase(15880192+4096*(rec/16));
 	}
 	SPI_FLASH_BufferWrite((void*)time_buf,15880192+SPI_FLASH_PageSize*(rec-1), sizeof(time_buf));
+	memset(time_buf,0,sizeof(time_buf));
 }
 
 void Read_time(u16 rec)
 {
+//	memset(histime,0,sizeof(histime));
 	SPI_FLASH_BufferRead((void *)histime,15880192+SPI_FLASH_PageSize*(rec-1), sizeof(histime));
 }
 	

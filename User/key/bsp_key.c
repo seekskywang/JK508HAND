@@ -47,6 +47,7 @@ char data[17];
 float offset[40];
 u8 keystat;
 u8 date_time[6] = {0,1,1,0,0,0};
+void ButtonSound(void);
 
 extern union 
 {
@@ -1635,6 +1636,7 @@ void Key_Function(void)
 	{		
 		if(key_old != key_new && keystat == 0)
 		{
+			ButtonSound();
 			switch(key_value)
 			{
 				case KEY_1:
@@ -6343,7 +6345,7 @@ void ENTER_HANDLE(void)
 			if(input_flag == 1)
 			{
 				
-				if(atoi(data) > TIME_REC)
+				if(atoi(data) > 1000)
 				{
 					clear_input();
 					hispage(hpage);
@@ -13052,7 +13054,9 @@ void KEY1_HANDLE(void)
 		{
 //			TouchCal();
 //			DrawPowOff();
-			DrawLogo(200,250);
+//			LCD_Clear(LCD_COLOR_BLACK);
+//			page_flag = 0xff;
+//			DrawLogo(200,250);
 		}break;
 		case separation:
 		{
@@ -13094,7 +13098,7 @@ void KEY2_HANDLE(void)
 		}break;
 		case graphset:
 		{
-			input_num("2");
+			input_num ("2");
 		}break;
 		case calibrate:
 		{
@@ -13106,6 +13110,9 @@ void KEY2_HANDLE(void)
 		}break;
 		case display:
 		{
+//			BEEP_ON;
+//			Delay(0x3ff);
+//			BEEP_OFF;
 //			 CH376FileClose(TRUE);
 		}break;
 		case touchcal:
@@ -13119,6 +13126,10 @@ void KEY3_HANDLE(void)
 {		
 	switch(page_flag)
 	{
+		case display:
+		{
+//			BEEP_OFF;
+		}break;
 		case separation:
 		{
 			input_num("3");
@@ -13535,6 +13546,14 @@ void Utest(void)
 	
 	//printf("s=%02x \n",(unsigned short)s );
 	s = CH376FileClose(TRUE);
+}
+
+//°´¼üÉùÒô
+void ButtonSound(void)
+{
+	BEEP_ON;
+	Delay(0x5ff);
+	BEEP_OFF;
 }
 
 /*********************************************END OF FILE**********************/
