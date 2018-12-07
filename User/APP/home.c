@@ -139,7 +139,7 @@ extern union
 
 void page_home(void)
 {
-	CHNUM = 8;
+	CHNUM = 16;
   /*初始化后默认使用前景层*/
 	LCD_SetLayer(LCD_FOREGROUND_LAYER); 
 	/*默认设置不透明	，该函数参数为不透明度，范围 0-0xff ，0为全透明，0xff为不透明*/
@@ -178,6 +178,8 @@ void page_home(void)
 	
 	LCD_SetTextColor(LCD_COLOR_BLACK);
 	LCD_SetBackColor(LCD_COLOR_YELLOW);
+	
+	
 	
 	
 	if(TCTYPE == TCK)
@@ -226,6 +228,8 @@ void page_home(void)
 			LCD_DisplayStringLine(47,290,"S");
 		}
 	}
+	
+	LCD_DisplayStringLine_48(47,480,"01/01");
 	
 	Drawhomemenu();
 	

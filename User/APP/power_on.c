@@ -21,7 +21,6 @@
 #include "./beep/bsp_beep.h"
 #include "./tim/bsp_basic_tim.h"
 #include "jk508.h"
-void DrawLogo(u16 x,u16 y);
 
 void power_on(void)
 {
@@ -45,7 +44,7 @@ void power_on(void)
 //		Delay(500);
 //	}
 	
-	DrawLogo(170,250);
+	DrawLogo(140,250);
 
 //	Delay(0xffffff);
 //	Delay(0xffffff);

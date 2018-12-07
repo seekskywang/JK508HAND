@@ -2776,6 +2776,97 @@ void FUNC5_HANDLE(void)
 								LCD_DisplayStringLine_48(310,330,"016");
 							}
 							ch_page = page2;
+						}else if(ch_page == page2 && CHNUM == 16){
+							LCD_SetBackColor(LCD_COLOR_BACK);
+							LCD_SetTextColor(LCD_COLOR_HLT);
+							if(CH1_SW == ch_off)
+							{
+								LCD_SetBackColor(LCD_COLOR_BACK);
+								LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+								LCD_DisplayStringLine_48(100,10,"001");
+							}else{
+								LCD_SetBackColor(LCD_COLOR_BACK);
+								LCD_SetTextColor(LCD_COLOR_HLT);
+								LCD_DisplayStringLine_48(100,10,"001");
+							}
+							
+							if(CH2_SW == ch_off)
+							{
+								LCD_SetBackColor(LCD_COLOR_BACK);
+								LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+								LCD_DisplayStringLine_48(170,10,"002");
+							}else{
+								LCD_SetBackColor(LCD_COLOR_BACK);
+								LCD_SetTextColor(LCD_COLOR_HLT);
+								LCD_DisplayStringLine_48(170,10,"002");
+							}
+							
+							if(CH3_SW == ch_off)
+							{
+								LCD_SetBackColor(LCD_COLOR_BACK);
+								LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+								LCD_DisplayStringLine_48(240,10,"003");
+							}else{
+								LCD_SetBackColor(LCD_COLOR_BACK);
+								LCD_SetTextColor(LCD_COLOR_HLT);
+								LCD_DisplayStringLine_48(240,10,"003");
+							}
+							
+							if(CH4_SW == ch_off)
+							{
+								LCD_SetBackColor(LCD_COLOR_BACK);
+								LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+								LCD_DisplayStringLine_48(310,10,"004");
+							}else{
+								LCD_SetBackColor(LCD_COLOR_BACK);
+								LCD_SetTextColor(LCD_COLOR_HLT);
+								LCD_DisplayStringLine_48(310,10,"004");
+							}
+							
+							if(CH5_SW == ch_off)
+							{
+								LCD_SetBackColor(LCD_COLOR_BACK);
+								LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+								LCD_DisplayStringLine_48(100,330,"005");
+							}else{
+								LCD_SetBackColor(LCD_COLOR_BACK);
+								LCD_SetTextColor(LCD_COLOR_HLT);
+								LCD_DisplayStringLine_48(100,330,"005");
+							}
+							
+							if(CH6_SW == ch_off)
+							{
+								LCD_SetBackColor(LCD_COLOR_BACK);
+								LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+								LCD_DisplayStringLine_48(170,330,"006");
+							}else{
+								LCD_SetBackColor(LCD_COLOR_BACK);
+								LCD_SetTextColor(LCD_COLOR_HLT);
+								LCD_DisplayStringLine_48(170,330,"006");
+							}
+							
+							if(CH7_SW == ch_off)
+							{
+								LCD_SetBackColor(LCD_COLOR_BACK);
+								LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+								LCD_DisplayStringLine_48(240,330,"007");
+							}else{
+								LCD_SetBackColor(LCD_COLOR_BACK);
+								LCD_SetTextColor(LCD_COLOR_HLT);
+								LCD_DisplayStringLine_48(240,330,"007");
+							}
+							
+							if(CH8_SW == ch_off)
+							{
+								LCD_SetBackColor(LCD_COLOR_BACK);
+								LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
+								LCD_DisplayStringLine_48(310,330,"008");
+							}else{
+								LCD_SetBackColor(LCD_COLOR_BACK);
+								LCD_SetTextColor(LCD_COLOR_HLT);
+								LCD_DisplayStringLine_48(310,330,"008");
+							}
+							ch_page = page1;
 						}else if(ch_page == page2 && CHNUM > 16){
 							LCD_SetBackColor(LCD_COLOR_BACK);
 							LCD_SetTextColor(LCD_COLOR_HLT);
@@ -13056,7 +13147,7 @@ void KEY1_HANDLE(void)
 //			DrawPowOff();
 //			LCD_Clear(LCD_COLOR_BLACK);
 //			page_flag = 0xff;
-//			DrawLogo(200,250);
+			DrawLogo(200,250);
 		}break;
 		case separation:
 		{

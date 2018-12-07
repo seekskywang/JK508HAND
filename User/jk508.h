@@ -109,6 +109,7 @@ void ChannelSwtichBig(void);
 void ChannelSwtichMid(void);
 void ChannelSwtichSml(void);
 void SetTctype(u8 type);
+void DrawLogo(u16 x,u16 y);
 
 extern u8 usbbuf[0x40];
 uint16_t CRC16(uint8_t *puchMsg, uint8_t Len);

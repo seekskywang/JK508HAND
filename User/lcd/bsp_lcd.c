@@ -933,7 +933,7 @@ void DrawBattery(u8 cap)
 	static float capercent;
 	static u8 status;
 	static u8 b;
-	if(page_flag != poweron)
+	if(page_flag != poweron && page_flag != poweroff)
 	{
 		if(charge != status || (b != cap && charge == 0x00))
 		{
@@ -1024,18 +1024,19 @@ void DrawUdisk2(void)
 //绘制关机画面
 void DrawPowOff(void)
 {
-	LCD_Clear(LCD_COLOR_WHITE);
+	LCD_Clear(LCD_COLOR_BLACK);
 	LCD_SetColors(LCD_COLOR_RED,LCD_COLOR_RED);
-	LCD_DrawCircle(100,100,16);
-	LCD_DrawCircle(100,100,15);
-	LCD_DrawCircle(100,100,14);
-	LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_WHITE);
-	LCD_DrawFullRect(95,74,11,20);
+	LCD_DrawCircle(100+80+20,100+315,16);
+	LCD_DrawCircle(100+80+20,100+315,15);
+	LCD_DrawCircle(100+80+20,100+315,14);
+	LCD_SetColors(LCD_COLOR_BLACK,LCD_COLOR_BLACK);
+	LCD_DrawFullRect(95+80+20,74+315,11,20);
 	LCD_SetColors(LCD_COLOR_RED,LCD_COLOR_RED);
-	LCD_DrawFullRect(98,80,5,20);
-	LCD_SetColors(LCD_COLOR_RED,LCD_COLOR_WHITE);
-	LCD_DisplayStringLine(85,120,"Power Off");
-	
+	LCD_DrawFullRect(98+80+20,80+315,5,20);
+	LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_BLACK);
+	LCD_DisplayStringLine(85+318,120+90+20,"正在关机");
+	LCD_DisplayStringLine(85+315,120+90+20+96,"...");
+	DrawLogo(10,80);
 }
 /**
   * @brief  Draws a character on LCD.

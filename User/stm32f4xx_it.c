@@ -67,6 +67,7 @@ u8 ReCount=0;
 u8 g_mods_timeout = 0;
 static u8 watchuart[39];
 static u8 watchcount;
+extern u8 sendflag;
 /** @addtogroup STM32F429I_DISCOVERY_Examples
   * @{
   */
