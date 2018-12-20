@@ -380,67 +380,26 @@ int main(void)
 	}
 }
 
-
-/*用于测试各种液晶的函数*/
-void LCD_Test(void)
+//串口接收处理
+void UARTRECHANDLE(void)
 {
-//	static uint32_t testCNT=0;
-//	char dispBuff[100];
-//	char buf1[5];
-//	char buf2[5];
-//	char buf3[5];
-//	char buf4[5];
-//	char buf5[5];
-//	char buf6[5];
-//	char buf7[5];
-//	char buf8[5];
-//	p1 = GPIO_ReadInputDataBit(P1_GPIO_PORT,P1_PIN);
-//	p2 = GPIO_ReadInputDataBit(P2_GPIO_PORT,P2_PIN);
-//	p3 = GPIO_ReadInputDataBit(P3_GPIO_PORT,P3_PIN);
-//	p4 = GPIO_ReadInputDataBit(P4_GPIO_PORT,P4_PIN);
-//	p5 = GPIO_ReadInputDataBit(P5_GPIO_PORT,P5_PIN);
-//	p6 = GPIO_ReadInputDataBit(P6_GPIO_PORT,P6_PIN);
-//	p7 = GPIO_ReadInputDataBit(LTDC_BL_GPIO_PORT,LTDC_BL_GPIO_PIN);
-//	
-//	u8 p1o = GPIO_ReadOutputDataBit(P1_GPIO_PORT,P1_PIN);
-//	u8 p2o = GPIO_ReadOutputDataBit(P2_GPIO_PORT,P2_PIN);
-//	u8 p3o = GPIO_ReadOutputDataBit(P3_GPIO_PORT,P3_PIN);
-//	u8 p4o = GPIO_ReadOutputDataBit(P4_GPIO_PORT,P4_PIN);
-//	u8 p5o = GPIO_ReadOutputDataBit(P3_GPIO_PORT,P5_PIN);
-//	
-
-//	/*使用不透明前景层*/
-////	LCD_SetLayer(LCD_FOREGROUND_LAYER);  
-////	LCD_SetTransparency(0xff);
-//	
-////  LCD_Clear(LCD_COLOR_BLACK);	/* 清屏，显示全黑 */
-
-////	/*设置字体颜色及字体的背景颜色(此处的背景不是指LCD的背景层！注意区分)*/
-//  LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_BLACK);
-//	
-	/*选择字体，使用中英文显示时，尽量把英文选择成16*24的字体，
-	*中文字体大小是24*24的，需要其它字体请自行制作字模*/
-	/*这个函数只对英文字体起作用*/
-//  LCD_SetFont(&Font16x24); 	
-//	if(GPIO_ReadInputDataBit(P6_GPIO_PORT,P6_PIN))
-//		sprintf(buf1,"%d",sizeof(u64));
-//		sp	rintf(buf2,"%d",GPIO_ReadInputDataBit(P2_GPIO_PORT,P2_PIN));
-//		sprintf(buf3,"%d",GPIO_ReadInputDataBit(P3_GPIO_PORT,P3_PIN));
-//		sprintf(buf4,"%d",GPIO_ReadInputDataBit(P4_GPIO_PORT,P4_PIN));
-//		sprintf(buf5,"%d",GPIO_ReadInputDataBit(P5_GPIO_PORT,P5_PIN));
-//		sprintf(buf6,"%d",GPIO_ReadInputDataBit(P6_GPIO_PORT,P6_PIN));
-//		sprintf(buf8,"%d",GPIO_ReadInputDataBit(LTDC_BL_GPIO_PORT,LTDC_BL_GPIO_PIN));
-//		sprintf(buf7,"%d",count);
-//		LCD_DisplayStringLine(50,200,(uint8_t* )buf1);
-//		LCD_DisplayStringLine(70,200,(uint8_t* )buf2);
-//		LCD_DisplayStringLine(90,200,(uint8_t* )buf3);
-//		LCD_DisplayStringLine(110,200,(uint8_t* )buf4);
-//		LCD_DisplayStringLine(130,200,(uint8_t* )buf5);
-//		LCD_DisplayStringLine(150,200,(uint8_t* )buf6);
-//		LCD_DisplayStringLine(170,200,(uint8_t* )buf7);
-//		LCD_DisplayStringLine(190,200,(uint8_t* )buf8);
-		
+	static uint8_t ucTemp;
+	static u8 Total_Len = 0;
+	static u8 uinitflag = 0;
+	static u8 multicount = 0;
+//	static float graphbuf[16];
+	static u8 graphbuf[16][2];
+	static u8 hisbuf[16][2];
+	static u16 hisconv;
+	static u16 corconv;
+	u8 i;
+	char buf[10];
+	static int16_t tempbuf;
+	static u8 usave;
+	
+	
 }
+
 
 /*GERNERAL CODES*/
 void Delay(__IO uint32_t nCount)	 //简单的延时函数

@@ -262,9 +262,10 @@ void BEEP_TIM_IRQHandler(void)
 void BASIC_TIM_IRQHandler (void)
 {
 	static u8 sendcount;
+	static u16 usavecount;
 	static u32 dim_time;
 	static u8 dimflag;
-	static u8 usave;
+	
 	u8 i;
 	if(TIM_GetITStatus( BASIC_TIM, TIM_IT_Update) != RESET )
 	{
@@ -272,20 +273,23 @@ void BASIC_TIM_IRQHandler (void)
 		Touch_Scan();//触摸扫描
 		Tick_10ms++;
 //		MODS_Poll();
-		if(sendcount == 20*5 && GPIO_ReadInputDataBit(GPIOI,GPIO_Pin_11))
+		if(sendcount == 4*5 && GPIO_ReadInputDataBit(GPIOI,GPIO_Pin_11))
 		{
 //			USART_ITConfig(DEBUG_USART, USART_IT_RXNE, DISABLE);
 			for(i=0;i<8;i++)
 			{
 				Usart_SendByte(DEBUG_USART,tempreq[i]);//请求温度数据
 			}
-//			USART_ITConfig(DEBUG_USART, USART_IT_RXNE, ENABLE);
+//			USART_ITConfig(DEBUG_USART, USART_IT_RXNE, ENABLE);						
+			sendcount = 0;
+		}
+		if(usavecount == 100 && GPIO_ReadInputDataBit(GPIOI,GPIO_Pin_11))
+		{
 			if(page_flag != poweron)
 			{
 				udisk_scan();
 			}
-			
-			sendcount = 0;
+			usavecount = 0;
 		}
 //		if(usave == 200)
 //		{
@@ -345,6 +349,7 @@ void BASIC_TIM_IRQHandler (void)
 			dim_time = 0;
 		}
 		sendcount ++;
+		usavecount ++;
 //		usave ++;
 		TIM_ClearITPendingBit(BASIC_TIM,TIM_IT_Update);
 	}

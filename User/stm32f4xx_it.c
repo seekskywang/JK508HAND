@@ -215,7 +215,7 @@ void DEBUG_USART_IRQHandler(void)
 	u8 i;
 	char buf[10];
 	static int16_t tempbuf;
-
+	static u8 usave;
 //	u16 ureadcrc;
 //	u8 *ucrc;
 	u8 ucrclen;
@@ -310,7 +310,6 @@ void DEBUG_USART_IRQHandler(void)
 							DISP_INS(5+i*20,384,"...");
 							Delay(0x3fffff);
 						}
-						
 					}
 					
 					
@@ -412,10 +411,12 @@ void DEBUG_USART_IRQHandler(void)
 						multicount++;
 					}
 					ReCount = 0;
-					if(usbstatus == CONNECTED)
+					if(usbstatus == CONNECTED && usave == 5)
 					{
 						Utest();
+						usave = 0;
 					}
+					usave ++;
 				}
 			}
 		}
