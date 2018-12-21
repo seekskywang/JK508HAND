@@ -27,135 +27,7 @@ Project File Date:  12/11/2018
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 5 (build 528)', folder: 'D:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'LCD'
-compiling main.c...
-..\..\User\main.c(229): warning:  #177-D: variable "buf"  was declared but never referenced
-        uint8_t  buf[0x40];
-..\..\User\main.c(231): warning:  #177-D: variable "test"  was declared but never referenced
-        u8 test[9] = {0X01,0X03,0X02,0X58,0X00,0X01,0X02,0X00,0X05};
-..\..\User\main.c(233): warning:  #177-D: variable "reqtempcount"  was declared but never referenced
-        static u8 reqtempcount;
-..\..\User\main.c(461): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-                                G_Data[i][count] = (graphbuf[i][0]/
-ULTI * 256 + graphbuf[i][1]/
-ULTI)/10.0 - Correction[i];                                                     
-..\..\User\main.c(397): warning:  #177-D: variable "ucTemp"  was declared but never referenced
-        static uint8_t ucTemp;
-..\..\User\main.c(398): warning:  #177-D: variable "Total_Len"  was declared but never referenced
-        static u8 Total_Len = 0;
-..\..\User\main.c(399): warning:  #177-D: variable "uinitflag"  was declared but never referenced
-        static u8 uinitflag = 0;
-..\..\User\main.c(409): warning:  #177-D: variable "usave"  was declared but never referenced
-        static u8 usave;
-..\..\User\main.c: 8 warnings, 0 errors
-compiling stm32f4xx_it.c...
-compiling bsp_lcd.c...
-..\..\User\lcd\bsp_lcd.c(2077): warning:  #550-D: variable "k"  was set but never used
-    float k = 0, rad1 = 0, rad2 = 0;
-..\..\User\lcd\bsp_lcd.c(2134): warning:  #550-D: variable "k"  was set but never used
-    float k = 0, rad1 = 0, rad2 = 0;
-..\..\User\lcd\bsp_lcd.c: 2 warnings, 0 errors
-compiling bsp_key.c...
-..\..\User\key\bsp_key.c(2625): warning:  #177-D: variable "i"  was declared but never referenced
-        static u16 i;
-..\..\User\key\bsp_key.c(13541): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "const char *restrict"
-                strcpy((char *)TarName,filename);
-..\..\User\key\bsp_key.c(13607): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "const char *restrict"
-        strcpy((char *)TarName,filename);
-..\..\User\key\bsp_key.c(13612): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "char *restrict"
-        sprintf(buf, "\n%d\t20%02d-%02d-%02d\t%02d:%02d:%02d"
-..\..\User\key\bsp_key.c(13628): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "char *restrict"
-                        strcpy(buf,"\tN/A");
-..\..\User\key\bsp_key.c(13630): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "char *restrict"
-                        sprintf(buf,"\t%.1f",ch_temp[i]);
-..\..\User\key\bsp_key.c(13532): warning:  #550-D: variable "s"  was set but never used
-        static u8 s;
-..\..\User\key\bsp_key.c: 7 warnings, 0 errors
-compiling bsp_basic_tim.c...
-..\..\User\tim\bsp_basic_tim.c(273): warning:  #223-D: function "Touch_Scan" declared implicitly
-                Touch_Scan();//´¥ÃþÉ¨Ãè
-..\..\User\tim\bsp_basic_tim.c(397): warning:  #127-D: expected a statement
-  }
-..\..\User\tim\bsp_basic_tim.c(360): warning:  #550-D: variable "testi"  was set but never used
-        static u32 testi;
-..\..\User\tim\bsp_basic_tim.c(467): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-                                        G_Data[i][count] = (graphbuf[i][0]/
-ULTI * 256 + graphbuf[i][1]/
-ULTI)/10.0 - Correction[i];                                                     
-..\..\User\tim\bsp_basic_tim.c(401): warning:  #177-D: variable "ucTemp"  was declared but never referenced
-        static uint8_t ucTemp;
-..\..\User\tim\bsp_basic_tim.c(402): warning:  #177-D: variable "Total_Len"  was declared but never referenced
-        static u8 Total_Len = 0;
-..\..\User\tim\bsp_basic_tim.c(403): warning:  #177-D: variable "uinitflag"  was declared but never referenced
-        static u8 uinitflag = 0;
-..\..\User\tim\bsp_basic_tim.c(63): warning:  #177-D: function "TIM7_NVIC_Configuration"  was declared but never referenced
-  static void TIM7_NVIC_Configuration(void)
-..\..\User\tim\bsp_basic_tim.c(121): warning:  #177-D: function "TIM_7_Config"  was declared but never referenced
-  static void TIM_7_Config(void)
-..\..\User\tim\bsp_basic_tim.c: 9 warnings, 0 errors
-compiling bsp_rtc.c...
-compiling touchscreen.c...
-..\..\User\touchscreen.c(240): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-                                XCOOR = (int)(8.49*(float)Xconvert-15.48);
-..\..\User\touchscreen.c(247): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-                                YCOOR = 480 - (int)(6.38*(float)Yconvert-9.16);
-..\..\User\touchscreen.c(188): warning:  #177-D: variable "j"  was declared but never referenced
-        static u8 i,j,k;
-..\..\User\touchscreen.c(188): warning:  #177-D: variable "k"  was declared but never referenced
-        static u8 i,j,k;
-..\..\User\touchscreen.c(189): warning:  #177-D: variable "ADX"  was declared but never referenced
-        static u16 ADX[5];
-..\..\User\touchscreen.c(190): warning:  #177-D: variable "ADY"  was declared but never referenced
-        static u16 ADY[5];
-..\..\User\touchscreen.c(192): warning:  #177-D: variable "var32"  was declared but never referenced
-        u32 var32;
-..\..\User\touchscreen.c(379): warning:  #223-D: function "focus_on1" declared implicitly
-                                                                focus_on1();
-..\..\User\touchscreen.c(437): warning:  #223-D: function "focus_on1" declared implicitly
-                                                                focus_on1();
-..\..\User\touchscreen.c(495): warning:  #223-D: function "focus_on1" declared implicitly
-                                                                focus_on1();
-..\..\User\touchscreen.c(3285): warning:  #1-D: last line of file ends without a newline
-  }
-..\..\User\touchscreen.c(180): warning:  #177-D: function "set_yz"  was declared but never referenced
-  static void set_yz(void){     X_P1;   X_N1;   Y_P0;   Y_N0;}
-..\..\User\touchscreen.c(183): warning:  #177-D: function "set_mid"  was declared but never referenced
-  static void set_mid(void){    X_P0;   X_N1;   Y_P1;   Y_N0;}
-..\..\User\touchscreen.c: 13 warnings, 0 errors
-compiling ch376.c...
-..\..\User\ch376\ch376.c(238): warning:  #223-D: function "printf" declared implicitly
-        
-LASH_ERROR("SPI µÈ´ý³¬Ê±!errorCode = %d",errorCode);
-..\..\User\ch376\ch376.c: 1 warning, 0 errors
-compiling FILESYS.c...
-compiling home.c...
-compiling system.c...
-compiling settings.c...
-compiling separation.c...
-compiling sysinfo.c...
-compiling graph.c...
-compiling graphset.c...
-..\..\User\APP\graphset.c(25): warning:  #177-D: variable "i"  was declared but never referenced
-        u8 i,j;
-..\..\User\APP\graphset.c(25): warning:  #177-D: variable "j"  was declared but never referenced
-        u8 i,j;
-..\..\User\APP\graphset.c(26): warning:  #177-D: variable "buf"  was declared but never referenced
-        char buf[5];
-..\..\User\APP\graphset.c: 3 warnings, 0 errors
-compiling history.c...
-..\..\User\APP\history.c(335): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-        DISP_CNL_S(390,550,buf);
-..\..\User\APP\history.c: 1 warning, 0 errors
-compiling calibarate.c...
-compiling power_on.c...
-..\..\User\APP\power_on.c(27): warning:  #177-D: variable "i"  was declared but never referenced
-        u8 i;
-..\..\User\APP\power_on.c(611): warning:  #1-D: last line of file ends without a newline
-  }
-..\..\User\APP\power_on.c: 2 warnings, 0 errors
-linking...
-Program Size: Code=151168 RO-data=99020 RW-data=680 ZI-data=68928  
-FromELF: creating hex file...
-"..\..\Output\LCD.axf" - 0 Error(s), 46 Warning(s).
+"..\..\Output\LCD.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -169,7 +41,7 @@ Package Vendor: Keil
   D:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:22
+Build Time Elapsed:  00:00:00
 </pre>
 </body>
 </html>
