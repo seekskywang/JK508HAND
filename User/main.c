@@ -43,6 +43,7 @@
 
 void TempDisplay(void);
 void TempDisHandle(u8 ch);
+void UARTRECHANDLE(void);
 u8 usbbuf[0x40];
 u8 usbsendbuf[0x40];
 u8 savedata[80];
@@ -56,7 +57,9 @@ u8 *csend;
 u16 datasize;
 u8 usbstatus = UNKNOWN;
 u16 watch;
-
+u16 ureadcrc;
+u8 *ucrc;
+extern u8 uartflag;
 //u8 p1,p2,p3,p4,p5,p6,p7,p8;
 
 
@@ -363,7 +366,15 @@ int main(void)
 	//		Touch_Scan();
 	//		CH1TEMP = (RecBuff[21] * 256 + RecBuff[22])/10.0;
 			DrawBattery(battery);
-			
+			if(uartflag == 1)
+			{
+				UARTRECHANDLE();
+				if(usbstatus == CONNECTED)
+				{
+					Utest();
+				}
+				uartflag = 0;
+			}
 			TempDisplay();
 			
 			
@@ -396,8 +407,144 @@ void UARTRECHANDLE(void)
 	char buf[10];
 	static int16_t tempbuf;
 	static u8 usave;
+	u8 ucrclen;
 	
-	
+	free(ucrc);
+	ureadcrc = RecBuff[38] << 8|RecBuff[37];
+	ucrclen = 37;
+	ucrc = (u8*)malloc(sizeof(u8) * ucrclen);
+	for(i=0;i<ucrclen;i++)
+	{
+		ucrc[i] = RecBuff[i];
+	}
+				
+	if(CRC16(ucrc,ucrclen) == ureadcrc)
+	{
+		charge = RecBuff[3];
+		battery = RecBuff[4];
+		for(i=0;i<16;i++)
+		{
+			tempbuf = RecBuff[2*(i+1)+3]<<8;
+			tempbuf = tempbuf + RecBuff[2*(i+1)+4];
+			if(tempbuf < 0)
+			{
+				ch_temp[i] = (float)tempbuf/10;
+			}else{
+				ch_temp[i] = (float)tempbuf/10;
+			}
+//						ch_temp[i] = (RecBuff[2*(i+1)+3] * 256 + RecBuff[2*(i+1)+4])/10.0;
+			if(count == 0 && page_flag == poweron)
+			{
+				InitBrt();//¿ª»úÁÁ¶È
+				LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_BLACK);
+				DISP_INS(5+i*20,5,"Initializing Channel");
+				sprintf(buf,"%03d",i+1);
+				DISP_INS(5+i*20,336,(uint8_t*)buf);
+				DISP_INS(5+i*20,384,"...");
+				Delay(0x3fffff);
+			}
+		}
+		
+		
+		if(multicount == 1 && page_flag == poweron)
+		{
+			LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_BLACK);
+			DISP_INS(325,5,"Done!");
+			Delay(0xffffff);
+			page_home();
+		}
+		
+		if(multicount%(int)MULTI == 0 && multicount != 0)
+		{
+			for(i=0;i<16;i++)
+			{
+				G_Data[i][count] = (graphbuf[i][0]/MULTI * 256 + graphbuf[i][1]/MULTI)/10.0 - Correction[i];							
+			}
+			if(page_flag == graph)
+			{
+				Draw_graph();
+				DrawTime();
+			}
+//						if(page_flag != history)
+//						{
+				for(i=0;i<16;i++)
+				{
+//								savebuf = hex_to_bcd((int)(graphbuf[i]/MULTI * 10));
+					hisconv = (u16)(hisbuf[i][0]/MULTI)<<8;
+					hisconv = hisconv + hisbuf[i][1]/MULTI;
+					corconv = (u16)(Correction[i]*10);
+//								Data_buf[i][count%8 * 2] = hisbuf[i][0]/MULTI;
+//								Data_buf[i][count%8 * 2 + 1] = hisbuf[i][1]/MULTI;
+					Data_buf[i][count%8 * 2] = (u8)((hisconv - corconv)>>8);
+					Data_buf[i][count%8 * 2 + 1] = (u8)(hisconv - corconv);
+				}
+//							Save_history(1);
+				if(count > 0 && (count + 1) % 8 == 0)
+				{
+//								recflag = 1;
+					if(SECTOR_REC < 62000)
+					{
+						SECTOR_REC ++;
+						Save_history(SECTOR_REC);								
+						Save_Sflag();									
+					}else{
+						SECTOR_REC = 0;
+					}
+					
+				}
+//						}
+			if(count == 450)
+			{
+				if(TIME_REC < 1000)
+				{
+					TIME_REC++;
+					Save_time(TIME_REC);
+					Save_Sflag();
+				}else{
+					TIME_REC = 0;
+				}
+			}
+			if(count > 494)
+			{
+				count = 0;
+//							memcpy(hisdata,G_Data,sizeof(G_Data));
+//							memcpy(histime,time_buf,sizeof(time_buf));
+			}else{
+				count++;
+			}
+			multicount=0;
+			
+			
+			for(i = 0;i<16;i++)
+			{
+				hisbuf[i][0] = 0;
+				hisbuf[i][1] = 0;
+//							graphbuf[i] = 0;
+				graphbuf[i][0] = 0;
+				graphbuf[i][1] = 0;
+			}
+			for(i=0;i<16;i++)
+			{
+				hisbuf[i][0] += RecBuff[2*(i+1)+3];
+				hisbuf[i][1] += RecBuff[2*(i+1)+4];
+//							graphbuf[i] += ch_temp[i];
+				graphbuf[i][0] += RecBuff[2*(i+1)+3];
+				graphbuf[i][1] += RecBuff[2*(i+1)+4];
+			}
+			multicount++;
+		}else{
+			for(i=0;i<16;i++)
+			{
+				hisbuf[i][0] += RecBuff[2*(i+1)+3];
+				hisbuf[i][1] += RecBuff[2*(i+1)+4];
+//							graphbuf[i] += ch_temp[i];
+				graphbuf[i][0] += RecBuff[2*(i+1)+3];
+				graphbuf[i][1] += RecBuff[2*(i+1)+4];
+			}
+			multicount++;
+		}
+
+	}
 }
 
 

@@ -139,7 +139,7 @@ extern union
 
 void page_home(void)
 {
-	CHNUM = 8;
+	CHNUM = 16;
   /*初始化后默认使用前景层*/
 	LCD_SetLayer(LCD_FOREGROUND_LAYER); 
 	/*默认设置不透明	，该函数参数为不透明度，范围 0-0xff ，0为全透明，0xff为不透明*/

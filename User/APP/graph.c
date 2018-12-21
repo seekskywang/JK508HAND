@@ -663,7 +663,7 @@ void Draw_graph(void)
 {
 	
 	enrate = 350/(float)(YHLIMIT - YLLIMIT);
-	if(CH1_SW == ch_on && page_flag == graph && G_Data[0][count]< YHLIMIT && G_Data[0][count]> YLLIMIT)
+	if(CH1_SW == ch_on && page_flag == graph && G_Data[0][count]< YHLIMIT && G_Data[0][count]> YLLIMIT && G_Data[0][count-1]< YHLIMIT && G_Data[0][count-1]> YLLIMIT)
 	{
 		LCD_SetColors(LCD_COLOR_RED,LCD_COLOR_BACK);
 		if(count == 0)			
@@ -673,7 +673,7 @@ void Draw_graph(void)
 			LCD_DrawUniLine(111-80+count,(int)(400-((G_Data[0][count-1] - YLLIMIT)*enrate))/*400-G_Data[count-1]*/,112-80+count,(400-((G_Data[0][count] - YLLIMIT)*enrate)));
 		}
 	}
-	if(CH2_SW == ch_on && page_flag == graph && G_Data[1][count] < YHLIMIT && G_Data[1][count] > YLLIMIT)
+	if(CH2_SW == ch_on && page_flag == graph && G_Data[1][count] < YHLIMIT && G_Data[1][count] > YLLIMIT && G_Data[1][count-1]< YHLIMIT && G_Data[1][count-1]> YLLIMIT)
 	{
 		LCD_SetColors(LCD_COLOR_GREEN,LCD_COLOR_BACK);
 		if(count == 0)			
@@ -683,7 +683,7 @@ void Draw_graph(void)
 			LCD_DrawUniLine(111-80+count,(int)(400-((G_Data[1][count-1]- YLLIMIT)*enrate))/*400-G_Data[count-1]*/,112-80+count,(400-((G_Data[1][count]- YLLIMIT)*enrate)));
 		}
 	}
-	if(CH3_SW == ch_on && page_flag == graph && G_Data[2][count] < YHLIMIT && G_Data[2][count] > YLLIMIT)
+	if(CH3_SW == ch_on && page_flag == graph && G_Data[2][count] < YHLIMIT && G_Data[2][count] > YLLIMIT && G_Data[2][count-1]< YHLIMIT && G_Data[2][count-1]> YLLIMIT)
 	{
 		LCD_SetColors(LCD_COLOR_MAGENTA,LCD_COLOR_BACK);
 		if(count == 0)
@@ -694,7 +694,7 @@ void Draw_graph(void)
 			LCD_DrawUniLine(111-80+count,(int)(400-((G_Data[2][count-1] - YLLIMIT)*enrate))/*400-G_Data[count-1]*/,112-80+count,(400-((G_Data[2][count] - YLLIMIT)*enrate)));
 		}		
 	}
-	if(CH4_SW == ch_on && page_flag == graph && G_Data[3][count] < YHLIMIT && G_Data[3][count]  > YLLIMIT)
+	if(CH4_SW == ch_on && page_flag == graph && G_Data[3][count] < YHLIMIT && G_Data[3][count]  > YLLIMIT && G_Data[3][count-1]< YHLIMIT && G_Data[3][count-1]> YLLIMIT)
 	{
 		LCD_SetColors(LCD_COLOR_CYAN,LCD_COLOR_BACK);
 		if(count == 0)
@@ -705,7 +705,7 @@ void Draw_graph(void)
 			LCD_DrawUniLine(111-80+count,(int)(400-((G_Data[3][count-1]  - YLLIMIT)*enrate))/*400-G_Data[count-1]*/,112-80+count,(400-((G_Data[3][count]  - YLLIMIT)*enrate)));
 		}		
 	}
-	if(CH5_SW == ch_on && page_flag == graph && G_Data[4][count]  < YHLIMIT && G_Data[4][count] > YLLIMIT)
+	if(CH5_SW == ch_on && page_flag == graph && G_Data[4][count]  < YHLIMIT && G_Data[4][count] > YLLIMIT && G_Data[4][count-1]< YHLIMIT && G_Data[4][count-1]> YLLIMIT)
 	{
 		LCD_SetColors(LCD_COLOR_YELLOW,LCD_COLOR_BACK);
 		if(count == 0)
@@ -716,7 +716,7 @@ void Draw_graph(void)
 			LCD_DrawUniLine(111-80+count,(int)(400-((G_Data[4][count-1] - YLLIMIT)*enrate))/*400-G_Data[count-1]*/,112-80+count,(400-((G_Data[4][count] - YLLIMIT)*enrate)));
 		}		
 	}
-	if(CH6_SW == ch_on && page_flag == graph && G_Data[5][count] < YHLIMIT && G_Data[5][count] > YLLIMIT)
+	if(CH6_SW == ch_on && page_flag == graph && G_Data[5][count] < YHLIMIT && G_Data[5][count] > YLLIMIT && G_Data[5][count-1]< YHLIMIT && G_Data[5][count-1]> YLLIMIT)
 	{
 		LCD_SetColors(LCD_COLOR_HLT,LCD_COLOR_BACK);
 		if(count == 0)
@@ -727,7 +727,7 @@ void Draw_graph(void)
 			LCD_DrawUniLine(111-80+count,(int)(400-((G_Data[5][count-1] - YLLIMIT)*enrate))/*400-G_Data[count-1]*/,112-80+count,(400-((G_Data[5][count] - YLLIMIT)*enrate)));
 		}		
 	}
-	if(CH7_SW == ch_on && page_flag == graph && G_Data[6][count] < YHLIMIT && G_Data[6][count] > YLLIMIT)
+	if(CH7_SW == ch_on && page_flag == graph && G_Data[6][count] < YHLIMIT && G_Data[6][count] > YLLIMIT && G_Data[6][count-1]< YHLIMIT && G_Data[6][count-1]> YLLIMIT)
 	{
 		LCD_SetColors(LCD_COLOR_BT,LCD_COLOR_BACK);
 		if(count == 0)
@@ -738,7 +738,7 @@ void Draw_graph(void)
 			LCD_DrawUniLine(111-80+count,(int)(400-((G_Data[6][count-1] - YLLIMIT)*enrate))/*400-G_Data[count-1]*/,112-80+count,(400-((G_Data[6][count] - YLLIMIT)*enrate)));
 		}		
 	}
-	if(CH8_SW == ch_on && page_flag == graph && G_Data[7][count] < YHLIMIT && G_Data[7][count] > YLLIMIT)
+	if(CH8_SW == ch_on && page_flag == graph && G_Data[7][count] < YHLIMIT && G_Data[7][count] > YLLIMIT && G_Data[7][count-1]< YHLIMIT && G_Data[7][count-1]> YLLIMIT)
 	{
 		LCD_SetColors(LCD_COLOR_BLUE,LCD_COLOR_BACK);
 		if(count == 0)
@@ -751,7 +751,7 @@ void Draw_graph(void)
 	}
 	if(CHNUM > 8)
 	{
-		if(CH9_SW == ch_on && page_flag == graph && G_Data[8][count] < YHLIMIT && G_Data[8][count] > YLLIMIT)
+		if(CH9_SW == ch_on && page_flag == graph && G_Data[8][count] < YHLIMIT && G_Data[8][count] > YLLIMIT && G_Data[8][count-1]< YHLIMIT && G_Data[8][count-1]> YLLIMIT)
 		{
 			LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_BACK);
 			if(count == 0)
@@ -762,7 +762,7 @@ void Draw_graph(void)
 				LCD_DrawUniLine(111-80+count,(int)(400-((G_Data[8][count-1] - YLLIMIT)*enrate))/*400-G_Data[count-1]*/,112-80+count,(400-((G_Data[8][count] - YLLIMIT)*enrate)));
 			}		
 		}
-		if(CH10_SW == ch_on && page_flag == graph && G_Data[9][count] < YHLIMIT && G_Data[9][count] > YLLIMIT)
+		if(CH10_SW == ch_on && page_flag == graph && G_Data[9][count] < YHLIMIT && G_Data[9][count] > YLLIMIT && G_Data[9][count-1]< YHLIMIT && G_Data[9][count-1]> YLLIMIT)
 		{
 			LCD_SetColors(LCD_COLOR_GR1,LCD_COLOR_BACK);
 			if(count == 0)
@@ -773,7 +773,7 @@ void Draw_graph(void)
 				LCD_DrawUniLine(111-80+count,(int)(400-((G_Data[9][count-1] - YLLIMIT)*enrate))/*400-G_Data[count-1]*/,112-80+count,(400-((G_Data[9][count] - YLLIMIT)*enrate)));
 			}		
 		}
-		if(CH11_SW == ch_on && page_flag == graph && G_Data[10][count] < YHLIMIT && G_Data[10][count] > YLLIMIT)
+		if(CH11_SW == ch_on && page_flag == graph && G_Data[10][count] < YHLIMIT && G_Data[10][count] > YLLIMIT && G_Data[10][count-1]< YHLIMIT && G_Data[10][count-1]> YLLIMIT)
 		{
 			LCD_SetColors(LCD_COLOR_GR2,LCD_COLOR_BACK);
 			if(count == 0)
@@ -784,7 +784,7 @@ void Draw_graph(void)
 				LCD_DrawUniLine(111-80+count,(int)(400-((G_Data[10][count-1] - YLLIMIT)*enrate))/*400-G_Data[count-1]*/,112-80+count,(400-((G_Data[10][count] - YLLIMIT)*enrate)));
 			}		
 		}
-		if(CH12_SW == ch_on && page_flag == graph && G_Data[11][count] < YHLIMIT && G_Data[11][count] > YLLIMIT)
+		if(CH12_SW == ch_on && page_flag == graph && G_Data[11][count] < YHLIMIT && G_Data[11][count] > YLLIMIT && G_Data[11][count-1]< YHLIMIT && G_Data[11][count-1]> YLLIMIT)
 		{
 			LCD_SetColors(LCD_COLOR_GR3,LCD_COLOR_BACK);
 			if(count == 0)
@@ -795,7 +795,7 @@ void Draw_graph(void)
 				LCD_DrawUniLine(111-80+count,(int)(400-((G_Data[11][count-1] - YLLIMIT)*enrate))/*400-G_Data[count-1]*/,112-80+count,(400-((G_Data[11][count] - YLLIMIT)*enrate)));
 			}		
 		}
-		if(CH13_SW == ch_on && page_flag == graph && G_Data[12][count] < YHLIMIT && G_Data[12][count] > YLLIMIT)
+		if(CH13_SW == ch_on && page_flag == graph && G_Data[12][count] < YHLIMIT && G_Data[12][count] > YLLIMIT && G_Data[12][count-1]< YHLIMIT && G_Data[12][count-1]> YLLIMIT)
 		{
 			LCD_SetColors(LCD_COLOR_GR4,LCD_COLOR_BACK);
 			if(count == 0)
@@ -806,7 +806,7 @@ void Draw_graph(void)
 				LCD_DrawUniLine(111-80+count,(int)(400-((G_Data[12][count-1] - YLLIMIT)*enrate))/*400-G_Data[count-1]*/,112-80+count,(400-((G_Data[12][count] - YLLIMIT)*enrate)));
 			}		
 		}
-		if(CH14_SW == ch_on && page_flag == graph && G_Data[13][count] < YHLIMIT && G_Data[13][count] > YLLIMIT)
+		if(CH14_SW == ch_on && page_flag == graph && G_Data[13][count] < YHLIMIT && G_Data[13][count] > YLLIMIT && G_Data[13][count-1]< YHLIMIT && G_Data[13][count-1]> YLLIMIT)
 		{
 			LCD_SetColors(LCD_COLOR_GR5,LCD_COLOR_BACK);
 			if(count == 0)
@@ -817,7 +817,7 @@ void Draw_graph(void)
 				LCD_DrawUniLine(111-80+count,(int)(400-((G_Data[13][count-1] - YLLIMIT)*enrate))/*400-G_Data[count-1]*/,112-80+count,(400-((G_Data[13][count] - YLLIMIT)*enrate)));
 			}		
 		}
-		if(CH15_SW == ch_on && page_flag == graph && G_Data[14][count] < YHLIMIT && G_Data[14][count] > YLLIMIT)
+		if(CH15_SW == ch_on && page_flag == graph && G_Data[14][count] < YHLIMIT && G_Data[14][count] > YLLIMIT && G_Data[14][count-1]< YHLIMIT && G_Data[14][count-1]> YLLIMIT)
 		{
 			LCD_SetColors(LCD_COLOR_GR6,LCD_COLOR_BACK);
 			if(count == 0)
@@ -828,7 +828,7 @@ void Draw_graph(void)
 				LCD_DrawUniLine(111-80+count,(int)(400-((G_Data[14][count-1] - YLLIMIT)*enrate))/*400-G_Data[count-1]*/,112-80+count,(400-((G_Data[14][count] - YLLIMIT)*enrate)));
 			}		
 		}
-		if(CH16_SW == ch_on && page_flag == graph && G_Data[15][count] < YHLIMIT && G_Data[15][count] > YLLIMIT)
+		if(CH16_SW == ch_on && page_flag == graph && G_Data[15][count] < YHLIMIT && G_Data[15][count] > YLLIMIT && G_Data[15][count-1]< YHLIMIT && G_Data[15][count-1]> YLLIMIT)
 		{
 			LCD_SetColors(LCD_COLOR_GR7,LCD_COLOR_BACK);
 			if(count == 0)

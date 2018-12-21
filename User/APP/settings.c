@@ -202,7 +202,7 @@ void page_set(void)
 	{
 		LCD_DisplayStringLine(87,500,"9600");
 	}else if(BAUD == b19200){
-	LCD_DisplayStringLine(87,500,"19200");
+		LCD_DisplayStringLine(87,500,"19200");
 	}else if(BAUD == b38400){
 		LCD_DisplayStringLine(87,500,"38400");
 	}else if(BAUD == b57600){
