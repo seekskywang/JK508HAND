@@ -3,7 +3,7 @@
 <title>Static Call Graph - [..\..\Output\LCD.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\..\Output\LCD.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Fri Dec 21 16:29:35 2018
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Tue Jan 15 13:31:08 2019
 <BR><P>
 <H3>Maximum Stack Usage =        584 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -932,10 +932,11 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[21a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Utest
 </UL>
 
-<P><STRONG><a name="[c5]"></a>CH376GetIntStatus</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, filesys.o(i.CH376GetIntStatus))
+<P><STRONG><a name="[c5]"></a>CH376GetIntStatus</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, filesys.o(i.CH376GetIntStatus))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = CH376GetIntStatus &rArr; xWriteCH376Cmd &rArr; SPIx_ReadWriteByte &rArr; SPI_TIMEOUT_UserCallback &rArr; __2printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xWriteCH376Cmd
+<BR>[Calls]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay
+<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xWriteCH376Cmd
 <LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xReadCH376Data
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xEndCH376Cmd
 </UL>
@@ -1407,12 +1408,13 @@ Global Symbols
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Erase_all
 <LI><a href="#[1e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Touch_Scan
 <LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ButtonSound
+<LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376GetIntStatus
 <LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xWriteCH376Data
 <LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xWriteCH376Cmd
 <LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xReadCH376Data
 </UL>
 
-<P><STRONG><a name="[12a]"></a>DrawBattery</STRONG> (Thumb, 276 bytes, Stack size 24 bytes, bsp_lcd.o(i.DrawBattery))
+<P><STRONG><a name="[12a]"></a>DrawBattery</STRONG> (Thumb, 270 bytes, Stack size 24 bytes, bsp_lcd.o(i.DrawBattery))
 <BR><BR>[Stack]<UL><LI>Max Depth = 124<LI>Call Chain = DrawBattery &rArr; DrawCharge &rArr; LCD_DrawFullRect &rArr; DMA2D_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
@@ -1428,7 +1430,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
 </UL>
-<BR>[Called By]<UL><LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
+<BR>[Called By]<UL><LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchHandle
+<LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
 </UL>
 
 <P><STRONG><a name="[12b]"></a>DrawCharge</STRONG> (Thumb, 118 bytes, Stack size 16 bytes, bsp_lcd.o(i.DrawCharge))
@@ -1446,7 +1449,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
 </UL>
-<BR>[Called By]<UL><LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
+<BR>[Called By]<UL><LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchHandle
+<LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
 </UL>
 
 <P><STRONG><a name="[12f]"></a>DrawGridLine</STRONG> (Thumb, 178 bytes, Stack size 24 bytes, bsp_lcd.o(i.DrawGridLine))
@@ -1566,7 +1570,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
 </UL>
-<BR>[Called By]<UL><LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
+<BR>[Called By]<UL><LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchHandle
+<LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
 </UL>
 
 <P><STRONG><a name="[134]"></a>DrawUdisk1</STRONG> (Thumb, 184 bytes, Stack size 16 bytes, bsp_lcd.o(i.DrawUdisk1))
@@ -1630,7 +1635,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
 </UL>
-<BR>[Called By]<UL><LI><a href="#[16f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC5_HANDLE
+<BR>[Called By]<UL><LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchHandle
+<LI><a href="#[16f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC5_HANDLE
 <LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
 </UL>
 
@@ -1639,7 +1645,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
 </UL>
-<BR>[Called By]<UL><LI><a href="#[16f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC5_HANDLE
+<BR>[Called By]<UL><LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchHandle
+<LI><a href="#[16f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC5_HANDLE
 </UL>
 
 <P><STRONG><a name="[140]"></a>Drawgraphmenu</STRONG> (Thumb, 138 bytes, Stack size 8 bytes, bsp_lcd.o(i.Drawgraphmenu))
@@ -1685,7 +1692,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
 </UL>
-<BR>[Called By]<UL><LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
+<BR>[Called By]<UL><LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchHandle
+<LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
 </UL>
 
 <P><STRONG><a name="[145]"></a>Drawsetmenu</STRONG> (Thumb, 138 bytes, Stack size 12 bytes, bsp_lcd.o(i.Drawsetmenu))
@@ -1736,7 +1744,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
 </UL>
-<BR>[Called By]<UL><LI><a href="#[16f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC5_HANDLE
+<BR>[Called By]<UL><LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchHandle
+<LI><a href="#[16f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC5_HANDLE
 <LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
 </UL>
 
@@ -1745,7 +1754,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
 </UL>
-<BR>[Called By]<UL><LI><a href="#[16f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC5_HANDLE
+<BR>[Called By]<UL><LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchHandle
+<LI><a href="#[16f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC5_HANDLE
 </UL>
 
 <P><STRONG><a name="[14b]"></a>ENTER_HANDLE</STRONG> (Thumb, 10206 bytes, Stack size 160 bytes, bsp_key.o(i.ENTER_HANDLE))
@@ -2138,7 +2148,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[187]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Scan
 </UL>
 
-<P><STRONG><a name="[182]"></a>Key_Function</STRONG> (Thumb, 224 bytes, Stack size 16 bytes, bsp_key.o(i.Key_Function))
+<P><STRONG><a name="[182]"></a>Key_Function</STRONG> (Thumb, 228 bytes, Stack size 16 bytes, bsp_key.o(i.Key_Function))
 <BR><BR>[Stack]<UL><LI>Max Depth = 576<LI>Call Chain = Key_Function &rArr; ENTER_HANDLE &rArr; hispage &rArr; Read_history &rArr; SPI_FLASH_BufferRead &rArr; SPI_FLASH_SendByte &rArr; SPI_TIMEOUT_UserCallback &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[183]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UP_HANDLE
@@ -3291,7 +3301,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f429_439xx.o(.text)
 </UL>
-<P><STRONG><a name="[5f]"></a>TIM6_DAC_IRQHandler</STRONG> (Thumb, 292 bytes, Stack size 40 bytes, bsp_basic_tim.o(i.TIM6_DAC_IRQHandler))
+<P><STRONG><a name="[5f]"></a>TIM6_DAC_IRQHandler</STRONG> (Thumb, 286 bytes, Stack size 40 bytes, bsp_basic_tim.o(i.TIM6_DAC_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = TIM6_DAC_IRQHandler &rArr; udisk_scan &rArr; CH376DiskConnect &rArr; CH376SendCmdWaitInt &rArr; Wait376Interrupt &rArr; CH376GetIntStatus &rArr; xWriteCH376Cmd &rArr; SPIx_ReadWriteByte &rArr; SPI_TIMEOUT_UserCallback &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[188]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadInputDataBit
@@ -3408,8 +3418,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[1ed]"></a>TouchHandle</STRONG> (Thumb, 5008 bytes, Stack size 56 bytes, touchscreen.o(i.TouchHandle))
-<BR><BR>[Stack]<UL><LI>Max Depth = 356<LI>Call Chain = TouchHandle &rArr; page_his &rArr; DrawGridLine &rArr; LCD_DrawRect &rArr; LCD_DrawLine &rArr; DMA2D_Init
+<P><STRONG><a name="[1ed]"></a>TouchHandle</STRONG> (Thumb, 5658 bytes, Stack size 64 bytes, touchscreen.o(i.TouchHandle))
+<BR><BR>[Stack]<UL><LI>Max Depth = 364<LI>Call Chain = TouchHandle &rArr; page_his &rArr; DrawGridLine &rArr; LCD_DrawRect &rArr; LCD_DrawLine &rArr; DMA2D_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_home
 <LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
@@ -3418,19 +3428,43 @@ Global Symbols
 <LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Save_flag
 <LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
 <LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetBackColor
+<LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawtime2
+<LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawtime
 <LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawsetmenu
+<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawlang
 <LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawhomemenu
+<LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawdate2
+<LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawdate
+<LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawTouch
 <LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
 <LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawInstruction
+<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawDim
+<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawBrt
 <LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChannelSwtichSml
 <LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChannelSwtichMid
 <LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChannelSwtichBig
+<LI><a href="#[170]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_sysinfo
 <LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_sys
 <LI><a href="#[16e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_set
 <LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_his
 <LI><a href="#[172]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_gset
 <LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_graph
+<LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touch_set
+<LI><a href="#[15b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;plus_year
+<LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;plus_sec
+<LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;plus_mon
+<LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;plus_min
+<LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;plus_hour
+<LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;plus_day
+<LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minus_year
+<LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minus_sec
+<LI><a href="#[16b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minus_mon
+<LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minus_min
+<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minus_hour
+<LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minus_day
 <LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_on1
+<LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dim_set
+<LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;brt_set
 </UL>
 <BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -3856,7 +3890,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DCD_Init
 </UL>
 
-<P><STRONG><a name="[104]"></a>USB_OTG_CoreInitDev</STRONG> (Thumb, 346 bytes, Stack size 24 bytes, usb_core.o(i.USB_OTG_CoreInitDev))
+<P><STRONG><a name="[104]"></a>USB_OTG_CoreInitDev</STRONG> (Thumb, 358 bytes, Stack size 24 bytes, usb_core.o(i.USB_OTG_CoreInitDev))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = USB_OTG_CoreInitDev &rArr; USB_OTG_FlushTxFifo &rArr; USB_OTG_BSP_uDelay
 </UL>
 <BR>[Calls]<UL><LI><a href="#[214]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_OTG_InitDevSpeed
@@ -4043,8 +4077,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[21a]"></a>Utest</STRONG> (Thumb, 426 bytes, Stack size 240 bytes, bsp_key.o(i.Utest))
-<BR><BR>[Stack]<UL><LI>Max Depth = 400<LI>Call Chain = Utest &rArr; CH376FileCreatePath &rArr; CH376FileOpenDir &rArr; CH376FileOpen &rArr; CH376SetFileName &rArr; CH376SendCmdWaitInt &rArr; Wait376Interrupt &rArr; CH376GetIntStatus &rArr; xWriteCH376Cmd &rArr; SPIx_ReadWriteByte &rArr; SPI_TIMEOUT_UserCallback &rArr; __2printf
+<P><STRONG><a name="[21a]"></a>Utest</STRONG> (Thumb, 502 bytes, Stack size 248 bytes, bsp_key.o(i.Utest))
+<BR><BR>[Stack]<UL><LI>Max Depth = 408<LI>Call Chain = Utest &rArr; CH376FileCreatePath &rArr; CH376FileOpenDir &rArr; CH376FileOpen &rArr; CH376SetFileName &rArr; CH376SendCmdWaitInt &rArr; Wait376Interrupt &rArr; CH376GetIntStatus &rArr; xWriteCH376Cmd &rArr; SPIx_ReadWriteByte &rArr; SPI_TIMEOUT_UserCallback &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376FileOpenPath
@@ -4192,7 +4226,8 @@ Global Symbols
 <LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
 <LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_on1
 </UL>
-<BR>[Called By]<UL><LI><a href="#[16f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC5_HANDLE
+<BR>[Called By]<UL><LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchHandle
+<LI><a href="#[16f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC5_HANDLE
 <LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC4_HANDLE
 <LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC3_HANDLE
 <LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC2_HANDLE
@@ -4250,7 +4285,8 @@ Global Symbols
 <LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
 <LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_on1
 </UL>
-<BR>[Called By]<UL><LI><a href="#[16f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC5_HANDLE
+<BR>[Called By]<UL><LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchHandle
+<LI><a href="#[16f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC5_HANDLE
 <LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC4_HANDLE
 <LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC3_HANDLE
 <LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC2_HANDLE
@@ -4366,7 +4402,7 @@ Global Symbols
 <LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOT_HANDLE
 </UL>
 
-<P><STRONG><a name="[84]"></a>main</STRONG> (Thumb, 382 bytes, Stack size 8 bytes, main.o(i.main))
+<P><STRONG><a name="[84]"></a>main</STRONG> (Thumb, 394 bytes, Stack size 8 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 584<LI>Call Chain = main &rArr; Key_Function &rArr; ENTER_HANDLE &rArr; hispage &rArr; Read_history &rArr; SPI_FLASH_BufferRead &rArr; SPI_FLASH_SendByte &rArr; SPI_TIMEOUT_UserCallback &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[188]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadInputDataBit
@@ -4508,7 +4544,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[1b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_WriteBackupRegister
 <LI><a href="#[1b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_SetDate
 </UL>
-<BR>[Called By]<UL><LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC2_HANDLE
+<BR>[Called By]<UL><LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchHandle
+<LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC2_HANDLE
 </UL>
 
 <P><STRONG><a name="[164]"></a>minus_hour</STRONG> (Thumb, 64 bytes, Stack size 8 bytes, bsp_key.o(i.minus_hour))
@@ -4517,7 +4554,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[1b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_WriteBackupRegister
 <LI><a href="#[1b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_SetTime
 </UL>
-<BR>[Called By]<UL><LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC2_HANDLE
+<BR>[Called By]<UL><LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchHandle
+<LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC2_HANDLE
 </UL>
 
 <P><STRONG><a name="[16c]"></a>minus_min</STRONG> (Thumb, 64 bytes, Stack size 8 bytes, bsp_key.o(i.minus_min))
@@ -4526,7 +4564,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[1b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_WriteBackupRegister
 <LI><a href="#[1b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_SetTime
 </UL>
-<BR>[Called By]<UL><LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC4_HANDLE
+<BR>[Called By]<UL><LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchHandle
+<LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC4_HANDLE
 </UL>
 
 <P><STRONG><a name="[16b]"></a>minus_mon</STRONG> (Thumb, 58 bytes, Stack size 8 bytes, bsp_key.o(i.minus_mon))
@@ -4535,7 +4574,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[1b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_WriteBackupRegister
 <LI><a href="#[1b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_SetDate
 </UL>
-<BR>[Called By]<UL><LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC4_HANDLE
+<BR>[Called By]<UL><LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchHandle
+<LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC4_HANDLE
 </UL>
 
 <P><STRONG><a name="[161]"></a>minus_sec</STRONG> (Thumb, 64 bytes, Stack size 8 bytes, bsp_key.o(i.minus_sec))
@@ -4544,7 +4584,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[1b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_WriteBackupRegister
 <LI><a href="#[1b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_SetTime
 </UL>
-<BR>[Called By]<UL><LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC2_HANDLE
+<BR>[Called By]<UL><LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchHandle
+<LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC2_HANDLE
 </UL>
 
 <P><STRONG><a name="[163]"></a>minus_year</STRONG> (Thumb, 58 bytes, Stack size 8 bytes, bsp_key.o(i.minus_year))
@@ -4553,7 +4594,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[1b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_WriteBackupRegister
 <LI><a href="#[1b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_SetDate
 </UL>
-<BR>[Called By]<UL><LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC2_HANDLE
+<BR>[Called By]<UL><LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchHandle
+<LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC2_HANDLE
 </UL>
 
 <P><STRONG><a name="[1f3]"></a>multifocus_off</STRONG> (Thumb, 120 bytes, Stack size 24 bytes, bsp_key.o(i.multifocus_off))
@@ -4773,7 +4815,8 @@ Global Symbols
 <LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawInstruction
 <LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[16f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC5_HANDLE
+<BR>[Called By]<UL><LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchHandle
+<LI><a href="#[16f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC5_HANDLE
 </UL>
 
 <P><STRONG><a name="[15a]"></a>plus_day</STRONG> (Thumb, 58 bytes, Stack size 8 bytes, bsp_key.o(i.plus_day))
@@ -4782,7 +4825,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[1b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_WriteBackupRegister
 <LI><a href="#[1b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_SetDate
 </UL>
-<BR>[Called By]<UL><LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC1_HANDLE
+<BR>[Called By]<UL><LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchHandle
+<LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC1_HANDLE
 </UL>
 
 <P><STRONG><a name="[15c]"></a>plus_hour</STRONG> (Thumb, 62 bytes, Stack size 8 bytes, bsp_key.o(i.plus_hour))
@@ -4791,7 +4835,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[1b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_WriteBackupRegister
 <LI><a href="#[1b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_SetTime
 </UL>
-<BR>[Called By]<UL><LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC1_HANDLE
+<BR>[Called By]<UL><LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchHandle
+<LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC1_HANDLE
 </UL>
 
 <P><STRONG><a name="[169]"></a>plus_min</STRONG> (Thumb, 62 bytes, Stack size 8 bytes, bsp_key.o(i.plus_min))
@@ -4800,7 +4845,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[1b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_WriteBackupRegister
 <LI><a href="#[1b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_SetTime
 </UL>
-<BR>[Called By]<UL><LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC3_HANDLE
+<BR>[Called By]<UL><LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchHandle
+<LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC3_HANDLE
 </UL>
 
 <P><STRONG><a name="[168]"></a>plus_mon</STRONG> (Thumb, 58 bytes, Stack size 8 bytes, bsp_key.o(i.plus_mon))
@@ -4809,7 +4855,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[1b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_WriteBackupRegister
 <LI><a href="#[1b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_SetDate
 </UL>
-<BR>[Called By]<UL><LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC3_HANDLE
+<BR>[Called By]<UL><LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchHandle
+<LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC3_HANDLE
 </UL>
 
 <P><STRONG><a name="[157]"></a>plus_sec</STRONG> (Thumb, 62 bytes, Stack size 8 bytes, bsp_key.o(i.plus_sec))
@@ -4818,7 +4865,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[1b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_WriteBackupRegister
 <LI><a href="#[1b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_SetTime
 </UL>
-<BR>[Called By]<UL><LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC1_HANDLE
+<BR>[Called By]<UL><LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchHandle
+<LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC1_HANDLE
 </UL>
 
 <P><STRONG><a name="[15b]"></a>plus_year</STRONG> (Thumb, 58 bytes, Stack size 8 bytes, bsp_key.o(i.plus_year))
@@ -4827,7 +4875,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[1b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_WriteBackupRegister
 <LI><a href="#[1b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_SetDate
 </UL>
-<BR>[Called By]<UL><LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC1_HANDLE
+<BR>[Called By]<UL><LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchHandle
+<LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC1_HANDLE
 </UL>
 
 <P><STRONG><a name="[22a]"></a>power_on</STRONG> (Thumb, 84 bytes, Stack size 8 bytes, power_on.o(i.power_on))
@@ -4855,7 +4904,8 @@ Global Symbols
 <LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
 <LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_on1
 </UL>
-<BR>[Called By]<UL><LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC2_HANDLE
+<BR>[Called By]<UL><LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchHandle
+<LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC2_HANDLE
 <LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC1_HANDLE
 </UL>
 
@@ -5063,7 +5113,7 @@ Local Symbols
 <LI><a href="#[1ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_FLASH_SendByte
 </UL>
 
-<P><STRONG><a name="[1bd]"></a>Rheostat_ADC_Mode_Config</STRONG> (Thumb, 202 bytes, Stack size 128 bytes, touchscreen.o(i.Rheostat_ADC_Mode_Config))
+<P><STRONG><a name="[1bd]"></a>Rheostat_ADC_Mode_Config</STRONG> (Thumb, 198 bytes, Stack size 128 bytes, touchscreen.o(i.Rheostat_ADC_Mode_Config))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = Rheostat_ADC_Mode_Config &rArr; ADC_RegularChannelConfig
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC_SoftwareStartConv

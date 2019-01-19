@@ -54,7 +54,10 @@ extern u16 XCOOR;
 extern u16 YCOOR;
 extern u8 touchflag;
 extern u8 tempreq[8];
-
+extern u8 fileflag;
+extern u8 sendflag;
+extern u8 date_page;
+extern u8 time_page;
 
 void page_home(void);
 void page_set(void);
@@ -736,5 +739,31 @@ uint32_t Flash_DisableReadProtection(void);
 #define MENUY1			445	
 #define MENUY2			480
 
+/*œµÕ≥…Ë÷√*/
+#define LANGX1			170			
+#define LANGX2			282
+#define DATEX1			170			
+#define DATEX2			330
+#define TIMEX1			400			
+#define TIMEX2			528
+#define BACKX1			170			
+#define BACKX2			250
+#define DIMX1			170			
+#define DIMX2			218
+#define TOUCHX1			170			
+#define TOUCHX2			218
+
+#define LANGY1			50			
+#define LANGY2			81
+#define DATEY1			90			
+#define DATEY2			121
+#define TIMEY1			90			
+#define TIMEY2			121
+#define BACKY1			130			
+#define BACKY2			161
+#define DIMY1			182			
+#define DIMY2			213
+#define TOUCHY1			212			
+#define TOUCHY2			243
 
 #endif

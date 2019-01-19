@@ -101,7 +101,9 @@
         <sRunDeb>0</sRunDeb>
         <sLrtime>0</sLrtime>
         <bEvRecOn>1</bEvRecOn>
-        <nTsel>3</nTsel>
+        <bSchkAxf>0</bSchkAxf>
+        <bTchkAxf>0</bTchkAxf>
+        <nTsel>4</nTsel>
         <sDll></sDll>
         <sDllPa></sDllPa>
         <sDlgDll></sDlgDll>
@@ -118,7 +120,7 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>DLGUARM</Key>
-          <Name>t?</Name>
+          <Name>/</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -351,12 +353,12 @@
         <Ww>
           <count>40</count>
           <WinNumber>1</WinNumber>
-          <ItemText>XCOOR</ItemText>
+          <ItemText>XCOOR,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>41</count>
           <WinNumber>1</WinNumber>
-          <ItemText>YCOOR</ItemText>
+          <ItemText>YCOOR,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>42</count>
@@ -368,6 +370,16 @@
           <WinNumber>1</WinNumber>
           <ItemText>histime</ItemText>
         </Ww>
+        <Ww>
+          <count>44</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>Xconvert,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>45</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>Yconvert,0x0A</ItemText>
+        </Ww>
       </WatchWindow1>
       <WatchWindow2>
         <Ww>
@@ -376,13 +388,21 @@
           <ItemText>usbsendbuf</ItemText>
         </Ww>
       </WatchWindow2>
+      <MemoryWindow4>
+        <Mm>
+          <WinNumber>4</WinNumber>
+          <SubType>0</SubType>
+          <ItemText>Utest</ItemText>
+          <AccSizeX>0</AccSizeX>
+        </Mm>
+      </MemoryWindow4>
       <Tracepoint>
         <THDelay>0</THDelay>
       </Tracepoint>
       <DebugFlag>
         <trace>0</trace>
         <periodic>1</periodic>
-        <aLwin>0</aLwin>
+        <aLwin>1</aLwin>
         <aCover>0</aCover>
         <aSer1>0</aSer1>
         <aSer2>0</aSer2>
@@ -1145,7 +1165,7 @@
       <GroupNumber>4</GroupNumber>
       <FileNumber>58</FileNumber>
       <FileType>1</FileType>
-      <tvExp>1</tvExp>
+      <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\User\ch376\ch376.c</PathWithFileName>
@@ -1157,7 +1177,7 @@
       <GroupNumber>4</GroupNumber>
       <FileNumber>59</FileNumber>
       <FileType>1</FileType>
-      <tvExp>1</tvExp>
+      <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\User\FILESYS\FILESYS.c</PathWithFileName>

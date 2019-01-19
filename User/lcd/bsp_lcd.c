@@ -942,7 +942,7 @@ void DrawBattery(u8 cap)
 		}
 		if(charge == 0x00)
 		{
-			capercent = (float)(cap-58)/42;
+			capercent = (float)cap/100;
 			LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_BACK);
 			LCD_DrawUniLine(500-48,10,500-48,30);
 			LCD_DrawUniLine(500-48,10,540-48,10);
@@ -953,7 +953,7 @@ void DrawBattery(u8 cap)
 			LCD_DrawUniLine(540-48,25,545-48,25);
 			LCD_DrawUniLine(540-48,25,540-48,30);
 			
-			if(cap > 58)
+			if(cap > 0)
 			{
 				LCD_SetColors(LCD_COLOR_GREEN,LCD_COLOR_BACK);
 				LCD_DrawFullRect(502-48,12,(int)(37*capercent),17);

@@ -133,7 +133,7 @@ static void Rheostat_ADC_Mode_Config(void)
   // 禁止DMA直接访问模式	
   ADC_CommonInitStructure.ADC_DMAAccessMode = ADC_DMAAccessMode_Disabled;
   // 采样时间间隔	
-  ADC_CommonInitStructure.ADC_TwoSamplingDelay = ADC_TwoSamplingDelay_20Cycles;  
+  ADC_CommonInitStructure.ADC_TwoSamplingDelay = ADC_TwoSamplingDelay_5Cycles;  
   ADC_CommonInit(&ADC_CommonInitStructure);
 	
   // -------------------ADC Init 结构体 参数 初始化--------------------------
@@ -204,7 +204,7 @@ void Touch_Scan(void)
 	if(i%4 < 2)
 	{
 		set_yy();
-		Delay(1000);
+		Delay(200);
 		Yconvert = ADC_ConvertedValue[1]/50;
 //		if(j<5)
 //		{
@@ -215,7 +215,7 @@ void Touch_Scan(void)
 //		Yconvert = (ADY[1] + ADY[3])/2/50;
 	}else{
 		set_xx();
-		Delay(1000);
+		Delay(200);
 		Xconvert = ADC_ConvertedValue[0]/50;
 //		if(k<5)
 //		{
@@ -233,7 +233,7 @@ void Touch_Scan(void)
 	{
 		if(touchdelay > 5)
 		{
-			if(Xconvert <= 4)
+			if(Xconvert <= 5)
 			{
 				XCOOR = 0;
 			}else{
@@ -252,11 +252,13 @@ void Touch_Scan(void)
 	}
 	
 	
-	if(Xconvert <= 4 || Yconvert <= 3)
+	if(Xconvert <= 5 || Yconvert <= 3)
 	{
 		press = 0;
 		touchflag = 0;
 		touchdelay = 0;
+		XCOOR = 0;
+		YCOOR = 0;
 	}else{
 		touchflag = 1;
 	}
@@ -1682,89 +1684,319 @@ void TouchHandle(u16 x,u16 y)
 			}break;
 			case sysset:
 			{
+				if(x >= LANGX1 && x <= LANGX2 && y >= LANGY1 && y <= LANGY2)
+				{
+					DrawMenu();
+					Drawlang();
+					op_sw = op_on;
+					op_flag = set_lang;
+					press = 1;
+				}
+				if(x >= DATEX1 && x <= DATEX2 && y >= DATEY1 && y <= DATEY2)
+				{
+					DrawMenu();
+					Drawdate();
+					op_sw = op_on;
+					op_flag = set_date;
+					press = 1;
+				}
+				if(x >= TIMEX1 && x <= TIMEX2 && y >= TIMEY1 && y <= TIMEY2)
+				{
+					DrawMenu();
+					Drawtime();
+					op_sw = op_on;
+					op_flag = set_time;
+					press = 1;
+				}
+				if(x >= BACKX1 && x <= BACKX2 && y >= BACKY1 && y <= BACKY2)
+				{
+					DrawMenu();
+					DrawBrt();
+					op_sw = op_on;
+					op_flag = set_brt;
+					press = 1;
+				}
+				if(x >= DIMX1 && x <= DIMX2 && y >= DIMY1 && y <= DIMY2)
+				{
+					DrawMenu();
+					DrawDim();
+					op_sw = op_on;
+					op_flag = set_dim;
+					press = 1;
+				}
+				if(x >= TOUCHX1 && x <= TOUCHX2 && y >= TOUCHY1 && y <= TOUCHY2)
+				{
+					DrawMenu();
+					DrawTouch();
+					op_sw = op_on;
+					op_flag = set_touch;
+					press = 1;
+				}
 				if(x >= MENU1X1 && x <= MENU1X2 && y >= MENUY1 && y <= MENUY2)
 				{
-					switch(op_flag)
+					if(op_sw == op_on)
 					{
-						case set_lang:
+						switch(op_flag)
 						{
-							LCD_SetTextColor(LCD_COLOR_BLACK);
-							LCD_SetBackColor(LCD_COLOR_YELLOW);
-							LCD_DisplayStringLine(50,170,"ENGLISH");
-							LANG = eng;
-							page_sys();
-							op_sw = op_off;
-							Save_flag();
-						}break;
-						default:
-						{
-							page_home();
-							press = 1;
+							case set_lang:
+							{
+								LCD_SetTextColor(LCD_COLOR_BLACK);
+								LCD_SetBackColor(LCD_COLOR_YELLOW);
+								LCD_DisplayStringLine(50,170,"CHINESE");
+								LANG = chs;
+								page_sys();
+								op_sw =op_off;
+								Save_flag();
+								press = 1;
+							}break;
+							case set_date:
+							{
+								if(date_page == page1)
+								{
+									plus_year();
+								}else{
+									plus_day();
+								}
+								press = 1;
+							}break;
+							case set_time:
+							{
+								if(time_page == page1)
+								{
+									plus_hour();							
+								}else{
+									plus_sec();
+								}
+								press = 1;
+							}break;
+							case set_brt:
+							{
+								brt_set(1);
+								press = 1;
+							}break;
+							case set_dim:
+							{
+								dim_set(1);
+								press = 1;
+							}break;
+							case set_touch:
+							{
+								touch_set(1);
+								press = 1;
+							}break;
 						}
+					}else{
+						page_home();
+						press = 1;
 					}
 					
 				}
 				if(x >= MENU2X1 && x <= MENU2X2 && y >= MENUY1 && y <= MENUY2)
 				{
-					switch(op_flag)
+					if(op_sw == op_on)
 					{
-						case set_lang:
+						switch(op_flag)
 						{
-							
-						}break;
-						default:
-						{
-							page_home();
-							press = 1;
+							case set_lang:
+							{
+								LCD_SetTextColor(LCD_COLOR_BLACK);
+								LCD_SetBackColor(LCD_COLOR_YELLOW);
+								LCD_DisplayStringLine(50,170,"ENGLISH");
+								LANG = eng;
+								page_sys();
+								op_sw = op_off;
+								Save_flag();
+								press = 1;
+							}break;
+							case set_date:
+							{
+								if(date_page == page1)
+								{
+									minus_year();
+								}else{
+									minus_day();
+								}
+								press = 1;
+							}break;
+							case set_time:
+							{
+								if(time_page == page1)
+								{
+									minus_hour();
+								}else{
+									minus_sec();
+								}
+								press = 1;
+							}break;
+							case set_brt:
+							{
+								brt_set(2);
+								press = 1;
+							}break;
+							case set_dim:
+							{
+								dim_set(2);
+								press = 1;
+							}break;
+							case set_touch:
+							{
+								touch_set(2);
+								press = 1;
+							}break;
+						
 						}
+					}else{
+						page_graph();
+						press = 1;
 					}
 				}
 				if(x >= MENU3X1 && x <= MENU3X2 && y >= MENUY1 && y <= MENUY2)
 				{
-					switch(op_flag)
+					if(op_sw == op_on)
 					{
-						case set_lang:
+						switch(op_flag)
 						{
-							
-						}break;
-						default:
-						{
-							page_home();
-							press = 1;
+							case set_date:
+							{
+								if(date_page == page1)
+								{
+									plus_mon();
+								}
+								press = 1;
+							}break;
+							case set_time:
+							{
+								if(time_page == page1)
+								{
+									plus_min();
+								}
+								press = 1;
+							}break;				
+							case set_brt:
+							{
+								brt_set(3);
+								press = 1;
+							}break;
+							case set_dim:
+							{
+								dim_set(3);
+								press = 1;
+							}break;
 						}
+					}else{
+						page_sys();
+						press = 1;
 					}
 				}
 				if(x >= MENU4X1 && x <= MENU4X2 && y >= MENUY1 && y <= MENUY2)
 				{
-					
-					switch(op_flag)
+					if(op_sw == op_on)
 					{
-						case set_lang:
+						switch(op_flag)
 						{
-							
-						}break;
-						default:
-						{
-							page_home();
-							press = 1;
+							case set_date:
+							{
+								if(date_page == page1)
+								{
+									minus_mon();
+								}
+								press = 1;
+							}break;
+							case set_time:
+							{
+								if(time_page == page1)
+								{
+									minus_min();
+								}
+								press = 1;
+							}break;				
+							case set_brt:
+							{
+								brt_set(4);
+								press = 1;
+							}break;
+							case set_dim:
+							{
+								dim_set(4);
+								press = 1;
+							}break;
 						}
+					}else{
+						page_set();
+						press = 1;
 					}
 				}
 				if(x >= MENU5X1 && x <= MENU5X2 && y >= MENUY1 && y <= MENUY2)
 				{
-					switch(op_flag)
+					if(op_sw == op_on)
 					{
-						case set_lang:
+						switch(op_flag)
 						{
-							
-						}break;
-						default:
-						{
-							page_home();
-							press = 1;
+							case set_date:
+							{
+								if(op_sw == op_on)
+								{
+									if(date_page == page1)
+									{
+										DrawMenu();
+										Drawdate2();
+										date_page = page2;
+									}else{
+										DrawMenu();
+										Drawdate();
+										date_page = page1;
+									}
+								}else{
+									page_sysinfo();
+								}
+								press = 1;
+							}break;
+							case set_time:
+							{
+								if(op_sw == op_on)
+								{
+									if(time_page == page1)
+									{
+										DrawMenu();
+										Drawtime2();
+										time_page = page2;
+									}else{
+										DrawMenu();
+										Drawtime();
+										time_page = page1;
+									}
+								}else{
+									page_sysinfo();
+								}
+								press = 1;
+							}break;
+							case set_brt:
+							{
+								if(op_sw == op_on)
+								{
+									brt_set(5);
+								}else{
+									page_sysinfo();
+								}
+								press = 1;
+							}break;
+							case set_dim:
+							{
+								if(op_sw == op_on)
+								{
+									dim_set(5);
+								}else{
+									page_sysinfo();
+								}
+								press = 1;
+							}break;
 						}
+					}else{
+						page_sysinfo();
+						press = 1;
 					}
 				}
+
 			}break;
 		}
 		

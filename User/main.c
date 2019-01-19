@@ -231,6 +231,7 @@ int main(void)
 	u8 test[9] = {0X01,0X03,0X02,0X58,0X00,0X01,0X02,0X00,0X05};
 	 __IO uint32_t i = 0;
 	static u8 reqtempcount;
+	static u8 udcount;
 //	u8 res;
   /*!< At this stage the microcontroller clock setting is already configured, 
   this is done through SystemInit() function which is called from startup
@@ -247,7 +248,7 @@ int main(void)
     LTDC_Cmd(ENABLE);
 	LCD_SetLayer(LCD_FOREGROUND_LAYER);
 	LCD_Clear(LCD_COLOR_BLACK);
-
+	
 	
 	
 	SysTick_Init();
@@ -359,7 +360,7 @@ int main(void)
 			{
 				if(touchflag == 1)
 				{
-					Delay(1000);
+//					Delay(1000);
 					TouchHandle(XCOOR,YCOOR);
 				}
 			}
@@ -371,9 +372,18 @@ int main(void)
 				UARTRECHANDLE();
 				if(usbstatus == CONNECTED)
 				{
-					Utest();
+					if(udcount ==5)
+					{
+						Utest();
+						udcount = 0;
+					}else{
+						udcount ++;
+					}
+				}else{
+					fileflag = 0;
 				}
 				uartflag = 0;
+				
 			}
 			TempDisplay();
 			
@@ -417,7 +427,6 @@ void UARTRECHANDLE(void)
 	{
 		ucrc[i] = RecBuff[i];
 	}
-				
 	if(CRC16(ucrc,ucrclen) == ureadcrc)
 	{
 		charge = RecBuff[3];

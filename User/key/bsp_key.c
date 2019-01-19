@@ -48,7 +48,7 @@ float offset[40];
 u8 keystat;
 u8 date_time[6] = {0,1,1,0,0,0};
 void ButtonSound(void);
-
+u8 fileflag;
 extern union 
 {
    unsigned char FLAG_VAL;
@@ -13530,10 +13530,11 @@ void Utest(void)
 	static u8 filename[64];
 	static u8 TarName[64];
 	static u8 s;
-	static u8 fileflag;
+	
 	static u32 udcount;
 	if(fileflag == 0)
 	{
+		fileflag = 1;
 		sprintf((char *)filename, "/%02d%02d%02d%02d.XLS",MONTH
 											,DATE
 											,HOURS
@@ -13541,7 +13542,11 @@ void Utest(void)
 		strcpy((char *)TarName,filename);
 //		s = CH376FileCreatePath("\\TEST.XLS");
 		s = CH376FileCreatePath(TarName);
-		fileflag = 1;
+		if(s != 0x14)
+		{
+			fileflag = 0;
+		}
+		
 		switch(TCTYPE)
 		{
 			case TCT:
@@ -13582,6 +13587,10 @@ void Utest(void)
 			}break;
 		}
 		s = CH376ByteWrite( buf, strlen((const char *)buf), NULL );
+		if(s != 0x14)
+		{
+			fileflag = 0;
+		}
 		switch(UNIT)
 		{
 			case C:
@@ -13598,15 +13607,35 @@ void Utest(void)
 			}break;
 		}
 		s = CH376ByteWrite(buf, strlen((const char *)buf), NULL );
+		if(s != 0x14)
+		{
+			fileflag = 0;
+		}
 		CH376ByteLocate(0xFFFFFFFF);
 		sprintf((char *)buf,"\t日期\t时间\t通道1\t通道2\t通道3\t通道4\t通道5\t通道6\t通道7\t通道8\t通道9\t通道10\t通道11\t通道12\t通道13\t通道14\t通道15\t通道16");
 		s = CH376ByteWrite(buf, strlen((const char *)buf), NULL );
+		if(s != 0x14)
+		{
+			fileflag = 0;
+		}
 		s = CH376FileClose(TRUE);
+		if(s != 0x14)
+		{
+			fileflag = 0;
+		}
 	}
 //	s = CH376FileOpenPath("\\TEST.XLS");
 	strcpy((char *)TarName,filename);
 	s = CH376FileOpenPath(TarName);
+	if(s != 0x14)
+	{
+		fileflag = 0;
+	}
 	s = CH376ByteLocate(0xFFFFFFFF);
+	if(s != 0x14)
+	{
+		fileflag = 0;
+	}
 	//////// 写入
 	udcount++;
 	sprintf(buf, "\n%d\t20%02d-%02d-%02d\t%02d:%02d:%02d"
@@ -13619,7 +13648,10 @@ void Utest(void)
 											,SECONDS
 											); /* 目标文件名 */
 	s = CH376ByteWrite( buf, strlen((const char *)buf), NULL ); 
-	
+	if(s != 0x14)
+	{
+		fileflag = 0;
+	}
 	for(i=0;i<16;i++)
 	{
 
@@ -13629,14 +13661,21 @@ void Utest(void)
 		}else{
 			sprintf(buf,"\t%.1f",ch_temp[i]);
 		}
-
-		s = s = CH376ByteWrite( buf, strlen((const char *)buf), NULL );
+		s = CH376ByteWrite( buf, strlen((const char *)buf), NULL );
+		if(s != 0x14)
+		{
+			fileflag = 0;
+		}
 	}
 //	strcpy((char *)buf, "Test ,Hello World!" );
 	
 	
 	//printf("s=%02x \n",(unsigned short)s );
 	s = CH376FileClose(TRUE);
+	if(s != 0x14)
+	{
+		fileflag = 0;
+	}
 }
 
 //按键声音

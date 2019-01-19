@@ -284,6 +284,7 @@ u8	CH376GetIntStatus( void )
 	u8	s;
 	
 	xWriteCH376Cmd( CMD01_GET_STATUS );
+	Delay(50);
 	s = xReadCH376Data( );
 	xEndCH376Cmd( );	
 	return( s );

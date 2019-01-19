@@ -32,11 +32,13 @@ void RecHandle(void);
 extern u8 key_value;
 extern u16 count;
 extern u8 count_flag;
+extern u8 uartflag;
 u8 tempreq[8] = {0x01,0x03,0x00,0x00,0x00,0x10,0x44,0x06};
 u8 reqcode;
 u8 brightness;
 u32 Tick_10ms=0;
 u32 OldTick;
+u8 udflag;
 extern u8 ReCount;
 extern u8 g_mods_timeout;
 extern __ALIGN_BEGIN USB_OTG_CORE_HANDLE  USB_OTG_dev __ALIGN_END;
@@ -271,7 +273,7 @@ void BASIC_TIM_IRQHandler (void)
 	{
 		Key_Scan();//°´¼üÉ¨Ãè
 		Touch_Scan();//´¥ÃþÉ¨Ãè
-		Tick_10ms++;
+//		Tick_10ms++;
 //		MODS_Poll();
 		if(sendcount == 4*5 && GPIO_ReadInputDataBit(GPIOI,GPIO_Pin_11))
 		{
@@ -291,13 +293,13 @@ void BASIC_TIM_IRQHandler (void)
 			}
 			usavecount = 0;
 		}
-//		if(usave == 200)
+//		if(usave == 100)
 //		{
-//			if(usbstatus == CONNECTED)
-//			{
-//				Utest();
-//			}
-//			usave = 0;
+////			if(usbstatus == CONNECTED)
+////			{
+////				Utest();
+////			}
+////			usave = 0;
 //		}
 		if(key_value == 0xFF && dimflag == 0)
 		{			
