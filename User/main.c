@@ -476,43 +476,43 @@ void UARTRECHANDLE(void)
 			}
 //						if(page_flag != history)
 //						{
-				for(i=0;i<16;i++)
-				{
+			for(i=0;i<16;i++)
+			{
 //								savebuf = hex_to_bcd((int)(graphbuf[i]/MULTI * 10));
-					hisconv = (u16)(hisbuf[i][0]/MULTI)<<8;
-					hisconv = hisconv + hisbuf[i][1]/MULTI;
-					corconv = (u16)(Correction[i]*10);
+				hisconv = (u16)(hisbuf[i][0]/MULTI)<<8;
+				hisconv = hisconv + hisbuf[i][1]/MULTI;
+				corconv = (u16)(Correction[i]*10);
 //								Data_buf[i][count%8 * 2] = hisbuf[i][0]/MULTI;
 //								Data_buf[i][count%8 * 2 + 1] = hisbuf[i][1]/MULTI;
-					Data_buf[i][count%8 * 2] = (u8)((hisconv - corconv)>>8);
-					Data_buf[i][count%8 * 2 + 1] = (u8)(hisconv - corconv);
-				}
-//							Save_history(1);
-				if(count > 0 && (count + 1) % 8 == 0)
-				{
-//								recflag = 1;
-					if(SECTOR_REC < 62000)
-					{
-						SECTOR_REC ++;
-						Save_history(SECTOR_REC);								
-						Save_Sflag();									
-					}else{
-						SECTOR_REC = 0;
-					}
-					
-				}
-//						}
-			if(count == 450)
-			{
-				if(TIME_REC < 1000)
-				{
-					TIME_REC++;
-					Save_time(TIME_REC);
-					Save_Sflag();
-				}else{
-					TIME_REC = 0;
-				}
+				Data_buf[i][count%8 * 2] = (u8)((hisconv - corconv)>>8);
+				Data_buf[i][count%8 * 2 + 1] = (u8)(hisconv - corconv);
 			}
+//							Save_history(1);
+//			if(count > 0 && (count + 1) % 8 == 0)
+//			{
+////								recflag = 1;
+//				if(SECTOR_REC < 62000)
+//				{
+//					SECTOR_REC ++;
+//					Save_history(SECTOR_REC);								
+//					Save_Sflag();									
+//				}else{
+//					SECTOR_REC = 0;
+//				}
+//				
+//			}
+////						}
+//			if(count == 450)
+//			{
+//				if(TIME_REC < 1000)
+//				{
+//					TIME_REC++;
+//					Save_time(TIME_REC);
+//					Save_Sflag();
+//				}else{
+//					TIME_REC = 0;
+//				}
+//			}
 			if(count > 494)
 			{
 				count = 0;

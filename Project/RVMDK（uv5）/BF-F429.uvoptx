@@ -120,7 +120,6 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>DLGUARM</Key>
-          <Name>/</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -148,7 +147,56 @@
           <Name></Name>
         </SetRegEntry>
       </TargetDriverDllRegistry>
-      <Breakpoint/>
+      <Breakpoint>
+        <Bp>
+          <Number>0</Number>
+          <Type>0</Type>
+          <LineNumber>1701</LineNumber>
+          <EnabledFlag>0</EnabledFlag>
+          <Address>134320166</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>F:\JK508\Project\User\touchscreen.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\LCD\../../User/touchscreen.c\1701</Expression>
+        </Bp>
+        <Bp>
+          <Number>1</Number>
+          <Type>0</Type>
+          <LineNumber>1744</LineNumber>
+          <EnabledFlag>0</EnabledFlag>
+          <Address>134320376</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>F:\JK508\Project\User\touchscreen.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\LCD\../../User/touchscreen.c\1744</Expression>
+        </Bp>
+        <Bp>
+          <Number>2</Number>
+          <Type>0</Type>
+          <LineNumber>209</LineNumber>
+          <EnabledFlag>0</EnabledFlag>
+          <Address>0</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>0</BreakIfRCount>
+          <Filename>..\..\User\RTC\bsp_rtc.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression></Expression>
+        </Bp>
+      </Breakpoint>
       <WatchWindow1>
         <Ww>
           <count>0</count>
@@ -218,7 +266,7 @@
         <Ww>
           <count>13</count>
           <WinNumber>1</WinNumber>
-          <ItemText>RecBuff</ItemText>
+          <ItemText>RecBuff,0x10</ItemText>
         </Ww>
         <Ww>
           <count>14</count>
@@ -298,7 +346,7 @@
         <Ww>
           <count>29</count>
           <WinNumber>1</WinNumber>
-          <ItemText>serec</ItemText>
+          <ItemText>serec,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>30</count>
@@ -1153,7 +1201,7 @@
       <GroupNumber>4</GroupNumber>
       <FileNumber>57</FileNumber>
       <FileType>1</FileType>
-      <tvExp>0</tvExp>
+      <tvExp>1</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\User\touchscreen.c</PathWithFileName>

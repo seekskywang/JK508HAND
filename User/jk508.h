@@ -58,6 +58,7 @@ extern u8 fileflag;
 extern u8 sendflag;
 extern u8 date_page;
 extern u8 time_page;
+extern u8 press;
 
 void page_home(void);
 void page_set(void);
@@ -113,6 +114,7 @@ void ChannelSwtichMid(void);
 void ChannelSwtichSml(void);
 void SetTctype(u8 type);
 void DrawLogo(u16 x,u16 y);
+void dim_set(u8 key);
 
 extern u8 usbbuf[0x40];
 uint16_t CRC16(uint8_t *puchMsg, uint8_t Len);
@@ -765,5 +767,7 @@ uint32_t Flash_DisableReadProtection(void);
 #define DIMY2			213
 #define TOUCHY1			212			
 #define TOUCHY2			243
+
+
 
 #endif

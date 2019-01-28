@@ -1740,8 +1740,8 @@ void TouchHandle(u16 x,u16 y)
 						{
 							case set_lang:
 							{
-								LCD_SetTextColor(LCD_COLOR_BLACK);
-								LCD_SetBackColor(LCD_COLOR_YELLOW);
+								LCD_SetBackColor(LCD_COLOR_BACK);
+								LCD_SetTextColor(LCD_COLOR_YELLOW);
 								LCD_DisplayStringLine(50,170,"CHINESE");
 								LANG = chs;
 								page_sys();
@@ -1771,16 +1771,19 @@ void TouchHandle(u16 x,u16 y)
 							}break;
 							case set_brt:
 							{
+								press = 1;
 								brt_set(1);
 								press = 1;
 							}break;
 							case set_dim:
 							{
+								press = 1;
 								dim_set(1);
 								press = 1;
 							}break;
 							case set_touch:
 							{
+								press = 1;
 								touch_set(1);
 								press = 1;
 							}break;
@@ -1799,8 +1802,8 @@ void TouchHandle(u16 x,u16 y)
 						{
 							case set_lang:
 							{
-								LCD_SetTextColor(LCD_COLOR_BLACK);
-								LCD_SetBackColor(LCD_COLOR_YELLOW);
+								LCD_SetBackColor(LCD_COLOR_BACK);
+								LCD_SetTextColor(LCD_COLOR_YELLOW);
 								LCD_DisplayStringLine(50,170,"ENGLISH");
 								LANG = eng;
 								page_sys();
@@ -1830,16 +1833,19 @@ void TouchHandle(u16 x,u16 y)
 							}break;
 							case set_brt:
 							{
+								press = 1;
 								brt_set(2);
 								press = 1;
 							}break;
 							case set_dim:
 							{
+								press = 1;
 								dim_set(2);
 								press = 1;
 							}break;
 							case set_touch:
 							{
+								press = 1;
 								touch_set(2);
 								press = 1;
 							}break;
@@ -1874,11 +1880,13 @@ void TouchHandle(u16 x,u16 y)
 							}break;				
 							case set_brt:
 							{
+								press = 1;
 								brt_set(3);
 								press = 1;
 							}break;
 							case set_dim:
 							{
+								press = 1;
 								dim_set(3);
 								press = 1;
 							}break;
@@ -1912,11 +1920,13 @@ void TouchHandle(u16 x,u16 y)
 							}break;				
 							case set_brt:
 							{
+								press = 1;
 								brt_set(4);
 								press = 1;
 							}break;
 							case set_dim:
 							{
+								press = 1;
 								dim_set(4);
 								press = 1;
 							}break;
@@ -1972,6 +1982,7 @@ void TouchHandle(u16 x,u16 y)
 							}break;
 							case set_brt:
 							{
+								press = 1;
 								if(op_sw == op_on)
 								{
 									brt_set(5);
@@ -1982,6 +1993,7 @@ void TouchHandle(u16 x,u16 y)
 							}break;
 							case set_dim:
 							{
+								press = 1;
 								if(op_sw == op_on)
 								{
 									dim_set(5);
@@ -1997,6 +2009,10 @@ void TouchHandle(u16 x,u16 y)
 					}
 				}
 
+			}break;
+			case settings:
+			{
+				
 			}break;
 		}
 		

@@ -1069,7 +1069,12 @@ void brt_set(u8 key)
 	Drawsysmenu();
 	LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
 	LCD_DrawFullRect(170,130,55,32);
-	focus_on1();
+	if(press != 1)
+	{
+		focus_on1();
+	}else{
+		focus_off1();
+	}
 	if(key == 1)
 	{
 		LCD_DisplayStringLine(130,170,"10");
@@ -1104,7 +1109,12 @@ void dim_set(u8 key)
 	Drawsysmenu();
 	LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
 	LCD_DrawFullRect(170,172,55,32);
-	focus_on1();
+	if(press != 1)
+	{
+		focus_on1();
+	}else{
+		focus_off1();
+	}
 	if(LANG == chs)
 	{
 		if(key == 1)
@@ -1181,7 +1191,12 @@ void touch_set(u8 key)
 	Drawsysmenu();
 	LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
 	LCD_DrawFullRect(170,210,55,32);
-	focus_on1();
+	if(press != 1)
+	{
+		focus_on1();
+	}else{
+		focus_off1();
+	}
 	if(LANG == chs)
 	{
 		if(key == 1)
@@ -13544,7 +13559,7 @@ void Utest(void)
 		s = CH376FileCreatePath(TarName);
 		if(s != 0x14)
 		{
-			fileflag = 0;
+			//fileflag = 0;
 		}
 		
 		switch(TCTYPE)
@@ -13589,7 +13604,7 @@ void Utest(void)
 		s = CH376ByteWrite( buf, strlen((const char *)buf), NULL );
 		if(s != 0x14)
 		{
-			fileflag = 0;
+			//fileflag = 0;
 		}
 		switch(UNIT)
 		{
@@ -13609,32 +13624,33 @@ void Utest(void)
 		s = CH376ByteWrite(buf, strlen((const char *)buf), NULL );
 		if(s != 0x14)
 		{
-			fileflag = 0;
+			//fileflag = 0;
 		}
 		CH376ByteLocate(0xFFFFFFFF);
 		sprintf((char *)buf,"\t日期\t时间\t通道1\t通道2\t通道3\t通道4\t通道5\t通道6\t通道7\t通道8\t通道9\t通道10\t通道11\t通道12\t通道13\t通道14\t通道15\t通道16");
 		s = CH376ByteWrite(buf, strlen((const char *)buf), NULL );
 		if(s != 0x14)
 		{
-			fileflag = 0;
+			//fileflag = 0;
 		}
 		s = CH376FileClose(TRUE);
 		if(s != 0x14)
 		{
-			fileflag = 0;
+			//fileflag = 0;
 		}
 	}
+	Delay(100);
 //	s = CH376FileOpenPath("\\TEST.XLS");
 	strcpy((char *)TarName,filename);
 	s = CH376FileOpenPath(TarName);
 	if(s != 0x14)
 	{
-		fileflag = 0;
+		//fileflag = 0;
 	}
 	s = CH376ByteLocate(0xFFFFFFFF);
 	if(s != 0x14)
 	{
-		fileflag = 0;
+		//fileflag = 0;
 	}
 	//////// 写入
 	udcount++;
@@ -13650,7 +13666,7 @@ void Utest(void)
 	s = CH376ByteWrite( buf, strlen((const char *)buf), NULL ); 
 	if(s != 0x14)
 	{
-		fileflag = 0;
+		//fileflag = 0;
 	}
 	for(i=0;i<16;i++)
 	{
@@ -13664,7 +13680,7 @@ void Utest(void)
 		s = CH376ByteWrite( buf, strlen((const char *)buf), NULL );
 		if(s != 0x14)
 		{
-			fileflag = 0;
+			//fileflag = 0;
 		}
 	}
 //	strcpy((char *)buf, "Test ,Hello World!" );
@@ -13674,7 +13690,7 @@ void Utest(void)
 	s = CH376FileClose(TRUE);
 	if(s != 0x14)
 	{
-		fileflag = 0;
+		//fileflag = 0;
 	}
 }
 
