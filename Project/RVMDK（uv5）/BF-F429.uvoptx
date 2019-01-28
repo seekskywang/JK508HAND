@@ -183,6 +183,22 @@
         <Bp>
           <Number>2</Number>
           <Type>0</Type>
+          <LineNumber>1745</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134320382</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>F:\JK508\Project\User\touchscreen.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\LCD\../../User/touchscreen.c\1745</Expression>
+        </Bp>
+        <Bp>
+          <Number>3</Number>
+          <Type>0</Type>
           <LineNumber>209</LineNumber>
           <EnabledFlag>0</EnabledFlag>
           <Address>0</Address>
