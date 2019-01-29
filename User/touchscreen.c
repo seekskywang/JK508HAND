@@ -1691,7 +1691,7 @@ void TouchHandle(u16 x,u16 y)
 					op_sw = op_on;
 					op_flag = set_lang;
 					press = 1;
-				}
+				}else
 				if(x >= DATEX1 && x <= DATEX2 && y >= DATEY1 && y <= DATEY2)
 				{
 					DrawMenu();
@@ -1699,7 +1699,7 @@ void TouchHandle(u16 x,u16 y)
 					op_sw = op_on;
 					op_flag = set_date;
 					press = 1;
-				}
+				}else
 				if(x >= TIMEX1 && x <= TIMEX2 && y >= TIMEY1 && y <= TIMEY2)
 				{
 					DrawMenu();
@@ -1707,7 +1707,7 @@ void TouchHandle(u16 x,u16 y)
 					op_sw = op_on;
 					op_flag = set_time;
 					press = 1;
-				}
+				}else
 				if(x >= BACKX1 && x <= BACKX2 && y >= BACKY1 && y <= BACKY2)
 				{
 					DrawMenu();
@@ -1715,7 +1715,7 @@ void TouchHandle(u16 x,u16 y)
 					op_sw = op_on;
 					op_flag = set_brt;
 					press = 1;
-				}
+				}else
 				if(x >= DIMX1 && x <= DIMX2 && y >= DIMY1 && y <= DIMY2)
 				{
 					DrawMenu();
@@ -1723,7 +1723,7 @@ void TouchHandle(u16 x,u16 y)
 					op_sw = op_on;
 					op_flag = set_dim;
 					press = 1;
-				}
+				}else
 				if(x >= TOUCHX1 && x <= TOUCHX2 && y >= TOUCHY1 && y <= TOUCHY2)
 				{
 					DrawMenu();
@@ -1731,7 +1731,7 @@ void TouchHandle(u16 x,u16 y)
 					op_sw = op_on;
 					op_flag = set_touch;
 					press = 1;
-				}
+				}else
 				if(x >= MENU1X1 && x <= MENU1X2 && y >= MENUY1 && y <= MENUY2)
 				{
 					if(op_sw == op_on)
@@ -1793,7 +1793,7 @@ void TouchHandle(u16 x,u16 y)
 						press = 1;
 					}
 					
-				}
+				}else
 				if(x >= MENU2X1 && x <= MENU2X2 && y >= MENUY1 && y <= MENUY2)
 				{
 					if(op_sw == op_on)
@@ -1855,7 +1855,7 @@ void TouchHandle(u16 x,u16 y)
 						page_graph();
 						press = 1;
 					}
-				}
+				}else
 				if(x >= MENU3X1 && x <= MENU3X2 && y >= MENUY1 && y <= MENUY2)
 				{
 					if(op_sw == op_on)
@@ -1895,7 +1895,7 @@ void TouchHandle(u16 x,u16 y)
 						page_sys();
 						press = 1;
 					}
-				}
+				}else
 				if(x >= MENU4X1 && x <= MENU4X2 && y >= MENUY1 && y <= MENUY2)
 				{
 					if(op_sw == op_on)
@@ -1935,7 +1935,7 @@ void TouchHandle(u16 x,u16 y)
 						page_set();
 						press = 1;
 					}
-				}
+				}else
 				if(x >= MENU5X1 && x <= MENU5X2 && y >= MENUY1 && y <= MENUY2)
 				{
 					if(op_sw == op_on)
@@ -2007,10 +2007,454 @@ void TouchHandle(u16 x,u16 y)
 						page_sysinfo();
 						press = 1;
 					}
-				}
+				}else if(x >= SYSBLANKX1 && x <= SYSBLANKX2 && y >= SYSBLANKY1 && y <= SYSBLANKY2){
+					DrawMenu();
+					Drawsysmenu();
+					op_sw = op_off;
+					press = 1;
+				}	
 
 			}break;
 			case settings:
+			{
+				if(x >= COMPX1 && x <= COMPX2 && y >= COMPY1 && y <= COMPY2)
+				{
+					DrawMenu();//重绘菜单栏
+					LCD_SetTextColor(LCD_COLOR_YELLOW);
+					LCD_SetBackColor(LCD_COLOR_BLACK);
+					if(LANG == chs)
+					{
+						LCD_DisplayStringLine(445,35,"打开");
+						LCD_DisplayStringLine(445,157,"关闭");
+					}else{
+						LCD_DisplayStringLine(445,35,"ON");
+						LCD_DisplayStringLine(445,157,"OFF");
+					}
+					op_sw = op_on;
+					press = 1;
+					op_flag = set_filter;
+				}else if(x >= SPEEDX1 && x <= SPEEDX2 && y >= SPEEDY1 && y <= SPEEDY2){
+					DrawMenu();//重绘菜单栏
+					LCD_SetTextColor(LCD_COLOR_YELLOW);
+					LCD_SetBackColor(LCD_COLOR_BLACK);
+					if(LANG == chs)
+					{
+						LCD_DisplayStringLine(445,35,"快速");
+						LCD_DisplayStringLine(445,157,"中速");
+						LCD_DisplayStringLine(445,292,"慢速");
+					}else{
+						LCD_DisplayStringLine(445,35,"FAST");
+						LCD_DisplayStringLine(445,157,"MED");
+						LCD_DisplayStringLine(445,292,"SLOW");
+					}
+					op_sw = op_on;
+					press = 1;
+					op_flag = set_spd;
+				}else if(x >= BEEPX1 && x <= BEEPX2 && y >= BEEPY1 && y <= BEEPY2){
+					DrawMenu();//重绘菜单栏
+					LCD_SetTextColor(LCD_COLOR_YELLOW);
+					LCD_SetBackColor(LCD_COLOR_BLACK);
+					if(LANG == chs)
+					{
+						LCD_DisplayStringLine(445,35,"打开");
+						LCD_DisplayStringLine(445,157,"关闭");
+					}else{
+						LCD_DisplayStringLine(445,35,"ON");
+						LCD_DisplayStringLine(445,157,"OFF");
+					}
+					op_sw = op_on;
+					press = 1;
+					op_flag = set_beep;
+				}else if(x >= BAUDX1 && x <= BAUDX2 && y >= BEEPY1 && y <= BEEPY2){
+					DrawMenu();//重绘菜单栏
+					LCD_SetTextColor(LCD_COLOR_YELLOW);
+					LCD_SetBackColor(LCD_COLOR_BLACK);
+					LCD_DisplayStringLine(445,30,"9600");
+					LCD_DisplayStringLine(445,150,"19200");
+					LCD_DisplayStringLine(445,280,"38400");
+					LCD_DisplayStringLine(445,405,"57600");
+					LCD_DisplayStringLine(445,525,"115200");
+					op_sw = op_on;
+					press = 1;
+					op_flag = set_baud;
+				}else if(x >= UNITX1 && x <= UNITX2 && y >= UNITY1 && y <= UNITY2){
+					DrawMenu();//重绘菜单栏
+					LCD_SetTextColor(LCD_COLOR_YELLOW);
+					LCD_SetBackColor(LCD_COLOR_BLACK);
+					DISP_CNL_S(445,48,"o");
+					LCD_DisplayStringLine(445,53,"C");
+					LCD_DisplayStringLine(445,173,"K");
+					DISP_CNL_S(445,298,"o");
+					LCD_DisplayStringLine(445,303,"F");
+					op_sw = op_on;
+					press = 1;
+					op_flag = set_unit;
+				}else
+				if(x >= MENU1X1 && x <= MENU1X2 && y >= MENUY1 && y <= MENUY2)
+				{
+					press = 1;
+					if(op_sw == op_on)
+					{
+						switch(op_flag)
+						{
+							case set_filter:
+							{
+								if(op_sw == op_on)
+								{
+									DrawMenu();//重绘菜单栏
+									Drawsetmenu();
+									LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
+									LCD_DrawFullRect(150,50,48,31);
+									focus_off1();
+									if(LANG == chs)
+									{
+										LCD_DisplayStringLine(50,150,"打开");
+									}else{
+										LCD_DisplayStringLine(50,150,"ON");
+									}
+									FILTER = ft_on;
+									op_sw = op_off;
+									Save_flag();
+								}else{
+									page_home();
+								}
+							}break;
+							case set_beep:
+							{
+								if(op_sw == op_on)
+								{
+									DrawMenu();//重绘菜单栏
+									Drawsetmenu();
+									LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
+									LCD_DrawFullRect(150,90,48,31);
+									focus_off1();
+									if(LANG == chs)
+									{
+										LCD_DisplayStringLine(90,150,"打开");
+									}else{
+										LCD_DisplayStringLine(90,150,"ON");
+									}
+									BEEP = beep_on;
+									op_sw = op_off;
+									Save_flag();
+								}else{
+									page_home();
+								}
+							}break;
+							case set_unit:
+							{
+								if(op_sw == op_on)
+								{
+									DrawMenu();//重绘菜单栏
+									Drawsetmenu();
+//									LCD_SetColors(LCD_COLOR_YELLOW,LCD_COLOR_YELLOW);
+//									LCD_DrawFullRect(150,127,24,31);
+									LCD_SetBackColor(LCD_COLOR_BACK);
+									LCD_SetTextColor(LCD_COLOR_YELLOW);
+									DISP_CNL_S(127,150,"o");
+									LCD_DisplayStringLine(127,155,"C");
+									UNIT = C;
+									op_sw = op_off;
+									Save_flag();
+									DrawUnit();
+								}else{
+									page_home();
+								}
+							}break;
+							
+							case set_spd:
+							{
+								if(op_sw == op_on)
+								{
+									DrawMenu();//重绘菜单栏
+									Drawsetmenu();
+									focus_off1();
+									if(LANG == chs)
+									{
+										LCD_DisplayStringLine(50,500,"快速");
+									}else{
+										LCD_DisplayStringLine(50,500,"FAST");
+									}
+									SPEED = fast;
+									op_sw = op_off;
+									Save_flag();
+								}else{
+									page_home();
+								}
+							}break;
+							case set_baud:
+							{
+								if(op_sw == op_on)
+								{
+									DrawMenu();//重绘菜单栏
+									Drawsetmenu();
+									LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
+									LCD_DrawFullRect(500,87,96,31);
+									focus_off1();
+									LCD_DisplayStringLine(87,500,"9600");
+									BAUD = b9600;
+									op_sw = op_off;
+									Save_flag();
+								}else{
+									page_home();
+								}
+							}break;
+						}
+					}else{
+						page_home();
+						press = 1;
+					}
+					
+				}else
+				if(x >= MENU2X1 && x <= MENU2X2 && y >= MENUY1 && y <= MENUY2)
+				{
+					press = 1;
+					if(op_sw == op_on)
+					{
+						switch(op_flag)
+						{
+							case set_filter:
+							{
+								if(op_sw == op_on)
+								{
+									DrawMenu();//重绘菜单栏
+									Drawsetmenu();
+									focus_off1();
+									if(LANG == chs)
+									{
+										LCD_DisplayStringLine(50,150,"关闭");
+									}else{
+										LCD_DisplayStringLine(50,150,"OFF");
+									}
+									FILTER = ft_off;
+									op_sw = op_off;
+									Save_flag();
+								}else{
+									page_graph();
+								}
+							}break;
+							case set_beep:
+							{
+								if(op_sw == op_on)
+								{
+									DrawMenu();//重绘菜单栏
+									Drawsetmenu();
+									focus_off1();
+									if(LANG == chs)
+									{
+										LCD_DisplayStringLine(90,150,"关闭");
+									}else{
+										LCD_DisplayStringLine(90,150,"OFF");
+									}
+									BEEP = beep_off;
+									op_sw = op_off;
+									Save_flag();
+								}else{
+									page_graph();
+								}
+							}break;
+							case set_unit:
+							{
+								if(op_sw == op_on)
+								{
+									DrawMenu();//重绘菜单栏
+									Drawsetmenu();
+//									LCD_SetColors(LCD_COLOR_YELLOW,LCD_COLOR_YELLOW);
+//									LCD_DrawFullRect(150,127,24,31);
+									LCD_SetBackColor(LCD_COLOR_BACK);
+									LCD_SetTextColor(LCD_COLOR_YELLOW);					
+									LCD_DisplayStringLine(127,155,"K");
+									UNIT = K;
+									op_sw = op_off;
+									Save_flag();
+									DrawUnit();
+								}else{
+									page_graph();
+								}
+							}break;
+							
+							case set_spd:
+							{
+								if(op_sw == op_on)
+								{
+									DrawMenu();//重绘菜单栏
+									Drawsetmenu();
+									LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
+									LCD_DrawFullRect(500,50,64,31);
+									focus_off1();
+									if(LANG == chs)
+									{
+										LCD_DisplayStringLine(50,500,"中速");
+									}else{
+										LCD_DisplayStringLine(50,500,"MED");
+									}
+									SPEED = moderate;
+									op_sw = op_off;
+									Save_flag();
+								}else{
+									page_graph();
+								}
+							}break;
+							case set_baud:
+							{
+								if(op_sw == op_on)
+								{
+									DrawMenu();//重绘菜单栏
+									Drawsetmenu();
+									LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
+									LCD_DrawFullRect(500,87,96,31);
+									focus_off1();
+									LCD_DisplayStringLine(87,500,"19200");
+									BAUD = b19200;
+									op_sw = op_off;
+									Save_flag();
+								}else{
+									page_graph();
+								}
+							}break;
+						
+						}
+					}else{
+						page_graph();
+						press = 1;
+					}
+				}else
+				if(x >= MENU3X1 && x <= MENU3X2 && y >= MENUY1 && y <= MENUY2)
+				{
+					press = 1;
+					if(op_sw == op_on)
+					{
+						switch(op_flag)
+						{
+							case set_unit:
+							{
+								if(op_sw == op_on)
+								{
+									DrawMenu();//重绘菜单栏
+									Drawsetmenu();
+//									LCD_SetColors(LCD_COLOR_YELLOW,LCD_COLOR_YELLOW);
+//									LCD_DrawFullRect(150,127,24,31);
+									LCD_SetBackColor(LCD_COLOR_BACK);
+									LCD_SetTextColor(LCD_COLOR_YELLOW);					
+									DISP_CNL_S(127,150,"o");
+									LCD_DisplayStringLine(127,155,"F");
+									UNIT = F;
+									op_sw = op_off;
+									Save_flag();
+									DrawUnit();
+								}else{
+									page_sys();
+								}
+							}break;
+							
+							case set_spd:
+							{
+								if(op_sw == op_on)
+								{
+									DrawMenu();//重绘菜单栏
+									Drawsetmenu();
+									focus_off1();
+									if(LANG == chs)
+									{
+										LCD_DisplayStringLine(50,500,"慢速");
+									}else{
+										LCD_DisplayStringLine(50,500,"SLOW");
+									}
+									SPEED = slow;
+									op_sw = op_off;
+									Save_flag();
+								}else{
+									page_sys();
+								}
+							}break;
+							case set_baud:
+							{
+								if(op_sw == op_on)
+								{
+									DrawMenu();//重绘菜单栏
+									Drawsetmenu();
+									LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
+									LCD_DrawFullRect(500,87,96,31);
+									focus_off1();
+									LCD_DisplayStringLine(87,500,"38400");
+									BAUD = b38400;
+									op_sw = op_off;
+									Save_flag();
+								}else{
+									page_sys();
+								}
+							}break;
+						}
+					}else{
+						page_sys();
+						press = 1;
+					}
+				}else
+				if(x >= MENU4X1 && x <= MENU4X2 && y >= MENUY1 && y <= MENUY2)
+				{
+					press = 1;
+					if(op_sw == op_on)
+					{
+						switch(op_flag)
+						{
+							case set_baud:
+							{
+								if(op_sw == op_on)
+								{
+									DrawMenu();//重绘菜单栏
+									Drawsetmenu();
+									LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
+									LCD_DrawFullRect(500,87,96,31);
+									focus_off1();
+									LCD_DisplayStringLine(87,500,"57600");
+									BAUD = b57600;
+									op_sw = op_off;
+									Save_flag();
+								}else{
+									page_set();
+								}
+							}break;
+						}
+					}else{
+						page_cal();
+						press = 1;
+					}
+				}else
+				if(x >= MENU5X1 && x <= MENU5X2 && y >= MENUY1 && y <= MENUY2)
+				{
+					press = 1;
+					if(op_sw == op_on)
+					{
+						switch(op_flag)
+						{
+							case set_baud:
+							{
+								if(op_sw == op_on)
+								{
+									DrawMenu();//重绘菜单栏
+									Drawsetmenu();
+									focus_off1();
+									LCD_DisplayStringLine(87,500,"115200");
+									BAUD = b115200;
+									op_sw = op_off;
+									Save_flag();
+								}else{
+									page_sep();
+								}
+							}break;
+						}
+					}else{
+						page_sep();
+						press = 1;
+					}
+				}else if(x >= SETBLANKX1 && x <= SETBLANKX2 && y >= SETBLANKY1 && y <= SETBLANKY2){
+					DrawMenu();
+					Drawsetmenu();
+					op_sw = op_off;
+					press = 1;
+				}
+			}break;
+			case calibrate:
 			{
 				
 			}break;

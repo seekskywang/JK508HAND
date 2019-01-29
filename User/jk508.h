@@ -754,6 +754,8 @@ uint32_t Flash_DisableReadProtection(void);
 #define DIMX2			218
 #define TOUCHX1			170			
 #define TOUCHX2			218
+#define SYSBLANKX1		5
+#define SYSBLANKX2		635
 
 #define LANGY1			50			
 #define LANGY2			81
@@ -767,7 +769,37 @@ uint32_t Flash_DisableReadProtection(void);
 #define DIMY2			213
 #define TOUCHY1			212			
 #define TOUCHY2			243
+#define SYSBLANKY1		250
+#define SYSBLANKY2		400
 
+/*功能设置*/
+#define COMPX1			150			
+#define COMPX2			200
+#define SPEEDX1			500			
+#define SPEEDX2			550
+#define BEEPX1			150			
+#define BEEPX2			200
+#define BAUDX1			500			
+#define BAUDX2			600
+#define UNITX1			150			
+#define UNITX2			180
+#define SETBLANKX1		5
+#define SETBLANKX2		635
+
+#define COMPY1			50			
+#define COMPY2			75
+#define SPEEDY1			50			
+#define SPEEDY2			75
+#define BEEPY1			90			
+#define BEEPY2			115
+#define BAUDY1			90			
+#define BAUDY2			122
+#define UNITY1			127			
+#define UNITY2			158
+#define SETBLANKY1		155
+#define SETBLANKY2		278
+
+/*校正和分选*/
 
 
 #endif

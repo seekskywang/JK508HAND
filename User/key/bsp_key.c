@@ -1119,7 +1119,7 @@ void dim_set(u8 key)
 	{
 		if(key == 1)
 		{
-			LCD_DisplayStringLine(172,170,"¹Ø±Õ");
+			LCD_DisplayStringLine(174,170,"¹Ø±Õ");
 			LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
 			LCD_DrawFullRect(230,172,55,32);
 			DIM = DOFF;
