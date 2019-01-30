@@ -231,7 +231,9 @@ int main(void)
 	u8 test[9] = {0X01,0X03,0X02,0X58,0X00,0X01,0X02,0X00,0X05};
 	 __IO uint32_t i = 0;
 	static u8 reqtempcount;
-	static u8 udcount;
+	static u8 ucount;
+	static u8 urecount;
+	static u16 usavecount;
 //	u8 res;
   /*!< At this stage the microcontroller clock setting is already configured, 
   this is done through SystemInit() function which is called from startup
@@ -364,26 +366,52 @@ int main(void)
 					TouchHandle(XCOOR,YCOOR);
 				}
 			}
+			if(page_flag != poweron)
+			{
+				if(usavecount == 100)
+				{
+					udisk_scan();
+					usavecount = 0;
+				}else{
+					usavecount++;
+				}
+			}
 	//		Touch_Scan();
 	//		CH1TEMP = (RecBuff[21] * 256 + RecBuff[22])/10.0;
 			DrawBattery(battery);
 			if(uartflag == 1)
 			{
-				UARTRECHANDLE();
+				if(SPEED == fast)
+				{
+					UARTRECHANDLE();
+					urecount = 0;
+				}else if(SPEED == middle){
+					if(urecount == 5)
+					{
+						UARTRECHANDLE();
+						urecount = 0;
+					}
+				}else if(SPEED == slow){
+					if(urecount == 10)
+					{
+						UARTRECHANDLE();
+						urecount = 0;
+					}
+				}					
 				if(usbstatus == CONNECTED)
 				{
-					if(udcount ==5)
+					if(ucount ==5)
 					{
 						Utest();
-						udcount = 0;
+						ucount = 0;
 					}else{
-						udcount ++;
+						ucount ++;
 					}
 				}else{
 					fileflag = 0;
 				}
 				uartflag = 0;
-				
+				urecount++;
 			}
 			TempDisplay();
 			

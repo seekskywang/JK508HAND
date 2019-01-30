@@ -13550,6 +13550,7 @@ void Utest(void)
 	if(fileflag == 0)
 	{
 		fileflag = 1;
+		udcount = 0;
 		sprintf((char *)filename, "/%02d%02d%02d%02d.XLS",MONTH
 											,DATE
 											,HOURS

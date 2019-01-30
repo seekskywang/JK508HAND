@@ -59,6 +59,8 @@ extern u8 sendflag;
 extern u8 date_page;
 extern u8 time_page;
 extern u8 press;
+extern u8 spt_page;
+extern u8 cor_page;
 
 void page_home(void);
 void page_set(void);

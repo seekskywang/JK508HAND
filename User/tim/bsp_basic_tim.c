@@ -264,7 +264,7 @@ void BEEP_TIM_IRQHandler(void)
 void BASIC_TIM_IRQHandler (void)
 {
 	static u8 sendcount;
-	static u16 usavecount;
+//	static u16 usavecount;
 	static u32 dim_time;
 	static u8 dimflag;
 	
@@ -285,14 +285,14 @@ void BASIC_TIM_IRQHandler (void)
 //			USART_ITConfig(DEBUG_USART, USART_IT_RXNE, ENABLE);						
 			sendcount = 0;
 		}
-		if(usavecount == 100 && GPIO_ReadInputDataBit(GPIOI,GPIO_Pin_11))
-		{
-			if(page_flag != poweron)
-			{
-				udisk_scan();
-			}
-			usavecount = 0;
-		}
+//		if(usavecount == 100 && GPIO_ReadInputDataBit(GPIOI,GPIO_Pin_11))
+//		{
+//			if(page_flag != poweron)
+//			{
+//				udisk_scan();
+//			}
+//			usavecount = 0;
+//		}
 //		if(usave == 100)
 //		{
 ////			if(usbstatus == CONNECTED)
@@ -351,7 +351,7 @@ void BASIC_TIM_IRQHandler (void)
 			dim_time = 0;
 		}
 		sendcount ++;
-		usavecount ++;
+//		usavecount ++;
 //		usave ++;
 		TIM_ClearITPendingBit(BASIC_TIM,TIM_IT_Update);
 	}
