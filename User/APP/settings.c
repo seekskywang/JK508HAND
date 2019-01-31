@@ -79,10 +79,10 @@ void page_set(void)
 		LCD_DisplayStringLine(130,10,"单位");
 //		LCD_DisplayStringLine(170,10,"字体");
 		LCD_DisplayStringLine(280,10,"U盘设置");
-		LCD_DisplayStringLine(320,10,"文件名");
+		LCD_DisplayStringLine(320,10,"定时");
 		LCD_DisplayStringLine(50,360,"速度");
 		LCD_DisplayStringLine(90,360,"波特");
-		LCD_DisplayStringLine(320,360,"定时");
+//		LCD_DisplayStringLine(320,360,"定时");
 	}else{
 		LCD_DisplayStringLine(3,10, "<SETUP>");
 		
@@ -93,10 +93,10 @@ void page_set(void)
 		LCD_DisplayStringLine(127,10,"UNIT");
 //		LCD_DisplayStringLine(170,10,"FONT");
 		LCD_DisplayStringLine(280,10,"USBHDD SET");
-		LCD_DisplayStringLine(317,10,"NAME");
+		LCD_DisplayStringLine(317,10,"TIME");
 		LCD_DisplayStringLine(50,360,"SPEED");
 		LCD_DisplayStringLine(90,360,"BAUD");
-		LCD_DisplayStringLine(320,360,"TIME");
+//		LCD_DisplayStringLine(320,360,"TIME");
 	}
 	
 	LCD_SetTextColor(LCD_COLOR_BLACK);
@@ -172,7 +172,7 @@ void page_set(void)
 //		}
 //	}
 	
-	LCD_DisplayStringLine(317,150,"AUTO");
+//	LCD_DisplayStringLine(317,150,"AUTO");
 	
 	if(SPEED == fast)
 	{
@@ -211,8 +211,8 @@ void page_set(void)
 		LCD_DisplayStringLine(87,500,"115200");
 	}
 	
-	LCD_DisplayStringLine(317,500,"1");
-	LCD_DisplayStringLine(319,516,"S");
+	LCD_DisplayStringLine(317,150,"1");
+	LCD_DisplayStringLine(319,166,"S");
 	
 	if(LANG == chs)
 	{
@@ -223,4 +223,5 @@ void page_set(void)
 	
 	page_flag = settings;
 	op_flag = set_filter;
+	bit_flag = 1;
 }

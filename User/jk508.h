@@ -82,7 +82,7 @@ void Read_Flash_Init_Handle(void);
 void Erase_all(void);
 u8 PowerOffDetect(void);
 void PowerOffHandle(void);
-
+void ButtonSound(void);
 
 u8 udisk_scan(void);
 void Delay(__IO u32 nCount);
@@ -423,6 +423,7 @@ uint32_t Flash_DisableReadProtection(void);
 #define   DIM						savedata[50]  //降低亮度标志位
 #define   CHNUM						savedata[51]//设备通道数
 #define   TOUCH						savedata[52]//设备通道数
+#define   SAVETIME					savedata[53]//设备通道数
 
 /* 校准参数 */
 #define   XCOR						corpara[0]  

@@ -281,6 +281,7 @@ void TouchHandle(u16 x,u16 y)
 
 	if(touchflag == 1 && press == 0)
 	{
+		
 		switch(page_flag)
 		{
 			case display:
@@ -326,6 +327,7 @@ void TouchHandle(u16 x,u16 y)
 					op_flag = set_font;
 					op_sw = op_on;
 					press = 1;
+					ButtonSound();//°´¼üÒô
 				}
 				if(x >= TCTYPEX1 && x <= TCTYPEX2 && y >= TCTYPEY1 && y <= TCTYPEY2)
 				{
@@ -350,6 +352,7 @@ void TouchHandle(u16 x,u16 y)
 					}
 					op_flag = type_1;
 					press = 1;
+					ButtonSound();//°´¼üÒô
 				}
 				
 				if(x >= MENU1X1 && x <= MENU1X2 && y >= MENUY1 && y <= MENUY2)
@@ -422,6 +425,7 @@ void TouchHandle(u16 x,u16 y)
 						}break;
 					}
 					press = 1;
+					ButtonSound();//°´¼üÒô
 				}
 				if(x >= MENU2X1 && x <= MENU2X2 && y >= MENUY1 && y <= MENUY2)
 				{
@@ -480,6 +484,7 @@ void TouchHandle(u16 x,u16 y)
 						}break;
 					}
 					press = 1;
+					ButtonSound();//°´¼üÒô
 				}
 				if(x >= MENU3X1 && x <= MENU3X2 && y >= MENUY1 && y <= MENUY2)
 				{
@@ -538,6 +543,7 @@ void TouchHandle(u16 x,u16 y)
 						}break;
 					}
 					press = 1;
+					ButtonSound();//°´¼üÒô
 				}
 				if(x >= MENU4X1 && x <= MENU4X2 && y >= MENUY1 && y <= MENUY2)
 				{
@@ -575,6 +581,7 @@ void TouchHandle(u16 x,u16 y)
 						}break;
 					}
 					press = 1;
+					ButtonSound();//°´¼üÒô
 				}
 				if(x >= MENU5X1 && x <= MENU5X2 && y >= MENUY1 && y <= MENUY2)
 				{
@@ -630,6 +637,7 @@ void TouchHandle(u16 x,u16 y)
 						}break;						
 					}
 					press = 1;
+					ButtonSound();//°´¼üÒô
 				}
 				if(FONT == big)
 				{
@@ -1682,27 +1690,32 @@ void TouchHandle(u16 x,u16 y)
 				{
 					page_home();
 					press = 1;
+					ButtonSound();//°´¼üÒô
 				}
 				if(x >= MENU2X1 && x <= MENU2X2 && y >= MENUY1 && y <= MENUY2)
 				{
 					page_his();
 					press = 1;
+					ButtonSound();//°´¼üÒô
 				}
 				if(x >= MENU3X1 && x <= MENU3X2 && y >= MENUY1 && y <= MENUY2)
 				{
 					page_sys();
 					press = 1;
+					ButtonSound();//°´¼üÒô
 				}
 				if(x >= MENU4X1 && x <= MENU4X2 && y >= MENUY1 && y <= MENUY2)
 				{
 					
 					page_set();
 					press = 1;
+					ButtonSound();//°´¼üÒô
 				}
 				if(x >= MENU5X1 && x <= MENU5X2 && y >= MENUY1 && y <= MENUY2)
 				{
 					page_gset();
 					press = 1;
+					ButtonSound();//°´¼üÒô
 				}
 			}break;
 			case sysset:
@@ -1714,6 +1727,7 @@ void TouchHandle(u16 x,u16 y)
 					op_sw = op_on;
 					op_flag = set_lang;
 					press = 1;
+					ButtonSound();//°´¼üÒô
 				}else
 				if(x >= DATEX1 && x <= DATEX2 && y >= DATEY1 && y <= DATEY2)
 				{
@@ -1722,6 +1736,7 @@ void TouchHandle(u16 x,u16 y)
 					op_sw = op_on;
 					op_flag = set_date;
 					press = 1;
+					ButtonSound();//°´¼üÒô
 				}else
 				if(x >= TIMEX1 && x <= TIMEX2 && y >= TIMEY1 && y <= TIMEY2)
 				{
@@ -1730,6 +1745,7 @@ void TouchHandle(u16 x,u16 y)
 					op_sw = op_on;
 					op_flag = set_time;
 					press = 1;
+					ButtonSound();//°´¼üÒô
 				}else
 				if(x >= BACKX1 && x <= BACKX2 && y >= BACKY1 && y <= BACKY2)
 				{
@@ -1738,6 +1754,7 @@ void TouchHandle(u16 x,u16 y)
 					op_sw = op_on;
 					op_flag = set_brt;
 					press = 1;
+					ButtonSound();//°´¼üÒô
 				}else
 				if(x >= DIMX1 && x <= DIMX2 && y >= DIMY1 && y <= DIMY2)
 				{
@@ -1746,6 +1763,7 @@ void TouchHandle(u16 x,u16 y)
 					op_sw = op_on;
 					op_flag = set_dim;
 					press = 1;
+					ButtonSound();//°´¼üÒô
 				}else
 				if(x >= TOUCHX1 && x <= TOUCHX2 && y >= TOUCHY1 && y <= TOUCHY2)
 				{
@@ -1754,6 +1772,7 @@ void TouchHandle(u16 x,u16 y)
 					op_sw = op_on;
 					op_flag = set_touch;
 					press = 1;
+					ButtonSound();//°´¼üÒô
 				}else
 				if(x >= MENU1X1 && x <= MENU1X2 && y >= MENUY1 && y <= MENUY2)
 				{
@@ -1771,6 +1790,7 @@ void TouchHandle(u16 x,u16 y)
 								op_sw =op_off;
 								Save_flag();
 								press = 1;
+								ButtonSound();//°´¼üÒô
 							}break;
 							case set_date:
 							{
@@ -1781,6 +1801,7 @@ void TouchHandle(u16 x,u16 y)
 									plus_day();
 								}
 								press = 1;
+								ButtonSound();//°´¼üÒô
 							}break;
 							case set_time:
 							{
@@ -1791,29 +1812,34 @@ void TouchHandle(u16 x,u16 y)
 									plus_sec();
 								}
 								press = 1;
+								ButtonSound();//°´¼üÒô
 							}break;
 							case set_brt:
 							{
 								press = 1;
 								brt_set(1);
 								press = 1;
+								ButtonSound();//°´¼üÒô
 							}break;
 							case set_dim:
 							{
 								press = 1;
 								dim_set(1);
 								press = 1;
+								ButtonSound();//°´¼üÒô
 							}break;
 							case set_touch:
 							{
 								press = 1;
 								touch_set(1);
 								press = 1;
+								ButtonSound();//°´¼üÒô
 							}break;
 						}
 					}else{
 						page_home();
 						press = 1;
+						ButtonSound();//°´¼üÒô
 					}
 					
 				}else
@@ -1833,6 +1859,7 @@ void TouchHandle(u16 x,u16 y)
 								op_sw = op_off;
 								Save_flag();
 								press = 1;
+								ButtonSound();//°´¼üÒô
 							}break;
 							case set_date:
 							{
@@ -1843,6 +1870,7 @@ void TouchHandle(u16 x,u16 y)
 									minus_day();
 								}
 								press = 1;
+								ButtonSound();//°´¼üÒô
 							}break;
 							case set_time:
 							{
@@ -1853,30 +1881,35 @@ void TouchHandle(u16 x,u16 y)
 									minus_sec();
 								}
 								press = 1;
+								ButtonSound();//°´¼üÒô
 							}break;
 							case set_brt:
 							{
 								press = 1;
 								brt_set(2);
 								press = 1;
+								ButtonSound();//°´¼üÒô
 							}break;
 							case set_dim:
 							{
 								press = 1;
 								dim_set(2);
 								press = 1;
+								ButtonSound();//°´¼üÒô
 							}break;
 							case set_touch:
 							{
 								press = 1;
 								touch_set(2);
 								press = 1;
+								ButtonSound();//°´¼üÒô
 							}break;
 						
 						}
 					}else{
 						page_graph();
 						press = 1;
+						ButtonSound();//°´¼üÒô
 					}
 				}else
 				if(x >= MENU3X1 && x <= MENU3X2 && y >= MENUY1 && y <= MENUY2)
@@ -1892,6 +1925,7 @@ void TouchHandle(u16 x,u16 y)
 									plus_mon();
 								}
 								press = 1;
+								ButtonSound();//°´¼üÒô
 							}break;
 							case set_time:
 							{
@@ -1900,23 +1934,27 @@ void TouchHandle(u16 x,u16 y)
 									plus_min();
 								}
 								press = 1;
+								ButtonSound();//°´¼üÒô
 							}break;				
 							case set_brt:
 							{
 								press = 1;
 								brt_set(3);
 								press = 1;
+								ButtonSound();//°´¼üÒô
 							}break;
 							case set_dim:
 							{
 								press = 1;
 								dim_set(3);
 								press = 1;
+								ButtonSound();//°´¼üÒô
 							}break;
 						}
 					}else{
 						page_sys();
 						press = 1;
+						ButtonSound();//°´¼üÒô
 					}
 				}else
 				if(x >= MENU4X1 && x <= MENU4X2 && y >= MENUY1 && y <= MENUY2)
@@ -1932,6 +1970,7 @@ void TouchHandle(u16 x,u16 y)
 									minus_mon();
 								}
 								press = 1;
+								ButtonSound();//°´¼üÒô
 							}break;
 							case set_time:
 							{
@@ -1940,23 +1979,27 @@ void TouchHandle(u16 x,u16 y)
 									minus_min();
 								}
 								press = 1;
+								ButtonSound();//°´¼üÒô
 							}break;				
 							case set_brt:
 							{
 								press = 1;
 								brt_set(4);
 								press = 1;
+								ButtonSound();//°´¼üÒô
 							}break;
 							case set_dim:
 							{
 								press = 1;
 								dim_set(4);
 								press = 1;
+								ButtonSound();//°´¼üÒô
 							}break;
 						}
 					}else{
 						page_set();
 						press = 1;
+						ButtonSound();//°´¼üÒô
 					}
 				}else
 				if(x >= MENU5X1 && x <= MENU5X2 && y >= MENUY1 && y <= MENUY2)
@@ -1983,6 +2026,7 @@ void TouchHandle(u16 x,u16 y)
 									page_sysinfo();
 								}
 								press = 1;
+								ButtonSound();//°´¼üÒô
 							}break;
 							case set_time:
 							{
@@ -2002,6 +2046,7 @@ void TouchHandle(u16 x,u16 y)
 									page_sysinfo();
 								}
 								press = 1;
+								ButtonSound();//°´¼üÒô
 							}break;
 							case set_brt:
 							{
@@ -2013,6 +2058,7 @@ void TouchHandle(u16 x,u16 y)
 									page_sysinfo();
 								}
 								press = 1;
+								ButtonSound();//°´¼üÒô
 							}break;
 							case set_dim:
 							{
@@ -2024,17 +2070,20 @@ void TouchHandle(u16 x,u16 y)
 									page_sysinfo();
 								}
 								press = 1;
+								ButtonSound();//°´¼üÒô
 							}break;
 						}
 					}else{
 						page_sysinfo();
 						press = 1;
+						ButtonSound();//°´¼üÒô
 					}
 				}else if(x >= SYSBLANKX1 && x <= SYSBLANKX2 && y >= SYSBLANKY1 && y <= SYSBLANKY2){
 					DrawMenu();
 					Drawsysmenu();
 					op_sw = op_off;
 					press = 1;
+					ButtonSound();//°´¼üÒô
 				}	
 
 			}break;
@@ -2055,6 +2104,7 @@ void TouchHandle(u16 x,u16 y)
 					}
 					op_sw = op_on;
 					press = 1;
+					ButtonSound();//°´¼üÒô
 					op_flag = set_filter;
 				}else if(x >= SPEEDX1 && x <= SPEEDX2 && y >= SPEEDY1 && y <= SPEEDY2){
 					DrawMenu();//ÖØ»æ²Ëµ¥À¸
@@ -2072,6 +2122,7 @@ void TouchHandle(u16 x,u16 y)
 					}
 					op_sw = op_on;
 					press = 1;
+					ButtonSound();//°´¼üÒô
 					op_flag = set_spd;
 				}else if(x >= BEEPX1 && x <= BEEPX2 && y >= BEEPY1 && y <= BEEPY2){
 					DrawMenu();//ÖØ»æ²Ëµ¥À¸
@@ -2087,6 +2138,7 @@ void TouchHandle(u16 x,u16 y)
 					}
 					op_sw = op_on;
 					press = 1;
+					ButtonSound();//°´¼üÒô
 					op_flag = set_beep;
 				}else if(x >= BAUDX1 && x <= BAUDX2 && y >= BEEPY1 && y <= BEEPY2){
 					DrawMenu();//ÖØ»æ²Ëµ¥À¸
@@ -2099,6 +2151,7 @@ void TouchHandle(u16 x,u16 y)
 					LCD_DisplayStringLine(445,525,"115200");
 					op_sw = op_on;
 					press = 1;
+					ButtonSound();//°´¼üÒô
 					op_flag = set_baud;
 				}else if(x >= UNITX1 && x <= UNITX2 && y >= UNITY1 && y <= UNITY2){
 					DrawMenu();//ÖØ»æ²Ëµ¥À¸
@@ -2111,11 +2164,13 @@ void TouchHandle(u16 x,u16 y)
 					LCD_DisplayStringLine(445,303,"F");
 					op_sw = op_on;
 					press = 1;
+					ButtonSound();//°´¼üÒô
 					op_flag = set_unit;
 				}else
 				if(x >= MENU1X1 && x <= MENU1X2 && y >= MENUY1 && y <= MENUY2)
 				{
 					press = 1;
+					ButtonSound();//°´¼üÒô
 					if(op_sw == op_on)
 					{
 						switch(op_flag)
@@ -2226,12 +2281,14 @@ void TouchHandle(u16 x,u16 y)
 					}else{
 						page_home();
 						press = 1;
+						ButtonSound();//°´¼üÒô
 					}
 					
 				}else
 				if(x >= MENU2X1 && x <= MENU2X2 && y >= MENUY1 && y <= MENUY2)
 				{
 					press = 1;
+					ButtonSound();//°´¼üÒô
 					if(op_sw == op_on)
 					{
 						switch(op_flag)
@@ -2345,6 +2402,7 @@ void TouchHandle(u16 x,u16 y)
 				if(x >= MENU3X1 && x <= MENU3X2 && y >= MENUY1 && y <= MENUY2)
 				{
 					press = 1;
+					ButtonSound();//°´¼üÒô
 					if(op_sw == op_on)
 					{
 						switch(op_flag)
@@ -2416,6 +2474,7 @@ void TouchHandle(u16 x,u16 y)
 				if(x >= MENU4X1 && x <= MENU4X2 && y >= MENUY1 && y <= MENUY2)
 				{
 					press = 1;
+					ButtonSound();//°´¼üÒô
 					if(op_sw == op_on)
 					{
 						switch(op_flag)
@@ -2441,11 +2500,13 @@ void TouchHandle(u16 x,u16 y)
 					}else{
 						page_cal();
 						press = 1;
+						ButtonSound();//°´¼üÒô
 					}
 				}else
 				if(x >= MENU5X1 && x <= MENU5X2 && y >= MENUY1 && y <= MENUY2)
 				{
 					press = 1;
+					ButtonSound();//°´¼üÒô
 					if(op_sw == op_on)
 					{
 						switch(op_flag)
@@ -2469,16 +2530,19 @@ void TouchHandle(u16 x,u16 y)
 					}else{
 						page_sep();
 						press = 1;
+						ButtonSound();//°´¼üÒô
 					}
 				}else if(x >= SETBLANKX1 && x <= SETBLANKX2 && y >= SETBLANKY1 && y <= SETBLANKY2){
 					DrawMenu();
 					Drawsetmenu();
 					op_sw = op_off;
 					press = 1;
+					ButtonSound();//°´¼üÒô
 				}
 			}break;
 			case calibrate:
 			{
+				ButtonSound();//°´¼üÒô
 				if(x >= MENU1X1 && x <= MENU1X2 && y >= MENUY1 && y <= MENUY2)
 				{
 					
@@ -2680,6 +2744,7 @@ void TouchHandle(u16 x,u16 y)
 			}break;
 			case separation:
 			{
+				ButtonSound();//°´¼üÒô
 				if(x >= MENU1X1 && x <= MENU1X2 && y >= MENUY1 && y <= MENUY2)
 				{					
 					page_home();
@@ -2880,6 +2945,7 @@ void TouchHandle(u16 x,u16 y)
 			}break;
 			case sysinfo:
 			{
+				ButtonSound();//°´¼üÒô
 				if(x >= MENU1X1 && x <= MENU1X2 && y >= MENUY1 && y <= MENUY2)
 				{					
 					page_home();
@@ -2909,7 +2975,6 @@ void TouchHandle(u16 x,u16 y)
 				}
 			}break;
 		}
-		
 	}
 }
 
@@ -3386,6 +3451,7 @@ void ChannelSwtichBig(void)
 		}
 	}
 	press = 1;
+	ButtonSound();//°´¼üÒô
 	if(LANG == chs)
 	{
 		DrawInstruction("Í¨µÀÉèÖÃ");
@@ -3841,6 +3907,7 @@ void ChannelSwtichMid(void)
 	}
 	
 	press = 1;
+	ButtonSound();//°´¼üÒô
 	if(LANG == chs)
 	{
 		DrawInstruction("Í¨µÀÉèÖÃ");
@@ -4292,6 +4359,7 @@ void ChannelSwtichSml(void)
 		DISP_CNL_S(380,506,"040");
 	}
 	press = 1;
+	ButtonSound();//°´¼üÒô
 	if(LANG == chs)
 	{
 		DrawInstruction("Í¨µÀÉèÖÃ");

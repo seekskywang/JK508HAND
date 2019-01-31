@@ -47,7 +47,7 @@ char data[17];
 float offset[40];
 u8 keystat;
 u8 date_time[6] = {0,1,1,0,0,0};
-void ButtonSound(void);
+
 u8 fileflag;
 extern union 
 {
@@ -1651,7 +1651,7 @@ void Key_Function(void)
 	{		
 		if(key_old != key_new && keystat == 0)
 		{
-			ButtonSound();
+			ButtonSound();//按键音
 			switch(key_value)
 			{
 				case KEY_1:
@@ -6284,6 +6284,16 @@ void ENTER_HANDLE(void)
 					LCD_DisplayStringLine(445,525,"115200");
 					op_sw = op_on;
 				}break;
+				case set_timer:
+				{
+					SAVETIME = atoi(data);
+					if(SAVETIME > 1000)
+					{
+						SAVETIME = 1000;
+					}
+					multifocus_on(MULTI);
+					Save_flag();
+				}break;
 			}
 		}break;
 		case separation:
@@ -7986,35 +7996,35 @@ void UP_HANDLE(void)
 //					}
 //					op_flag = set_unit;	
 //				}break;				
-				case set_file:
-				{
-					focus_off1();
-					LCD_DisplayStringLine(317,150,"AUTO");
-					
-//					focus_on1();
-					LCD_SetColors(LCD_COLOR_YELLOW,LCD_COLOR_YELLOW);
-					LCD_DrawFullRect(150,127,24,31);
-					if(UNIT == C){
-						LCD_SetTextColor(LCD_COLOR_BLACK);
-//						LCD_SetBackColor(LCD_COLOR_YELLOW);
-						DISP_CNL_S(127,150,"o");
-						LCD_DisplayStringLine(127,155,"C");
-					}else if(UNIT == F){
-						LCD_SetTextColor(LCD_COLOR_BLACK);
-						DISP_CNL_S(127,150,"o");
-						LCD_DisplayStringLine(127,155,"F");
-					}else{
-						LCD_SetTextColor(LCD_COLOR_BLACK);
-						LCD_DisplayStringLine(127,155,"K");
-					}
-					if(LANG == chs)
-					{
-						DrawInstruction("温度单位选择");
-					}else{
-						DrawInstruction("Select temperature unit");
-					}
-					op_flag = set_unit;					
-				}break;
+//				case set_file:
+//				{
+//					focus_off1();
+//					LCD_DisplayStringLine(317,150,"AUTO");
+//					
+////					focus_on1();
+//					LCD_SetColors(LCD_COLOR_YELLOW,LCD_COLOR_YELLOW);
+//					LCD_DrawFullRect(150,127,24,31);
+//					if(UNIT == C){
+//						LCD_SetTextColor(LCD_COLOR_BLACK);
+////						LCD_SetBackColor(LCD_COLOR_YELLOW);
+//						DISP_CNL_S(127,150,"o");
+//						LCD_DisplayStringLine(127,155,"C");
+//					}else if(UNIT == F){
+//						LCD_SetTextColor(LCD_COLOR_BLACK);
+//						DISP_CNL_S(127,150,"o");
+//						LCD_DisplayStringLine(127,155,"F");
+//					}else{
+//						LCD_SetTextColor(LCD_COLOR_BLACK);
+//						LCD_DisplayStringLine(127,155,"K");
+//					}
+//					if(LANG == chs)
+//					{
+//						DrawInstruction("温度单位选择");
+//					}else{
+//						DrawInstruction("Select temperature unit");
+//					}
+//					op_flag = set_unit;					
+//				}break;
 				case set_baud:
 				{
 					focus_off1();
@@ -8066,29 +8076,31 @@ void UP_HANDLE(void)
 				case set_timer:
 				{
 					focus_off1();
-					LCD_DisplayStringLine(317,500,"1");
+					LCD_DisplayStringLine(317,150,"1");
 //					LCD_DisplayStringLine(322,516,"S");
 					
-					focus_on1();
-					if(BAUD == b9600)
-					{
-						LCD_DisplayStringLine(87,500,"9600");
-					}else if(BAUD == b19200){
-						LCD_DisplayStringLine(87,500,"19200");
-					}else if(BAUD == b38400){
-						LCD_DisplayStringLine(87,500,"38400");
-					}else if(BAUD == b57600){
-						LCD_DisplayStringLine(87,500,"57600");
-					}else if(BAUD == b115200){
-						LCD_DisplayStringLine(87,500,"115200");
+					LCD_SetColors(LCD_COLOR_YELLOW,LCD_COLOR_YELLOW);
+					LCD_DrawFullRect(150,127,24,31);
+					if(UNIT == C){
+						LCD_SetTextColor(LCD_COLOR_BLACK);
+//						LCD_SetBackColor(LCD_COLOR_YELLOW);
+						DISP_CNL_S(127,150,"o");
+						LCD_DisplayStringLine(127,155,"C");
+					}else if(UNIT == F){
+						LCD_SetTextColor(LCD_COLOR_BLACK);
+						DISP_CNL_S(127,150,"o");
+						LCD_DisplayStringLine(127,155,"F");
+					}else{
+						LCD_SetTextColor(LCD_COLOR_BLACK);
+						LCD_DisplayStringLine(127,155,"K");
 					}
 					if(LANG == chs)
 					{
-						DrawInstruction("波特率设置");
+						DrawInstruction("温度单位选择");
 					}else{
-						DrawInstruction("Select Baud rate");
+						DrawInstruction("Select temperature unit");
 					}
-					op_flag = set_baud;
+					op_flag = set_unit;	
 				}break;
 			}
 		}break;
@@ -10119,15 +10131,25 @@ void DOWN_HANDLE(void)
 						LCD_DisplayStringLine(127,155,"K");
 					}
 					
+//					focus_on1();
+//					LCD_DisplayStringLine(317,150,"AUTO");
+//					op_flag = set_file;
+//					if(LANG == chs)
+//					{
+//						DrawInstruction("文件名的前缀");
+//					}else{
+//						DrawInstruction("Input file name prefix");
+//					}
 					focus_on1();
-					LCD_DisplayStringLine(317,150,"AUTO");
-					op_flag = set_file;
+					LCD_DisplayStringLine(317,150,"1");
+//					LCD_DisplayStringLine(322,516,"S");
 					if(LANG == chs)
 					{
-						DrawInstruction("文件名的前缀");
+						DrawInstruction("记录间隔时间");
 					}else{
-						DrawInstruction("Input file name prefix");
+						DrawInstruction("Record interval");
 					}
+					op_flag = set_timer;
 				}break;
 //				case set_font:
 //				{
@@ -10214,33 +10236,33 @@ void DOWN_HANDLE(void)
 					}
 					op_flag = set_baud;
 				}break;
-				case set_baud:
-				{
-					focus_off1();
-					if(BAUD == b9600)
-					{
-						LCD_DisplayStringLine(87,500,"9600");
-					}else if(BAUD == b19200){
-						LCD_DisplayStringLine(87,500,"19200");
-					}else if(BAUD == b38400){
-						LCD_DisplayStringLine(87,500,"38400");
-					}else if(BAUD == b57600){
-						LCD_DisplayStringLine(87,500,"57600");
-					}else if(BAUD == b115200){
-						LCD_DisplayStringLine(87,500,"115200");
-					}
-					
-					focus_on1();
-					LCD_DisplayStringLine(317,500,"1");
-//					LCD_DisplayStringLine(322,516,"S");
-					if(LANG == chs)
-					{
-						DrawInstruction("记录间隔时间");
-					}else{
-						DrawInstruction("Record interval");
-					}
-					op_flag = set_timer;
-				}break;
+//				case set_baud:
+//				{
+//					focus_off1();
+//					if(BAUD == b9600)
+//					{
+//						LCD_DisplayStringLine(87,500,"9600");
+//					}else if(BAUD == b19200){
+//						LCD_DisplayStringLine(87,500,"19200");
+//					}else if(BAUD == b38400){
+//						LCD_DisplayStringLine(87,500,"38400");
+//					}else if(BAUD == b57600){
+//						LCD_DisplayStringLine(87,500,"57600");
+//					}else if(BAUD == b115200){
+//						LCD_DisplayStringLine(87,500,"115200");
+//					}
+//					
+//					focus_on1();
+//					LCD_DisplayStringLine(317,500,"1");
+////					LCD_DisplayStringLine(322,516,"S");
+//					if(LANG == chs)
+//					{
+//						DrawInstruction("记录间隔时间");
+//					}else{
+//						DrawInstruction("Record interval");
+//					}
+//					op_flag = set_timer;
+//				}break;
 			}
 		}break;
 		case separation:
@@ -11813,22 +11835,22 @@ void RIGHT_HANDLE(void)
 					}
 					op_flag = set_baud;					
 				}break;
-				case set_file:
-				{
-					focus_off1();
-					LCD_DisplayStringLine(317,150,"AUTO");
-					
-					focus_on1();
-					LCD_DisplayStringLine(317,500,"1");
-//					LCD_DisplayStringLine(322,516,"S");
-					if(LANG == chs)
-					{
-						DrawInstruction("记录间隔时间");
-					}else{
-						DrawInstruction("Record interval");
-					}
-					op_flag = set_timer;				
-				}break;
+//				case set_file:
+//				{
+//					focus_off1();
+//					LCD_DisplayStringLine(317,150,"AUTO");
+//					
+//					focus_on1();
+//					LCD_DisplayStringLine(317,500,"1");
+////					LCD_DisplayStringLine(322,516,"S");
+//					if(LANG == chs)
+//					{
+//						DrawInstruction("记录间隔时间");
+//					}else{
+//						DrawInstruction("Record interval");
+//					}
+//					op_flag = set_timer;				
+//				}break;
 			}
 		}break;
 		case separation:
@@ -12940,22 +12962,22 @@ void LEFT_HANDLE(void)
 					}
 					op_flag = set_beep;					
 				}break;
-				case set_timer:
-				{
-					focus_on1();
-					LCD_DisplayStringLine(317,150,"AUTO");
-					if(LANG == chs)
-					{
-						DrawInstruction("输入文件名的前缀");
-					}else{
-						DrawInstruction("Input file name prefix");
-					}
-					
-					focus_off1();
-					LCD_DisplayStringLine(317,500,"1");
-//					LCD_DisplayStringLine(322,516,"S");
-					op_flag = set_file;				
-				}break;
+//				case set_timer:
+//				{
+//					focus_on1();
+//					LCD_DisplayStringLine(317,150,"AUTO");
+//					if(LANG == chs)
+//					{
+//						DrawInstruction("输入文件名的前缀");
+//					}else{
+//						DrawInstruction("Input file name prefix");
+//					}
+//					
+//					focus_off1();
+//					LCD_DisplayStringLine(317,500,"1");
+////					LCD_DisplayStringLine(322,516,"S");
+//					op_flag = set_file;				
+//				}break;
 			}
 		}break;
 		case separation:
@@ -13184,12 +13206,19 @@ void KEY1_HANDLE(void)
 		{
 			XYCAL(1);
 		}break;
+		case settings:
+		{
+			if(op_flag == set_timer)
+			{
+				input_num("1");	
+			}
+		}break;
 		default:
 		{
-			for(i=0;i<8;i++)
-			{
-				Usart_SendByte(DEBUG_USART,tempreq[i]);//请求温度数据
-			}
+//			for(i=0;i<8;i++)
+//			{
+//				Usart_SendByte(DEBUG_USART,tempreq[i]);//请求温度数据
+//			}
 		}break;
 	}
 }
@@ -13221,10 +13250,18 @@ void KEY2_HANDLE(void)
 //			BEEP_OFF;
 //			 CH376FileClose(TRUE);
 		}break;
+		case settings:
+		{
+			if(op_flag == set_timer)
+			{
+				input_num("2");	
+			}
+		}break;
 		case touchcal:
 		{
 			XYCAL(2);
 		}break;
+
 	}
 }
 
@@ -13251,6 +13288,13 @@ void KEY3_HANDLE(void)
 		case history:
 		{
 			input_num("3");			
+		}break;
+		case settings:
+		{
+			if(op_flag == set_timer)
+			{
+				input_num("3");	
+			}
 		}break;
 		case touchcal:
 		{
@@ -13279,6 +13323,13 @@ void KEY4_HANDLE(void)
 		{
 			input_num("4");			
 		}break;
+		case settings:
+		{
+			if(op_flag == set_timer)
+			{
+				input_num("4");	
+			}
+		}break;
 		case touchcal:
 		{
 			XYCAL(4);
@@ -13305,6 +13356,13 @@ void KEY5_HANDLE(void)
 		case history:
 		{
 			input_num("5");			
+		}break;
+		case settings:
+		{
+			if(op_flag == set_timer)
+			{
+				input_num("5");	
+			}
 		}break;
 		case touchcal:
 		{
@@ -13333,6 +13391,13 @@ void KEY6_HANDLE(void)
 		{
 			input_num("6");			
 		}break;
+		case settings:
+		{
+			if(op_flag == set_timer)
+			{
+				input_num("6");	
+			}
+		}break;
 		case touchcal:
 		{
 			XYCAL(6);
@@ -13359,6 +13424,13 @@ void KEY7_HANDLE(void)
 		case history:
 		{
 			input_num("7");			
+		}break;
+		case settings:
+		{
+			if(op_flag == set_timer)
+			{
+				input_num("7");	
+			}
 		}break;
 		case touchcal:
 		{
@@ -13387,6 +13459,13 @@ void KEY8_HANDLE(void)
 		{
 			input_num("8");			
 		}break;
+		case settings:
+		{
+			if(op_flag == set_timer)
+			{
+				input_num("8");	
+			}
+		}break;
 		case touchcal:
 		{
 			XYCAL(8);
@@ -13414,6 +13493,13 @@ void KEY9_HANDLE(void)
 		{
 			input_num("9");			
 		}break;
+		case settings:
+		{
+			if(op_flag == set_timer)
+			{
+				input_num("9");	
+			}
+		}break;
 	}
 }
 
@@ -13436,6 +13522,13 @@ void KEY0_HANDLE(void)
 		case history:
 		{
 			input_num("0");			
+		}break;
+		case settings:
+		{
+			if(op_flag == set_timer)
+			{
+				input_num("0");	
+			}
 		}break;
 	}
 }
@@ -13478,6 +13571,13 @@ void BACK_HANDLE(void)
 		case history:
 		{
 			del_num();			
+		}break;
+		case settings:
+		{
+			if(op_flag == set_timer)
+			{
+				del_num();	
+			}
 		}break;
 	}
 }
