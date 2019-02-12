@@ -231,7 +231,7 @@ int main(void)
 	u8 test[9] = {0X01,0X03,0X02,0X58,0X00,0X01,0X02,0X00,0X05};
 	 __IO uint32_t i = 0;
 	static u8 reqtempcount;
-	static u8 ucount;
+	static u16 ucount;
 	static u8 urecount;
 	static u16 usavecount;
 //	u8 res;
@@ -400,7 +400,7 @@ int main(void)
 				}					
 				if(usbstatus == CONNECTED)
 				{
-					if(ucount ==5)
+					if(ucount ==4*SAVETIME)
 					{
 						Utest();
 						ucount = 0;

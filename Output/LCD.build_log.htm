@@ -27,26 +27,28 @@ Project File Date:  01/10/2019
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'LCD'
-compiling bsp_key.c...
-..\..\User\key\bsp_key.c(2694): warning:  #177-D: variable "i"  was declared but never referenced
-        static u16 i;
-..\..\User\key\bsp_key.c(13232): warning:  #177-D: variable "i"  was declared but never referenced
-        u8 i;
-..\..\User\key\bsp_key.c(13712): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "const char *restrict"
-                strcpy((char *)TarName,filename);
-..\..\User\key\bsp_key.c(13799): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "const char *restrict"
-        strcpy((char *)TarName,filename);
-..\..\User\key\bsp_key.c(13812): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "char *restrict"
-        sprintf(buf, "\n%d\t20%02d-%02d-%02d\t%02d:%02d:%02d"
-..\..\User\key\bsp_key.c(13831): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "char *restrict"
-                        strcpy(buf,"\tN/A");
-..\..\User\key\bsp_key.c(13833): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "char *restrict"
-                        sprintf(buf,"\t%.1f",ch_temp[i]);
-..\..\User\key\bsp_key.c: 7 warnings, 0 errors
+compiling main.c...
+..\..\User\main.c(229): warning:  #177-D: variable "buf"  was declared but never referenced
+        uint8_t  buf[0x40];
+..\..\User\main.c(231): warning:  #177-D: variable "test"  was declared but never referenced
+        u8 test[9] = {0X01,0X03,0X02,0X58,0X00,0X01,0X02,0X00,0X05};
+..\..\User\main.c(233): warning:  #177-D: variable "reqtempcount"  was declared but never referenced
+        static u8 reqtempcount;
+..\..\User\main.c(498): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+                                G_Data[i][count] = (graphbuf[i][0]/MULTI * 256 + graphbuf[i][1]/MULTI)/10.0 - Correction[i];                                                    
+..\..\User\main.c(435): warning:  #177-D: variable "ucTemp"  was declared but never referenced
+        static uint8_t ucTemp;
+..\..\User\main.c(436): warning:  #177-D: variable "Total_Len"  was declared but never referenced
+        static u8 Total_Len = 0;
+..\..\User\main.c(437): warning:  #177-D: variable "uinitflag"  was declared but never referenced
+        static u8 uinitflag = 0;
+..\..\User\main.c(447): warning:  #177-D: variable "usave"  was declared but never referenced
+        static u8 usave;
+..\..\User\main.c: 8 warnings, 0 errors
 linking...
-Program Size: Code=156788 RO-data=99020 RW-data=684 ZI-data=68924  
+Program Size: Code=156796 RO-data=99020 RW-data=684 ZI-data=68924  
 FromELF: creating hex file...
-"..\..\Output\LCD.axf" - 0 Error(s), 7 Warning(s).
+"..\..\Output\LCD.axf" - 0 Error(s), 8 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -60,7 +62,7 @@ Package Vendor: Keil
   D:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:04
+Build Time Elapsed:  00:00:05
 </pre>
 </body>
 </html>
