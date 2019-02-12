@@ -773,6 +773,60 @@ void multifocus_off(int lmt)
 	}
 }
 
+void stimefocus_on(int lmt)
+{
+	s16 i = abs(lmt)/10;
+	char buf[10];
+	
+	LCD_SetColors(LCD_COLOR_YELLOW,LCD_COLOR_YELLOW);
+	LCD_DrawFullRect(118,317,48,31);
+	LCD_SetTextColor(LCD_COLOR_BLACK);
+	LCD_SetBackColor(LCD_COLOR_YELLOW);
+	
+	if(i == 0)
+	{		
+		sprintf(buf,"%d",lmt);
+		LCD_DisplayStringLine(317,150,(uint8_t* )buf);
+	
+	}else if(i >=1 && i < 10){
+		sprintf(buf,"%d",lmt);
+		LCD_DisplayStringLine(317,134,(uint8_t* )buf);
+	}else if(i >=10 && i < 100){
+		sprintf(buf,"%d",lmt);
+		LCD_DisplayStringLine(317,118,(uint8_t* )buf);
+	}
+	if(LANG == chs)
+	{
+		DrawInstruction("记录间隔时间");
+	}else{
+		DrawInstruction("Record interval");
+	}		
+	clear_input();
+}
+
+void stimefocus_off(int lmt)
+{
+	s16 i = abs(lmt)/10;
+	char buf[10];
+	
+	LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
+	LCD_DrawFullRect(118,317,48,31);
+	LCD_SetTextColor(LCD_COLOR_YELLOW);
+	LCD_SetBackColor(LCD_COLOR_BACK);
+	
+	if(i == 0)
+	{		
+		sprintf(buf,"%d",lmt);
+		LCD_DisplayStringLine(317,150,(uint8_t* )buf);
+	}else if(i >=1 && i < 10){
+		sprintf(buf,"%d",lmt);
+		LCD_DisplayStringLine(317,134,(uint8_t* )buf);
+	}else if(i >=10 && i < 100){
+		sprintf(buf,"%d",lmt);
+		LCD_DisplayStringLine(317,118,(uint8_t* )buf);
+	}
+}
+
 //输入数字
 void input_num(char* num)
 {
@@ -6287,11 +6341,11 @@ void ENTER_HANDLE(void)
 				case set_timer:
 				{
 					SAVETIME = atoi(data);
-					if(SAVETIME > 1000)
+					if(SAVETIME > 255)
 					{
-						SAVETIME = 1000;
+						SAVETIME = 255;
 					}
-					multifocus_on(MULTI);
+					stimefocus_on(SAVETIME);
 					Save_flag();
 				}break;
 			}
@@ -8075,8 +8129,8 @@ void UP_HANDLE(void)
 				}break;
 				case set_timer:
 				{
-					focus_off1();
-					LCD_DisplayStringLine(317,150,"1");
+					stimefocus_off(SAVETIME);
+//					LCD_DisplayStringLine(317,150,"1");
 //					LCD_DisplayStringLine(322,516,"S");
 					
 					LCD_SetColors(LCD_COLOR_YELLOW,LCD_COLOR_YELLOW);
@@ -10140,8 +10194,8 @@ void DOWN_HANDLE(void)
 //					}else{
 //						DrawInstruction("Input file name prefix");
 //					}
-					focus_on1();
-					LCD_DisplayStringLine(317,150,"1");
+					stimefocus_on(SAVETIME);
+//					LCD_DisplayStringLine(317,150,"1");
 //					LCD_DisplayStringLine(322,516,"S");
 					if(LANG == chs)
 					{

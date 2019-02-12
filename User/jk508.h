@@ -117,6 +117,8 @@ void ChannelSwtichSml(void);
 void SetTctype(u8 type);
 void DrawLogo(u16 x,u16 y);
 void dim_set(u8 key);
+void stimefocus_on(int lmt);
+void stimefocus_off(int lmt);
 
 extern u8 usbbuf[0x40];
 uint16_t CRC16(uint8_t *puchMsg, uint8_t Len);
