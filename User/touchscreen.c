@@ -2744,31 +2744,36 @@ void TouchHandle(u16 x,u16 y)
 			}break;
 			case separation:
 			{
-				ButtonSound();//°´¼üÒô
+//				ButtonSound();//°´¼üÒô
 				if(x >= MENU1X1 && x <= MENU1X2 && y >= MENUY1 && y <= MENUY2)
 				{					
 					page_home();
 					press = 1;
+					ButtonSound();//°´¼üÒô
 					
 				}else
 				if(x >= MENU2X1 && x <= MENU2X2 && y >= MENUY1 && y <= MENUY2)
 				{					
 					page_graph();
 					press = 1;
+					ButtonSound();//°´¼üÒô
 				}else
 				if(x >= MENU3X1 && x <= MENU3X2 && y >= MENUY1 && y <= MENUY2)
 				{
 					press = 1;
 					page_sys();
 					press = 1;
+					ButtonSound();//°´¼üÒô
 				}else
 				if(x >= MENU4X1 && x <= MENU4X2 && y >= MENUY1 && y <= MENUY2)
 				{
 					page_set();
 					press = 1;
+					ButtonSound();//°´¼üÒô
 				}else
 				if(x >= MENU5X1 && x <= MENU5X2 && y >= MENUY1 && y <= MENUY2)
 				{
+					ButtonSound();//°´¼üÒô
 					if(CHNUM > 8)
 					{
 						switch(spt_page)
@@ -2945,33 +2950,38 @@ void TouchHandle(u16 x,u16 y)
 			}break;
 			case sysinfo:
 			{
-				ButtonSound();//°´¼üÒô
+				
 				if(x >= MENU1X1 && x <= MENU1X2 && y >= MENUY1 && y <= MENUY2)
 				{					
 					page_home();
 					press = 1;
+					ButtonSound();//°´¼üÒô
 					
 				}else
 				if(x >= MENU2X1 && x <= MENU2X2 && y >= MENUY1 && y <= MENUY2)
 				{					
 					page_graph();
 					press = 1;
+					ButtonSound();//°´¼üÒô
 				}else
 				if(x >= MENU3X1 && x <= MENU3X2 && y >= MENUY1 && y <= MENUY2)
 				{
 					press = 1;
 					page_sys();
 					press = 1;
+					ButtonSound();//°´¼üÒô
 				}else
 				if(x >= MENU4X1 && x <= MENU4X2 && y >= MENUY1 && y <= MENUY2)
 				{
 					page_set();
 					press = 1;
+					ButtonSound();//°´¼üÒô
 				}else
 				if(x >= MENU5X1 && x <= MENU5X2 && y >= MENUY1 && y <= MENUY2)
 				{
 					page_sysinfo();
 					press = 1;
+					ButtonSound();//°´¼üÒô
 				}
 			}break;
 		}

@@ -33,7 +33,7 @@ extern u8 key_value;
 extern u16 count;
 extern u8 count_flag;
 extern u8 uartflag;
-u8 tempreq[8] = {0x01,0x03,0x00,0x00,0x00,0x10,0x44,0x06};
+u8 tempreq[9] = {0x01,0x03,0x00,0x00,0x00,0x10,0x44,0x06,0xff};
 u8 reqcode;
 u8 brightness;
 u32 Tick_10ms=0;
@@ -277,14 +277,20 @@ void BASIC_TIM_IRQHandler (void)
 //		MODS_Poll();
 		if(sendcount == 4*5 && GPIO_ReadInputDataBit(GPIOI,GPIO_Pin_11))
 		{
+			GPIO_SetBits(GPIOA,GPIO_Pin_8);
 //			USART_ITConfig(DEBUG_USART, USART_IT_RXNE, DISABLE);
-			for(i=0;i<8;i++)
+			for(i=0;i<9;i++)
 			{
 				Usart_SendByte(DEBUG_USART,tempreq[i]);//请求温度数据
 			}
 //			USART_ITConfig(DEBUG_USART, USART_IT_RXNE, ENABLE);						
 			sendcount = 0;
+			GPIO_SetBits(GPIOA,GPIO_Pin_8);	
+			Delay(1000);
+			GPIO_ResetBits(GPIOA,GPIO_Pin_8);
 		}
+//		Delay(1000);
+//		GPIO_ResetBits(GPIOA,GPIO_Pin_8);
 //		if(usavecount == 100 && GPIO_ReadInputDataBit(GPIOI,GPIO_Pin_11))
 //		{
 //			if(page_flag != poweron)
@@ -557,7 +563,7 @@ void RecHandle(void)
 
 void SetTctype(u8 type)
 {
-	u8 tcbuf[27];
+	u8 tcbuf[28];
 	u8 i;
 	static u16 tccrc;
 	u8 tcrc[25];
@@ -582,10 +588,13 @@ void SetTctype(u8 type)
 	tccrc = CRC16(tcrc,25);
 	tcbuf[26] = (u8)(tccrc >> 8);
 	tcbuf[25] = (u8)(tccrc);
-	for(i=0;i<27;i++)
+	tcbuf[27] = 0xff;
+	GPIO_SetBits(GPIOA,GPIO_Pin_8);
+	for(i=0;i<28;i++)
 	{
 		Usart_SendByte(DEBUG_USART,tcbuf[i]);
 	}
+	GPIO_ResetBits(GPIOA,GPIO_Pin_8);
 }
 ///**
 //  * @brief  初始化高级控制定时器定时，1ms产生一次中断

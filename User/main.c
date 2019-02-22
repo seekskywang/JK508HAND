@@ -234,6 +234,7 @@ int main(void)
 	static u16 ucount;
 	static u8 urecount;
 	static u16 usavecount;
+	static u16 sendcount;
 //	u8 res;
   /*!< At this stage the microcontroller clock setting is already configured, 
   this is done through SystemInit() function which is called from startup
@@ -243,7 +244,7 @@ int main(void)
   */  
 		/*初始化SDRAM模块*/
 	SDRAM_Init();
-	 /*初始化液晶屏*/
+	 /*初始化液晶屏*/ 
     LCD_Init();
 
     LCD_LayerInit();
@@ -376,6 +377,8 @@ int main(void)
 					usavecount++;
 				}
 			}
+//			USART_ITConfig(DEBUG_USART, USART_IT_RXNE, DISABLE);
+
 	//		Touch_Scan();
 	//		CH1TEMP = (RecBuff[21] * 256 + RecBuff[22])/10.0;
 			DrawBattery(battery);
@@ -391,7 +394,7 @@ int main(void)
 						UARTRECHANDLE();
 						urecount = 0;
 					}
-				}else if(SPEED == slow){
+				}else{
 					if(urecount == 10)
 					{
 						UARTRECHANDLE();
@@ -516,31 +519,31 @@ void UARTRECHANDLE(void)
 				Data_buf[i][count%8 * 2 + 1] = (u8)(hisconv - corconv);
 			}
 //							Save_history(1);
-//			if(count > 0 && (count + 1) % 8 == 0)
-//			{
-////								recflag = 1;
-//				if(SECTOR_REC < 62000)
-//				{
-//					SECTOR_REC ++;
-//					Save_history(SECTOR_REC);								
-//					Save_Sflag();									
-//				}else{
-//					SECTOR_REC = 0;
-//				}
-//				
-//			}
-////						}
-//			if(count == 450)
-//			{
-//				if(TIME_REC < 1000)
-//				{
-//					TIME_REC++;
-//					Save_time(TIME_REC);
-//					Save_Sflag();
-//				}else{
-//					TIME_REC = 0;
-//				}
-//			}
+			if(count > 0 && (count + 1) % 8 == 0)
+			{
+//								recflag = 1;
+				if(SECTOR_REC < 62000)
+				{
+					SECTOR_REC ++;
+					Save_history(SECTOR_REC);								
+					Save_Sflag();									
+				}else{
+					SECTOR_REC = 0;
+				}
+				
+			}
+//						}
+			if(count == 450)
+			{
+				if(TIME_REC < 1000)
+				{
+					TIME_REC++;
+					Save_time(TIME_REC);
+					Save_Sflag();
+				}else{
+					TIME_REC = 0;
+				}
+			}
 			if(count > 494)
 			{
 				count = 0;

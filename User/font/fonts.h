@@ -109,6 +109,8 @@ extern const FNT_GB32x32 Chinese32x32_Table[];
 extern const FNT_GB24x19 Chinese24x19_Table[];
 extern const FNT_GB16x20 Chinese16x20_Table[];
 extern const FNT_GB16x16 Chinese16x16_Table[];
+extern const FNT_GB16x16 SONG_16x16_Table[];
+
 
 typedef struct _tFont
 {    
@@ -140,6 +142,7 @@ extern sFONT C_Font16x16;
 extern sFONT C_Font16x20;
 extern sFONT FontT_INS;
 extern sFONT FontT_SYS;
+extern sFONT SONG_Font16x16;
 /**
   * @}
   */ 

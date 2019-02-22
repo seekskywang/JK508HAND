@@ -1275,6 +1275,22 @@ void touch_set(u8 key)
 	Save_flag();
 }
 
+void Search_Bit(u8 bit)
+{
+	char timetemp[100];
+	
+	LCD_SetTextColor(LCD_COLOR_WHITE);
+	LCD_SetBackColor(LCD_COLOR_BACK);
+	sprintf(timetemp,"%d%0.2d-%0.2d-%0.2d",
+			histime[0][0],
+			histime[0][1],
+			histime[0][2],
+			histime[0][3]);		
+	LCD_DisplayStringLine(10,200,(uint8_t *)timetemp);
+	
+	LCD_SetColors(LCD_COLOR_BLACK,LCD_COLOR_YELLOW);
+	
+}
 /**
   * @brief  配置按键用到的I/O口
   * @param  无
@@ -4234,8 +4250,8 @@ void FUNC5_HANDLE(void)
 		}break;
 		case history:
 		{
-			hpage++;
-			hispage(hpage);
+			op_flag = his_search;
+			
 		}break;
 	}
 }
@@ -12097,6 +12113,11 @@ void RIGHT_HANDLE(void)
 				}break;
 			}
 		}break;
+		case history:
+		{
+			hpage++;
+			hispage(hpage);
+		}break;
 				
 	}
 }
@@ -13223,6 +13244,11 @@ void LEFT_HANDLE(void)
 					op_flag = set_date;
 				}break;
 			}
+		}break;
+		case history:
+		{
+			hpage--;
+			hispage(hpage);
 		}break;
 	}
 }

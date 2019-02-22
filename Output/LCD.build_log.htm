@@ -3,7 +3,7 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Tool Versions:</h2>
-IDE-Version: ¦ÌVision V5.25.2.0
+IDE-Version: ¦ÌVision V5.25.3.0
 Copyright (C) 2018 ARM Ltd and ARM Germany GmbH. All rights reserved.
 License Information: 1 Microsoft, Microsoft, LIC=S5ITG-V5G2Q-BXVUY-I5T0J-4HUEL-MI8C5
  
@@ -27,28 +27,14 @@ Project File Date:  01/10/2019
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'LCD'
-compiling main.c...
-..\..\User\main.c(229): warning:  #177-D: variable "buf"  was declared but never referenced
-        uint8_t  buf[0x40];
-..\..\User\main.c(231): warning:  #177-D: variable "test"  was declared but never referenced
-        u8 test[9] = {0X01,0X03,0X02,0X58,0X00,0X01,0X02,0X00,0X05};
-..\..\User\main.c(233): warning:  #177-D: variable "reqtempcount"  was declared but never referenced
-        static u8 reqtempcount;
-..\..\User\main.c(498): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-                                G_Data[i][count] = (graphbuf[i][0]/MULTI * 256 + graphbuf[i][1]/MULTI)/10.0 - Correction[i];                                                    
-..\..\User\main.c(435): warning:  #177-D: variable "ucTemp"  was declared but never referenced
-        static uint8_t ucTemp;
-..\..\User\main.c(436): warning:  #177-D: variable "Total_Len"  was declared but never referenced
-        static u8 Total_Len = 0;
-..\..\User\main.c(437): warning:  #177-D: variable "uinitflag"  was declared but never referenced
-        static u8 uinitflag = 0;
-..\..\User\main.c(447): warning:  #177-D: variable "usave"  was declared but never referenced
-        static u8 usave;
-..\..\User\main.c: 8 warnings, 0 errors
+compiling home.c...
+..\..\User\APP\home.c(1051): warning:  #223-D: function "DISP_AVG" declared implicitly
+        DISP_AVG(416,400,"Æ½¾ùÖµ");
+..\..\User\APP\home.c: 1 warning, 0 errors
 linking...
-Program Size: Code=156796 RO-data=99020 RW-data=684 ZI-data=68924  
+Program Size: Code=157172 RO-data=99408 RW-data=696 ZI-data=68928  
 FromELF: creating hex file...
-"..\..\Output\LCD.axf" - 0 Error(s), 8 Warning(s).
+"..\..\Output\LCD.axf" - 0 Error(s), 1 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -62,7 +48,7 @@ Package Vendor: Keil
   D:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:05
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>

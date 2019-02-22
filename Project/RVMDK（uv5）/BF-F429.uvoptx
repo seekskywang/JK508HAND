@@ -119,7 +119,8 @@
       <TargetDriverDllRegistry>
         <SetRegEntry>
           <Number>0</Number>
-          <Key>DLGUARM</Key>
+          <Key>PWSTATINFO</Key>
+          <Name>200,50,700</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>

@@ -685,13 +685,13 @@ void Drawhishmenu(void)
 		LCD_DisplayStringLine(450,153,"ÇúÏßÍ¼");
 		LCD_DisplayStringLine(450,293,"ÏµÍ³");
 		LCD_DisplayStringLine(450,420,"ÉèÖÃ");
-		LCD_DisplayStringLine(450,528,"·­Ò³");
+		LCD_DisplayStringLine(450,528,"ËÑË÷");
 	}else{
 		LCD_DisplayStringLine(450,10,"DISPLAY");
 		LCD_DisplayStringLine(450,140,"GRAPH");
 		LCD_DisplayStringLine(450,275,"SYSTEM");
 		LCD_DisplayStringLine(450,410,"SETUP");
-		LCD_DisplayStringLine(450,522,"PAGE");
+		LCD_DisplayStringLine(450,522,"SEARCH");
 	}
 }
 
@@ -1511,6 +1511,36 @@ void DISP_SYS(uint16_t x,uint16_t y, uint8_t *ptr)
 		else
 		{
 			LCD_SetFont(&C_Font24x19);
+			/* Display one character on LCD */
+			DISP_SINS(LINE(x), refcolumn, ptr);
+			/* Decrement the column position by width */
+			refcolumn += LCD_Currentfonts->Width;
+			/* Point on the next character */
+			ptr++;
+			ptr++;
+		}
+	 }
+}
+
+void DISP_AVG(uint16_t x,uint16_t y, uint8_t *ptr)
+{
+	 uint16_t refcolumn = y;
+	  /* Send the string character by character on lCD */
+	 while ((refcolumn < LCD_PIXEL_WIDTH) && ((*ptr != 0) & (((refcolumn + LCD_Currentfonts->Width) & 0xFFFF) >= LCD_Currentfonts->Width)))
+	 {
+		if(*ptr < 0x80)
+		{
+			LCD_SetFont(&FontC_8x20B);
+			/* Display one character on LCD */
+			LCD_DisplayChar_48(LINE(x), refcolumn, *ptr);
+			/* Decrement the column position by width */
+			refcolumn += LCD_Currentfonts->Width;
+			/* Point on the next character */
+			ptr++;
+		}
+		else
+		{
+			LCD_SetFont(&SONG_Font16x16);
 			/* Display one character on LCD */
 			DISP_SINS(LINE(x), refcolumn, ptr);
 			/* Decrement the column position by width */

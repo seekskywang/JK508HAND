@@ -53,7 +53,7 @@ void page_set(void)
 {
 	
   /*初始化后默认使用前景层*/
-	LCD_SetLayer(LCD_FOREGROUND_LAYER); 
+	LCD_SetLayer(LCD_FOREGROUND_LAYER);
 	/*默认设置不透明	，该函数参数为不透明度，范围 0-0xff ，0为全透明，0xff为不透明*/
     LCD_SetTransparency(0xFF);
 	LCD_Clear(LCD_COLOR_BACK);

@@ -33,7 +33,7 @@ extern float ch_temp[40];
 extern u8 RecBuff[39];
 extern u8 usbsendbuf[0x40];
 extern u8 savedata[80];
-extern u8 tempreq[8];
+extern u8 tempreq[9];
 extern u8 usbreadtime[7];
 extern u16 his_config[10];
 extern u8 reqcode;
@@ -53,7 +53,6 @@ extern u16 hpage;
 extern u16 XCOOR;
 extern u16 YCOOR;
 extern u8 touchflag;
-extern u8 tempreq[8];
 extern u8 fileflag;
 extern u8 sendflag;
 extern u8 date_page;
@@ -562,6 +561,7 @@ uint32_t Flash_DisableReadProtection(void);
 #define set_brt			 91//亮度
 #define set_dim		     92//降低亮度
 #define set_touch		 93//触摸屏设置
+#define his_search		 94//历史搜索
 
 /* 字体标志位 */
 #define big	             0
