@@ -1048,9 +1048,11 @@ void page_home(void)
 		LCD_SetBackColor(LCD_COLOR_BACK);
 		LCD_SetTextColor(LCD_COLOR_WHITE);
 	}
-	DISP_AVG(416,400,"平均值");
-	DISP_AVG(416,500,"最大值");
-	DISP_AVG(416,600,"最小值");
+	LCD_SetBackColor(LCD_COLOR_BACK);
+	LCD_SetTextColor(LCD_COLOR_WHITE);
+	LCD_DisplayStringLine(416,200,"平均值");
+	LCD_DisplayStringLine(416,350,"最大值");
+	LCD_DisplayStringLine(416,500,"最小值");
 	page_flag = display;
 	op_flag = home_type;
 }

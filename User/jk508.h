@@ -425,6 +425,8 @@ uint32_t Flash_DisableReadProtection(void);
 #define   CHNUM						savedata[51]//设备通道数
 #define   TOUCH						savedata[52]//设备通道数
 #define   SAVETIME					savedata[53]//设备通道数
+#define   TIMETIRG					savedata[54]//设备通道数
+#define   REPEAT					savedata[55]//设备通道数
 
 /* 校准参数 */
 #define   XCOR						corpara[0]  
@@ -620,6 +622,12 @@ uint32_t Flash_DisableReadProtection(void);
 /* 设置选项选中标志位 */
 #define op_on           1
 #define op_off          0
+/* 定时触发标志位 */
+#define trig_on           1
+#define trig_off          0
+/* 重复采集标志位 */
+#define rtp_on           1
+#define rtp_off          0
 
 /* 触摸有效范围 */
 /*大字体*/

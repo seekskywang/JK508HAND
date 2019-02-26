@@ -77,8 +77,12 @@ void page_set(void)
 		LCD_DisplayStringLine(50,10,"比较");
 		LCD_DisplayStringLine(90,10,"讯响");
 		LCD_DisplayStringLine(130,10,"单位");
+		LCD_DisplayStringLine(170,10,"定时采集");
+		LCD_DisplayStringLine(210,10,"开始时间");
+		LCD_DisplayStringLine(250,10,"结束时间");
+		LCD_DisplayStringLine(130,360,"重复采集");
 //		LCD_DisplayStringLine(170,10,"字体");
-		LCD_DisplayStringLine(280,10,"U盘设置");
+		LCD_DisplayStringLine(285,10,"U盘设置");
 		LCD_DisplayStringLine(320,10,"定时");
 		LCD_DisplayStringLine(50,360,"速度");
 		LCD_DisplayStringLine(90,360,"波特");
@@ -91,8 +95,11 @@ void page_set(void)
 		LCD_DisplayStringLine(50,10,"COMP");
 		LCD_DisplayStringLine(90,10,"BEEP");
 		LCD_DisplayStringLine(127,10,"UNIT");
-//		LCD_DisplayStringLine(170,10,"FONT");
-		LCD_DisplayStringLine(280,10,"USBHDD SET");
+		LCD_DisplayStringLine(170,10,"TRIGTIME");
+		LCD_DisplayStringLine(210,10,"START TIME");
+		LCD_DisplayStringLine(250,10,"END TIME");
+		LCD_DisplayStringLine(130,360,"REPEAT");
+		LCD_DisplayStringLine(285,10,"USBHDD SET");
 		LCD_DisplayStringLine(317,10,"TIME");
 		LCD_DisplayStringLine(50,360,"SPEED");
 		LCD_DisplayStringLine(90,360,"BAUD");
@@ -136,6 +143,38 @@ void page_set(void)
 		}
 	}
 	
+	if(TIMETIRG == trig_off){
+		if(LANG == chs)
+		{
+			LCD_DisplayStringLine(170,150,"关闭");
+		}else{
+			LCD_DisplayStringLine(170,150,"OFF");
+		}
+	}else{
+		if(LANG == chs)
+		{
+			LCD_DisplayStringLine(170,150,"打开");
+		}else{
+			LCD_DisplayStringLine(170,150,"ON");
+		}
+	}
+	
+	if(REPEAT == rtp_off){
+		if(LANG == chs)
+		{
+			LCD_DisplayStringLine(130,500,"关闭");
+		}else{
+			LCD_DisplayStringLine(130,500,"OFF");
+		}
+	}else{
+		if(LANG == chs)
+		{
+			LCD_DisplayStringLine(130,500,"打开");
+		}else{
+			LCD_DisplayStringLine(130,500,"ON");
+		}
+	}
+	
 	if(UNIT == C){
 		LCD_SetTextColor(LCD_COLOR_YELLOW);
 		DISP_CNL_S(127,150,"o");
@@ -148,6 +187,7 @@ void page_set(void)
 		LCD_SetTextColor(LCD_COLOR_YELLOW);
 		LCD_DisplayStringLine(127,155,"K");
 	}
+	
 	
 //	if(FONT == big){
 //		if(LANG == chs)

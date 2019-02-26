@@ -643,14 +643,8 @@ void TempDisplay(void)
 	char buf[10];
 	static u8 eqmtstatus;
 //	u8 i;
-		
-	if(page_flag == display)
-	{		
-//		LCD_SetColors(LCD_COLOR_YELLOW,LCD_COLOR_BACK);
-//		sprintf(buf,"%03d",charge);
-//		LCD_DisplayStringLine_48(47,200,(uint8_t*)buf);
-//		sprintf(buf,"%03d",battery);
-//		LCD_DisplayStringLine_48(47,260,(uint8_t*)buf);
+	if(page_flag == display || page_flag == graph)
+	{
 		if(eqmtstatus < 60)
 		{
 			if(LANG == chs)
@@ -675,6 +669,15 @@ void TempDisplay(void)
 		}else if(eqmtstatus >= 120){
 			eqmtstatus = 0;
 		}
+	}
+	if(page_flag == display)
+	{		
+//		LCD_SetColors(LCD_COLOR_YELLOW,LCD_COLOR_BACK);
+//		sprintf(buf,"%03d",charge);
+//		LCD_DisplayStringLine_48(47,200,(uint8_t*)buf);
+//		sprintf(buf,"%03d",battery);
+//		LCD_DisplayStringLine_48(47,260,(uint8_t*)buf);
+		
 		
 		if(FONT == big)
 		{					
