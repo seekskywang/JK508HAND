@@ -1275,20 +1275,31 @@ void touch_set(u8 key)
 	Save_flag();
 }
 
-void Search_Bit(u8 bit)
+void Search_Bit(void)
 {
+	u16 i;
+	u32 ymd;
+	u8 y1,y2,y3,m1,d1;
+	y1 = (data[0]-48)*10+(data[1]-48);
+	y2 = (data[2]-48)*10+(data[3]-48);
+	m1 = (data[4]-48)*10+data[5]-48;
+	d1 = (data[6]-48)*10+data[7]-48; 
 	char timetemp[100];
-	
-	LCD_SetTextColor(LCD_COLOR_WHITE);
-	LCD_SetBackColor(LCD_COLOR_BACK);
-	sprintf(timetemp,"%d%0.2d-%0.2d-%0.2d",
-			histime[0][0],
-			histime[0][1],
-			histime[0][2],
-			histime[0][3]);		
-	LCD_DisplayStringLine(10,200,(uint8_t *)timetemp);
-	
-	LCD_SetColors(LCD_COLOR_BLACK,LCD_COLOR_YELLOW);
+	if(bit_flag == 9)
+	{		
+		for(i=1;i<1000;i++)
+		{
+			Read_time(i);
+			if(y1 == histime[0][0] && y2 == histime[0][1] && m1 == histime[0][2] && d1 == histime[0][3])
+			{
+				clear_input();
+				hpage = i;
+				hispage(hpage);
+				break;
+			}
+		}
+//		clear_input();
+	}
 	
 }
 /**
@@ -4250,8 +4261,7 @@ void FUNC5_HANDLE(void)
 		}break;
 		case history:
 		{
-			op_flag = his_search;
-			
+			Search_Bit();
 		}break;
 	}
 }

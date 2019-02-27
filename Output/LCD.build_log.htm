@@ -27,11 +27,32 @@ Project File Date:  01/10/2019
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'LCD'
-compiling settings.c...
+compiling bsp_key.c...
+..\..\User\key\bsp_key.c(1281): warning:  #177-D: variable "ymd"  was declared but never referenced
+        u32 ymd;
+..\..\User\key\bsp_key.c(1282): warning:  #177-D: variable "y3"  was declared but never referenced
+        u8 y1,y2,y3,m1,d1;
+..\..\User\key\bsp_key.c(1287): warning:  #177-D: variable "timetemp"  was declared but never referenced
+        char timetemp[100];
+..\..\User\key\bsp_key.c(2721): warning:  #177-D: variable "i"  was declared but never referenced
+        static u16 i;
+..\..\User\key\bsp_key.c(13268): warning:  #177-D: variable "i"  was declared but never referenced
+        u8 i;
+..\..\User\key\bsp_key.c(13748): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "const char *restrict"
+                strcpy((char *)TarName,filename);
+..\..\User\key\bsp_key.c(13835): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "const char *restrict"
+        strcpy((char *)TarName,filename);
+..\..\User\key\bsp_key.c(13848): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "char *restrict"
+        sprintf(buf, "\n%d\t20%02d-%02d-%02d\t%02d:%02d:%02d"
+..\..\User\key\bsp_key.c(13867): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "char *restrict"
+                        strcpy(buf,"\tN/A");
+..\..\User\key\bsp_key.c(13869): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "char *restrict"
+                        sprintf(buf,"\t%.1f",ch_temp[i]);
+..\..\User\key\bsp_key.c: 10 warnings, 0 errors
 linking...
-Program Size: Code=157464 RO-data=99760 RW-data=688 ZI-data=68928  
+Program Size: Code=157656 RO-data=99760 RW-data=688 ZI-data=68928  
 FromELF: creating hex file...
-"..\..\Output\LCD.axf" - 0 Error(s), 0 Warning(s).
+"..\..\Output\LCD.axf" - 0 Error(s), 10 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -45,7 +66,7 @@ Package Vendor: Keil
   D:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:04
+Build Time Elapsed:  00:00:05
 </pre>
 </body>
 </html>
