@@ -2050,6 +2050,28 @@ void FUNC1_HANDLE(void)
 						page_home();
 					}
 				}break;
+				case repeat:
+				{
+					if(op_sw == op_on)
+					{
+						DrawMenu();//重绘菜单栏
+						Drawsetmenu();
+						LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
+						LCD_DrawFullRect(150,90,48,31);
+						focus_on1();
+						if(LANG == chs)
+						{
+							LCD_DisplayStringLine(130,500,"打开");
+						}else{
+							LCD_DisplayStringLine(130,500,"ON");
+						}
+						REPEAT = rtp_on;
+						op_sw = op_off;
+						Save_flag();
+					}else{
+						page_home();
+					}
+				}break;
 				case set_unit:
 				{
 					if(op_sw == op_on)
@@ -2296,6 +2318,26 @@ void FUNC2_HANDLE(void)
 							LCD_DisplayStringLine(90,150,"OFF");
 						}
 						BEEP = beep_off;
+						op_sw = op_off;
+						Save_flag();
+					}else{
+						page_graph();
+					}
+				}break;
+				case repeat:
+				{
+					if(op_sw == op_on)
+					{
+						DrawMenu();//重绘菜单栏
+						Drawsetmenu();
+						focus_on1();
+						if(LANG == chs)
+						{
+							LCD_DisplayStringLine(130,500,"关闭");
+						}else{
+							LCD_DisplayStringLine(130,500,"OFF");
+						}
+						REPEAT = rtp_off;
 						op_sw = op_off;
 						Save_flag();
 					}else{
@@ -6322,6 +6364,21 @@ void ENTER_HANDLE(void)
 					}
 					op_sw = op_on;
 				}break;
+				case repeat:
+				{
+					DrawMenu();//重绘菜单栏
+					LCD_SetTextColor(LCD_COLOR_YELLOW);
+					LCD_SetBackColor(LCD_COLOR_BLACK);
+					if(LANG == chs)
+					{
+						LCD_DisplayStringLine(445,35,"打开");
+						LCD_DisplayStringLine(445,157,"关闭");
+					}else{
+						LCD_DisplayStringLine(445,35,"ON");
+						LCD_DisplayStringLine(445,157,"OFF");
+					}
+					op_sw = op_on;
+				}break;
 				case set_unit:
 				{
 					DrawMenu();//重绘菜单栏
@@ -8025,6 +8082,47 @@ void UP_HANDLE(void)
 					}
 					op_flag = set_beep;
 				}break;
+				case repeat:
+				{
+					focus_on1();
+					if(BAUD == b9600)
+					{
+						LCD_DisplayStringLine(87,500,"9600");
+					}else if(BAUD == b19200){
+						LCD_DisplayStringLine(87,500,"19200");
+					}else if(BAUD == b38400){
+						LCD_DisplayStringLine(87,500,"38400");
+					}else if(BAUD == b57600){
+						LCD_DisplayStringLine(87,500,"57600");
+					}else if(BAUD == b115200){
+						LCD_DisplayStringLine(87,500,"115200");
+					}
+					
+					focus_off1();
+					if(REPEAT == rtp_off){
+						if(LANG == chs)
+						{
+							LCD_DisplayStringLine(130,500,"关闭");
+						}else{
+							LCD_DisplayStringLine(130,500,"OFF");
+						}
+					}else{
+						if(LANG == chs)
+						{
+							LCD_DisplayStringLine(130,500,"打开");
+						}else{
+							LCD_DisplayStringLine(130,500,"ON");
+						}
+					}
+//					LCD_DisplayStringLine(322,516,"S");
+					if(LANG == chs)
+					{
+						DrawInstruction("波特率设置");
+					}else{
+						DrawInstruction("Select Baud rate");
+					}
+					op_flag = set_baud;
+				}break;
 //				case set_font:
 //				{
 //					focus_off1();
@@ -8158,30 +8256,36 @@ void UP_HANDLE(void)
 					stimefocus_off(SAVETIME);
 //					LCD_DisplayStringLine(317,150,"1");
 //					LCD_DisplayStringLine(322,516,"S");
-					
-					LCD_SetColors(LCD_COLOR_YELLOW,LCD_COLOR_YELLOW);
-					LCD_DrawFullRect(150,127,24,31);
-					if(UNIT == C){
-						LCD_SetTextColor(LCD_COLOR_BLACK);
-//						LCD_SetBackColor(LCD_COLOR_YELLOW);
-						DISP_CNL_S(127,150,"o");
-						LCD_DisplayStringLine(127,155,"C");
-					}else if(UNIT == F){
-						LCD_SetTextColor(LCD_COLOR_BLACK);
-						DISP_CNL_S(127,150,"o");
-						LCD_DisplayStringLine(127,155,"F");
-					}else{
-						LCD_SetTextColor(LCD_COLOR_BLACK);
-						LCD_DisplayStringLine(127,155,"K");
-					}
-					if(LANG == chs)
-					{
-						DrawInstruction("温度单位选择");
-					}else{
-						DrawInstruction("Select temperature unit");
-					}
-					op_flag = set_unit;	
+					focus_on1();
+					sprintf(buf,"%0.2d:%0.2d",
+							ENDH,
+							ENDM);
+					LCD_DisplayStringLine(248,150,(uint8_t *)buf);
+					op_flag = endtime;	
+//					LCD_SetColors(LCD_COLOR_YELLOW,LCD_COLOR_YELLOW);
+//					LCD_DrawFullRect(150,127,24,31);
+//					if(UNIT == C){
+//						LCD_SetTextColor(LCD_COLOR_BLACK);
+////						LCD_SetBackColor(LCD_COLOR_YELLOW);
+//						DISP_CNL_S(127,150,"o");
+//						LCD_DisplayStringLine(127,155,"C");
+//					}else if(UNIT == F){
+//						LCD_SetTextColor(LCD_COLOR_BLACK);
+//						DISP_CNL_S(127,150,"o");
+//						LCD_DisplayStringLine(127,155,"F");
+//					}else{
+//						LCD_SetTextColor(LCD_COLOR_BLACK);
+//						LCD_DisplayStringLine(127,155,"K");
+//					}
+//					if(LANG == chs)
+//					{
+//						DrawInstruction("温度单位选择");
+//					}else{
+//						DrawInstruction("Select temperature unit");
+//					}
+//					op_flag = set_unit;	
 				}break;
+				
 			}
 		}break;
 		case separation:
@@ -10211,18 +10315,101 @@ void DOWN_HANDLE(void)
 						LCD_DisplayStringLine(127,155,"K");
 					}
 					
-//					focus_on1();
-//					LCD_DisplayStringLine(317,150,"AUTO");
-//					op_flag = set_file;
+					focus_on1();
+					if(TIMETIRG == trig_off){
+						if(LANG == chs)
+						{
+							LCD_DisplayStringLine(170,150,"关闭");
+						}else{
+							LCD_DisplayStringLine(170,150,"OFF");
+						}
+					}else{
+						if(LANG == chs)
+						{
+							LCD_DisplayStringLine(170,150,"打开");
+						}else{
+							LCD_DisplayStringLine(170,150,"ON");
+						}
+					}
+					if(LANG == chs)
+					{
+						DrawInstruction("定时采集开关");
+					}else{
+						DrawInstruction("Trig Timer");
+					}
+					op_flag = timetrig;
+					
+					
+				}break;
+				case timetrig:
+				{
+					focus_off1();
+					if(TIMETIRG == trig_off){
+						if(LANG == chs)
+						{
+							LCD_DisplayStringLine(170,150,"关闭");
+						}else{
+							LCD_DisplayStringLine(170,150,"OFF");
+						}
+					}else{
+						if(LANG == chs)
+						{
+							LCD_DisplayStringLine(170,150,"打开");
+						}else{
+							LCD_DisplayStringLine(170,150,"ON");
+						}
+					}
+					
+					focus_on1();
+					sprintf(buf,"%0.2d:%0.2d",
+							STARTH,
+							STARTM);
+					LCD_DisplayStringLine(208,150,(uint8_t *)buf);
+					if(LANG == chs)
+					{
+						DrawInstruction("采集开始时间");
+					}else{
+						DrawInstruction("Start Time");
+					}
+					op_flag = starttime;
+//					stimefocus_on(SAVETIME);
 //					if(LANG == chs)
 //					{
-//						DrawInstruction("文件名的前缀");
+//						DrawInstruction("记录间隔时间");
 //					}else{
-//						DrawInstruction("Input file name prefix");
+//						DrawInstruction("Record interval");
 //					}
+//					op_flag = set_timer;
+				}break;		
+				case starttime:
+				{
+					focus_off1();
+					sprintf(buf,"%0.2d:%0.2d",
+							STARTH,
+							STARTM);
+					LCD_DisplayStringLine(208,150,(uint8_t *)buf);
+					focus_on1();
+					sprintf(buf,"%0.2d:%0.2d",
+							ENDH,
+							ENDM);
+					LCD_DisplayStringLine(248,150,(uint8_t *)buf);
+					if(LANG == chs)
+					{
+						DrawInstruction("采集结束时间");
+					}else{
+						DrawInstruction("End Time");
+					}
+					op_flag = endtime;
+				}break;
+				case endtime:
+				{
+					focus_off1();
+					sprintf(buf,"%0.2d:%0.2d",
+							ENDH,
+							ENDM);
+					LCD_DisplayStringLine(248,150,(uint8_t *)buf);
+					
 					stimefocus_on(SAVETIME);
-//					LCD_DisplayStringLine(317,150,"1");
-//					LCD_DisplayStringLine(322,516,"S");
 					if(LANG == chs)
 					{
 						DrawInstruction("记录间隔时间");
@@ -10231,43 +10418,6 @@ void DOWN_HANDLE(void)
 					}
 					op_flag = set_timer;
 				}break;
-//				case set_font:
-//				{
-//					focus_off1();
-//					if(FONT == big){
-//						if(LANG == chs)
-//						{
-//							LCD_DisplayStringLine(170,150,"大");
-//						}else{
-//							LCD_DisplayStringLine(170,150,"L");
-//						}
-//					}else if(FONT == middle){
-//						if(LANG == chs)
-//						{
-//							LCD_DisplayStringLine(170,150,"中");
-//						}else{
-//							LCD_DisplayStringLine(170,150,"M");
-//						}
-//					}else if(FONT == small){
-//						if(LANG == chs)
-//						{
-//							LCD_DisplayStringLine(170,150,"小");
-//						}else{
-//							LCD_DisplayStringLine(170,150,"S");
-//						}
-//					}
-//					
-//					
-//					focus_on1();
-//					LCD_DisplayStringLine(317,150,"AUTO");
-//					op_flag = set_file;
-//					if(LANG == chs)
-//					{
-//						DrawInstruction("文件名的前缀");
-//					}else{
-//						DrawInstruction("Input file name prefix");
-//					}
-//				}break;				
 				case set_spd:
 				{
 					focus_off1();
@@ -10316,33 +10466,47 @@ void DOWN_HANDLE(void)
 					}
 					op_flag = set_baud;
 				}break;
-//				case set_baud:
-//				{
-//					focus_off1();
-//					if(BAUD == b9600)
-//					{
-//						LCD_DisplayStringLine(87,500,"9600");
-//					}else if(BAUD == b19200){
-//						LCD_DisplayStringLine(87,500,"19200");
-//					}else if(BAUD == b38400){
-//						LCD_DisplayStringLine(87,500,"38400");
-//					}else if(BAUD == b57600){
-//						LCD_DisplayStringLine(87,500,"57600");
-//					}else if(BAUD == b115200){
-//						LCD_DisplayStringLine(87,500,"115200");
-//					}
-//					
-//					focus_on1();
-//					LCD_DisplayStringLine(317,500,"1");
-////					LCD_DisplayStringLine(322,516,"S");
-//					if(LANG == chs)
-//					{
-//						DrawInstruction("记录间隔时间");
-//					}else{
-//						DrawInstruction("Record interval");
-//					}
-//					op_flag = set_timer;
-//				}break;
+				case set_baud:
+				{
+					focus_off1();
+					if(BAUD == b9600)
+					{
+						LCD_DisplayStringLine(87,500,"9600");
+					}else if(BAUD == b19200){
+						LCD_DisplayStringLine(87,500,"19200");
+					}else if(BAUD == b38400){
+						LCD_DisplayStringLine(87,500,"38400");
+					}else if(BAUD == b57600){
+						LCD_DisplayStringLine(87,500,"57600");
+					}else if(BAUD == b115200){
+						LCD_DisplayStringLine(87,500,"115200");
+					}
+					
+					focus_on1();
+					if(REPEAT == rtp_off){
+						if(LANG == chs)
+						{
+							LCD_DisplayStringLine(130,500,"关闭");
+						}else{
+							LCD_DisplayStringLine(130,500,"OFF");
+						}
+					}else{
+						if(LANG == chs)
+						{
+							LCD_DisplayStringLine(130,500,"打开");
+						}else{
+							LCD_DisplayStringLine(130,500,"ON");
+						}
+					}
+//					LCD_DisplayStringLine(322,516,"S");
+					if(LANG == chs)
+					{
+						DrawInstruction("重复采集");
+					}else{
+						DrawInstruction("REPEAT");
+					}
+					op_flag = repeat;
+				}break;
 			}
 		}break;
 		case separation:
@@ -11915,6 +12079,48 @@ void RIGHT_HANDLE(void)
 					}
 					op_flag = set_baud;					
 				}break;
+				case set_unit:
+				{
+					
+					focus_on1();
+					if(REPEAT == rtp_off){
+						if(LANG == chs)
+						{
+							LCD_DisplayStringLine(130,500,"关闭");
+						}else{
+							LCD_DisplayStringLine(130,500,"OFF");
+						}
+					}else{
+						if(LANG == chs)
+						{
+							LCD_DisplayStringLine(130,500,"打开");
+						}else{
+							LCD_DisplayStringLine(130,500,"ON");
+						}
+					}
+					
+					LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
+					LCD_DrawFullRect(150,127,24,31);
+					if(UNIT == C){
+						LCD_SetTextColor(LCD_COLOR_YELLOW);
+						DISP_CNL_S(127,150,"o");
+						LCD_DisplayStringLine(127,155,"C");
+					}else if(UNIT == F){
+						LCD_SetTextColor(LCD_COLOR_YELLOW);
+						DISP_CNL_S(127,150,"o");
+						LCD_DisplayStringLine(127,155,"F");
+					}else{
+						LCD_SetTextColor(LCD_COLOR_YELLOW);
+						LCD_DisplayStringLine(127,155,"K");
+					}
+					if(LANG == chs)
+					{
+						DrawInstruction("重复采集");
+					}else{
+						DrawInstruction("REPEAT");
+					}
+					op_flag = repeat;	
+				}break;
 //				case set_file:
 //				{
 //					focus_off1();
@@ -13046,6 +13252,48 @@ void LEFT_HANDLE(void)
 						LCD_DisplayStringLine(87,500,"115200");
 					}
 					op_flag = set_beep;					
+				}break;
+				case repeat:
+				{
+					
+					focus_off1();
+					if(REPEAT == rtp_off){
+						if(LANG == chs)
+						{
+							LCD_DisplayStringLine(130,500,"关闭");
+						}else{
+							LCD_DisplayStringLine(130,500,"OFF");
+						}
+					}else{
+						if(LANG == chs)
+						{
+							LCD_DisplayStringLine(130,500,"打开");
+						}else{
+							LCD_DisplayStringLine(130,500,"ON");
+						}
+					}
+					
+					LCD_SetColors(LCD_COLOR_YELLOW,LCD_COLOR_YELLOW);
+					LCD_DrawFullRect(150,127,24,31);
+					if(UNIT == C){
+						LCD_SetTextColor(LCD_COLOR_BLACK);
+						DISP_CNL_S(127,150,"o");
+						LCD_DisplayStringLine(127,155,"C");
+					}else if(UNIT == F){
+						LCD_SetTextColor(LCD_COLOR_BLACK);
+						DISP_CNL_S(127,150,"o");
+						LCD_DisplayStringLine(127,155,"F");
+					}else{
+						LCD_SetTextColor(LCD_COLOR_BLACK);
+						LCD_DisplayStringLine(127,155,"K");
+					}
+					if(LANG == chs)
+					{
+						DrawInstruction("温度单位选择");
+					}else{
+						DrawInstruction("Select temperature unit");
+					}
+					op_flag = set_unit;	
 				}break;
 //				case set_timer:
 //				{

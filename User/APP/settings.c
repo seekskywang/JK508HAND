@@ -51,7 +51,7 @@ extern union
 
 void page_set(void)
 {
-	
+	char buf[10];
   /*初始化后默认使用前景层*/
 	LCD_SetLayer(LCD_FOREGROUND_LAYER);
 	/*默认设置不透明	，该函数参数为不透明度，范围 0-0xff ，0为全透明，0xff为不透明*/
@@ -158,7 +158,14 @@ void page_set(void)
 			LCD_DisplayStringLine(170,150,"ON");
 		}
 	}
-	
+	sprintf(buf,"%0.2d:%0.2d",
+			STARTH,
+			STARTM);
+	LCD_DisplayStringLine(208,150,(uint8_t *)buf);
+	sprintf(buf,"%0.2d:%0.2d",
+			ENDH,
+			ENDM);
+	LCD_DisplayStringLine(248,150,(uint8_t *)buf);
 	if(REPEAT == rtp_off){
 		if(LANG == chs)
 		{

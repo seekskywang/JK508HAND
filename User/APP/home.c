@@ -1049,10 +1049,17 @@ void page_home(void)
 		LCD_SetTextColor(LCD_COLOR_WHITE);
 	}
 	LCD_SetBackColor(LCD_COLOR_BACK);
-	LCD_SetTextColor(LCD_COLOR_WHITE);
-	LCD_DisplayStringLine(416,200,"平均值");
-	LCD_DisplayStringLine(416,350,"最大值");
-	LCD_DisplayStringLine(416,500,"最小值");
+	LCD_SetTextColor(LCD_COLOR_YELLOW);
+	DISP_AVG(420+2,400-5,"AVG");
+	DISP_AVG(420+2,480-5,"MAX");
+	DISP_AVG(420+2,560-5,"MIN");
+	LCD_SetColors(LCD_COLOR_GREY,LCD_COLOR_BACK);
+	LCD_DrawFullRect(385+5,415,2,25);
+	LCD_DrawFullRect(466+5,415,2,25);
+	LCD_DrawFullRect(547+5,415,2,25);
+	LCD_DrawFullRect(630+5,415,2,25);
+	LCD_DrawFullRect(385+5,415,247,2);
+	
 	page_flag = display;
 	op_flag = home_type;
 }

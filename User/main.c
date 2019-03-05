@@ -48,6 +48,7 @@ u8 usbbuf[0x40];
 u8 usbsendbuf[0x40];
 u8 savedata[80];
 u8 uinfo[64];
+u8 trigtime[4];
 //u8 usbreadtime = 0;
 u8 eqmtstatus;
 u16 crcwatch;
@@ -215,7 +216,7 @@ int i;
 u16 count = 0;
 
 float ch_temp[40];
-
+float avg_data[3];
 /**
   * @brief  Ö÷º¯Êý
   * @param  ÎÞ
@@ -677,6 +678,34 @@ void TempDisplay(void)
 //		LCD_DisplayStringLine_48(47,200,(uint8_t*)buf);
 //		sprintf(buf,"%03d",battery);
 //		LCD_DisplayStringLine_48(47,260,(uint8_t*)buf);
+		LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_BACK);
+		TEMPAVG = 1000.1;
+		sprintf(buf,"%.1f",TEMPAVG);
+		if(TEMPAVG >= 0)
+		{
+			if(TEMPAVG < 10)
+			{
+				strcat(buf,"   ");
+			}else if(TEMPAVG < 100){
+				strcat(buf,"  ");
+			}else if(TEMPAVG < 1000){
+				strcat(buf," ");
+			}
+		}else{
+			if(TEMPAVG > -10)
+			{
+				strcat(buf,"  ");
+			}else if(TEMPAVG > -100){
+				strcat(buf," ");
+			}
+		}
+		if(TEMPAVG < 1999)
+		{
+			DISP_TEMP_S(419,421,(uint8_t*)buf,0);
+		}else{
+			LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
+			LCD_DrawFullRect(415,420,48,20);
+		}
 		
 		
 		if(FONT == big)

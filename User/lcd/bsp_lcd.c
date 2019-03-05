@@ -878,7 +878,7 @@ void DrawTouch(void)
 void DrawInstruction(uint8_t *ptr)
 {
 	LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-	LCD_DrawFullRect(3,416,400,24);
+	LCD_DrawFullRect(3,416,380,24);
 	LCD_SetBackColor(LCD_COLOR_BACK);
 	LCD_SetTextColor(LCD_COLOR_WHITE);
 	DISP_INS(416,3,ptr);
@@ -1349,6 +1349,8 @@ void DISP_CNL_S(uint16_t x,uint16_t y, uint8_t *ptr)
   }
 }
 
+
+
 void DISP_TEMP_L(uint16_t x,uint16_t y, uint8_t *ptr,u8 sw)
 {  
   uint16_t refcolumn = y;
@@ -1530,7 +1532,7 @@ void DISP_AVG(uint16_t x,uint16_t y, uint8_t *ptr)
 	 {
 		if(*ptr < 0x80)
 		{
-			LCD_SetFont(&FontC_8x20B);
+			LCD_SetFont(&FontC_8x14);
 			/* Display one character on LCD */
 			LCD_DisplayChar_48(LINE(x), refcolumn, *ptr);
 			/* Decrement the column position by width */

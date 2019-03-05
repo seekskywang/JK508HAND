@@ -30,6 +30,8 @@ extern float TempLLimits[40];
 extern float YLIMIT[3];
 extern float Correction[40];
 extern float ch_temp[40];
+extern float avg_data[3];
+extern u8 trigtime[4];
 extern u8 RecBuff[39];
 extern u8 usbsendbuf[0x40];
 extern u8 savedata[80];
@@ -123,7 +125,16 @@ extern u8 usbbuf[0x40];
 uint16_t CRC16(uint8_t *puchMsg, uint8_t Len);
 uint32_t Flash_EnableReadProtection(void);
 uint32_t Flash_DisableReadProtection(void);
+//触发时间段
+#define STARTH					   trigtime[0]
+#define STARTM					   trigtime[1]
+#define ENDH					   trigtime[2]
+#define ENDM					   trigtime[3]
 
+//平均最大最小值
+#define TEMPAVG					   avg_data[0]
+#define TEMPMAX					   avg_data[1]
+#define TEMPMIN					   avg_data[2]
 //历史数据存储配置
 #define SECTOR_REC					his_config[0]
 #define TIME_REC					his_config[1]
@@ -564,6 +575,11 @@ uint32_t Flash_DisableReadProtection(void);
 #define set_dim		     92//降低亮度
 #define set_touch		 93//触摸屏设置
 #define his_search		 94//历史搜索
+#define timetrig		 95//历史搜索
+#define repeat		 	 96//历史搜索
+#define starttime		 97//历史搜索
+#define endtime	 		 98//历史搜索
+
 
 /* 字体标志位 */
 #define big	             0
