@@ -62,6 +62,7 @@ extern u8 time_page;
 extern u8 press;
 extern u8 spt_page;
 extern u8 cor_page;
+extern u8 trigflag;
 
 void page_home(void);
 void page_set(void);
@@ -121,15 +122,16 @@ void dim_set(u8 key);
 void stimefocus_on(int lmt);
 void stimefocus_off(int lmt);
 
+
 extern u8 usbbuf[0x40];
 uint16_t CRC16(uint8_t *puchMsg, uint8_t Len);
 uint32_t Flash_EnableReadProtection(void);
 uint32_t Flash_DisableReadProtection(void);
 //触发时间段
-#define STARTH					   trigtime[0]
-#define STARTM					   trigtime[1]
-#define ENDH					   trigtime[2]
-#define ENDM					   trigtime[3]
+//#define STARTH					   trigtime[0]
+//#define STARTM					   trigtime[1]
+//#define ENDH					   trigtime[2]
+//#define ENDM					   trigtime[3]
 
 //平均最大最小值
 #define TEMPAVG					   avg_data[0]
@@ -434,10 +436,14 @@ uint32_t Flash_DisableReadProtection(void);
 #define   BRTS						savedata[49]  //亮度标志位
 #define   DIM						savedata[50]  //降低亮度标志位
 #define   CHNUM						savedata[51]//设备通道数
-#define   TOUCH						savedata[52]//设备通道数
+#define   TOUCH						savedata[52]//触摸开关
 #define   SAVETIME					savedata[53]//设备通道数
-#define   TIMETIRG					savedata[54]//设备通道数
-#define   REPEAT					savedata[55]//设备通道数
+#define   TIMETIRG					savedata[54]//定时采集
+#define   REPEAT					savedata[55]//重复采集
+#define   STARTH					savedata[56]//开始时间H
+#define   STARTM					savedata[57]//开始时间M
+#define   ENDH						savedata[58]//开始时间H
+#define   ENDM						savedata[59]//开始时间M
 
 /* 校准参数 */
 #define   XCOR						corpara[0]  
@@ -575,10 +581,10 @@ uint32_t Flash_DisableReadProtection(void);
 #define set_dim		     92//降低亮度
 #define set_touch		 93//触摸屏设置
 #define his_search		 94//历史搜索
-#define timetrig		 95//历史搜索
-#define repeat		 	 96//历史搜索
-#define starttime		 97//历史搜索
-#define endtime	 		 98//历史搜索
+#define timetrig		 95//定时采集
+#define repeat		 	 96//重复采集
+#define starttime		 97//开始时间
+#define endtime	 		 98//结束时间
 
 
 /* 字体标志位 */

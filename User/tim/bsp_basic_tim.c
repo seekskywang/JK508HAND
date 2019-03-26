@@ -275,19 +275,42 @@ void BASIC_TIM_IRQHandler (void)
 		Touch_Scan();//触摸扫描
 //		Tick_10ms++;
 //		MODS_Poll();
-		if(sendcount == 4*5 && GPIO_ReadInputDataBit(GPIOI,GPIO_Pin_11))
+		if(page_flag != poweron && trigflag == 1)
 		{
-			GPIO_SetBits(GPIOA,GPIO_Pin_8);
-//			USART_ITConfig(DEBUG_USART, USART_IT_RXNE, DISABLE);
-			for(i=0;i<9;i++)
+			if(sendcount == 4*5 && GPIO_ReadInputDataBit(GPIOI,GPIO_Pin_11))
 			{
-				Usart_SendByte(DEBUG_USART,tempreq[i]);//请求温度数据
+				GPIO_SetBits(GPIOA,GPIO_Pin_8);
+	//			USART_ITConfig(DEBUG_USART, USART_IT_RXNE, DISABLE);
+				for(i=0;i<9;i++)
+				{
+					Usart_SendByte(DEBUG_USART,tempreq[i]);//请求温度数据
+				}
+	//			USART_ITConfig(DEBUG_USART, USART_IT_RXNE, ENABLE);						
+				sendcount = 0;
+	//			GPIO_SetBits(GPIOA,GPIO_Pin_8);	
+	//			Delay(1000);
+				GPIO_ResetBits(GPIOA,GPIO_Pin_8);
 			}
-//			USART_ITConfig(DEBUG_USART, USART_IT_RXNE, ENABLE);						
-			sendcount = 0;
-			GPIO_SetBits(GPIOA,GPIO_Pin_8);	
-			Delay(1000);
-			GPIO_ResetBits(GPIOA,GPIO_Pin_8);
+		}else if(page_flag == poweron){
+			if(sendcount == 4*5 && GPIO_ReadInputDataBit(GPIOI,GPIO_Pin_11))
+			{
+				GPIO_SetBits(GPIOA,GPIO_Pin_8);
+	//			USART_ITConfig(DEBUG_USART, USART_IT_RXNE, DISABLE);
+				for(i=0;i<9;i++)
+				{
+					Usart_SendByte(DEBUG_USART,tempreq[i]);//请求温度数据
+				}
+	//			USART_ITConfig(DEBUG_USART, USART_IT_RXNE, ENABLE);						
+				sendcount = 0;
+	//			GPIO_SetBits(GPIOA,GPIO_Pin_8);	
+	//			Delay(1000);
+				GPIO_ResetBits(GPIOA,GPIO_Pin_8);
+			}
+		}else{
+			for(i=0;i<CHNUM;i++)
+			{
+				ch_temp[i] = 1999.9;
+			}
 		}
 //		Delay(1000);
 //		GPIO_ResetBits(GPIOA,GPIO_Pin_8);

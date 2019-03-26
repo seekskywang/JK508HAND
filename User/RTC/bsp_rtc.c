@@ -24,6 +24,7 @@
 u8 time_buf[10][7];
 u32 rec_num = 0;
 u8 usbreadtime[7];
+u8 trigflag;
 /**
   * @brief  设置时间和日期
   * @param  无
@@ -80,6 +81,16 @@ void RTC_TimeAndDate_Show(void)
 	HOURS = RTC_TimeStructure.RTC_Hours;
 	MINUTES = RTC_TimeStructure.RTC_Minutes;
 	SECONDS = RTC_TimeStructure.RTC_Seconds;
+	if(TIMETIRG == trig_off)
+	{
+		trigflag = 1;
+	}else{
+		if((HOURS*60 + MINUTES >= STARTH*60 + STARTM) && (HOURS*60 + MINUTES < ENDH*60 + ENDM)){
+			trigflag = 1;
+		}else{
+			trigflag = 0;
+		}
+	}
 	// 每秒打印一次
   	if(Rtctmp != RTC_TimeStructure.RTC_Seconds)
     {					
@@ -104,88 +115,92 @@ void RTC_TimeAndDate_Show(void)
 		usbreadtime[5] = (u8)(RTC_TimeStructure.RTC_Minutes);//分
 		usbreadtime[6] = (u8)(RTC_TimeStructure.RTC_Seconds);//秒
 
-		
-		if(count == 0)
+		if(trigflag == 1)
 		{
-			time_buf[count/50][0] = 20;
-			time_buf[count/50][1] = RTC_DateStructure.RTC_Year;
-			time_buf[count/50][2] = RTC_DateStructure.RTC_Month;
-			time_buf[count/50][3] = RTC_DateStructure.RTC_Date;
-			time_buf[count/50][4] = RTC_TimeStructure.RTC_Hours;
-			time_buf[count/50][5] = RTC_TimeStructure.RTC_Minutes;
-			time_buf[count/50][6] = RTC_TimeStructure.RTC_Seconds;
-		}else if(count == 50){
-			time_buf[count/50][0] = 20;
-			time_buf[count/50][1] = RTC_DateStructure.RTC_Year;
-			time_buf[count/50][2] = RTC_DateStructure.RTC_Month;
-			time_buf[count/50][3] = RTC_DateStructure.RTC_Date;
-			time_buf[count/50][4] = RTC_TimeStructure.RTC_Hours;
-			time_buf[count/50][5] = RTC_TimeStructure.RTC_Minutes;
-			time_buf[count/50][6] = RTC_TimeStructure.RTC_Seconds;
-		}else if(count == 100){
-			time_buf[count/50][0] = 20;
-			time_buf[count/50][1] = RTC_DateStructure.RTC_Year;
-			time_buf[count/50][2] = RTC_DateStructure.RTC_Month;
-			time_buf[count/50][3] = RTC_DateStructure.RTC_Date;
-			time_buf[count/50][4] = RTC_TimeStructure.RTC_Hours;
-			time_buf[count/50][5] = RTC_TimeStructure.RTC_Minutes;
-			time_buf[count/50][6] = RTC_TimeStructure.RTC_Seconds;
-		}else if(count == 150){
-			time_buf[count/50][0] = 20;
-			time_buf[count/50][1] = RTC_DateStructure.RTC_Year;
-			time_buf[count/50][2] = RTC_DateStructure.RTC_Month;
-			time_buf[count/50][3] = RTC_DateStructure.RTC_Date;
-			time_buf[count/50][4] = RTC_TimeStructure.RTC_Hours;
-			time_buf[count/50][5] = RTC_TimeStructure.RTC_Minutes;
-			time_buf[count/50][6] = RTC_TimeStructure.RTC_Seconds;
-		}else if(count == 200){
-			time_buf[count/50][0] = 20;
-			time_buf[count/50][1] = RTC_DateStructure.RTC_Year;
-			time_buf[count/50][2] = RTC_DateStructure.RTC_Month;
-			time_buf[count/50][3] = RTC_DateStructure.RTC_Date;
-			time_buf[count/50][4] = RTC_TimeStructure.RTC_Hours;
-			time_buf[count/50][5] = RTC_TimeStructure.RTC_Minutes;
-			time_buf[count/50][6] = RTC_TimeStructure.RTC_Seconds;
-		}else if(count == 250){
-			time_buf[count/50][0] = 20;
-			time_buf[count/50][1] = RTC_DateStructure.RTC_Year;
-			time_buf[count/50][2] = RTC_DateStructure.RTC_Month;
-			time_buf[count/50][3] = RTC_DateStructure.RTC_Date;
-			time_buf[count/50][4] = RTC_TimeStructure.RTC_Hours;
-			time_buf[count/50][5] = RTC_TimeStructure.RTC_Minutes;
-			time_buf[count/50][6] = RTC_TimeStructure.RTC_Seconds;
-		}else if(count == 300){
-			time_buf[count/50][0] = 20;
-			time_buf[count/50][1] = RTC_DateStructure.RTC_Year;
-			time_buf[count/50][2] = RTC_DateStructure.RTC_Month;
-			time_buf[count/50][3] = RTC_DateStructure.RTC_Date;
-			time_buf[count/50][4] = RTC_TimeStructure.RTC_Hours;
-			time_buf[count/50][5] = RTC_TimeStructure.RTC_Minutes;
-			time_buf[count/50][6] = RTC_TimeStructure.RTC_Seconds;
-		}else if(count == 350){
-			time_buf[count/50][0] = 20;
-			time_buf[count/50][1] = RTC_DateStructure.RTC_Year;
-			time_buf[count/50][2] = RTC_DateStructure.RTC_Month;
-			time_buf[count/50][3] = RTC_DateStructure.RTC_Date;
-			time_buf[count/50][4] = RTC_TimeStructure.RTC_Hours;
-			time_buf[count/50][5] = RTC_TimeStructure.RTC_Minutes;
-			time_buf[count/50][6] = RTC_TimeStructure.RTC_Seconds;
-		}else if(count == 400){
-			time_buf[count/50][0] = 20;
-			time_buf[count/50][1] = RTC_DateStructure.RTC_Year;
-			time_buf[count/50][2] = RTC_DateStructure.RTC_Month;
-			time_buf[count/50][3] = RTC_DateStructure.RTC_Date;
-			time_buf[count/50][4] = RTC_TimeStructure.RTC_Hours;
-			time_buf[count/50][5] = RTC_TimeStructure.RTC_Minutes;
-			time_buf[count/50][6] = RTC_TimeStructure.RTC_Seconds;
-		}else if(count == 450){
-			time_buf[count/50][0] = 20;
-			time_buf[count/50][1] = RTC_DateStructure.RTC_Year;
-			time_buf[count/50][2] = RTC_DateStructure.RTC_Month;
-			time_buf[count/50][3] = RTC_DateStructure.RTC_Date;
-			time_buf[count/50][4] = RTC_TimeStructure.RTC_Hours;
-			time_buf[count/50][5] = RTC_TimeStructure.RTC_Minutes;
-			time_buf[count/50][6] = RTC_TimeStructure.RTC_Seconds;
+			if(count == 0)
+			{
+				time_buf[count/50][0] = 20;
+				time_buf[count/50][1] = RTC_DateStructure.RTC_Year;
+				time_buf[count/50][2] = RTC_DateStructure.RTC_Month;
+				time_buf[count/50][3] = RTC_DateStructure.RTC_Date;
+				time_buf[count/50][4] = RTC_TimeStructure.RTC_Hours;
+				time_buf[count/50][5] = RTC_TimeStructure.RTC_Minutes;
+				time_buf[count/50][6] = RTC_TimeStructure.RTC_Seconds;
+			}else if(count == 50){
+				time_buf[count/50][0] = 20;
+				time_buf[count/50][1] = RTC_DateStructure.RTC_Year;
+				time_buf[count/50][2] = RTC_DateStructure.RTC_Month;
+				time_buf[count/50][3] = RTC_DateStructure.RTC_Date;
+				time_buf[count/50][4] = RTC_TimeStructure.RTC_Hours;
+				time_buf[count/50][5] = RTC_TimeStructure.RTC_Minutes;
+				time_buf[count/50][6] = RTC_TimeStructure.RTC_Seconds;
+			}else if(count == 100){
+				time_buf[count/50][0] = 20;
+				time_buf[count/50][1] = RTC_DateStructure.RTC_Year;
+				time_buf[count/50][2] = RTC_DateStructure.RTC_Month;
+				time_buf[count/50][3] = RTC_DateStructure.RTC_Date;
+				time_buf[count/50][4] = RTC_TimeStructure.RTC_Hours;
+				time_buf[count/50][5] = RTC_TimeStructure.RTC_Minutes;
+				time_buf[count/50][6] = RTC_TimeStructure.RTC_Seconds;
+			}else if(count == 150){
+				time_buf[count/50][0] = 20;
+				time_buf[count/50][1] = RTC_DateStructure.RTC_Year;
+				time_buf[count/50][2] = RTC_DateStructure.RTC_Month;
+				time_buf[count/50][3] = RTC_DateStructure.RTC_Date;
+				time_buf[count/50][4] = RTC_TimeStructure.RTC_Hours;
+				time_buf[count/50][5] = RTC_TimeStructure.RTC_Minutes;
+				time_buf[count/50][6] = RTC_TimeStructure.RTC_Seconds;
+			}else if(count == 200){
+				time_buf[count/50][0] = 20;
+				time_buf[count/50][1] = RTC_DateStructure.RTC_Year;
+				time_buf[count/50][2] = RTC_DateStructure.RTC_Month;
+				time_buf[count/50][3] = RTC_DateStructure.RTC_Date;
+				time_buf[count/50][4] = RTC_TimeStructure.RTC_Hours;
+				time_buf[count/50][5] = RTC_TimeStructure.RTC_Minutes;
+				time_buf[count/50][6] = RTC_TimeStructure.RTC_Seconds;
+			}else if(count == 250){
+				time_buf[count/50][0] = 20;
+				time_buf[count/50][1] = RTC_DateStructure.RTC_Year;
+				time_buf[count/50][2] = RTC_DateStructure.RTC_Month;
+				time_buf[count/50][3] = RTC_DateStructure.RTC_Date;
+				time_buf[count/50][4] = RTC_TimeStructure.RTC_Hours;
+				time_buf[count/50][5] = RTC_TimeStructure.RTC_Minutes;
+				time_buf[count/50][6] = RTC_TimeStructure.RTC_Seconds;
+			}else if(count == 300){
+				time_buf[count/50][0] = 20;
+				time_buf[count/50][1] = RTC_DateStructure.RTC_Year;
+				time_buf[count/50][2] = RTC_DateStructure.RTC_Month;
+				time_buf[count/50][3] = RTC_DateStructure.RTC_Date;
+				time_buf[count/50][4] = RTC_TimeStructure.RTC_Hours;
+				time_buf[count/50][5] = RTC_TimeStructure.RTC_Minutes;
+				time_buf[count/50][6] = RTC_TimeStructure.RTC_Seconds;
+			}else if(count == 350){
+				time_buf[count/50][0] = 20;
+				time_buf[count/50][1] = RTC_DateStructure.RTC_Year;
+				time_buf[count/50][2] = RTC_DateStructure.RTC_Month;
+				time_buf[count/50][3] = RTC_DateStructure.RTC_Date;
+				time_buf[count/50][4] = RTC_TimeStructure.RTC_Hours;
+				time_buf[count/50][5] = RTC_TimeStructure.RTC_Minutes;
+				time_buf[count/50][6] = RTC_TimeStructure.RTC_Seconds;
+			}else if(count == 400){
+				time_buf[count/50][0] = 20;
+				time_buf[count/50][1] = RTC_DateStructure.RTC_Year;
+				time_buf[count/50][2] = RTC_DateStructure.RTC_Month;
+				time_buf[count/50][3] = RTC_DateStructure.RTC_Date;
+				time_buf[count/50][4] = RTC_TimeStructure.RTC_Hours;
+				time_buf[count/50][5] = RTC_TimeStructure.RTC_Minutes;
+				time_buf[count/50][6] = RTC_TimeStructure.RTC_Seconds;
+			}else if(count == 450){
+				time_buf[count/50][0] = 20;
+				time_buf[count/50][1] = RTC_DateStructure.RTC_Year;
+				time_buf[count/50][2] = RTC_DateStructure.RTC_Month;
+				time_buf[count/50][3] = RTC_DateStructure.RTC_Date;
+				time_buf[count/50][4] = RTC_TimeStructure.RTC_Hours;
+				time_buf[count/50][5] = RTC_TimeStructure.RTC_Minutes;
+				time_buf[count/50][6] = RTC_TimeStructure.RTC_Seconds;
+				
+			}
+		}else{
 			
 		}
 		
@@ -224,61 +239,7 @@ void RTC_TimeAndDate_Show(void)
 			}
 			LCD_DisplayStringLine(90,400,(uint8_t *)LCDTemp);
 		}
-//		else if(page_flag == graph){
-//			sprintf(LCDTemp,"%0.2d:%0.2d:%0.2d",
-//			RTC_TimeStructure.RTC_Hours,
-//			RTC_TimeStructure.RTC_Minutes,
-//			RTC_TimeStructure.RTC_Seconds);
-//			
-//			if(count == 0)
-//			{
-//				LCD_SetTextColor(LCD_COLOR_WHITE);
-//				LCD_SetBackColor(LCD_COLOR_BACK);
-//				DISP_CNL_S(402,80-80,(uint8_t *)LCDTemp);
-//			}else if(count == 50){
-//				LCD_SetTextColor(LCD_COLOR_WHITE);
-//				LCD_SetBackColor(LCD_COLOR_BACK);
-//				DISP_CNL_S(420,130-80,(uint8_t *)LCDTemp);
-//			}else if(count == 100){
-//				LCD_SetTextColor(LCD_COLOR_WHITE);
-//				LCD_SetBackColor(LCD_COLOR_BACK);
-//				DISP_CNL_S(402,180-80,(uint8_t *)LCDTemp);
-//			}else if(count == 150){
-//				LCD_SetTextColor(LCD_COLOR_WHITE);
-//				LCD_SetBackColor(LCD_COLOR_BACK);
-//				DISP_CNL_S(420,230-80,(uint8_t *)LCDTemp);
-//			}else if(count == 200){
-//				LCD_SetTextColor(LCD_COLOR_WHITE);
-//				LCD_SetBackColor(LCD_COLOR_BACK);
-//				DISP_CNL_S(402,280-80,(uint8_t *)LCDTemp);
-//			}else if(count == 250){
-//				LCD_SetTextColor(LCD_COLOR_WHITE);
-//				LCD_SetBackColor(LCD_COLOR_BACK);				
-//				DISP_CNL_S(420,330-80,(uint8_t *)LCDTemp);
-//			}else if(count == 300){
-//				LCD_SetTextColor(LCD_COLOR_WHITE);
-//				LCD_SetBackColor(LCD_COLOR_BACK);
-//				DISP_CNL_S(402,380-80,(uint8_t *)LCDTemp);
-//			}else if(count == 350){
-//				LCD_SetTextColor(LCD_COLOR_WHITE);
-//				LCD_SetBackColor(LCD_COLOR_BACK);
-//				DISP_CNL_S(420,430-80,(uint8_t *)LCDTemp);
-//			}else if(count == 400){
-//				LCD_SetTextColor(LCD_COLOR_WHITE);
-//				LCD_SetBackColor(LCD_COLOR_BACK);
-//				DISP_CNL_S(402,480-80,(uint8_t *)LCDTemp);
-//			}else if(count == 450){
-//				LCD_SetTextColor(LCD_COLOR_WHITE);
-//				LCD_SetBackColor(LCD_COLOR_BACK);
-//				DISP_CNL_S(420,530-80,(uint8_t *)LCDTemp);
-//			}else if(count == 495){
-//				rec_num ++;
-////				Save_flag();
-//				LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-//				LCD_DrawFullRect(0,402,600,34);
-//				DrawGridLine();
-//			}
-//		}			
+		
 		(void)RTC->DR;
     }
     Rtctmp = RTC_TimeStructure.RTC_Seconds;

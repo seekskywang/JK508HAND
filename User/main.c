@@ -212,6 +212,7 @@ __IO uint32_t FlashID = 0;
 void Delay(__IO u32 nCount); 
 void LCD_Test(void);
 void Printf_Charater(void);
+void AVGCAL(void);
 int i;
 u16 count = 0;
 
@@ -642,9 +643,9 @@ void InitBrt(void)
 void TempDisplay(void)
 {
 	char buf[10];
-	static u8 eqmtstatus;
+	static u8 eqmtstatus,dataupdate;
 //	u8 i;
-	if(page_flag == display || page_flag == graph)
+	if((page_flag == display || page_flag == graph) && trigflag == 1)
 	{
 		if(eqmtstatus < 60)
 		{
@@ -678,36 +679,100 @@ void TempDisplay(void)
 //		LCD_DisplayStringLine_48(47,200,(uint8_t*)buf);
 //		sprintf(buf,"%03d",battery);
 //		LCD_DisplayStringLine_48(47,260,(uint8_t*)buf);
-		LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_BACK);
-		TEMPAVG = 1000.1;
-		sprintf(buf,"%.1f",TEMPAVG);
-		if(TEMPAVG >= 0)
+		if(dataupdate == 100)
 		{
-			if(TEMPAVG < 10)
+			
+			//显示平均值
+			LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_BACK);
+	//		TEMPAVG = 1000.1;
+			AVGCAL();//计算平均最大最小值
+			sprintf(buf,"%.1f",TEMPAVG);
+			if(TEMPAVG >= 0)
 			{
-				strcat(buf,"   ");
-			}else if(TEMPAVG < 100){
-				strcat(buf,"  ");
-			}else if(TEMPAVG < 1000){
-				strcat(buf," ");
+				if(TEMPAVG < 10)
+				{
+					strcat(buf,"   ");
+				}else if(TEMPAVG < 100){
+					strcat(buf,"  ");
+				}else if(TEMPAVG < 1000){
+					strcat(buf," ");
+				}
+			}else{
+				if(TEMPAVG > -10)
+				{
+					strcat(buf,"  ");
+				}else if(TEMPAVG > -100){
+					strcat(buf," ");
+				}
 			}
-		}else{
-			if(TEMPAVG > -10)
+			if(TEMPAVG < 1999)
 			{
-				strcat(buf,"  ");
-			}else if(TEMPAVG > -100){
-				strcat(buf," ");
+				DISP_TEMP_S(419,421,(uint8_t*)buf,0);
+			}else{
+				LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
+				LCD_DrawFullRect(419,420,48,20);
 			}
-		}
-		if(TEMPAVG < 1999)
-		{
-			DISP_TEMP_S(419,421,(uint8_t*)buf,0);
+			
+			sprintf(buf,"%.1f",TEMPMAX);
+			if(TEMPMAX >= 0)
+			{
+				if(TEMPMAX < 10)
+				{
+					strcat(buf,"   ");
+				}else if(TEMPMAX < 100){
+					strcat(buf,"  ");
+				}else if(TEMPMAX < 1000){
+					strcat(buf," ");
+				}
+			}else{
+				if(TEMPMAX > -10)
+				{
+					strcat(buf,"  ");
+				}else if(TEMPMAX > -100){
+					strcat(buf," ");
+				}
+			}
+			if(TEMPMAX < 1999)
+			{
+				DISP_TEMP_S(419,501,(uint8_t*)buf,0);
+			}else{
+				LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
+				LCD_DrawFullRect(495,420,48,20);
+			}
+			
+			sprintf(buf,"%.1f",TEMPMIN);
+			if(TEMPMIN >= 0)
+			{
+				if(TEMPMIN < 10)
+				{
+					strcat(buf,"   ");
+				}else if(TEMPMIN < 100){
+					strcat(buf,"  ");
+				}else if(TEMPMIN < 1000){
+					strcat(buf," ");
+				}
+			}else{
+				if(TEMPMIN > -10)
+				{
+					strcat(buf,"  ");
+				}else if(TEMPMIN > -100){
+					strcat(buf," ");
+				}
+			}
+			if(TEMPMIN < 1999)
+			{
+				DISP_TEMP_S(419,581,(uint8_t*)buf,0);
+			}else{
+				LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
+				LCD_DrawFullRect(579,420,48,20);
+			}
+			
+			dataupdate = 0;
 		}else{
-			LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-			LCD_DrawFullRect(415,420,48,20);
+			dataupdate++;
 		}
-		
-		
+////////////////////////////////////////////////////////		
+		//显示温度		
 		if(FONT == big)
 		{					
 			if(ch_page == page1)
@@ -765,10 +830,10 @@ void TempDisplay(void)
 				}
 				if(CH2TEMP < 1999)
 				{
-					DISP_TEMP_L(165,150,(uint8_t*)buf,CH2_SW);
+					DISP_TEMP_L(165+10,150,(uint8_t*)buf,CH2_SW);
 				}else{
 					LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-					LCD_DrawFullRect(150,165,144,40);
+					LCD_DrawFullRect(150,165+10,144,40);
 				}
 				
 				Check_limits(3);
@@ -793,10 +858,10 @@ void TempDisplay(void)
 				}
 				if(CH3TEMP < 1999)
 				{
-					DISP_TEMP_L(235,150,(uint8_t*)buf,CH3_SW);
+					DISP_TEMP_L(235+20,150,(uint8_t*)buf,CH3_SW);
 				}else{
 					LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-					LCD_DrawFullRect(150,235,144,40);
+					LCD_DrawFullRect(150,235+20,144,40);
 				}				
 				Check_limits(4);
 				sprintf(buf,"%.1f",CH4TEMP - COR4);
@@ -820,10 +885,10 @@ void TempDisplay(void)
 				}
 				if(CH4TEMP < 1999)
 				{
-					DISP_TEMP_L(305,150,(uint8_t*)buf,CH4_SW);
+					DISP_TEMP_L(305+30,150,(uint8_t*)buf,CH4_SW);
 				}else{
 					LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-					LCD_DrawFullRect(150,305,144,40);
+					LCD_DrawFullRect(150,305+30,144,40);
 				}				
 				Check_limits(5);
 				sprintf(buf,"%.1f",CH5TEMP - COR5);
@@ -874,10 +939,10 @@ void TempDisplay(void)
 				}
 				if(CH6TEMP < 1999)
 				{
-					DISP_TEMP_L(165,470,(uint8_t*)buf,CH6_SW);
+					DISP_TEMP_L(165+10,470,(uint8_t*)buf,CH6_SW);
 				}else{
 					LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-					LCD_DrawFullRect(470,165,144,40);
+					LCD_DrawFullRect(470,165+10,144,40);
 				}					
 				Check_limits(7);
 				sprintf(buf,"%.1f",CH7TEMP - COR7);
@@ -901,10 +966,10 @@ void TempDisplay(void)
 				}
 				if(CH7TEMP < 1999)
 				{
-					DISP_TEMP_L(235,470,(uint8_t*)buf,CH7_SW);
+					DISP_TEMP_L(235+20,470,(uint8_t*)buf,CH7_SW);
 				}else{
 					LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-					LCD_DrawFullRect(470,235,144,40);
+					LCD_DrawFullRect(470,235+20,144,40);
 				}				
 				Check_limits(8);
 				sprintf(buf,"%.1f",CH8TEMP - COR8);
@@ -928,10 +993,10 @@ void TempDisplay(void)
 				}
 				if(CH8TEMP < 1999)
 				{
-					DISP_TEMP_L(305,470,(uint8_t*)buf,CH8_SW);
+					DISP_TEMP_L(305+30,470,(uint8_t*)buf,CH8_SW);
 				}else{
 					LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-					LCD_DrawFullRect(470,305,144,40);
+					LCD_DrawFullRect(470,305+30,144,40);
 				}							
 			}else if(ch_page == page2){
 //				LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_BACK);
@@ -985,10 +1050,10 @@ void TempDisplay(void)
 				}
 				if(CH10TEMP < 1999)
 				{
-					DISP_TEMP_L(165,150,(uint8_t*)buf,CH10_SW);
+					DISP_TEMP_L(165+10,150,(uint8_t*)buf,CH10_SW);
 				}else{
 					LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-					LCD_DrawFullRect(150,165,144,40);
+					LCD_DrawFullRect(150,165+10,144,40);
 				}
 				
 				Check_limits(11);
@@ -1013,10 +1078,10 @@ void TempDisplay(void)
 				}
 				if(CH11TEMP < 1999)
 				{
-					DISP_TEMP_L(235,150,(uint8_t*)buf,CH11_SW);
+					DISP_TEMP_L(235+20,150,(uint8_t*)buf,CH11_SW);
 				}else{
 					LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-					LCD_DrawFullRect(150,235,144,40);
+					LCD_DrawFullRect(150,235+20,144,40);
 				}
 				
 				Check_limits(12);
@@ -1041,10 +1106,10 @@ void TempDisplay(void)
 				}
 				if(CH12TEMP < 1999)
 				{
-					DISP_TEMP_L(305,150,(uint8_t*)buf,CH12_SW);
+					DISP_TEMP_L(305+30,150,(uint8_t*)buf,CH12_SW);
 				}else{
 					LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-					LCD_DrawFullRect(150,305,144,40);
+					LCD_DrawFullRect(150,305+30,144,40);
 				}
 				
 				Check_limits(13);
@@ -1097,10 +1162,10 @@ void TempDisplay(void)
 				}
 				if(CH14TEMP < 1999)
 				{
-					DISP_TEMP_L(165,470,(uint8_t*)buf,CH14_SW);
+					DISP_TEMP_L(165+10,470,(uint8_t*)buf,CH14_SW);
 				}else{
 					LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-					LCD_DrawFullRect(470,165,144,40);
+					LCD_DrawFullRect(470,165+10,144,40);
 				}
 				
 				Check_limits(15);
@@ -1125,10 +1190,10 @@ void TempDisplay(void)
 				}
 				if(CH15TEMP < 1999)
 				{
-					DISP_TEMP_L(235,470,(uint8_t*)buf,CH15_SW);
+					DISP_TEMP_L(235+20,470,(uint8_t*)buf,CH15_SW);
 				}else{
 					LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-					LCD_DrawFullRect(470,235,144,40);
+					LCD_DrawFullRect(470,235+20,144,40);
 				}
 				
 				Check_limits(16);
@@ -1153,10 +1218,10 @@ void TempDisplay(void)
 				}
 				if(CH16TEMP < 1999)
 				{
-					DISP_TEMP_L(305,470,(uint8_t*)buf,CH16_SW); 
+					DISP_TEMP_L(305+30,470,(uint8_t*)buf,CH16_SW); 
 				}else{
 					LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-					LCD_DrawFullRect(470,305,144,40);
+					LCD_DrawFullRect(470,305+30,144,40);
 				}
 				
 			}else if(ch_page == page3){
@@ -1172,11 +1237,11 @@ void TempDisplay(void)
 				sprintf(buf,"%.1f",CH21TEMP);
 				DISP_TEMP_L(95,470,(uint8_t*)buf,CH21_SW);
 				sprintf(buf,"%.1f",CH22TEMP);
-				DISP_TEMP_L(165,470,(uint8_t*)buf,CH22_SW);
+				DISP_TEMP_L(165+10,470,(uint8_t*)buf,CH22_SW);
 				sprintf(buf,"%.1f",CH23TEMP);
-				DISP_TEMP_L(235,470,(uint8_t*)buf,CH23_SW);
+				DISP_TEMP_L(235+20,470,(uint8_t*)buf,CH23_SW);
 				sprintf(buf,"%.1f",CH24TEMP);
-				DISP_TEMP_L(305,470,(uint8_t*)buf,CH24_SW); 
+				DISP_TEMP_L(305+30,470,(uint8_t*)buf,CH24_SW); 
 			}else if(ch_page == page4){
 //				LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_BACK);
 				sprintf(buf,"%.1f",CH25TEMP);
@@ -1190,11 +1255,11 @@ void TempDisplay(void)
 				sprintf(buf,"%.1f",CH29TEMP);
 				DISP_TEMP_L(95,470,(uint8_t*)buf,CH29_SW);
 				sprintf(buf,"%.1f",CH30TEMP);
-				DISP_TEMP_L(165,470,(uint8_t*)buf,CH30_SW);
+				DISP_TEMP_L(165+10,470,(uint8_t*)buf,CH30_SW);
 				sprintf(buf,"%.1f",CH31TEMP);
-				DISP_TEMP_L(235,470,(uint8_t*)buf,CH31_SW);
+				DISP_TEMP_L(235+20,470,(uint8_t*)buf,CH31_SW);
 				sprintf(buf,"%.1f",CH32TEMP);
-				DISP_TEMP_L(305,470,(uint8_t*)buf,CH32_SW); 
+				DISP_TEMP_L(305+30,470,(uint8_t*)buf,CH32_SW); 
 			}else if(ch_page == page5){
 //				LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_BACK);
 				sprintf(buf,"%.1f",CH33TEMP);
@@ -1208,11 +1273,11 @@ void TempDisplay(void)
 				sprintf(buf,"%.1f",CH37TEMP);
 				DISP_TEMP_L(95,470,(uint8_t*)buf,CH37_SW);
 				sprintf(buf,"%.1f",CH38TEMP);
-				DISP_TEMP_L(165,470,(uint8_t*)buf,CH38_SW);
+				DISP_TEMP_L(165+10,470,(uint8_t*)buf,CH38_SW);
 				sprintf(buf,"%.1f",CH39TEMP);
-				DISP_TEMP_L(235,470,(uint8_t*)buf,CH39_SW);
+				DISP_TEMP_L(235+20,470,(uint8_t*)buf,CH39_SW);
 				sprintf(buf,"%.1f",CH40TEMP);
-				DISP_TEMP_L(305,470,(uint8_t*)buf,CH40_SW); 
+				DISP_TEMP_L(305+30,470,(uint8_t*)buf,CH40_SW); 
 			}
 		}else if(FONT == middle){
 			if(reflag == 1)
@@ -3146,7 +3211,51 @@ void PowerOffHandle(void)
 	}
 	
 }
-
+//计算温度平均值
+void AVGCAL(void)
+{
+	u8 i;
+	u8 chnum = 0;
+	float temp = 0;
+	u8 extflag;
+	TEMPMAX = 0;
+	TEMPMIN = 1999;
+	for(i=0;i<CHNUM;i++)
+	{
+		if(savedata[i] == ch_on && ch_temp[i] < 1999)
+		{
+			extflag = 1;
+			break;
+		}
+	}
+	if(extflag == 1)
+	{
+		for(i=0;i<CHNUM;i++)
+		{
+			if(savedata[i] == ch_on && ch_temp[i] < 1999)
+			{
+				temp += ch_temp[i] - Correction[i];	
+				chnum ++;
+				if((ch_temp[i] - Correction[i]) > TEMPMAX)
+				{
+					TEMPMAX = ch_temp[i] - Correction[i];
+				}
+				if((ch_temp[i] - Correction[i]) < TEMPMIN)
+				{
+					TEMPMIN = ch_temp[i] - Correction[i];
+				}
+			}else{
+				
+			}
+		}
+		TEMPAVG = temp/chnum;
+	}else{
+		TEMPAVG = 0;
+		TEMPMAX = 0;
+		TEMPMIN = 0;
+		
+	}
+}
 
 /*********************************************END OF FILE**********************/
 

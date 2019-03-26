@@ -250,33 +250,33 @@ void page_home(void)
 		{
 			LCD_SetBackColor(LCD_COLOR_BACK);
 			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-			LCD_DisplayStringLine_48(170,10,"002");
+			LCD_DisplayStringLine_48(170+10,10,"002");
 		}else if(CH2_SW == ch_on){
 			LCD_SetBackColor(LCD_COLOR_BACK);
 			LCD_SetTextColor(LCD_COLOR_HLT);
-			LCD_DisplayStringLine_48(170,10,"002");
+			LCD_DisplayStringLine_48(170+10,10,"002");
 		}
 		
 		if(CH3_SW == ch_off)
 		{
 			LCD_SetBackColor(LCD_COLOR_BACK);
 			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-			LCD_DisplayStringLine_48(240,10,"003");
+			LCD_DisplayStringLine_48(240+20,10,"003");
 		}else if(CH3_SW == ch_on){
 			LCD_SetBackColor(LCD_COLOR_BACK);
 			LCD_SetTextColor(LCD_COLOR_HLT);
-			LCD_DisplayStringLine_48(240,10,"003");
+			LCD_DisplayStringLine_48(240+20,10,"003");
 		}
 		
 		if(CH4_SW == ch_off)
 		{
 			LCD_SetBackColor(LCD_COLOR_BACK);
 			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-			LCD_DisplayStringLine_48(310,10,"004");
+			LCD_DisplayStringLine_48(310+30,10,"004");
 		}else if(CH4_SW == ch_on){
 			LCD_SetBackColor(LCD_COLOR_BACK);
 			LCD_SetTextColor(LCD_COLOR_HLT);
-			LCD_DisplayStringLine_48(310,10,"004");
+			LCD_DisplayStringLine_48(310+30,10,"004");
 		}
 		
 		if(CH5_SW == ch_off)
@@ -294,33 +294,33 @@ void page_home(void)
 		{
 			LCD_SetBackColor(LCD_COLOR_BACK);
 			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-			LCD_DisplayStringLine_48(170,330,"006");
+			LCD_DisplayStringLine_48(170+10,330,"006");
 		}else if(CH6_SW == ch_on){
 			LCD_SetBackColor(LCD_COLOR_BACK);
 			LCD_SetTextColor(LCD_COLOR_HLT);
-			LCD_DisplayStringLine_48(170,330,"006");
+			LCD_DisplayStringLine_48(170+10,330,"006");
 		}
 		
 		if(CH7_SW == ch_off)
 		{
 			LCD_SetBackColor(LCD_COLOR_BACK);
 			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-			LCD_DisplayStringLine_48(240,330,"007");
+			LCD_DisplayStringLine_48(240+20,330,"007");
 		}else if(CH7_SW == ch_on){
 			LCD_SetBackColor(LCD_COLOR_BACK);
 			LCD_SetTextColor(LCD_COLOR_HLT);
-			LCD_DisplayStringLine_48(240,330,"007");
+			LCD_DisplayStringLine_48(240+20,330,"007");
 		}
 		
 		if(CH8_SW == ch_off)
 		{
 			LCD_SetBackColor(LCD_COLOR_BACK);
 			LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-			LCD_DisplayStringLine_48(310,330,"008");
+			LCD_DisplayStringLine_48(310+30,330,"008");
 		}else if(CH8_SW == ch_on){
 			LCD_SetBackColor(LCD_COLOR_BACK);
 			LCD_SetTextColor(LCD_COLOR_HLT);
-			LCD_DisplayStringLine_48(310,330,"008");
+			LCD_DisplayStringLine_48(310+30,330,"008");
 		}
 
 	}else if(FONT == middle){

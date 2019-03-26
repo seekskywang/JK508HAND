@@ -112,6 +112,8 @@ void input_num(char* num);
 void clear_input(void);
 void del_num(void);
 void Utest(void);
+void Input_start(u8 num);
+void Input_end(u8 num);
 //uint8_t Key_Scan(GPIO_TypeDef* GPIOx,u16 GPIO_Pin);
 
 #endif /* __LED_H */

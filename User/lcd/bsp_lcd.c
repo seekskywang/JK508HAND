@@ -1038,6 +1038,30 @@ void DrawPowOff(void)
 	LCD_DisplayStringLine(85+315,120+90+20+96,"...");
 	DrawLogo(10,80);
 }
+
+void lcd_image(uint8_t *pt)
+{
+    unsigned long i;
+//	uint32_t color;
+	unsigned long pDst = (unsigned long )CurrentFrameBuffer;
+  
+    for( i = 0; (272 * 480) > i; i++)
+    {
+		//color=(uint32_t)*pt<<16|(uint32_t)*(pt+1)<<8|*(pt+2);
+        
+    	//*pDst = color; 
+		*(__IO uint8_t*)(pDst++)=*pt++;
+        *(__IO uint8_t*)(pDst++)=*pt++;
+        *(__IO uint8_t*)(pDst++)=*pt++;
+        //*(__IO uint8_t*)(pDst+2)= (0xFF0000 & color) >> 16; //R
+
+//        *(__IO uint16_t*)(CurrentFrameBuffer) = (0x00FFFF & color);        //GB
+//        *(__IO uint8_t*)(pDst+2)= (0xFF0000 & color) >> 16; //R
+//        *(__IO uint8_t*)(pDst)+3;
+        //*(__IO uint32_t*)(pDst)++;
+    }
+}
+
 /**
   * @brief  Draws a character on LCD.
   * @param  Xpos: the Line where to display the character shape.

@@ -842,7 +842,7 @@ void input_num(char* num)
 			LCD_DrawRect(312,408,150,24); 
 			LCD_SetBackColor(LCD_COLOR_WHITE);
 			LCD_SetTextColor(LCD_COLOR_BLACK);
-			DISP_CNL_S(409,240,"输入数据");
+			DISP_CNL_S(409,240+20,"输入数据");
 		}
 		
 		strcat(data,num);
@@ -1122,7 +1122,7 @@ void brt_set(u8 key)
 	DrawMenu();//重绘菜单栏
 	Drawsysmenu();
 	LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-	LCD_DrawFullRect(170,130,55,32);
+	LCD_DrawFullRect(170+10,130,55,32);
 	if(press != 1)
 	{
 		focus_on1();
@@ -1131,23 +1131,23 @@ void brt_set(u8 key)
 	}
 	if(key == 1)
 	{
-		LCD_DisplayStringLine(130,170,"10");
+		LCD_DisplayStringLine(130,170+10,"10");
 		BRTS = L0;
 		brightness = 10;
 	}else if(key == 2){
-		LCD_DisplayStringLine(130,170,"25");
+		LCD_DisplayStringLine(130,170+10,"25");
 		BRTS = L1;
 		brightness = 20;
 	}else if(key == 3){
-		LCD_DisplayStringLine(130,170,"50");
+		LCD_DisplayStringLine(130,170+10,"50");
 		BRTS = L2;
 		brightness = 40;
 	}else if(key == 4){
-		LCD_DisplayStringLine(130,170,"75");
+		LCD_DisplayStringLine(130,170+10,"75");
 		BRTS = L3;
 		brightness = 60;
 	}else if(key == 5){
-		LCD_DisplayStringLine(130,170,"100");
+		LCD_DisplayStringLine(130,170+10,"100");
 		BRTS = L4;
 		brightness = 80;
 	}
@@ -1162,7 +1162,7 @@ void dim_set(u8 key)
 	DrawMenu();//重绘菜单栏
 	Drawsysmenu();
 	LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-	LCD_DrawFullRect(170,172,55,32);
+	LCD_DrawFullRect(170+10,172,55,32);
 	if(press != 1)
 	{
 		focus_on1();
@@ -1173,30 +1173,30 @@ void dim_set(u8 key)
 	{
 		if(key == 1)
 		{
-			LCD_DisplayStringLine(174,170,"关闭");
+			LCD_DisplayStringLine(174,170+10,"关闭");
 			LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
 			LCD_DrawFullRect(230,172,55,32);
 			DIM = DOFF;
 		}else if(key == 2){
-			LCD_DisplayStringLine(172,170,"5");
+			LCD_DisplayStringLine(172,170+10,"5");
 			LCD_SetTextColor(LCD_COLOR_YELLOW);
 			LCD_SetBackColor(LCD_COLOR_BACK);
 			LCD_DisplayStringLine(172,230,"Min");
 			DIM = D5;
 		}else if(key == 3){
-			LCD_DisplayStringLine(172,170,"10");
+			LCD_DisplayStringLine(172,170+10,"10");
 			LCD_SetTextColor(LCD_COLOR_YELLOW);
 			LCD_SetBackColor(LCD_COLOR_BACK);
 			LCD_DisplayStringLine(172,230,"Min");
 			DIM = D10;
 		}else if(key == 4){
-			LCD_DisplayStringLine(172,170,"15");
+			LCD_DisplayStringLine(172,170+10,"15");
 			LCD_SetTextColor(LCD_COLOR_YELLOW);
 			LCD_SetBackColor(LCD_COLOR_BACK);
 			LCD_DisplayStringLine(172,230,"Min");
 			DIM = D15;
 		}else if(key == 5){
-			LCD_DisplayStringLine(172,170,"30");
+			LCD_DisplayStringLine(172,170+10,"30");
 			LCD_SetTextColor(LCD_COLOR_YELLOW);
 			LCD_SetBackColor(LCD_COLOR_BACK);
 			LCD_DisplayStringLine(172,230,"Min");
@@ -1205,30 +1205,30 @@ void dim_set(u8 key)
 	}else if(LANG == eng){
 		if(key == 1)
 		{
-			LCD_DisplayStringLine(174,170,"OFF");
+			LCD_DisplayStringLine(174,170+10,"OFF");
 			LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
 			LCD_DrawFullRect(230,172,55,32);
 			DIM = DOFF;
 		}else if(key == 2){
-			LCD_DisplayStringLine(174,170,"5");
+			LCD_DisplayStringLine(174,170+10,"5");
 			LCD_SetTextColor(LCD_COLOR_YELLOW);
 			LCD_SetBackColor(LCD_COLOR_BACK);
 			LCD_DisplayStringLine(172,230,"Min");
 			DIM = D5;
 		}else if(key == 3){
-			LCD_DisplayStringLine(174,170,"10");
+			LCD_DisplayStringLine(174,170+10,"10");
 			LCD_SetTextColor(LCD_COLOR_YELLOW);
 			LCD_SetBackColor(LCD_COLOR_BACK);
 			LCD_DisplayStringLine(172,230,"Min");
 			DIM = D10;
 		}else if(key == 4){
-			LCD_DisplayStringLine(174,170,"15");
+			LCD_DisplayStringLine(174,170+10,"15");
 			LCD_SetTextColor(LCD_COLOR_YELLOW);
 			LCD_SetBackColor(LCD_COLOR_BACK);
 			LCD_DisplayStringLine(172,230,"Min");
 			DIM = D15;
 		}else if(key == 5){
-			LCD_DisplayStringLine(174,170,"30");
+			LCD_DisplayStringLine(174,170+10,"30");
 			LCD_SetTextColor(LCD_COLOR_YELLOW);
 			LCD_SetBackColor(LCD_COLOR_BACK);
 			LCD_DisplayStringLine(172,230,"Min");
@@ -1244,7 +1244,7 @@ void touch_set(u8 key)
 	DrawMenu();//重绘菜单栏
 	Drawsysmenu();
 	LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-	LCD_DrawFullRect(170,210,55,32);
+	LCD_DrawFullRect(170+10,210,55,32);
 	if(press != 1)
 	{
 		focus_on1();
@@ -1255,19 +1255,19 @@ void touch_set(u8 key)
 	{
 		if(key == 1)
 		{
-			LCD_DisplayStringLine(214,170,"打开");
+			LCD_DisplayStringLine(214,170+10,"打开");
 			TOUCH = op_on;
 		}else if(key == 2){
-			LCD_DisplayStringLine(214,170,"关闭");
+			LCD_DisplayStringLine(214,170+10,"关闭");
 			TOUCH = op_off;
 		}
 	}else if(LANG == eng){
 		if(key == 1)
 		{
-			LCD_DisplayStringLine(212,170,"ON");
+			LCD_DisplayStringLine(212,170+10,"ON");
 			TOUCH = op_on;
 		}else if(key == 2){
-			LCD_DisplayStringLine(212,170,"OFF");
+			LCD_DisplayStringLine(212,170+10,"OFF");
 			TOUCH = op_off;
 		}
 	}
@@ -1301,6 +1301,92 @@ void Search_Bit(void)
 //		clear_input();
 	}
 	
+}
+
+//输入开始时间
+void Input_start(u8 num)
+{
+	char buf[10];
+
+	if(bit_flag == 1)
+	{
+		if(num > 2)
+		{
+			num = 2;
+		}
+		STARTH = num*10;
+		bit_flag++;
+	}else if( bit_flag == 2){
+		STARTH = STARTH + num;
+		if(STARTH > 23)
+		{
+			STARTH = 23;
+		}
+		bit_flag++;
+	}else if(bit_flag == 3){
+		if(num > 6)
+		{
+			num = 6;
+		}
+		STARTM = num*10;
+		bit_flag++;
+	}else if(bit_flag == 4){
+		STARTM = STARTM + num;
+		if(STARTM > 59)
+		{
+			STARTM = 59;
+		}
+		bit_flag = 1;
+	}
+	focus_on1();
+	sprintf(buf,"%0.2d:%0.2d",
+			STARTH,
+			STARTM);
+	LCD_DisplayStringLine(208,150,(uint8_t *)buf);
+	Save_flag();
+}
+
+//输入结束时间
+void Input_end(u8 num)
+{
+	char buf[10];
+
+	if(bit_flag == 1)
+	{
+		if(num > 2)
+		{
+			num = 2;
+		}
+		ENDH = num*10;
+		bit_flag++;
+	}else if( bit_flag == 2){
+		ENDH = ENDH + num;
+		if(ENDH > 23)
+		{
+			ENDH = 23;
+		}
+		bit_flag++;
+	}else if(bit_flag == 3){
+		if(num > 6)
+		{
+			num = 6;
+		}
+		ENDM = num*10;
+		bit_flag++;
+	}else if(bit_flag == 4){
+		ENDM = ENDM + num;
+		if(ENDM > 59)
+		{
+			ENDM = 59;
+		}
+		bit_flag = 1;
+	}
+	focus_on1();
+	sprintf(buf,"%0.2d:%0.2d",
+			ENDH,
+			ENDM);
+	LCD_DisplayStringLine(248,150,(uint8_t *)buf);
+	Save_flag();
 }
 /**
   * @brief  配置按键用到的I/O口
@@ -1961,7 +2047,7 @@ void FUNC1_HANDLE(void)
 //						Drawsysmenu();						
 						LCD_SetTextColor(LCD_COLOR_BLACK);
 						LCD_SetBackColor(LCD_COLOR_YELLOW);
-						LCD_DisplayStringLine(50,170,"CHINESE");
+						LCD_DisplayStringLine(50,170+10,"CHINESE");
 						LANG = chs;
 						page_sys();
 						op_sw =op_off;
@@ -2057,7 +2143,7 @@ void FUNC1_HANDLE(void)
 						DrawMenu();//重绘菜单栏
 						Drawsetmenu();
 						LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-						LCD_DrawFullRect(150,90,48,31);
+						LCD_DrawFullRect(500,130,48,31);
 						focus_on1();
 						if(LANG == chs)
 						{
@@ -2066,6 +2152,28 @@ void FUNC1_HANDLE(void)
 							LCD_DisplayStringLine(130,500,"ON");
 						}
 						REPEAT = rtp_on;
+						op_sw = op_off;
+						Save_flag();
+					}else{
+						page_home();
+					}
+				}break;
+				case timetrig:
+				{
+					if(op_sw == op_on)
+					{
+						DrawMenu();//重绘菜单栏
+						Drawsetmenu();
+						LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
+						LCD_DrawFullRect(150,170,48,31);
+						focus_on1();
+						if(LANG == chs)
+						{
+							LCD_DisplayStringLine(170,150,"打开");
+						}else{
+							LCD_DisplayStringLine(170,150,"ON");
+						}
+						TIMETIRG = trig_on;
 						op_sw = op_off;
 						Save_flag();
 					}else{
@@ -2239,7 +2347,7 @@ void FUNC2_HANDLE(void)
 //						Drawsysmenu();
 						LCD_SetTextColor(LCD_COLOR_BLACK);
 						LCD_SetBackColor(LCD_COLOR_YELLOW);
-						LCD_DisplayStringLine(50,170,"ENGLISH");
+						LCD_DisplayStringLine(50,170+10,"ENGLISH");
 						LANG = eng;
 						page_sys();
 						op_sw = op_off;
@@ -2342,6 +2450,28 @@ void FUNC2_HANDLE(void)
 						Save_flag();
 					}else{
 						page_graph();
+					}
+				}break;
+				case timetrig:
+				{
+					if(op_sw == op_on)
+					{
+						DrawMenu();//重绘菜单栏
+						Drawsetmenu();
+						LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
+						LCD_DrawFullRect(150,170+10,48,31);
+						focus_on1();
+						if(LANG == chs)
+						{
+							LCD_DisplayStringLine(170,150,"关闭");
+						}else{
+							LCD_DisplayStringLine(170,150,"OFF");
+						}
+						TIMETIRG = trig_off;
+						op_sw = op_off;
+						Save_flag();
+					}else{
+						page_home();
 					}
 				}break;
 				case set_unit:
@@ -2841,33 +2971,33 @@ void FUNC5_HANDLE(void)
 							{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-								LCD_DisplayStringLine_48(170,10,"010");
+								LCD_DisplayStringLine_48(170+10,10,"010");
 							}else{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_HLT);
-								LCD_DisplayStringLine_48(170,10,"010");
+								LCD_DisplayStringLine_48(170+10,10,"010");
 							}
 							
 							if(CH11_SW == ch_off)
 							{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-								LCD_DisplayStringLine_48(240,10,"011");
+								LCD_DisplayStringLine_48(240+20,10,"011");
 							}else{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_HLT);
-								LCD_DisplayStringLine_48(240,10,"011");
+								LCD_DisplayStringLine_48(240+20,10,"011");
 							}
 							
 							if(CH12_SW == ch_off)
 							{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-								LCD_DisplayStringLine_48(310,10,"012");
+								LCD_DisplayStringLine_48(310+30,10,"012");
 							}else{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_HLT);
-								LCD_DisplayStringLine_48(310,10,"012");
+								LCD_DisplayStringLine_48(310+30,10,"012");
 							}
 							
 							if(CH13_SW == ch_off)
@@ -2885,33 +3015,33 @@ void FUNC5_HANDLE(void)
 							{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-								LCD_DisplayStringLine_48(170,330,"014");
+								LCD_DisplayStringLine_48(170+10,330,"014");
 							}else{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_HLT);
-								LCD_DisplayStringLine_48(170,330,"014");
+								LCD_DisplayStringLine_48(170+10,330,"014");
 							}
 							
 							if(CH15_SW == ch_off)
 							{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-								LCD_DisplayStringLine_48(240,330,"015");
+								LCD_DisplayStringLine_48(240+20,330,"015");
 							}else{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_HLT);
-								LCD_DisplayStringLine_48(240,330,"015");
+								LCD_DisplayStringLine_48(240+20,330,"015");
 							}
 							
 							if(CH16_SW == ch_off)
 							{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-								LCD_DisplayStringLine_48(310,330,"016");
+								LCD_DisplayStringLine_48(310+30,330,"016");
 							}else{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_HLT);
-								LCD_DisplayStringLine_48(310,330,"016");
+								LCD_DisplayStringLine_48(310+30,330,"016");
 							}
 							ch_page = page2;
 						}else if(ch_page == page2 && CHNUM == 16){
@@ -2932,33 +3062,33 @@ void FUNC5_HANDLE(void)
 							{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-								LCD_DisplayStringLine_48(170,10,"002");
+								LCD_DisplayStringLine_48(170+10,10,"002");
 							}else{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_HLT);
-								LCD_DisplayStringLine_48(170,10,"002");
+								LCD_DisplayStringLine_48(170+10,10,"002");
 							}
 							
 							if(CH3_SW == ch_off)
 							{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-								LCD_DisplayStringLine_48(240,10,"003");
+								LCD_DisplayStringLine_48(240+20,10,"003");
 							}else{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_HLT);
-								LCD_DisplayStringLine_48(240,10,"003");
+								LCD_DisplayStringLine_48(240+20,10,"003");
 							}
 							
 							if(CH4_SW == ch_off)
 							{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-								LCD_DisplayStringLine_48(310,10,"004");
+								LCD_DisplayStringLine_48(310+30,10,"004");
 							}else{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_HLT);
-								LCD_DisplayStringLine_48(310,10,"004");
+								LCD_DisplayStringLine_48(310+30,10,"004");
 							}
 							
 							if(CH5_SW == ch_off)
@@ -2976,33 +3106,33 @@ void FUNC5_HANDLE(void)
 							{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-								LCD_DisplayStringLine_48(170,330,"006");
+								LCD_DisplayStringLine_48(170+10,330,"006");
 							}else{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_HLT);
-								LCD_DisplayStringLine_48(170,330,"006");
+								LCD_DisplayStringLine_48(170+10,330,"006");
 							}
 							
 							if(CH7_SW == ch_off)
 							{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-								LCD_DisplayStringLine_48(240,330,"007");
+								LCD_DisplayStringLine_48(240+20,330,"007");
 							}else{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_HLT);
-								LCD_DisplayStringLine_48(240,330,"007");
+								LCD_DisplayStringLine_48(240+20,330,"007");
 							}
 							
 							if(CH8_SW == ch_off)
 							{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-								LCD_DisplayStringLine_48(310,330,"008");
+								LCD_DisplayStringLine_48(310+30,330,"008");
 							}else{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_HLT);
-								LCD_DisplayStringLine_48(310,330,"008");
+								LCD_DisplayStringLine_48(310+30,330,"008");
 							}
 							ch_page = page1;
 						}else if(ch_page == page2 && CHNUM > 16){
@@ -3023,33 +3153,33 @@ void FUNC5_HANDLE(void)
 							{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-								LCD_DisplayStringLine_48(170,10,"018");
+								LCD_DisplayStringLine_48(170+10,10,"018");
 							}else{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_HLT);
-								LCD_DisplayStringLine_48(170,10,"018");
+								LCD_DisplayStringLine_48(170+10,10,"018");
 							}
 							
 							if(CH19_SW == ch_off)
 							{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-								LCD_DisplayStringLine_48(240,10,"019");
+								LCD_DisplayStringLine_48(240+20,10,"019");
 							}else{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_HLT);
-								LCD_DisplayStringLine_48(240,10,"019");
+								LCD_DisplayStringLine_48(240+20,10,"019");
 							}
 							
 							if(CH20_SW == ch_off)
 							{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-								LCD_DisplayStringLine_48(310,10,"020");
+								LCD_DisplayStringLine_48(310+30,10,"020");
 							}else{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_HLT);
-								LCD_DisplayStringLine_48(310,10,"020");
+								LCD_DisplayStringLine_48(310+30,10,"020");
 							}
 							
 							if(CH21_SW == ch_off)
@@ -3067,33 +3197,33 @@ void FUNC5_HANDLE(void)
 							{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-								LCD_DisplayStringLine_48(170,330,"022");
+								LCD_DisplayStringLine_48(170+10,330,"022");
 							}else{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_HLT);
-								LCD_DisplayStringLine_48(170,330,"022");
+								LCD_DisplayStringLine_48(170+10,330,"022");
 							}
 							
 							if(CH23_SW == ch_off)
 							{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-								LCD_DisplayStringLine_48(240,330,"023");
+								LCD_DisplayStringLine_48(240+20,330,"023");
 							}else{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_HLT);
-								LCD_DisplayStringLine_48(240,330,"023");
+								LCD_DisplayStringLine_48(240+20,330,"023");
 							}
 							
 							if(CH24_SW == ch_off)
 							{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-								LCD_DisplayStringLine_48(310,330,"024");
+								LCD_DisplayStringLine_48(310+30,330,"024");
 							}else{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_HLT);
-								LCD_DisplayStringLine_48(310,330,"024");
+								LCD_DisplayStringLine_48(310+30,330,"024");
 							}
 							ch_page = page3;
 						}else if(ch_page == page3){
@@ -3112,33 +3242,33 @@ void FUNC5_HANDLE(void)
 							{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-								LCD_DisplayStringLine_48(170,10,"026");
+								LCD_DisplayStringLine_48(170+10,10,"026");
 							}else{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_HLT);
-								LCD_DisplayStringLine_48(170,10,"026");
+								LCD_DisplayStringLine_48(170+10,10,"026");
 							}
 							
 							if(CH27_SW == ch_off)
 							{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-								LCD_DisplayStringLine_48(240,10,"027");
+								LCD_DisplayStringLine_48(240+20,10,"027");
 							}else{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_HLT);
-								LCD_DisplayStringLine_48(240,10,"027");
+								LCD_DisplayStringLine_48(240+20,10,"027");
 							}
 							
 							if(CH28_SW == ch_off)
 							{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-								LCD_DisplayStringLine_48(310,10,"028");
+								LCD_DisplayStringLine_48(310+30,10,"028");
 							}else{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_HLT);
-								LCD_DisplayStringLine_48(310,10,"028");
+								LCD_DisplayStringLine_48(310+30,10,"028");
 							}
 							
 							if(CH29_SW == ch_off)
@@ -3156,32 +3286,32 @@ void FUNC5_HANDLE(void)
 							{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-								LCD_DisplayStringLine_48(170,330,"030");
+								LCD_DisplayStringLine_48(170+10,330,"030");
 							}else{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_HLT);
-								LCD_DisplayStringLine_48(170,330,"030");
+								LCD_DisplayStringLine_48(170+10,330,"030");
 							}
 							
 							if(CH31_SW == ch_off){
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-								LCD_DisplayStringLine_48(240,330,"031");
+								LCD_DisplayStringLine_48(240+20,330,"031");
 							}else{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_HLT);
-								LCD_DisplayStringLine_48(240,330,"031");
+								LCD_DisplayStringLine_48(240+20,330,"031");
 							}
 							
 							if(CH32_SW == ch_off)
 							{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-								LCD_DisplayStringLine_48(310,330,"032");
+								LCD_DisplayStringLine_48(310+30,330,"032");
 							}else{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_HLT);
-								LCD_DisplayStringLine_48(310,330,"032");
+								LCD_DisplayStringLine_48(310+30,330,"032");
 							}
 							ch_page = page4;
 						}else if(ch_page == page4 && CHNUM > 16){
@@ -3200,33 +3330,33 @@ void FUNC5_HANDLE(void)
 							{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-								LCD_DisplayStringLine_48(170,10,"034");
+								LCD_DisplayStringLine_48(170+10,10,"034");
 							}else{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_HLT);
-								LCD_DisplayStringLine_48(170,10,"034");
+								LCD_DisplayStringLine_48(170+10,10,"034");
 							}
 							
 							if(CH35_SW == ch_off)
 							{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-								LCD_DisplayStringLine_48(240,10,"035");
+								LCD_DisplayStringLine_48(240+20,10,"035");
 							}else{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_HLT);
-								LCD_DisplayStringLine_48(240,10,"035");
+								LCD_DisplayStringLine_48(240+20,10,"035");
 							}
 								
 							if(CH36_SW == ch_off)
 							{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-								LCD_DisplayStringLine_48(310,10,"036");
+								LCD_DisplayStringLine_48(310+30,10,"036");
 							}else{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_HLT);
-								LCD_DisplayStringLine_48(310,10,"036");
+								LCD_DisplayStringLine_48(310+30,10,"036");
 							}
 								
 							if(CH37_SW == ch_off)
@@ -3244,33 +3374,33 @@ void FUNC5_HANDLE(void)
 							{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-								LCD_DisplayStringLine_48(170,330,"038");
+								LCD_DisplayStringLine_48(170+10,330,"038");
 							}else{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_HLT);
-								LCD_DisplayStringLine_48(170,330,"038");
+								LCD_DisplayStringLine_48(170+10,330,"038");
 							}
 								
 							if(CH39_SW == ch_off)
 							{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-								LCD_DisplayStringLine_48(240,330,"039");
+								LCD_DisplayStringLine_48(240+20,330,"039");
 							}else{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_HLT);
-								LCD_DisplayStringLine_48(240,330,"039");
+								LCD_DisplayStringLine_48(240+20,330,"039");
 							}
 								
 							if(CH40_SW == ch_off)
 							{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-								LCD_DisplayStringLine_48(310,330,"040");
+								LCD_DisplayStringLine_48(310+30,330,"040");
 							}else{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_HLT);
-								LCD_DisplayStringLine_48(310,330,"040");
+								LCD_DisplayStringLine_48(310+30,330,"040");
 							}
 							ch_page = page5;
 						}else if(ch_page == page5 && CHNUM > 16){
@@ -3289,33 +3419,33 @@ void FUNC5_HANDLE(void)
 							{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-								LCD_DisplayStringLine_48(170,10,"002");
+								LCD_DisplayStringLine_48(170+10,10,"002");
 							}else{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_HLT);
-								LCD_DisplayStringLine_48(170,10,"002");
+								LCD_DisplayStringLine_48(170+10,10,"002");
 							}
 							
 							if(CH3_SW == ch_off)
 							{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-								LCD_DisplayStringLine_48(240,10,"003");
+								LCD_DisplayStringLine_48(240+20,10,"003");
 							}else{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_HLT);
-								LCD_DisplayStringLine_48(240,10,"003");
+								LCD_DisplayStringLine_48(240+20,10,"003");
 							}
 							
 							if(CH4_SW == ch_off)
 							{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-								LCD_DisplayStringLine_48(310,10,"004");
+								LCD_DisplayStringLine_48(310+30,10,"004");
 							}else{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_HLT);
-								LCD_DisplayStringLine_48(310,10,"004");
+								LCD_DisplayStringLine_48(310+30,10,"004");
 							}
 							
 							if(CH5_SW == ch_off)
@@ -3333,33 +3463,33 @@ void FUNC5_HANDLE(void)
 							{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-								LCD_DisplayStringLine_48(170,330,"006");
+								LCD_DisplayStringLine_48(170+10,330,"006");
 							}else{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_HLT);
-								LCD_DisplayStringLine_48(170,330,"006");
+								LCD_DisplayStringLine_48(170+10,330,"006");
 							}
 							
 							if(CH7_SW == ch_off)
 							{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-								LCD_DisplayStringLine_48(240,330,"007");
+								LCD_DisplayStringLine_48(240+20,330,"007");
 							}else{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_HLT);
-								LCD_DisplayStringLine_48(240,330,"007");
+								LCD_DisplayStringLine_48(240+20,330,"007");
 							}
 							
 							if(CH8_SW == ch_off)
 							{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_LIGHTGREY);
-								LCD_DisplayStringLine_48(310,330,"008");
+								LCD_DisplayStringLine_48(310+30,330,"008");
 							}else{
 								LCD_SetBackColor(LCD_COLOR_BACK);
 								LCD_SetTextColor(LCD_COLOR_HLT);
-								LCD_DisplayStringLine_48(310,330,"008");
+								LCD_DisplayStringLine_48(310+30,330,"008");
 							}
 							ch_page = page1;
 						}
@@ -3949,7 +4079,7 @@ void FUNC5_HANDLE(void)
 						LCD_DisplayStringLine(120,10,"010");
 						LCD_DisplayStringLine(160,10,"011");
 						LCD_DisplayStringLine(200,10,"012");
-						LCD_DisplayStringLine(240,10,"013");
+						LCD_DisplayStringLine(240+20,10,"013");
 						LCD_DisplayStringLine(280,10,"014");
 						LCD_DisplayStringLine(320,10,"015");
 						LCD_DisplayStringLine(360,10,"016");
@@ -3982,7 +4112,7 @@ void FUNC5_HANDLE(void)
 						LCD_DisplayStringLine(120,10,"018");
 						LCD_DisplayStringLine(160,10,"019");
 						LCD_DisplayStringLine(200,10,"020");
-						LCD_DisplayStringLine(240,10,"021");
+						LCD_DisplayStringLine(240+20,10,"021");
 						LCD_DisplayStringLine(280,10,"022");
 						LCD_DisplayStringLine(320,10,"023");
 						LCD_DisplayStringLine(360,10,"024");
@@ -4015,7 +4145,7 @@ void FUNC5_HANDLE(void)
 						LCD_DisplayStringLine(120,10,"026");
 						LCD_DisplayStringLine(160,10,"027");
 						LCD_DisplayStringLine(200,10,"028");
-						LCD_DisplayStringLine(240,10,"029");
+						LCD_DisplayStringLine(240+20,10,"029");
 						LCD_DisplayStringLine(280,10,"030");
 						LCD_DisplayStringLine(320,10,"031");
 						LCD_DisplayStringLine(360,10,"032");
@@ -4048,7 +4178,7 @@ void FUNC5_HANDLE(void)
 						LCD_DisplayStringLine(120,10,"034");
 						LCD_DisplayStringLine(160,10,"035");
 						LCD_DisplayStringLine(200,10,"036");
-						LCD_DisplayStringLine(240,10,"037");
+						LCD_DisplayStringLine(240+20,10,"037");
 						LCD_DisplayStringLine(280,10,"038");
 						LCD_DisplayStringLine(320,10,"039");
 						LCD_DisplayStringLine(360,10,"040");
@@ -4081,7 +4211,7 @@ void FUNC5_HANDLE(void)
 						LCD_DisplayStringLine(120,10,"002");
 						LCD_DisplayStringLine(160,10,"003");
 						LCD_DisplayStringLine(200,10,"004");
-						LCD_DisplayStringLine(240,10,"005");
+						LCD_DisplayStringLine(240+20,10,"005");
 						LCD_DisplayStringLine(280,10,"006");
 						LCD_DisplayStringLine(320,10,"007");
 						LCD_DisplayStringLine(360,10,"008");
@@ -4123,7 +4253,7 @@ void FUNC5_HANDLE(void)
 						LCD_DisplayStringLine(120,10,"010");
 						LCD_DisplayStringLine(160,10,"011");
 						LCD_DisplayStringLine(200,10,"012");
-						LCD_DisplayStringLine(240,10,"013");
+						LCD_DisplayStringLine(240+20,10,"013");
 						LCD_DisplayStringLine(280,10,"014");
 						LCD_DisplayStringLine(320,10,"015");
 						LCD_DisplayStringLine(360,10,"016");
@@ -4156,7 +4286,7 @@ void FUNC5_HANDLE(void)
 						LCD_DisplayStringLine(120,10,"018");
 						LCD_DisplayStringLine(160,10,"019");
 						LCD_DisplayStringLine(200,10,"020");
-						LCD_DisplayStringLine(240,10,"021");
+						LCD_DisplayStringLine(240+20,10,"021");
 						LCD_DisplayStringLine(280,10,"022");
 						LCD_DisplayStringLine(320,10,"023");
 						LCD_DisplayStringLine(360,10,"024");
@@ -4189,7 +4319,7 @@ void FUNC5_HANDLE(void)
 						LCD_DisplayStringLine(120,10,"026");
 						LCD_DisplayStringLine(160,10,"027");
 						LCD_DisplayStringLine(200,10,"028");
-						LCD_DisplayStringLine(240,10,"029");
+						LCD_DisplayStringLine(240+20,10,"029");
 						LCD_DisplayStringLine(280,10,"030");
 						LCD_DisplayStringLine(320,10,"031");
 						LCD_DisplayStringLine(360,10,"032");
@@ -4222,7 +4352,7 @@ void FUNC5_HANDLE(void)
 						LCD_DisplayStringLine(120,10,"034");
 						LCD_DisplayStringLine(160,10,"035");
 						LCD_DisplayStringLine(200,10,"036");
-						LCD_DisplayStringLine(240,10,"037");
+						LCD_DisplayStringLine(240+20,10,"037");
 						LCD_DisplayStringLine(280,10,"038");
 						LCD_DisplayStringLine(320,10,"039");
 						LCD_DisplayStringLine(360,10,"040");
@@ -4255,7 +4385,7 @@ void FUNC5_HANDLE(void)
 						LCD_DisplayStringLine(120,10,"002");
 						LCD_DisplayStringLine(160,10,"003");
 						LCD_DisplayStringLine(200,10,"004");
-						LCD_DisplayStringLine(240,10,"005");
+						LCD_DisplayStringLine(240+20,10,"005");
 						LCD_DisplayStringLine(280,10,"006");
 						LCD_DisplayStringLine(320,10,"007");
 						LCD_DisplayStringLine(360,10,"008");
@@ -4479,12 +4609,12 @@ void ENTER_HANDLE(void)
 							{
 								LCD_SetBackColor(LCD_COLOR_LIGHTGREY);
 								LCD_SetTextColor(LCD_COLOR_BLACK);
-								LCD_DisplayStringLine_48(170,10,"002");
+								LCD_DisplayStringLine_48(170+10,10,"002");
 								CH2_SW = ch_off;
 							}else{
 								LCD_SetBackColor(LCD_COLOR_HLT);
 								LCD_SetTextColor(LCD_COLOR_BLACK);
-								LCD_DisplayStringLine_48(170,10,"002");
+								LCD_DisplayStringLine_48(170+10,10,"002");
 								CH2_SW = ch_on;
 							}
 						}else if(FONT == middle){
@@ -4523,12 +4653,12 @@ void ENTER_HANDLE(void)
 							{
 								LCD_SetBackColor(LCD_COLOR_LIGHTGREY);
 								LCD_SetTextColor(LCD_COLOR_BLACK);
-								LCD_DisplayStringLine_48(170,10,"010");
+								LCD_DisplayStringLine_48(170+10,10,"010");
 								CH10_SW = ch_off;
 							}else{
 								LCD_SetBackColor(LCD_COLOR_HLT);
 								LCD_SetTextColor(LCD_COLOR_BLACK);
-								LCD_DisplayStringLine_48(170,10,"010");
+								LCD_DisplayStringLine_48(170+10,10,"010");
 								CH10_SW = ch_on;
 							}
 						}else if(FONT == middle){
@@ -4550,12 +4680,12 @@ void ENTER_HANDLE(void)
 						{
 							LCD_SetBackColor(LCD_COLOR_LIGHTGREY);
 							LCD_SetTextColor(LCD_COLOR_BLACK);
-							LCD_DisplayStringLine_48(170,10,"018");
+							LCD_DisplayStringLine_48(170+10,10,"018");
 							CH18_SW = ch_off;
 						}else{
 							LCD_SetBackColor(LCD_COLOR_HLT);
 							LCD_SetTextColor(LCD_COLOR_BLACK);
-							LCD_DisplayStringLine_48(170,10,"018");
+							LCD_DisplayStringLine_48(170+10,10,"018");
 							CH18_SW = ch_on;
 						}						
 					}else if(ch_page == page4){
@@ -4563,12 +4693,12 @@ void ENTER_HANDLE(void)
 						{
 							LCD_SetBackColor(LCD_COLOR_LIGHTGREY);
 							LCD_SetTextColor(LCD_COLOR_BLACK);
-							LCD_DisplayStringLine_48(170,10,"026");
+							LCD_DisplayStringLine_48(170+10,10,"026");
 							CH26_SW = ch_off;
 						}else{
 							LCD_SetBackColor(LCD_COLOR_HLT);
 							LCD_SetTextColor(LCD_COLOR_BLACK);
-							LCD_DisplayStringLine_48(170,10,"026");
+							LCD_DisplayStringLine_48(170+10,10,"026");
 							CH26_SW = ch_on;
 						}
 					}else if(ch_page == page5){
@@ -4576,12 +4706,12 @@ void ENTER_HANDLE(void)
 						{
 							LCD_SetBackColor(LCD_COLOR_LIGHTGREY);
 							LCD_SetTextColor(LCD_COLOR_BLACK);
-							LCD_DisplayStringLine_48(170,10,"034");
+							LCD_DisplayStringLine_48(170+10,10,"034");
 							CH34_SW = ch_off;
 						}else{
 							LCD_SetBackColor(LCD_COLOR_HLT);
 							LCD_SetTextColor(LCD_COLOR_BLACK);
-							LCD_DisplayStringLine_48(170,10,"034");
+							LCD_DisplayStringLine_48(170+10,10,"034");
 							CH34_SW = ch_on;
 						}
 					}
@@ -4597,12 +4727,12 @@ void ENTER_HANDLE(void)
 							{
 								LCD_SetBackColor(LCD_COLOR_LIGHTGREY);
 								LCD_SetTextColor(LCD_COLOR_BLACK);
-								LCD_DisplayStringLine_48(240,10,"003");
+								LCD_DisplayStringLine_48(240+20,10,"003");
 								CH3_SW = ch_off;
 							}else{
 								LCD_SetBackColor(LCD_COLOR_HLT);
 								LCD_SetTextColor(LCD_COLOR_BLACK);
-								LCD_DisplayStringLine_48(240,10,"003");
+								LCD_DisplayStringLine_48(240+20,10,"003");
 								CH3_SW = ch_on;
 							}
 						}else if(FONT == middle){
@@ -4640,12 +4770,12 @@ void ENTER_HANDLE(void)
 							{
 								LCD_SetBackColor(LCD_COLOR_LIGHTGREY);
 								LCD_SetTextColor(LCD_COLOR_BLACK);
-								LCD_DisplayStringLine_48(240,10,"011");
+								LCD_DisplayStringLine_48(240+20,10,"011");
 								CH11_SW = ch_off;
 							}else{
 								LCD_SetBackColor(LCD_COLOR_HLT);
 								LCD_SetTextColor(LCD_COLOR_BLACK);
-								LCD_DisplayStringLine_48(240,10,"011");
+								LCD_DisplayStringLine_48(240+20,10,"011");
 								CH11_SW = ch_on;
 							}
 						}else if(FONT == middle){
@@ -4667,12 +4797,12 @@ void ENTER_HANDLE(void)
 						{
 							LCD_SetBackColor(LCD_COLOR_LIGHTGREY);
 							LCD_SetTextColor(LCD_COLOR_BLACK);
-							LCD_DisplayStringLine_48(240,10,"019");
+							LCD_DisplayStringLine_48(240+20,10,"019");
 							CH19_SW = ch_off;
 						}else{
 							LCD_SetBackColor(LCD_COLOR_HLT);
 							LCD_SetTextColor(LCD_COLOR_BLACK);
-							LCD_DisplayStringLine_48(240,10,"019");
+							LCD_DisplayStringLine_48(240+20,10,"019");
 							CH19_SW = ch_on;
 						}						
 					}else if(ch_page == page4){
@@ -4680,12 +4810,12 @@ void ENTER_HANDLE(void)
 						{
 							LCD_SetBackColor(LCD_COLOR_LIGHTGREY);
 							LCD_SetTextColor(LCD_COLOR_BLACK);
-							LCD_DisplayStringLine_48(240,10,"027");
+							LCD_DisplayStringLine_48(240+20,10,"027");
 							CH27_SW = ch_off;
 						}else{
 							LCD_SetBackColor(LCD_COLOR_HLT);
 							LCD_SetTextColor(LCD_COLOR_BLACK);
-							LCD_DisplayStringLine_48(240,10,"027");
+							LCD_DisplayStringLine_48(240+20,10,"027");
 							CH27_SW = ch_on;
 						}
 					}else if(ch_page == page5){
@@ -4693,12 +4823,12 @@ void ENTER_HANDLE(void)
 						{
 							LCD_SetBackColor(LCD_COLOR_LIGHTGREY);
 							LCD_SetTextColor(LCD_COLOR_BLACK);
-							LCD_DisplayStringLine_48(240,10,"035");
+							LCD_DisplayStringLine_48(240+20,10,"035");
 							CH35_SW = ch_off;
 						}else{
 							LCD_SetBackColor(LCD_COLOR_HLT);
 							LCD_SetTextColor(LCD_COLOR_BLACK);
-							LCD_DisplayStringLine_48(240,10,"035");
+							LCD_DisplayStringLine_48(240+20,10,"035");
 							CH35_SW = ch_on;
 						}
 					}
@@ -4714,12 +4844,12 @@ void ENTER_HANDLE(void)
 							{
 								LCD_SetBackColor(LCD_COLOR_LIGHTGREY);
 								LCD_SetTextColor(LCD_COLOR_BLACK);
-								LCD_DisplayStringLine_48(310,10,"004");
+								LCD_DisplayStringLine_48(310+30,10,"004");
 								CH4_SW = ch_off;
 							}else{
 								LCD_SetBackColor(LCD_COLOR_HLT);
 								LCD_SetTextColor(LCD_COLOR_BLACK);
-								LCD_DisplayStringLine_48(310,10,"004");
+								LCD_DisplayStringLine_48(310+30,10,"004");
 								CH4_SW = ch_on;
 							}
 						}else if(FONT == middle){
@@ -4757,12 +4887,12 @@ void ENTER_HANDLE(void)
 							{
 								LCD_SetBackColor(LCD_COLOR_LIGHTGREY);
 								LCD_SetTextColor(LCD_COLOR_BLACK);
-								LCD_DisplayStringLine_48(310,10,"012");
+								LCD_DisplayStringLine_48(310+30,10,"012");
 								CH12_SW = ch_off;
 							}else{
 								LCD_SetBackColor(LCD_COLOR_HLT);
 								LCD_SetTextColor(LCD_COLOR_BLACK);
-								LCD_DisplayStringLine_48(310,10,"012");
+								LCD_DisplayStringLine_48(310+30,10,"012");
 								CH12_SW = ch_on;
 							}
 						}else if(FONT == middle){
@@ -4784,12 +4914,12 @@ void ENTER_HANDLE(void)
 						{
 							LCD_SetBackColor(LCD_COLOR_LIGHTGREY);
 							LCD_SetTextColor(LCD_COLOR_BLACK);
-							LCD_DisplayStringLine_48(310,10,"020");
+							LCD_DisplayStringLine_48(310+30,10,"020");
 							CH20_SW = ch_off;
 						}else{
 							LCD_SetBackColor(LCD_COLOR_HLT);
 							LCD_SetTextColor(LCD_COLOR_BLACK);
-							LCD_DisplayStringLine_48(310,10,"020");
+							LCD_DisplayStringLine_48(310+30,10,"020");
 							CH20_SW = ch_on;
 						}						
 					}else if(ch_page == page4){
@@ -4797,12 +4927,12 @@ void ENTER_HANDLE(void)
 						{
 							LCD_SetBackColor(LCD_COLOR_LIGHTGREY);
 							LCD_SetTextColor(LCD_COLOR_BLACK);
-							LCD_DisplayStringLine_48(310,10,"028");
+							LCD_DisplayStringLine_48(310+30,10,"028");
 							CH28_SW = ch_off;
 						}else{
 							LCD_SetBackColor(LCD_COLOR_HLT);
 							LCD_SetTextColor(LCD_COLOR_BLACK);
-							LCD_DisplayStringLine_48(310,10,"028");
+							LCD_DisplayStringLine_48(310+30,10,"028");
 							CH28_SW = ch_on;
 						}
 					}else if(ch_page == page5){
@@ -4810,12 +4940,12 @@ void ENTER_HANDLE(void)
 						{
 							LCD_SetBackColor(LCD_COLOR_LIGHTGREY);
 							LCD_SetTextColor(LCD_COLOR_BLACK);
-							LCD_DisplayStringLine_48(310,10,"036");
+							LCD_DisplayStringLine_48(310+30,10,"036");
 							CH36_SW = ch_off;
 						}else{
 							LCD_SetBackColor(LCD_COLOR_HLT);
 							LCD_SetTextColor(LCD_COLOR_BLACK);
-							LCD_DisplayStringLine_48(310,10,"036");
+							LCD_DisplayStringLine_48(310+30,10,"036");
 							CH36_SW = ch_on;
 						}
 					}
@@ -4948,12 +5078,12 @@ void ENTER_HANDLE(void)
 							{
 								LCD_SetBackColor(LCD_COLOR_LIGHTGREY);
 								LCD_SetTextColor(LCD_COLOR_BLACK);
-								LCD_DisplayStringLine_48(170,330,"006");
+								LCD_DisplayStringLine_48(170+10,330,"006");
 								CH6_SW = ch_off;
 							}else{
 								LCD_SetBackColor(LCD_COLOR_HLT);
 								LCD_SetTextColor(LCD_COLOR_BLACK);
-								LCD_DisplayStringLine_48(170,330,"006");
+								LCD_DisplayStringLine_48(170+10,330,"006");
 								CH6_SW = ch_on;
 							}
 						}else if(FONT == middle){
@@ -4991,12 +5121,12 @@ void ENTER_HANDLE(void)
 							{
 								LCD_SetBackColor(LCD_COLOR_LIGHTGREY);
 								LCD_SetTextColor(LCD_COLOR_BLACK);
-								LCD_DisplayStringLine_48(170,330,"014");
+								LCD_DisplayStringLine_48(170+10,330,"014");
 								CH14_SW = ch_off;
 							}else{
 								LCD_SetBackColor(LCD_COLOR_HLT);
 								LCD_SetTextColor(LCD_COLOR_BLACK);
-								LCD_DisplayStringLine_48(170,330,"014");
+								LCD_DisplayStringLine_48(170+10,330,"014");
 								CH14_SW = ch_on;
 							}
 						}else if(FONT == middle){
@@ -5018,12 +5148,12 @@ void ENTER_HANDLE(void)
 						{
 							LCD_SetBackColor(LCD_COLOR_LIGHTGREY);
 							LCD_SetTextColor(LCD_COLOR_BLACK);
-							LCD_DisplayStringLine_48(170,330,"022");
+							LCD_DisplayStringLine_48(170+10,330,"022");
 							CH22_SW = ch_off;
 						}else{
 							LCD_SetBackColor(LCD_COLOR_HLT);
 							LCD_SetTextColor(LCD_COLOR_BLACK);
-							LCD_DisplayStringLine_48(170,330,"022");
+							LCD_DisplayStringLine_48(170+10,330,"022");
 							CH22_SW = ch_on;
 						}
 					}else if(ch_page == page4){
@@ -5031,12 +5161,12 @@ void ENTER_HANDLE(void)
 						{
 							LCD_SetBackColor(LCD_COLOR_LIGHTGREY);
 							LCD_SetTextColor(LCD_COLOR_BLACK);
-							LCD_DisplayStringLine_48(170,330,"030");
+							LCD_DisplayStringLine_48(170+10,330,"030");
 							CH30_SW = ch_off;
 						}else{
 							LCD_SetBackColor(LCD_COLOR_HLT);
 							LCD_SetTextColor(LCD_COLOR_BLACK);
-							LCD_DisplayStringLine_48(170,330,"030");
+							LCD_DisplayStringLine_48(170+10,330,"030");
 							CH30_SW = ch_on;
 						}
 					}else if(ch_page == page5){
@@ -5044,12 +5174,12 @@ void ENTER_HANDLE(void)
 						{
 							LCD_SetBackColor(LCD_COLOR_LIGHTGREY);
 							LCD_SetTextColor(LCD_COLOR_BLACK);
-							LCD_DisplayStringLine_48(170,330,"038");
+							LCD_DisplayStringLine_48(170+10,330,"038");
 							CH38_SW = ch_off;
 						}else{
 							LCD_SetBackColor(LCD_COLOR_HLT);
 							LCD_SetTextColor(LCD_COLOR_BLACK);
-							LCD_DisplayStringLine_48(170,330,"038");
+							LCD_DisplayStringLine_48(170+10,330,"038");
 							CH38_SW = ch_on;
 						}
 					}
@@ -5065,12 +5195,12 @@ void ENTER_HANDLE(void)
 							{
 								LCD_SetBackColor(LCD_COLOR_LIGHTGREY);
 								LCD_SetTextColor(LCD_COLOR_BLACK);
-								LCD_DisplayStringLine_48(240,330,"007");
+								LCD_DisplayStringLine_48(240+20,330,"007");
 								CH7_SW = ch_off;
 							}else{
 								LCD_SetBackColor(LCD_COLOR_HLT);
 								LCD_SetTextColor(LCD_COLOR_BLACK);
-								LCD_DisplayStringLine_48(240,330,"007");
+								LCD_DisplayStringLine_48(240+20,330,"007");
 								CH7_SW = ch_on;
 							}
 						}else if(FONT == middle){
@@ -5108,12 +5238,12 @@ void ENTER_HANDLE(void)
 							{
 								LCD_SetBackColor(LCD_COLOR_LIGHTGREY);
 								LCD_SetTextColor(LCD_COLOR_BLACK);
-								LCD_DisplayStringLine_48(240,330,"015");
+								LCD_DisplayStringLine_48(240+20,330,"015");
 								CH15_SW = ch_off;
 							}else{
 								LCD_SetBackColor(LCD_COLOR_HLT);
 								LCD_SetTextColor(LCD_COLOR_BLACK);
-								LCD_DisplayStringLine_48(240,330,"015");
+								LCD_DisplayStringLine_48(240+20,330,"015");
 								CH15_SW = ch_on;
 							}
 						}else if(FONT == middle){
@@ -5135,12 +5265,12 @@ void ENTER_HANDLE(void)
 						{
 							LCD_SetBackColor(LCD_COLOR_LIGHTGREY);
 							LCD_SetTextColor(LCD_COLOR_BLACK);
-							LCD_DisplayStringLine_48(240,330,"023");
+							LCD_DisplayStringLine_48(240+20,330,"023");
 							CH23_SW = ch_off;
 						}else{
 							LCD_SetBackColor(LCD_COLOR_HLT);
 							LCD_SetTextColor(LCD_COLOR_BLACK);
-							LCD_DisplayStringLine_48(240,330,"023");
+							LCD_DisplayStringLine_48(240+20,330,"023");
 							CH23_SW = ch_on;
 						}						
 					}else if(ch_page == page4){
@@ -5148,12 +5278,12 @@ void ENTER_HANDLE(void)
 						{
 							LCD_SetBackColor(LCD_COLOR_LIGHTGREY);
 							LCD_SetTextColor(LCD_COLOR_BLACK);
-							LCD_DisplayStringLine_48(240,330,"031");
+							LCD_DisplayStringLine_48(240+20,330,"031");
 							CH31_SW = ch_off;
 						}else{
 							LCD_SetBackColor(LCD_COLOR_HLT);
 							LCD_SetTextColor(LCD_COLOR_BLACK);
-							LCD_DisplayStringLine_48(240,330,"031");
+							LCD_DisplayStringLine_48(240+20,330,"031");
 							CH31_SW = ch_on;
 						}
 					}else if(ch_page == page5){
@@ -5161,12 +5291,12 @@ void ENTER_HANDLE(void)
 						{
 							LCD_SetBackColor(LCD_COLOR_LIGHTGREY);
 							LCD_SetTextColor(LCD_COLOR_BLACK);
-							LCD_DisplayStringLine_48(240,330,"039");
+							LCD_DisplayStringLine_48(240+20,330,"039");
 							CH39_SW = ch_off;
 						}else{
 							LCD_SetBackColor(LCD_COLOR_HLT);
 							LCD_SetTextColor(LCD_COLOR_BLACK);
-							LCD_DisplayStringLine_48(240,330,"039");
+							LCD_DisplayStringLine_48(240+20,330,"039");
 							CH39_SW = ch_on;
 						}
 					}
@@ -5182,12 +5312,12 @@ void ENTER_HANDLE(void)
 							{
 								LCD_SetBackColor(LCD_COLOR_LIGHTGREY);
 								LCD_SetTextColor(LCD_COLOR_BLACK);
-								LCD_DisplayStringLine_48(310,330,"008");
+								LCD_DisplayStringLine_48(310+30,330,"008");
 								CH8_SW = ch_off;
 							}else{
 								LCD_SetBackColor(LCD_COLOR_HLT);
 								LCD_SetTextColor(LCD_COLOR_BLACK);
-								LCD_DisplayStringLine_48(310,330,"008");
+								LCD_DisplayStringLine_48(310+30,330,"008");
 								CH8_SW = ch_on;
 							}
 						}else if(FONT == middle){
@@ -5225,12 +5355,12 @@ void ENTER_HANDLE(void)
 							{
 								LCD_SetBackColor(LCD_COLOR_LIGHTGREY);
 								LCD_SetTextColor(LCD_COLOR_BLACK);
-								LCD_DisplayStringLine_48(310,330,"016");
+								LCD_DisplayStringLine_48(310+30,330,"016");
 								CH16_SW = ch_off;
 							}else{
 								LCD_SetBackColor(LCD_COLOR_HLT);
 								LCD_SetTextColor(LCD_COLOR_BLACK);
-								LCD_DisplayStringLine_48(310,330,"016");
+								LCD_DisplayStringLine_48(310+30,330,"016");
 								CH16_SW = ch_on;
 							}
 						}else if(FONT == middle){
@@ -5252,12 +5382,12 @@ void ENTER_HANDLE(void)
 						{
 							LCD_SetBackColor(LCD_COLOR_LIGHTGREY);
 							LCD_SetTextColor(LCD_COLOR_BLACK);
-							LCD_DisplayStringLine_48(310,330,"024");
+							LCD_DisplayStringLine_48(310+30,330,"024");
 							CH24_SW = ch_off;
 						}else{
 							LCD_SetBackColor(LCD_COLOR_HLT);
 							LCD_SetTextColor(LCD_COLOR_BLACK);
-							LCD_DisplayStringLine_48(310,330,"024");
+							LCD_DisplayStringLine_48(310+30,330,"024");
 							CH24_SW = ch_on;
 						}						
 					}else if(ch_page == page4){
@@ -5265,12 +5395,12 @@ void ENTER_HANDLE(void)
 						{
 							LCD_SetBackColor(LCD_COLOR_LIGHTGREY);
 							LCD_SetTextColor(LCD_COLOR_BLACK);
-							LCD_DisplayStringLine_48(310,330,"032");
+							LCD_DisplayStringLine_48(310+30,330,"032");
 							CH32_SW = ch_off;
 						}else{
 							LCD_SetBackColor(LCD_COLOR_HLT);
 							LCD_SetTextColor(LCD_COLOR_BLACK);
-							LCD_DisplayStringLine_48(310,330,"032");
+							LCD_DisplayStringLine_48(310+30,330,"032");
 							CH32_SW = ch_on;
 						}
 					}else if(ch_page == page5){
@@ -5278,12 +5408,12 @@ void ENTER_HANDLE(void)
 						{
 							LCD_SetBackColor(LCD_COLOR_LIGHTGREY);
 							LCD_SetTextColor(LCD_COLOR_BLACK);
-							LCD_DisplayStringLine_48(310,330,"040");
+							LCD_DisplayStringLine_48(310+30,330,"040");
 							CH40_SW = ch_off;
 						}else{
 							LCD_SetBackColor(LCD_COLOR_HLT);
 							LCD_SetTextColor(LCD_COLOR_BLACK);
-							LCD_DisplayStringLine_48(310,330,"040");
+							LCD_DisplayStringLine_48(310+30,330,"040");
 							CH40_SW = ch_on;
 						}
 					}
@@ -6379,6 +6509,21 @@ void ENTER_HANDLE(void)
 					}
 					op_sw = op_on;
 				}break;
+				case timetrig:
+				{
+					DrawMenu();//重绘菜单栏
+					LCD_SetTextColor(LCD_COLOR_YELLOW);
+					LCD_SetBackColor(LCD_COLOR_BLACK);
+					if(LANG == chs)
+					{
+						LCD_DisplayStringLine(445,35,"打开");
+						LCD_DisplayStringLine(445,157,"关闭");
+					}else{
+						LCD_DisplayStringLine(445,35,"ON");
+						LCD_DisplayStringLine(445,157,"OFF");
+					}
+					op_sw = op_on;
+				}break;
 				case set_unit:
 				{
 					DrawMenu();//重绘菜单栏
@@ -6655,19 +6800,19 @@ void UP_HANDLE(void)
 						if(ch_page == page1)
 						{
 							focus_on(CH8_SW);
-							LCD_DisplayStringLine_48(310,10,"004");
+							LCD_DisplayStringLine_48(310+30,10,"004");
 						}else if(ch_page == page2){
 							focus_on(CH12_SW);
-							LCD_DisplayStringLine_48(310,10,"012");
+							LCD_DisplayStringLine_48(310+30,10,"012");
 						}else if(ch_page == page3){
 							focus_on(CH20_SW);
-							LCD_DisplayStringLine_48(310,10,"020");
+							LCD_DisplayStringLine_48(310+30,10,"020");
 						}else if(ch_page == page4){
 							focus_on(CH28_SW);
-							LCD_DisplayStringLine_48(310,10,"028");
+							LCD_DisplayStringLine_48(310+30,10,"028");
 						}else if(ch_page == page5){
 							focus_on(CH36_SW);
-							LCD_DisplayStringLine_48(310,10,"036");
+							LCD_DisplayStringLine_48(310+30,10,"036");
 						}
 						if(LANG == chs)
 						{
@@ -6890,19 +7035,19 @@ void UP_HANDLE(void)
 						if(ch_page == page1)
 						{
 							focus_off(CH2_SW);
-							LCD_DisplayStringLine_48(170,10,"002");
+							LCD_DisplayStringLine_48(170+10,10,"002");
 						}else if(ch_page == page2){
 							focus_off(CH10_SW);
-							LCD_DisplayStringLine_48(170,10,"010");
+							LCD_DisplayStringLine_48(170+10,10,"010");
 						}else if(ch_page == page3){
 							focus_off(CH18_SW);
-							LCD_DisplayStringLine_48(170,10,"018");
+							LCD_DisplayStringLine_48(170+10,10,"018");
 						}else if(ch_page == page4){
 							focus_off(CH26_SW);
-							LCD_DisplayStringLine_48(170,10,"026");
+							LCD_DisplayStringLine_48(170+10,10,"026");
 						}else if(ch_page == page5){
 							focus_off(CH34_SW);
-							LCD_DisplayStringLine_48(170,10,"034");
+							LCD_DisplayStringLine_48(170+10,10,"034");
 						}	
 						
 
@@ -6958,19 +7103,19 @@ void UP_HANDLE(void)
 						if(ch_page == page1)
 						{
 							focus_off(CH3_SW);
-							LCD_DisplayStringLine_48(240,10,"003");
+							LCD_DisplayStringLine_48(240+20,10,"003");
 						}else if(ch_page == page2){
 							focus_off(CH11_SW);
-							LCD_DisplayStringLine_48(240,10,"011");
+							LCD_DisplayStringLine_48(240+20,10,"011");
 						}else if(ch_page == page3){
 							focus_off(CH19_SW);
-							LCD_DisplayStringLine_48(240,10,"019");
+							LCD_DisplayStringLine_48(240+20,10,"019");
 						}else if(ch_page == page4){
 							focus_off(CH27_SW);
-							LCD_DisplayStringLine_48(240,10,"027");
+							LCD_DisplayStringLine_48(240+20,10,"027");
 						}else if(ch_page == page5){
 							focus_off(CH35_SW);
-							LCD_DisplayStringLine_48(240,10,"035");
+							LCD_DisplayStringLine_48(240+20,10,"035");
 						}
 						
 						
@@ -6978,19 +7123,19 @@ void UP_HANDLE(void)
 						if(ch_page == page1)
 						{
 							focus_on(CH2_SW);
-							LCD_DisplayStringLine_48(170,10,"002");
+							LCD_DisplayStringLine_48(170+10,10,"002");
 						}else if(ch_page == page2){
 							focus_on(CH10_SW);
-							LCD_DisplayStringLine_48(170,10,"010");
+							LCD_DisplayStringLine_48(170+10,10,"010");
 						}else if(ch_page == page3){
 							focus_on(CH18_SW);
-							LCD_DisplayStringLine_48(170,10,"018");
+							LCD_DisplayStringLine_48(170+10,10,"018");
 						}else if(ch_page == page4){
 							focus_on(CH26_SW);
-							LCD_DisplayStringLine_48(170,10,"026");
+							LCD_DisplayStringLine_48(170+10,10,"026");
 						}else if(ch_page == page5){
 							focus_on(CH34_SW);
-							LCD_DisplayStringLine_48(170,10,"034");
+							LCD_DisplayStringLine_48(170+10,10,"034");
 						}
 						
 						op_flag = home_ch2;
@@ -7027,38 +7172,38 @@ void UP_HANDLE(void)
 						if(ch_page == page1)
 						{
 							focus_off(CH4_SW);
-							LCD_DisplayStringLine_48(310,10,"004");
+							LCD_DisplayStringLine_48(310+30,10,"004");
 						}else if(ch_page == page2){
 							focus_off(CH12_SW);
-							LCD_DisplayStringLine_48(310,10,"012");
+							LCD_DisplayStringLine_48(310+30,10,"012");
 						}else if(ch_page == page3){
 							focus_off(CH20_SW);
-							LCD_DisplayStringLine_48(310,10,"020");
+							LCD_DisplayStringLine_48(310+30,10,"020");
 						}else if(ch_page == page4){
 							focus_off(CH28_SW);
-							LCD_DisplayStringLine_48(310,10,"028");
+							LCD_DisplayStringLine_48(310+30,10,"028");
 						}else if(ch_page == page5){
 							focus_off(CH36_SW);
-							LCD_DisplayStringLine_48(310,10,"036");
+							LCD_DisplayStringLine_48(310+30,10,"036");
 						}
 						
 
 						if(ch_page == page1)
 						{
 							focus_on(CH3_SW);
-							LCD_DisplayStringLine_48(240,10,"003");
+							LCD_DisplayStringLine_48(240+20,10,"003");
 						}else if(ch_page == page2){
 							focus_on(CH11_SW);
-							LCD_DisplayStringLine_48(240,10,"011");
+							LCD_DisplayStringLine_48(240+20,10,"011");
 						}else if(ch_page == page3){
 							focus_on(CH19_SW);
-							LCD_DisplayStringLine_48(240,10,"019");
+							LCD_DisplayStringLine_48(240+20,10,"019");
 						}else if(ch_page == page4){
 							focus_on(CH27_SW);
-							LCD_DisplayStringLine_48(240,10,"027");
+							LCD_DisplayStringLine_48(240+20,10,"027");
 						}else if(ch_page == page5){
 							focus_on(CH35_SW);
-							LCD_DisplayStringLine_48(240,10,"035");
+							LCD_DisplayStringLine_48(240+20,10,"035");
 						}
 						
 						op_flag = home_ch3;
@@ -7114,19 +7259,19 @@ void UP_HANDLE(void)
 						if(ch_page == page1)
 						{
 							focus_on(CH8_SW);
-							LCD_DisplayStringLine_48(310,330,"008");
+							LCD_DisplayStringLine_48(310+30,330,"008");
 						}else if(ch_page == page2){
 							focus_on(CH16_SW);
-							LCD_DisplayStringLine_48(310,330,"016");
+							LCD_DisplayStringLine_48(310+30,330,"016");
 						}else if(ch_page == page3){
 							focus_on(CH24_SW);
-							LCD_DisplayStringLine_48(310,330,"024");
+							LCD_DisplayStringLine_48(310+30,330,"024");
 						}else if(ch_page == page4){
 							focus_on(CH32_SW);
-							LCD_DisplayStringLine_48(310,330,"032");
+							LCD_DisplayStringLine_48(310+30,330,"032");
 						}else if(ch_page == page5){
 							focus_on(CH40_SW);
-							LCD_DisplayStringLine_48(310,330,"040");
+							LCD_DisplayStringLine_48(310+30,330,"040");
 						}
 						
 						op_flag = home_ch8;
@@ -7163,19 +7308,19 @@ void UP_HANDLE(void)
 						if(ch_page == page1)
 						{
 							focus_off(CH6_SW);
-							LCD_DisplayStringLine_48(170,330,"006");
+							LCD_DisplayStringLine_48(170+10,330,"006");
 						}else if(ch_page == page2){
 							focus_off(CH14_SW);
-							LCD_DisplayStringLine_48(170,330,"014");
+							LCD_DisplayStringLine_48(170+10,330,"014");
 						}else if(ch_page == page3){
 							focus_off(CH22_SW);
-							LCD_DisplayStringLine_48(170,330,"022");
+							LCD_DisplayStringLine_48(170+10,330,"022");
 						}else if(ch_page == page4){
 							focus_off(CH30_SW);
-							LCD_DisplayStringLine_48(170,330,"030");
+							LCD_DisplayStringLine_48(170+10,330,"030");
 						}else if(ch_page == page5){
 							focus_off(CH38_SW);
-							LCD_DisplayStringLine_48(170,330,"038");
+							LCD_DisplayStringLine_48(170+10,330,"038");
 						}
 						
 						if(ch_page == page1)
@@ -7230,38 +7375,38 @@ void UP_HANDLE(void)
 						if(ch_page == page1)
 						{
 							focus_off(CH7_SW);
-							LCD_DisplayStringLine_48(240,330,"007");
+							LCD_DisplayStringLine_48(240+20,330,"007");
 						}else if(ch_page == page2){
 							focus_off(CH15_SW);
-							LCD_DisplayStringLine_48(240,330,"015");
+							LCD_DisplayStringLine_48(240+20,330,"015");
 						}else if(ch_page == page3){
 							focus_off(CH23_SW);
-							LCD_DisplayStringLine_48(240,330,"023");
+							LCD_DisplayStringLine_48(240+20,330,"023");
 						}else if(ch_page == page4){
 							focus_off(CH31_SW);
-							LCD_DisplayStringLine_48(240,330,"031");
+							LCD_DisplayStringLine_48(240+20,330,"031");
 						}else if(ch_page == page5){
 							focus_off(CH39_SW);
-							LCD_DisplayStringLine_48(240,330,"039");
+							LCD_DisplayStringLine_48(240+20,330,"039");
 						}
 						
 
 						if(ch_page == page1)
 						{
 							focus_on(CH6_SW);
-							LCD_DisplayStringLine_48(170,330,"006");
+							LCD_DisplayStringLine_48(170+10,330,"006");
 						}else if(ch_page == page2){
 							focus_on(CH14_SW);
-							LCD_DisplayStringLine_48(170,330,"014");
+							LCD_DisplayStringLine_48(170+10,330,"014");
 						}else if(ch_page == page3){
 							focus_on(CH22_SW);
-							LCD_DisplayStringLine_48(170,330,"022");
+							LCD_DisplayStringLine_48(170+10,330,"022");
 						}else if(ch_page == page4){
 							focus_on(CH30_SW);
-							LCD_DisplayStringLine_48(170,330,"030");
+							LCD_DisplayStringLine_48(170+10,330,"030");
 						}else if(ch_page == page5){
 							focus_on(CH38_SW);
-							LCD_DisplayStringLine_48(170,330,"038");
+							LCD_DisplayStringLine_48(170+10,330,"038");
 						}
 						
 						op_flag = home_ch6;
@@ -7298,37 +7443,37 @@ void UP_HANDLE(void)
 						if(ch_page == page1)
 						{
 							focus_off(CH8_SW);
-							LCD_DisplayStringLine_48(310,330,"008");
+							LCD_DisplayStringLine_48(310+30,330,"008");
 						}else if(ch_page == page2){
 							focus_off(CH16_SW);
-							LCD_DisplayStringLine_48(310,330,"016");
+							LCD_DisplayStringLine_48(310+30,330,"016");
 						}else if(ch_page == page3){
 							focus_off(CH24_SW);
-							LCD_DisplayStringLine_48(310,330,"024");
+							LCD_DisplayStringLine_48(310+30,330,"024");
 						}else if(ch_page == page4){
 							focus_off(CH32_SW);
-							LCD_DisplayStringLine_48(310,330,"032");
+							LCD_DisplayStringLine_48(310+30,330,"032");
 						}else if(ch_page == page5){
 							focus_off(CH40_SW);
-							LCD_DisplayStringLine_48(310,330,"040");
+							LCD_DisplayStringLine_48(310+30,330,"040");
 						}
 						
 						if(ch_page == page1)
 						{
 							focus_on(CH7_SW);
-							LCD_DisplayStringLine_48(240,330,"007");
+							LCD_DisplayStringLine_48(240+20,330,"007");
 						}else if(ch_page == page2){
 							focus_on(CH15_SW);
-							LCD_DisplayStringLine_48(240,330,"015");
+							LCD_DisplayStringLine_48(240+20,330,"015");
 						}else if(ch_page == page3){
 							focus_on(CH23_SW);
-							LCD_DisplayStringLine_48(240,330,"023");
+							LCD_DisplayStringLine_48(240+20,330,"023");
 						}else if(ch_page == page4){
 							focus_on(CH31_SW);
-							LCD_DisplayStringLine_48(240,330,"031");
+							LCD_DisplayStringLine_48(240+20,330,"031");
 						}else if(ch_page == page5){
 							focus_on(CH39_SW);
-							LCD_DisplayStringLine_48(240,330,"039");
+							LCD_DisplayStringLine_48(240+20,330,"039");
 						}
 						
 						op_flag = home_ch7;
@@ -8082,6 +8227,130 @@ void UP_HANDLE(void)
 					}
 					op_flag = set_beep;
 				}break;
+				case timetrig:
+				{
+					focus_off1();
+					if(TIMETIRG == trig_off){
+						if(LANG == chs)
+						{
+							LCD_DisplayStringLine(170,150,"关闭");
+						}else{
+							LCD_DisplayStringLine(170,150,"OFF");
+						}
+					}else{
+						if(LANG == chs)
+						{
+							LCD_DisplayStringLine(170,150,"打开");
+						}else{
+							LCD_DisplayStringLine(170,150,"ON");
+						}
+					}
+					LCD_SetColors(LCD_COLOR_YELLOW,LCD_COLOR_YELLOW);
+					LCD_DrawFullRect(150,127,24,31);
+					if(UNIT == C){
+						LCD_SetTextColor(LCD_COLOR_BLACK);
+//						LCD_SetBackColor(LCD_COLOR_YELLOW);
+						DISP_CNL_S(127,150,"o");
+						LCD_DisplayStringLine(127,155,"C");
+					}else if(UNIT == F){
+						LCD_SetTextColor(LCD_COLOR_BLACK);
+						DISP_CNL_S(127,150,"o");
+						LCD_DisplayStringLine(127,155,"F");
+					}else{
+						LCD_SetTextColor(LCD_COLOR_BLACK);
+						LCD_DisplayStringLine(127,155,"K");
+					}
+					if(LANG == chs)
+					{
+						DrawInstruction("温度单位选择");
+					}else{
+						DrawInstruction("Select temperature unit");
+					}
+					op_flag = set_unit;
+//					focus_off1();
+//					sprintf(buf,"%0.2d:%0.2d",
+//							STARTH,
+//							STARTM);
+//					LCD_DisplayStringLine(208,150,(uint8_t *)buf);
+//					if(LANG == chs)
+//					{
+//						DrawInstruction("采集开始时间");
+//					}else{
+//						DrawInstruction("Start Time");
+//					}
+//					op_flag = starttime;
+//					stimefocus_on(SAVETIME);
+//					if(LANG == chs)
+//					{
+//						DrawInstruction("记录间隔时间");
+//					}else{
+//						DrawInstruction("Record interval");
+//					}
+//					op_flag = set_timer;
+				}break;		
+				case starttime:
+				{
+					focus_off1();
+					sprintf(buf,"%0.2d:%0.2d",
+							STARTH,
+							STARTM);
+					LCD_DisplayStringLine(208,150,(uint8_t *)buf);
+					focus_on1();
+					if(TIMETIRG == trig_off){
+						if(LANG == chs)
+						{
+							LCD_DisplayStringLine(170,150,"关闭");
+						}else{
+							LCD_DisplayStringLine(170,150,"OFF");
+						}
+					}else{
+						if(LANG == chs)
+						{
+							LCD_DisplayStringLine(170,150,"打开");
+						}else{
+							LCD_DisplayStringLine(170,150,"ON");
+						}
+					}
+//					sprintf(buf,"%0.2d:%0.2d",
+//							ENDH,
+//							ENDM);
+//					LCD_DisplayStringLine(248,150,(uint8_t *)buf);
+					if(LANG == chs)
+					{
+						DrawInstruction("定时采集");
+					}else{
+						DrawInstruction("Trig Timer");
+					}
+					op_flag = timetrig;
+				}break;
+				case endtime:
+				{
+					focus_off1();
+					sprintf(buf,"%0.2d:%0.2d",
+							ENDH,
+							ENDM);
+					LCD_DisplayStringLine(248,150,(uint8_t *)buf);
+					
+					focus_on1();
+					sprintf(buf,"%0.2d:%0.2d",
+							STARTH,
+							STARTM);
+					LCD_DisplayStringLine(208,150,(uint8_t *)buf);
+					if(LANG == chs)
+					{
+						DrawInstruction("采集开始时间");
+					}else{
+						DrawInstruction("Start Time");
+					}
+//					if(LANG == chs)
+//					{
+//						DrawInstruction("记录间隔时间");
+//					}else{
+//						DrawInstruction("Record interval");
+//					}
+					bit_flag = 1;
+					op_flag = starttime;
+				}break;
 				case repeat:
 				{
 					focus_on1();
@@ -8129,23 +8398,23 @@ void UP_HANDLE(void)
 //					if(FONT == big){
 //						if(LANG == chs)
 //						{
-//							LCD_DisplayStringLine(170,150,"大");
+//							LCD_DisplayStringLine(170+10,150,"大");
 //						}else{
-//							LCD_DisplayStringLine(170,150,"L");
+//							LCD_DisplayStringLine(170+10,150,"L");
 //						}
 //					}else if(FONT == middle){
 //						if(LANG == chs)
 //						{
-//							LCD_DisplayStringLine(170,150,"中");
+//							LCD_DisplayStringLine(170+10,150,"中");
 //						}else{
-//							LCD_DisplayStringLine(170,150,"M");
+//							LCD_DisplayStringLine(170+10,150,"M");
 //						}
 //					}else if(FONT == small){
 //						if(LANG == chs)
 //						{
-//							LCD_DisplayStringLine(170,150,"小");
+//							LCD_DisplayStringLine(170+10,150,"小");
 //						}else{
-//							LCD_DisplayStringLine(170,150,"S");
+//							LCD_DisplayStringLine(170+10,150,"S");
 //						}
 //					}
 //					
@@ -8261,6 +8530,13 @@ void UP_HANDLE(void)
 							ENDH,
 							ENDM);
 					LCD_DisplayStringLine(248,150,(uint8_t *)buf);
+					if(LANG == chs)
+					{
+						DrawInstruction("采集结束时间");
+					}else{
+						DrawInstruction("End Time");
+					}
+					bit_flag = 1;
 					op_flag = endtime;	
 //					LCD_SetColors(LCD_COLOR_YELLOW,LCD_COLOR_YELLOW);
 //					LCD_DrawFullRect(150,127,24,31);
@@ -8756,10 +9032,10 @@ void UP_HANDLE(void)
 					focus_on1();
 					if(LANG == chs)
 					{
-						LCD_DisplayStringLine(50,170,"CHINESE");
+						LCD_DisplayStringLine(50,170+10,"CHINESE");
 						DrawInstruction("系统语言选择");
 					}else{
-						LCD_DisplayStringLine(50,170,"ENGLISH");
+						LCD_DisplayStringLine(50,170+10,"ENGLISH");
 						DrawInstruction("Select system language");
 					}					
 					op_flag = set_lang;
@@ -8779,7 +9055,7 @@ void UP_HANDLE(void)
 					}else if(BRTS == L4){
 						sprintf(buf,"%d",100);
 					}			
-					LCD_DisplayStringLine(130,170,(uint8_t*)buf);
+					LCD_DisplayStringLine(130,170+10,(uint8_t*)buf);
 					if(LANG == chs)
 					{
 						DrawInstruction("降低亮度时间");
@@ -8796,37 +9072,37 @@ void UP_HANDLE(void)
 						if(DIM == DOFF)
 						{
 //							brightness = 10;
-							LCD_DisplayStringLine(174,170,"关闭");
+							LCD_DisplayStringLine(174,170+10,"关闭");
 						}else if(DIM == D5){
 							sprintf(buf,"%d",5);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
 						}else if(DIM == D10){
 							sprintf(buf,"%d",10);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
 						}else if(DIM == D15){
 							sprintf(buf,"%d",15);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
 						}else if(DIM == D30){
 							sprintf(buf,"%d",30);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
 						}
 					}else{
 						if(DIM == DOFF)
 						{
 //							brightness = 10;
-							LCD_DisplayStringLine(172,170,"OFF");
+							LCD_DisplayStringLine(172,170+10,"OFF");
 						}else if(DIM == D5){
 							sprintf(buf,"%d",5);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
 						}else if(DIM == D10){
 							sprintf(buf,"%d",10);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
 						}else if(DIM == D15){
 							sprintf(buf,"%d",15);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
 						}else if(DIM == D30){
 							sprintf(buf,"%d",30);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
 						}
 					}	
 					focus_on1();
@@ -8842,7 +9118,7 @@ void UP_HANDLE(void)
 					}else if(BRTS == L4){
 						sprintf(buf,"%d",100);
 					}
-					LCD_DisplayStringLine(130,170,(uint8_t*)buf);
+					LCD_DisplayStringLine(130,170+10,(uint8_t*)buf);
 					if(LANG == chs)
 					{
 						DrawInstruction("背光亮度设置");
@@ -8859,36 +9135,36 @@ void UP_HANDLE(void)
 					{
 						if(DIM == DOFF)
 						{
-							LCD_DisplayStringLine(174,170,"关闭");
+							LCD_DisplayStringLine(174,170+10,"关闭");
 						}else if(DIM == D5){
 							sprintf(buf,"%d",5);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
 						}else if(DIM == D10){
 							sprintf(buf,"%d",10);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
 						}else if(DIM == D15){
 							sprintf(buf,"%d",15);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
 						}else if(DIM == D30){
 							sprintf(buf,"%d",30);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
 						}
 					}else if(LANG  == eng){
 						if(DIM == DOFF)
 						{
-							LCD_DisplayStringLine(172,170,"OFF");
+							LCD_DisplayStringLine(172,170+10,"OFF");
 						}else if(DIM == D5){
 							sprintf(buf,"%d",5);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
 						}else if(DIM == D10){
 							sprintf(buf,"%d",10);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
 						}else if(DIM == D15){
 							sprintf(buf,"%d",15);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
 						}else if(DIM == D30){
 							sprintf(buf,"%d",30);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
 						}
 					}
 					focus_off1();
@@ -8896,16 +9172,16 @@ void UP_HANDLE(void)
 					{
 						if(TOUCH == op_on)
 						{
-							LCD_DisplayStringLine(214,170,"打开");
+							LCD_DisplayStringLine(214,170+10,"打开");
 						}else{
-							LCD_DisplayStringLine(214,170,"关闭");
+							LCD_DisplayStringLine(214,170+10,"关闭");
 						}
 					}else if(LANG  == eng){
 						if(TOUCH == op_on)
 						{
-							LCD_DisplayStringLine(212,170,"ON");
+							LCD_DisplayStringLine(212,170+10,"ON");
 						}else{
-							LCD_DisplayStringLine(212,170,"OFF");
+							LCD_DisplayStringLine(212,170+10,"OFF");
 						}
 					}
 					op_flag = set_dim;
@@ -9052,19 +9328,19 @@ void DOWN_HANDLE(void)
 						if(ch_page == page1)
 						{
 							focus_on(CH2_SW);
-							LCD_DisplayStringLine_48(170,10,"002");
+							LCD_DisplayStringLine_48(170+10,10,"002");
 						}else if(ch_page == page2){
 							focus_on(CH10_SW);
-							LCD_DisplayStringLine_48(170,10,"010");
+							LCD_DisplayStringLine_48(170+10,10,"010");
 						}else if(ch_page == page3){
 							focus_on(CH18_SW);
-							LCD_DisplayStringLine_48(170,10,"018");
+							LCD_DisplayStringLine_48(170+10,10,"018");
 						}else if(ch_page == page4){
 							focus_on(CH26_SW);
-							LCD_DisplayStringLine_48(170,10,"026");
+							LCD_DisplayStringLine_48(170+10,10,"026");
 						}else if(ch_page == page5){
 							focus_on(CH34_SW);
-							LCD_DisplayStringLine_48(170,10,"034");
+							LCD_DisplayStringLine_48(170+10,10,"034");
 						}
 						
 						op_flag = home_ch2;
@@ -9101,38 +9377,38 @@ void DOWN_HANDLE(void)
 						if(ch_page == page1)
 						{
 							focus_off(CH2_SW);
-							LCD_DisplayStringLine_48(170,10,"002");
+							LCD_DisplayStringLine_48(170+10,10,"002");
 						}else if(ch_page == page2){
 							focus_off(CH10_SW);
-							LCD_DisplayStringLine_48(170,10,"010");
+							LCD_DisplayStringLine_48(170+10,10,"010");
 						}else if(ch_page == page3){
 							focus_off(CH18_SW);
-							LCD_DisplayStringLine_48(170,10,"018");
+							LCD_DisplayStringLine_48(170+10,10,"018");
 						}else if(ch_page == page4){
 							focus_off(CH26_SW);
-							LCD_DisplayStringLine_48(170,10,"026");
+							LCD_DisplayStringLine_48(170+10,10,"026");
 						}else if(ch_page == page5){
 							focus_off(CH34_SW);
-							LCD_DisplayStringLine_48(170,10,"034");
+							LCD_DisplayStringLine_48(170+10,10,"034");
 						}
 						
 
 						if(ch_page == page1)
 						{
 							focus_on(CH3_SW);
-							LCD_DisplayStringLine_48(240,10,"003");
+							LCD_DisplayStringLine_48(240+20,10,"003");
 						}else if(ch_page == page2){
 							focus_on(CH11_SW);
-							LCD_DisplayStringLine_48(240,10,"011");
+							LCD_DisplayStringLine_48(240+20,10,"011");
 						}else if(ch_page == page3){
 							focus_on(CH19_SW);
-							LCD_DisplayStringLine_48(240,10,"019");
+							LCD_DisplayStringLine_48(240+20,10,"019");
 						}else if(ch_page == page4){
 							focus_on(CH27_SW);
-							LCD_DisplayStringLine_48(240,10,"027");
+							LCD_DisplayStringLine_48(240+20,10,"027");
 						}else if(ch_page == page5){
 							focus_on(CH35_SW);
-							LCD_DisplayStringLine_48(240,10,"035");
+							LCD_DisplayStringLine_48(240+20,10,"035");
 						}
 						
 						op_flag = home_ch3;
@@ -9169,37 +9445,37 @@ void DOWN_HANDLE(void)
 						if(ch_page == page1)
 						{
 							focus_off(CH3_SW);
-							LCD_DisplayStringLine_48(240,10,"003");
+							LCD_DisplayStringLine_48(240+20,10,"003");
 						}else if(ch_page == page2){
 							focus_off(CH11_SW);
-							LCD_DisplayStringLine_48(240,10,"011");
+							LCD_DisplayStringLine_48(240+20,10,"011");
 						}else if(ch_page == page3){
 							focus_off(CH19_SW);
-							LCD_DisplayStringLine_48(240,10,"019");
+							LCD_DisplayStringLine_48(240+20,10,"019");
 						}else if(ch_page == page4){
 							focus_off(CH27_SW);
-							LCD_DisplayStringLine_48(240,10,"027");
+							LCD_DisplayStringLine_48(240+20,10,"027");
 						}else if(ch_page == page5){
 							focus_off(CH35_SW);
-							LCD_DisplayStringLine_48(240,10,"035");
+							LCD_DisplayStringLine_48(240+20,10,"035");
 						}
 						
 						if(ch_page == page1)
 						{
 							focus_on(CH4_SW);
-							LCD_DisplayStringLine_48(310,10,"004");
+							LCD_DisplayStringLine_48(310+30,10,"004");
 						}else if(ch_page == page2){
 							focus_on(CH12_SW);
-							LCD_DisplayStringLine_48(310,10,"012");
+							LCD_DisplayStringLine_48(310+30,10,"012");
 						}else if(ch_page == page3){
 							focus_on(CH20_SW);
-							LCD_DisplayStringLine_48(310,10,"020");
+							LCD_DisplayStringLine_48(310+30,10,"020");
 						}else if(ch_page == page4){
 							focus_on(CH28_SW);
-							LCD_DisplayStringLine_48(310,10,"028");
+							LCD_DisplayStringLine_48(310+30,10,"028");
 						}else if(ch_page == page5){
 							focus_on(CH36_SW);
-							LCD_DisplayStringLine_48(310,10,"036");
+							LCD_DisplayStringLine_48(310+30,10,"036");
 						}
 						
 						op_flag = home_ch4;
@@ -9236,19 +9512,19 @@ void DOWN_HANDLE(void)
 						if(ch_page == page1)
 						{
 							focus_off(CH4_SW);
-							LCD_DisplayStringLine_48(310,10,"004");
+							LCD_DisplayStringLine_48(310+30,10,"004");
 						}else if(ch_page == page2){
 							focus_off(CH12_SW);
-							LCD_DisplayStringLine_48(310,10,"012");
+							LCD_DisplayStringLine_48(310+30,10,"012");
 						}else if(ch_page == page3){
 							focus_off(CH20_SW);
-							LCD_DisplayStringLine_48(310,10,"020");
+							LCD_DisplayStringLine_48(310+30,10,"020");
 						}else if(ch_page == page4){
 							focus_off(CH28_SW);
-							LCD_DisplayStringLine_48(310,10,"028");
+							LCD_DisplayStringLine_48(310+30,10,"028");
 						}else if(ch_page == page5){
 							focus_off(CH36_SW);
-							LCD_DisplayStringLine_48(310,10,"036");
+							LCD_DisplayStringLine_48(310+30,10,"036");
 						}
 						
 						LCD_SetTextColor(LCD_COLOR_BLACK);
@@ -9331,19 +9607,19 @@ void DOWN_HANDLE(void)
 						if(ch_page == page1)
 						{
 							focus_on(CH6_SW);
-							LCD_DisplayStringLine_48(170,330,"006");
+							LCD_DisplayStringLine_48(170+10,330,"006");
 						}else if(ch_page == page2){
 							focus_on(CH14_SW);
-							LCD_DisplayStringLine_48(170,330,"014");
+							LCD_DisplayStringLine_48(170+10,330,"014");
 						}else if(ch_page == page3){
 							focus_on(CH22_SW);
-							LCD_DisplayStringLine_48(170,330,"022");
+							LCD_DisplayStringLine_48(170+10,330,"022");
 						}else if(ch_page == page4){
 							focus_on(CH30_SW);
-							LCD_DisplayStringLine_48(170,330,"030");
+							LCD_DisplayStringLine_48(170+10,330,"030");
 						}else if(ch_page == page5){
 							focus_on(CH38_SW);
-							LCD_DisplayStringLine_48(170,330,"038");
+							LCD_DisplayStringLine_48(170+10,330,"038");
 						}
 						
 						op_flag = home_ch6;
@@ -9380,37 +9656,37 @@ void DOWN_HANDLE(void)
 						if(ch_page == page1)
 						{
 							focus_off(CH6_SW);
-							LCD_DisplayStringLine_48(170,330,"006");
+							LCD_DisplayStringLine_48(170+10,330,"006");
 						}else if(ch_page == page2){
 							focus_off(CH14_SW);
-							LCD_DisplayStringLine_48(170,330,"014");
+							LCD_DisplayStringLine_48(170+10,330,"014");
 						}else if(ch_page == page3){
 							focus_off(CH22_SW);
-							LCD_DisplayStringLine_48(170,330,"022");
+							LCD_DisplayStringLine_48(170+10,330,"022");
 						}else if(ch_page == page4){
 							focus_off(CH30_SW);
-							LCD_DisplayStringLine_48(170,330,"030");
+							LCD_DisplayStringLine_48(170+10,330,"030");
 						}else if(ch_page == page5){
 							focus_off(CH38_SW);
-							LCD_DisplayStringLine_48(170,330,"038");
+							LCD_DisplayStringLine_48(170+10,330,"038");
 						}
 						
 						if(ch_page == page1)
 						{
 							focus_on(CH7_SW);
-							LCD_DisplayStringLine_48(240,330,"007");
+							LCD_DisplayStringLine_48(240+20,330,"007");
 						}else if(ch_page == page2){
 							focus_on(CH15_SW);
-							LCD_DisplayStringLine_48(240,330,"015");
+							LCD_DisplayStringLine_48(240+20,330,"015");
 						}else if(ch_page == page3){
 							focus_on(CH23_SW);
-							LCD_DisplayStringLine_48(240,330,"023");
+							LCD_DisplayStringLine_48(240+20,330,"023");
 						}else if(ch_page == page4){
 							focus_on(CH31_SW);
-							LCD_DisplayStringLine_48(240,330,"031");
+							LCD_DisplayStringLine_48(240+20,330,"031");
 						}else if(ch_page == page5){
 							focus_on(CH39_SW);
-							LCD_DisplayStringLine_48(240,330,"039");
+							LCD_DisplayStringLine_48(240+20,330,"039");
 						}
 						
 						op_flag = home_ch7;
@@ -9447,37 +9723,37 @@ void DOWN_HANDLE(void)
 						if(ch_page == page1)
 						{
 							focus_off(CH7_SW);
-							LCD_DisplayStringLine_48(240,330,"007");
+							LCD_DisplayStringLine_48(240+20,330,"007");
 						}else if(ch_page == page2){
 							focus_off(CH15_SW);
-							LCD_DisplayStringLine_48(240,330,"015");
+							LCD_DisplayStringLine_48(240+20,330,"015");
 						}else if(ch_page == page3){
 							focus_off(CH23_SW);
-							LCD_DisplayStringLine_48(240,330,"023");
+							LCD_DisplayStringLine_48(240+20,330,"023");
 						}else if(ch_page == page4){
 							focus_off(CH31_SW);
-							LCD_DisplayStringLine_48(240,330,"031");
+							LCD_DisplayStringLine_48(240+20,330,"031");
 						}else if(ch_page == page5){
 							focus_off(CH39_SW);
-							LCD_DisplayStringLine_48(240,330,"039");
+							LCD_DisplayStringLine_48(240+20,330,"039");
 						}
 						
 						if(ch_page == page1)
 						{
 							focus_on(CH8_SW);
-							LCD_DisplayStringLine_48(310,330,"008");
+							LCD_DisplayStringLine_48(310+30,330,"008");
 						}else if(ch_page == page2){
 							focus_on(CH16_SW);
-							LCD_DisplayStringLine_48(310,330,"016");
+							LCD_DisplayStringLine_48(310+30,330,"016");
 						}else if(ch_page == page3){
 							focus_on(CH24_SW);
-							LCD_DisplayStringLine_48(310,330,"024");
+							LCD_DisplayStringLine_48(310+30,330,"024");
 						}else if(ch_page == page4){
 							focus_on(CH32_SW);
-							LCD_DisplayStringLine_48(310,330,"032");
+							LCD_DisplayStringLine_48(310+30,330,"032");
 						}else if(ch_page == page5){
 							focus_on(CH40_SW);
-							LCD_DisplayStringLine_48(310,330,"040");
+							LCD_DisplayStringLine_48(310+30,330,"040");
 						}
 						
 						op_flag = home_ch8;
@@ -9514,19 +9790,19 @@ void DOWN_HANDLE(void)
 						if(ch_page == page1)
 						{
 							focus_off(CH8_SW);
-							LCD_DisplayStringLine_48(310,330,"008");
+							LCD_DisplayStringLine_48(310+30,330,"008");
 						}else if(ch_page == page2){
 							focus_off(CH16_SW);
-							LCD_DisplayStringLine_48(310,330,"016");
+							LCD_DisplayStringLine_48(310+30,330,"016");
 						}else if(ch_page == page3){
 							focus_off(CH24_SW);
-							LCD_DisplayStringLine_48(310,330,"024");
+							LCD_DisplayStringLine_48(310+30,330,"024");
 						}else if(ch_page == page4){
 							focus_off(CH32_SW);
-							LCD_DisplayStringLine_48(310,330,"032");
+							LCD_DisplayStringLine_48(310+30,330,"032");
 						}else if(ch_page == page5){
 							focus_off(CH40_SW);
-							LCD_DisplayStringLine_48(310,330,"040");
+							LCD_DisplayStringLine_48(310+30,330,"040");
 						}
 						
 						if(ch_page == page1)
@@ -10333,7 +10609,7 @@ void DOWN_HANDLE(void)
 					}
 					if(LANG == chs)
 					{
-						DrawInstruction("定时采集开关");
+						DrawInstruction("定时采集");
 					}else{
 						DrawInstruction("Trig Timer");
 					}
@@ -10371,6 +10647,7 @@ void DOWN_HANDLE(void)
 					}else{
 						DrawInstruction("Start Time");
 					}
+					bit_flag = 1;
 					op_flag = starttime;
 //					stimefocus_on(SAVETIME);
 //					if(LANG == chs)
@@ -10399,6 +10676,7 @@ void DOWN_HANDLE(void)
 					}else{
 						DrawInstruction("End Time");
 					}
+					bit_flag = 1;
 					op_flag = endtime;
 				}break;
 				case endtime:
@@ -10979,10 +11257,10 @@ void DOWN_HANDLE(void)
 					focus_off1();
 					if(LANG == chs)
 					{
-						LCD_DisplayStringLine(50,170,"CHINESE");
+						LCD_DisplayStringLine(50,170+10,"CHINESE");
 						DrawInstruction("年-月-日");
 					}else{
-						LCD_DisplayStringLine(50,170,"ENGLISH");
+						LCD_DisplayStringLine(50,170+10,"ENGLISH");
 						DrawInstruction("YEAR-MONTH-DAY");
 					}
 
@@ -11004,7 +11282,7 @@ void DOWN_HANDLE(void)
 						sprintf(buf,"%d",100);
 					}	
 					focus_on1();					
-					LCD_DisplayStringLine(130,170,(uint8_t*)buf);
+					LCD_DisplayStringLine(130,170+10,(uint8_t*)buf);
 					if(LANG == chs)
 					{
 						DrawInstruction("背光亮度设置");
@@ -11028,42 +11306,42 @@ void DOWN_HANDLE(void)
 					}else if(BRTS == L4){
 						sprintf(buf,"%d",100);
 					}		
-					LCD_DisplayStringLine(130,170,(uint8_t*)buf);
+					LCD_DisplayStringLine(130,170+10,(uint8_t*)buf);
 					focus_on1();
 					if(LANG == chs)
 					{
 						if(DIM == DOFF)
 						{
-							LCD_DisplayStringLine(174,170,"关闭");
+							LCD_DisplayStringLine(174,170+10,"关闭");
 						}else if(DIM == D5){
 							sprintf(buf,"%d",5);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
 						}else if(DIM == D10){
 							sprintf(buf,"%d",10);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
 						}else if(DIM == D15){
 							sprintf(buf,"%d",15);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
 						}else if(DIM == D30){
 							sprintf(buf,"%d",30);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
 						}
 					}else if(LANG  == eng){
 						if(DIM == DOFF)
 						{
-							LCD_DisplayStringLine(172,170,"OFF");
+							LCD_DisplayStringLine(172,170+10,"OFF");
 						}else if(DIM == D5){
 							sprintf(buf,"%d",5);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
 						}else if(DIM == D10){
 							sprintf(buf,"%d",10);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
 						}else if(DIM == D15){
 							sprintf(buf,"%d",15);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
 						}else if(DIM == D30){
 							sprintf(buf,"%d",30);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
 						}
 					}
 					if(LANG == chs)
@@ -11081,36 +11359,36 @@ void DOWN_HANDLE(void)
 					{
 						if(DIM == DOFF)
 						{
-							LCD_DisplayStringLine(174,170,"关闭");
+							LCD_DisplayStringLine(174,170+10,"关闭");
 						}else if(DIM == D5){
 							sprintf(buf,"%d",5);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
 						}else if(DIM == D10){
 							sprintf(buf,"%d",10);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
 						}else if(DIM == D15){
 							sprintf(buf,"%d",15);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
 						}else if(DIM == D30){
 							sprintf(buf,"%d",30);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
 						}
 					}else if(LANG  == eng){
 						if(DIM == DOFF)
 						{
-							LCD_DisplayStringLine(172,170,"OFF");
+							LCD_DisplayStringLine(172,170+10,"OFF");
 						}else if(DIM == D5){
 							sprintf(buf,"%d",5);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
 						}else if(DIM == D10){
 							sprintf(buf,"%d",10);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
 						}else if(DIM == D15){
 							sprintf(buf,"%d",15);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
 						}else if(DIM == D30){
 							sprintf(buf,"%d",30);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
 						}
 					}
 					focus_on1();
@@ -11118,16 +11396,16 @@ void DOWN_HANDLE(void)
 					{
 						if(TOUCH == op_on)
 						{
-							LCD_DisplayStringLine(214,170,"打开");
+							LCD_DisplayStringLine(214,170+10,"打开");
 						}else{
-							LCD_DisplayStringLine(214,170,"关闭");
+							LCD_DisplayStringLine(214,170+10,"关闭");
 						}
 					}else if(LANG  == eng){
 						if(TOUCH == op_on)
 						{
-							LCD_DisplayStringLine(212,170,"ON");
+							LCD_DisplayStringLine(212,170+10,"ON");
 						}else{
-							LCD_DisplayStringLine(212,170,"OFF");
+							LCD_DisplayStringLine(212,170+10,"OFF");
 						}
 					}
 					op_flag = set_touch;
@@ -11287,37 +11565,37 @@ void RIGHT_HANDLE(void)
 						if(ch_page == page1)
 						{
 							focus_off(CH2_SW);
-							LCD_DisplayStringLine_48(170,10,"002");
+							LCD_DisplayStringLine_48(170+10,10,"002");
 						}else if(ch_page == page2){
 							focus_off(CH10_SW);
-							LCD_DisplayStringLine_48(170,10,"010");
+							LCD_DisplayStringLine_48(170+10,10,"010");
 						}else if(ch_page == page3){
 							focus_off(CH18_SW);
-							LCD_DisplayStringLine_48(170,10,"018");
+							LCD_DisplayStringLine_48(170+10,10,"018");
 						}else if(ch_page == page4){
 							focus_off(CH26_SW);
-							LCD_DisplayStringLine_48(170,10,"026");
+							LCD_DisplayStringLine_48(170+10,10,"026");
 						}else if(ch_page == page5){
 							focus_off(CH34_SW);
-							LCD_DisplayStringLine_48(170,10,"034");
+							LCD_DisplayStringLine_48(170+10,10,"034");
 						}
 						
 						if(ch_page == page1)
 						{
 							focus_on(CH6_SW);
-							LCD_DisplayStringLine_48(170,330,"006");
+							LCD_DisplayStringLine_48(170+10,330,"006");
 						}else if(ch_page == page2){
 							focus_on(CH14_SW);
-							LCD_DisplayStringLine_48(170,330,"014");
+							LCD_DisplayStringLine_48(170+10,330,"014");
 						}else if(ch_page == page3){
 							focus_on(CH22_SW);
-							LCD_DisplayStringLine_48(170,330,"022");
+							LCD_DisplayStringLine_48(170+10,330,"022");
 						}else if(ch_page == page4){
 							focus_on(CH30_SW);
-							LCD_DisplayStringLine_48(170,330,"030");
+							LCD_DisplayStringLine_48(170+10,330,"030");
 						}else if(ch_page == page5){
 							focus_on(CH38_SW);
-							LCD_DisplayStringLine_48(170,330,"038");
+							LCD_DisplayStringLine_48(170+10,330,"038");
 						}
 						
 						op_flag = home_ch6;
@@ -11354,37 +11632,37 @@ void RIGHT_HANDLE(void)
 						if(ch_page == page1)
 						{
 							focus_off(CH3_SW);
-							LCD_DisplayStringLine_48(240,10,"003");
+							LCD_DisplayStringLine_48(240+20,10,"003");
 						}else if(ch_page == page2){
 							focus_off(CH11_SW);
-							LCD_DisplayStringLine_48(240,10,"011");
+							LCD_DisplayStringLine_48(240+20,10,"011");
 						}else if(ch_page == page3){
 							focus_off(CH19_SW);
-							LCD_DisplayStringLine_48(240,10,"019");
+							LCD_DisplayStringLine_48(240+20,10,"019");
 						}else if(ch_page == page4){
 							focus_off(CH27_SW);
-							LCD_DisplayStringLine_48(240,10,"027");
+							LCD_DisplayStringLine_48(240+20,10,"027");
 						}else if(ch_page == page5){
 							focus_off(CH35_SW);
-							LCD_DisplayStringLine_48(240,10,"035");
+							LCD_DisplayStringLine_48(240+20,10,"035");
 						}
 						
 						if(ch_page == page1)
 						{
 							focus_on(CH7_SW);
-							LCD_DisplayStringLine_48(240,330,"007");
+							LCD_DisplayStringLine_48(240+20,330,"007");
 						}else if(ch_page == page2){
 							focus_on(CH15_SW);
-							LCD_DisplayStringLine_48(240,330,"015");
+							LCD_DisplayStringLine_48(240+20,330,"015");
 						}else if(ch_page == page3){
 							focus_on(CH23_SW);
-							LCD_DisplayStringLine_48(240,330,"023");
+							LCD_DisplayStringLine_48(240+20,330,"023");
 						}else if(ch_page == page4){
 							focus_on(CH31_SW);
-							LCD_DisplayStringLine_48(240,330,"031");
+							LCD_DisplayStringLine_48(240+20,330,"031");
 						}else if(ch_page == page5){
 							focus_on(CH39_SW);
-							LCD_DisplayStringLine_48(240,330,"039");
+							LCD_DisplayStringLine_48(240+20,330,"039");
 						}
 						
 						op_flag = home_ch7;
@@ -11421,37 +11699,37 @@ void RIGHT_HANDLE(void)
 						if(ch_page == page1)
 						{
 							focus_off(CH4_SW);
-							LCD_DisplayStringLine_48(310,10,"004");
+							LCD_DisplayStringLine_48(310+30,10,"004");
 						}else if(ch_page == page2){
 							focus_off(CH12_SW);
-							LCD_DisplayStringLine_48(310,10,"012");
+							LCD_DisplayStringLine_48(310+30,10,"012");
 						}else if(ch_page == page3){
 							focus_off(CH20_SW);
-							LCD_DisplayStringLine_48(310,10,"020");
+							LCD_DisplayStringLine_48(310+30,10,"020");
 						}else if(ch_page == page4){
 							focus_off(CH28_SW);
-							LCD_DisplayStringLine_48(310,10,"028");
+							LCD_DisplayStringLine_48(310+30,10,"028");
 						}else if(ch_page == page5){
 							focus_off(CH36_SW);
-							LCD_DisplayStringLine_48(310,10,"036");
+							LCD_DisplayStringLine_48(310+30,10,"036");
 						}
 						
 						if(ch_page == page1)
 						{
 							focus_on(CH8_SW);
-							LCD_DisplayStringLine_48(310,330,"008");
+							LCD_DisplayStringLine_48(310+30,330,"008");
 						}else if(ch_page == page2){
 							focus_on(CH16_SW);
-							LCD_DisplayStringLine_48(310,330,"016");
+							LCD_DisplayStringLine_48(310+30,330,"016");
 						}else if(ch_page == page3){
 							focus_on(CH24_SW);
-							LCD_DisplayStringLine_48(310,330,"024");
+							LCD_DisplayStringLine_48(310+30,330,"024");
 						}else if(ch_page == page4){
 							focus_on(CH32_SW);
-							LCD_DisplayStringLine_48(310,330,"032");
+							LCD_DisplayStringLine_48(310+30,330,"032");
 						}else if(ch_page == page5){
 							focus_on(CH40_SW);
-							LCD_DisplayStringLine_48(310,330,"040");
+							LCD_DisplayStringLine_48(310+30,330,"040");
 						}
 						
 						op_flag = home_ch8;
@@ -12441,37 +12719,37 @@ void LEFT_HANDLE(void)
 					if(ch_page == page1 && FONT == big)
 					{
 						focus_off(CH6_SW);
-						LCD_DisplayStringLine_48(170,330,"006");
+						LCD_DisplayStringLine_48(170+10,330,"006");
 					}else if(ch_page == page2){
 						focus_off(CH14_SW);
-						LCD_DisplayStringLine_48(170,330,"014");
+						LCD_DisplayStringLine_48(170+10,330,"014");
 					}else if(ch_page == page3){
 						focus_off(CH22_SW);
-						LCD_DisplayStringLine_48(170,330,"022");
+						LCD_DisplayStringLine_48(170+10,330,"022");
 					}else if(ch_page == page4){
 						focus_off(CH30_SW);
-						LCD_DisplayStringLine_48(170,330,"030");
+						LCD_DisplayStringLine_48(170+10,330,"030");
 					}else if(ch_page == page5){
 						focus_off(CH38_SW);
-						LCD_DisplayStringLine_48(170,330,"038");
+						LCD_DisplayStringLine_48(170+10,330,"038");
 					}
 					
 					if(ch_page == page1 && FONT == big)
 					{
 						focus_on(CH2_SW);
-						LCD_DisplayStringLine_48(170,10,"002");
+						LCD_DisplayStringLine_48(170+10,10,"002");
 					}else if(ch_page == page2){
 						focus_on(CH10_SW);
-						LCD_DisplayStringLine_48(170,10,"010");
+						LCD_DisplayStringLine_48(170+10,10,"010");
 					}else if(ch_page == page3){
 						focus_on(CH18_SW);
-						LCD_DisplayStringLine_48(170,10,"018");
+						LCD_DisplayStringLine_48(170+10,10,"018");
 					}else if(ch_page == page4){
 						focus_on(CH26_SW);
-						LCD_DisplayStringLine_48(170,10,"026");
+						LCD_DisplayStringLine_48(170+10,10,"026");
 					}else if(ch_page == page5){
 						focus_on(CH34_SW);
-						LCD_DisplayStringLine_48(170,10,"034");
+						LCD_DisplayStringLine_48(170+10,10,"034");
 					}
 					
 					op_flag = home_ch2;
@@ -12481,37 +12759,37 @@ void LEFT_HANDLE(void)
 					if(ch_page == page1 && FONT == big)
 					{
 						focus_off(CH7_SW);
-						LCD_DisplayStringLine_48(240,330,"007");
+						LCD_DisplayStringLine_48(240+20,330,"007");
 					}else if(ch_page == page2){
 						focus_off(CH15_SW);
-						LCD_DisplayStringLine_48(240,330,"015");
+						LCD_DisplayStringLine_48(240+20,330,"015");
 					}else if(ch_page == page3){
 						focus_off(CH23_SW);
-						LCD_DisplayStringLine_48(240,330,"023");
+						LCD_DisplayStringLine_48(240+20,330,"023");
 					}else if(ch_page == page4){
 						focus_off(CH31_SW);
-						LCD_DisplayStringLine_48(240,330,"031");
+						LCD_DisplayStringLine_48(240+20,330,"031");
 					}else if(ch_page == page5){
 						focus_off(CH39_SW);
-						LCD_DisplayStringLine_48(240,330,"039");
+						LCD_DisplayStringLine_48(240+20,330,"039");
 					}
 					
 					if(ch_page == page1 && FONT == big)
 					{
 						focus_on(CH3_SW);
-						LCD_DisplayStringLine_48(240,10,"003");
+						LCD_DisplayStringLine_48(240+20,10,"003");
 					}else if(ch_page == page2){
 						focus_on(CH11_SW);
-						LCD_DisplayStringLine_48(240,10,"011");
+						LCD_DisplayStringLine_48(240+20,10,"011");
 					}else if(ch_page == page3){
 						focus_on(CH19_SW);
-						LCD_DisplayStringLine_48(240,10,"019");
+						LCD_DisplayStringLine_48(240+20,10,"019");
 					}else if(ch_page == page4){
 						focus_on(CH27_SW);
-						LCD_DisplayStringLine_48(240,10,"027");
+						LCD_DisplayStringLine_48(240+20,10,"027");
 					}else if(ch_page == page5){
 						focus_on(CH35_SW);
-						LCD_DisplayStringLine_48(240,10,"035");
+						LCD_DisplayStringLine_48(240+20,10,"035");
 					}
 					
 					op_flag = home_ch3;
@@ -12521,37 +12799,37 @@ void LEFT_HANDLE(void)
 					if(ch_page == page1 && FONT == big)
 					{
 						focus_off(CH8_SW);
-						LCD_DisplayStringLine_48(310,330,"008");
+						LCD_DisplayStringLine_48(310+30,330,"008");
 					}else if(ch_page == page2){
 						focus_off(CH16_SW);
-						LCD_DisplayStringLine_48(310,330,"016");
+						LCD_DisplayStringLine_48(310+30,330,"016");
 					}else if(ch_page == page3){
 						focus_off(CH24_SW);
-						LCD_DisplayStringLine_48(310,330,"024");
+						LCD_DisplayStringLine_48(310+30,330,"024");
 					}else if(ch_page == page4){
 						focus_off(CH32_SW);
-						LCD_DisplayStringLine_48(310,330,"032");
+						LCD_DisplayStringLine_48(310+30,330,"032");
 					}else if(ch_page == page5){
 						focus_off(CH40_SW);
-						LCD_DisplayStringLine_48(310,330,"040");
+						LCD_DisplayStringLine_48(310+30,330,"040");
 					}
 					
 					if(ch_page == page1 && FONT == big)
 					{
 						focus_on(CH4_SW);
-						LCD_DisplayStringLine_48(310,10,"004");
+						LCD_DisplayStringLine_48(310+30,10,"004");
 					}else if(ch_page == page2){
 						focus_on(CH12_SW);
-						LCD_DisplayStringLine_48(310,10,"012");
+						LCD_DisplayStringLine_48(310+30,10,"012");
 					}else if(ch_page == page3){
 						focus_on(CH20_SW);
-						LCD_DisplayStringLine_48(310,10,"020");
+						LCD_DisplayStringLine_48(310+30,10,"020");
 					}else if(ch_page == page4){
 						focus_on(CH28_SW);
-						LCD_DisplayStringLine_48(310,10,"028");
+						LCD_DisplayStringLine_48(310+30,10,"028");
 					}else if(ch_page == page5){
 						focus_on(CH36_SW);
-						LCD_DisplayStringLine_48(310,10,"036");
+						LCD_DisplayStringLine_48(310+30,10,"036");
 					}
 					
 					op_flag = home_ch4;
@@ -13549,6 +13827,10 @@ void KEY1_HANDLE(void)
 			if(op_flag == set_timer)
 			{
 				input_num("1");	
+			}else if(op_flag == starttime){
+				Input_start(1);
+			}else if(op_flag == endtime){
+				Input_end(1);
 			}
 		}break;
 		default:
@@ -13593,6 +13875,10 @@ void KEY2_HANDLE(void)
 			if(op_flag == set_timer)
 			{
 				input_num("2");	
+			}else if(op_flag == starttime){
+				Input_start(2);
+			}else if(op_flag == endtime){
+				Input_end(2);
 			}
 		}break;
 		case touchcal:
@@ -13632,6 +13918,10 @@ void KEY3_HANDLE(void)
 			if(op_flag == set_timer)
 			{
 				input_num("3");	
+			}else if(op_flag == starttime){
+				Input_start(3);
+			}else if(op_flag == endtime){
+				Input_end(3);
 			}
 		}break;
 		case touchcal:
@@ -13666,6 +13956,10 @@ void KEY4_HANDLE(void)
 			if(op_flag == set_timer)
 			{
 				input_num("4");	
+			}else if(op_flag == starttime){
+				Input_start(4);
+			}else if(op_flag == endtime){
+				Input_end(4);
 			}
 		}break;
 		case touchcal:
@@ -13700,6 +13994,10 @@ void KEY5_HANDLE(void)
 			if(op_flag == set_timer)
 			{
 				input_num("5");	
+			}else if(op_flag == starttime){
+				Input_start(5);
+			}else if(op_flag == endtime){
+				Input_end(5);
 			}
 		}break;
 		case touchcal:
@@ -13734,6 +14032,10 @@ void KEY6_HANDLE(void)
 			if(op_flag == set_timer)
 			{
 				input_num("6");	
+			}else if(op_flag == starttime){
+				Input_start(6);
+			}else if(op_flag == endtime){
+				Input_end(6);
 			}
 		}break;
 		case touchcal:
@@ -13768,6 +14070,10 @@ void KEY7_HANDLE(void)
 			if(op_flag == set_timer)
 			{
 				input_num("7");	
+			}else if(op_flag == starttime){
+				Input_start(7);
+			}else if(op_flag == endtime){
+				Input_end(7);
 			}
 		}break;
 		case touchcal:
@@ -13802,6 +14108,10 @@ void KEY8_HANDLE(void)
 			if(op_flag == set_timer)
 			{
 				input_num("8");	
+			}else if(op_flag == starttime){
+				Input_start(8);
+			}else if(op_flag == endtime){
+				Input_end(8);
 			}
 		}break;
 		case touchcal:
@@ -13836,6 +14146,10 @@ void KEY9_HANDLE(void)
 			if(op_flag == set_timer)
 			{
 				input_num("9");	
+			}else if(op_flag == starttime){
+				Input_start(9);
+			}else if(op_flag == endtime){
+				Input_end(9);
 			}
 		}break;
 	}
@@ -13866,6 +14180,10 @@ void KEY0_HANDLE(void)
 			if(op_flag == set_timer)
 			{
 				input_num("0");	
+			}else if(op_flag == starttime){
+				Input_start(0);
+			}else if(op_flag == endtime){
+				Input_end(0);
 			}
 		}break;
 	}
