@@ -49,10 +49,14 @@ compiling bsp_key.c...
 ..\..\User\key\bsp_key.c(14435): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "char *restrict"
                         sprintf(buf,"\t%.1f",ch_temp[i]);
 ..\..\User\key\bsp_key.c: 10 warnings, 0 errors
+compiling home.c...
+..\..\User\APP\home.c(1053): warning:  #223-D: function "DISP_AVG" declared implicitly
+        DISP_AVG(420+2,400-5,"AVG");
+..\..\User\APP\home.c: 1 warning, 0 errors
 linking...
 Program Size: Code=161336 RO-data=103308 RW-data=708 ZI-data=68940  
 FromELF: creating hex file...
-"..\..\Output\LCD.axf" - 0 Error(s), 10 Warning(s).
+"..\..\Output\LCD.axf" - 0 Error(s), 11 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -66,7 +70,7 @@ Package Vendor: Keil
   D:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:05
+Build Time Elapsed:  00:00:09
 </pre>
 </body>
 </html>
