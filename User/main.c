@@ -780,223 +780,223 @@ void TempDisplay(void)
 //				LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_BACK);
 				Check_limits(1);
 				sprintf(buf,"%.1f",CH1TEMP - COR1);
-				if(CH1TEMP >= 0)
+				if(CH1TEMP - COR1 >= 0)
 				{
-					if(CH1TEMP < 10)
+					if(CH1TEMP - COR1 < 10)
 					{
 						strcat(buf,"   ");
-					}else if(CH1TEMP < 100){
+					}else if(CH1TEMP - COR1 < 100){
 						strcat(buf,"  ");
-					}else if(CH1TEMP < 1000){
+					}else if(CH1TEMP - COR1 < 1000){
 						strcat(buf," ");
 					}
 				}else{
-					if(CH1TEMP > -10)
+					if(CH1TEMP - COR1 > -10)
 					{
 						strcat(buf,"  ");
-					}else if(CH1TEMP > -100){
+					}else if(CH1TEMP - COR1 > -100){
 						strcat(buf," ");
 					}
 				}
 				
 				
-//				DISP_TEMP_L(95,150,(uint8_t*)buf,CH1_SW);
+//				DISP_TEMP_L(95,120,(uint8_t*)buf,CH1_SW);
 				if(CH1TEMP < 1999 || CH1TEMP < -200)
 				{
-					DISP_TEMP_L(95,150,(uint8_t*)buf,CH1_SW);
+					DISP_TEMP_L(95,120,(uint8_t*)buf,CH1_SW);
 				}else{
 					LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-					LCD_DrawFullRect(150,95,144,40);
+					LCD_DrawFullRect(120,95,144,40);
 				}
 				Check_limits(2);
 				sprintf(buf,"%.1f",CH2TEMP - COR2);
-				if(CH2TEMP >= 0)
+				if(CH2TEMP - COR2 >= 0)
 				{
-					if(CH2TEMP < 10)
+					if(CH2TEMP - COR2 < 10)
 					{
 						strcat(buf,"   ");
-					}else if(CH2TEMP < 100){
+					}else if(CH2TEMP - COR2 < 100){
 						strcat(buf,"  ");
-					}else if(CH2TEMP < 1000){
+					}else if(CH2TEMP - COR2 < 1000){
 						strcat(buf," ");
 					}
 				}else{
-					if(CH2TEMP > -10)
+					if(CH2TEMP - COR2 > -10)
 					{
 						strcat(buf,"  ");
-					}else if(CH2TEMP > -100){
+					}else if(CH2TEMP - COR2 > -100){
 						strcat(buf," ");
 					}
 				}
 				if(CH2TEMP < 1999)
 				{
-					DISP_TEMP_L(165+10,150,(uint8_t*)buf,CH2_SW);
+					DISP_TEMP_L(165+10,120,(uint8_t*)buf,CH2_SW);
 				}else{
 					LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-					LCD_DrawFullRect(150,165+10,144,40);
+					LCD_DrawFullRect(120,165+10,144,40);
 				}
 				
 				Check_limits(3);
 				sprintf(buf,"%.1f",CH3TEMP - COR3);
-				if(CH3TEMP >= 0)
+				if(CH3TEMP - COR3 >= 0)
 				{
-					if(CH3TEMP < 10)
+					if(CH3TEMP - COR3 < 10)
 					{
 						strcat(buf,"   ");
-					}else if(CH3TEMP < 100){
+					}else if(CH3TEMP - COR3 < 100){
 						strcat(buf,"  ");
-					}else if(CH3TEMP < 1000){
+					}else if(CH3TEMP - COR3 < 1000){
 						strcat(buf," ");
 					}
 				}else{
-					if(CH3TEMP > -10)
+					if(CH3TEMP - COR3 > -10)
 					{
 						strcat(buf,"  ");
-					}else if(CH3TEMP > -100){
+					}else if(CH3TEMP - COR3 > -100){
 						strcat(buf," ");
 					}
 				}
 				if(CH3TEMP < 1999)
 				{
-					DISP_TEMP_L(235+20,150,(uint8_t*)buf,CH3_SW);
+					DISP_TEMP_L(235+20,120,(uint8_t*)buf,CH3_SW);
 				}else{
 					LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-					LCD_DrawFullRect(150,235+20,144,40);
+					LCD_DrawFullRect(120,235+20,144,40);
 				}				
 				Check_limits(4);
 				sprintf(buf,"%.1f",CH4TEMP - COR4);
-				if(CH4TEMP >= 0)
+				if(CH4TEMP - COR4 >= 0)
 				{
-					if(CH4TEMP < 10)
+					if(CH4TEMP - COR4 < 10)
 					{
 						strcat(buf,"   ");
-					}else if(CH4TEMP < 100){
+					}else if(CH4TEMP - COR4 < 100){
 						strcat(buf,"  ");
-					}else if(CH4TEMP < 1000){
+					}else if(CH4TEMP - COR4 < 1000){
 						strcat(buf," ");
 					}
 				}else{
-					if(CH4TEMP > -10)
+					if(CH4TEMP - COR4 > -10)
 					{
 						strcat(buf,"  ");
-					}else if(CH4TEMP > -100){
+					}else if(CH4TEMP - COR4 > -100){
 						strcat(buf," ");
 					}
 				}
 				if(CH4TEMP < 1999)
 				{
-					DISP_TEMP_L(305+30,150,(uint8_t*)buf,CH4_SW);
+					DISP_TEMP_L(305+30,120,(uint8_t*)buf,CH4_SW);
 				}else{
 					LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-					LCD_DrawFullRect(150,305+30,144,40);
+					LCD_DrawFullRect(120,305+30,144,40);
 				}				
 				Check_limits(5);
 				sprintf(buf,"%.1f",CH5TEMP - COR5);
-				if(CH5TEMP >= 0)
+				if(CH5TEMP - COR5 >= 0)
 				{
-					if(CH5TEMP < 10)
+					if(CH5TEMP - COR5 < 10)
 					{
 						strcat(buf,"   ");
-					}else if(CH5TEMP < 100){
+					}else if(CH5TEMP - COR5 < 100){
 						strcat(buf,"  ");
-					}else if(CH5TEMP < 1000){
+					}else if(CH5TEMP - COR5 < 1000){
 						strcat(buf," ");
 					}
 				}else{
-					if(CH5TEMP > -10)
+					if(CH5TEMP - COR5 > -10)
 					{
 						strcat(buf,"  ");
-					}else if(CH5TEMP > -100){
+					}else if(CH5TEMP - COR5 > -100){
 						strcat(buf," ");
 					}
 				}
 				if(CH5TEMP < 1999)
 				{
-					DISP_TEMP_L(95,470,(uint8_t*)buf,CH5_SW);
+					DISP_TEMP_L(95,440,(uint8_t*)buf,CH5_SW);
 				}else{
 					LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-					LCD_DrawFullRect(470,95,144,40);
+					LCD_DrawFullRect(440,95,144,40);
 				}					
 				Check_limits(6);
 				sprintf(buf,"%.1f",CH6TEMP - COR6);
-				if(CH6TEMP >= 0)
+				if(CH6TEMP - COR6 >= 0)
 				{
-					if(CH6TEMP < 10)
+					if(CH6TEMP - COR6 < 10)
 					{
 						strcat(buf,"   ");
-					}else if(CH6TEMP < 100){
+					}else if(CH6TEMP - COR6 < 100){
 						strcat(buf,"  ");
-					}else if(CH6TEMP < 1000){
+					}else if(CH6TEMP - COR6 < 1000){
 						strcat(buf," ");
 					}
 				}else{
-					if(CH6TEMP > -10)
+					if(CH6TEMP - COR6 > -10)
 					{
 						strcat(buf,"  ");
-					}else if(CH6TEMP > -100){
+					}else if(CH6TEMP - COR6 > -100){
 						strcat(buf," ");
 					}
 				}
 				if(CH6TEMP < 1999)
 				{
-					DISP_TEMP_L(165+10,470,(uint8_t*)buf,CH6_SW);
+					DISP_TEMP_L(165+10,440,(uint8_t*)buf,CH6_SW);
 				}else{
 					LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-					LCD_DrawFullRect(470,165+10,144,40);
+					LCD_DrawFullRect(440,165+10,144,40);
 				}					
 				Check_limits(7);
 				sprintf(buf,"%.1f",CH7TEMP - COR7);
-				if(CH7TEMP >= 0)
+				if(CH7TEMP - COR7 >= 0)
 				{
-					if(CH7TEMP < 10)
+					if(CH7TEMP - COR7 < 10)
 					{
 						strcat(buf,"   ");
-					}else if(CH7TEMP < 100){
+					}else if(CH7TEMP - COR7 < 100){
 						strcat(buf,"  ");
-					}else if(CH7TEMP < 1000){
+					}else if(CH7TEMP - COR7 < 1000){
 						strcat(buf," ");
 					}
 				}else{
-					if(CH7TEMP > -10)
+					if(CH7TEMP - COR7 > -10)
 					{
 						strcat(buf,"  ");
-					}else if(CH7TEMP > -100){
+					}else if(CH7TEMP - COR7 > -100){
 						strcat(buf," ");
 					}
 				}
 				if(CH7TEMP < 1999)
 				{
-					DISP_TEMP_L(235+20,470,(uint8_t*)buf,CH7_SW);
+					DISP_TEMP_L(235+20,440,(uint8_t*)buf,CH7_SW);
 				}else{
 					LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-					LCD_DrawFullRect(470,235+20,144,40);
+					LCD_DrawFullRect(440,235+20,144,40);
 				}				
 				Check_limits(8);
 				sprintf(buf,"%.1f",CH8TEMP - COR8);
-				if(CH8TEMP >= 0)
+				if(CH8TEMP - COR8 >= 0)
 				{
-					if(CH8TEMP < 10)
+					if(CH8TEMP - COR8 < 10)
 					{
 						strcat(buf,"   ");
-					}else if(CH8TEMP < 100){
+					}else if(CH8TEMP - COR8 < 100){
 						strcat(buf,"  ");
-					}else if(CH8TEMP < 1000){
+					}else if(CH8TEMP - COR8 < 1000){
 						strcat(buf," ");
 					}
 				}else{
-					if(CH8TEMP > -10)
+					if(CH8TEMP - COR8 > -10)
 					{
 						strcat(buf,"  ");
-					}else if(CH8TEMP > -100){
+					}else if(CH8TEMP - COR8 > -100){
 						strcat(buf," ");
 					}
 				}
-				if(CH8TEMP < 1999)
+				if(CH8TEMP - COR8 < 1999)
 				{
-					DISP_TEMP_L(305+30,470,(uint8_t*)buf,CH8_SW);
+					DISP_TEMP_L(305+30,440,(uint8_t*)buf,CH8_SW);
 				}else{
 					LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-					LCD_DrawFullRect(470,305+30,144,40);
+					LCD_DrawFullRect(440,305+30,144,40);
 				}							
 			}else if(ch_page == page2){
 //				LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_BACK);
@@ -1004,68 +1004,68 @@ void TempDisplay(void)
 				sprintf(buf,"%.1f",CH9TEMP - COR9);
 				if(CH9TEMP >= 0)
 				{
-					if(CH9TEMP < 10)
+					if(CH9TEMP - COR9 < 10)
 					{
 						strcat(buf,"   ");
-					}else if(CH9TEMP < 100){
+					}else if(CH9TEMP - COR9 < 100){
 						strcat(buf,"  ");
-					}else if(CH9TEMP < 1000){
+					}else if(CH9TEMP - COR9 < 1000){
 						strcat(buf," ");
 					}
 				}else{
-					if(CH9TEMP > -10)
+					if(CH9TEMP - COR9 > -10)
 					{
 						strcat(buf,"  ");
-					}else if(CH9TEMP > -100){
+					}else if(CH9TEMP - COR9 > -100){
 						strcat(buf," ");
 					}
 				}
 				if(CH9TEMP < 1999)
 				{
-					DISP_TEMP_L(95,150,(uint8_t*)buf,CH9_SW);
+					DISP_TEMP_L(95,120,(uint8_t*)buf,CH9_SW);
 				}else{
 					LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-					LCD_DrawFullRect(150,95,144,40);
+					LCD_DrawFullRect(120,95,144,40);
 				}
 				
 				Check_limits(10);
 				sprintf(buf,"%.1f",CH10TEMP - COR10);
 				if(CH10TEMP >= 0)
 				{
-					if(CH10TEMP < 10)
+					if(CH10TEMP - COR10 < 10)
 					{
 						strcat(buf,"   ");
-					}else if(CH10TEMP < 100){
+					}else if(CH10TEMP - COR10 < 100){
 						strcat(buf,"  ");
-					}else if(CH10TEMP < 1000){
+					}else if(CH10TEMP - COR10 < 1000){
 						strcat(buf," ");
 					}
 				}else{
-					if(CH10TEMP > -10)
+					if(CH10TEMP - COR10 > -10)
 					{
 						strcat(buf,"  ");
-					}else if(CH10TEMP > -100){
+					}else if(CH10TEMP - COR10 > -100){
 						strcat(buf," ");
 					}
 				}
 				if(CH10TEMP < 1999)
 				{
-					DISP_TEMP_L(165+10,150,(uint8_t*)buf,CH10_SW);
+					DISP_TEMP_L(165+10,120,(uint8_t*)buf,CH10_SW);
 				}else{
 					LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-					LCD_DrawFullRect(150,165+10,144,40);
+					LCD_DrawFullRect(120,165+10,144,40);
 				}
 				
 				Check_limits(11);
 				sprintf(buf,"%.1f",CH11TEMP - COR11);
-				if(CH11TEMP >= 0)
+				if(CH11TEMP - COR11 >= 0)
 				{
-					if(CH11TEMP < 10)
+					if(CH11TEMP - COR11 < 10)
 					{
 						strcat(buf,"   ");
-					}else if(CH11TEMP < 100){
+					}else if(CH11TEMP - COR11 < 100){
 						strcat(buf,"  ");
-					}else if(CH11TEMP < 1000){
+					}else if(CH11TEMP - COR11 < 1000){
 						strcat(buf," ");
 					}
 				}else{
@@ -1078,7 +1078,7 @@ void TempDisplay(void)
 				}
 				if(CH11TEMP < 1999)
 				{
-					DISP_TEMP_L(235+20,150,(uint8_t*)buf,CH11_SW);
+					DISP_TEMP_L(235+20,120,(uint8_t*)buf,CH11_SW);
 				}else{
 					LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
 					LCD_DrawFullRect(150,235+20,144,40);
@@ -1086,198 +1086,198 @@ void TempDisplay(void)
 				
 				Check_limits(12);
 				sprintf(buf,"%.1f",CH12TEMP - COR12);
-				if(CH12TEMP >= 0)
+				if(CH12TEMP - COR12 >= 0)
 				{
-					if(CH12TEMP < 10)
+					if(CH12TEMP - COR12 < 10)
 					{
 						strcat(buf,"   ");
-					}else if(CH12TEMP < 100){
+					}else if(CH12TEMP - COR12 < 100){
 						strcat(buf,"  ");
-					}else if(CH12TEMP < 1000){
+					}else if(CH12TEMP - COR12 < 1000){
 						strcat(buf," ");
 					}
 				}else{
-					if(CH12TEMP > -10)
+					if(CH12TEMP - COR12 > -10)
 					{
 						strcat(buf,"  ");
-					}else if(CH12TEMP > -100){
+					}else if(CH12TEMP - COR12 > -100){
 						strcat(buf," ");
 					}
 				}
 				if(CH12TEMP < 1999)
 				{
-					DISP_TEMP_L(305+30,150,(uint8_t*)buf,CH12_SW);
+					DISP_TEMP_L(305+30,120,(uint8_t*)buf,CH12_SW);
 				}else{
 					LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-					LCD_DrawFullRect(150,305+30,144,40);
+					LCD_DrawFullRect(120,305+30,144,40);
 				}
 				
 				Check_limits(13);
 				sprintf(buf,"%.1f",CH13TEMP - COR13);
-				if(CH13TEMP >= 0)
+				if(CH13TEMP - COR13 >= 0)
 				{
-					if(CH13TEMP < 10)
+					if(CH13TEMP - COR13 < 10)
 					{
 						strcat(buf,"   ");
-					}else if(CH13TEMP < 100){
+					}else if(CH13TEMP - COR13 < 100){
 						strcat(buf,"  ");
-					}else if(CH13TEMP < 1000){
+					}else if(CH13TEMP - COR13 < 1000){
 						strcat(buf," ");
 					}
 				}else{
-					if(CH13TEMP > -10)
+					if(CH13TEMP - COR13 > -10)
 					{
 						strcat(buf,"  ");
-					}else if(CH13TEMP > -100){
+					}else if(CH13TEMP - COR13 > -100){
 						strcat(buf," ");
 					}
 				}
 				if(CH13TEMP < 1999)
 				{
-					DISP_TEMP_L(95,470,(uint8_t*)buf,CH13_SW);
+					DISP_TEMP_L(95,440,(uint8_t*)buf,CH13_SW);
 				}else{
 					LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-					LCD_DrawFullRect(470,95,144,40);
+					LCD_DrawFullRect(440,95,144,40);
 				}
 				
 				Check_limits(14);
-				sprintf(buf,"%.1f",CH14TEMP);
+				sprintf(buf,"%.1f",CH14TEMP - COR14);
 				if(CH14TEMP >= 0)
 				{
-					if(CH14TEMP < 10)
+					if(CH14TEMP - COR14 < 10)
 					{
 						strcat(buf,"   ");
-					}else if(CH14TEMP < 100){
+					}else if(CH14TEMP - COR14 < 100){
 						strcat(buf,"  ");
-					}else if(CH14TEMP < 1000){
+					}else if(CH14TEMP - COR14 < 1000){
 						strcat(buf," ");
 					}
 				}else{
-					if(CH14TEMP > -10)
+					if(CH14TEMP - COR14 > -10)
 					{
 						strcat(buf,"  ");
-					}else if(CH14TEMP > -100){
+					}else if(CH14TEMP - COR14 > -100){
 						strcat(buf," ");
 					}
 				}
 				if(CH14TEMP < 1999)
 				{
-					DISP_TEMP_L(165+10,470,(uint8_t*)buf,CH14_SW);
+					DISP_TEMP_L(165+10,440,(uint8_t*)buf,CH14_SW);
 				}else{
 					LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-					LCD_DrawFullRect(470,165+10,144,40);
+					LCD_DrawFullRect(440,165+10,144,40);
 				}
 				
 				Check_limits(15);
 				sprintf(buf,"%.1f",CH15TEMP - COR15);
-				if(CH15TEMP >= 0)
+				if(CH15TEMP - COR15 >= 0)
 				{
-					if(CH15TEMP < 10)
+					if(CH15TEMP - COR15 < 10)
 					{
 						strcat(buf,"   ");
-					}else if(CH15TEMP < 100){
+					}else if(CH15TEMP - COR15 < 100){
 						strcat(buf,"  ");
-					}else if(CH15TEMP < 1000){
+					}else if(CH15TEMP - COR15 < 1000){
 						strcat(buf," ");
 					}
 				}else{
-					if(CH15TEMP > -10)
+					if(CH15TEMP - COR15 > -10)
 					{
 						strcat(buf,"  ");
-					}else if(CH15TEMP > -100){
+					}else if(CH15TEMP - COR15 > -100){
 						strcat(buf," ");
 					}
 				}
 				if(CH15TEMP < 1999)
 				{
-					DISP_TEMP_L(235+20,470,(uint8_t*)buf,CH15_SW);
+					DISP_TEMP_L(235+20,440,(uint8_t*)buf,CH15_SW);
 				}else{
 					LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-					LCD_DrawFullRect(470,235+20,144,40);
+					LCD_DrawFullRect(440,235+20,144,40);
 				}
 				
 				Check_limits(16);
 				sprintf(buf,"%.1f",CH16TEMP - COR16);
-				if(CH16TEMP >= 0)
+				if(CH16TEMP - COR16 >= 0)
 				{
-					if(CH16TEMP < 10)
+					if(CH16TEMP - COR16 < 10)
 					{
 						strcat(buf,"   ");
-					}else if(CH16TEMP < 100){
+					}else if(CH16TEMP - COR16 < 100){
 						strcat(buf,"  ");
-					}else if(CH16TEMP < 1000){
+					}else if(CH16TEMP - COR16 < 1000){
 						strcat(buf," ");
 					}
 				}else{
-					if(CH16TEMP > -10)
+					if(CH16TEMP - COR16 > -10)
 					{
 						strcat(buf,"  ");
-					}else if(CH16TEMP > -100){
+					}else if(CH16TEMP - COR16 > -100){
 						strcat(buf," ");
 					}
 				}
 				if(CH16TEMP < 1999)
 				{
-					DISP_TEMP_L(305+30,470,(uint8_t*)buf,CH16_SW); 
+					DISP_TEMP_L(305+30,440,(uint8_t*)buf,CH16_SW); 
 				}else{
 					LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-					LCD_DrawFullRect(470,305+30,144,40);
+					LCD_DrawFullRect(440,305+30,144,40);
 				}
 				
 			}else if(ch_page == page3){
 //				LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_BACK);
 				sprintf(buf,"%.1f",CH17TEMP);
-				DISP_TEMP_L(95,150,(uint8_t*)buf,CH17_SW);
+				DISP_TEMP_L(95,120,(uint8_t*)buf,CH17_SW);
 				sprintf(buf,"%.1f",CH18TEMP);
-				DISP_TEMP_L(165,150,(uint8_t*)buf,CH18_SW);
+				DISP_TEMP_L(165,120,(uint8_t*)buf,CH18_SW);
 				sprintf(buf,"%.1f",CH19TEMP);
-				DISP_TEMP_L(235,150,(uint8_t*)buf,CH19_SW);
+				DISP_TEMP_L(235,120,(uint8_t*)buf,CH19_SW);
 				sprintf(buf,"%.1f",CH20TEMP);
-				DISP_TEMP_L(305,150,(uint8_t*)buf,CH20_SW);
+				DISP_TEMP_L(305,120,(uint8_t*)buf,CH20_SW);
 				sprintf(buf,"%.1f",CH21TEMP);
-				DISP_TEMP_L(95,470,(uint8_t*)buf,CH21_SW);
+				DISP_TEMP_L(95,440,(uint8_t*)buf,CH21_SW);
 				sprintf(buf,"%.1f",CH22TEMP);
-				DISP_TEMP_L(165+10,470,(uint8_t*)buf,CH22_SW);
+				DISP_TEMP_L(165+10,440,(uint8_t*)buf,CH22_SW);
 				sprintf(buf,"%.1f",CH23TEMP);
-				DISP_TEMP_L(235+20,470,(uint8_t*)buf,CH23_SW);
+				DISP_TEMP_L(235+20,440,(uint8_t*)buf,CH23_SW);
 				sprintf(buf,"%.1f",CH24TEMP);
-				DISP_TEMP_L(305+30,470,(uint8_t*)buf,CH24_SW); 
+				DISP_TEMP_L(305+30,440,(uint8_t*)buf,CH24_SW); 
 			}else if(ch_page == page4){
 //				LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_BACK);
 				sprintf(buf,"%.1f",CH25TEMP);
-				DISP_TEMP_L(95,150,(uint8_t*)buf,CH25_SW);
+				DISP_TEMP_L(95,120,(uint8_t*)buf,CH25_SW);
 				sprintf(buf,"%.1f",CH26TEMP);
-				DISP_TEMP_L(165,150,(uint8_t*)buf,CH26_SW);
+				DISP_TEMP_L(165,120,(uint8_t*)buf,CH26_SW);
 				sprintf(buf,"%.1f",CH27TEMP);
-				DISP_TEMP_L(235,150,(uint8_t*)buf,CH27_SW);
+				DISP_TEMP_L(235,120,(uint8_t*)buf,CH27_SW);
 				sprintf(buf,"%.1f",CH28TEMP);
-				DISP_TEMP_L(305,150,(uint8_t*)buf,CH28_SW);
+				DISP_TEMP_L(305,120,(uint8_t*)buf,CH28_SW);
 				sprintf(buf,"%.1f",CH29TEMP);
-				DISP_TEMP_L(95,470,(uint8_t*)buf,CH29_SW);
+				DISP_TEMP_L(95,440,(uint8_t*)buf,CH29_SW);
 				sprintf(buf,"%.1f",CH30TEMP);
-				DISP_TEMP_L(165+10,470,(uint8_t*)buf,CH30_SW);
+				DISP_TEMP_L(165+10,440,(uint8_t*)buf,CH30_SW);
 				sprintf(buf,"%.1f",CH31TEMP);
-				DISP_TEMP_L(235+20,470,(uint8_t*)buf,CH31_SW);
+				DISP_TEMP_L(235+20,440,(uint8_t*)buf,CH31_SW);
 				sprintf(buf,"%.1f",CH32TEMP);
-				DISP_TEMP_L(305+30,470,(uint8_t*)buf,CH32_SW); 
+				DISP_TEMP_L(305+30,440,(uint8_t*)buf,CH32_SW); 
 			}else if(ch_page == page5){
 //				LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_BACK);
 				sprintf(buf,"%.1f",CH33TEMP);
-				DISP_TEMP_L(95,150,(uint8_t*)buf,CH33_SW);
+				DISP_TEMP_L(95,120,(uint8_t*)buf,CH33_SW);
 				sprintf(buf,"%.1f",CH34TEMP);
-				DISP_TEMP_L(165,150,(uint8_t*)buf,CH34_SW);
+				DISP_TEMP_L(165,120,(uint8_t*)buf,CH34_SW);
 				sprintf(buf,"%.1f",CH35TEMP);
-				DISP_TEMP_L(235,150,(uint8_t*)buf,CH35_SW);
+				DISP_TEMP_L(235,120,(uint8_t*)buf,CH35_SW);
 				sprintf(buf,"%.1f",CH36TEMP);
-				DISP_TEMP_L(305,150,(uint8_t*)buf,CH36_SW);
+				DISP_TEMP_L(305,120,(uint8_t*)buf,CH36_SW);
 				sprintf(buf,"%.1f",CH37TEMP);
-				DISP_TEMP_L(95,470,(uint8_t*)buf,CH37_SW);
+				DISP_TEMP_L(95,440,(uint8_t*)buf,CH37_SW);
 				sprintf(buf,"%.1f",CH38TEMP);
-				DISP_TEMP_L(165+10,470,(uint8_t*)buf,CH38_SW);
+				DISP_TEMP_L(165+10,440,(uint8_t*)buf,CH38_SW);
 				sprintf(buf,"%.1f",CH39TEMP);
-				DISP_TEMP_L(235+20,470,(uint8_t*)buf,CH39_SW);
+				DISP_TEMP_L(235+20,440,(uint8_t*)buf,CH39_SW);
 				sprintf(buf,"%.1f",CH40TEMP);
-				DISP_TEMP_L(305+30,470,(uint8_t*)buf,CH40_SW); 
+				DISP_TEMP_L(305+30,440,(uint8_t*)buf,CH40_SW); 
 			}
 		}else if(FONT == middle){
 			if(reflag == 1)
@@ -1293,21 +1293,21 @@ void TempDisplay(void)
 				Check_limits(1);
 				sprintf(buf,"%.1f",CH1TEMP - COR1);
 				
-				if(CH1TEMP >= 0)
+				if(CH1TEMP - COR1 >= 0)
 				{
-					if(CH1TEMP < 10)
+					if(CH1TEMP - COR1 < 10)
 					{
 						strcat(buf,"   ");
-					}else if(CH1TEMP < 100){
+					}else if(CH1TEMP - COR1 < 100){
 						strcat(buf,"  ");
-					}else if(CH1TEMP < 1000){
+					}else if(CH1TEMP - COR1 < 1000){
 						strcat(buf," ");
 					}
 				}else{
-					if(CH1TEMP > -10)
+					if(CH1TEMP - COR1 > -10)
 					{
 						strcat(buf,"  ");
-					}else if(CH1TEMP > -100){
+					}else if(CH1TEMP - COR1 > -100){
 						strcat(buf," ");
 					}
 				}
@@ -1321,21 +1321,21 @@ void TempDisplay(void)
 				
 				Check_limits(2);
 				sprintf(buf,"%.1f",CH2TEMP - COR2);
-				if(CH2TEMP >= 0)
+				if(CH2TEMP - COR2 >= 0)
 				{
-					if(CH2TEMP < 10)
+					if(CH2TEMP - COR2 < 10)
 					{
 						strcat(buf,"   ");
-					}else if(CH2TEMP < 100){
+					}else if(CH2TEMP - COR2 < 100){
 						strcat(buf,"  ");
-					}else if(CH2TEMP < 1000){
+					}else if(CH2TEMP - COR2 < 1000){
 						strcat(buf," ");
 					}
 				}else{
-					if(CH2TEMP > -10)
+					if(CH2TEMP - COR2 > -10)
 					{
 						strcat(buf,"  ");
-					}else if(CH2TEMP > -100){
+					}else if(CH2TEMP - COR2 > -100){
 						strcat(buf," ");
 					}
 				}
@@ -1349,21 +1349,21 @@ void TempDisplay(void)
 				
 				Check_limits(3);
 				sprintf(buf,"%.1f",CH3TEMP - COR3);
-				if(CH3TEMP >= 0)
+				if(CH3TEMP - COR3 >= 0)
 				{
-					if(CH3TEMP < 10)
+					if(CH3TEMP - COR3 < 10)
 					{
 						strcat(buf,"   ");
-					}else if(CH3TEMP < 100){
+					}else if(CH3TEMP - COR3 < 100){
 						strcat(buf,"  ");
-					}else if(CH3TEMP < 1000){
+					}else if(CH3TEMP - COR3 < 1000){
 						strcat(buf," ");
 					}
 				}else{
-					if(CH3TEMP > -10)
+					if(CH3TEMP - COR3 > -10)
 					{
 						strcat(buf,"  ");
-					}else if(CH3TEMP > -100){
+					}else if(CH3TEMP - COR3 > -100){
 						strcat(buf," ");
 					}
 				}
@@ -1377,21 +1377,21 @@ void TempDisplay(void)
 				
 				Check_limits(4);
 				sprintf(buf,"%.1f",CH4TEMP - COR4);
-				if(CH4TEMP >= 0)
+				if(CH4TEMP - COR4 >= 0)
 				{
-					if(CH4TEMP < 10)
+					if(CH4TEMP - COR4 < 10)
 					{
 						strcat(buf,"   ");
-					}else if(CH4TEMP < 100){
+					}else if(CH4TEMP - COR4 < 100){
 						strcat(buf,"  ");
-					}else if(CH4TEMP < 1000){
+					}else if(CH4TEMP - COR4 < 1000){
 						strcat(buf," ");
 					}
 				}else{
-					if(CH4TEMP > -10)
+					if(CH4TEMP - COR4 > -10)
 					{
 						strcat(buf,"  ");
-					}else if(CH4TEMP > -100){
+					}else if(CH4TEMP - COR4 > -100){
 						strcat(buf," ");
 					}
 				}
@@ -1405,21 +1405,21 @@ void TempDisplay(void)
 				
 				Check_limits(5);
 				sprintf(buf,"%.1f",CH5TEMP - COR5);
-				if(CH5TEMP >= 0)
+				if(CH5TEMP - COR5 >= 0)
 				{
-					if(CH5TEMP < 10)
+					if(CH5TEMP - COR5 < 10)
 					{
 						strcat(buf,"   ");
-					}else if(CH5TEMP < 100){
+					}else if(CH5TEMP - COR5 < 100){
 						strcat(buf,"  ");
-					}else if(CH5TEMP < 1000){
+					}else if(CH5TEMP - COR5 < 1000){
 						strcat(buf," ");
 					}
 				}else{
-					if(CH5TEMP > -10)
+					if(CH5TEMP - COR5 > -10)
 					{
 						strcat(buf,"  ");
-					}else if(CH5TEMP > -100){
+					}else if(CH5TEMP - COR5 > -100){
 						strcat(buf," ");
 					}
 				}
@@ -1433,21 +1433,21 @@ void TempDisplay(void)
 				
 				Check_limits(6);
 				sprintf(buf,"%.1f",CH6TEMP - COR6);
-				if(CH6TEMP >= 0)
+				if(CH6TEMP - COR6 >= 0)
 				{
-					if(CH6TEMP < 10)
+					if(CH6TEMP - COR6 < 10)
 					{
 						strcat(buf,"   ");
-					}else if(CH6TEMP < 100){
+					}else if(CH6TEMP - COR6 < 100){
 						strcat(buf,"  ");
-					}else if(CH6TEMP < 1000){
+					}else if(CH6TEMP - COR6 < 1000){
 						strcat(buf," ");
 					}
 				}else{
-					if(CH6TEMP > -10)
+					if(CH6TEMP - COR6 > -10)
 					{
 						strcat(buf,"  ");
-					}else if(CH6TEMP > -100){
+					}else if(CH6TEMP - COR6 > -100){
 						strcat(buf," ");
 					}
 				}
@@ -1461,21 +1461,21 @@ void TempDisplay(void)
 				
 				Check_limits(7);
 				sprintf(buf,"%.1f",CH7TEMP - COR7);
-				if(CH7TEMP >= 0)
+				if(CH7TEMP - COR7 >= 0)
 				{
-					if(CH7TEMP < 10)
+					if(CH7TEMP - COR7 < 10)
 					{
 						strcat(buf,"   ");
-					}else if(CH7TEMP < 100){
+					}else if(CH7TEMP - COR7 < 100){
 						strcat(buf,"  ");
-					}else if(CH7TEMP < 1000){
+					}else if(CH7TEMP - COR7 < 1000){
 						strcat(buf," ");
 					}
 				}else{
-					if(CH7TEMP > -10)
+					if(CH7TEMP - COR7 > -10)
 					{
 						strcat(buf,"  ");
-					}else if(CH7TEMP > -100){
+					}else if(CH7TEMP - COR7 > -100){
 						strcat(buf," ");
 					}
 				}
@@ -1489,21 +1489,21 @@ void TempDisplay(void)
 				
 				Check_limits(8);
 				sprintf(buf,"%.1f",CH8TEMP - COR8);
-				if(CH8TEMP >= 0)
+				if(CH8TEMP - COR8 >= 0)
 				{
-					if(CH8TEMP < 10)
+					if(CH8TEMP - COR8 < 10)
 					{
 						strcat(buf,"   ");
-					}else if(CH8TEMP < 100){
+					}else if(CH8TEMP - COR8 < 100){
 						strcat(buf,"  ");
-					}else if(CH8TEMP < 1000){
+					}else if(CH8TEMP - COR8 < 1000){
 						strcat(buf," ");
 					}
 				}else{
-					if(CH8TEMP > -10)
+					if(CH8TEMP - COR8 > -10)
 					{
 						strcat(buf,"  ");
-					}else if(CH8TEMP > -100){
+					}else if(CH8TEMP - COR8 > -100){
 						strcat(buf," ");
 					}
 				}
@@ -1519,21 +1519,21 @@ void TempDisplay(void)
 				{
 					Check_limits(9);
 					sprintf(buf,"%.1f",CH9TEMP - COR9);
-					if(CH9TEMP >= 0)
+					if(CH9TEMP - COR9 >= 0)
 					{
-						if(CH9TEMP < 10)
+						if(CH9TEMP - COR9 < 10)
 						{
 							strcat(buf,"   ");
-						}else if(CH9TEMP < 100){
+						}else if(CH9TEMP - COR9 < 100){
 							strcat(buf,"  ");
-						}else if(CH9TEMP < 1000){
+						}else if(CH9TEMP - COR9 < 1000){
 							strcat(buf," ");
 						}
 					}else{
-						if(CH9TEMP > -10)
+						if(CH9TEMP - COR9 > -10)
 						{
 							strcat(buf,"  ");
-						}else if(CH9TEMP > -100){
+						}else if(CH9TEMP - COR9 > -100){
 							strcat(buf," ");
 						}
 					}
@@ -1546,21 +1546,21 @@ void TempDisplay(void)
 					}					
 					Check_limits(10);
 					sprintf(buf,"%.1f",CH10TEMP - COR10);
-					if(CH10TEMP >= 0)
+					if(CH10TEMP - COR10 >= 0)
 					{
-						if(CH10TEMP < 10)
+						if(CH10TEMP - COR10 < 10)
 						{
 							strcat(buf,"   ");
-						}else if(CH10TEMP < 100){
+						}else if(CH10TEMP - COR10 < 100){
 							strcat(buf,"  ");
-						}else if(CH10TEMP < 1000){
+						}else if(CH10TEMP - COR10 < 1000){
 							strcat(buf," ");
 						}
 					}else{
-						if(CH10TEMP > -10)
+						if(CH10TEMP - COR10 > -10)
 						{
 							strcat(buf,"  ");
-						}else if(CH10TEMP > -100){
+						}else if(CH10TEMP - COR10 > -100){
 							strcat(buf," ");
 						}
 					}
@@ -1574,21 +1574,21 @@ void TempDisplay(void)
 					
 					Check_limits(11);
 					sprintf(buf,"%.1f",CH11TEMP - COR11);
-					if(CH11TEMP >= 0)
+					if(CH11TEMP - COR11 >= 0)
 					{
-						if(CH11TEMP < 10)
+						if(CH11TEMP - COR11 < 10)
 						{
 							strcat(buf,"   ");
-						}else if(CH11TEMP < 100){
+						}else if(CH11TEMP - COR11 < 100){
 							strcat(buf,"  ");
-						}else if(CH11TEMP < 1000){
+						}else if(CH11TEMP - COR11 < 1000){
 							strcat(buf," ");
 						}
 					}else{
-						if(CH11TEMP > -10)
+						if(CH11TEMP - COR11 > -10)
 						{
 							strcat(buf,"  ");
-						}else if(CH11TEMP > -100){
+						}else if(CH11TEMP - COR11 > -100){
 							strcat(buf," ");
 						}
 					}
@@ -1602,21 +1602,21 @@ void TempDisplay(void)
 					
 					Check_limits(12);
 					sprintf(buf,"%.1f",CH12TEMP - COR12);
-					if(CH12TEMP >= 0)
+					if(CH12TEMP - COR12 >= 0)
 					{
-						if(CH12TEMP < 10)
+						if(CH12TEMP - COR12 < 10)
 						{
 							strcat(buf,"   ");
-						}else if(CH12TEMP < 100){
+						}else if(CH12TEMP - COR12 < 100){
 							strcat(buf,"  ");
-						}else if(CH12TEMP < 1000){
+						}else if(CH12TEMP - COR12 < 1000){
 							strcat(buf," ");
 						}
 					}else{
-						if(CH12TEMP > -10)
+						if(CH12TEMP - COR12 > -10)
 						{
 							strcat(buf,"  ");
-						}else if(CH12TEMP > -100){
+						}else if(CH12TEMP - COR12 > -100){
 							strcat(buf," ");
 						}
 					}
@@ -1630,21 +1630,21 @@ void TempDisplay(void)
 					
 					Check_limits(13);
 					sprintf(buf,"%.1f",CH13TEMP - COR13);
-					if(CH13TEMP >= 0)
+					if(CH13TEMP - COR13 >= 0)
 					{
-						if(CH13TEMP < 10)
+						if(CH13TEMP - COR13 < 10)
 						{
 							strcat(buf,"   ");
-						}else if(CH13TEMP < 100){
+						}else if(CH13TEMP - COR13 < 100){
 							strcat(buf,"  ");
-						}else if(CH13TEMP < 1000){
+						}else if(CH13TEMP - COR13 < 1000){
 							strcat(buf," ");
 						}
 					}else{
-						if(CH13TEMP > -10)
+						if(CH13TEMP - COR13 > -10)
 						{
 							strcat(buf,"  ");
-						}else if(CH13TEMP > -100){
+						}else if(CH13TEMP - COR13 > -100){
 							strcat(buf," ");
 						}
 					}
@@ -1658,21 +1658,21 @@ void TempDisplay(void)
 					
 					Check_limits(14);
 					sprintf(buf,"%.1f",CH14TEMP - COR14);
-					if(CH14TEMP >= 0)
+					if(CH14TEMP - COR14 >= 0)
 					{
-						if(CH14TEMP < 10)
+						if(CH14TEMP - COR14 < 10)
 						{
 							strcat(buf,"   ");
-						}else if(CH14TEMP < 100){
+						}else if(CH14TEMP - COR14 < 100){
 							strcat(buf,"  ");
-						}else if(CH14TEMP < 1000){
+						}else if(CH14TEMP - COR14 < 1000){
 							strcat(buf," ");
 						}
 					}else{
-						if(CH14TEMP > -10)
+						if(CH14TEMP - COR14 > -10)
 						{
 							strcat(buf,"  ");
-						}else if(CH14TEMP > -100){
+						}else if(CH14TEMP - COR14 > -100){
 							strcat(buf," ");
 						}
 					}
@@ -1686,21 +1686,21 @@ void TempDisplay(void)
 					
 					Check_limits(15);
 					sprintf(buf,"%.1f",CH15TEMP - COR15);
-					if(CH15TEMP >= 0)
+					if(CH15TEMP - COR15 >= 0)
 					{
-						if(CH15TEMP < 10)
+						if(CH15TEMP - COR15 < 10)
 						{
 							strcat(buf,"   ");
-						}else if(CH15TEMP < 100){
+						}else if(CH15TEMP - COR15 < 100){
 							strcat(buf,"  ");
-						}else if(CH15TEMP < 1000){
+						}else if(CH15TEMP - COR15 < 1000){
 							strcat(buf," ");
 						}
 					}else{
-						if(CH15TEMP > -10)
+						if(CH15TEMP - COR15 > -10)
 						{
 							strcat(buf,"  ");
-						}else if(CH15TEMP > -100){
+						}else if(CH15TEMP - COR15 > -100){
 							strcat(buf," ");
 						}
 					}
@@ -1714,21 +1714,21 @@ void TempDisplay(void)
 					
 					Check_limits(16);
 					sprintf(buf,"%.1f",CH16TEMP - COR16);
-					if(CH16TEMP >= 0)
+					if(CH16TEMP - COR16 >= 0)
 					{
-						if(CH16TEMP < 10)
+						if(CH16TEMP - COR16 < 10)
 						{
 							strcat(buf,"   ");
-						}else if(CH16TEMP < 100){
+						}else if(CH16TEMP - COR16 < 100){
 							strcat(buf,"  ");
-						}else if(CH16TEMP < 1000){
+						}else if(CH16TEMP - COR16 < 1000){
 							strcat(buf," ");
 						}
 					}else{
-						if(CH16TEMP > -10)
+						if(CH16TEMP - COR16 > -10)
 						{
 							strcat(buf,"  ");
-						}else if(CH16TEMP > -100){
+						}else if(CH16TEMP - COR16 > -100){
 							strcat(buf," ");
 						}
 					}
@@ -1797,21 +1797,21 @@ void TempDisplay(void)
 //				LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_BACK);
 				Check_limits(1);
 				sprintf(buf,"%.1f",CH1TEMP - COR1);
-				if(CH1TEMP >= 0)
+				if(CH1TEMP - COR1 >= 0)
 				{
-					if(CH1TEMP < 10)
+					if(CH1TEMP - COR1 < 10)
 					{
 						strcat(buf,"   ");
-					}else if(CH1TEMP < 100){
+					}else if(CH1TEMP - COR1 < 100){
 						strcat(buf,"  ");
-					}else if(CH1TEMP < 1000){
+					}else if(CH1TEMP - COR1 < 1000){
 						strcat(buf," ");
 					}
 				}else{
-					if(CH1TEMP > -10)
+					if(CH1TEMP - COR1 > -10)
 					{
 						strcat(buf,"  ");
-					}else if(CH1TEMP > -100){
+					}else if(CH1TEMP - COR1 > -100){
 						strcat(buf," ");
 					}
 				}
@@ -1824,21 +1824,21 @@ void TempDisplay(void)
 				}
 				Check_limits(2);
 				sprintf(buf,"%.1f",CH2TEMP - COR2);
-				if(CH2TEMP >= 0)
+				if(CH2TEMP - COR2 >= 0)
 				{
-					if(CH2TEMP < 10)
+					if(CH2TEMP - COR2 < 10)
 					{
 						strcat(buf,"   ");
-					}else if(CH2TEMP < 100){
+					}else if(CH2TEMP - COR2 < 100){
 						strcat(buf,"  ");
-					}else if(CH2TEMP < 1000){
+					}else if(CH2TEMP - COR2 < 1000){
 						strcat(buf," ");
 					}
 				}else{
-					if(CH2TEMP > -10)
+					if(CH2TEMP - COR2 > -10)
 					{
 						strcat(buf,"  ");
-					}else if(CH2TEMP > -100){
+					}else if(CH2TEMP - COR2 > -100){
 						strcat(buf," ");
 					}
 				}
@@ -1851,21 +1851,21 @@ void TempDisplay(void)
 				}
 				Check_limits(3);
 				sprintf(buf,"%.1f",CH3TEMP - COR3);
-				if(CH3TEMP >= 0)
+				if(CH3TEMP - COR3 >= 0)
 				{
-					if(CH3TEMP < 10)
+					if(CH3TEMP - COR3 < 10)
 					{
 						strcat(buf,"   ");
-					}else if(CH3TEMP < 100){
+					}else if(CH3TEMP - COR3 < 100){
 						strcat(buf,"  ");
-					}else if(CH3TEMP < 1000){
+					}else if(CH3TEMP - COR3 < 1000){
 						strcat(buf," ");
 					}
 				}else{
-					if(CH3TEMP > -10)
+					if(CH3TEMP - COR3 > -10)
 					{
 						strcat(buf,"  ");
-					}else if(CH3TEMP > -100){
+					}else if(CH3TEMP - COR3 > -100){
 						strcat(buf," ");
 					}
 				}
@@ -1878,21 +1878,21 @@ void TempDisplay(void)
 				}
 				Check_limits(4);
 				sprintf(buf,"%.1f",CH4TEMP - COR4);
-				if(CH4TEMP >= 0)
+				if(CH4TEMP - COR4 >= 0)
 				{
-					if(CH4TEMP < 10)
+					if(CH4TEMP - COR4 < 10)
 					{
 						strcat(buf,"   ");
-					}else if(CH4TEMP < 100){
+					}else if(CH4TEMP - COR4 < 100){
 						strcat(buf,"  ");
-					}else if(CH4TEMP < 1000){
+					}else if(CH4TEMP - COR4 < 1000){
 						strcat(buf," ");
 					}
 				}else{
-					if(CH4TEMP > -10)
+					if(CH4TEMP - COR4 > -10)
 					{
 						strcat(buf,"  ");
-					}else if(CH4TEMP > -100){
+					}else if(CH4TEMP - COR4 > -100){
 						strcat(buf," ");
 					}
 				}
@@ -1905,21 +1905,21 @@ void TempDisplay(void)
 				}
 				Check_limits(5);
 				sprintf(buf,"%.1f",CH5TEMP - COR5);
-				if(CH5TEMP >= 0)
+				if(CH5TEMP - COR5 >= 0)
 				{
-					if(CH5TEMP < 10)
+					if(CH5TEMP - COR5 < 10)
 					{
 						strcat(buf,"   ");
-					}else if(CH5TEMP < 100){
+					}else if(CH5TEMP - COR5 < 100){
 						strcat(buf,"  ");
-					}else if(CH5TEMP < 1000){
+					}else if(CH5TEMP - COR5 < 1000){
 						strcat(buf," ");
 					}
 				}else{
-					if(CH5TEMP > -10)
+					if(CH5TEMP - COR5 > -10)
 					{
 						strcat(buf,"  ");
-					}else if(CH5TEMP > -100){
+					}else if(CH5TEMP - COR5 > -100){
 						strcat(buf," ");
 					}
 				}
@@ -1932,21 +1932,21 @@ void TempDisplay(void)
 				}
 				Check_limits(6);
 				sprintf(buf,"%.1f",CH6TEMP - COR6);
-				if(CH6TEMP >= 0)
+				if(CH6TEMP - COR6 >= 0)
 				{
-					if(CH6TEMP < 10)
+					if(CH6TEMP - COR6 < 10)
 					{
 						strcat(buf,"   ");
-					}else if(CH6TEMP < 100){
+					}else if(CH6TEMP - COR6 < 100){
 						strcat(buf,"  ");
-					}else if(CH6TEMP < 1000){
+					}else if(CH6TEMP - COR6 < 1000){
 						strcat(buf," ");
 					}
 				}else{
-					if(CH6TEMP > -10)
+					if(CH6TEMP - COR6 > -10)
 					{
 						strcat(buf,"  ");
-					}else if(CH6TEMP > -100){
+					}else if(CH6TEMP - COR6 > -100){
 						strcat(buf," ");
 					}
 				}
@@ -1959,21 +1959,21 @@ void TempDisplay(void)
 				}
 				Check_limits(7);
 				sprintf(buf,"%.1f",CH7TEMP - COR7);
-				if(CH7TEMP >= 0)
+				if(CH7TEMP - COR7 >= 0)
 				{
-					if(CH7TEMP < 10)
+					if(CH7TEMP - COR7 < 10)
 					{
 						strcat(buf,"   ");
-					}else if(CH7TEMP < 100){
+					}else if(CH7TEMP - COR7 < 100){
 						strcat(buf,"  ");
-					}else if(CH7TEMP < 1000){
+					}else if(CH7TEMP - COR7 < 1000){
 						strcat(buf," ");
 					}
 				}else{
-					if(CH7TEMP > -10)
+					if(CH7TEMP - COR7 > -10)
 					{
 						strcat(buf,"  ");
-					}else if(CH7TEMP > -100){
+					}else if(CH7TEMP - COR7 > -100){
 						strcat(buf," ");
 					}
 				}
@@ -1986,21 +1986,21 @@ void TempDisplay(void)
 				}
 				Check_limits(8);
 				sprintf(buf,"%.1f",CH8TEMP - COR8);
-				if(CH8TEMP >= 0)
+				if(CH8TEMP - COR8 >= 0)
 				{
-					if(CH8TEMP < 10)
+					if(CH8TEMP - COR8 < 10)
 					{
 						strcat(buf,"   ");
-					}else if(CH8TEMP < 100){
+					}else if(CH8TEMP - COR8 < 100){
 						strcat(buf,"  ");
-					}else if(CH8TEMP < 1000){
+					}else if(CH8TEMP - COR8 < 1000){
 						strcat(buf," ");
 					}
 				}else{
-					if(CH8TEMP > -10)
+					if(CH8TEMP - COR8 > -10)
 					{
 						strcat(buf,"  ");
-					}else if(CH8TEMP > -100){
+					}else if(CH8TEMP - COR8 > -100){
 						strcat(buf," ");
 					}
 				}	
@@ -2015,21 +2015,21 @@ void TempDisplay(void)
 				{
 					Check_limits(9);
 					sprintf(buf,"%.1f",CH9TEMP - COR9);
-					if(CH9TEMP >= 0)
+					if(CH9TEMP - COR9 >= 0)
 					{
-						if(CH9TEMP < 10)
+						if(CH9TEMP - COR9 < 10)
 						{
 							strcat(buf,"   ");
-						}else if(CH9TEMP < 100){
+						}else if(CH9TEMP - COR9 < 100){
 							strcat(buf,"  ");
-						}else if(CH9TEMP < 1000){
+						}else if(CH9TEMP - COR9 < 1000){
 							strcat(buf," ");
 						}
 					}else{
-						if(CH9TEMP > -10)
+						if(CH9TEMP - COR9 > -10)
 						{
 							strcat(buf,"  ");
-						}else if(CH9TEMP > -100){
+						}else if(CH9TEMP - COR9 > -100){
 							strcat(buf," ");
 						}
 					}
@@ -2043,21 +2043,21 @@ void TempDisplay(void)
 					
 					Check_limits(10);
 					sprintf(buf,"%.1f",CH10TEMP - COR10);
-					if(CH10TEMP >= 0)
+					if(CH10TEMP - COR10 >= 0)
 					{
-						if(CH10TEMP < 10)
+						if(CH10TEMP - COR10 < 10)
 						{
 							strcat(buf,"   ");
-						}else if(CH10TEMP < 100){
+						}else if(CH10TEMP - COR10 < 100){
 							strcat(buf,"  ");
-						}else if(CH10TEMP < 1000){
+						}else if(CH10TEMP - COR10 < 1000){
 							strcat(buf," ");
 						}
 					}else{
-						if(CH10TEMP > -10)
+						if(CH10TEMP - COR10 > -10)
 						{
 							strcat(buf,"  ");
-						}else if(CH10TEMP > -100){
+						}else if(CH10TEMP - COR10 > -100){
 							strcat(buf," ");
 						}
 					}
@@ -2071,21 +2071,21 @@ void TempDisplay(void)
 					
 					Check_limits(11);
 					sprintf(buf,"%.1f",CH11TEMP - COR11);
-					if(CH11TEMP >= 0)
+					if(CH11TEMP - COR11 >= 0)
 					{
-						if(CH11TEMP < 10)
+						if(CH11TEMP - COR11 < 10)
 						{
 							strcat(buf,"   ");
-						}else if(CH11TEMP < 100){
+						}else if(CH11TEMP - COR11 < 100){
 							strcat(buf,"  ");
-						}else if(CH11TEMP < 1000){
+						}else if(CH11TEMP - COR11 < 1000){
 							strcat(buf," ");
 						}
 					}else{
-						if(CH11TEMP > -10)
+						if(CH11TEMP - COR11 > -10)
 						{
 							strcat(buf,"  ");
-						}else if(CH11TEMP > -100){
+						}else if(CH11TEMP - COR11 > -100){
 							strcat(buf," ");
 						}
 					}
@@ -2099,21 +2099,21 @@ void TempDisplay(void)
 					
 					Check_limits(12);
 					sprintf(buf,"%.1f",CH12TEMP - COR12);
-					if(CH12TEMP >= 0)
+					if(CH12TEMP - COR12 >= 0)
 					{
-						if(CH12TEMP < 10)
+						if(CH12TEMP - COR12 < 10)
 						{
 							strcat(buf,"   ");
-						}else if(CH12TEMP < 100){
+						}else if(CH12TEMP - COR12 < 100){
 							strcat(buf,"  ");
-						}else if(CH12TEMP < 1000){
+						}else if(CH12TEMP - COR12 < 1000){
 							strcat(buf," ");
 						}
 					}else{
-						if(CH12TEMP > -10)
+						if(CH12TEMP - COR12 > -10)
 						{
 							strcat(buf,"  ");
-						}else if(CH12TEMP > -100){
+						}else if(CH12TEMP - COR12 > -100){
 							strcat(buf," ");
 						}
 					}
@@ -2127,21 +2127,21 @@ void TempDisplay(void)
 					
 					Check_limits(13);
 					sprintf(buf,"%.1f",CH13TEMP - COR13);
-					if(CH13TEMP >= 0)
+					if(CH13TEMP - COR13 >= 0)
 					{
-						if(CH13TEMP < 10)
+						if(CH13TEMP - COR13 < 10)
 						{
 							strcat(buf,"   ");
-						}else if(CH13TEMP < 100){
+						}else if(CH13TEMP - COR13 < 100){
 							strcat(buf,"  ");
-						}else if(CH13TEMP < 1000){
+						}else if(CH13TEMP - COR13 < 1000){
 							strcat(buf," ");
 						}
 					}else{
-						if(CH13TEMP > -10)
+						if(CH13TEMP - COR13 > -10)
 						{
 							strcat(buf,"  ");
-						}else if(CH13TEMP > -100){
+						}else if(CH13TEMP - COR13 > -100){
 							strcat(buf," ");
 						}
 					}
@@ -2155,21 +2155,21 @@ void TempDisplay(void)
 					
 					Check_limits(14);
 					sprintf(buf,"%.1f",CH14TEMP - COR14);
-					if(CH14TEMP >= 0)
+					if(CH14TEMP - COR14 >= 0)
 					{
-						if(CH14TEMP < 10)
+						if(CH14TEMP - COR14 < 10)
 						{
 							strcat(buf,"   ");
-						}else if(CH14TEMP < 100){
+						}else if(CH14TEMP - COR14 < 100){
 							strcat(buf,"  ");
-						}else if(CH14TEMP < 1000){
+						}else if(CH14TEMP - COR14 < 1000){
 							strcat(buf," ");
 						}
 					}else{
-						if(CH14TEMP > -10)
+						if(CH14TEMP - COR14 > -10)
 						{
 							strcat(buf,"  ");
-						}else if(CH14TEMP > -100){
+						}else if(CH14TEMP - COR14 > -100){
 							strcat(buf," ");
 						}
 					}
@@ -2183,21 +2183,21 @@ void TempDisplay(void)
 					
 					Check_limits(15);
 					sprintf(buf,"%.1f",CH15TEMP - COR15);
-					if(CH15TEMP >= 0)
+					if(CH15TEMP - COR15 >= 0)
 					{
-						if(CH15TEMP < 10)
+						if(CH15TEMP - COR15 < 10)
 						{
 							strcat(buf,"   ");
-						}else if(CH15TEMP < 100){
+						}else if(CH15TEMP - COR15 < 100){
 							strcat(buf,"  ");
-						}else if(CH15TEMP < 1000){
+						}else if(CH15TEMP - COR15 < 1000){
 							strcat(buf," ");
 						}
 					}else{
-						if(CH15TEMP > -10)
+						if(CH15TEMP - COR15 > -10)
 						{
 							strcat(buf,"  ");
-						}else if(CH15TEMP > -100){
+						}else if(CH15TEMP - COR15 > -100){
 							strcat(buf," ");
 						}
 					}
@@ -2211,21 +2211,21 @@ void TempDisplay(void)
 					
 					Check_limits(16);
 					sprintf(buf,"%.1f",CH16TEMP - COR16);
-					if(CH16TEMP >= 0)
+					if(CH16TEMP - COR16 >= 0)
 					{
-						if(CH16TEMP < 10)
+						if(CH16TEMP - COR16 < 10)
 						{
 							strcat(buf,"   ");
-						}else if(CH16TEMP < 100){
+						}else if(CH16TEMP - COR16 < 100){
 							strcat(buf,"  ");
-						}else if(CH16TEMP < 1000){
+						}else if(CH16TEMP - COR16 < 1000){
 							strcat(buf," ");
 						}
 					}else{
-						if(CH16TEMP > -10)
+						if(CH16TEMP - COR16 > -10)
 						{
 							strcat(buf,"  ");
-						}else if(CH16TEMP > -100){
+						}else if(CH16TEMP - COR16 > -100){
 							strcat(buf," ");
 						}
 					}
@@ -3188,7 +3188,13 @@ void Read_Flash_Init_Handle(void)
 			YLIMIT[i] = 0;
 		}
 	}
-	
+	for(i=60;i<75;i++)
+	{
+		if(savedata[i] > 9)
+		{
+			savedata[i] = TCT;
+		}
+	}
 }
 //¹Ø»ú¼ì²â
 u8 PowerOffDetect(void)

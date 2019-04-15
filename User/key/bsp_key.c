@@ -47,7 +47,7 @@ char data[17];
 float offset[40];
 u8 keystat;
 u8 date_time[6] = {0,1,1,0,0,0};
-
+u8 tcpage;
 u8 fileflag;
 extern union 
 {
@@ -204,7 +204,51 @@ void Key_Delay(__IO u32 nCount)
 //}
 
 
-
+void DrawType(u8 p)
+{
+	if(p == 1)
+	{
+		DrawMenu();//重绘菜单栏
+		LCD_SetTextColor(LCD_COLOR_YELLOW);
+		LCD_SetBackColor(LCD_COLOR_BLACK);
+		LCD_DisplayStringLine(450,35,"TC-T");
+		LCD_DisplayStringLine(450,157,"TC-K");
+		LCD_DisplayStringLine(450,295,"TC-J");
+		LCD_DisplayStringLine(450,420,"TC-N");
+		if(LANG == chs)
+		{
+			LCD_DisplayStringLine(450,550,"更多");
+		}else{
+			LCD_DisplayStringLine(450,550,"MORE");
+		}
+	}else if(p == 2){
+		DrawMenu();//重绘菜单栏
+		LCD_SetTextColor(LCD_COLOR_YELLOW);
+		LCD_SetBackColor(LCD_COLOR_BLACK);
+		LCD_DisplayStringLine(450,35,"TC-E");
+		LCD_DisplayStringLine(450,157,"TC-S");
+		LCD_DisplayStringLine(450,295,"TC-R");
+		LCD_DisplayStringLine(450,420,"TC-B");
+		if(LANG == chs)
+		{
+			LCD_DisplayStringLine(450,550,"更多");
+		}else{
+			LCD_DisplayStringLine(450,550,"MORE");
+		}
+	}else if(p == 3){
+		DrawMenu();//重绘菜单栏
+		LCD_SetTextColor(LCD_COLOR_YELLOW);
+		LCD_SetBackColor(LCD_COLOR_BLACK);
+		LCD_DisplayStringLine(450,35,"PT100");
+		if(LANG == chs)
+		{
+			LCD_DisplayStringLine(450,550,"更多");
+		}else{
+			LCD_DisplayStringLine(450,550,"MORE");
+		}
+	}
+	tcpage = p;
+}
 
 /*得到焦点*/
 void focus_on(u8 flag)
@@ -842,7 +886,7 @@ void input_num(char* num)
 			LCD_DrawRect(312,408,150,24); 
 			LCD_SetBackColor(LCD_COLOR_WHITE);
 			LCD_SetTextColor(LCD_COLOR_BLACK);
-			DISP_CNL_S(409,240+20,"输入数据");
+			DISP_CNL_S(409,240,"输入数据");
 		}
 		
 		strcat(data,num);
@@ -1131,23 +1175,23 @@ void brt_set(u8 key)
 	}
 	if(key == 1)
 	{
-		LCD_DisplayStringLine(130,170+10,"10");
+		LCD_DisplayStringLine(130,170,"10");
 		BRTS = L0;
 		brightness = 10;
 	}else if(key == 2){
-		LCD_DisplayStringLine(130,170+10,"25");
+		LCD_DisplayStringLine(130,170,"25");
 		BRTS = L1;
 		brightness = 20;
 	}else if(key == 3){
-		LCD_DisplayStringLine(130,170+10,"50");
+		LCD_DisplayStringLine(130,170,"50");
 		BRTS = L2;
 		brightness = 40;
 	}else if(key == 4){
-		LCD_DisplayStringLine(130,170+10,"75");
+		LCD_DisplayStringLine(130,170,"75");
 		BRTS = L3;
 		brightness = 60;
 	}else if(key == 5){
-		LCD_DisplayStringLine(130,170+10,"100");
+		LCD_DisplayStringLine(130,170,"100");
 		BRTS = L4;
 		brightness = 80;
 	}
@@ -1162,7 +1206,7 @@ void dim_set(u8 key)
 	DrawMenu();//重绘菜单栏
 	Drawsysmenu();
 	LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-	LCD_DrawFullRect(170+10,172,55,32);
+	LCD_DrawFullRect(170,172,55,32);
 	if(press != 1)
 	{
 		focus_on1();
@@ -1173,30 +1217,30 @@ void dim_set(u8 key)
 	{
 		if(key == 1)
 		{
-			LCD_DisplayStringLine(174,170+10,"关闭");
+			LCD_DisplayStringLine(174,170,"关闭");
 			LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
 			LCD_DrawFullRect(230,172,55,32);
 			DIM = DOFF;
 		}else if(key == 2){
-			LCD_DisplayStringLine(172,170+10,"5");
+			LCD_DisplayStringLine(172,170,"5");
 			LCD_SetTextColor(LCD_COLOR_YELLOW);
 			LCD_SetBackColor(LCD_COLOR_BACK);
 			LCD_DisplayStringLine(172,230,"Min");
 			DIM = D5;
 		}else if(key == 3){
-			LCD_DisplayStringLine(172,170+10,"10");
+			LCD_DisplayStringLine(172,170,"10");
 			LCD_SetTextColor(LCD_COLOR_YELLOW);
 			LCD_SetBackColor(LCD_COLOR_BACK);
 			LCD_DisplayStringLine(172,230,"Min");
 			DIM = D10;
 		}else if(key == 4){
-			LCD_DisplayStringLine(172,170+10,"15");
+			LCD_DisplayStringLine(172,170,"15");
 			LCD_SetTextColor(LCD_COLOR_YELLOW);
 			LCD_SetBackColor(LCD_COLOR_BACK);
 			LCD_DisplayStringLine(172,230,"Min");
 			DIM = D15;
 		}else if(key == 5){
-			LCD_DisplayStringLine(172,170+10,"30");
+			LCD_DisplayStringLine(172,170,"30");
 			LCD_SetTextColor(LCD_COLOR_YELLOW);
 			LCD_SetBackColor(LCD_COLOR_BACK);
 			LCD_DisplayStringLine(172,230,"Min");
@@ -1205,30 +1249,30 @@ void dim_set(u8 key)
 	}else if(LANG == eng){
 		if(key == 1)
 		{
-			LCD_DisplayStringLine(174,170+10,"OFF");
+			LCD_DisplayStringLine(174,170,"OFF");
 			LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
 			LCD_DrawFullRect(230,172,55,32);
 			DIM = DOFF;
 		}else if(key == 2){
-			LCD_DisplayStringLine(174,170+10,"5");
+			LCD_DisplayStringLine(174,170,"5");
 			LCD_SetTextColor(LCD_COLOR_YELLOW);
 			LCD_SetBackColor(LCD_COLOR_BACK);
 			LCD_DisplayStringLine(172,230,"Min");
 			DIM = D5;
 		}else if(key == 3){
-			LCD_DisplayStringLine(174,170+10,"10");
+			LCD_DisplayStringLine(174,170,"10");
 			LCD_SetTextColor(LCD_COLOR_YELLOW);
 			LCD_SetBackColor(LCD_COLOR_BACK);
 			LCD_DisplayStringLine(172,230,"Min");
 			DIM = D10;
 		}else if(key == 4){
-			LCD_DisplayStringLine(174,170+10,"15");
+			LCD_DisplayStringLine(174,170,"15");
 			LCD_SetTextColor(LCD_COLOR_YELLOW);
 			LCD_SetBackColor(LCD_COLOR_BACK);
 			LCD_DisplayStringLine(172,230,"Min");
 			DIM = D15;
 		}else if(key == 5){
-			LCD_DisplayStringLine(174,170+10,"30");
+			LCD_DisplayStringLine(174,170,"30");
 			LCD_SetTextColor(LCD_COLOR_YELLOW);
 			LCD_SetBackColor(LCD_COLOR_BACK);
 			LCD_DisplayStringLine(172,230,"Min");
@@ -1244,7 +1288,7 @@ void touch_set(u8 key)
 	DrawMenu();//重绘菜单栏
 	Drawsysmenu();
 	LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-	LCD_DrawFullRect(170+10,210,55,32);
+	LCD_DrawFullRect(170,210,55,32);
 	if(press != 1)
 	{
 		focus_on1();
@@ -1255,19 +1299,19 @@ void touch_set(u8 key)
 	{
 		if(key == 1)
 		{
-			LCD_DisplayStringLine(214,170+10,"打开");
+			LCD_DisplayStringLine(214,170,"打开");
 			TOUCH = op_on;
 		}else if(key == 2){
-			LCD_DisplayStringLine(214,170+10,"关闭");
+			LCD_DisplayStringLine(214,170,"关闭");
 			TOUCH = op_off;
 		}
 	}else if(LANG == eng){
 		if(key == 1)
 		{
-			LCD_DisplayStringLine(212,170+10,"ON");
+			LCD_DisplayStringLine(212,170,"ON");
 			TOUCH = op_on;
 		}else if(key == 2){
-			LCD_DisplayStringLine(212,170+10,"OFF");
+			LCD_DisplayStringLine(212,170,"OFF");
 			TOUCH = op_off;
 		}
 	}
@@ -2029,6 +2073,318 @@ void FUNC1_HANDLE(void)
 						page_home();
 					}
 				}break;
+				case home_ch1:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH1TYPE = TCT;
+						}else if(tcpage == 2){
+							CH1TYPE = TCE;
+						}else if(tcpage == 3){
+							CH1TYPE = PT100;
+						}
+					}else if(ch_page == page2){
+						if(tcpage == 1)
+						{
+							CH9TYPE = TCT;
+						}else if(tcpage == 2){
+							CH9TYPE = TCE;
+						}else if(tcpage == 3){
+							CH9TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch2:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH2TYPE = TCT;
+						}else if(tcpage == 2){
+							CH2TYPE = TCE;
+						}else if(tcpage == 3){
+							CH2TYPE = PT100;
+						}
+					}else if(ch_page == page2){
+						if(tcpage == 1)
+						{
+							CH10TYPE = TCT;
+						}else if(tcpage == 2){
+							CH10TYPE = TCE;
+						}else if(tcpage == 3){
+							CH10TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch3:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH3TYPE = TCT;
+						}else if(tcpage == 2){
+							CH3TYPE = TCE;
+						}else if(tcpage == 3){
+							CH3TYPE = PT100;
+						}
+					}else if(ch_page == page2){
+						if(tcpage == 1)
+						{
+							CH11TYPE = TCT;
+						}else if(tcpage == 2){
+							CH11TYPE = TCE;
+						}else if(tcpage == 3){
+							CH11TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch4:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH4TYPE = TCT;
+						}else if(tcpage == 2){
+							CH4TYPE = TCE;
+						}else if(tcpage == 3){
+							CH4TYPE = PT100;
+						}
+					}else if(ch_page == page2){
+						if(tcpage == 1)
+						{
+							CH12TYPE = TCT;
+						}else if(tcpage == 2){
+							CH12TYPE = TCE;
+						}else if(tcpage == 3){
+							CH12TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch5:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH5TYPE = TCT;
+						}else if(tcpage == 2){
+							CH5TYPE = TCE;
+						}else if(tcpage == 3){
+							CH5TYPE = PT100;
+						}
+					}else if(ch_page == page2){
+						if(tcpage == 1)
+						{
+							CH13TYPE = TCT;
+						}else if(tcpage == 2){
+							CH13TYPE = TCE;
+						}else if(tcpage == 3){
+							CH13TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch6:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH6TYPE = TCT;
+						}else if(tcpage == 2){
+							CH6TYPE = TCE;
+						}else if(tcpage == 3){
+							CH6TYPE = PT100;
+						}
+					}else if(ch_page == page2){
+						if(tcpage == 1)
+						{
+							CH14TYPE = TCT;
+						}else if(tcpage == 2){
+							CH14TYPE = TCE;
+						}else if(tcpage == 3){
+							CH14TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch7:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH7TYPE = TCT;
+						}else if(tcpage == 2){
+							CH7TYPE = TCE;
+						}else if(tcpage == 3){
+							CH7TYPE = PT100;
+						}
+					}else if(ch_page == page2){
+						if(tcpage == 1)
+						{
+							CH15TYPE = TCT;
+						}else if(tcpage == 2){
+							CH15TYPE = TCE;
+						}else if(tcpage == 3){
+							CH15TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch8:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH8TYPE = TCT;
+						}else if(tcpage == 2){
+							CH8TYPE = TCE;
+						}else if(tcpage == 3){
+							CH8TYPE = PT100;
+						}
+					}else if(ch_page == page2){
+						if(tcpage == 1)
+						{
+							CH16TYPE = TCT;
+						}else if(tcpage == 2){
+							CH16TYPE = TCE;
+						}else if(tcpage == 3){
+							CH16TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch9:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH9TYPE = TCT;
+						}else if(tcpage == 2){
+							CH9TYPE = TCE;
+						}else if(tcpage == 3){
+							CH9TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch10:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH10TYPE = TCT;
+						}else if(tcpage == 2){
+							CH10TYPE = TCE;
+						}else if(tcpage == 3){
+							CH10TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch11:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH11TYPE = TCT;
+						}else if(tcpage == 2){
+							CH11TYPE = TCE;
+						}else if(tcpage == 3){
+							CH11TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch12:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH12TYPE = TCT;
+						}else if(tcpage == 2){
+							CH12TYPE = TCE;
+						}else if(tcpage == 3){
+							CH12TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch13:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH13TYPE = TCT;
+						}else if(tcpage == 2){
+							CH13TYPE = TCE;
+						}else if(tcpage == 3){
+							CH13TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch14:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH14TYPE = TCT;
+						}else if(tcpage == 2){
+							CH14TYPE = TCE;
+						}else if(tcpage == 3){
+							CH14TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch15:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH15TYPE = TCT;
+						}else if(tcpage == 2){
+							CH15TYPE = TCE;
+						}else if(tcpage == 3){
+							CH15TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch16:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH16TYPE = TCT;
+						}else if(tcpage == 2){
+							CH16TYPE = TCE;
+						}else if(tcpage == 3){
+							CH16TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
 				default:
 				{
 					page_home();
@@ -2047,7 +2403,7 @@ void FUNC1_HANDLE(void)
 //						Drawsysmenu();						
 						LCD_SetTextColor(LCD_COLOR_BLACK);
 						LCD_SetBackColor(LCD_COLOR_YELLOW);
-						LCD_DisplayStringLine(50,170+10,"CHINESE");
+						LCD_DisplayStringLine(50,170,"CHINESE");
 						LANG = chs;
 						page_sys();
 						op_sw =op_off;
@@ -2328,6 +2684,318 @@ void FUNC2_HANDLE(void)
 					}else{
 						page_graph();
 					}
+				}break;
+				case home_ch1:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH1TYPE = TCK;
+						}else if(tcpage == 2){
+							CH1TYPE = TCS;
+						}else if(tcpage == 3){
+							CH1TYPE = PT100;
+						}
+					}else if(ch_page == page2){
+						if(tcpage == 1)
+						{
+							CH9TYPE = TCK;
+						}else if(tcpage == 2){
+							CH9TYPE = TCS;
+						}else if(tcpage == 3){
+							CH9TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch2:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH2TYPE = TCK;
+						}else if(tcpage == 2){
+							CH2TYPE = TCS;
+						}else if(tcpage == 3){
+							CH2TYPE = PT100;
+						}
+					}else if(ch_page == page2){
+						if(tcpage == 1)
+						{
+							CH10TYPE = TCK;
+						}else if(tcpage == 2){
+							CH10TYPE = TCS;
+						}else if(tcpage == 3){
+							CH10TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch3:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH3TYPE = TCK;
+						}else if(tcpage == 2){
+							CH3TYPE = TCS;
+						}else if(tcpage == 3){
+							CH3TYPE = PT100;
+						}
+					}else if(ch_page == page2){
+						if(tcpage == 1)
+						{
+							CH11TYPE = TCK;
+						}else if(tcpage == 2){
+							CH11TYPE = TCS;
+						}else if(tcpage == 3){
+							CH11TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch4:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH4TYPE = TCK;
+						}else if(tcpage == 2){
+							CH4TYPE = TCS;
+						}else if(tcpage == 3){
+							CH4TYPE = PT100;
+						}
+					}else if(ch_page == page2){
+						if(tcpage == 1)
+						{
+							CH12TYPE = TCK;
+						}else if(tcpage == 2){
+							CH12TYPE = TCS;
+						}else if(tcpage == 3){
+							CH12TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch5:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH5TYPE = TCK;
+						}else if(tcpage == 2){
+							CH5TYPE = TCS;
+						}else if(tcpage == 3){
+							CH5TYPE = PT100;
+						}
+					}else if(ch_page == page2){
+						if(tcpage == 1)
+						{
+							CH13TYPE = TCK;
+						}else if(tcpage == 2){
+							CH13TYPE = TCS;
+						}else if(tcpage == 3){
+							CH13TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch6:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH6TYPE = TCK;
+						}else if(tcpage == 2){
+							CH6TYPE = TCS;
+						}else if(tcpage == 3){
+							CH6TYPE = PT100;
+						}
+					}else if(ch_page == page2){
+						if(tcpage == 1)
+						{
+							CH14TYPE = TCK;
+						}else if(tcpage == 2){
+							CH14TYPE = TCS;
+						}else if(tcpage == 3){
+							CH14TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch7:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH7TYPE = TCK;
+						}else if(tcpage == 2){
+							CH7TYPE = TCS;
+						}else if(tcpage == 3){
+							CH7TYPE = PT100;
+						}
+					}else if(ch_page == page2){
+						if(tcpage == 1)
+						{
+							CH15TYPE = TCK;
+						}else if(tcpage == 2){
+							CH15TYPE = TCS;
+						}else if(tcpage == 3){
+							CH15TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch8:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH8TYPE = TCK;
+						}else if(tcpage == 2){
+							CH8TYPE = TCS;
+						}else if(tcpage == 3){
+							CH8TYPE = PT100;
+						}
+					}else if(ch_page == page2){
+						if(tcpage == 1)
+						{
+							CH16TYPE = TCK;
+						}else if(tcpage == 2){
+							CH16TYPE = TCS;
+						}else if(tcpage == 3){
+							CH16TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch9:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH9TYPE = TCK;
+						}else if(tcpage == 2){
+							CH9TYPE = TCS;
+						}else if(tcpage == 3){
+							CH9TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch10:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH10TYPE = TCK;
+						}else if(tcpage == 2){
+							CH10TYPE = TCS;
+						}else if(tcpage == 3){
+							CH10TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch11:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH11TYPE = TCK;
+						}else if(tcpage == 2){
+							CH11TYPE = TCS;
+						}else if(tcpage == 3){
+							CH11TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch12:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH12TYPE = TCK;
+						}else if(tcpage == 2){
+							CH12TYPE = TCS;
+						}else if(tcpage == 3){
+							CH12TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch13:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH13TYPE = TCK;
+						}else if(tcpage == 2){
+							CH13TYPE = TCS;
+						}else if(tcpage == 3){
+							CH13TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch14:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH14TYPE = TCK;
+						}else if(tcpage == 2){
+							CH14TYPE = TCS;
+						}else if(tcpage == 3){
+							CH14TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch15:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH15TYPE = TCK;
+						}else if(tcpage == 2){
+							CH15TYPE = TCS;
+						}else if(tcpage == 3){
+							CH15TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch16:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH16TYPE = TCK;
+						}else if(tcpage == 2){
+							CH16TYPE = TCS;
+						}else if(tcpage == 3){
+							CH16TYPE = PT100;
+						}
+					}
+					Disp_Type();
 				}break;
 				default:
 				{
@@ -2624,6 +3292,318 @@ void FUNC3_HANDLE(void)
 						page_sys();
 					}
 				}break;
+				case home_ch1:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH1TYPE = TCJ;
+						}else if(tcpage == 2){
+							CH1TYPE = TCR;
+						}else if(tcpage == 3){
+							CH1TYPE = PT100;
+						}
+					}else if(ch_page == page2){
+						if(tcpage == 1)
+						{
+							CH9TYPE = TCJ;
+						}else if(tcpage == 2){
+							CH9TYPE = TCR;
+						}else if(tcpage == 3){
+							CH9TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch2:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH2TYPE = TCJ;
+						}else if(tcpage == 2){
+							CH2TYPE = TCR;
+						}else if(tcpage == 3){
+							CH2TYPE = PT100;
+						}
+					}else if(ch_page == page2){
+						if(tcpage == 1)
+						{
+							CH10TYPE = TCJ;
+						}else if(tcpage == 2){
+							CH10TYPE = TCR;
+						}else if(tcpage == 3){
+							CH10TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch3:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH3TYPE = TCJ;
+						}else if(tcpage == 2){
+							CH3TYPE = TCR;
+						}else if(tcpage == 3){
+							CH3TYPE = PT100;
+						}
+					}else if(ch_page == page2){
+						if(tcpage == 1)
+						{
+							CH11TYPE = TCJ;
+						}else if(tcpage == 2){
+							CH11TYPE = TCR;
+						}else if(tcpage == 3){
+							CH11TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch4:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH4TYPE = TCJ;
+						}else if(tcpage == 2){
+							CH4TYPE = TCR;
+						}else if(tcpage == 3){
+							CH4TYPE = PT100;
+						}
+					}else if(ch_page == page2){
+						if(tcpage == 1)
+						{
+							CH12TYPE = TCJ;
+						}else if(tcpage == 2){
+							CH12TYPE = TCR;
+						}else if(tcpage == 3){
+							CH12TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch5:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH5TYPE = TCJ;
+						}else if(tcpage == 2){
+							CH5TYPE = TCR;
+						}else if(tcpage == 3){
+							CH5TYPE = PT100;
+						}
+					}else if(ch_page == page2){
+						if(tcpage == 1)
+						{
+							CH13TYPE = TCJ;
+						}else if(tcpage == 2){
+							CH13TYPE = TCR;
+						}else if(tcpage == 3){
+							CH13TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch6:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH6TYPE = TCJ;
+						}else if(tcpage == 2){
+							CH6TYPE = TCR;
+						}else if(tcpage == 3){
+							CH6TYPE = PT100;
+						}
+					}else if(ch_page == page2){
+						if(tcpage == 1)
+						{
+							CH14TYPE = TCJ;
+						}else if(tcpage == 2){
+							CH14TYPE = TCR;
+						}else if(tcpage == 3){
+							CH14TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch7:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH7TYPE = TCJ;
+						}else if(tcpage == 2){
+							CH7TYPE = TCR;
+						}else if(tcpage == 3){
+							CH7TYPE = PT100;
+						}
+					}else if(ch_page == page2){
+						if(tcpage == 1)
+						{
+							CH15TYPE = TCJ;
+						}else if(tcpage == 2){
+							CH15TYPE = TCR;
+						}else if(tcpage == 3){
+							CH15TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch8:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH8TYPE = TCJ;
+						}else if(tcpage == 2){
+							CH8TYPE = TCR;
+						}else if(tcpage == 3){
+							CH8TYPE = PT100;
+						}
+					}else if(ch_page == page2){
+						if(tcpage == 1)
+						{
+							CH16TYPE = TCJ;
+						}else if(tcpage == 2){
+							CH16TYPE = TCR;
+						}else if(tcpage == 3){
+							CH16TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch9:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH9TYPE = TCJ;
+						}else if(tcpage == 2){
+							CH9TYPE = TCR;
+						}else if(tcpage == 3){
+							CH9TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch10:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH10TYPE = TCJ;
+						}else if(tcpage == 2){
+							CH10TYPE = TCR;
+						}else if(tcpage == 3){
+							CH10TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch11:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH11TYPE = TCJ;
+						}else if(tcpage == 2){
+							CH11TYPE = TCR;
+						}else if(tcpage == 3){
+							CH11TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch12:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH12TYPE = TCJ;
+						}else if(tcpage == 2){
+							CH12TYPE = TCR;
+						}else if(tcpage == 3){
+							CH12TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch13:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH13TYPE = TCJ;
+						}else if(tcpage == 2){
+							CH13TYPE = TCR;
+						}else if(tcpage == 3){
+							CH13TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch14:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH14TYPE = TCJ;
+						}else if(tcpage == 2){
+							CH14TYPE = TCR;
+						}else if(tcpage == 3){
+							CH14TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch15:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH15TYPE = TCJ;
+						}else if(tcpage == 2){
+							CH15TYPE = TCR;
+						}else if(tcpage == 3){
+							CH15TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch16:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH16TYPE = TCJ;
+						}else if(tcpage == 2){
+							CH16TYPE = TCR;
+						}else if(tcpage == 3){
+							CH16TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
 				default:
 				{
 					page_sys();
@@ -2794,6 +3774,318 @@ void FUNC4_HANDLE(void)
 					Save_flag();
 					SetTctype(TCTYPE);
 				}break;
+				case home_ch1:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH1TYPE = TCN;
+						}else if(tcpage == 2){
+							CH1TYPE = TCB;
+						}else if(tcpage == 3){
+							CH1TYPE = PT100;
+						}
+					}else if(ch_page == page2){
+						if(tcpage == 1)
+						{
+							CH9TYPE = TCN;
+						}else if(tcpage == 2){
+							CH9TYPE = TCB;
+						}else if(tcpage == 3){
+							CH9TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch2:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH2TYPE = TCN;
+						}else if(tcpage == 2){
+							CH2TYPE = TCB;
+						}else if(tcpage == 3){
+							CH2TYPE = PT100;
+						}
+					}else if(ch_page == page2){
+						if(tcpage == 1)
+						{
+							CH10TYPE = TCN;
+						}else if(tcpage == 2){
+							CH10TYPE = TCB;
+						}else if(tcpage == 3){
+							CH10TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch3:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH3TYPE = TCN;
+						}else if(tcpage == 2){
+							CH3TYPE = TCB;
+						}else if(tcpage == 3){
+							CH3TYPE = PT100;
+						}
+					}else if(ch_page == page2){
+						if(tcpage == 1)
+						{
+							CH11TYPE = TCN;
+						}else if(tcpage == 2){
+							CH11TYPE = TCB;
+						}else if(tcpage == 3){
+							CH11TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch4:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH4TYPE = TCN;
+						}else if(tcpage == 2){
+							CH4TYPE = TCB;
+						}else if(tcpage == 3){
+							CH4TYPE = PT100;
+						}
+					}else if(ch_page == page2){
+						if(tcpage == 1)
+						{
+							CH12TYPE = TCN;
+						}else if(tcpage == 2){
+							CH12TYPE = TCB;
+						}else if(tcpage == 3){
+							CH12TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch5:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH5TYPE = TCN;
+						}else if(tcpage == 2){
+							CH5TYPE = TCB;
+						}else if(tcpage == 3){
+							CH5TYPE = PT100;
+						}
+					}else if(ch_page == page2){
+						if(tcpage == 1)
+						{
+							CH13TYPE = TCN;
+						}else if(tcpage == 2){
+							CH13TYPE = TCB;
+						}else if(tcpage == 3){
+							CH13TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch6:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH6TYPE = TCN;
+						}else if(tcpage == 2){
+							CH6TYPE = TCB;
+						}else if(tcpage == 3){
+							CH6TYPE = PT100;
+						}
+					}else if(ch_page == page2){
+						if(tcpage == 1)
+						{
+							CH14TYPE = TCN;
+						}else if(tcpage == 2){
+							CH14TYPE = TCB;
+						}else if(tcpage == 3){
+							CH14TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch7:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH7TYPE = TCN;
+						}else if(tcpage == 2){
+							CH7TYPE = TCB;
+						}else if(tcpage == 3){
+							CH7TYPE = PT100;
+						}
+					}else if(ch_page == page2){
+						if(tcpage == 1)
+						{
+							CH15TYPE = TCN;
+						}else if(tcpage == 2){
+							CH15TYPE = TCB;
+						}else if(tcpage == 3){
+							CH15TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch8:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH8TYPE = TCN;
+						}else if(tcpage == 2){
+							CH8TYPE = TCB;
+						}else if(tcpage == 3){
+							CH8TYPE = PT100;
+						}
+					}else if(ch_page == page2){
+						if(tcpage == 1)
+						{
+							CH16TYPE = TCN;
+						}else if(tcpage == 2){
+							CH16TYPE = TCB;
+						}else if(tcpage == 3){
+							CH16TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch9:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH9TYPE = TCN;
+						}else if(tcpage == 2){
+							CH9TYPE = TCB;
+						}else if(tcpage == 3){
+							CH9TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch10:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH10TYPE = TCN;
+						}else if(tcpage == 2){
+							CH10TYPE = TCB;
+						}else if(tcpage == 3){
+							CH10TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch11:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH11TYPE = TCN;
+						}else if(tcpage == 2){
+							CH11TYPE = TCB;
+						}else if(tcpage == 3){
+							CH11TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch12:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH12TYPE = TCN;
+						}else if(tcpage == 2){
+							CH12TYPE = TCB;
+						}else if(tcpage == 3){
+							CH12TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch13:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH13TYPE = TCN;
+						}else if(tcpage == 2){
+							CH13TYPE = TCB;
+						}else if(tcpage == 3){
+							CH13TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch14:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH14TYPE = TCN;
+						}else if(tcpage == 2){
+							CH14TYPE = TCB;
+						}else if(tcpage == 3){
+							CH14TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch15:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH15TYPE = TCN;
+						}else if(tcpage == 2){
+							CH15TYPE = TCB;
+						}else if(tcpage == 3){
+							CH15TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
+				case home_ch16:
+				{
+					if(ch_page == page1)
+					{
+						if(tcpage == 1)
+						{
+							CH16TYPE = TCN;
+						}else if(tcpage == 2){
+							CH16TYPE = TCB;
+						}else if(tcpage == 3){
+							CH16TYPE = PT100;
+						}
+					}
+					Disp_Type();
+				}break;
 				default:
 				{
 					page_set();
@@ -2945,8 +4237,233 @@ void FUNC5_HANDLE(void)
 					}
 					op_flag = type_1;						
 				}break;
+				case home_ch1:
+				{
+					if(tcpage == 1)
+					{
+						DrawType(2);
+						tcpage = 2;
+					}else if(tcpage == 2){
+						DrawType(3);
+						tcpage = 3;
+					}else if(tcpage == 3){
+						DrawType(1);
+						tcpage = 1;
+					}
+				}break;
+				case home_ch2:
+				{
+					if(tcpage == 1)
+					{
+						DrawType(2);
+						tcpage = 2;
+					}else if(tcpage == 2){
+						DrawType(3);
+						tcpage = 3;
+					}else if(tcpage == 3){
+						DrawType(1);
+						tcpage = 1;
+					}
+				}break;
+				case home_ch3:
+				{
+					if(tcpage == 1)
+					{
+						DrawType(2);
+						tcpage = 2;
+					}else if(tcpage == 2){
+						DrawType(3);
+						tcpage = 3;
+					}else if(tcpage == 3){
+						DrawType(1);
+						tcpage = 1;
+					}
+				}break;
+				case home_ch4:
+				{
+					if(tcpage == 1)
+					{
+						DrawType(2);
+						tcpage = 2;
+					}else if(tcpage == 2){
+						DrawType(3);
+						tcpage = 3;
+					}else if(tcpage == 3){
+						DrawType(1);
+						tcpage = 1;
+					}
+				}break;
+				case home_ch5:
+				{
+					if(tcpage == 1)
+					{
+						DrawType(2);
+						tcpage = 2;
+					}else if(tcpage == 2){
+						DrawType(3);
+						tcpage = 3;
+					}else if(tcpage == 3){
+						DrawType(1);
+						tcpage = 1;
+					}
+				}break;
+				case home_ch6:
+				{
+					if(tcpage == 1)
+					{
+						DrawType(2);
+						tcpage = 2;
+					}else if(tcpage == 2){
+						DrawType(3);
+						tcpage = 3;
+					}else if(tcpage == 3){
+						DrawType(1);
+						tcpage = 1;
+					}
+				}break;
+				case home_ch7:
+				{
+					if(tcpage == 1)
+					{
+						DrawType(2);
+						tcpage = 2;
+					}else if(tcpage == 2){
+						DrawType(3);
+						tcpage = 3;
+					}else if(tcpage == 3){
+						DrawType(1);
+						tcpage = 1;
+					}
+				}break;
+				case home_ch8:
+				{
+					if(tcpage == 1)
+					{
+						DrawType(2);
+						tcpage = 2;
+					}else if(tcpage == 2){
+						DrawType(3);
+						tcpage = 3;
+					}else if(tcpage == 3){
+						DrawType(1);
+						tcpage = 1;
+					}
+				}break;
+				case home_ch9:
+				{
+					if(tcpage == 1)
+					{
+						DrawType(2);
+						tcpage = 2;
+					}else if(tcpage == 2){
+						DrawType(3);
+						tcpage = 3;
+					}else if(tcpage == 3){
+						DrawType(1);
+						tcpage = 1;
+					}
+				}break;
+				case home_ch10:
+				{
+					if(tcpage == 1)
+					{
+						DrawType(2);
+						tcpage = 2;
+					}else if(tcpage == 2){
+						DrawType(3);
+						tcpage = 3;
+					}else if(tcpage == 3){
+						DrawType(1);
+						tcpage = 1;
+					}
+				}break;
+				case home_ch11:
+				{
+					if(tcpage == 1)
+					{
+						DrawType(2);
+						tcpage = 2;
+					}else if(tcpage == 2){
+						DrawType(3);
+						tcpage = 3;
+					}else if(tcpage == 3){
+						DrawType(1);
+						tcpage = 1;
+					}
+				}break;
+				case home_ch12:
+				{
+					if(tcpage == 1)
+					{
+						DrawType(2);
+						tcpage = 2;
+					}else if(tcpage == 2){
+						DrawType(3);
+						tcpage = 3;
+					}else if(tcpage == 3){
+						DrawType(1);
+						tcpage = 1;
+					}
+				}break;
+				case home_ch13:
+				{
+					if(tcpage == 1)
+					{
+						DrawType(2);
+						tcpage = 2;
+					}else if(tcpage == 2){
+						DrawType(3);
+						tcpage = 3;
+					}else if(tcpage == 3){
+						DrawType(1);
+						tcpage = 1;
+					}
+				}break;
+				case home_ch14:
+				{
+					if(tcpage == 1)
+					{
+						DrawType(2);
+						tcpage = 2;
+					}else if(tcpage == 2){
+						DrawType(3);
+						tcpage = 3;
+					}else if(tcpage == 3){
+						DrawType(1);
+						tcpage = 1;
+					}
+				}break;
+				case home_ch15:
+				{
+					if(tcpage == 1)
+					{
+						DrawType(2);
+						tcpage = 2;
+					}else if(tcpage == 2){
+						DrawType(3);
+						tcpage = 3;
+					}else if(tcpage == 3){
+						DrawType(1);
+						tcpage = 1;
+					}
+				}break;
+				case home_ch16:
+				{
+					if(tcpage == 1)
+					{
+						DrawType(2);
+						tcpage = 2;
+					}else if(tcpage == 2){
+						DrawType(3);
+						tcpage = 3;
+					}else if(tcpage == 3){
+						DrawType(1);
+						tcpage = 1;
+					}
+				}break;
 				default:
 				{
+					
 					if(FONT == big && CHNUM > 8)
 					{
 						LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
@@ -3970,6 +5487,7 @@ void FUNC5_HANDLE(void)
 						}
 						op_flag = home_type;
 					}
+					Disp_Type();
 				}break;
 			}
 		}break;
@@ -4079,7 +5597,7 @@ void FUNC5_HANDLE(void)
 						LCD_DisplayStringLine(120,10,"010");
 						LCD_DisplayStringLine(160,10,"011");
 						LCD_DisplayStringLine(200,10,"012");
-						LCD_DisplayStringLine(240+20,10,"013");
+						LCD_DisplayStringLine(240,10,"013");
 						LCD_DisplayStringLine(280,10,"014");
 						LCD_DisplayStringLine(320,10,"015");
 						LCD_DisplayStringLine(360,10,"016");
@@ -4106,36 +5624,70 @@ void FUNC5_HANDLE(void)
 					}break;
 					case page2:
 					{
-						LCD_SetTextColor(LCD_COLOR_LIGHTBLUE);	
-						LCD_SetBackColor(LCD_COLOR_BACK);
-						LCD_DisplayStringLine(80,10,"017");
-						LCD_DisplayStringLine(120,10,"018");
-						LCD_DisplayStringLine(160,10,"019");
-						LCD_DisplayStringLine(200,10,"020");
-						LCD_DisplayStringLine(240+20,10,"021");
-						LCD_DisplayStringLine(280,10,"022");
-						LCD_DisplayStringLine(320,10,"023");
-						LCD_DisplayStringLine(360,10,"024");
-						minfocus_on(1,CH17MIN);
-						minfocus_off(2,CH18MIN);
-						minfocus_off(3,CH19MIN);
-						minfocus_off(4,CH20MIN);
-						minfocus_off(5,CH21MIN);
-						minfocus_off(6,CH22MIN);
-						minfocus_off(7,CH23MIN);
-						minfocus_off(8,CH24MIN);
-						
-						maxfocus_off(1,CH17MAX);
-						maxfocus_off(2,CH18MAX);
-						maxfocus_off(3,CH19MAX);
-						maxfocus_off(4,CH20MAX);
-						maxfocus_off(5,CH21MAX);
-						maxfocus_off(6,CH22MAX);
-						maxfocus_off(7,CH23MAX);
-						maxfocus_off(8,CH24MAX);
-						
-						op_flag = set_min1;
-						spt_page = page3;
+						if(CHNUM > 16)
+						{
+							LCD_SetTextColor(LCD_COLOR_LIGHTBLUE);	
+							LCD_SetBackColor(LCD_COLOR_BACK);
+							LCD_DisplayStringLine(80,10,"017");
+							LCD_DisplayStringLine(120,10,"018");
+							LCD_DisplayStringLine(160,10,"019");
+							LCD_DisplayStringLine(200,10,"020");
+							LCD_DisplayStringLine(240,10,"021");
+							LCD_DisplayStringLine(280,10,"022");
+							LCD_DisplayStringLine(320,10,"023");
+							LCD_DisplayStringLine(360,10,"024");
+							minfocus_on(1,CH17MIN);
+							minfocus_off(2,CH18MIN);
+							minfocus_off(3,CH19MIN);
+							minfocus_off(4,CH20MIN);
+							minfocus_off(5,CH21MIN);
+							minfocus_off(6,CH22MIN);
+							minfocus_off(7,CH23MIN);
+							minfocus_off(8,CH24MIN);
+							
+							maxfocus_off(1,CH17MAX);
+							maxfocus_off(2,CH18MAX);
+							maxfocus_off(3,CH19MAX);
+							maxfocus_off(4,CH20MAX);
+							maxfocus_off(5,CH21MAX);
+							maxfocus_off(6,CH22MAX);
+							maxfocus_off(7,CH23MAX);
+							maxfocus_off(8,CH24MAX);
+							
+							op_flag = set_min1;
+							spt_page = page3;
+						}else{
+							LCD_SetTextColor(LCD_COLOR_LIGHTBLUE);	
+							LCD_SetBackColor(LCD_COLOR_BACK);
+							LCD_DisplayStringLine(80,10,"001");
+							LCD_DisplayStringLine(120,10,"002");
+							LCD_DisplayStringLine(160,10,"003");
+							LCD_DisplayStringLine(200,10,"004");
+							LCD_DisplayStringLine(240,10,"005");
+							LCD_DisplayStringLine(280,10,"006");
+							LCD_DisplayStringLine(320,10,"007");
+							LCD_DisplayStringLine(360,10,"008");
+							minfocus_on(1,CH1MIN);
+							minfocus_off(2,CH2MIN);
+							minfocus_off(3,CH3MIN);
+							minfocus_off(4,CH4MIN);
+							minfocus_off(5,CH5MIN);
+							minfocus_off(6,CH6MIN);
+							minfocus_off(7,CH7MIN);
+							minfocus_off(8,CH8MIN);
+							
+							maxfocus_off(1,CH1MAX);
+							maxfocus_off(2,CH2MAX);
+							maxfocus_off(3,CH3MAX);
+							maxfocus_off(4,CH4MAX);
+							maxfocus_off(5,CH5MAX);
+							maxfocus_off(6,CH6MAX);
+							maxfocus_off(7,CH7MAX);
+							maxfocus_off(8,CH8MAX);
+							
+							op_flag = set_min1;
+							spt_page = page1;
+						}
 					}break;
 					case page3:
 					{
@@ -4145,7 +5697,7 @@ void FUNC5_HANDLE(void)
 						LCD_DisplayStringLine(120,10,"026");
 						LCD_DisplayStringLine(160,10,"027");
 						LCD_DisplayStringLine(200,10,"028");
-						LCD_DisplayStringLine(240+20,10,"029");
+						LCD_DisplayStringLine(240,10,"029");
 						LCD_DisplayStringLine(280,10,"030");
 						LCD_DisplayStringLine(320,10,"031");
 						LCD_DisplayStringLine(360,10,"032");
@@ -4178,7 +5730,7 @@ void FUNC5_HANDLE(void)
 						LCD_DisplayStringLine(120,10,"034");
 						LCD_DisplayStringLine(160,10,"035");
 						LCD_DisplayStringLine(200,10,"036");
-						LCD_DisplayStringLine(240+20,10,"037");
+						LCD_DisplayStringLine(240,10,"037");
 						LCD_DisplayStringLine(280,10,"038");
 						LCD_DisplayStringLine(320,10,"039");
 						LCD_DisplayStringLine(360,10,"040");
@@ -4211,7 +5763,7 @@ void FUNC5_HANDLE(void)
 						LCD_DisplayStringLine(120,10,"002");
 						LCD_DisplayStringLine(160,10,"003");
 						LCD_DisplayStringLine(200,10,"004");
-						LCD_DisplayStringLine(240+20,10,"005");
+						LCD_DisplayStringLine(240,10,"005");
 						LCD_DisplayStringLine(280,10,"006");
 						LCD_DisplayStringLine(320,10,"007");
 						LCD_DisplayStringLine(360,10,"008");
@@ -4253,7 +5805,7 @@ void FUNC5_HANDLE(void)
 						LCD_DisplayStringLine(120,10,"010");
 						LCD_DisplayStringLine(160,10,"011");
 						LCD_DisplayStringLine(200,10,"012");
-						LCD_DisplayStringLine(240+20,10,"013");
+						LCD_DisplayStringLine(240,10,"013");
 						LCD_DisplayStringLine(280,10,"014");
 						LCD_DisplayStringLine(320,10,"015");
 						LCD_DisplayStringLine(360,10,"016");
@@ -4280,36 +5832,70 @@ void FUNC5_HANDLE(void)
 					}break;
 					case page2:
 					{
-						LCD_SetTextColor(LCD_COLOR_LIGHTBLUE);	
-						LCD_SetBackColor(LCD_COLOR_BACK);
-						LCD_DisplayStringLine(80,10,"017");
-						LCD_DisplayStringLine(120,10,"018");
-						LCD_DisplayStringLine(160,10,"019");
-						LCD_DisplayStringLine(200,10,"020");
-						LCD_DisplayStringLine(240+20,10,"021");
-						LCD_DisplayStringLine(280,10,"022");
-						LCD_DisplayStringLine(320,10,"023");
-						LCD_DisplayStringLine(360,10,"024");
-						minfocus_off(1,CH17TEMP);
-						minfocus_off(2,CH18TEMP);
-						minfocus_off(3,CH19TEMP);
-						minfocus_off(4,CH20TEMP);
-						minfocus_off(5,CH21TEMP);
-						minfocus_off(6,CH22TEMP);
-						minfocus_off(7,CH23TEMP);
-						minfocus_off(8,CH24TEMP);
-						
-						maxfocus_on(1,COR17);
-						maxfocus_off(2,COR18);
-						maxfocus_off(3,COR19);
-						maxfocus_off(4,COR20);
-						maxfocus_off(5,COR21);
-						maxfocus_off(6,COR22);
-						maxfocus_off(7,COR23);
-						maxfocus_off(8,COR24);
-						
-						op_flag = set_c1;
-						cor_page = page3;
+						if(CHNUM > 16)
+						{
+							LCD_SetTextColor(LCD_COLOR_LIGHTBLUE);	
+							LCD_SetBackColor(LCD_COLOR_BACK);
+							LCD_DisplayStringLine(80,10,"017");
+							LCD_DisplayStringLine(120,10,"018");
+							LCD_DisplayStringLine(160,10,"019");
+							LCD_DisplayStringLine(200,10,"020");
+							LCD_DisplayStringLine(240,10,"021");
+							LCD_DisplayStringLine(280,10,"022");
+							LCD_DisplayStringLine(320,10,"023");
+							LCD_DisplayStringLine(360,10,"024");
+							minfocus_off(1,CH17TEMP);
+							minfocus_off(2,CH18TEMP);
+							minfocus_off(3,CH19TEMP);
+							minfocus_off(4,CH20TEMP);
+							minfocus_off(5,CH21TEMP);
+							minfocus_off(6,CH22TEMP);
+							minfocus_off(7,CH23TEMP);
+							minfocus_off(8,CH24TEMP);
+							
+							maxfocus_on(1,COR17);
+							maxfocus_off(2,COR18);
+							maxfocus_off(3,COR19);
+							maxfocus_off(4,COR20);
+							maxfocus_off(5,COR21);
+							maxfocus_off(6,COR22);
+							maxfocus_off(7,COR23);
+							maxfocus_off(8,COR24);
+							
+							op_flag = set_c1;
+							cor_page = page3;
+						}else{
+							LCD_SetTextColor(LCD_COLOR_LIGHTBLUE);	
+							LCD_SetBackColor(LCD_COLOR_BACK);
+							LCD_DisplayStringLine(80,10,"001");
+							LCD_DisplayStringLine(120,10,"002");
+							LCD_DisplayStringLine(160,10,"003");
+							LCD_DisplayStringLine(200,10,"004");
+							LCD_DisplayStringLine(240,10,"005");
+							LCD_DisplayStringLine(280,10,"006");
+							LCD_DisplayStringLine(320,10,"007");
+							LCD_DisplayStringLine(360,10,"008");
+							minfocus_off(1,CH1TEMP);
+							minfocus_off(2,CH2TEMP);
+							minfocus_off(3,CH3TEMP);
+							minfocus_off(4,CH4TEMP);
+							minfocus_off(5,CH5TEMP);
+							minfocus_off(6,CH6TEMP);
+							minfocus_off(7,CH7TEMP);
+							minfocus_off(8,CH8TEMP);
+							
+							maxfocus_on(1,COR1);
+							maxfocus_off(2,COR2);
+							maxfocus_off(3,COR3);
+							maxfocus_off(4,COR4);
+							maxfocus_off(5,COR5);
+							maxfocus_off(6,COR6);
+							maxfocus_off(7,COR7);
+							maxfocus_off(8,COR8);
+							
+							op_flag = set_min1;
+							cor_page = page1;
+						}
 					}break;
 					case page3:
 					{
@@ -4319,7 +5905,7 @@ void FUNC5_HANDLE(void)
 						LCD_DisplayStringLine(120,10,"026");
 						LCD_DisplayStringLine(160,10,"027");
 						LCD_DisplayStringLine(200,10,"028");
-						LCD_DisplayStringLine(240+20,10,"029");
+						LCD_DisplayStringLine(240,10,"029");
 						LCD_DisplayStringLine(280,10,"030");
 						LCD_DisplayStringLine(320,10,"031");
 						LCD_DisplayStringLine(360,10,"032");
@@ -4352,7 +5938,7 @@ void FUNC5_HANDLE(void)
 						LCD_DisplayStringLine(120,10,"034");
 						LCD_DisplayStringLine(160,10,"035");
 						LCD_DisplayStringLine(200,10,"036");
-						LCD_DisplayStringLine(240+20,10,"037");
+						LCD_DisplayStringLine(240,10,"037");
 						LCD_DisplayStringLine(280,10,"038");
 						LCD_DisplayStringLine(320,10,"039");
 						LCD_DisplayStringLine(360,10,"040");
@@ -4385,7 +5971,7 @@ void FUNC5_HANDLE(void)
 						LCD_DisplayStringLine(120,10,"002");
 						LCD_DisplayStringLine(160,10,"003");
 						LCD_DisplayStringLine(200,10,"004");
-						LCD_DisplayStringLine(240+20,10,"005");
+						LCD_DisplayStringLine(240,10,"005");
 						LCD_DisplayStringLine(280,10,"006");
 						LCD_DisplayStringLine(320,10,"007");
 						LCD_DisplayStringLine(360,10,"008");
@@ -6897,7 +8483,7 @@ void UP_HANDLE(void)
 						}
 						op_flag = home_ch8;
 					}
-					
+					DrawType(1);
 				}break;
 				case home_ch1:
 				{
@@ -7025,7 +8611,7 @@ void UP_HANDLE(void)
 						}
 						op_flag = home_type;
 					}
-					
+					Drawhomemenu();
 					
 				}break;
 				case home_ch2:
@@ -7094,7 +8680,7 @@ void UP_HANDLE(void)
 						}
 						op_flag = home_ch1;
 					}
-					
+					DrawType(1);
 				}break;
 				case home_ch3:
 				{
@@ -7163,7 +8749,7 @@ void UP_HANDLE(void)
 						}
 						op_flag = home_ch2;
 					}
-					
+					DrawType(1);
 				}break;
 				case home_ch4:
 				{
@@ -7231,7 +8817,7 @@ void UP_HANDLE(void)
 						}
 						op_flag = home_ch3;
 					}
-					
+					DrawType(1);
 				}break;
 				case home_ch5:
 				{
@@ -7299,7 +8885,7 @@ void UP_HANDLE(void)
 						}
 						op_flag = home_ch4;
 					}
-					
+					DrawType(1);
 				}break;
 				case home_ch6:
 				{
@@ -7366,7 +8952,7 @@ void UP_HANDLE(void)
 						}
 						op_flag = home_ch5;
 					}
-					
+					DrawType(1);
 				}break;
 				case home_ch7:
 				{
@@ -7434,7 +9020,7 @@ void UP_HANDLE(void)
 						}
 						op_flag = home_ch6;
 					}
-					
+					DrawType(1);
 				}break;
 				case home_ch8:
 				{
@@ -7501,7 +9087,7 @@ void UP_HANDLE(void)
 						}
 						op_flag = home_ch7;
 					}
-					
+					DrawType(1);
 				}break;
 				case home_ch9:
 				{
@@ -7530,6 +9116,7 @@ void UP_HANDLE(void)
 						}
 						op_flag = home_ch16;
 					}
+					DrawType(1);
 				}break;
 				case home_ch10:
 				{
@@ -7586,6 +9173,7 @@ void UP_HANDLE(void)
 						}
 						op_flag = home_ch10;
 					}	
+					DrawType(1);
 				}break;
 				case home_ch12:
 				{
@@ -7614,6 +9202,7 @@ void UP_HANDLE(void)
 						}
 						op_flag = home_ch11;
 					}
+					DrawType(1);
 				}break;
 				case home_ch13:
 				{
@@ -7642,6 +9231,7 @@ void UP_HANDLE(void)
 						}
 						op_flag = home_ch12;
 					}
+					DrawType(1);
 				}break;
 				case home_ch14:
 				{
@@ -7670,6 +9260,7 @@ void UP_HANDLE(void)
 						}
 						op_flag = home_ch13;
 					}
+					DrawType(1);
 				}break;
 				case home_ch15:
 				{
@@ -7698,6 +9289,7 @@ void UP_HANDLE(void)
 						}
 						op_flag = home_ch14;
 					}
+					DrawType(1);
 				}break;
 				case home_ch16:
 				{
@@ -7726,6 +9318,7 @@ void UP_HANDLE(void)
 						}
 						op_flag = home_ch15;
 					}
+					DrawType(1);
 				}break;
 				case home_ch17:
 				{
@@ -7749,6 +9342,7 @@ void UP_HANDLE(void)
 							op_flag = home_ch24;
 						}
 					}
+					DrawType(1);
 				}break;
 				case home_ch18:
 				{
@@ -7773,6 +9367,7 @@ void UP_HANDLE(void)
 							op_flag = home_ch17;
 						}
 					}
+					DrawType(1);
 				}break;
 				case home_ch19:
 				{
@@ -7796,6 +9391,7 @@ void UP_HANDLE(void)
 							op_flag = home_ch18;
 						}
 					}
+					DrawType(1);
 				}break;
 				case home_ch20:
 				{
@@ -7819,6 +9415,7 @@ void UP_HANDLE(void)
 							op_flag = home_ch19;
 						}
 					}
+					DrawType(1);
 				}break;
 				case home_ch21:
 				{
@@ -7842,6 +9439,7 @@ void UP_HANDLE(void)
 							op_flag = home_ch20;
 						}
 					}
+					DrawType(1);
 				}break;
 				case home_ch22:
 				{
@@ -7865,6 +9463,7 @@ void UP_HANDLE(void)
 							op_flag = home_ch21;
 						}
 					}
+					DrawType(1);
 				}break;
 				case home_ch23:
 				{
@@ -7888,6 +9487,7 @@ void UP_HANDLE(void)
 							op_flag = home_ch22;
 						}
 					}
+					DrawType(1);
 				}break;
 				case home_ch24:
 				{
@@ -7911,6 +9511,7 @@ void UP_HANDLE(void)
 							op_flag = home_ch23;
 						}
 					}
+					DrawType(1);
 				}break;
 				case home_ch25:
 				{
@@ -7925,6 +9526,7 @@ void UP_HANDLE(void)
 							op_flag = home_ch32;
 						}
 					}
+					DrawType(1);
 				}break;
 				case home_ch26:
 				{
@@ -7939,6 +9541,7 @@ void UP_HANDLE(void)
 							op_flag = home_ch25;
 						}
 					}
+					DrawType(1);
 				}break;
 				case home_ch27:
 				{
@@ -7953,6 +9556,7 @@ void UP_HANDLE(void)
 							op_flag = home_ch26;
 						}
 					}
+					DrawType(1);
 				}break;
 				case home_ch28:
 				{
@@ -7967,6 +9571,7 @@ void UP_HANDLE(void)
 							op_flag = home_ch27;
 						}
 					}
+					DrawType(1);
 				}break;
 				case home_ch29:
 				{
@@ -7981,6 +9586,7 @@ void UP_HANDLE(void)
 							op_flag = home_ch28;
 						}
 					}
+					DrawType(1);
 				}break;
 				case home_ch30:
 				{
@@ -7995,6 +9601,7 @@ void UP_HANDLE(void)
 							op_flag = home_ch29;
 						}
 					}
+					DrawType(1);
 				}break;
 				case home_ch31:
 				{
@@ -8009,6 +9616,7 @@ void UP_HANDLE(void)
 							op_flag = home_ch30;
 						}
 					}
+					DrawType(1);
 				}break;
 				case home_ch32:
 				{
@@ -8023,6 +9631,7 @@ void UP_HANDLE(void)
 							op_flag = home_ch31;
 						}
 					}
+					DrawType(1);
 				}break;
 				case home_ch33:
 				{
@@ -8037,6 +9646,7 @@ void UP_HANDLE(void)
 							op_flag = home_ch40;
 						}
 					}
+					DrawType(1);
 				}break;
 				case home_ch34:
 				{
@@ -8051,6 +9661,7 @@ void UP_HANDLE(void)
 							op_flag = home_ch33;
 						}
 					}
+					DrawType(1);
 				}break;
 				case home_ch35:
 				{
@@ -8065,6 +9676,7 @@ void UP_HANDLE(void)
 							op_flag = home_ch34;
 						}
 					}
+					DrawType(1);
 				}break;
 				case home_ch36:
 				{
@@ -8079,6 +9691,7 @@ void UP_HANDLE(void)
 							op_flag = home_ch35;
 						}
 					}
+					DrawType(1);
 				}break;
 				case home_ch37:
 				{
@@ -8093,6 +9706,7 @@ void UP_HANDLE(void)
 							op_flag = home_ch36;
 						}
 					}
+					DrawType(1);
 				}break;
 				case home_ch38:
 				{
@@ -8107,6 +9721,7 @@ void UP_HANDLE(void)
 							op_flag = home_ch37;
 						}
 					}
+					DrawType(1);
 				}break;
 				case home_ch39:
 				{
@@ -8121,6 +9736,7 @@ void UP_HANDLE(void)
 							op_flag = home_ch38;
 						}
 					}
+					DrawType(1);
 				}break;
 				case home_ch40:
 				{
@@ -8135,6 +9751,7 @@ void UP_HANDLE(void)
 							op_flag = home_ch39;
 						}
 					}
+					DrawType(1);
 				}break;
 			}
 		}break;
@@ -9032,10 +10649,10 @@ void UP_HANDLE(void)
 					focus_on1();
 					if(LANG == chs)
 					{
-						LCD_DisplayStringLine(50,170+10,"CHINESE");
+						LCD_DisplayStringLine(50,170,"CHINESE");
 						DrawInstruction("系统语言选择");
 					}else{
-						LCD_DisplayStringLine(50,170+10,"ENGLISH");
+						LCD_DisplayStringLine(50,170,"ENGLISH");
 						DrawInstruction("Select system language");
 					}					
 					op_flag = set_lang;
@@ -9055,7 +10672,7 @@ void UP_HANDLE(void)
 					}else if(BRTS == L4){
 						sprintf(buf,"%d",100);
 					}			
-					LCD_DisplayStringLine(130,170+10,(uint8_t*)buf);
+					LCD_DisplayStringLine(130,170,(uint8_t*)buf);
 					if(LANG == chs)
 					{
 						DrawInstruction("降低亮度时间");
@@ -9072,37 +10689,37 @@ void UP_HANDLE(void)
 						if(DIM == DOFF)
 						{
 //							brightness = 10;
-							LCD_DisplayStringLine(174,170+10,"关闭");
+							LCD_DisplayStringLine(174,170,"关闭");
 						}else if(DIM == D5){
 							sprintf(buf,"%d",5);
-							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
 						}else if(DIM == D10){
 							sprintf(buf,"%d",10);
-							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
 						}else if(DIM == D15){
 							sprintf(buf,"%d",15);
-							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
 						}else if(DIM == D30){
 							sprintf(buf,"%d",30);
-							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
 						}
 					}else{
 						if(DIM == DOFF)
 						{
 //							brightness = 10;
-							LCD_DisplayStringLine(172,170+10,"OFF");
+							LCD_DisplayStringLine(172,170,"OFF");
 						}else if(DIM == D5){
 							sprintf(buf,"%d",5);
-							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
 						}else if(DIM == D10){
 							sprintf(buf,"%d",10);
-							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
 						}else if(DIM == D15){
 							sprintf(buf,"%d",15);
-							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
 						}else if(DIM == D30){
 							sprintf(buf,"%d",30);
-							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
 						}
 					}	
 					focus_on1();
@@ -9118,7 +10735,7 @@ void UP_HANDLE(void)
 					}else if(BRTS == L4){
 						sprintf(buf,"%d",100);
 					}
-					LCD_DisplayStringLine(130,170+10,(uint8_t*)buf);
+					LCD_DisplayStringLine(130,170,(uint8_t*)buf);
 					if(LANG == chs)
 					{
 						DrawInstruction("背光亮度设置");
@@ -9135,36 +10752,36 @@ void UP_HANDLE(void)
 					{
 						if(DIM == DOFF)
 						{
-							LCD_DisplayStringLine(174,170+10,"关闭");
+							LCD_DisplayStringLine(174,170,"关闭");
 						}else if(DIM == D5){
 							sprintf(buf,"%d",5);
-							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
 						}else if(DIM == D10){
 							sprintf(buf,"%d",10);
-							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
 						}else if(DIM == D15){
 							sprintf(buf,"%d",15);
-							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
 						}else if(DIM == D30){
 							sprintf(buf,"%d",30);
-							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
 						}
 					}else if(LANG  == eng){
 						if(DIM == DOFF)
 						{
-							LCD_DisplayStringLine(172,170+10,"OFF");
+							LCD_DisplayStringLine(172,170,"OFF");
 						}else if(DIM == D5){
 							sprintf(buf,"%d",5);
-							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
 						}else if(DIM == D10){
 							sprintf(buf,"%d",10);
-							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
 						}else if(DIM == D15){
 							sprintf(buf,"%d",15);
-							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
 						}else if(DIM == D30){
 							sprintf(buf,"%d",30);
-							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
 						}
 					}
 					focus_off1();
@@ -9172,16 +10789,16 @@ void UP_HANDLE(void)
 					{
 						if(TOUCH == op_on)
 						{
-							LCD_DisplayStringLine(214,170+10,"打开");
+							LCD_DisplayStringLine(214,170,"打开");
 						}else{
-							LCD_DisplayStringLine(214,170+10,"关闭");
+							LCD_DisplayStringLine(214,170,"关闭");
 						}
 					}else if(LANG  == eng){
 						if(TOUCH == op_on)
 						{
-							LCD_DisplayStringLine(212,170+10,"ON");
+							LCD_DisplayStringLine(212,170,"ON");
 						}else{
-							LCD_DisplayStringLine(212,170+10,"OFF");
+							LCD_DisplayStringLine(212,170,"OFF");
 						}
 					}
 					op_flag = set_dim;
@@ -9268,7 +10885,7 @@ void DOWN_HANDLE(void)
 							DrawInstruction("通道设置");
 						}else{
 							DrawInstruction("Channel set");
-						}
+						}					
 						op_flag = home_ch1;
 					}else if(FONT == middle){
 						if(ch_page == page1)
@@ -9300,7 +10917,7 @@ void DOWN_HANDLE(void)
 							DrawInstruction("Channel set");
 						}
 					}
-					
+					DrawType(1);
 				}break;
 				case home_ch1:
 				{
@@ -9368,7 +10985,7 @@ void DOWN_HANDLE(void)
 						}
 						op_flag = home_ch2;
 					}
-					
+					DrawType(1);
 				}break;
 				case home_ch2:
 				{
@@ -9436,7 +11053,7 @@ void DOWN_HANDLE(void)
 						}
 						op_flag = home_ch3;
 					}
-					
+					DrawType(1);
 				}break;
 				case home_ch3:
 				{
@@ -9503,7 +11120,7 @@ void DOWN_HANDLE(void)
 						}
 						op_flag = home_ch4;
 					}
-					
+					DrawType(1);
 				}break;
 				case home_ch4:
 				{
@@ -9580,7 +11197,7 @@ void DOWN_HANDLE(void)
 						}
 						op_flag = home_ch5;
 					}
-					
+					DrawType(1);
 				}break;
 				case home_ch5:
 				{
@@ -9647,7 +11264,7 @@ void DOWN_HANDLE(void)
 						}
 						op_flag = home_ch6;
 					}
-					
+					DrawType(1);
 				}break;
 				case home_ch6:
 				{
@@ -9714,7 +11331,7 @@ void DOWN_HANDLE(void)
 						}
 						op_flag = home_ch7;
 					}
-					
+					DrawType(1);
 				}break;
 				case home_ch7:
 				{
@@ -9781,7 +11398,7 @@ void DOWN_HANDLE(void)
 						}
 						op_flag = home_ch8;
 					}
-					
+					DrawType(1);
 				}break;
 				case home_ch8:
 				{
@@ -9903,7 +11520,7 @@ void DOWN_HANDLE(void)
 							}
 							op_flag = home_type;
 						}
-						
+						Drawhomemenu();
 					}
 					
 				}break;
@@ -9933,6 +11550,7 @@ void DOWN_HANDLE(void)
 						}
 						op_flag = home_ch10;
 					}
+					DrawType(1);
 				}break;
 				case home_ch10:
 				{
@@ -9960,6 +11578,7 @@ void DOWN_HANDLE(void)
 						}
 						op_flag = home_ch11;
 					}
+					DrawType(1);
 				}break;
 				case home_ch11:
 				{
@@ -9987,6 +11606,7 @@ void DOWN_HANDLE(void)
 						}
 						op_flag = home_ch12;
 					}
+					DrawType(1);
 				}break;
 				case home_ch12:
 				{
@@ -10014,6 +11634,7 @@ void DOWN_HANDLE(void)
 						}
 						op_flag = home_ch13;
 					}
+					DrawType(1);
 				}break;
 				case home_ch13:
 				{
@@ -10041,6 +11662,7 @@ void DOWN_HANDLE(void)
 						}
 						op_flag = home_ch14;
 					}
+					DrawType(1);
 				}break;
 				case home_ch14:
 				{
@@ -10068,6 +11690,7 @@ void DOWN_HANDLE(void)
 						}
 						op_flag = home_ch15;
 					}
+					DrawType(1);
 				}break;
 				case home_ch15:
 				{
@@ -10095,6 +11718,7 @@ void DOWN_HANDLE(void)
 						}
 						op_flag = home_ch16;
 					}
+					DrawType(1);
 				}break;
 				case home_ch16:
 				{
@@ -10122,6 +11746,7 @@ void DOWN_HANDLE(void)
 						}
 						op_flag = home_ch9;
 					}
+					DrawType(1);
 				}break;
 				case home_ch17:
 				{
@@ -10141,6 +11766,7 @@ void DOWN_HANDLE(void)
 						}
 						op_flag = home_ch18;
 					}
+					DrawType(1);
 				}break;
 				case home_ch18:
 				{
@@ -10160,6 +11786,7 @@ void DOWN_HANDLE(void)
 						}
 						op_flag = home_ch19;
 					}
+					DrawType(1);
 				}break;
 				case home_ch19:
 				{
@@ -10179,6 +11806,7 @@ void DOWN_HANDLE(void)
 						}
 						op_flag = home_ch20;
 					}
+					DrawType(1);
 				}break;
 				case home_ch20:
 				{
@@ -10198,6 +11826,7 @@ void DOWN_HANDLE(void)
 						}
 						op_flag = home_ch21;
 					}
+					DrawType(1);
 				}break;
 				case home_ch21:
 				{
@@ -10217,6 +11846,7 @@ void DOWN_HANDLE(void)
 						}
 						op_flag = home_ch22;
 					}
+					DrawType(1);
 				}break;
 				case home_ch22:
 				{
@@ -10236,6 +11866,7 @@ void DOWN_HANDLE(void)
 						}
 						op_flag = home_ch23;
 					}
+					DrawType(1);
 				}break;
 				case home_ch23:
 				{
@@ -10255,6 +11886,7 @@ void DOWN_HANDLE(void)
 						}
 						op_flag = home_ch24;
 					}
+					DrawType(1);
 				}break;
 				case home_ch24:
 				{
@@ -10274,6 +11906,7 @@ void DOWN_HANDLE(void)
 						}
 						op_flag = home_ch17;
 					}
+					DrawType(1);
 				}break;
 				case home_ch25:
 				{
@@ -10287,6 +11920,7 @@ void DOWN_HANDLE(void)
 						}
 						op_flag = home_ch26;
 					}
+					DrawType(1);
 				}break;
 				case home_ch26:
 				{
@@ -10300,6 +11934,7 @@ void DOWN_HANDLE(void)
 						}
 						op_flag = home_ch27;
 					}
+					DrawType(1);
 				}break;
 				case home_ch27:
 				{
@@ -10313,6 +11948,7 @@ void DOWN_HANDLE(void)
 						}
 						op_flag = home_ch28;
 					}
+					DrawType(1);
 				}break;
 				case home_ch28:
 				{
@@ -10326,6 +11962,7 @@ void DOWN_HANDLE(void)
 						}
 						op_flag = home_ch29;
 					}
+					DrawType(1);
 				}break;
 				case home_ch29:
 				{
@@ -10339,6 +11976,7 @@ void DOWN_HANDLE(void)
 						}
 						op_flag = home_ch30;
 					}
+					DrawType(1);
 				}break;
 				case home_ch30:
 				{
@@ -10352,6 +11990,7 @@ void DOWN_HANDLE(void)
 						}
 						op_flag = home_ch31;
 					}
+					DrawType(1);
 				}break;				
 				case home_ch31:
 				{
@@ -10365,6 +12004,7 @@ void DOWN_HANDLE(void)
 						}
 						op_flag = home_ch32;
 					}
+					DrawType(1);
 				}break;
 				case home_ch32:
 				{
@@ -10378,6 +12018,7 @@ void DOWN_HANDLE(void)
 						}
 						op_flag = home_ch25;
 					}
+					DrawType(1);
 				}break;
 				case home_ch33:
 				{
@@ -10391,6 +12032,7 @@ void DOWN_HANDLE(void)
 						}
 						op_flag = home_ch34;
 					}
+					DrawType(1);
 				}break;
 				case home_ch34:
 				{
@@ -10404,6 +12046,7 @@ void DOWN_HANDLE(void)
 						}
 						op_flag = home_ch35;
 					}
+					DrawType(1);
 				}break;
 				case home_ch35:
 				{
@@ -10417,6 +12060,7 @@ void DOWN_HANDLE(void)
 						}
 						op_flag = home_ch36;
 					}
+					DrawType(1);
 				}break;
 				case home_ch36:
 				{
@@ -10430,6 +12074,7 @@ void DOWN_HANDLE(void)
 						}
 						op_flag = home_ch37;
 					}
+					DrawType(1);
 				}break;
 				case home_ch37:
 				{
@@ -10443,6 +12088,7 @@ void DOWN_HANDLE(void)
 						}
 						op_flag = home_ch38;
 					}
+					DrawType(1);
 				}break;
 				case home_ch38:
 				{
@@ -10456,6 +12102,7 @@ void DOWN_HANDLE(void)
 						}
 						op_flag = home_ch39;
 					}
+					DrawType(1);
 				}break;
 				case home_ch39:
 				{
@@ -10469,6 +12116,7 @@ void DOWN_HANDLE(void)
 						}
 						op_flag = home_ch40;
 					}
+					DrawType(1);
 				}break;
 				case home_ch40:
 				{
@@ -10482,6 +12130,7 @@ void DOWN_HANDLE(void)
 						}
 						op_flag = home_ch33;
 					}
+					DrawType(1);
 				}break;
 			}
 		}break;
@@ -11257,10 +12906,10 @@ void DOWN_HANDLE(void)
 					focus_off1();
 					if(LANG == chs)
 					{
-						LCD_DisplayStringLine(50,170+10,"CHINESE");
+						LCD_DisplayStringLine(50,170,"CHINESE");
 						DrawInstruction("年-月-日");
 					}else{
-						LCD_DisplayStringLine(50,170+10,"ENGLISH");
+						LCD_DisplayStringLine(50,170,"ENGLISH");
 						DrawInstruction("YEAR-MONTH-DAY");
 					}
 
@@ -11282,7 +12931,7 @@ void DOWN_HANDLE(void)
 						sprintf(buf,"%d",100);
 					}	
 					focus_on1();					
-					LCD_DisplayStringLine(130,170+10,(uint8_t*)buf);
+					LCD_DisplayStringLine(130,170,(uint8_t*)buf);
 					if(LANG == chs)
 					{
 						DrawInstruction("背光亮度设置");
@@ -11306,42 +12955,42 @@ void DOWN_HANDLE(void)
 					}else if(BRTS == L4){
 						sprintf(buf,"%d",100);
 					}		
-					LCD_DisplayStringLine(130,170+10,(uint8_t*)buf);
+					LCD_DisplayStringLine(130,170,(uint8_t*)buf);
 					focus_on1();
 					if(LANG == chs)
 					{
 						if(DIM == DOFF)
 						{
-							LCD_DisplayStringLine(174,170+10,"关闭");
+							LCD_DisplayStringLine(174,170,"关闭");
 						}else if(DIM == D5){
 							sprintf(buf,"%d",5);
-							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
 						}else if(DIM == D10){
 							sprintf(buf,"%d",10);
-							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
 						}else if(DIM == D15){
 							sprintf(buf,"%d",15);
-							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
 						}else if(DIM == D30){
 							sprintf(buf,"%d",30);
-							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
 						}
 					}else if(LANG  == eng){
 						if(DIM == DOFF)
 						{
-							LCD_DisplayStringLine(172,170+10,"OFF");
+							LCD_DisplayStringLine(172,170,"OFF");
 						}else if(DIM == D5){
 							sprintf(buf,"%d",5);
-							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
 						}else if(DIM == D10){
 							sprintf(buf,"%d",10);
-							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
 						}else if(DIM == D15){
 							sprintf(buf,"%d",15);
-							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
 						}else if(DIM == D30){
 							sprintf(buf,"%d",30);
-							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
 						}
 					}
 					if(LANG == chs)
@@ -11359,36 +13008,36 @@ void DOWN_HANDLE(void)
 					{
 						if(DIM == DOFF)
 						{
-							LCD_DisplayStringLine(174,170+10,"关闭");
+							LCD_DisplayStringLine(174,170,"关闭");
 						}else if(DIM == D5){
 							sprintf(buf,"%d",5);
-							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
 						}else if(DIM == D10){
 							sprintf(buf,"%d",10);
-							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
 						}else if(DIM == D15){
 							sprintf(buf,"%d",15);
-							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
 						}else if(DIM == D30){
 							sprintf(buf,"%d",30);
-							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
 						}
 					}else if(LANG  == eng){
 						if(DIM == DOFF)
 						{
-							LCD_DisplayStringLine(172,170+10,"OFF");
+							LCD_DisplayStringLine(172,170,"OFF");
 						}else if(DIM == D5){
 							sprintf(buf,"%d",5);
-							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
 						}else if(DIM == D10){
 							sprintf(buf,"%d",10);
-							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
 						}else if(DIM == D15){
 							sprintf(buf,"%d",15);
-							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
 						}else if(DIM == D30){
 							sprintf(buf,"%d",30);
-							LCD_DisplayStringLine(172,170+10,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
 						}
 					}
 					focus_on1();
@@ -11396,16 +13045,16 @@ void DOWN_HANDLE(void)
 					{
 						if(TOUCH == op_on)
 						{
-							LCD_DisplayStringLine(214,170+10,"打开");
+							LCD_DisplayStringLine(214,170,"打开");
 						}else{
-							LCD_DisplayStringLine(214,170+10,"关闭");
+							LCD_DisplayStringLine(214,170,"关闭");
 						}
 					}else if(LANG  == eng){
 						if(TOUCH == op_on)
 						{
-							LCD_DisplayStringLine(212,170+10,"ON");
+							LCD_DisplayStringLine(212,170,"ON");
 						}else{
-							LCD_DisplayStringLine(212,170+10,"OFF");
+							LCD_DisplayStringLine(212,170,"OFF");
 						}
 					}
 					op_flag = set_touch;
@@ -14384,7 +16033,12 @@ void Utest(void)
 			//fileflag = 0;
 		}
 		CH376ByteLocate(0xFFFFFFFF);
-		sprintf((char *)buf,"\t日期\t时间\t通道1\t通道2\t通道3\t通道4\t通道5\t通道6\t通道7\t通道8\t通道9\t通道10\t通道11\t通道12\t通道13\t通道14\t通道15\t通道16");
+		if(CHNUM == 16)
+		{
+			sprintf((char *)buf,"\t日期\t时间\t通道1\t通道2\t通道3\t通道4\t通道5\t通道6\t通道7\t通道8\t通道9\t通道10\t通道11\t通道12\t通道13\t通道14\t通道15\t通道16");
+		}else if(CHNUM == 8){
+			sprintf((char *)buf,"\t日期\t时间\t通道1\t通道2\t通道3\t通道4\t通道5\t通道6\t通道7\t通道8");
+		}
 		s = CH376ByteWrite(buf, strlen((const char *)buf), NULL );
 		if(s != 0x14)
 		{
@@ -14425,7 +16079,7 @@ void Utest(void)
 	{
 		//fileflag = 0;
 	}
-	for(i=0;i<16;i++)
+	for(i=0;i<CHNUM;i++)
 	{
 
 		if(ch_temp[i] > 1999)

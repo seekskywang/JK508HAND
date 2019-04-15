@@ -119,6 +119,10 @@
       <TargetDriverDllRegistry>
         <SetRegEntry>
           <Number>0</Number>
+          <Key>DLGUARM</Key>
+        </SetRegEntry>
+        <SetRegEntry>
+          <Number>0</Number>
           <Key>PWSTATINFO</Key>
           <Name>200,50,700</Name>
         </SetRegEntry>
@@ -151,6 +155,22 @@
       <Breakpoint>
         <Bp>
           <Number>0</Number>
+          <Type>0</Type>
+          <LineNumber>1194</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134244342</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>F:\JK508\Project\User\APP\home.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\LCD\../../User/APP/home.c\1194</Expression>
+        </Bp>
+        <Bp>
+          <Number>1</Number>
           <Type>0</Type>
           <LineNumber>1959</LineNumber>
           <EnabledFlag>0</EnabledFlag>
@@ -416,6 +436,16 @@
           <count>49</count>
           <WinNumber>1</WinNumber>
           <ItemText>trigflag</ItemText>
+        </Ww>
+        <Ww>
+          <count>50</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>pt</ItemText>
+        </Ww>
+        <Ww>
+          <count>51</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>CH11TYPE</ItemText>
         </Ww>
       </WatchWindow1>
       <WatchWindow2>

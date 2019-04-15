@@ -2542,205 +2542,208 @@ void TouchHandle(u16 x,u16 y)
 			}break;
 			case calibrate:
 			{
-				ButtonSound();//°´¼üÒô
+				
 				if(x >= MENU1X1 && x <= MENU1X2 && y >= MENUY1 && y <= MENUY2)
 				{
-					
+					ButtonSound();//°´¼üÒô
 					page_home();
 					press = 1;
 					
 				}else
 				if(x >= MENU2X1 && x <= MENU2X2 && y >= MENUY1 && y <= MENUY2)
-				{					
+				{		
+					ButtonSound();//°´¼üÒô
 					page_graph();
 					press = 1;
 				}else
 				if(x >= MENU3X1 && x <= MENU3X2 && y >= MENUY1 && y <= MENUY2)
 				{
+					ButtonSound();//°´¼üÒô
 					press = 1;
 					page_sys();
 					press = 1;
 				}else
 				if(x >= MENU4X1 && x <= MENU4X2 && y >= MENUY1 && y <= MENUY2)
 				{
+					ButtonSound();//°´¼üÒô
 					page_set();
 					press = 1;
-				}else
-				if(x >= MENU5X1 && x <= MENU5X2 && y >= MENUY1 && y <= MENUY2)
-				{
-					if(CHNUM > 8)
-					{
-						switch(cor_page)
-						{
-							case page1:
-							{
-								LCD_SetTextColor(LCD_COLOR_LIGHTBLUE);	
-								LCD_SetBackColor(LCD_COLOR_BACK);
-								LCD_DisplayStringLine(80,10,"009");
-								LCD_DisplayStringLine(120,10,"010");
-								LCD_DisplayStringLine(160,10,"011");
-								LCD_DisplayStringLine(200,10,"012");
-								LCD_DisplayStringLine(240,10,"013");
-								LCD_DisplayStringLine(280,10,"014");
-								LCD_DisplayStringLine(320,10,"015");
-								LCD_DisplayStringLine(360,10,"016");
-								minfocus_off(1,CH9TEMP);
-								minfocus_off(2,CH10TEMP);
-								minfocus_off(3,CH11TEMP);
-								minfocus_off(4,CH12TEMP);
-								minfocus_off(5,CH13TEMP);
-								minfocus_off(6,CH14TEMP);
-								minfocus_off(7,CH15TEMP);
-								minfocus_off(8,CH16TEMP);
-								
-								maxfocus_on(1,COR9);
-								maxfocus_off(2,COR10);
-								maxfocus_off(3,COR11);
-								maxfocus_off(4,COR12);
-								maxfocus_off(5,COR13);
-								maxfocus_off(6,COR14);
-								maxfocus_off(7,COR15);
-								maxfocus_off(8,COR16);
-								
-								op_flag = set_c1;
-								cor_page = page2;
-							}break;
-							case page2:
-							{
-								LCD_SetTextColor(LCD_COLOR_LIGHTBLUE);	
-								LCD_SetBackColor(LCD_COLOR_BACK);
-								LCD_DisplayStringLine(80,10,"017");
-								LCD_DisplayStringLine(120,10,"018");
-								LCD_DisplayStringLine(160,10,"019");
-								LCD_DisplayStringLine(200,10,"020");
-								LCD_DisplayStringLine(240,10,"021");
-								LCD_DisplayStringLine(280,10,"022");
-								LCD_DisplayStringLine(320,10,"023");
-								LCD_DisplayStringLine(360,10,"024");
-								minfocus_off(1,CH17TEMP);
-								minfocus_off(2,CH18TEMP);
-								minfocus_off(3,CH19TEMP);
-								minfocus_off(4,CH20TEMP);
-								minfocus_off(5,CH21TEMP);
-								minfocus_off(6,CH22TEMP);
-								minfocus_off(7,CH23TEMP);
-								minfocus_off(8,CH24TEMP);
-								
-								maxfocus_on(1,COR17);
-								maxfocus_off(2,COR18);
-								maxfocus_off(3,COR19);
-								maxfocus_off(4,COR20);
-								maxfocus_off(5,COR21);
-								maxfocus_off(6,COR22);
-								maxfocus_off(7,COR23);
-								maxfocus_off(8,COR24);
-								
-								op_flag = set_c1;
-								cor_page = page3;
-							}break;
-							case page3:
-							{
-								LCD_SetTextColor(LCD_COLOR_LIGHTBLUE);	
-								LCD_SetBackColor(LCD_COLOR_BACK);
-								LCD_DisplayStringLine(80,10,"025");
-								LCD_DisplayStringLine(120,10,"026");
-								LCD_DisplayStringLine(160,10,"027");
-								LCD_DisplayStringLine(200,10,"028");
-								LCD_DisplayStringLine(240,10,"029");
-								LCD_DisplayStringLine(280,10,"030");
-								LCD_DisplayStringLine(320,10,"031");
-								LCD_DisplayStringLine(360,10,"032");
-								minfocus_off(1,CH25TEMP);
-								minfocus_off(2,CH26TEMP);
-								minfocus_off(3,CH27TEMP);
-								minfocus_off(4,CH28TEMP);
-								minfocus_off(5,CH29TEMP);
-								minfocus_off(6,CH30TEMP);
-								minfocus_off(7,CH31TEMP);
-								minfocus_off(8,CH32TEMP);
-								
-								maxfocus_on(1,COR25);
-								maxfocus_off(2,COR26);
-								maxfocus_off(3,COR27);
-								maxfocus_off(4,COR28);
-								maxfocus_off(5,COR29);
-								maxfocus_off(6,COR30);
-								maxfocus_off(7,COR31);
-								maxfocus_off(8,COR32);
-								
-								op_flag = set_c1;
-								cor_page = page4;
-							}break;
-							case page4:
-							{
-								LCD_SetTextColor(LCD_COLOR_LIGHTBLUE);	
-								LCD_SetBackColor(LCD_COLOR_BACK);
-								LCD_DisplayStringLine(80,10,"033");
-								LCD_DisplayStringLine(120,10,"034");
-								LCD_DisplayStringLine(160,10,"035");
-								LCD_DisplayStringLine(200,10,"036");
-								LCD_DisplayStringLine(240,10,"037");
-								LCD_DisplayStringLine(280,10,"038");
-								LCD_DisplayStringLine(320,10,"039");
-								LCD_DisplayStringLine(360,10,"040");
-								minfocus_off(1,CH33TEMP);
-								minfocus_off(2,CH34TEMP);
-								minfocus_off(3,CH35TEMP);
-								minfocus_off(4,CH36TEMP);
-								minfocus_off(5,CH37TEMP);
-								minfocus_off(6,CH38TEMP);
-								minfocus_off(7,CH39TEMP);
-								minfocus_off(8,CH40TEMP);
-								
-								maxfocus_on(1,COR33);
-								maxfocus_off(2,COR34);
-								maxfocus_off(3,COR35);
-								maxfocus_off(4,COR36);
-								maxfocus_off(5,COR37);
-								maxfocus_off(6,COR38);
-								maxfocus_off(7,COR39);
-								maxfocus_off(8,COR40);
-								
-								op_flag = set_c1;
-								cor_page = page5;
-							}break;
-							case page5:
-							{
-								LCD_SetTextColor(LCD_COLOR_LIGHTBLUE);	
-								LCD_SetBackColor(LCD_COLOR_BACK);
-								LCD_DisplayStringLine(80,10,"001");
-								LCD_DisplayStringLine(120,10,"002");
-								LCD_DisplayStringLine(160,10,"003");
-								LCD_DisplayStringLine(200,10,"004");
-								LCD_DisplayStringLine(240,10,"005");
-								LCD_DisplayStringLine(280,10,"006");
-								LCD_DisplayStringLine(320,10,"007");
-								LCD_DisplayStringLine(360,10,"008");
-								minfocus_off(1,CH1TEMP);
-								minfocus_off(2,CH2TEMP);
-								minfocus_off(3,CH3TEMP);
-								minfocus_off(4,CH4TEMP);
-								minfocus_off(5,CH5TEMP);
-								minfocus_off(6,CH6TEMP);
-								minfocus_off(7,CH7TEMP);
-								minfocus_off(8,CH8TEMP);
-								
-								maxfocus_on(1,COR1);
-								maxfocus_off(2,COR2);
-								maxfocus_off(3,COR3);
-								maxfocus_off(4,COR4);
-								maxfocus_off(5,COR5);
-								maxfocus_off(6,COR6);
-								maxfocus_off(7,COR7);
-								maxfocus_off(8,COR8);
-								
-								op_flag = set_min1;
-								cor_page = page1;
-							}break;
-						}
-					}
-					press = 1;
 				}
+//				if(x >= MENU5X1 && x <= MENU5X2 && y >= MENUY1 && y <= MENUY2)
+//				{
+//					if(CHNUM > 8)
+//					{
+//						switch(cor_page)
+//						{
+//							case page1:
+//							{
+//								LCD_SetTextColor(LCD_COLOR_LIGHTBLUE);	
+//								LCD_SetBackColor(LCD_COLOR_BACK);
+//								LCD_DisplayStringLine(80,10,"009");
+//								LCD_DisplayStringLine(120,10,"010");
+//								LCD_DisplayStringLine(160,10,"011");
+//								LCD_DisplayStringLine(200,10,"012");
+//								LCD_DisplayStringLine(240,10,"013");
+//								LCD_DisplayStringLine(280,10,"014");
+//								LCD_DisplayStringLine(320,10,"015");
+//								LCD_DisplayStringLine(360,10,"016");
+//								minfocus_off(1,CH9TEMP);
+//								minfocus_off(2,CH10TEMP);
+//								minfocus_off(3,CH11TEMP);
+//								minfocus_off(4,CH12TEMP);
+//								minfocus_off(5,CH13TEMP);
+//								minfocus_off(6,CH14TEMP);
+//								minfocus_off(7,CH15TEMP);
+//								minfocus_off(8,CH16TEMP);
+//								
+//								maxfocus_on(1,COR9);
+//								maxfocus_off(2,COR10);
+//								maxfocus_off(3,COR11);
+//								maxfocus_off(4,COR12);
+//								maxfocus_off(5,COR13);
+//								maxfocus_off(6,COR14);
+//								maxfocus_off(7,COR15);
+//								maxfocus_off(8,COR16);
+//								
+//								op_flag = set_c1;
+//								cor_page = page2;
+//							}break;
+//							case page2:
+//							{
+//								LCD_SetTextColor(LCD_COLOR_LIGHTBLUE);	
+//								LCD_SetBackColor(LCD_COLOR_BACK);
+//								LCD_DisplayStringLine(80,10,"017");
+//								LCD_DisplayStringLine(120,10,"018");
+//								LCD_DisplayStringLine(160,10,"019");
+//								LCD_DisplayStringLine(200,10,"020");
+//								LCD_DisplayStringLine(240,10,"021");
+//								LCD_DisplayStringLine(280,10,"022");
+//								LCD_DisplayStringLine(320,10,"023");
+//								LCD_DisplayStringLine(360,10,"024");
+//								minfocus_off(1,CH17TEMP);
+//								minfocus_off(2,CH18TEMP);
+//								minfocus_off(3,CH19TEMP);
+//								minfocus_off(4,CH20TEMP);
+//								minfocus_off(5,CH21TEMP);
+//								minfocus_off(6,CH22TEMP);
+//								minfocus_off(7,CH23TEMP);
+//								minfocus_off(8,CH24TEMP);
+//								
+//								maxfocus_on(1,COR17);
+//								maxfocus_off(2,COR18);
+//								maxfocus_off(3,COR19);
+//								maxfocus_off(4,COR20);
+//								maxfocus_off(5,COR21);
+//								maxfocus_off(6,COR22);
+//								maxfocus_off(7,COR23);
+//								maxfocus_off(8,COR24);
+//								
+//								op_flag = set_c1;
+//								cor_page = page3;
+//							}break;
+//							case page3:
+//							{
+//								LCD_SetTextColor(LCD_COLOR_LIGHTBLUE);	
+//								LCD_SetBackColor(LCD_COLOR_BACK);
+//								LCD_DisplayStringLine(80,10,"025");
+//								LCD_DisplayStringLine(120,10,"026");
+//								LCD_DisplayStringLine(160,10,"027");
+//								LCD_DisplayStringLine(200,10,"028");
+//								LCD_DisplayStringLine(240,10,"029");
+//								LCD_DisplayStringLine(280,10,"030");
+//								LCD_DisplayStringLine(320,10,"031");
+//								LCD_DisplayStringLine(360,10,"032");
+//								minfocus_off(1,CH25TEMP);
+//								minfocus_off(2,CH26TEMP);
+//								minfocus_off(3,CH27TEMP);
+//								minfocus_off(4,CH28TEMP);
+//								minfocus_off(5,CH29TEMP);
+//								minfocus_off(6,CH30TEMP);
+//								minfocus_off(7,CH31TEMP);
+//								minfocus_off(8,CH32TEMP);
+//								
+//								maxfocus_on(1,COR25);
+//								maxfocus_off(2,COR26);
+//								maxfocus_off(3,COR27);
+//								maxfocus_off(4,COR28);
+//								maxfocus_off(5,COR29);
+//								maxfocus_off(6,COR30);
+//								maxfocus_off(7,COR31);
+//								maxfocus_off(8,COR32);
+//								
+//								op_flag = set_c1;
+//								cor_page = page4;
+//							}break;
+//							case page4:
+//							{
+//								LCD_SetTextColor(LCD_COLOR_LIGHTBLUE);	
+//								LCD_SetBackColor(LCD_COLOR_BACK);
+//								LCD_DisplayStringLine(80,10,"033");
+//								LCD_DisplayStringLine(120,10,"034");
+//								LCD_DisplayStringLine(160,10,"035");
+//								LCD_DisplayStringLine(200,10,"036");
+//								LCD_DisplayStringLine(240,10,"037");
+//								LCD_DisplayStringLine(280,10,"038");
+//								LCD_DisplayStringLine(320,10,"039");
+//								LCD_DisplayStringLine(360,10,"040");
+//								minfocus_off(1,CH33TEMP);
+//								minfocus_off(2,CH34TEMP);
+//								minfocus_off(3,CH35TEMP);
+//								minfocus_off(4,CH36TEMP);
+//								minfocus_off(5,CH37TEMP);
+//								minfocus_off(6,CH38TEMP);
+//								minfocus_off(7,CH39TEMP);
+//								minfocus_off(8,CH40TEMP);
+//								
+//								maxfocus_on(1,COR33);
+//								maxfocus_off(2,COR34);
+//								maxfocus_off(3,COR35);
+//								maxfocus_off(4,COR36);
+//								maxfocus_off(5,COR37);
+//								maxfocus_off(6,COR38);
+//								maxfocus_off(7,COR39);
+//								maxfocus_off(8,COR40);
+//								
+//								op_flag = set_c1;
+//								cor_page = page5;
+//							}break;
+//							case page5:
+//							{
+//								LCD_SetTextColor(LCD_COLOR_LIGHTBLUE);	
+//								LCD_SetBackColor(LCD_COLOR_BACK);
+//								LCD_DisplayStringLine(80,10,"001");
+//								LCD_DisplayStringLine(120,10,"002");
+//								LCD_DisplayStringLine(160,10,"003");
+//								LCD_DisplayStringLine(200,10,"004");
+//								LCD_DisplayStringLine(240,10,"005");
+//								LCD_DisplayStringLine(280,10,"006");
+//								LCD_DisplayStringLine(320,10,"007");
+//								LCD_DisplayStringLine(360,10,"008");
+//								minfocus_off(1,CH1TEMP);
+//								minfocus_off(2,CH2TEMP);
+//								minfocus_off(3,CH3TEMP);
+//								minfocus_off(4,CH4TEMP);
+//								minfocus_off(5,CH5TEMP);
+//								minfocus_off(6,CH6TEMP);
+//								minfocus_off(7,CH7TEMP);
+//								minfocus_off(8,CH8TEMP);
+//								
+//								maxfocus_on(1,COR1);
+//								maxfocus_off(2,COR2);
+//								maxfocus_off(3,COR3);
+//								maxfocus_off(4,COR4);
+//								maxfocus_off(5,COR5);
+//								maxfocus_off(6,COR6);
+//								maxfocus_off(7,COR7);
+//								maxfocus_off(8,COR8);
+//								
+//								op_flag = set_min1;
+//								cor_page = page1;
+//							}break;
+//						}
+//					}
+//					press = 1;
+//				}
 			}break;
 			case separation:
 			{

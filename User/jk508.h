@@ -63,6 +63,7 @@ extern u8 press;
 extern u8 spt_page;
 extern u8 cor_page;
 extern u8 trigflag;
+extern u8 tcpage;
 
 void page_home(void);
 void page_set(void);
@@ -121,7 +122,7 @@ void DrawLogo(u16 x,u16 y);
 void dim_set(u8 key);
 void stimefocus_on(int lmt);
 void stimefocus_off(int lmt);
-
+void Disp_Type(void);
 
 extern u8 usbbuf[0x40];
 uint16_t CRC16(uint8_t *puchMsg, uint8_t Len);
@@ -444,6 +445,22 @@ uint32_t Flash_DisableReadProtection(void);
 #define   STARTM					savedata[57]//开始时间M
 #define   ENDH						savedata[58]//开始时间H
 #define   ENDM						savedata[59]//开始时间M
+#define   CH1TYPE					savedata[60]//热电偶类型1
+#define   CH2TYPE					savedata[61]//热电偶类型2
+#define   CH3TYPE					savedata[62]//热电偶类型3
+#define   CH4TYPE					savedata[63]//热电偶类型4
+#define   CH5TYPE					savedata[64]//热电偶类型5
+#define   CH6TYPE					savedata[65]//热电偶类型6
+#define   CH7TYPE					savedata[66]//热电偶类型7
+#define   CH8TYPE					savedata[67]//热电偶类型8
+#define   CH9TYPE					savedata[68]//热电偶类型9
+#define   CH10TYPE					savedata[69]//热电偶类型10
+#define   CH11TYPE					savedata[70]//热电偶类型11
+#define   CH12TYPE					savedata[71]//热电偶类型12
+#define   CH13TYPE					savedata[72]//热电偶类型13
+#define   CH14TYPE					savedata[73]//热电偶类型14
+#define   CH15TYPE					savedata[74]//热电偶类型15
+#define   CH16TYPE					savedata[75]//热电偶类型16
 
 /* 校准参数 */
 #define   XCOR						corpara[0]  

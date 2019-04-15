@@ -551,6 +551,7 @@ void DrawMenu(void)
 /*测量显示页面根菜单*/
 void Drawhomemenu(void)
 {
+	DrawMenu();
 	LCD_SetTextColor(LCD_COLOR_BT);
 	LCD_SetBackColor(LCD_COLOR_BLACK);
 	if(LANG == chs)
