@@ -64,6 +64,7 @@ extern u8 spt_page;
 extern u8 cor_page;
 extern u8 trigflag;
 extern u8 tcpage;
+extern u8 tcflag;
 
 void page_home(void);
 void page_set(void);

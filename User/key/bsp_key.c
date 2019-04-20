@@ -49,6 +49,7 @@ u8 keystat;
 u8 date_time[6] = {0,1,1,0,0,0};
 u8 tcpage;
 u8 fileflag;
+u8 tcflag = 0;
 extern union 
 {
    unsigned char FLAG_VAL;
@@ -2022,7 +2023,7 @@ void FUNC1_HANDLE(void)
 					op_flag = home_type;
 					TCTYPE = TCT;
 					Save_flag();
-					SetTctype(TCTYPE);
+					tcflag = TCTYPE;
 					}break;
 				case type_2:
 				{
@@ -2036,7 +2037,7 @@ void FUNC1_HANDLE(void)
 					op_flag = home_type;
 					TCTYPE = TCE;
 					Save_flag();
-					SetTctype(TCTYPE);					
+					tcflag = TCTYPE;					
 				}break;
 				case type_3:
 				{
@@ -2050,7 +2051,7 @@ void FUNC1_HANDLE(void)
 					op_flag = home_type;
 					TCTYPE = PT100;
 					Save_flag();
-					SetTctype(TCTYPE);
+					tcflag = TCTYPE;
 				}break;
 				case set_font:
 				{
@@ -2095,7 +2096,7 @@ void FUNC1_HANDLE(void)
 							CH9TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch2:
 				{
@@ -2119,7 +2120,7 @@ void FUNC1_HANDLE(void)
 							CH10TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch3:
 				{
@@ -2143,7 +2144,7 @@ void FUNC1_HANDLE(void)
 							CH11TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch4:
 				{
@@ -2167,7 +2168,7 @@ void FUNC1_HANDLE(void)
 							CH12TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch5:
 				{
@@ -2191,7 +2192,7 @@ void FUNC1_HANDLE(void)
 							CH13TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch6:
 				{
@@ -2215,7 +2216,7 @@ void FUNC1_HANDLE(void)
 							CH14TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch7:
 				{
@@ -2239,7 +2240,7 @@ void FUNC1_HANDLE(void)
 							CH15TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch8:
 				{
@@ -2263,7 +2264,7 @@ void FUNC1_HANDLE(void)
 							CH16TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch9:
 				{
@@ -2278,7 +2279,7 @@ void FUNC1_HANDLE(void)
 							CH9TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch10:
 				{
@@ -2293,7 +2294,7 @@ void FUNC1_HANDLE(void)
 							CH10TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch11:
 				{
@@ -2308,7 +2309,7 @@ void FUNC1_HANDLE(void)
 							CH11TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch12:
 				{
@@ -2323,7 +2324,7 @@ void FUNC1_HANDLE(void)
 							CH12TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch13:
 				{
@@ -2338,7 +2339,7 @@ void FUNC1_HANDLE(void)
 							CH13TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch14:
 				{
@@ -2353,7 +2354,7 @@ void FUNC1_HANDLE(void)
 							CH14TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch15:
 				{
@@ -2368,7 +2369,7 @@ void FUNC1_HANDLE(void)
 							CH15TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch16:
 				{
@@ -2383,7 +2384,7 @@ void FUNC1_HANDLE(void)
 							CH16TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				default:
 				{
@@ -2648,7 +2649,7 @@ void FUNC2_HANDLE(void)
 					op_flag = home_type;
 					TCTYPE = TCK;
 					Save_flag();
-					SetTctype(TCTYPE);
+					tcflag = TCTYPE;
 				}break;
 				case type_2:
 				{
@@ -2662,7 +2663,7 @@ void FUNC2_HANDLE(void)
 					op_flag = home_type;
 					TCTYPE = TCS;
 					Save_flag();
-					SetTctype(TCTYPE);
+					tcflag = TCTYPE;
 				}break;
 				case set_font:
 				{
@@ -2707,7 +2708,7 @@ void FUNC2_HANDLE(void)
 							CH9TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch2:
 				{
@@ -2731,7 +2732,7 @@ void FUNC2_HANDLE(void)
 							CH10TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch3:
 				{
@@ -2755,7 +2756,7 @@ void FUNC2_HANDLE(void)
 							CH11TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch4:
 				{
@@ -2779,7 +2780,7 @@ void FUNC2_HANDLE(void)
 							CH12TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch5:
 				{
@@ -2803,7 +2804,7 @@ void FUNC2_HANDLE(void)
 							CH13TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch6:
 				{
@@ -2827,7 +2828,7 @@ void FUNC2_HANDLE(void)
 							CH14TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch7:
 				{
@@ -2851,7 +2852,7 @@ void FUNC2_HANDLE(void)
 							CH15TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch8:
 				{
@@ -2875,7 +2876,7 @@ void FUNC2_HANDLE(void)
 							CH16TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch9:
 				{
@@ -2890,7 +2891,7 @@ void FUNC2_HANDLE(void)
 							CH9TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch10:
 				{
@@ -2905,7 +2906,7 @@ void FUNC2_HANDLE(void)
 							CH10TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch11:
 				{
@@ -2920,7 +2921,7 @@ void FUNC2_HANDLE(void)
 							CH11TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch12:
 				{
@@ -2935,7 +2936,7 @@ void FUNC2_HANDLE(void)
 							CH12TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch13:
 				{
@@ -2950,7 +2951,7 @@ void FUNC2_HANDLE(void)
 							CH13TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch14:
 				{
@@ -2965,7 +2966,7 @@ void FUNC2_HANDLE(void)
 							CH14TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch15:
 				{
@@ -2980,7 +2981,7 @@ void FUNC2_HANDLE(void)
 							CH15TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch16:
 				{
@@ -2995,7 +2996,7 @@ void FUNC2_HANDLE(void)
 							CH16TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				default:
 				{
@@ -3255,7 +3256,7 @@ void FUNC3_HANDLE(void)
 					op_flag = home_type;
 					TCTYPE = TCJ;
 					Save_flag();
-					SetTctype(TCTYPE);
+					tcflag = TCTYPE;
 				}break;
 				case type_2:
 				{
@@ -3269,7 +3270,7 @@ void FUNC3_HANDLE(void)
 					op_flag = home_type;
 					TCTYPE = TCR;
 					Save_flag();
-					SetTctype(TCTYPE);
+					tcflag = TCTYPE;
 				}break;
 				case set_font:
 				{
@@ -3314,7 +3315,7 @@ void FUNC3_HANDLE(void)
 							CH9TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch2:
 				{
@@ -3338,7 +3339,7 @@ void FUNC3_HANDLE(void)
 							CH10TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch3:
 				{
@@ -3362,7 +3363,7 @@ void FUNC3_HANDLE(void)
 							CH11TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch4:
 				{
@@ -3386,7 +3387,7 @@ void FUNC3_HANDLE(void)
 							CH12TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch5:
 				{
@@ -3410,7 +3411,7 @@ void FUNC3_HANDLE(void)
 							CH13TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch6:
 				{
@@ -3434,7 +3435,7 @@ void FUNC3_HANDLE(void)
 							CH14TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch7:
 				{
@@ -3458,7 +3459,7 @@ void FUNC3_HANDLE(void)
 							CH15TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch8:
 				{
@@ -3482,7 +3483,7 @@ void FUNC3_HANDLE(void)
 							CH16TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch9:
 				{
@@ -3497,7 +3498,7 @@ void FUNC3_HANDLE(void)
 							CH9TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch10:
 				{
@@ -3512,7 +3513,7 @@ void FUNC3_HANDLE(void)
 							CH10TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch11:
 				{
@@ -3527,7 +3528,7 @@ void FUNC3_HANDLE(void)
 							CH11TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch12:
 				{
@@ -3542,7 +3543,7 @@ void FUNC3_HANDLE(void)
 							CH12TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch13:
 				{
@@ -3557,7 +3558,7 @@ void FUNC3_HANDLE(void)
 							CH13TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch14:
 				{
@@ -3572,7 +3573,7 @@ void FUNC3_HANDLE(void)
 							CH14TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch15:
 				{
@@ -3587,7 +3588,7 @@ void FUNC3_HANDLE(void)
 							CH15TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch16:
 				{
@@ -3602,7 +3603,7 @@ void FUNC3_HANDLE(void)
 							CH16TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				default:
 				{
@@ -3758,7 +3759,7 @@ void FUNC4_HANDLE(void)
 					op_flag = home_type;
 					TCTYPE = TCN;
 					Save_flag();
-					SetTctype(TCTYPE);
+					tcflag = TCTYPE;
 				}break;
 				case type_2:
 				{
@@ -3772,7 +3773,7 @@ void FUNC4_HANDLE(void)
 					op_flag = home_type;
 					TCTYPE = TCB;
 					Save_flag();
-					SetTctype(TCTYPE);
+					tcflag = TCTYPE;
 				}break;
 				case home_ch1:
 				{
@@ -3796,7 +3797,7 @@ void FUNC4_HANDLE(void)
 							CH9TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch2:
 				{
@@ -3820,7 +3821,7 @@ void FUNC4_HANDLE(void)
 							CH10TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch3:
 				{
@@ -3844,7 +3845,7 @@ void FUNC4_HANDLE(void)
 							CH11TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch4:
 				{
@@ -3868,7 +3869,7 @@ void FUNC4_HANDLE(void)
 							CH12TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch5:
 				{
@@ -3892,7 +3893,7 @@ void FUNC4_HANDLE(void)
 							CH13TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch6:
 				{
@@ -3916,7 +3917,7 @@ void FUNC4_HANDLE(void)
 							CH14TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch7:
 				{
@@ -3940,7 +3941,7 @@ void FUNC4_HANDLE(void)
 							CH15TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch8:
 				{
@@ -3964,7 +3965,7 @@ void FUNC4_HANDLE(void)
 							CH16TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch9:
 				{
@@ -3979,7 +3980,7 @@ void FUNC4_HANDLE(void)
 							CH9TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch10:
 				{
@@ -3994,7 +3995,7 @@ void FUNC4_HANDLE(void)
 							CH10TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch11:
 				{
@@ -4009,7 +4010,7 @@ void FUNC4_HANDLE(void)
 							CH11TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch12:
 				{
@@ -4024,7 +4025,7 @@ void FUNC4_HANDLE(void)
 							CH12TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch13:
 				{
@@ -4039,7 +4040,7 @@ void FUNC4_HANDLE(void)
 							CH13TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch14:
 				{
@@ -4054,7 +4055,7 @@ void FUNC4_HANDLE(void)
 							CH14TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch15:
 				{
@@ -4069,7 +4070,7 @@ void FUNC4_HANDLE(void)
 							CH15TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				case home_ch16:
 				{
@@ -4084,7 +4085,7 @@ void FUNC4_HANDLE(void)
 							CH16TYPE = PT100;
 						}
 					}
-					SetSTctype();
+					tcflag = 1;
 				}break;
 				default:
 				{
@@ -13546,185 +13547,201 @@ void RIGHT_HANDLE(void)
 				}break;
 				case home_ch9:
 				{
-					if(FONT == middle){
-						if(ch_page == page1)
-						{
-							focus_off(CH9_SW);
-							DISP_CNL_M(100,210,"009");
-							focus_on(CH17_SW);
-							DISP_CNL_M(100,410,"017");
+					if(CHNUM > 16){
+						if(FONT == middle){
+							if(ch_page == page1)
+							{
+								focus_off(CH9_SW);
+								DISP_CNL_M(100,210,"009");
+								focus_on(CH17_SW);
+								DISP_CNL_M(100,410,"017");
+								op_flag = home_ch17;
+							}						
+						}else if(FONT == small){
+							if(ch_page == page1)
+							{
+								focus_off(CH9_SW);
+								DISP_CNL_S(100,134,"009");
+								focus_on(CH17_SW);
+								DISP_CNL_S(100,258,"017");
+							}
 							op_flag = home_ch17;
-						}						
-					}else if(FONT == small){
-						if(ch_page == page1)
-						{
-							focus_off(CH9_SW);
-							DISP_CNL_S(100,134,"009");
-							focus_on(CH17_SW);
-							DISP_CNL_S(100,258,"017");
 						}
-						op_flag = home_ch17;
 					}
 				}break;
 				case home_ch10:
 				{
-					if(FONT == middle){
-						if(ch_page == page1)
-						{
-							focus_off(CH10_SW);
-							DISP_CNL_M(140,210,"010");
-							focus_on(CH18_SW);
-							DISP_CNL_M(140,410,"018");
+					if(CHNUM > 16){
+						if(FONT == middle){
+							if(ch_page == page1)
+							{
+								focus_off(CH10_SW);
+								DISP_CNL_M(140,210,"010");
+								focus_on(CH18_SW);
+								DISP_CNL_M(140,410,"018");
+								op_flag = home_ch18;
+							}
+							
+						}else if(FONT == small){
+							if(ch_page == page1)
+							{
+								focus_off(CH10_SW);
+								DISP_CNL_S(140,134,"010");
+								focus_on(CH18_SW);
+								DISP_CNL_S(140,258,"018");
+							}
 							op_flag = home_ch18;
 						}
-						
-					}else if(FONT == small){
-						if(ch_page == page1)
-						{
-							focus_off(CH10_SW);
-							DISP_CNL_S(140,134,"010");
-							focus_on(CH18_SW);
-							DISP_CNL_S(140,258,"018");
-						}
-						op_flag = home_ch18;
 					}
 				}break;
 				case home_ch11:
 				{
-					if(FONT == middle){
-						if(ch_page == page1)
-						{
-							focus_off(CH11_SW);
-							DISP_CNL_M(180,210,"011");
-							focus_on(CH19_SW);
-							DISP_CNL_M(180,410,"019");
+					if(CHNUM > 16){
+						if(FONT == middle){
+							if(ch_page == page1)
+							{
+								focus_off(CH11_SW);
+								DISP_CNL_M(180,210,"011");
+								focus_on(CH19_SW);
+								DISP_CNL_M(180,410,"019");
+								op_flag = home_ch19;
+							}
+							
+						}else if(FONT == small){
+							if(ch_page == page1)
+							{
+								focus_off(CH11_SW);
+								DISP_CNL_S(180,134,"011");
+								focus_on(CH19_SW);
+								DISP_CNL_S(180,258,"019");
+							}
 							op_flag = home_ch19;
 						}
-						
-					}else if(FONT == small){
-						if(ch_page == page1)
-						{
-							focus_off(CH11_SW);
-							DISP_CNL_S(180,134,"011");
-							focus_on(CH19_SW);
-							DISP_CNL_S(180,258,"019");
-						}
-						op_flag = home_ch19;
 					}
 				}break;
 				case home_ch12:
 				{
-					if(FONT == middle){
-						if(ch_page == page1)
-						{
-							focus_off(CH12_SW);
-							DISP_CNL_M(220,210,"012");
-							focus_on(CH20_SW);
-							DISP_CNL_M(220,410,"020");
+					if(CHNUM > 16){
+						if(FONT == middle){
+							if(ch_page == page1)
+							{
+								focus_off(CH12_SW);
+								DISP_CNL_M(220,210,"012");
+								focus_on(CH20_SW);
+								DISP_CNL_M(220,410,"020");
+								op_flag = home_ch20;
+							}
+							
+						}else if(FONT == small){
+							if(ch_page == page1)
+							{
+								focus_off(CH12_SW);
+								DISP_CNL_S(220,134,"012");
+								focus_on(CH20_SW);
+								DISP_CNL_S(220,258,"020");
+							}
 							op_flag = home_ch20;
 						}
-						
-					}else if(FONT == small){
-						if(ch_page == page1)
-						{
-							focus_off(CH12_SW);
-							DISP_CNL_S(220,134,"012");
-							focus_on(CH20_SW);
-							DISP_CNL_S(220,258,"020");
-						}
-						op_flag = home_ch20;
 					}
 				}break;
 				case home_ch13:
 				{
-					if(FONT == middle){
-						if(ch_page == page1)
-						{
-							focus_off(CH13_SW);
-							DISP_CNL_M(260,210,"013");
-							focus_on(CH21_SW);
-							DISP_CNL_M(260,410,"021");
+					if(CHNUM > 16){
+						if(FONT == middle){
+							if(ch_page == page1)
+							{
+								focus_off(CH13_SW);
+								DISP_CNL_M(260,210,"013");
+								focus_on(CH21_SW);
+								DISP_CNL_M(260,410,"021");
+								op_flag = home_ch21;
+							}
+							
+						}else if(FONT == small){
+							if(ch_page == page1)
+							{
+								focus_off(CH13_SW);
+								DISP_CNL_S(260,134,"013");
+								focus_on(CH21_SW);
+								DISP_CNL_S(260,258,"021");
+							}
 							op_flag = home_ch21;
 						}
-						
-					}else if(FONT == small){
-						if(ch_page == page1)
-						{
-							focus_off(CH13_SW);
-							DISP_CNL_S(260,134,"013");
-							focus_on(CH21_SW);
-							DISP_CNL_S(260,258,"021");
-						}
-						op_flag = home_ch21;
 					}
 				}break;
 				case home_ch14:
 				{
-					if(FONT == middle){
-						if(ch_page == page1)
-						{
-							focus_off(CH14_SW);
-							DISP_CNL_M(300,210,"014");
-							focus_on(CH22_SW);
-							DISP_CNL_M(300,410,"022");
+					if(CHNUM > 16){
+						if(FONT == middle){
+							if(ch_page == page1)
+							{
+								focus_off(CH14_SW);
+								DISP_CNL_M(300,210,"014");
+								focus_on(CH22_SW);
+								DISP_CNL_M(300,410,"022");
+								op_flag = home_ch22;
+							}
+							
+						}else if(FONT == small){
+							if(ch_page == page1)
+							{
+								focus_off(CH14_SW);
+								DISP_CNL_S(300,134,"014");
+								focus_on(CH22_SW);
+								DISP_CNL_S(300,258,"022");
+							}
 							op_flag = home_ch22;
 						}
-						
-					}else if(FONT == small){
-						if(ch_page == page1)
-						{
-							focus_off(CH14_SW);
-							DISP_CNL_S(300,134,"014");
-							focus_on(CH22_SW);
-							DISP_CNL_S(300,258,"022");
-						}
-						op_flag = home_ch22;
 					}
 				}break;
 				case home_ch15:
 				{
-					if(FONT == middle){
-						if(ch_page == page1)
-						{
-							focus_off(CH15_SW);
-							DISP_CNL_M(340,210,"015");
-							focus_on(CH23_SW);
-							DISP_CNL_M(340,410,"023");
+					if(CHNUM > 16){
+						if(FONT == middle){
+							if(ch_page == page1)
+							{
+								focus_off(CH15_SW);
+								DISP_CNL_M(340,210,"015");
+								focus_on(CH23_SW);
+								DISP_CNL_M(340,410,"023");
+								op_flag = home_ch23;
+							}
+							
+						}else if(FONT == small){
+							if(ch_page == page1)
+							{
+								focus_off(CH15_SW);
+								DISP_CNL_S(340,134,"015");
+								focus_on(CH23_SW);
+								DISP_CNL_S(340,258,"023");
+							}
 							op_flag = home_ch23;
 						}
-						
-					}else if(FONT == small){
-						if(ch_page == page1)
-						{
-							focus_off(CH15_SW);
-							DISP_CNL_S(340,134,"015");
-							focus_on(CH23_SW);
-							DISP_CNL_S(340,258,"023");
-						}
-						op_flag = home_ch23;
 					}
 				}break;
 				case home_ch16:
 				{
-					if(FONT == middle){
-						if(ch_page == page1)
-						{
-							focus_off(CH16_SW);
-							DISP_CNL_M(380,210,"016");
-							focus_on(CH24_SW);
-							DISP_CNL_M(380,410,"024");
+					if(CHNUM > 16){
+						if(FONT == middle){
+							if(ch_page == page1)
+							{
+								focus_off(CH16_SW);
+								DISP_CNL_M(380,210,"016");
+								focus_on(CH24_SW);
+								DISP_CNL_M(380,410,"024");
+								op_flag = home_ch24;
+							}
+							
+						}else if(FONT == small){
+							if(ch_page == page1)
+							{
+								focus_off(CH16_SW);
+								DISP_CNL_S(380,134,"016");
+								focus_on(CH24_SW);
+								DISP_CNL_S(380,258,"024");
+							}
 							op_flag = home_ch24;
 						}
-						
-					}else if(FONT == small){
-						if(ch_page == page1)
-						{
-							focus_off(CH16_SW);
-							DISP_CNL_S(380,134,"016");
-							focus_on(CH24_SW);
-							DISP_CNL_S(380,258,"024");
-						}
-						op_flag = home_ch24;
 					}
 				}break;
 				case home_ch17:
