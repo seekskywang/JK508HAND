@@ -1081,7 +1081,7 @@ void TempDisplay(void)
 					DISP_TEMP_L(235+20,120,(uint8_t*)buf,CH11_SW);
 				}else{
 					LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-					LCD_DrawFullRect(150,235+20,144,40);
+					LCD_DrawFullRect(120,235+20,144,40);
 				}
 				
 				Check_limits(12);

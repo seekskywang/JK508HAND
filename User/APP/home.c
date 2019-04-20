@@ -1192,4 +1192,5 @@ void Disp_Type(void)
 			DISP_AVG(384,239,pt[CH16TYPE-1]);
 	}
 	Save_flag();
+	
 }

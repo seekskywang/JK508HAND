@@ -2095,7 +2095,7 @@ void FUNC1_HANDLE(void)
 							CH9TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch2:
 				{
@@ -2119,7 +2119,7 @@ void FUNC1_HANDLE(void)
 							CH10TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch3:
 				{
@@ -2143,7 +2143,7 @@ void FUNC1_HANDLE(void)
 							CH11TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch4:
 				{
@@ -2167,7 +2167,7 @@ void FUNC1_HANDLE(void)
 							CH12TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch5:
 				{
@@ -2191,7 +2191,7 @@ void FUNC1_HANDLE(void)
 							CH13TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch6:
 				{
@@ -2215,7 +2215,7 @@ void FUNC1_HANDLE(void)
 							CH14TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch7:
 				{
@@ -2239,7 +2239,7 @@ void FUNC1_HANDLE(void)
 							CH15TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch8:
 				{
@@ -2263,7 +2263,7 @@ void FUNC1_HANDLE(void)
 							CH16TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch9:
 				{
@@ -2278,7 +2278,7 @@ void FUNC1_HANDLE(void)
 							CH9TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch10:
 				{
@@ -2293,7 +2293,7 @@ void FUNC1_HANDLE(void)
 							CH10TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch11:
 				{
@@ -2308,7 +2308,7 @@ void FUNC1_HANDLE(void)
 							CH11TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch12:
 				{
@@ -2323,7 +2323,7 @@ void FUNC1_HANDLE(void)
 							CH12TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch13:
 				{
@@ -2338,7 +2338,7 @@ void FUNC1_HANDLE(void)
 							CH13TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch14:
 				{
@@ -2353,7 +2353,7 @@ void FUNC1_HANDLE(void)
 							CH14TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch15:
 				{
@@ -2368,7 +2368,7 @@ void FUNC1_HANDLE(void)
 							CH15TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch16:
 				{
@@ -2383,7 +2383,7 @@ void FUNC1_HANDLE(void)
 							CH16TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				default:
 				{
@@ -2707,7 +2707,7 @@ void FUNC2_HANDLE(void)
 							CH9TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch2:
 				{
@@ -2731,7 +2731,7 @@ void FUNC2_HANDLE(void)
 							CH10TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch3:
 				{
@@ -2755,7 +2755,7 @@ void FUNC2_HANDLE(void)
 							CH11TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch4:
 				{
@@ -2779,7 +2779,7 @@ void FUNC2_HANDLE(void)
 							CH12TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch5:
 				{
@@ -2803,7 +2803,7 @@ void FUNC2_HANDLE(void)
 							CH13TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch6:
 				{
@@ -2827,7 +2827,7 @@ void FUNC2_HANDLE(void)
 							CH14TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch7:
 				{
@@ -2851,7 +2851,7 @@ void FUNC2_HANDLE(void)
 							CH15TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch8:
 				{
@@ -2875,7 +2875,7 @@ void FUNC2_HANDLE(void)
 							CH16TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch9:
 				{
@@ -2890,7 +2890,7 @@ void FUNC2_HANDLE(void)
 							CH9TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch10:
 				{
@@ -2905,7 +2905,7 @@ void FUNC2_HANDLE(void)
 							CH10TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch11:
 				{
@@ -2920,7 +2920,7 @@ void FUNC2_HANDLE(void)
 							CH11TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch12:
 				{
@@ -2935,7 +2935,7 @@ void FUNC2_HANDLE(void)
 							CH12TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch13:
 				{
@@ -2950,7 +2950,7 @@ void FUNC2_HANDLE(void)
 							CH13TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch14:
 				{
@@ -2965,7 +2965,7 @@ void FUNC2_HANDLE(void)
 							CH14TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch15:
 				{
@@ -2980,7 +2980,7 @@ void FUNC2_HANDLE(void)
 							CH15TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch16:
 				{
@@ -2995,7 +2995,7 @@ void FUNC2_HANDLE(void)
 							CH16TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				default:
 				{
@@ -3314,7 +3314,7 @@ void FUNC3_HANDLE(void)
 							CH9TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch2:
 				{
@@ -3338,7 +3338,7 @@ void FUNC3_HANDLE(void)
 							CH10TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch3:
 				{
@@ -3362,7 +3362,7 @@ void FUNC3_HANDLE(void)
 							CH11TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch4:
 				{
@@ -3386,7 +3386,7 @@ void FUNC3_HANDLE(void)
 							CH12TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch5:
 				{
@@ -3410,7 +3410,7 @@ void FUNC3_HANDLE(void)
 							CH13TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch6:
 				{
@@ -3434,7 +3434,7 @@ void FUNC3_HANDLE(void)
 							CH14TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch7:
 				{
@@ -3458,7 +3458,7 @@ void FUNC3_HANDLE(void)
 							CH15TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch8:
 				{
@@ -3482,7 +3482,7 @@ void FUNC3_HANDLE(void)
 							CH16TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch9:
 				{
@@ -3497,7 +3497,7 @@ void FUNC3_HANDLE(void)
 							CH9TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch10:
 				{
@@ -3512,7 +3512,7 @@ void FUNC3_HANDLE(void)
 							CH10TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch11:
 				{
@@ -3527,7 +3527,7 @@ void FUNC3_HANDLE(void)
 							CH11TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch12:
 				{
@@ -3542,7 +3542,7 @@ void FUNC3_HANDLE(void)
 							CH12TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch13:
 				{
@@ -3557,7 +3557,7 @@ void FUNC3_HANDLE(void)
 							CH13TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch14:
 				{
@@ -3572,7 +3572,7 @@ void FUNC3_HANDLE(void)
 							CH14TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch15:
 				{
@@ -3587,7 +3587,7 @@ void FUNC3_HANDLE(void)
 							CH15TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch16:
 				{
@@ -3602,7 +3602,7 @@ void FUNC3_HANDLE(void)
 							CH16TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				default:
 				{
@@ -3796,7 +3796,7 @@ void FUNC4_HANDLE(void)
 							CH9TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch2:
 				{
@@ -3820,7 +3820,7 @@ void FUNC4_HANDLE(void)
 							CH10TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch3:
 				{
@@ -3844,7 +3844,7 @@ void FUNC4_HANDLE(void)
 							CH11TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch4:
 				{
@@ -3868,7 +3868,7 @@ void FUNC4_HANDLE(void)
 							CH12TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch5:
 				{
@@ -3892,7 +3892,7 @@ void FUNC4_HANDLE(void)
 							CH13TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch6:
 				{
@@ -3916,7 +3916,7 @@ void FUNC4_HANDLE(void)
 							CH14TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch7:
 				{
@@ -3940,7 +3940,7 @@ void FUNC4_HANDLE(void)
 							CH15TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch8:
 				{
@@ -3964,7 +3964,7 @@ void FUNC4_HANDLE(void)
 							CH16TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch9:
 				{
@@ -3979,7 +3979,7 @@ void FUNC4_HANDLE(void)
 							CH9TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch10:
 				{
@@ -3994,7 +3994,7 @@ void FUNC4_HANDLE(void)
 							CH10TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch11:
 				{
@@ -4009,7 +4009,7 @@ void FUNC4_HANDLE(void)
 							CH11TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch12:
 				{
@@ -4024,7 +4024,7 @@ void FUNC4_HANDLE(void)
 							CH12TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch13:
 				{
@@ -4039,7 +4039,7 @@ void FUNC4_HANDLE(void)
 							CH13TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch14:
 				{
@@ -4054,7 +4054,7 @@ void FUNC4_HANDLE(void)
 							CH14TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch15:
 				{
@@ -4069,7 +4069,7 @@ void FUNC4_HANDLE(void)
 							CH15TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				case home_ch16:
 				{
@@ -4084,7 +4084,7 @@ void FUNC4_HANDLE(void)
 							CH16TYPE = PT100;
 						}
 					}
-					Disp_Type();
+					SetSTctype();
 				}break;
 				default:
 				{
@@ -5486,6 +5486,29 @@ void FUNC5_HANDLE(void)
 							LCD_DisplayStringLine(47,100,"PT100");
 						}
 						op_flag = home_type;
+						focus_off1();
+						if(FONT == big){
+							if(LANG == chs)
+							{
+								LCD_DisplayStringLine(47,290,"´ó");
+							}else{
+								LCD_DisplayStringLine(47,290,"L");
+							}
+						}else if(FONT == middle){
+							if(LANG == chs)
+							{
+								LCD_DisplayStringLine(47,290,"ÖÐ");
+							}else{
+								LCD_DisplayStringLine(47,290,"M");
+							}
+						}else if(FONT == small){
+							if(LANG == chs)
+							{
+								LCD_DisplayStringLine(47,290,"Ð¡");
+							}else{
+								LCD_DisplayStringLine(47,290,"S");
+							}
+						}
 					}
 					Disp_Type();
 				}break;
@@ -15937,6 +15960,10 @@ void ACC_HANDLE(void)
 			Correction[k] = 0;
 			maxfocus_on(op_flag - 82,Correction[k]);
 			Save_flag();
+		}break;
+		case display:
+		{
+			page_home();
 		}break;
 		default:Erase_all();
 	}
