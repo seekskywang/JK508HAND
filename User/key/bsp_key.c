@@ -11195,6 +11195,7 @@ void DOWN_HANDLE(void)
 						}else{
 							DrawInstruction("Thermocouple model select");
 						}
+						Drawhomemenu();
 						op_flag = home_type;
 					}else if(FONT == middle){
 						if(ch_page == page1)
@@ -11209,6 +11210,7 @@ void DOWN_HANDLE(void)
 							focus_on(CH29_SW);
 							DISP_CNL_M(260,10,"029");
 						}
+						DrawType(1);
 						op_flag = home_ch5;
 					}else if(FONT == small){
 						if(ch_page == page1)
@@ -11218,9 +11220,10 @@ void DOWN_HANDLE(void)
 							focus_on(CH5_SW);
 							DISP_CNL_S(260,10,"005");
 						}
+						DrawType(1);
 						op_flag = home_ch5;
 					}
-					DrawType(1);
+					
 				}break;
 				case home_ch5:
 				{
@@ -11498,6 +11501,7 @@ void DOWN_HANDLE(void)
 							}else{
 								DrawInstruction("Thermocouple model select");
 							}
+							Drawhomemenu();
 							op_flag = home_type;
 						}else if(ch_page == page2){
 							focus_off(CH32_SW);
