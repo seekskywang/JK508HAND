@@ -1167,7 +1167,7 @@ void brt_set(u8 key)
 	DrawMenu();//重绘菜单栏
 	Drawsysmenu();
 	LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-	LCD_DrawFullRect(170+10,130,55,32);
+	LCD_DrawFullRect(170,130,55,32);
 	if(press != 1)
 	{
 		focus_on1();
@@ -2023,7 +2023,7 @@ void FUNC1_HANDLE(void)
 					op_flag = home_type;
 					TCTYPE = TCT;
 					Save_flag();
-					tcflag = TCTYPE;
+					tcflag = TCTYPE+1;
 					}break;
 				case type_2:
 				{
@@ -2037,7 +2037,7 @@ void FUNC1_HANDLE(void)
 					op_flag = home_type;
 					TCTYPE = TCE;
 					Save_flag();
-					tcflag = TCTYPE;					
+					tcflag = TCTYPE+1;					
 				}break;
 				case type_3:
 				{
@@ -2051,7 +2051,7 @@ void FUNC1_HANDLE(void)
 					op_flag = home_type;
 					TCTYPE = PT100;
 					Save_flag();
-					tcflag = TCTYPE;
+					tcflag = TCTYPE+1;
 				}break;
 				case set_font:
 				{
@@ -2649,7 +2649,7 @@ void FUNC2_HANDLE(void)
 					op_flag = home_type;
 					TCTYPE = TCK;
 					Save_flag();
-					tcflag = TCTYPE;
+					tcflag = TCTYPE+1;
 				}break;
 				case type_2:
 				{
@@ -2663,7 +2663,7 @@ void FUNC2_HANDLE(void)
 					op_flag = home_type;
 					TCTYPE = TCS;
 					Save_flag();
-					tcflag = TCTYPE;
+					tcflag = TCTYPE+1;
 				}break;
 				case set_font:
 				{
@@ -3256,7 +3256,7 @@ void FUNC3_HANDLE(void)
 					op_flag = home_type;
 					TCTYPE = TCJ;
 					Save_flag();
-					tcflag = TCTYPE;
+					tcflag = TCTYPE+1;
 				}break;
 				case type_2:
 				{
@@ -3270,7 +3270,7 @@ void FUNC3_HANDLE(void)
 					op_flag = home_type;
 					TCTYPE = TCR;
 					Save_flag();
-					tcflag = TCTYPE;
+					tcflag = TCTYPE+1;
 				}break;
 				case set_font:
 				{
@@ -3759,7 +3759,7 @@ void FUNC4_HANDLE(void)
 					op_flag = home_type;
 					TCTYPE = TCN;
 					Save_flag();
-					tcflag = TCTYPE;
+					tcflag = TCTYPE+1;
 				}break;
 				case type_2:
 				{
@@ -3773,7 +3773,7 @@ void FUNC4_HANDLE(void)
 					op_flag = home_type;
 					TCTYPE = TCB;
 					Save_flag();
-					tcflag = TCTYPE;
+					tcflag = TCTYPE+1;
 				}break;
 				case home_ch1:
 				{
@@ -8317,6 +8317,10 @@ void ENTER_HANDLE(void)
 					{
 						MULTI = 300;
 					}
+					if(MULTI < 1)
+					{
+						MULTI = 1;
+					}
 					multifocus_on(MULTI);
 					Save_flag();
 				}break;
@@ -8556,7 +8560,7 @@ void UP_HANDLE(void)
 						{
 							DrawInstruction("热电偶型号选择");
 						}else{
-							DrawInstruction("Thermocouple model select");
+							DrawInstruction("Thermocouple model");
 						}
 						op_flag = home_type;
 					}else if(FONT == middle){
@@ -8595,7 +8599,7 @@ void UP_HANDLE(void)
 						{
 							DrawInstruction("热电偶型号选择");
 						}else{
-							DrawInstruction("Thermocouple model select");
+							DrawInstruction("Thermocouple model");
 						}
 						op_flag = home_type;
 					}else if(FONT == small){
@@ -8631,7 +8635,7 @@ void UP_HANDLE(void)
 						{
 							DrawInstruction("热电偶型号选择");
 						}else{
-							DrawInstruction("Thermocouple model select");
+							DrawInstruction("Thermocouple model");
 						}
 						op_flag = home_type;
 					}
@@ -9917,7 +9921,7 @@ void UP_HANDLE(void)
 //					{
 //						DrawInstruction("采集开始时间");
 //					}else{
-//						DrawInstruction("Start Time");
+//						DrawInstruction("START");
 //					}
 //					op_flag = starttime;
 //					stimefocus_on(SAVETIME);
@@ -9981,7 +9985,7 @@ void UP_HANDLE(void)
 					{
 						DrawInstruction("采集开始时间");
 					}else{
-						DrawInstruction("Start Time");
+						DrawInstruction("START");
 					}
 //					if(LANG == chs)
 //					{
@@ -10175,7 +10179,7 @@ void UP_HANDLE(void)
 					{
 						DrawInstruction("采集结束时间");
 					}else{
-						DrawInstruction("End Time");
+						DrawInstruction("END");
 					}
 					bit_flag = 1;
 					op_flag = endtime;	
@@ -11194,7 +11198,7 @@ void DOWN_HANDLE(void)
 						{
 							DrawInstruction("热电偶型号选择");
 						}else{
-							DrawInstruction("Thermocouple model select");
+							DrawInstruction("Thermocouple model");
 						}
 						Drawhomemenu();
 						op_flag = home_type;
@@ -11500,7 +11504,7 @@ void DOWN_HANDLE(void)
 							{
 								DrawInstruction("热电偶型号选择");
 							}else{
-								DrawInstruction("Thermocouple model select");
+								DrawInstruction("Thermocouple model");
 							}
 							Drawhomemenu();
 							op_flag = home_type;
@@ -11544,7 +11548,7 @@ void DOWN_HANDLE(void)
 							{
 								DrawInstruction("热电偶型号选择");
 							}else{
-								DrawInstruction("Thermocouple model select");
+								DrawInstruction("Thermocouple model");
 							}
 							op_flag = home_type;
 						}
@@ -12322,7 +12326,7 @@ void DOWN_HANDLE(void)
 					{
 						DrawInstruction("采集开始时间");
 					}else{
-						DrawInstruction("Start Time");
+						DrawInstruction("START");
 					}
 					bit_flag = 1;
 					op_flag = starttime;
@@ -12351,7 +12355,7 @@ void DOWN_HANDLE(void)
 					{
 						DrawInstruction("采集结束时间");
 					}else{
-						DrawInstruction("End Time");
+						DrawInstruction("END");
 					}
 					bit_flag = 1;
 					op_flag = endtime;
@@ -15986,7 +15990,7 @@ void ACC_HANDLE(void)
 		{
 			page_home();
 		}break;
-		default:Erase_all();
+		default:break;
 	}
 }
 
@@ -16157,7 +16161,7 @@ void Utest(void)
 void ButtonSound(void)
 {
 	BEEP_ON;
-	Delay(0x5ff);
+	Delay(0xffff);
 	BEEP_OFF;
 }
 

@@ -15,11 +15,11 @@
 #define GENERAL_TIM_IRQn				TIM5_IRQn
 #define GENERAL_TIM_IRQHandler       	TIM5_IRQHandler
 
-#define BEEP_TIM           				TIM7
-#define BEEP_TIM_CLK       				RCC_APB1Periph_TIM7
+#define BEEP_TIM           				TIM8
+#define BEEP_TIM_CLK       				RCC_APB2Periph_TIM8 
 
-#define BEEP_TIM_IRQn					TIM7_IRQn
-#define BEEP_TIM_IRQHandler    			TIM7_IRQHandler
+#define BEEP_TIM_IRQn					TIM8_IRQn
+#define BEEP_TIM_IRQHandler    			TIM8_IRQHandler
 
 void TIMx_Configuration(void);
 void TIM_PWMOUTPUT_Config(u8 duty);

@@ -1026,17 +1026,46 @@ void DrawUdisk2(void)
 void DrawPowOff(void)
 {
 	LCD_Clear(LCD_COLOR_BLACK);
-	LCD_SetColors(LCD_COLOR_RED,LCD_COLOR_RED);
-	LCD_DrawCircle(100+80+20,100+315,16);
-	LCD_DrawCircle(100+80+20,100+315,15);
-	LCD_DrawCircle(100+80+20,100+315,14);
-	LCD_SetColors(LCD_COLOR_BLACK,LCD_COLOR_BLACK);
-	LCD_DrawFullRect(95+80+20,74+315,11,20);
-	LCD_SetColors(LCD_COLOR_RED,LCD_COLOR_RED);
-	LCD_DrawFullRect(98+80+20,80+315,5,20);
-	LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_BLACK);
-	LCD_DisplayStringLine(85+318,120+90+20,"正在关机");
-	LCD_DisplayStringLine(85+315,120+90+20+96,"...");
+//	LCD_SetColors(LCD_COLOR_RED,LCD_COLOR_RED);
+//	LCD_DrawCircle(100+80+20,100+315,16);
+//	LCD_DrawCircle(100+80+20,100+315,15);
+//	LCD_DrawCircle(100+80+20,100+315,14);
+//	LCD_SetColors(LCD_COLOR_BLACK,LCD_COLOR_BLACK);
+//	LCD_DrawFullRect(95+80+20,74+315,11,20);
+//	LCD_SetColors(LCD_COLOR_RED,LCD_COLOR_RED);
+//	LCD_DrawFullRect(98+80+20,80+315,5,20);
+	
+	if(LANG == chs)
+	{
+		LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_WHITE);
+		LCD_DrawFullRect(180,395,250,40);
+		LCD_SetColors(LCD_COLOR_RED,LCD_COLOR_RED);
+		LCD_DrawCircle(100+80+20,100+315,16);
+		LCD_DrawCircle(100+80+20,100+315,15);
+		LCD_DrawCircle(100+80+20,100+315,14);
+		LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_WHITE);
+		LCD_DrawFullRect(95+80+20,395,11,20);
+		LCD_SetColors(LCD_COLOR_RED,LCD_COLOR_RED);
+		LCD_DrawFullRect(98+80+20,80+315,5,20);
+		LCD_SetColors(LCD_COLOR_BLACK,LCD_COLOR_WHITE);
+		LCD_DisplayStringLine(85+318,120+90+20,"正在关机");
+		LCD_DisplayStringLine(85+315,120+90+20+96,"...");
+	}else if(LANG == eng){
+		LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_WHITE);
+		LCD_DrawFullRect(180,395,250,40);
+		LCD_SetColors(LCD_COLOR_RED,LCD_COLOR_RED);
+		LCD_DrawCircle(100+80+20,100+315,16);
+		LCD_DrawCircle(100+80+20,100+315,15);
+		LCD_DrawCircle(100+80+20,100+315,14);
+		LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_WHITE);
+		LCD_DrawFullRect(95+80+20,395,11,20);
+		LCD_SetColors(LCD_COLOR_RED,LCD_COLOR_RED);
+		LCD_DrawFullRect(98+80+20,80+315,5,20);
+		LCD_SetColors(LCD_COLOR_BLACK,LCD_COLOR_WHITE);
+		LCD_DisplayStringLine(85+318,120+90+20,"POWER OFF");
+		LCD_DisplayStringLine(85+315,120+90+20+144,"...");
+	}
+	
 	DrawLogo(10,80);
 }
 

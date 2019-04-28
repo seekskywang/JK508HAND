@@ -96,8 +96,8 @@ void page_set(void)
 		LCD_DisplayStringLine(90,10,"BEEP");
 		LCD_DisplayStringLine(127,10,"UNIT");
 		LCD_DisplayStringLine(170,10,"TRIGTIME");
-		LCD_DisplayStringLine(210,10,"START TIME");
-		LCD_DisplayStringLine(250,10,"END TIME");
+		LCD_DisplayStringLine(210,10,"START");
+		LCD_DisplayStringLine(250,10,"END");
 		LCD_DisplayStringLine(130,360,"REPEAT");
 		LCD_DisplayStringLine(285,10,"USBHDD SET");
 		LCD_DisplayStringLine(317,10,"TIME");

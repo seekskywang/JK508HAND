@@ -44,11 +44,13 @@
 void TempDisplay(void);
 void TempDisHandle(u8 ch);
 void UARTRECHANDLE(void);
+void BEEPCHECK(void);
 u8 usbbuf[0x40];
 u8 usbsendbuf[0x40];
 u8 savedata[80];
 u8 uinfo[64];
 u8 trigtime[4];
+u8 chcomp[40];
 //u8 usbreadtime = 0;
 u8 eqmtstatus;
 u16 crcwatch;
@@ -260,7 +262,7 @@ int main(void)
 	Delay(500);
 	/* LED 端口初始化 */
 //	LED_GPIO_Config();	 
-	power_on();
+	
 	/* 16M串行flash W25Q128初始化 */
 	SPI_FLASH_Init();
 	
@@ -293,7 +295,7 @@ int main(void)
 //	Delay_ms(100);
 	
 	Init_CH376();
-	
+	power_on();
 
 	
 	/* RTC配置：选择时钟源，设置RTC_CLK的分频系数 */
@@ -442,8 +444,8 @@ void UARTRECHANDLE(void)
 	static u8 uinitflag = 0;
 	static u8 multicount = 0;
 //	static float graphbuf[16];
-	static u8 graphbuf[16][2];
-	static u8 hisbuf[16][2];
+	static u32 graphbuf[16][2];
+	static u32 hisbuf[16][2];
 	static u16 hisconv;
 	static u16 corconv;
 	u8 i;
@@ -464,6 +466,7 @@ void UARTRECHANDLE(void)
 	{
 		charge = RecBuff[3];
 		battery = RecBuff[4];
+		
 		for(i=0;i<16;i++)
 		{
 			tempbuf = RecBuff[2*(i+1)+3]<<8;
@@ -477,6 +480,10 @@ void UARTRECHANDLE(void)
 //						ch_temp[i] = (RecBuff[2*(i+1)+3] * 256 + RecBuff[2*(i+1)+4])/10.0;
 			if(count == 0 && page_flag == poweron)
 			{
+				if(i==0)
+				{
+					LCD_Clear(LCD_COLOR_BLACK);
+				}
 				InitBrt();//开机亮度
 				LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_BLACK);
 				DISP_INS(5+i*20,5,"Initializing Channel");
@@ -494,9 +501,10 @@ void UARTRECHANDLE(void)
 			DISP_INS(325,5,"Done!");
 			Delay(0xffffff);
 			page_home();
+			multicount = 0;
 		}
 		
-		if(multicount%(int)MULTI == 0 && multicount != 0)
+		if(multicount%(int)MULTI == 0 && multicount != 0 && page_flag != poweron)
 		{
 			for(i=0;i<16;i++)
 			{
@@ -575,13 +583,17 @@ void UARTRECHANDLE(void)
 			}
 			multicount++;
 		}else{
-			for(i=0;i<16;i++)
+			if(page_flag != poweron)
 			{
-				hisbuf[i][0] += RecBuff[2*(i+1)+3];
-				hisbuf[i][1] += RecBuff[2*(i+1)+4];
-//							graphbuf[i] += ch_temp[i];
-				graphbuf[i][0] += RecBuff[2*(i+1)+3];
-				graphbuf[i][1] += RecBuff[2*(i+1)+4];
+				for(i=0;i<16;i++)
+				{
+					hisbuf[i][0] += RecBuff[2*(i+1)+3];
+					hisbuf[i][1] += RecBuff[2*(i+1)+4];
+	//							graphbuf[i] += ch_temp[i];
+					graphbuf[i][0] += RecBuff[2*(i+1)+3];
+					graphbuf[i][1] += RecBuff[2*(i+1)+4];
+				}
+				
 			}
 			multicount++;
 		}
@@ -2390,7 +2402,7 @@ void TempDisplay(void)
 		}
 	}
 	
-	
+	BEEPCHECK();
 }
 
 void Save_flag(void)
@@ -3123,8 +3135,10 @@ void Check_limits(u8 chn)
 	if((ch_temp[chn-1] - Correction[chn-1]  < TempLLimits[chn-1] || ch_temp[chn-1] - Correction[chn-1] > TempHLimits[chn-1]) && FILTER == ft_on)
 	{
 		LCD_SetColors(LCD_COLOR_RED,LCD_COLOR_BACK);
+		chcomp[chn] = 1;
 	}else{
 		LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_BACK);
+		chcomp[chn] = 0;
 	}
 }
 
@@ -3263,5 +3277,23 @@ void AVGCAL(void)
 	}
 }
 
+void BEEPCHECK(void)
+{
+	u8 i,sw;
+	sw = 0;
+	for(i=0;i<40;i++)
+	{
+		if(chcomp[i] == 1)
+		{
+			sw = 1;
+		}
+	}
+	if(sw == 1 && BEEP == beep_on && page_flag == display)
+	{
+		BEEP_ON;
+	}else{
+		BEEP_OFF;
+	}
+}
 /*********************************************END OF FILE**********************/
 

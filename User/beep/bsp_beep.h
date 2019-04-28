@@ -8,12 +8,13 @@
 #define BEEP_GPIO_CLK      RCC_AHB1Periph_GPIOI
 #define BEEP_PORT          GPIOI
 #define BEEP_PIN           GPIO_Pin_5
-
+#define BEEP_OCPWM_PINSOURCE	  GPIO_PinSource5
+#define BEEP_OCPWM_AF		  GPIO_AF_TIM8
 
 
 /******************** BEEP 函数宏定义 **************************/
-#define BEEP_ON            GPIO_SetBits(BEEP_PORT,BEEP_PIN)
-#define BEEP_OFF           GPIO_ResetBits(BEEP_PORT,BEEP_PIN)
+#define BEEP_ON            TIM_CtrlPWMOutputs(BEEP_TIM, ENABLE);
+#define BEEP_OFF           TIM_CtrlPWMOutputs(BEEP_TIM, DISABLE);
 
 
 /************************** BEEP 函数声明********************************/

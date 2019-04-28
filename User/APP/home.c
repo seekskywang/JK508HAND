@@ -184,7 +184,7 @@ void page_home(void)
 		LCD_DisplayStringLine(47,200,"FONT");
 		LCD_DisplayStringLine(47,390,"PAGE");
 		
-		DrawInstruction("Thermocouple model select");
+		DrawInstruction("Thermocouple model");
 	}
 	
 	LCD_SetTextColor(LCD_COLOR_BLACK);
