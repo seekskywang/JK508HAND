@@ -485,12 +485,15 @@ void UARTRECHANDLE(void)
 					LCD_Clear(LCD_COLOR_BLACK);
 				}
 				InitBrt();//¿ª»úÁÁ¶È
-				LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_BLACK);
-				DISP_INS(5+i*20,5,"Initializing Channel");
-				sprintf(buf,"%03d",i+1);
-				DISP_INS(5+i*20,336,(uint8_t*)buf);
-				DISP_INS(5+i*20,384,"...");
-				Delay(0x3fffff);
+				if(i < CHNUM)
+				{
+					LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_BLACK);
+					DISP_INS(5+i*20,5,"Initializing Channel");
+					sprintf(buf,"%03d",i+1);
+					DISP_INS(5+i*20,336,(uint8_t*)buf);
+					DISP_INS(5+i*20,384,"...");
+					Delay(0x3fffff);
+				}
 			}
 		}
 		
@@ -498,7 +501,12 @@ void UARTRECHANDLE(void)
 		if(multicount == 1 && page_flag == poweron)
 		{
 			LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_BLACK);
-			DISP_INS(325,5,"Done!");
+			if(CHNUM == 16)
+			{
+				DISP_INS(325,5,"Done!");
+			}else if(CHNUM == 8){
+				DISP_INS(165,5,"Done!");
+			}
 			Delay(0xffffff);
 			page_home();
 			multicount = 0;
@@ -3199,7 +3207,7 @@ void Read_Flash_Init_Handle(void)
 	{
 		if(YLIMIT[i] < -1800)
 		{
-			YLIMIT[i] = 0;
+			YLIMIT[i] = 1;
 		}
 	}
 	for(i=60;i<75;i++)
@@ -3207,6 +3215,20 @@ void Read_Flash_Init_Handle(void)
 		if(savedata[i] > 9)
 		{
 			savedata[i] = TCT;
+		}
+	}
+	for(i=0;i<39;i++)
+	{
+		if(savedata[i] > 1)
+		{
+			savedata[i] = 0;
+		}
+	}
+	for(i=41;i<59;i++)
+	{
+		if(savedata[i] == 0xff)
+		{
+			savedata[i] = 0;
 		}
 	}
 }
@@ -3295,5 +3317,6 @@ void BEEPCHECK(void)
 		BEEP_OFF;
 	}
 }
+
 /*********************************************END OF FILE**********************/
 

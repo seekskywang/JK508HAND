@@ -150,7 +150,7 @@ const uint8_t TC_Type[][2]=
 
 void page_home(void)
 {
-	CHNUM = 16;
+	CHNUM = 8;
   /*初始化后默认使用前景层*/
 	LCD_SetLayer(LCD_FOREGROUND_LAYER); 
 	/*默认设置不透明	，该函数参数为不透明度，范围 0-0xff ，0为全透明，0xff为不透明*/
