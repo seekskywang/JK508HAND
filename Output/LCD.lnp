@@ -67,6 +67,7 @@
 "..\..\output\history.o"
 "..\..\output\calibarate.o"
 "..\..\output\power_on.o"
+"..\..\output\factory.o"
 "..\..\output\usb_core.o"
 "..\..\output\usb_dcd.o"
 "..\..\output\usb_dcd_int.o"

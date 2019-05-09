@@ -59,7 +59,12 @@ void power_on(void)
 	DISP_SYS(0,0,"JKOS");
 	LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_BLACK);
 	DISP_INS(20,0,"REV 1.0");
-	DISP_INS(80,0,"JK508 Multi-channel Temp.Meter");
+	if(CHNUM == 8)
+	{
+		DISP_INS(80,0,"JK508 Multi-channel Temp.Meter");
+	}else if(CHNUM == 16){
+		DISP_INS(80,0,"JK516 Multi-channel Temp.Meter");
+	}
 //	DISP_INS(30,0,"REV 1.0");
 	
 	

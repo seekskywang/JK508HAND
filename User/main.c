@@ -295,7 +295,7 @@ int main(void)
 //	Delay_ms(100);
 	
 	Init_CH376();
-	power_on();
+	
 
 	
 	/* RTC配置：选择时钟源，设置RTC_CLK的分频系数 */
@@ -343,6 +343,7 @@ int main(void)
 		Read_Sflag();
 		Read_Flash_Init_Handle();
 	}
+	power_on();
 //	watch = CRC16(test,9);
 //	page_home();
 //	watch = sizeof(TempHLimits);
@@ -371,7 +372,7 @@ int main(void)
 					TouchHandle(XCOOR,YCOOR);
 				}
 			}
-			if(page_flag != poweron)
+			if(page_flag != poweron && powerstat != 0)
 			{
 				if(usavecount == 100)
 				{
@@ -1759,23 +1760,25 @@ void TempDisplay(void)
 						LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
 						LCD_DrawFullRect(290,380,96,28);
 					}
-					
-					sprintf(buf,"%.1f",CH17TEMP);
-					DISP_TEMP_M(100,490,(uint8_t*)buf,CH17_SW);
-					sprintf(buf,"%.1f",CH18TEMP);
-					DISP_TEMP_M(140,490,(uint8_t*)buf,CH18_SW);
-					sprintf(buf,"%.1f",CH19TEMP);
-					DISP_TEMP_M(180,490,(uint8_t*)buf,CH19_SW);
-					sprintf(buf,"%.1f",CH20TEMP);
-					DISP_TEMP_M(220,490,(uint8_t*)buf,CH20_SW);
-					sprintf(buf,"%.1f",CH21TEMP);
-					DISP_TEMP_M(260,490,(uint8_t*)buf,CH21_SW);
-					sprintf(buf,"%.1f",CH22TEMP);
-					DISP_TEMP_M(300,490,(uint8_t*)buf,CH22_SW);
-					sprintf(buf,"%.1f",CH23TEMP);
-					DISP_TEMP_M(340,490,(uint8_t*)buf,CH23_SW);
-					sprintf(buf,"%.1f",CH24TEMP);
-					DISP_TEMP_M(380,490,(uint8_t*)buf,CH24_SW); 
+					if(CHNUM > 16)
+					{
+						sprintf(buf,"%.1f",CH17TEMP);
+						DISP_TEMP_M(100,490,(uint8_t*)buf,CH17_SW);
+						sprintf(buf,"%.1f",CH18TEMP);
+						DISP_TEMP_M(140,490,(uint8_t*)buf,CH18_SW);
+						sprintf(buf,"%.1f",CH19TEMP);
+						DISP_TEMP_M(180,490,(uint8_t*)buf,CH19_SW);
+						sprintf(buf,"%.1f",CH20TEMP);
+						DISP_TEMP_M(220,490,(uint8_t*)buf,CH20_SW);
+						sprintf(buf,"%.1f",CH21TEMP);
+						DISP_TEMP_M(260,490,(uint8_t*)buf,CH21_SW);
+						sprintf(buf,"%.1f",CH22TEMP);
+						DISP_TEMP_M(300,490,(uint8_t*)buf,CH22_SW);
+						sprintf(buf,"%.1f",CH23TEMP);
+						DISP_TEMP_M(340,490,(uint8_t*)buf,CH23_SW);
+						sprintf(buf,"%.1f",CH24TEMP);
+						DISP_TEMP_M(380,490,(uint8_t*)buf,CH24_SW); 
+					}
 				}
 				
 			}else if(ch_page == page2){
@@ -2256,55 +2259,57 @@ void TempDisplay(void)
 						LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
 						LCD_DrawFullRect(184,380,48,20);
 					}
-					
-					sprintf(buf,"%.1f",CH17TEMP);
-					DISP_TEMP_S(100,308,(uint8_t*)buf,CH17_SW);
-					sprintf(buf,"%.1f",CH18TEMP);
-					DISP_TEMP_S(140,308,(uint8_t*)buf,CH18_SW);
-					sprintf(buf,"%.1f",CH19TEMP);
-					DISP_TEMP_S(180,308,(uint8_t*)buf,CH19_SW);
-					sprintf(buf,"%.1f",CH20TEMP);
-					DISP_TEMP_S(220,308,(uint8_t*)buf,CH20_SW);
-					sprintf(buf,"%.1f",CH21TEMP);
-					DISP_TEMP_S(260,308,(uint8_t*)buf,CH21_SW);
-					sprintf(buf,"%.1f",CH22TEMP);
-					DISP_TEMP_S(300,308,(uint8_t*)buf,CH22_SW);
-					sprintf(buf,"%.1f",CH23TEMP);
-					DISP_TEMP_S(340,308,(uint8_t*)buf,CH23_SW);
-					sprintf(buf,"%.1f",CH24TEMP);
-					DISP_TEMP_S(380,308,(uint8_t*)buf,CH24_SW); 			
-					sprintf(buf,"%.1f",CH25TEMP);
-					DISP_TEMP_S(100,432,(uint8_t*)buf,CH25_SW);
-					sprintf(buf,"%.1f",CH26TEMP);
-					DISP_TEMP_S(140,432,(uint8_t*)buf,CH26_SW);
-					sprintf(buf,"%.1f",CH27TEMP);
-					DISP_TEMP_S(180,432,(uint8_t*)buf,CH27_SW);
-					sprintf(buf,"%.1f",CH28TEMP);
-					DISP_TEMP_S(220,432,(uint8_t*)buf,CH28_SW);
-					sprintf(buf,"%.1f",CH29TEMP);
-					DISP_TEMP_S(260,432,(uint8_t*)buf,CH29_SW);
-					sprintf(buf,"%.1f",CH30TEMP);
-					DISP_TEMP_S(300,432,(uint8_t*)buf,CH30_SW);
-					sprintf(buf,"%.1f",CH31TEMP);
-					DISP_TEMP_S(340,432,(uint8_t*)buf,CH31_SW);
-					sprintf(buf,"%.1f",CH32TEMP);	
-					DISP_TEMP_S(380,432,(uint8_t*)buf,CH32_SW);
-					sprintf(buf,"%.1f",CH33TEMP);
-					DISP_TEMP_S(100,556,(uint8_t*)buf,CH33_SW);
-					sprintf(buf,"%.1f",CH34TEMP);
-					DISP_TEMP_S(140,556,(uint8_t*)buf,CH34_SW);
-					sprintf(buf,"%.1f",CH35TEMP);
-					DISP_TEMP_S(180,556,(uint8_t*)buf,CH35_SW);
-					sprintf(buf,"%.1f",CH37TEMP);
-					DISP_TEMP_S(220,556,(uint8_t*)buf,CH36_SW);
-					sprintf(buf,"%.1f",CH37TEMP);
-					DISP_TEMP_S(260,556,(uint8_t*)buf,CH37_SW);
-					sprintf(buf,"%.1f",CH38TEMP);
-					DISP_TEMP_S(300,556,(uint8_t*)buf,CH38_SW);
-					sprintf(buf,"%.1f",CH39TEMP);
-					DISP_TEMP_S(340,556,(uint8_t*)buf,CH39_SW);
-					sprintf(buf,"%.1f",CH40TEMP);
-					DISP_TEMP_S(380,556,(uint8_t*)buf,CH40_SW);
+					if(CHNUM > 16)
+					{
+						sprintf(buf,"%.1f",CH17TEMP);
+						DISP_TEMP_S(100,308,(uint8_t*)buf,CH17_SW);
+						sprintf(buf,"%.1f",CH18TEMP);
+						DISP_TEMP_S(140,308,(uint8_t*)buf,CH18_SW);
+						sprintf(buf,"%.1f",CH19TEMP);
+						DISP_TEMP_S(180,308,(uint8_t*)buf,CH19_SW);
+						sprintf(buf,"%.1f",CH20TEMP);
+						DISP_TEMP_S(220,308,(uint8_t*)buf,CH20_SW);
+						sprintf(buf,"%.1f",CH21TEMP);
+						DISP_TEMP_S(260,308,(uint8_t*)buf,CH21_SW);
+						sprintf(buf,"%.1f",CH22TEMP);
+						DISP_TEMP_S(300,308,(uint8_t*)buf,CH22_SW);
+						sprintf(buf,"%.1f",CH23TEMP);
+						DISP_TEMP_S(340,308,(uint8_t*)buf,CH23_SW);
+						sprintf(buf,"%.1f",CH24TEMP);
+						DISP_TEMP_S(380,308,(uint8_t*)buf,CH24_SW); 			
+						sprintf(buf,"%.1f",CH25TEMP);
+						DISP_TEMP_S(100,432,(uint8_t*)buf,CH25_SW);
+						sprintf(buf,"%.1f",CH26TEMP);
+						DISP_TEMP_S(140,432,(uint8_t*)buf,CH26_SW);
+						sprintf(buf,"%.1f",CH27TEMP);
+						DISP_TEMP_S(180,432,(uint8_t*)buf,CH27_SW);
+						sprintf(buf,"%.1f",CH28TEMP);
+						DISP_TEMP_S(220,432,(uint8_t*)buf,CH28_SW);
+						sprintf(buf,"%.1f",CH29TEMP);
+						DISP_TEMP_S(260,432,(uint8_t*)buf,CH29_SW);
+						sprintf(buf,"%.1f",CH30TEMP);
+						DISP_TEMP_S(300,432,(uint8_t*)buf,CH30_SW);
+						sprintf(buf,"%.1f",CH31TEMP);
+						DISP_TEMP_S(340,432,(uint8_t*)buf,CH31_SW);
+						sprintf(buf,"%.1f",CH32TEMP);	
+						DISP_TEMP_S(380,432,(uint8_t*)buf,CH32_SW);
+						sprintf(buf,"%.1f",CH33TEMP);
+						DISP_TEMP_S(100,556,(uint8_t*)buf,CH33_SW);
+						sprintf(buf,"%.1f",CH34TEMP);
+						DISP_TEMP_S(140,556,(uint8_t*)buf,CH34_SW);
+						sprintf(buf,"%.1f",CH35TEMP);
+						DISP_TEMP_S(180,556,(uint8_t*)buf,CH35_SW);
+						sprintf(buf,"%.1f",CH37TEMP);
+						DISP_TEMP_S(220,556,(uint8_t*)buf,CH36_SW);
+						sprintf(buf,"%.1f",CH37TEMP);
+						DISP_TEMP_S(260,556,(uint8_t*)buf,CH37_SW);
+						sprintf(buf,"%.1f",CH38TEMP);
+						DISP_TEMP_S(300,556,(uint8_t*)buf,CH38_SW);
+						sprintf(buf,"%.1f",CH39TEMP);
+						DISP_TEMP_S(340,556,(uint8_t*)buf,CH39_SW);
+						sprintf(buf,"%.1f",CH40TEMP);
+						DISP_TEMP_S(380,556,(uint8_t*)buf,CH40_SW);
+					}
 				}
 		}
 	}else if(page_flag == graph){
@@ -2422,6 +2427,7 @@ void Save_flag(void)
 	SPI_FLASH_BufferWrite((void*)YLIMIT,SPI_FLASH_PageSize*3, sizeof(YLIMIT));
 	SPI_FLASH_BufferWrite((void*)Correction,SPI_FLASH_PageSize*4, sizeof(Correction));
 	SPI_FLASH_BufferWrite((void*)corpara,SPI_FLASH_PageSize*5, sizeof(corpara));
+	SPI_FLASH_BufferWrite((void*)SN,SPI_FLASH_PageSize*6, sizeof(SN));
 //	Save_Sflag();
 }
 
@@ -2433,6 +2439,7 @@ void Read_flag(void)
 	SPI_FLASH_BufferRead((void *)YLIMIT,SPI_FLASH_PageSize*3, sizeof(YLIMIT));
 	SPI_FLASH_BufferRead((void*)Correction,SPI_FLASH_PageSize*4, sizeof(Correction));
 	SPI_FLASH_BufferRead((void*)corpara,SPI_FLASH_PageSize*5, sizeof(corpara));
+	SPI_FLASH_BufferRead((void*)SN,SPI_FLASH_PageSize*6, sizeof(SN));
 	Read_Sflag();
 	//	Read_history();
 }
@@ -3230,6 +3237,10 @@ void Read_Flash_Init_Handle(void)
 		{
 			savedata[i] = 0;
 		}
+	}
+	if(savedata[51] > 16)
+	{
+		savedata[51] = 8;
 	}
 }
 //关机检测

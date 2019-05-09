@@ -1038,32 +1038,32 @@ void DrawPowOff(void)
 	if(LANG == chs)
 	{
 		LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_WHITE);
-		LCD_DrawFullRect(180,395,250,40);
+		LCD_DrawFullRect(180-170,395,250,40);
 		LCD_SetColors(LCD_COLOR_RED,LCD_COLOR_RED);
-		LCD_DrawCircle(100+80+20,100+315,16);
-		LCD_DrawCircle(100+80+20,100+315,15);
-		LCD_DrawCircle(100+80+20,100+315,14);
+		LCD_DrawCircle(100+80+20-170,100+315,16);
+		LCD_DrawCircle(100+80+20-170,100+315,15);
+		LCD_DrawCircle(100+80+20-170,100+315,14);
 		LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_WHITE);
-		LCD_DrawFullRect(95+80+20,395,11,20);
+		LCD_DrawFullRect(95+80+20-170,395,11,20);
 		LCD_SetColors(LCD_COLOR_RED,LCD_COLOR_RED);
-		LCD_DrawFullRect(98+80+20,80+315,5,20);
+		LCD_DrawFullRect(98+80+20-170,80+315,5,20);
 		LCD_SetColors(LCD_COLOR_BLACK,LCD_COLOR_WHITE);
-		LCD_DisplayStringLine(85+318,120+90+20,"正在关机");
-		LCD_DisplayStringLine(85+315,120+90+20+96,"...");
+		LCD_DisplayStringLine(85+318,120+90+20-170,"正在关机");
+		LCD_DisplayStringLine(85+315,120+90+20+96-170,"...");
 	}else if(LANG == eng){
 		LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_WHITE);
-		LCD_DrawFullRect(180,395,250,40);
+		LCD_DrawFullRect(180-170,395,250,40);
 		LCD_SetColors(LCD_COLOR_RED,LCD_COLOR_RED);
-		LCD_DrawCircle(100+80+20,100+315,16);
-		LCD_DrawCircle(100+80+20,100+315,15);
-		LCD_DrawCircle(100+80+20,100+315,14);
+		LCD_DrawCircle(100+80+20-170,100+315,16);
+		LCD_DrawCircle(100+80+20-170,100+315,15);
+		LCD_DrawCircle(100+80+20-170,100+315,14);
 		LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_WHITE);
-		LCD_DrawFullRect(95+80+20,395,11,20);
+		LCD_DrawFullRect(95+80+20-170,395,11,20);
 		LCD_SetColors(LCD_COLOR_RED,LCD_COLOR_RED);
-		LCD_DrawFullRect(98+80+20,80+315,5,20);
+		LCD_DrawFullRect(98+80+20-170,80+315,5,20);
 		LCD_SetColors(LCD_COLOR_BLACK,LCD_COLOR_WHITE);
-		LCD_DisplayStringLine(85+318,120+90+20,"POWER OFF");
-		LCD_DisplayStringLine(85+315,120+90+20+144,"...");
+		LCD_DisplayStringLine(85+318,120+90+20-170,"POWER OFF");
+		LCD_DisplayStringLine(85+315,120+90+20+144-170,"...");
 	}
 	
 	DrawLogo(10,80);

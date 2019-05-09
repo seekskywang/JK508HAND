@@ -915,6 +915,92 @@ void input_num(char* num)
 	}
 }
 
+// ‰»Î√‹¬Î
+void input_pass(char* num)
+{
+	if(bit_flag < 18){
+		if(bit_flag == 1)
+		{
+			LCD_SetColors(LCD_COLOR_LIGHTGREY,LCD_COLOR_LIGHTGREY);
+			LCD_DrawRect(224,405,250,30);
+			LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_WHITE);
+			LCD_DrawFullRect(225,406,249,29);
+			
+			LCD_SetColors(LCD_COLOR_LIGHTGREY,LCD_COLOR_LIGHTGREY);
+			LCD_DrawRect(312,408,150,24); 
+			LCD_SetBackColor(LCD_COLOR_WHITE);
+			LCD_SetTextColor(LCD_COLOR_BLACK);
+			DISP_CNL_S(409,240," ‰»Î√‹¬Î");
+		}
+		
+		strcat(data,num);
+		input_flag = 1;
+		if(dot_flag != 0 && strcmp(num,".") == 0)
+		{
+			
+		}else{			
+			LCD_SetBackColor(LCD_COLOR_WHITE);
+			LCD_SetTextColor(LCD_COLOR_WHITE);
+			DISP_CNL_S(410,314 + bit_flag*8," ");
+			LCD_SetBackColor(LCD_COLOR_WHITE);
+			LCD_SetTextColor(LCD_COLOR_BLACK);
+			DISP_CNL_S(410,306 + bit_flag*8,(uint8_t*)num);
+			LCD_SetBackColor(LCD_COLOR_BLACK);
+			LCD_SetTextColor(LCD_COLOR_BLACK);
+			DISP_CNL_S(410,314 + bit_flag*8," ");
+			
+			if(dot_flag == 0 && strcmp(num,".") == 0)
+			{
+				dot_flag = bit_flag;
+			}
+			bit_flag ++;
+		}
+	}
+}
+
+// ‰»Î√‹¬Î
+void input_sn(char* num)
+{
+	if(bit_flag < 9){
+		if(bit_flag == 1)
+		{
+			LCD_SetColors(LCD_COLOR_LIGHTGREY,LCD_COLOR_LIGHTGREY);
+			LCD_DrawRect(224,405,250,30);
+			LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_WHITE);
+			LCD_DrawFullRect(225,406,249,29);
+			
+			LCD_SetColors(LCD_COLOR_LIGHTGREY,LCD_COLOR_LIGHTGREY);
+			LCD_DrawRect(312,408,150,24); 
+			LCD_SetBackColor(LCD_COLOR_WHITE);
+			LCD_SetTextColor(LCD_COLOR_BLACK);
+			DISP_CNL_S(409,240," ‰»ÎSN");
+		}
+		
+		strcat(SN,num);
+		input_flag = 1;
+		if(dot_flag != 0 && strcmp(num,".") == 0)
+		{
+			
+		}else{			
+			LCD_SetBackColor(LCD_COLOR_WHITE);
+			LCD_SetTextColor(LCD_COLOR_WHITE);
+			DISP_CNL_S(410,314 + bit_flag*8," ");
+			LCD_SetBackColor(LCD_COLOR_WHITE);
+			LCD_SetTextColor(LCD_COLOR_BLACK);
+			DISP_CNL_S(410,306 + bit_flag*8,(uint8_t*)num);
+			LCD_SetBackColor(LCD_COLOR_BLACK);
+			LCD_SetTextColor(LCD_COLOR_BLACK);
+			DISP_CNL_S(410,314 + bit_flag*8," ");
+			
+			if(dot_flag == 0 && strcmp(num,".") == 0)
+			{
+				dot_flag = bit_flag;
+			}
+			bit_flag ++;
+		}
+	}
+}
+
 //«Â≥˝ ‰»ÎøÚ
 void clear_input(void)
 {
@@ -952,7 +1038,32 @@ void del_num(void)
 		neg_flag = 1;
 	}
 }
-
+//…æ≥˝–Ú¡–∫≈
+void del_sn(void)
+{
+	if(bit_flag > 1)
+	{
+		LCD_SetBackColor(LCD_COLOR_WHITE);
+		LCD_SetTextColor(LCD_COLOR_WHITE);
+		DISP_CNL_S(410,306 + bit_flag*8," ");
+		LCD_SetBackColor(LCD_COLOR_BLACK);
+		LCD_SetTextColor(LCD_COLOR_BLACK);
+		DISP_CNL_S(410,298 + bit_flag*8," ");
+		bit_flag --;
+		SN[bit_flag-1] = '\0';
+		if(bit_flag == dot_flag)
+		{
+			dot_flag = 0;
+		}
+		if(bit_flag == 2)
+		{
+			neg_flag = 0;
+		}
+	}else if(bit_flag == 1){
+		input_num("-");
+		neg_flag = 1;
+	}
+}
 //…Ë÷√»’∆⁄
 
 void plus_year(void)
@@ -2007,6 +2118,10 @@ void FUNC1_HANDLE(void)
 {
 	switch(page_flag)
 	{
+		case factory:
+		{
+			page_home();
+		}break;
 		case display:
 		{
 			switch(op_flag)
@@ -8369,6 +8484,22 @@ void ENTER_HANDLE(void)
 				
 			}
 		}break;
+		case factory:
+		{
+			if(passverify == 0 && data[0] == '2' && data[1] == '0' && data[2] == '1' && data[3] == '9' && data[4] == '0' && data[5] == '5' && data[6] == '0' && data[7] == '8')
+			{
+				clear_input();
+				passverify = 1;
+				page_factory();
+			}else{
+				memcpy(SN,data,sizeof(SN));
+				clear_input();
+				Save_flag();
+				LCD_SetTextColor(LCD_COLOR_WHITE);
+				LCD_SetBackColor(LCD_COLOR_BACK);
+				LCD_DisplayStringLine(330,170,(uint8_t *)SN);
+			}
+		}
 	}
 }
 
@@ -10860,6 +10991,20 @@ void DOWN_HANDLE(void)
 	char buf[10];
 	switch(page_flag)
 	{
+		case factory:
+		{
+			if(CHNUM == 8)
+			{
+				CHNUM = 16;
+			}else if(CHNUM == 16){
+				CHNUM = 8;
+			}
+			Save_flag();
+			LCD_SetTextColor(LCD_COLOR_WHITE);
+			LCD_SetBackColor(LCD_COLOR_BACK);
+			sprintf(buf,"%03d",CHNUM);
+			LCD_DisplayStringLine(170,170,(uint8_t *)buf);
+		}break;
 		case display:
 		{
 			switch(op_flag)
@@ -15497,7 +15642,7 @@ void KEY1_HANDLE(void)
 //			DrawPowOff();
 //			LCD_Clear(LCD_COLOR_BLACK);
 //			page_flag = 0xff;
-			DrawLogo(200,250);
+//			DrawLogo(200,250);
 		}break;
 		case separation:
 		{
@@ -15528,6 +15673,15 @@ void KEY1_HANDLE(void)
 				Input_start(1);
 			}else if(op_flag == endtime){
 				Input_end(1);
+			}
+		}break;
+		case factory:
+		{
+			if(passverify == 0)
+			{
+				input_pass("1");	
+			}else{
+				input_num("1");
 			}
 		}break;
 		default:
@@ -15582,7 +15736,15 @@ void KEY2_HANDLE(void)
 		{
 			XYCAL(2);
 		}break;
-
+		case factory:
+		{
+			if(passverify == 0)
+			{
+				input_pass("2");	
+			}else{
+				input_num("2");
+			}
+		}break;
 	}
 }
 
@@ -15625,6 +15787,15 @@ void KEY3_HANDLE(void)
 		{
 			XYCAL(3);
 		}break;
+		case factory:
+		{
+			if(passverify == 0)
+			{
+				input_pass("3");	
+			}else{
+				input_num("3");
+			}
+		}break;
 	}
 }
 
@@ -15662,6 +15833,15 @@ void KEY4_HANDLE(void)
 		case touchcal:
 		{
 			XYCAL(4);
+		}break;
+		case factory:
+		{
+			if(passverify == 0)
+			{
+				input_pass("4");	
+			}else{
+				input_num("4");
+			}
 		}break;
 	}
 }
@@ -15701,6 +15881,15 @@ void KEY5_HANDLE(void)
 		{
 			XYCAL(5);
 		}break;
+		case factory:
+		{
+			if(passverify == 0)
+			{
+				input_pass("5");	
+			}else{
+				input_num("5");
+			}
+		}break;
 	}
 }
 
@@ -15738,6 +15927,15 @@ void KEY6_HANDLE(void)
 		case touchcal:
 		{
 			XYCAL(6);
+		}break;
+		case factory:
+		{
+			if(passverify == 0)
+			{
+				input_pass("6");	
+			}else{
+				input_num("6");
+			}
 		}break;
 	}
 }
@@ -15777,6 +15975,15 @@ void KEY7_HANDLE(void)
 		{
 			XYCAL(7);
 		}break;
+		case factory:
+		{
+			if(passverify == 0)
+			{
+				input_pass("7");	
+			}else{
+				input_num("7");
+			}
+		}break;
 	}
 }
 
@@ -15815,6 +16022,15 @@ void KEY8_HANDLE(void)
 		{
 			XYCAL(8);
 		}break;
+		case factory:
+		{
+			if(passverify == 0)
+			{
+				input_pass("8");	
+			}else{
+				input_num("8");
+			}
+		}break;
 	}
 }
 
@@ -15849,6 +16065,15 @@ void KEY9_HANDLE(void)
 				Input_end(9);
 			}
 		}break;
+		case factory:
+		{
+			if(passverify == 0)
+			{
+				input_pass("9");	
+			}else{
+				input_num("9");
+			}
+		}break;
 	}
 }
 
@@ -15881,6 +16106,15 @@ void KEY0_HANDLE(void)
 				Input_start(0);
 			}else if(op_flag == endtime){
 				Input_end(0);
+			}
+		}break;
+		case factory:
+		{
+			if(passverify == 0)
+			{
+				input_pass("0");	
+			}else{
+				input_num("0");
 			}
 		}break;
 	}
@@ -15930,6 +16164,15 @@ void BACK_HANDLE(void)
 			if(op_flag == set_timer)
 			{
 				del_num();	
+			}
+		}break;
+		case factory:
+		{
+			if(passverify == 0)
+			{
+				del_num();	
+			}else{
+				del_num();
 			}
 		}break;
 	}
@@ -15989,6 +16232,10 @@ void ACC_HANDLE(void)
 		case display:
 		{
 			page_home();
+		}break;
+		case poweron:
+		{
+			page_factory();
 		}break;
 		default:break;
 	}

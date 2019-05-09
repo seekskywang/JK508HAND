@@ -150,7 +150,7 @@ const uint8_t TC_Type[][2]=
 
 void page_home(void)
 {
-	CHNUM = 8;
+//	CHNUM = 16;
   /*初始化后默认使用前景层*/
 	LCD_SetLayer(LCD_FOREGROUND_LAYER); 
 	/*默认设置不透明	，该函数参数为不透明度，范围 0-0xff ，0为全透明，0xff为不透明*/
@@ -1131,14 +1131,17 @@ void Disp_Type(void)
 			DISP_AVG(312,190,"  ");
 			DISP_AVG(352,190,"  ");
 			DISP_AVG(392,190,"  ");
-			DISP_AVG(112,390,"  ");
-			DISP_AVG(152,390,"  ");
-			DISP_AVG(192,390,"  ");
-			DISP_AVG(232,390,"  ");
-			DISP_AVG(272,390,"  ");
-			DISP_AVG(312,390,"  ");
-			DISP_AVG(352,390,"  ");
-			DISP_AVG(392,390,"  ");
+			if(CHNUM == 16)
+			{
+				DISP_AVG(112,390,"  ");
+				DISP_AVG(152,390,"  ");
+				DISP_AVG(192,390,"  ");
+				DISP_AVG(232,390,"  ");
+				DISP_AVG(272,390,"  ");
+				DISP_AVG(312,390,"  ");
+				DISP_AVG(352,390,"  ");
+				DISP_AVG(392,390,"  ");
+			}
 			
 			DISP_AVG(112,190,pt[CH1TYPE-1]);
 			DISP_AVG(152,190,pt[CH2TYPE-1]);
@@ -1148,14 +1151,17 @@ void Disp_Type(void)
 			DISP_AVG(312,190,pt[CH6TYPE-1]);
 			DISP_AVG(352,190,pt[CH7TYPE-1]);
 			DISP_AVG(392,190,pt[CH8TYPE-1]);
-			DISP_AVG(112,390,pt[CH9TYPE-1]);
-			DISP_AVG(152,390,pt[CH10TYPE-1]);
-			DISP_AVG(192,390,pt[CH11TYPE-1]);
-			DISP_AVG(232,390,pt[CH12TYPE-1]);
-			DISP_AVG(272,390,pt[CH13TYPE-1]);
-			DISP_AVG(312,390,pt[CH14TYPE-1]);
-			DISP_AVG(352,390,pt[CH15TYPE-1]);
-			DISP_AVG(392,390,pt[CH16TYPE-1]);
+			if(CHNUM == 16)
+			{
+				DISP_AVG(112,390,pt[CH9TYPE-1]);
+				DISP_AVG(152,390,pt[CH10TYPE-1]);
+				DISP_AVG(192,390,pt[CH11TYPE-1]);
+				DISP_AVG(232,390,pt[CH12TYPE-1]);
+				DISP_AVG(272,390,pt[CH13TYPE-1]);
+				DISP_AVG(312,390,pt[CH14TYPE-1]);
+				DISP_AVG(352,390,pt[CH15TYPE-1]);
+				DISP_AVG(392,390,pt[CH16TYPE-1]);
+			}
 	}else if(FONT == small){
 			DISP_AVG(104,115,"  ");
 			DISP_AVG(144,115,"  ");
@@ -1165,14 +1171,17 @@ void Disp_Type(void)
 			DISP_AVG(304,115,"  ");
 			DISP_AVG(344,115,"  ");
 			DISP_AVG(384,115,"  ");
-			DISP_AVG(104,239,"  ");
-			DISP_AVG(144,239,"  ");
-			DISP_AVG(184,239,"  ");
-			DISP_AVG(224,239,"  ");
-			DISP_AVG(264,239,"  ");
-			DISP_AVG(304,239,"  ");
-			DISP_AVG(344,239,"  ");
-			DISP_AVG(384,239,"  ");
+		    if(CHNUM == 16)
+			{
+				DISP_AVG(104,239,"  ");
+				DISP_AVG(144,239,"  ");
+				DISP_AVG(184,239,"  ");
+				DISP_AVG(224,239,"  ");
+				DISP_AVG(264,239,"  ");
+				DISP_AVG(304,239,"  ");
+				DISP_AVG(344,239,"  ");
+				DISP_AVG(384,239,"  ");
+			}
 			
 			DISP_AVG(104,115,pt[CH1TYPE-1]);
 			DISP_AVG(144,115,pt[CH2TYPE-1]);
@@ -1182,14 +1191,17 @@ void Disp_Type(void)
 			DISP_AVG(304,115,pt[CH6TYPE-1]);
 			DISP_AVG(344,115,pt[CH7TYPE-1]);
 			DISP_AVG(384,115,pt[CH8TYPE-1]);
-			DISP_AVG(104,239,pt[CH9TYPE-1]);
-			DISP_AVG(144,239,pt[CH10TYPE-1]);
-			DISP_AVG(184,239,pt[CH11TYPE-1]);
-			DISP_AVG(224,239,pt[CH12TYPE-1]);
-			DISP_AVG(264,239,pt[CH13TYPE-1]);
-			DISP_AVG(304,239,pt[CH14TYPE-1]);
-			DISP_AVG(344,239,pt[CH15TYPE-1]);
-			DISP_AVG(384,239,pt[CH16TYPE-1]);
+			if(CHNUM == 16)
+			{
+				DISP_AVG(104,239,pt[CH9TYPE-1]);
+				DISP_AVG(144,239,pt[CH10TYPE-1]);
+				DISP_AVG(184,239,pt[CH11TYPE-1]);
+				DISP_AVG(224,239,pt[CH12TYPE-1]);
+				DISP_AVG(264,239,pt[CH13TYPE-1]);
+				DISP_AVG(304,239,pt[CH14TYPE-1]);
+				DISP_AVG(344,239,pt[CH15TYPE-1]);
+				DISP_AVG(384,239,pt[CH16TYPE-1]);
+			}
 	}
 	Save_flag();
 	

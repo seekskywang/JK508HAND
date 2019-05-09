@@ -65,6 +65,9 @@ extern u8 cor_page;
 extern u8 trigflag;
 extern u8 tcpage;
 extern u8 tcflag;
+extern u8 passverify;
+extern char SN[8];
+extern char data[17];
 
 void page_home(void);
 void page_set(void);
@@ -503,6 +506,7 @@ uint32_t Flash_DisableReadProtection(void);
 #define poweron 		 9
 #define touchcal		 10
 #define poweroff 		 11
+#define factory 		 12
 
 /* 选项标志位 */
 #define home_type        0

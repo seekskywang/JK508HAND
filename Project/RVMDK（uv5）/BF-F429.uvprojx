@@ -807,6 +807,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\User\APP\power_on.c</FilePath>
             </File>
+            <File>
+              <FileName>factory.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\User\APP\factory.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

@@ -109,6 +109,7 @@ void DOT_HANDLE(void);
 void BACK_HANDLE(void);
 void ACC_HANDLE(void);
 void input_num(char* num);
+void input_pass(char* num);
 void clear_input(void);
 void del_num(void);
 void Utest(void);
