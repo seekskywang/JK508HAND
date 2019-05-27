@@ -1289,23 +1289,23 @@ void brt_set(u8 key)
 	{
 		LCD_DisplayStringLine(130,170,"10");
 		BRTS = L0;
-		brightness = 10;
+		brightness = 5;
 	}else if(key == 2){
 		LCD_DisplayStringLine(130,170,"25");
 		BRTS = L1;
-		brightness = 20;
+		brightness = 15;
 	}else if(key == 3){
 		LCD_DisplayStringLine(130,170,"50");
 		BRTS = L2;
-		brightness = 40;
+		brightness = 30;
 	}else if(key == 4){
 		LCD_DisplayStringLine(130,170,"75");
 		BRTS = L3;
-		brightness = 60;
+		brightness = 45;
 	}else if(key == 5){
 		LCD_DisplayStringLine(130,170,"100");
 		BRTS = L4;
-		brightness = 80;
+		brightness = 60;
 	}
 	TIM_PWMOUTPUT_Config(brightness);
 	op_sw = op_off;

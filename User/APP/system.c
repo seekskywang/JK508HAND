@@ -140,19 +140,19 @@ void page_sys(void)
 		LCD_SetBackColor(LCD_COLOR_BACK);
 		if(BRTS == L0)
 		{
-			brightness = 10;
+			brightness = 5;
 			sprintf(buf,"%d",10);
 		}else if(BRTS == L1){
-			brightness = 20;
+			brightness = 15;
 			sprintf(buf,"%d",25);
 		}else if(BRTS == L2){
-			brightness = 40;
+			brightness = 30;
 			sprintf(buf,"%d",50);
 		}else if(BRTS == L3){
-			brightness = 60;
+			brightness = 45;
 			sprintf(buf,"%d",75);
 		}else if(BRTS == L4){
-			brightness = 80;
+			brightness = 60;
 			sprintf(buf,"%d",100);
 		}		
 		LCD_DisplayStringLine(130,170,(uint8_t*)buf);

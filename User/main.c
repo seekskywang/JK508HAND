@@ -648,15 +648,15 @@ void InitBrt(void)
 {
 	if(BRTS == L0)
 	{
-		brightness = 10;
+		brightness = 5;
 	}else if(BRTS == L1){
-		brightness = 20;
+		brightness = 15;
 	}else if(BRTS == L2){
-		brightness = 40;
+		brightness = 30;
 	}else if(BRTS == L3){
-		brightness = 60;
+		brightness = 45;
 	}else if(BRTS == L1){
-		brightness = 80;
+		brightness = 60;
 	}
 	TIM_PWMOUTPUT_Config(brightness);
 }
@@ -3238,7 +3238,7 @@ void Read_Flash_Init_Handle(void)
 			savedata[i] = 0;
 		}
 	}
-	if(savedata[51] > 16)
+	if(savedata[51] != 16 && savedata[51] != 8)
 	{
 		savedata[51] = 8;
 	}
