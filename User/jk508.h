@@ -128,6 +128,7 @@ void stimefocus_on(int lmt);
 void stimefocus_off(int lmt);
 void Disp_Type(void);
 void SetSTctype(void);
+void JumpBoot(u8 flag);
 
 extern u8 usbbuf[0x40];
 uint16_t CRC16(uint8_t *puchMsg, uint8_t Len);

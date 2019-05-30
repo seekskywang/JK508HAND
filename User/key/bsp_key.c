@@ -16237,6 +16237,10 @@ void ACC_HANDLE(void)
 		{
 			page_factory();
 		}break;
+		case sysinfo:
+		{
+			JumpBoot(55);
+		}break;
 		default:break;
 	}
 }
