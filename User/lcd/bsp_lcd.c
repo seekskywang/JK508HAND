@@ -728,13 +728,13 @@ void Drawsysinfomenu(void)
 		LCD_DisplayStringLine(450,153,"曲线图");
 		LCD_DisplayStringLine(450,293,"系统");
 		LCD_DisplayStringLine(450,420,"设置");
-		LCD_DisplayStringLine(450,528,"系统信息");
+		LCD_DisplayStringLine(450,528,"固件升级");
 	}else{
 		LCD_DisplayStringLine(450,10,"DISPLAY");
 		LCD_DisplayStringLine(450,153,"GRAPH");
 		LCD_DisplayStringLine(450,275,"SYSTEM");
 		LCD_DisplayStringLine(450,410,"SETUP");
-		LCD_DisplayStringLine(450,522,"SYSINFO");
+		LCD_DisplayStringLine(450,522,"UPDATE");
 	}
 }
 

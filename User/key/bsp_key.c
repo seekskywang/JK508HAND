@@ -6146,7 +6146,7 @@ void FUNC5_HANDLE(void)
 		}break;
 		case sysinfo:
 		{
-			page_sysinfo();
+			JumpBoot(55);
 		}break;
 		case graph:
 		{
@@ -16239,7 +16239,7 @@ void ACC_HANDLE(void)
 		}break;
 		case sysinfo:
 		{
-			JumpBoot(55);
+//			JumpBoot(55);
 		}break;
 		default:break;
 	}
