@@ -603,14 +603,14 @@ void UARTRECHANDLE(void)
 //						}
 			if(count == 450)
 			{
-				if(TIME_REC < 1000)
-				{
-					TIME_REC++;
-					Save_time(TIME_REC);
-					Save_Sflag();
-				}else{
-					TIME_REC = 0;
-				}
+//				if(TIME_REC < 1000)
+//				{
+//					TIME_REC++;
+//					Save_time(TIME_REC);
+//					Save_Sflag();
+//				}else{
+//					TIME_REC = 0;
+//				}
 			}
 			if(count > 494)
 			{

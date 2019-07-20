@@ -149,15 +149,15 @@ void LCD_Init(void)
     /* LTDC 时钟频率 = PLLLCDCLK / DIV = 420/6/8 = 8.75 Mhz */
 	/* LTDC时钟太高会导花屏，若对刷屏速度要求不高，降低时钟频率可减少花屏现象*/
 	/* 以下函数三个参数分别为：PLLSAIN,PLLSAIQ,PLLSAIR，其中PLLSAIQ与LTDC无关*/
-  RCC_PLLSAIConfig(420,20, 1);
+  RCC_PLLSAIConfig(440,20, 26);
 	/*以下函数的参数为DIV值*/
-  RCC_LTDCCLKDivConfig(RCC_PLLSAIDivR_Div16);
+  RCC_LTDCCLKDivConfig(RCC_PLLSAIDivR_Div8);
   
   /* 使能 PLLSAI 时钟 */
   RCC_PLLSAICmd(ENABLE);
   /* 等待 PLLSAI 初始化完成 */
   while(RCC_GetFlagStatus(RCC_FLAG_PLLSAIRDY) == RESET)
-  {
+  {   
   }
   
   /* LTDC配置*********************************************************/  
@@ -535,7 +535,7 @@ void DrawMenu(void)
 {
 	LCD_SetColors(LCD_COLOR_BLACK,LCD_COLOR_BLUE);
 	LCD_DrawFullRect(0,440,640,40);
-	LCD_SetColors(LCD_COLOR_GREY,LCD_COLOR_BLUE);
+	LCD_SetColors(LCD_COLOR_LIGHTBLUE,LCD_COLOR_BLUE);
 	LCD_DrawFullRect(0,440,640,2);
 	LCD_DrawFullRect(127,444,1,38);
 	LCD_DrawFullRect(255,444,1,38);
@@ -889,11 +889,11 @@ void DrawInstruction(uint8_t *ptr)
 void DrawGridLine(void)
 {
 	u8 i,j;
-	LCD_SetColors(LCD_COLOR_GREY,LCD_COLOR_GREY);
+	LCD_SetColors(LCD_COLOR_LIGHTBLUE,LCD_COLOR_GREY);
 	LCD_DrawRect(110-80,50,498,351);
 	LCD_SetColors(LCD_COLOR_BLACK,LCD_COLOR_BLACK);
 	LCD_DrawFullRect(111-80,51,497,350);
-	LCD_SetColors(LCD_COLOR_GREY,LCD_COLOR_GREY);
+	LCD_SetColors(LCD_COLOR_LIGHTBLUE,LCD_COLOR_GREY);
 	for(j = 0;j < 6;j++)
 	{
 		for(i = 0;i < 50 ;i++)

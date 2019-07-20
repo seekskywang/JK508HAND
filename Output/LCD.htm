@@ -3,7 +3,7 @@
 <title>Static Call Graph - [..\..\Output\LCD.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\..\Output\LCD.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sun Jun 09 09:44:07 2019
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Wed Jun 12 15:29:55 2019
 <BR><P>
 <H3>Maximum Stack Usage =        584 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1509,7 +1509,7 @@ Global Symbols
 <LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
 </UL>
 
-<P><STRONG><a name="[135]"></a>DrawGridLine</STRONG> (Thumb, 178 bytes, Stack size 24 bytes, bsp_lcd.o(i.DrawGridLine))
+<P><STRONG><a name="[135]"></a>DrawGridLine</STRONG> (Thumb, 182 bytes, Stack size 24 bytes, bsp_lcd.o(i.DrawGridLine))
 <BR><BR>[Stack]<UL><LI>Max Depth = 132<LI>Call Chain = DrawGridLine &rArr; LCD_DrawRect &rArr; LCD_DrawLine &rArr; DMA2D_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawRect
@@ -1564,7 +1564,7 @@ Global Symbols
 <LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawPowOff
 </UL>
 
-<P><STRONG><a name="[139]"></a>DrawMenu</STRONG> (Thumb, 126 bytes, Stack size 16 bytes, bsp_lcd.o(i.DrawMenu))
+<P><STRONG><a name="[139]"></a>DrawMenu</STRONG> (Thumb, 128 bytes, Stack size 16 bytes, bsp_lcd.o(i.DrawMenu))
 <BR><BR>[Stack]<UL><LI>Max Depth = 116<LI>Call Chain = DrawMenu &rArr; DrawUdisk2 &rArr; LCD_DrawFullRect &rArr; DMA2D_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
@@ -3525,8 +3525,7 @@ Global Symbols
 <LI><a href="#[1e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_FLASH_BufferWrite
 <LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
 </UL>
-<BR>[Called By]<UL><LI><a href="#[208]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UARTRECHANDLE
-<LI><a href="#[1b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PowerOffHandle
+<BR>[Called By]<UL><LI><a href="#[1b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PowerOffHandle
 </UL>
 
 <P><STRONG><a name="[175]"></a>Search_Bit</STRONG> (Thumb, 172 bytes, Stack size 40 bytes, bsp_key.o(i.Search_Bit))
@@ -3819,7 +3818,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM6_DAC_IRQHandler
 </UL>
 
-<P><STRONG><a name="[208]"></a>UARTRECHANDLE</STRONG> (Thumb, 976 bytes, Stack size 88 bytes, main.o(i.UARTRECHANDLE))
+<P><STRONG><a name="[208]"></a>UARTRECHANDLE</STRONG> (Thumb, 932 bytes, Stack size 88 bytes, main.o(i.UARTRECHANDLE))
 <BR><BR>[Stack]<UL><LI>Max Depth = 340<LI>Call Chain = UARTRECHANDLE &rArr; DrawTime &rArr; DrawGridLine &rArr; LCD_DrawRect &rArr; LCD_DrawLine &rArr; DMA2D_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_home
@@ -3827,7 +3826,6 @@ Global Symbols
 <LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
-<LI><a href="#[1b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Save_time
 <LI><a href="#[1b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Save_history
 <LI><a href="#[1b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Save_Sflag
 <LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
@@ -5118,7 +5116,7 @@ Global Symbols
 <LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC2_HANDLE
 </UL>
 
-<P><STRONG><a name="[b3]"></a>page_home</STRONG> (Thumb, 4160 bytes, Stack size 40 bytes, home.o(i.page_home))
+<P><STRONG><a name="[b3]"></a>page_home</STRONG> (Thumb, 4162 bytes, Stack size 40 bytes, home.o(i.page_home))
 <BR><BR>[Stack]<UL><LI>Max Depth = 216<LI>Call Chain = page_home &rArr; Disp_Type &rArr; Save_flag &rArr; SPI_FLASH_BufferWrite &rArr; SPI_FLASH_PageWrite &rArr; SPI_FLASH_WaitForWriteEnd &rArr; SPI_FLASH_SendByte &rArr; SPI_TIMEOUT_UserCallback &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTransparency
