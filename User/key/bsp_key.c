@@ -241,6 +241,7 @@ void DrawType(u8 p)
 		LCD_SetTextColor(LCD_COLOR_YELLOW);
 		LCD_SetBackColor(LCD_COLOR_BLACK);
 		LCD_DisplayStringLine(450,35,"PT100");
+		LCD_DisplayStringLine(450,157,"AM2305");
 		if(LANG == chs)
 		{
 			LCD_DisplayStringLine(450,550,"更多");
@@ -4328,6 +4329,7 @@ void FUNC5_HANDLE(void)
 					LCD_SetTextColor(LCD_COLOR_YELLOW);
 					LCD_SetBackColor(LCD_COLOR_BLACK);
 					LCD_DisplayStringLine(450,35,"PT100");
+					LCD_DisplayStringLine(450,157,"AM2305");
 					if(LANG == chs)
 					{
 						LCD_DisplayStringLine(450,550,"更多");
@@ -5600,6 +5602,8 @@ void FUNC5_HANDLE(void)
 							LCD_DisplayStringLine(47,100,"TC-B");
 						}else if(TCTYPE == PT100){
 							LCD_DisplayStringLine(47,100,"PT100");
+						}else if(TCTYPE == AM2305){
+							LCD_DisplayStringLine(47,100,"AM2305");
 						}
 						op_flag = home_type;
 						focus_off1();
@@ -8538,6 +8542,8 @@ void UP_HANDLE(void)
 							LCD_DisplayStringLine(47,100,"TC-B");
 						}else if(TCTYPE == PT100){
 							LCD_DisplayStringLine(47,100,"PT100");
+						}else if(TCTYPE == AM2305){
+							LCD_DisplayStringLine(47,100,"AM2305");
 						}					
 						
 						
@@ -8588,6 +8594,8 @@ void UP_HANDLE(void)
 							LCD_DisplayStringLine(47,100,"TC-B");
 						}else if(TCTYPE == PT100){
 							LCD_DisplayStringLine(47,100,"PT100");
+						}else if(TCTYPE == AM2305){
+							LCD_DisplayStringLine(47,100,"AM2305");
 						}
 						
 						if(ch_page == page1)
@@ -8627,6 +8635,8 @@ void UP_HANDLE(void)
 							LCD_DisplayStringLine(47,100,"TC-B");
 						}else if(TCTYPE == PT100){
 							LCD_DisplayStringLine(47,100,"PT100");
+						}else if(TCTYPE == AM2305){
+							LCD_DisplayStringLine(47,100,"AM2305");
 						}
 						
 						if(ch_page == page1)
@@ -8686,6 +8696,8 @@ void UP_HANDLE(void)
 							LCD_DisplayStringLine(47,100,"TC-B");
 						}else if(TCTYPE == PT100){
 							LCD_DisplayStringLine(47,100,"PT100");
+						}else if(TCTYPE == AM2305){
+							LCD_DisplayStringLine(47,100,"AM2305");
 						}						
 						if(LANG == chs)
 						{
@@ -8725,6 +8737,8 @@ void UP_HANDLE(void)
 							LCD_DisplayStringLine(47,100,"TC-B");
 						}else if(TCTYPE == PT100){
 							LCD_DisplayStringLine(47,100,"PT100");
+						}else if(TCTYPE == AM2305){
+							LCD_DisplayStringLine(47,100,"AM2305");
 						}
 						if(LANG == chs)
 						{
@@ -8761,6 +8775,8 @@ void UP_HANDLE(void)
 							LCD_DisplayStringLine(47,100,"TC-B");
 						}else if(TCTYPE == PT100){
 							LCD_DisplayStringLine(47,100,"PT100");
+						}else if(TCTYPE == AM2305){
+							LCD_DisplayStringLine(47,100,"AM2305");
 						}
 						if(LANG == chs)
 						{
@@ -11032,6 +11048,8 @@ void DOWN_HANDLE(void)
 						LCD_DisplayStringLine(47,100,"TC-B");
 					}else if(TCTYPE == PT100){
 						LCD_DisplayStringLine(47,100,"PT100");
+					}else if(TCTYPE == AM2305){
+						LCD_DisplayStringLine(47,100,"AM2305");
 					}
 					
 					if(FONT == big)
@@ -11338,6 +11356,8 @@ void DOWN_HANDLE(void)
 							LCD_DisplayStringLine(47,100,"TC-B");
 						}else if(TCTYPE == PT100){
 							LCD_DisplayStringLine(47,100,"PT100");
+						}else if(TCTYPE == AM2305){
+							LCD_DisplayStringLine(47,100,"AM2305");
 						}
 						if(LANG == chs)
 						{
@@ -11644,6 +11664,8 @@ void DOWN_HANDLE(void)
 								LCD_DisplayStringLine(47,100,"TC-B");
 							}else if(TCTYPE == PT100){
 								LCD_DisplayStringLine(47,100,"PT100");
+							}else if(TCTYPE == AM2305){
+								LCD_DisplayStringLine(47,100,"AM2305");
 							}
 							if(LANG == chs)
 							{
@@ -11688,6 +11710,8 @@ void DOWN_HANDLE(void)
 								LCD_DisplayStringLine(47,100,"TC-B");
 							}else if(TCTYPE == PT100){
 								LCD_DisplayStringLine(47,100,"PT100");
+							}else if(TCTYPE == AM2305){
+								LCD_DisplayStringLine(47,100,"AM2305");
 							}
 							if(LANG == chs)
 							{
@@ -13291,6 +13315,8 @@ void RIGHT_HANDLE(void)
 						LCD_DisplayStringLine(47,100,"TC-B");
 					}else if(TCTYPE == PT100){
 						LCD_DisplayStringLine(47,100,"PT100");
+					}else if(TCTYPE == AM2305){
+						LCD_DisplayStringLine(47,100,"AM2305");
 					}
 					focus_on1();
 					if(FONT == big){
@@ -14489,6 +14515,8 @@ void LEFT_HANDLE(void)
 						LCD_DisplayStringLine(47,100,"TC-B");
 					}else if(TCTYPE == PT100){
 						LCD_DisplayStringLine(47,100,"PT100");
+					}else if(TCTYPE == AM2305){
+						LCD_DisplayStringLine(47,100,"AM2305");
 					}
 					focus_off1();
 					if(FONT == big){

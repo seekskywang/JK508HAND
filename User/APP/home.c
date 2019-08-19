@@ -212,6 +212,8 @@ void page_home(void)
 		LCD_DisplayStringLine(47,100,"TC-B");
 	}else if(TCTYPE == PT100){
 		LCD_DisplayStringLine(47,100,"PT100");
+	}else if(TCTYPE == AM2305){
+		LCD_DisplayStringLine(47,100,"AM2305");
 	}
 	
 
