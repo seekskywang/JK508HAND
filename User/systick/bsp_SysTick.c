@@ -38,6 +38,36 @@ void SysTick_Init(void)
 	}	
 }
 
+/****************************************************************************
+* 名    称：delay_us(u32 nus)
+* 功    能：微秒延时函数
+* 入口参数：u32  nus
+* 出口参数：无
+* 说    明：
+* 调用方法：无 
+****************************************************************************/ 
+void delay_1us(u32 nus)
+{
+	 u32 temp;
+	 SysTick->LOAD = (180-1)*nus;
+	 SysTick->VAL=0X00;//清空计数器
+	 SysTick->CTRL=0X01;//使能，减到零是无动作，采用外部时钟源
+	 do
+	 {
+	  temp=SysTick->CTRL;//读取当前倒计数值
+	 }while((temp&0x01)&&(!(temp&(1<<16))));//等待时间到达
+	 
+	 SysTick->CTRL=0x00; //关闭计数器
+	 SysTick->VAL =0X00; //清空计数器
+}
+
+void delay_us(__IO u32 nTime)
+{ 
+//	TimingDelay = nTime;	
+
+//	while(TimingDelay != 0);.
+    delay_1us(nTime);
+}
 /**
   * @brief   us延时程序,10us为一个单位
   * @param  

@@ -135,7 +135,7 @@ extern union
    }BIT_FLAG;
 }FLAG7;
 
-const uint8_t TC_Type[][2]=
+const uint8_t TC_Type[][3]=
 {
 	{"T"},
 	{"K"},
@@ -146,6 +146,14 @@ const uint8_t TC_Type[][2]=
 	{"R"},
 	{"B"},
 	{"PT"},
+	{"PT"},
+	{"1V"},
+	{"1V"},
+	{"1V"},
+	{"1V"},
+	{"1V"},
+	{"18"},
+	{"AM"},
 };
 
 void page_home(void)
@@ -212,8 +220,8 @@ void page_home(void)
 		LCD_DisplayStringLine(47,100,"TC-B");
 	}else if(TCTYPE == PT100){
 		LCD_DisplayStringLine(47,100,"PT100");
-	}else if(TCTYPE == AM2305){
-		LCD_DisplayStringLine(47,100,"AM2305");
+	}else if(TCTYPE == V1){
+		LCD_DisplayStringLine(47,100,"1V");
 	}
 	
 
@@ -1073,6 +1081,7 @@ void page_home(void)
 	LCD_DrawFullRect(547+5,415,2,25);
 	LCD_DrawFullRect(630+5,415,2,25);
 	LCD_DrawFullRect(385+5,415,247,2);
+
 	
 	page_flag = display;
 	op_flag = home_type;
@@ -1080,7 +1089,7 @@ void page_home(void)
 //显示各通道热电偶类型
 void Disp_Type(void)
 {
-	const u8 (*pt)[sizeof(TC_Type[0])];
+	const u8 (*pt)[3];
 	pt = TC_Type;
 	LCD_SetBackColor(LCD_COLOR_BACK);
 	LCD_SetTextColor(LCD_COLOR_YELLOW);

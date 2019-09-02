@@ -725,8 +725,8 @@ void Drawsysinfomenu(void)
 	if(LANG == chs)
 	{
 		LCD_DisplayStringLine(450,35,"显示");
-		LCD_DisplayStringLine(450,153,"曲线图");
-		LCD_DisplayStringLine(450,293,"系统");
+		LCD_DisplayStringLine(450,153,"校准0");
+		LCD_DisplayStringLine(450,293,"校准1");
 		LCD_DisplayStringLine(450,420,"设置");
 		LCD_DisplayStringLine(450,528,"固件升级");
 	}else{
@@ -738,7 +738,26 @@ void Drawsysinfomenu(void)
 	}
 }
 
-
+/*系统信息页面根菜单*/
+void Drawfacmenu(void)
+{
+	LCD_SetTextColor(LCD_COLOR_BT);
+	LCD_SetBackColor(LCD_COLOR_BLACK);
+	if(LANG == chs)
+	{
+		LCD_DisplayStringLine(450,35,"显示");
+		LCD_DisplayStringLine(450,153,"校准");
+		LCD_DisplayStringLine(450,293,"系统");
+		LCD_DisplayStringLine(450,420,"设置");
+		LCD_DisplayStringLine(450,528,"固件升级");
+	}else{
+		LCD_DisplayStringLine(450,10,"DISPLAY");
+		LCD_DisplayStringLine(450,153,"CAL");
+		LCD_DisplayStringLine(450,275,"SYSTEM");
+		LCD_DisplayStringLine(450,410,"SETUP");
+		LCD_DisplayStringLine(450,522,"UPDATE");
+	}
+}
 
 /*语言选择菜单*/
 void Drawlang(void)
@@ -1068,6 +1087,7 @@ void DrawPowOff(void)
 	
 	DrawLogo(10,80);
 }
+
 
 void lcd_image(uint8_t *pt)
 {

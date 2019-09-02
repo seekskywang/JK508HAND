@@ -47,3 +47,5 @@
 ..\..\output\touchscreen.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 ..\..\output\touchscreen.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 ..\..\output\touchscreen.o: ..\..\User\touchscreen.h
+..\..\output\touchscreen.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+..\..\output\touchscreen.o: ..\..\User\./systick/bsp_SysTick.h

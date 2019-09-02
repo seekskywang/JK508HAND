@@ -340,7 +340,7 @@ int main(void)
 	/*CH376引脚配置初始化*/
 	CH376_GPIO_Init();
     
-	Touch_Init();
+	
 //	Delay_ms(100);
 	
 	Init_CH376();
@@ -396,7 +396,8 @@ int main(void)
 //	watch = CRC16(test,9);
 //	page_home();
 //	watch = sizeof(TempHLimits);
-	
+//	Touch_GPIO_Config();
+//	tp_dev.init();
 	while(1)
 	{
 
@@ -409,10 +410,15 @@ int main(void)
 		if(powerstat == 0 && page_flag != poweron && page_flag != poweroff)
 		{
 			PowerOffHandle();
-		}else{
+		}else if(page_flag != factory){
 			RTC_TimeAndDate_Show();
 			/*按键扫描*/		
 			Key_Function();
+//			tp_dev.scan(0);
+//			if(tp_dev.sta&TP_PRES_DOWN)			//触摸屏被按下
+//			{
+////				BEEP_ON;
+//			}
 			if(TOUCH == op_on)
 			{
 				if(touchflag == 1)
@@ -479,6 +485,8 @@ int main(void)
 				UsbDataHandle();
 				UsbHidReceiveComplete=0;
 			}
+		}else{
+			Key_Function();
 		}
 		
 
@@ -2469,6 +2477,9 @@ void TempDisplay(void)
 
 void Save_flag(void)
 {
+	Touch_save_Typedef *ptt;
+	ptt=&Touch_save;
+	
 	SPI_FLASH_SectorErase(0);
 	SPI_FLASH_BufferWrite((void*)savedata,SPI_FLASH_PageSize*0, sizeof(savedata));
 	SPI_FLASH_BufferWrite((void*)TempHLimits,SPI_FLASH_PageSize*1, sizeof(TempHLimits));
@@ -2477,11 +2488,15 @@ void Save_flag(void)
 	SPI_FLASH_BufferWrite((void*)Correction,SPI_FLASH_PageSize*4, sizeof(Correction));
 	SPI_FLASH_BufferWrite((void*)corpara,SPI_FLASH_PageSize*5, sizeof(corpara));
 	SPI_FLASH_BufferWrite((void*)SN,SPI_FLASH_PageSize*6, sizeof(SN));
+	SPI_FLASH_BufferWrite((u8 *)ptt,SPI_FLASH_PageSize*7, sizeof(Touch_save));
 //	Save_Sflag();
 }
 
 void Read_flag(void)
 {
+	Touch_save_Typedef *ptt;
+	ptt=&Touch_save;
+	
 	SPI_FLASH_BufferRead((void *)savedata,SPI_FLASH_PageSize*0, sizeof(savedata));
 	SPI_FLASH_BufferRead((void *)TempHLimits,SPI_FLASH_PageSize*1, sizeof(TempHLimits));
 	SPI_FLASH_BufferRead((void *)TempLLimits,SPI_FLASH_PageSize*2, sizeof(TempLLimits));
@@ -2489,6 +2504,7 @@ void Read_flag(void)
 	SPI_FLASH_BufferRead((void*)Correction,SPI_FLASH_PageSize*4, sizeof(Correction));
 	SPI_FLASH_BufferRead((void*)corpara,SPI_FLASH_PageSize*5, sizeof(corpara));
 	SPI_FLASH_BufferRead((void*)SN,SPI_FLASH_PageSize*6, sizeof(SN));
+	SPI_FLASH_BufferRead((u8 *)ptt,SPI_FLASH_PageSize*6, sizeof(Touch_save));
 	Read_Sflag();
 	//	Read_history();
 }
@@ -3268,7 +3284,7 @@ void Read_Flash_Init_Handle(void)
 	}
 	for(i=60;i<75;i++)
 	{
-		if(savedata[i] > 9)
+		if(savedata[i] > 20)
 		{
 			savedata[i] = TCT;
 		}

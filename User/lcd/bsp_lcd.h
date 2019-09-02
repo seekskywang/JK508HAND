@@ -662,7 +662,7 @@ void     LCD_DisplayOn(void);
 void     LCD_DisplayOff(void);
 void     LCD_CtrlLinesWrite(GPIO_TypeDef* GPIOx, uint16_t CtrlPins, BitAction BitVal);
 void     PutPixel(int16_t x, int16_t y);
-
+void 	 Drawfacmenu(void);
 
 
 /*ºº×Ö*/

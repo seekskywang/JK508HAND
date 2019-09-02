@@ -129,11 +129,24 @@ void stimefocus_off(int lmt);
 void Disp_Type(void);
 void SetSTctype(void);
 void JumpBoot(u8 flag);
+void Disp_Factory(void);
 
 extern u8 usbbuf[0x40];
 uint16_t CRC16(uint8_t *puchMsg, uint8_t Len);
 uint32_t Flash_EnableReadProtection(void);
 uint32_t Flash_DisableReadProtection(void);
+
+typedef struct
+{
+	u8 save_flag;
+	u16 xoff;
+	u16 yoff;
+	float x_pos;
+	float y_pos;
+	
+} Touch_save_Typedef;
+
+extern Touch_save_Typedef    Touch_save;
 //触发时间段
 //#define STARTH					   trigtime[0]
 //#define STARTM					   trigtime[1]
@@ -632,7 +645,7 @@ uint32_t Flash_DisableReadProtection(void);
 #define TCB          	8//B型热电偶
 #define PT100        	9//PT100型热电偶
 #define TCV       	 	10 //电压
-#define TCI       	 	11//电流
+#define V1       	 	11//电流
 #define T18B20			16//18B20
 #define AM2305			17//温度湿度传感器
 

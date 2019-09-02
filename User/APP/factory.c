@@ -37,6 +37,28 @@ extern union
 
 u8 passverify;
 char SN[8];
+const uint8_t calch[][3] =
+{
+	{"001"},
+	{"002"},
+	{"003"},
+	{"004"},
+	{"005"},
+	{"006"},
+	{"007"},
+	{"008"},
+	{"009"},
+	{"010"},
+	{"011"},
+	{"012"},
+	{"013"},
+	{"014"},
+	{"015"},
+	{"016"},
+};
+
+u8 caltype;
+
 void page_factory(void)
 {
 	char buf[10];
@@ -64,18 +86,26 @@ void page_factory(void)
 		LCD_SetTextColor(LCD_COLOR_LIGHTBLUE);	
 		LCD_SetBackColor(LCD_COLOR_BACK);
 
-		LCD_DisplayStringLine(174,10,"通道数");
-		LCD_DisplayStringLine(334,10,"仪器序列号");
+		LCD_DisplayStringLine(54,10,"通道数");
+		LCD_DisplayStringLine(94,10,"仪器序列号");
+		LCD_DisplayStringLine(134,10,"校准通道");
+		LCD_DisplayStringLine(174,10,"传感器类型");
 	
-		LCD_SetTextColor(LCD_COLOR_WHITE);
-		LCD_SetBackColor(LCD_COLOR_BACK);
-		sprintf(buf,"%03d",CHNUM);
-		LCD_DisplayStringLine(170,170,(uint8_t *)buf);
-		LCD_DisplayStringLine(330,170,(uint8_t *)SN);
 		
+		Disp_Factory();
 	
 	}
-	
-	
 	page_flag = factory;
+}
+
+void Disp_Factory(void)
+{
+	char buf[10];
+	
+	LCD_SetTextColor(LCD_COLOR_WHITE);
+	LCD_SetBackColor(LCD_COLOR_BACK);
+	sprintf(buf,"%03d",CHNUM);
+	LCD_DisplayStringLine(50,170,(uint8_t *)buf);
+	LCD_DisplayStringLine(90,170,(uint8_t *)SN);
+	
 }

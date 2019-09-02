@@ -348,7 +348,7 @@ void BASIC_TIM_IRQHandler (void)
 	if(TIM_GetITStatus( BASIC_TIM, TIM_IT_Update) != RESET )
 	{
 		Key_Scan();//ฐดผüษจร่
-		Touch_Scan();//ดฅรþษจร่
+//		Touch_Scan();//ดฅรþษจร่
 		
 //		Tick_10ms++;
 //		MODS_Poll();
