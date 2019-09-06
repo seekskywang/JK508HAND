@@ -642,13 +642,13 @@ void Drawsysmenu(void)
 	{
 		LCD_DisplayStringLine(450,35,"显示");
 		LCD_DisplayStringLine(450,153,"曲线图");
-		LCD_DisplayStringLine(450,293,"系统");
+		LCD_DisplayStringLine(450,275,"触摸校准");
 		LCD_DisplayStringLine(450,420,"设置");
 		LCD_DisplayStringLine(450,528,"系统信息");
 	}else{
 		LCD_DisplayStringLine(450,10,"DISPLAY");
 		LCD_DisplayStringLine(450,153,"GRAPH");
-		LCD_DisplayStringLine(450,275,"SYSTEM");
+		LCD_DisplayStringLine(450,260,"TOUCHCAL");
 		LCD_DisplayStringLine(450,410,"SETUP");
 		LCD_DisplayStringLine(450,522,"SYSINFO");
 	}
@@ -725,8 +725,8 @@ void Drawsysinfomenu(void)
 	if(LANG == chs)
 	{
 		LCD_DisplayStringLine(450,35,"显示");
-		LCD_DisplayStringLine(450,153,"校准0");
-		LCD_DisplayStringLine(450,293,"校准1");
+		LCD_DisplayStringLine(450,153,"曲线");
+		LCD_DisplayStringLine(450,293,"系统");
 		LCD_DisplayStringLine(450,420,"设置");
 		LCD_DisplayStringLine(450,528,"固件升级");
 	}else{

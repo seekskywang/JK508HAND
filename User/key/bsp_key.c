@@ -3771,7 +3771,7 @@ void FUNC3_HANDLE(void)
 					}break;
 				}
 			}else{
-					page_sys();
+				TP_Adjust();
 			}
 		}break;
 		case settings:

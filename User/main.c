@@ -288,6 +288,7 @@ int main(void)
 	static u8 urecount;
 	static u16 usavecount;
 	static u16 sendcount;
+	static u8 touched;
 //	u8 res;
   /*!< At this stage the microcontroller clock setting is already configured, 
   this is done through SystemInit() function which is called from startup
@@ -396,8 +397,8 @@ int main(void)
 //	watch = CRC16(test,9);
 //	page_home();
 //	watch = sizeof(TempHLimits);
-//	Touch_GPIO_Config();
-//	tp_dev.init();
+	Touch_GPIO_Config();
+	tp_dev.init();
 	while(1)
 	{
 
@@ -414,19 +415,28 @@ int main(void)
 			RTC_TimeAndDate_Show();
 			/*按键扫描*/		
 			Key_Function();
-//			tp_dev.scan(0);
-//			if(tp_dev.sta&TP_PRES_DOWN)			//触摸屏被按下
-//			{
-////				BEEP_ON;
-//			}
-			if(TOUCH == op_on)
+			tp_dev.scan(0);
+			if(tp_dev.sta == 0xc0)
 			{
-				if(touchflag == 1)
-				{
-//					Delay(1000);
-					TouchHandle(XCOOR,YCOOR);
-				}
+				
+			}else{
+				touched = 0;
 			}
+			if(tp_dev.sta&TP_PRES_DOWN && touched == 0)			//触摸屏被按下
+			{
+//				BEEP_ON;
+				TouchHandle(tp_dev.x[0],tp_dev.y[0]);
+				touched = 1;
+			}
+			
+//			if(TOUCH == op_on)
+//			{
+//				if(touchflag == 1)
+//				{
+////					Delay(1000);
+					
+//				}
+//			}
 			if(page_flag != poweron && powerstat != 0)
 			{
 				if(usavecount == 100)
@@ -2504,7 +2514,7 @@ void Read_flag(void)
 	SPI_FLASH_BufferRead((void*)Correction,SPI_FLASH_PageSize*4, sizeof(Correction));
 	SPI_FLASH_BufferRead((void*)corpara,SPI_FLASH_PageSize*5, sizeof(corpara));
 	SPI_FLASH_BufferRead((void*)SN,SPI_FLASH_PageSize*6, sizeof(SN));
-	SPI_FLASH_BufferRead((u8 *)ptt,SPI_FLASH_PageSize*6, sizeof(Touch_save));
+	SPI_FLASH_BufferRead((u8 *)ptt,SPI_FLASH_PageSize*7, sizeof(Touch_save));
 	Read_Sflag();
 	//	Read_history();
 }
@@ -2770,7 +2780,7 @@ void UsbDataHandle(void)
 					USBD_HID_SendReport(&USB_OTG_dev,usbsendbuf,64);//数据回显
 				}else if(usbbuf[2] == 0xC0 && usbbuf[3] == 0x20){//读取传感器类型
 					
-					csendlen = 9;				
+					csendlen = 47;				
 					csend = (u8*)malloc(sizeof(u8) * csendlen);				
 					memset(csend, 0, csendlen);//初始化，每个元素都为零
 					//发送数据CRC校验长度
@@ -2783,21 +2793,30 @@ void UsbDataHandle(void)
 					usbsendbuf[3] = usbbuf[3];
 					usbsendbuf[4] = usbbuf[4];
 					usbsendbuf[5] = usbbuf[5];
-					usbsendbuf[6] = 0x02;
-					usbsendbuf[7] = 0x00;
-					usbsendbuf[8] = TCTYPE;
+					usbsendbuf[6] = 0x28;
+					for(i=0;i<40;i++)
+					{
+						if(i < CHNUM)
+						{
+							usbsendbuf[i+7]=savedata[60+i];
+						}else{
+							usbsendbuf[i+7] = 0;
+						}
+					}
+
+//					usbsendbuf[8] = TCTYPE;
 					
 					for(i = 0;i < csendlen; i++)
 					{
 						csend[i] = usbsendbuf[i];
 					}
 					sendcrc = CRC16(csend,csendlen);
-					usbsendbuf[9] = (u8)(sendcrc >> 8);
-					usbsendbuf[10] = (u8)(sendcrc);
-					for(i = 11; i < 64 ; i++)
-					{
-						usbsendbuf[i] = 0;
-					}
+					usbsendbuf[47] = (u8)(sendcrc >> 8);
+					usbsendbuf[48] = (u8)(sendcrc);
+//					for(i = 11; i < 64 ; i++)
+//					{
+//						usbsendbuf[i] = 0;
+//					}
 					
 					USBD_HID_SendReport(&USB_OTG_dev,usbsendbuf,64);//数据回显
 				}else if(usbbuf[2] == 0xC0 && usbbuf[3] == 0x10){//读取仪器状态

@@ -3,7 +3,7 @@
 <title>Static Call Graph - [..\..\Output\LCD.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\..\Output\LCD.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Mon Sep 02 10:31:41 2019
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Fri Sep 06 16:12:00 2019
 <BR><P>
 <H3>Maximum Stack Usage =        584 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1994,8 +1994,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[198]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Function
 </UL>
 
-<P><STRONG><a name="[16d]"></a>FUNC3_HANDLE</STRONG> (Thumb, 1294 bytes, Stack size 32 bytes, bsp_key.o(i.FUNC3_HANDLE))
-<BR><BR>[Stack]<UL><LI>Max Depth = 248<LI>Call Chain = FUNC3_HANDLE &rArr; page_home &rArr; Disp_Type &rArr; Save_flag &rArr; SPI_FLASH_BufferWrite &rArr; SPI_FLASH_PageWrite &rArr; SPI_FLASH_WaitForWriteEnd &rArr; SPI_FLASH_SendByte &rArr; SPI_TIMEOUT_UserCallback &rArr; __2printf
+<P><STRONG><a name="[16d]"></a>FUNC3_HANDLE</STRONG> (Thumb, 1300 bytes, Stack size 32 bytes, bsp_key.o(i.FUNC3_HANDLE))
+<BR><BR>[Stack]<UL><LI>Max Depth = 288<LI>Call Chain = FUNC3_HANDLE &rArr; TP_Adjust &rArr; TP_Save_Adjdata &rArr; Save_flag &rArr; SPI_FLASH_BufferWrite &rArr; SPI_FLASH_PageWrite &rArr; SPI_FLASH_WaitForWriteEnd &rArr; SPI_FLASH_SendByte &rArr; SPI_TIMEOUT_UserCallback &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
 <LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetBackColor
@@ -2010,6 +2010,7 @@ Global Symbols
 <LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_CNL_S
 <LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Save_flag
 <LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_sys
+<LI><a href="#[2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TP_Adjust
 <LI><a href="#[16e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;plus_mon
 <LI><a href="#[16f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;plus_min
 <LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_on1
@@ -2556,6 +2557,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = LCD_DrawCircle
 </UL>
 <BR>[Called By]<UL><LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawPowOff
+<LI><a href="#[205]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TP_Drow_Touch_Point
 </UL>
 
 <P><STRONG><a name="[115]"></a>LCD_DrawFullRect</STRONG> (Thumb, 100 bytes, Stack size 72 bytes, bsp_lcd.o(i.LCD_DrawFullRect))
@@ -2651,6 +2653,7 @@ Global Symbols
 <LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawBattery
 <LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_his
 <LI><a href="#[16b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_graph
+<LI><a href="#[205]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TP_Drow_Touch_Point
 </UL>
 
 <P><STRONG><a name="[1a7]"></a>LCD_Init</STRONG> (Thumb, 136 bytes, Stack size 64 bytes, bsp_lcd.o(i.LCD_Init))
@@ -2783,6 +2786,7 @@ Global Symbols
 <LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC2_HANDLE
 <LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC1_HANDLE
 <LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
+<LI><a href="#[205]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TP_Drow_Touch_Point
 </UL>
 
 <P><STRONG><a name="[251]"></a>LCD_SetLayer</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, bsp_lcd.o(i.LCD_SetLayer))
@@ -3313,8 +3317,8 @@ Global Symbols
 <LI><a href="#[1d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Read_flag
 </UL>
 
-<P><STRONG><a name="[1d1]"></a>Read_flag</STRONG> (Thumb, 102 bytes, Stack size 16 bytes, main.o(i.Read_flag))
-<BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = Read_flag &rArr; SPI_FLASH_BufferRead &rArr; SPI_FLASH_SendByte &rArr; SPI_TIMEOUT_UserCallback &rArr; __2printf
+<P><STRONG><a name="[1d1]"></a>Read_flag</STRONG> (Thumb, 102 bytes, Stack size 8 bytes, main.o(i.Read_flag))
+<BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = Read_flag &rArr; SPI_FLASH_BufferRead &rArr; SPI_FLASH_SendByte &rArr; SPI_TIMEOUT_UserCallback &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_FLASH_BufferRead
 <LI><a href="#[1cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Read_Sflag
@@ -3762,28 +3766,34 @@ Global Symbols
 <LI><a href="#[20b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TP_Adj_Info_Show
 <LI><a href="#[208]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sqrt
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ACC_HANDLE
+<BR>[Called By]<UL><LI><a href="#[16d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC3_HANDLE
+<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ACC_HANDLE
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> touchscreen.o(.data)
 </UL>
-<P><STRONG><a name="[205]"></a>TP_Drow_Touch_Point</STRONG> (Thumb, 36 bytes, Stack size 16 bytes, touchscreen.o(i.TP_Drow_Touch_Point))
-<BR><BR>[Stack]<UL><LI>Max Depth = 100<LI>Call Chain = TP_Drow_Touch_Point &rArr; LCD_DrawLine &rArr; DMA2D_Init
+<P><STRONG><a name="[205]"></a>TP_Drow_Touch_Point</STRONG> (Thumb, 116 bytes, Stack size 24 bytes, touchscreen.o(i.TP_Drow_Touch_Point))
+<BR><BR>[Stack]<UL><LI>Max Depth = 108<LI>Call Chain = TP_Drow_Touch_Point &rArr; LCD_DrawLine &rArr; DMA2D_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawLine
+<BR>[Calls]<UL><LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawUniLine
+<LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawLine
+<LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawCircle
+<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TP_Adjust
 </UL>
 
-<P><STRONG><a name="[207]"></a>TP_Get_Adjdata</STRONG> (Thumb, 92 bytes, Stack size 0 bytes, touchscreen.o(i.TP_Get_Adjdata))
+<P><STRONG><a name="[207]"></a>TP_Get_Adjdata</STRONG> (Thumb, 70 bytes, Stack size 0 bytes, touchscreen.o(i.TP_Get_Adjdata))
 <BR><BR>[Called By]<UL><LI><a href="#[2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TP_Adjust
+<LI><a href="#[0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TP_Init
 </UL>
 
-<P><STRONG><a name="[0]"></a>TP_Init</STRONG> (Thumb, 50 bytes, Stack size 16 bytes, touchscreen.o(i.TP_Init))
+<P><STRONG><a name="[0]"></a>TP_Init</STRONG> (Thumb, 54 bytes, Stack size 16 bytes, touchscreen.o(i.TP_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = TP_Init &rArr; Rheostat_ADC_Mode_Config &rArr; ADC_RegularChannelConfig
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
 <LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_AHB1PeriphClockCmd
 <LI><a href="#[20d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TP_Read_XY
+<LI><a href="#[207]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TP_Get_Adjdata
 <LI><a href="#[1d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Rheostat_ADC_Mode_Config
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> touchscreen.o(.data)
@@ -3863,7 +3873,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[216]"></a>TouchHandle</STRONG> (Thumb, 9990 bytes, Stack size 56 bytes, touchscreen.o(i.TouchHandle))
+<P><STRONG><a name="[216]"></a>TouchHandle</STRONG> (Thumb, 9966 bytes, Stack size 56 bytes, touchscreen.o(i.TouchHandle))
 <BR><BR>[Stack]<UL><LI>Max Depth = 356<LI>Call Chain = TouchHandle &rArr; page_his &rArr; DrawGridLine &rArr; LCD_DrawRect &rArr; LCD_DrawLine &rArr; DMA2D_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
@@ -4505,7 +4515,7 @@ Global Symbols
 <LI><a href="#[1f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetSTctype
 </UL>
 
-<P><STRONG><a name="[242]"></a>UsbDataHandle</STRONG> (Thumb, 2148 bytes, Stack size 48 bytes, main.o(i.UsbDataHandle))
+<P><STRONG><a name="[242]"></a>UsbDataHandle</STRONG> (Thumb, 2164 bytes, Stack size 48 bytes, main.o(i.UsbDataHandle))
 <BR><BR>[Stack]<UL><LI>Max Depth = 184<LI>Call Chain = UsbDataHandle &rArr; Save_flag &rArr; SPI_FLASH_BufferWrite &rArr; SPI_FLASH_PageWrite &rArr; SPI_FLASH_WaitForWriteEnd &rArr; SPI_FLASH_SendByte &rArr; SPI_TIMEOUT_UserCallback &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_WriteBackupRegister
@@ -4917,7 +4927,7 @@ Global Symbols
 <LI><a href="#[18c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEY0_HANDLE
 </UL>
 
-<P><STRONG><a name="[87]"></a>main</STRONG> (Thumb, 482 bytes, Stack size 8 bytes, main.o(i.main))
+<P><STRONG><a name="[87]"></a>main</STRONG> (Thumb, 506 bytes, Stack size 8 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 584<LI>Call Chain = main &rArr; Key_Function &rArr; ENTER_HANDLE &rArr; hispage &rArr; Read_history &rArr; SPI_FLASH_BufferRead &rArr; SPI_FLASH_SendByte &rArr; SPI_TIMEOUT_UserCallback &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[250]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_SetVectorTable

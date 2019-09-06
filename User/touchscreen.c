@@ -301,13 +301,14 @@ u8 TP_Read_XY2(u16 *x,u16 *y)
 void TP_Drow_Touch_Point(u16 x,u16 y,u32 color)
 {
 //	POINT_COLOR=color;
+	LCD_SetColors(color,color);
 	LCD_DrawLine(x+12,y,25,0);//横线
 	LCD_DrawLine(x,y+13,25,1);//竖线
-//	LCD_DrawPoint(x,y+1);
-//	LCD_DrawPoint(x-2,y+1);
-//	LCD_DrawPoint(x,y-1);
-//	LCD_DrawPoint(x-2,y-1);
-//	LCD_Draw_Circle(x,y,6);//画中心圈
+	LCD_DrawUniLine(x,y+1,x,y+1);
+	LCD_DrawUniLine(x-2,y+1,x-2,y+1);
+	LCD_DrawUniLine(x,y-1,x,y-1);
+	LCD_DrawUniLine(x-2,y-1,x-2,y-1);
+	LCD_DrawCircle(x,y,6);//画中心圈
 }	  
 //画一个大点(2*2的点)		   
 //x,y:坐标
@@ -315,10 +316,11 @@ void TP_Drow_Touch_Point(u16 x,u16 y,u32 color)
 void TP_Draw_Big_Point(u16 x,u16 y,u32 color)
 {	    
 //	POINT_COLOR=color;
-//	LCD_DrawPoint(x,y);//中心点 
-//	LCD_DrawPoint(x+1,y);
-//	LCD_DrawPoint(x,y+1);
-//	LCD_DrawPoint(x+1,y+1);	 	  	
+	LCD_SetColors(color,color);
+	LCD_DrawUniLine(x,y,x,y);//中心点 
+	LCD_DrawUniLine(x+1,y,x+1,y);
+	LCD_DrawUniLine(x,y+1,x,y+1);
+	LCD_DrawUniLine(x+1,y+1,x+1,y+1);	 	  	
 }						  
 //////////////////////////////////////////////////////////////////////////////////		  
 //触摸按键扫描
@@ -404,15 +406,15 @@ u8 TP_Get_Adjdata(void)
  	    //得到y偏移量
 		tp_dev.yoff=Touch_save.yoff;				 	  
  		//tp_dev.touchtype=AT24CXX_ReadOneByte(SAVE_ADDR_BASE+12);//读取触屏类型标记
-		if(tp_dev.touchtype)//X,Y方向与屏幕相反
-		{
-			CMD_RDX=0X90;
-			CMD_RDY=0XD0;	 
-		}else				   //X,Y方向与屏幕相同
-		{
-			CMD_RDX=0XD0;
-			CMD_RDY=0X90;	 
-		}		 
+//		if(tp_dev.touchtype)//X,Y方向与屏幕相反
+//		{
+//			CMD_RDX=0X90;
+//			CMD_RDY=0XD0;	 
+//		}else				   //X,Y方向与屏幕相同
+//		{
+//			CMD_RDX=0XD0;
+//			CMD_RDY=0X90;	 
+//		}		 
 		return 1;	 
 	}
 	return 0;
@@ -577,7 +579,8 @@ void TP_Adjust(void)
 //						{
 //							CMD_RDX=1;
 //							CMD_RDY=0;	 
-//						}			    
+//						}		
+//						page_home();
 						continue;
 					}		
 //					POINT_COLOR=BLUE;
@@ -585,6 +588,7 @@ void TP_Adjust(void)
 //					LCD_ShowString(35,110,lcddev.width,lcddev.height,16,"Touch Screen Adjust OK!");//校正完成
 //					delay_ms(1000);
 					TP_Save_Adjdata();  
+					
 // 					LCD_Clear(WHITE);//清屏   
 					return;//校正完成				 
 			}
@@ -619,15 +623,15 @@ u8 TP_Init(void)
 //			TP_Adjust();  	//屏幕校准 
 //			TP_Save_Adjdata();	 
 //		}			
-//		TP_Get_Adjdata();	
+		TP_Get_Adjdata();	
 //	}
 	return 1; 									 
 }
 void TouchHandle(u16 x,u16 y)
 {
 
-	if(touchflag == 1 && press == 0)
-	{
+//	if(touchflag == 1 && press == 0)
+//	{
 		
 		switch(page_flag)
 		{
@@ -3335,7 +3339,7 @@ void TouchHandle(u16 x,u16 y)
 				}
 			}break;
 		}
-	}
+//	}
 }
 
 void DrawTC(void)
