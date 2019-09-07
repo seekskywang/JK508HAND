@@ -542,7 +542,7 @@ void sdtest(void)
 		{
 			LCD_DisplayStringLine(40,10,"ERASE FAILED");
 //			printf("《《格式化失败。》》\r\n");
-			while(1);
+//			while(1);
 		}
 	}
   else if(res_sd!=FR_OK)
@@ -550,7 +550,7 @@ void sdtest(void)
 	  LCD_DisplayStringLine(70,10,"FILE SYSTEM FAILED");
 //    printf("！！SD卡挂载文件系统失败。(%d)\r\n",res_sd);
 //    printf("！！可能原因：SD卡初始化不成功。\r\n");
-		while(1);
+//		while(1);
   }
   else
   {
@@ -564,25 +564,28 @@ void sdtest(void)
 	res_sd = f_open(&fnew, "0:FatFs读写测试文件.txt",FA_CREATE_ALWAYS | FA_WRITE );
 	if ( res_sd == FR_OK )
 	{
-		printf("》打开/创建FatFs读写测试文件.txt文件成功，向文件写入数据。\r\n");
+//		printf("》打开/创建FatFs读写测试文件.txt文件成功，向文件写入数据。\r\n");
     /* 将指定存储区内容写入到文件内 */
+		LCD_DisplayStringLine(100,10,"OPEN OK,WRITE DATA");
 		res_sd=f_write(&fnew,WriteBuffer,sizeof(WriteBuffer),&fnum);
     if(res_sd==FR_OK)
     {
-      printf("》文件写入成功，写入字节数据：%d\n",fnum);
-      printf("》向文件写入的数据为：\r\n%s\r\n",WriteBuffer);
+		LCD_DisplayStringLine(130,10,"WRITE OK");
+//      printf("》文件写入成功，写入字节数据：%d\n",fnum);
+//      printf("》向文件写入的数据为：\r\n%s\r\n",WriteBuffer);
     }
     else
     {
-      printf("！！文件写入失败：(%d)\n",res_sd);
+//      printf("！！文件写入失败：(%d)\n",res_sd);
+		LCD_DisplayStringLine(130,10,"WRITE NG");
     }    
 		/* 不再读写，关闭文件 */
     f_close(&fnew);
 	}
 	else
 	{	
-
-		printf("！！打开/创建文件失败。\r\n");
+		LCD_DisplayStringLine(100,10,"OPEN FAILED");
+//		printf("！！打开/创建文件失败。\r\n");
 	}
 	
 /*------------------- 文件系统测试：读测试 ------------------------------------*/

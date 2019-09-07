@@ -16185,6 +16185,10 @@ void BACK_HANDLE(void)
 {		
 	switch(page_flag)
 	{
+		case display:
+		{
+//			sdtest();
+		}break;
 		case separation:
 		{
 			del_num();
