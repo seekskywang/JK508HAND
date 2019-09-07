@@ -80,6 +80,9 @@
 "..\..\output\usbd_hid_core.o"
 "..\..\output\usbd_desc.o"
 "..\..\output\usb_bsp.o"
+"..\..\output\diskio.o"
+"..\..\output\ff.o"
+"..\..\output\cc936.o"
 --library_type=microlib --strict --scatter "..\..\Output\LCD.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

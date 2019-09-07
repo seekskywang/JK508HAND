@@ -1,9 +1,9 @@
 ..\..\output\diskio.o: ..\..\User\FATFS\diskio.c
 ..\..\output\diskio.o: ..\..\User\FATFS\diskio.h
-..\..\output\diskio.o: ..\..\User\./fatfs/integer.h
-..\..\output\diskio.o: ..\..\User\./fatfs/attributes.h
-..\..\output\diskio.o: ..\..\User\./APP/usbh_bsp.h
-..\..\output\diskio.o: ..\..\User\./APP/usb_conf.h
+..\..\output\diskio.o: ..\..\User\FATFS\integer.h
+..\..\output\diskio.o: ..\..\User\FATFS\ff.h
+..\..\output\diskio.o: ..\..\User\FATFS\ffconf.h
+..\..\output\diskio.o: ..\..\User\sdio/bsp_sdio_sd.h
 ..\..\output\diskio.o: ..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h
 ..\..\output\diskio.o: ..\..\Libraries\CMSIS\Include\core_cm4.h
 ..\..\output\diskio.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
@@ -42,3 +42,4 @@
 ..\..\output\diskio.o: ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_fmc.h
 ..\..\output\diskio.o: ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_ltdc.h
 ..\..\output\diskio.o: ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sai.h
+..\..\output\diskio.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h

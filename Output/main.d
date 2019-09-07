@@ -71,3 +71,6 @@
 ..\..\output\main.o: ..\..\User\./ch376/ch376.h
 ..\..\output\main.o: ..\..\User\flash_if.h
 ..\..\output\main.o: ..\..\User\flash_if.h
+..\..\output\main.o: ..\..\User\FATFS\ff.h
+..\..\output\main.o: ..\..\User\FATFS\integer.h
+..\..\output\main.o: ..\..\User\FATFS\ffconf.h

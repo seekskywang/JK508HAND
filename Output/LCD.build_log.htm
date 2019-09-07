@@ -27,12 +27,31 @@ Project File Date:  09/07/2019
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'LCD'
-compiling bsp_sdio_sd.c...
+compiling main.c...
+..\..\User\main.c(291): warning:  #177-D: variable "buf"  was declared but never referenced
+        uint8_t  buf[0x40];
+..\..\User\main.c(293): warning:  #177-D: variable "test"  was declared but never referenced
+        u8 test[9] = {0X01,0X03,0X02,0X58,0X00,0X01,0X02,0X00,0X05};
+..\..\User\main.c(295): warning:  #177-D: variable "reqtempcount"  was declared but never referenced
+        static u8 reqtempcount;
+..\..\User\main.c(299): warning:  #177-D: variable "sendcount"  was declared but never referenced
+        static u16 sendcount;
+..\..\User\main.c(699): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+                                G_Data[i][count] = (graphbuf[i][0]/MULTI * 256 + graphbuf[i][1]/MULTI)/10.0 - Correction[i];                                                    
+..\..\User\main.c(622): warning:  #177-D: variable "ucTemp"  was declared but never referenced
+        static uint8_t ucTemp;
+..\..\User\main.c(623): warning:  #177-D: variable "Total_Len"  was declared but never referenced
+        static u8 Total_Len = 0;
+..\..\User\main.c(624): warning:  #177-D: variable "uinitflag"  was declared but never referenced
+        static u8 uinitflag = 0;
+..\..\User\main.c(634): warning:  #177-D: variable "usave"  was declared but never referenced
+        static u8 usave;
+..\..\User\main.c: 9 warnings, 0 errors
 linking...
-Program Size: Code=172548 RO-data=103876 RW-data=792 ZI-data=69184  
+Program Size: Code=172556 RO-data=103876 RW-data=864 ZI-data=78488  
 FromELF: creating hex file...
 After Build - User command #1: D:\Keil_v5\ARM\ARMCC\bin\fromelf.exe --bin -o ..\..\Output\update.bin ..\..\Output\LCD.axf
-"..\..\Output\LCD.axf" - 0 Error(s), 0 Warning(s).
+"..\..\Output\LCD.axf" - 0 Error(s), 9 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -46,7 +65,7 @@ Package Vendor: Keil
   D:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:06
+Build Time Elapsed:  00:00:08
 </pre>
 </body>
 </html>
