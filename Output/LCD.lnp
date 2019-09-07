@@ -58,6 +58,7 @@
 "..\..\output\ch376.o"
 "..\..\output\filesys.o"
 "..\..\output\flash_if.o"
+"..\..\output\bsp_sdio_sd.o"
 "..\..\output\home.o"
 "..\..\output\system.o"
 "..\..\output\settings.o"

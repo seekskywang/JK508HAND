@@ -1,221 +1,249 @@
 /*-----------------------------------------------------------------------*/
-/* Low level disk I/O module skeleton for FatFs     (C)ChaN, 2013        */
+/* Low level disk I/O module skeleton for FatFs     (C)ChaN, 2014        */
 /*-----------------------------------------------------------------------*/
 /* If a working storage control module is available, it should be        */
 /* attached to the FatFs via a glue function rather than modifying it.   */
 /* This is an example of glue functions to attach various exsisting      */
-/* storage control module to the FatFs module with a defined API.        */
+/* storage control modules to the FatFs module with a defined API.       */
 /*-----------------------------------------------------------------------*/
 
-#include "diskio.h"			/* FatFs lower layer API */
-#include "./APP/usbh_bsp.h"			/* 底层驱动 */
+#include "diskio.h"		/* FatFs lower layer API */
 #include "ff.h"
+#include "sdio/bsp_sdio_sd.h"
+#include "string.h"
 
+/* 为每个设备定义一个物理编号 */
+#define ATA			           0     // SD卡
+#define SPI_FLASH		       1     // 预留外部SPI Flash使用
 
-#define USB		    0
-#define SECTOR_SIZE		512
+#define SD_BLOCKSIZE     512 
 
-
-/*-----------------------------------------------------------------------*/
-/* Inidialize a Drive                                                    */
-/*-----------------------------------------------------------------------*/
-
-DSTATUS disk_initialize (
-	BYTE pdrv				/* Physical drive nmuber (0..) */
-)
-{
-	DSTATUS stat = STA_NOINIT;
-
-	if(HCD_IsDeviceConnected(&USB_OTG_Core))
-	{
-		stat &= ~STA_NOINIT;
-	}
-			
-	return stat;
-}
-
-
+extern  SD_CardInfo SDCardInfo;
 
 /*-----------------------------------------------------------------------*/
-/* Get Disk Status                                                       */
+/* 获取设备状态                                                          */
 /*-----------------------------------------------------------------------*/
-
 DSTATUS disk_status (
-	BYTE pdrv		/* Physical drive nmuber (0..) */
+	BYTE pdrv		/* 物理编号 */
 )
 {
-	DSTATUS stat = STA_NOINIT;
+	DSTATUS status = STA_NOINIT;
+	
+	switch (pdrv) {
+		case ATA:	/* SD CARD */
+			status &= ~STA_NOINIT;
+			break;
+    
+		case SPI_FLASH:        /* SPI Flash */   
+			break;
 
-
- stat = 0;
-
-	return stat;
+		default:
+			status = STA_NOINIT;
+	}
+	return status;
 }
 
 /*-----------------------------------------------------------------------*/
-/* Read Sector(s)                                                        */
+/* 设备初始化                                                            */
 /*-----------------------------------------------------------------------*/
-
-DRESULT disk_read (
-	BYTE pdrv,		/* Physical drive nmuber (0..) */
-	BYTE *buff,		/* Data buffer to store read data */
-	DWORD sector,	/* Sector address (LBA) */
-	UINT count		/* Number of sectors to read (1..128) */
+DSTATUS disk_initialize (
+	BYTE pdrv				/* 物理编号 */
 )
 {
-	DRESULT res;
-
-
-			//res = USB_disk_read(buff, sector, count);
+	DSTATUS status = STA_NOINIT;	
+	switch (pdrv) {
+		case ATA:	         /* SD CARD */
+			if(SD_Init()==SD_OK)
 			{
-				BYTE status = USBH_MSC_OK;
-
-				//if (Stat & STA_NOINIT) 	return RES_NOTRDY;
-
-				if (HCD_IsDeviceConnected(&USB_OTG_Core))
-				{
-					do
-					{
-						status = USBH_MSC_Read10(&USB_OTG_Core, (uint8_t *)buff,sector,SECTOR_SIZE * count);
-            USBH_MSC_HandleBOTXfer(&USB_OTG_Core ,&USB_Host);
-
-						if (!HCD_IsDeviceConnected(&USB_OTG_Core))
-						{
-							break;
-						}
-					}
-					while (status == USBH_MSC_BUSY );
-				}
-
-				if (status == USBH_MSC_OK)
-				{
-					res = RES_OK;
-				}
-				else
-				{
-					res = RES_ERROR;
-				}
+				status &= ~STA_NOINIT;
 			}
+			else 
+			{
+				status = STA_NOINIT;
+			}
+		
+			break;
+    
+		case SPI_FLASH:    /* SPI Flash */ 
+			break;
+      
+		default:
+			status = STA_NOINIT;
+	}
+	return status;
+}
 
-	return res;
+
+/*-----------------------------------------------------------------------*/
+/* 读扇区：读取扇区内容到指定存储区                                              */
+/*-----------------------------------------------------------------------*/
+DRESULT disk_read (
+	BYTE pdrv,		/* 设备物理编号(0..) */
+	BYTE *buff,		/* 数据缓存区 */
+	DWORD sector,	/* 扇区首地址 */
+	UINT count		/* 扇区个数(1..128) */
+)
+{
+	DRESULT status = RES_PARERR;
+	SD_Error SD_state = SD_OK;
+	
+	switch (pdrv) {
+		case ATA:	/* SD CARD */						
+		  if((DWORD)buff&3)
+			{
+				DRESULT res = RES_OK;
+				DWORD scratch[SD_BLOCKSIZE / 4];
+
+				while (count--) 
+				{
+					res = disk_read(ATA,(void *)scratch, sector++, 1);
+
+					if (res != RES_OK) 
+					{
+						break;
+					}
+					memcpy(buff, scratch, SD_BLOCKSIZE);
+					buff += SD_BLOCKSIZE;
+		    }
+		    return res;
+			}
+			
+			SD_state=SD_ReadMultiBlocks(buff,sector*SD_BLOCKSIZE,SD_BLOCKSIZE,count);
+		  if(SD_state==SD_OK)
+			{
+				/* Check if the Transfer is finished */
+				SD_state=SD_WaitReadOperation();
+				while(SD_GetStatus() != SD_TRANSFER_OK);
+			}
+			if(SD_state!=SD_OK)
+				status = RES_PARERR;
+		  else
+			  status = RES_OK;	
+			break;   
+			
+		case SPI_FLASH:
+		break;
+    
+		default:
+			status = RES_PARERR;
+	}
+	return status;
 }
 
 /*-----------------------------------------------------------------------*/
-/* Write Sector(s)                                                       */
+/* 写扇区：见数据写入指定扇区空间上                                      */
 /*-----------------------------------------------------------------------*/
 #if _USE_WRITE
 DRESULT disk_write (
-	BYTE pdrv,			/* Physical drive nmuber (0..) */
-	const BYTE *buff,	/* Data to be written */
-	DWORD sector,		/* Sector address (LBA) */
-	UINT count			/* Number of sectors to write (1..128) */
+	BYTE pdrv,			  /* 设备物理编号(0..) */
+	const BYTE *buff,	/* 欲写入数据的缓存区 */
+	DWORD sector,		  /* 扇区首地址 */
+	UINT count			  /* 扇区个数(1..128) */
 )
 {
-	DRESULT res;
+	DRESULT status = RES_PARERR;
+	SD_Error SD_state = SD_OK;
+	
+	if (!count) {
+		return RES_PARERR;		/* Check parameter */
+	}
 
-
-			//res = USB_disk_write(buff, sector, count);
+	switch (pdrv) {
+		case ATA:	/* SD CARD */  
+			if((DWORD)buff&3)
 			{
-				BYTE status = USBH_MSC_OK;
+				DRESULT res = RES_OK;
+				DWORD scratch[SD_BLOCKSIZE / 4];
 
-				//if (drv || !count) return RES_PARERR;
-
-				//if (Stat & STA_NOINIT) return RES_NOTRDY;
-				//if (Stat & STA_PROTECT) return RES_WRPRT;
-
-				if (HCD_IsDeviceConnected(&USB_OTG_Core))
+				while (count--) 
 				{
-					do
+					memcpy( scratch,buff,SD_BLOCKSIZE);
+					res = disk_write(ATA,(void *)scratch, sector++, 1);
+					if (res != RES_OK) 
 					{
-						status = USBH_MSC_Write10(&USB_OTG_Core,(BYTE*)buff,sector, SECTOR_SIZE * count);
-						USBH_MSC_HandleBOTXfer(&USB_OTG_Core, &USB_Host);
+						break;
+					}					
+					buff += SD_BLOCKSIZE;
+		    }
+		    return res;
+			}		
+		
+			SD_state=SD_WriteMultiBlocks((uint8_t *)buff,sector*SD_BLOCKSIZE,SD_BLOCKSIZE,count);
+			if(SD_state==SD_OK)
+			{
+				/* Check if the Transfer is finished */
+				SD_state=SD_WaitWriteOperation();
 
-						if(!HCD_IsDeviceConnected(&USB_OTG_Core))
-						{
-							break;
-						}
-					}
-					while(status == USBH_MSC_BUSY );
-
-				}
-
-				if (status == USBH_MSC_OK)
-				{
-					res = RES_OK;
-				}
-				else
-				{
-					res = RES_ERROR;
-				}
+				/* Wait until end of DMA transfer */
+				while(SD_GetStatus() != SD_TRANSFER_OK);			
 			}
+			if(SD_state!=SD_OK)
+				status = RES_PARERR;
+		  else
+			  status = RES_OK;	
+		break;
 
-	return res;
+		case SPI_FLASH:
+		break;
+    
+		default:
+			status = RES_PARERR;
+	}
+	return status;
 }
 #endif
 
 
 /*-----------------------------------------------------------------------*/
-/* Miscellaneous Functions                                               */
+/* 其他控制                                                              */
 /*-----------------------------------------------------------------------*/
 
 #if _USE_IOCTL
 DRESULT disk_ioctl (
-	BYTE pdrv,		/* Physical drive nmuber (0..) */
-	BYTE cmd,		/* Control code */
-	void *buff		/* Buffer to send/receive control data */
+	BYTE pdrv,		/* 物理编号 */
+	BYTE cmd,		  /* 控制指令 */
+	void *buff		/* 写入或者读取数据地址指针 */
 )
 {
-	DRESULT res;
-
-
-			//if (drv) return RES_PARERR;
-			res = RES_ERROR;
-
-			//if (Stat & STA_NOINIT) return RES_NOTRDY;
-			switch (cmd)
+	DRESULT status = RES_PARERR;
+	switch (pdrv) {
+		case ATA:	/* SD CARD */
+			switch (cmd) 
 			{
-				case CTRL_SYNC :		/* Make sure that no pending write process */
-					res = RES_OK;
-					break;
+				// Get R/W sector size (WORD) 
+				case GET_SECTOR_SIZE :    
+					*(WORD * )buff = SD_BLOCKSIZE;
+				break;
+				// Get erase block size in unit of sector (DWORD)
+				case GET_BLOCK_SIZE :      
+					*(DWORD * )buff = 1;//SDCardInfo.CardBlockSize;
+				break;
 
-				case GET_SECTOR_COUNT :	/* Get number of sectors on the disk (DWORD) */
-					*(DWORD*)buff = (DWORD) USBH_MSC_Param.MSCapacity;
-					res = RES_OK;
+				case GET_SECTOR_COUNT:
+					*(DWORD * )buff = SDCardInfo.CardCapacity/SDCardInfo.CardBlockSize;
 					break;
-
-				case GET_SECTOR_SIZE :	/* Get R/W sector size (WORD) */
-					*(WORD*)buff = SECTOR_SIZE;
-					res = RES_OK;
-					break;
-
-				case GET_BLOCK_SIZE :	/* Get erase block size in unit of sector (DWORD) */\
-					*(DWORD*)buff = SECTOR_SIZE;
-					res = RES_OK;
-					break;
-
-				default:
-					res = RES_PARERR;
-					break;
+				case CTRL_SYNC :
+				break;
 			}
-			return res;
+			status = RES_OK;
+			break;
+    
+		case SPI_FLASH:		      
+		break;
+    
+		default:
+			status = RES_PARERR;
+	}
+	return status;
 }
 #endif
 
-/*
-*********************************************************************************************************
-*	函 数 名: get_fattime
-*	功能说明: 获得系统时间，用于改写文件的创建和修改时间。
-*	形    参：无
-*	返 回 值: 无
-*********************************************************************************************************
-*/
 __weak DWORD get_fattime(void) {
-	/* Returns current time packed into a DWORD variable */
-	return	  ((DWORD)(2013 - 1980) << 25)	/* Year 2013 */
-			| ((DWORD)7 << 21)				/* Month 7 */
-			| ((DWORD)28 << 16)				/* Mday 28 */
+	/* 返回当前时间戳 */
+	return	  ((DWORD)(2015 - 1980) << 25)	/* Year 2015 */
+			| ((DWORD)1 << 21)				/* Month 1 */
+			| ((DWORD)1 << 16)				/* Mday 1 */
 			| ((DWORD)0 << 11)				/* Hour 0 */
-			| ((DWORD)0 << 5)				/* Min 0 */
+			| ((DWORD)0 << 5)				  /* Min 0 */
 			| ((DWORD)0 >> 1);				/* Sec 0 */
 }
-

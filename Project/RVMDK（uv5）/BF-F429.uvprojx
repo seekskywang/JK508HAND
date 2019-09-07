@@ -747,6 +747,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\User\flash_if.c</FilePath>
             </File>
+            <File>
+              <FileName>bsp_sdio_sd.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\User\sdio\bsp_sdio_sd.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
