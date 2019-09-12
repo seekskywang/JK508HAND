@@ -459,6 +459,21 @@
           <WinNumber>1</WinNumber>
           <ItemText>ADC_Converted</ItemText>
         </Ww>
+        <Ww>
+          <count>61</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>filename</ItemText>
+        </Ww>
+        <Ww>
+          <count>62</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>filename</ItemText>
+        </Ww>
+        <Ww>
+          <count>63</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>usbreadtime,0x0A</ItemText>
+        </Ww>
       </WatchWindow1>
       <WatchWindow2>
         <Ww>
@@ -495,6 +510,26 @@
           <count>6</count>
           <WinNumber>2</WinNumber>
           <ItemText>tp_dev.sta</ItemText>
+        </Ww>
+        <Ww>
+          <count>7</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>multicount</ItemText>
+        </Ww>
+        <Ww>
+          <count>8</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>hisinfo,0x10</ItemText>
+        </Ww>
+        <Ww>
+          <count>9</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>readname</ItemText>
+        </Ww>
+        <Ww>
+          <count>10</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>filename</ItemText>
         </Ww>
       </WatchWindow2>
       <MemoryWindow4>
@@ -1618,7 +1653,7 @@
 
   <Group>
     <GroupName>FatFs</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>

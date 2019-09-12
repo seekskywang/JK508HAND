@@ -108,7 +108,7 @@ void RTC_TimeAndDate_Show(void)
 		}
 		
 		usbreadtime[0] = (u8)((2000 + RTC_DateStructure.RTC_Year) >> 8);//年高位
-		usbreadtime[1] = (u8)((2000 + RTC_DateStructure.RTC_Year));//年低位
+		usbreadtime[1] = (u8)(RTC_DateStructure.RTC_Year);//年低位
 		usbreadtime[2] = (u8)(RTC_DateStructure.RTC_Month);//月
 		usbreadtime[3] = (u8)(RTC_DateStructure.RTC_Date);//日
 		usbreadtime[4] = (u8)(RTC_TimeStructure.RTC_Hours);//时

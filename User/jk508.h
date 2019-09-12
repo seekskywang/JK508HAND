@@ -131,6 +131,9 @@ void SetSTctype(void);
 void JumpBoot(u8 flag);
 void Disp_Factory(void);
 void sdtest(void);
+void DISP_HIS(void);
+void Creat_New_Folder(void);
+void DISP_HIS_FOLDER(void);
 	
 extern u8 usbbuf[0x40];
 uint16_t CRC16(uint8_t *puchMsg, uint8_t Len);

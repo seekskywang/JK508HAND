@@ -66,7 +66,10 @@ u16 ureadcrc;
 u8 *ucrc;
 extern u8 uartflag;
 //u8 p1,p2,p3,p4,p5,p6,p7,p8;
-
+u8 filename[20];
+char foldername[20];
+FILINFO hisinfo;
+DIR dir;
 FATFS fs;													/* FatFs文件系统对象 */
 FIL fnew;													/* 文件对象 */
 FRESULT res_sd;                /* 文件操作结果 */
@@ -513,9 +516,130 @@ int main(void)
 	}
 }
 
+//读取历史文件列表
+void DISP_HIS(void)
+{
+	static u8 i;
+	char buf[5];
+	res_sd = f_mount(&fs,"0:",1);
+	if(res_sd == FR_NO_FILESYSTEM)
+	{
+		DrawInstruction("加载文件系统失败，请重新格式化");
+	}else{
+		DrawInstruction("加载文件系统成功");
+	}
+	
+	res_sd = f_opendir(&dir, "");
+	if(res_sd == FR_OK)
+	{
+		res_sd = f_readdir(&dir,&hisinfo);
+		if(res_sd==FR_OK)
+		{
+			for(i=0;i<10;i++)
+			{
+				res_sd = f_readdir(&dir,&hisinfo);
+				if(hisinfo.fname[0] == 0)
+				{
+					break;
+				}
+				sprintf(buf,"%d",i+1);
+				LCD_DisplayStringLine(40+i*35,10,(uint8_t *)buf);
+				LCD_DisplayStringLine(40+i*35,50,(uint8_t *)".");
+				LCD_DisplayStringLine(40+i*35,70,(uint8_t *)hisinfo.fname);
+			}
+		}
+		DrawInstruction("读取历史数据成功");
+	}else{
+		DrawInstruction("读取历史数据失败");
+	}
+	i = 0;
+}
+//显示文件夹列表
+void DISP_HIS_FOLDER(void)
+{
+	static u8 i;
+	char buf[5];
+	res_sd = f_mount(&fs,"0:",1);
+	if(res_sd == FR_NO_FILESYSTEM)
+	{
+		DrawInstruction("加载文件系统失败，请重新格式化");
+	}
+	
+	res_sd = f_opendir(&dir, "");
+	if(res_sd == FR_OK)
+	{
+		res_sd = f_readdir(&dir,&hisinfo);
+		if(res_sd==FR_OK)
+		{
+			do
+			{
+				res_sd = f_readdir(&dir,&hisinfo);
+//				if(hisinfo.fname[0] == 0)
+//				{
+//					break;
+//				}
+				if(hisinfo.fattrib & AM_DIR)
+				{
+					sprintf(buf,"%d",i+1);
+					LCD_DisplayStringLine(40+i*35,10,(uint8_t *)buf);
+					LCD_DisplayStringLine(40+i*35,50,(uint8_t *)".");
+					LCD_DisplayStringLine(40+i*35,70,(uint8_t *)hisinfo.fname);
+					i++;
+				}
+			}while(hisinfo.fname[0] != 0);
+		}
+		DrawInstruction("读取目录成功");
+	}else{
+		DrawInstruction("读取目录失败");
+	}
+	i = 0;
+}
+
+//文件系统返回值提示
+void DISP_FS_RES(FRESULT res)
+{
+//	switch(res)
+//	{
+//		 
+//	}
+}
+
+
+//新建文件夹
+void Creat_New_Folder(void)
+{
+	res_sd = f_mount(&fs,"0:",1);
+	memset(filename,0,100);
+	
+	if(res_sd == FR_NO_FILESYSTEM)
+	{
+		DrawInstruction("加载文件系统失败，请重新格式化");
+	}else{
+//		DrawInstruction("加载文件系统成功");
+	}
+	sprintf(foldername,"0:/%02d%02d%02d%d", 
+			usbreadtime[1],
+			usbreadtime[2],
+			usbreadtime[3],
+			i);
+	res_sd = f_mkdir((char *)foldername);
+	if(res_sd == FR_OK)
+	{
+		DrawInstruction("成功");
+	}else if(res_sd == FR_EXIST){
+		DrawInstruction("目录已存在");
+	}else{
+		DrawInstruction("失败");
+	}
+}
+
 //sd卡测试
 void sdtest(void)
 {
+	static u8 i;
+	static char nametime[10];
+	static char readname[100];
+	memset(filename,0,100);
 //	  printf("\r\n****** 这是一个SD卡 文件系统实验 ******\r\n");
   
 	//在外部SPI Flash挂载文件系统，文件系统挂载时会对SPI设备初始化
@@ -560,8 +684,21 @@ void sdtest(void)
   
 /*----------------------- 文件系统测试：写测试 -----------------------------*/
 	/* 打开文件，如果文件不存在则创建它 */
-	printf("\r\n****** 即将进行文件写入测试... ******\r\n");	
-	res_sd = f_open(&fnew, "0:FatFs读写测试文件.txt",FA_CREATE_ALWAYS | FA_WRITE );
+//	printf("\r\n****** 即将进行文件写入测试... ******\r\n");
+    memcpy ((void *)filename,"0:",2);
+    sprintf(nametime,"%02d%02d%02d%d", 
+			usbreadtime[1],
+			usbreadtime[2],
+			usbreadtime[3],
+			i);
+	strcat((char *)filename,(char *)nametime);
+	strcat((char *)filename,(char *)".xls");
+//	sprintf(filename,"0:20%0.2d/%0.2d/%0.2d.txt", 
+//			usbreadtime[1],
+//			usbreadtime[2],
+//			usbreadtime[3]);
+//	filename = "0:20190909.txt";
+	res_sd = f_open(&fnew, (char *)filename,FA_CREATE_ALWAYS | FA_WRITE );
 	if ( res_sd == FR_OK )
 	{
 //		printf("》打开/创建FatFs读写测试文件.txt文件成功，向文件写入数据。\r\n");
@@ -589,33 +726,48 @@ void sdtest(void)
 	}
 	
 /*------------------- 文件系统测试：读测试 ------------------------------------*/
-	printf("****** 即将进行文件读取测试... ******\r\n");
-	res_sd = f_open(&fnew, "0:FatFs读写测试文件.txt", FA_OPEN_EXISTING | FA_READ); 	 
-	if(res_sd == FR_OK)
-	{
+//	printf("****** 即将进行文件读取测试... ******\r\n");
+//	res_sd = f_open(&fnew, (char *)filename, FA_OPEN_EXISTING | FA_READ); 	 
+//	if(res_sd == FR_OK)
+//	{
 
-		printf("》打开文件成功。\r\n");
-		res_sd = f_read(&fnew, ReadBuffer, sizeof(ReadBuffer), &fnum); 
-    if(res_sd==FR_OK)
-    {
-      printf("》文件读取成功,读到字节数据：%d\r\n",fnum);
-      printf("》读取得的文件数据为：\r\n%s \r\n", ReadBuffer);	
-    }
-    else
-    {
-      printf("！！文件读取失败：(%d)\n",res_sd);
-    }		
-	}
-	else
+//		printf("》打开文件成功。\r\n");
+//		res_sd = f_read(&fnew, ReadBuffer, sizeof(ReadBuffer), &fnum); 
+//    if(res_sd==FR_OK)
+//    {
+//      printf("》文件读取成功,读到字节数据：%d\r\n",fnum);
+//      printf("》读取得的文件数据为：\r\n%s \r\n", ReadBuffer);	
+//    }
+//    else
+//    {
+//      printf("！！文件读取失败：(%d)\n",res_sd);
+//    }		
+//	}
+//	else
+//	{
+//	
+//		printf("！！打开文件失败。\r\n");
+//	}
+//	/* 不再读写，关闭文件 */
+//	f_close(&fnew);	
+//  
+//	/* 不再使用文件系统，取消挂载文件系统 */
+//	f_mount(NULL,"0:",1);
+	res_sd = f_opendir(&dir, "");
+	do
 	{
+		
+		res_sd = f_readdir(&dir,&hisinfo);
+		if(res_sd==FR_OK)
+		{
+//			strncpy(readname,hisinfo.fname,13); 
+			
+			LCD_DisplayStringLine(160+i*30,10,(uint8_t *)hisinfo.fname);
+		}
+		
+	}while(hisinfo.fname[0] != 0);
+	i++;
 	
-		printf("！！打开文件失败。\r\n");
-	}
-	/* 不再读写，关闭文件 */
-	f_close(&fnew);	
-  
-	/* 不再使用文件系统，取消挂载文件系统 */
-	f_mount(NULL,"0:",1);
 }
 
 

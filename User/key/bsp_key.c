@@ -1460,6 +1460,8 @@ void Search_Bit(void)
 	
 }
 
+
+
 //输入开始时间
 void Input_start(u8 num)
 {
@@ -6176,7 +6178,8 @@ void FUNC5_HANDLE(void)
 		}break;
 		case history:
 		{
-			Search_Bit();
+			Creat_New_Folder();
+//			Search_Bit();
 		}break;
 	}
 }
@@ -16187,7 +16190,7 @@ void BACK_HANDLE(void)
 	{
 		case display:
 		{
-//			sdtest();
+			sdtest();
 		}break;
 		case separation:
 		{
@@ -16288,6 +16291,10 @@ void ACC_HANDLE(void)
 			TP_Adjust();
 //			TouchCal();
 //			JumpBoot(55);
+		}break;
+		case history:
+		{
+			DISP_HIS_FOLDER();
 		}break;
 		default:break;
 	}
