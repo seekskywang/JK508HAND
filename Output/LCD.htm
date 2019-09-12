@@ -3,7 +3,7 @@
 <title>Static Call Graph - [..\..\Output\LCD.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\..\Output\LCD.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Wed Sep 11 16:54:44 2019
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Thu Sep 12 13:37:00 2019
 <BR><P>
 <H3>Maximum Stack Usage =       1580 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -503,13 +503,14 @@ Global Symbols
 <LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sdtest
 <LI><a href="#[244]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TempDisplay
 <LI><a href="#[1a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_pass
-<LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_num
+<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_num
 </UL>
 
-<P><STRONG><a name="[165]"></a>strncpy</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, strncpy.o(.text))
+<P><STRONG><a name="[121]"></a>strncpy</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, strncpy.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = strncpy
 </UL>
-<BR>[Called By]<UL><LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
+<BR>[Called By]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_HIS_FOLDER
+<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
 </UL>
 
 <P><STRONG><a name="[277]"></a>strlen</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, strlen.o(.text))
@@ -520,7 +521,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = strcmp
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_pass
-<LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_num
+<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_num
 </UL>
 
 <P><STRONG><a name="[276]"></a>strcpy</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, strcpy.o(.text))
@@ -533,7 +534,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strtol
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_errno_addr
 </UL>
-<BR>[Called By]<UL><LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
+<BR>[Called By]<UL><LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
 </UL>
 
 <P><STRONG><a name="[9a]"></a>__aeabi_dadd</STRONG> (Thumb, 322 bytes, Stack size 48 bytes, dadd.o(.text))
@@ -555,7 +556,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[24a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UARTRECHANDLE
-<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
+<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
 </UL>
 
 <P><STRONG><a name="[9f]"></a>__aeabi_drsub</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, dadd.o(.text), UNUSED)
@@ -606,15 +607,15 @@ Global Symbols
 <LI><a href="#[24a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UARTRECHANDLE
 <LI><a href="#[244]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TempDisplay
 <LI><a href="#[2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TP_Adjust
-<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ylfocus_on
-<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ylfocus_off
+<LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ylfocus_on
+<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ylfocus_off
 <LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;yhfocus_on
-<LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;yhfocus_off
-<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_on
-<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_off
+<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;yhfocus_off
+<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_on
+<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_off
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;maxfocus_on
-<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;maxfocus_off
-<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
+<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;maxfocus_off
+<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
 </UL>
 
 <P><STRONG><a name="[2be]"></a>__aeabi_cdcmpeq</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, cdcmple.o(.text), UNUSED)
@@ -634,7 +635,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_float_round
 </UL>
 <BR>[Called By]<UL><LI><a href="#[24a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UARTRECHANDLE
-<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
+<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
 <LI><a href="#[1e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Read_history
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_scanf_really_real
 </UL>
@@ -1164,7 +1165,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[244]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TempDisplay
 </UL>
 
-<P><STRONG><a name="[f3]"></a>Creat_New_Folder</STRONG> (Thumb, 96 bytes, Stack size 24 bytes, main.o(i.Creat_New_Folder))
+<P><STRONG><a name="[f3]"></a>Creat_New_Folder</STRONG> (Thumb, 100 bytes, Stack size 24 bytes, main.o(i.Creat_New_Folder))
 <BR><BR>[Stack]<UL><LI>Max Depth = 1516<LI>Call Chain = Creat_New_Folder &rArr; f_mkdir &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;f_mount
@@ -1267,7 +1268,7 @@ Global Symbols
 <LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_SINS
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_home
-<LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Disp_Type
+<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Disp_Type
 </UL>
 
 <P><STRONG><a name="[e8]"></a>DISP_CNL_M</STRONG> (Thumb, 96 bytes, Stack size 24 bytes, bsp_lcd.o(i.DISP_CNL_M))
@@ -1281,8 +1282,8 @@ Global Symbols
 <LI><a href="#[1ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RIGHT_HANDLE
 <LI><a href="#[1ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LEFT_HANDLE
 <LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC5_HANDLE
-<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
+<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
+<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
 <LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChannelSwtichMid
 </UL>
 
@@ -1292,29 +1293,29 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayChar_48
 <LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_INPUT
 </UL>
-<BR>[Called By]<UL><LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawUnit
+<BR>[Called By]<UL><LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawUnit
 <LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_home
 <LI><a href="#[248]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchHandle
-<LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawTime
+<LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawTime
 <LI><a href="#[244]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TempDisplay
 <LI><a href="#[183]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_set
 <LI><a href="#[186]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_sep
 <LI><a href="#[17a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_graph
 <LI><a href="#[182]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_cal
 <LI><a href="#[1a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_pass
-<LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_num
+<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_num
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;del_num
 <LI><a href="#[1ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UP_HANDLE
 <LI><a href="#[1ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RIGHT_HANDLE
 <LI><a href="#[1ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LEFT_HANDLE
 <LI><a href="#[17c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC3_HANDLE
 <LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC1_HANDLE
-<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
+<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
+<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
 <LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChannelSwtichSml
 </UL>
 
-<P><STRONG><a name="[b8]"></a>DISP_HIS_FOLDER</STRONG> (Thumb, 182 bytes, Stack size 24 bytes, main.o(i.DISP_HIS_FOLDER))
+<P><STRONG><a name="[b8]"></a>DISP_HIS_FOLDER</STRONG> (Thumb, 198 bytes, Stack size 24 bytes, main.o(i.DISP_HIS_FOLDER))
 <BR><BR>[Stack]<UL><LI>Max Depth = 1420<LI>Call Chain = DISP_HIS_FOLDER &rArr; f_opendir &rArr; follow_path &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;f_readdir
@@ -1323,6 +1324,7 @@ Global Symbols
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
 <LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawInstruction
 <LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
+<LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ACC_HANDLE
 </UL>
@@ -1330,12 +1332,12 @@ Global Symbols
 <P><STRONG><a name="[11d]"></a>DISP_INPUT</STRONG> (Thumb, 68 bytes, Stack size 24 bytes, bsp_lcd.o(i.DISP_INPUT))
 <BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = DISP_INPUT &rArr; LCD_DrawChinese
 </UL>
-<BR>[Calls]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawChinese
+<BR>[Calls]<UL><LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawChinese
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_CNL_S
 </UL>
 
-<P><STRONG><a name="[122]"></a>DISP_INS</STRONG> (Thumb, 96 bytes, Stack size 24 bytes, bsp_lcd.o(i.DISP_INS))
+<P><STRONG><a name="[123]"></a>DISP_INS</STRONG> (Thumb, 96 bytes, Stack size 24 bytes, bsp_lcd.o(i.DISP_INS))
 <BR><BR>[Stack]<UL><LI>Max Depth = 76<LI>Call Chain = DISP_INS &rArr; DISP_SINS &rArr; LCD_DrawChinese
 </UL>
 <BR>[Calls]<UL><LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayChar_48
@@ -1350,14 +1352,14 @@ Global Symbols
 <P><STRONG><a name="[11b]"></a>DISP_SINS</STRONG> (Thumb, 64 bytes, Stack size 24 bytes, bsp_lcd.o(i.DISP_SINS))
 <BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = DISP_SINS &rArr; LCD_DrawChinese
 </UL>
-<BR>[Calls]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawChinese
+<BR>[Calls]<UL><LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawChinese
 </UL>
-<BR>[Called By]<UL><LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_SYS
+<BR>[Called By]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_SYS
 <LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_AVG
-<LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_INS
+<LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_INS
 </UL>
 
-<P><STRONG><a name="[123]"></a>DISP_SYS</STRONG> (Thumb, 96 bytes, Stack size 24 bytes, bsp_lcd.o(i.DISP_SYS))
+<P><STRONG><a name="[124]"></a>DISP_SYS</STRONG> (Thumb, 96 bytes, Stack size 24 bytes, bsp_lcd.o(i.DISP_SYS))
 <BR><BR>[Stack]<UL><LI>Max Depth = 76<LI>Call Chain = DISP_SYS &rArr; DISP_SINS &rArr; LCD_DrawChinese
 </UL>
 <BR>[Calls]<UL><LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayChar_48
@@ -1366,76 +1368,76 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[2b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;power_on
 </UL>
 
-<P><STRONG><a name="[124]"></a>DISP_TEMP_L</STRONG> (Thumb, 136 bytes, Stack size 24 bytes, bsp_lcd.o(i.DISP_TEMP_L))
+<P><STRONG><a name="[125]"></a>DISP_TEMP_L</STRONG> (Thumb, 136 bytes, Stack size 24 bytes, bsp_lcd.o(i.DISP_TEMP_L))
 <BR><BR>[Stack]<UL><LI>Max Depth = 108<LI>Call Chain = DISP_TEMP_L &rArr; LCD_DrawFullRect &rArr; DMA2D_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayChinese
 <LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayChar_48
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
 </UL>
 <BR>[Called By]<UL><LI><a href="#[244]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TempDisplay
 </UL>
 
-<P><STRONG><a name="[126]"></a>DISP_TEMP_M</STRONG> (Thumb, 136 bytes, Stack size 24 bytes, bsp_lcd.o(i.DISP_TEMP_M))
+<P><STRONG><a name="[127]"></a>DISP_TEMP_M</STRONG> (Thumb, 136 bytes, Stack size 24 bytes, bsp_lcd.o(i.DISP_TEMP_M))
 <BR><BR>[Stack]<UL><LI>Max Depth = 108<LI>Call Chain = DISP_TEMP_M &rArr; LCD_DrawFullRect &rArr; DMA2D_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayChinese
 <LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayChar_48
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
 </UL>
 <BR>[Called By]<UL><LI><a href="#[244]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TempDisplay
 </UL>
 
-<P><STRONG><a name="[127]"></a>DISP_TEMP_S</STRONG> (Thumb, 136 bytes, Stack size 24 bytes, bsp_lcd.o(i.DISP_TEMP_S))
+<P><STRONG><a name="[128]"></a>DISP_TEMP_S</STRONG> (Thumb, 136 bytes, Stack size 24 bytes, bsp_lcd.o(i.DISP_TEMP_S))
 <BR><BR>[Stack]<UL><LI>Max Depth = 108<LI>Call Chain = DISP_TEMP_S &rArr; LCD_DrawFullRect &rArr; DMA2D_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayChinese
 <LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayChar_48
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
 </UL>
 <BR>[Called By]<UL><LI><a href="#[244]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TempDisplay
 </UL>
 
-<P><STRONG><a name="[128]"></a>DMA2D_DeInit</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, stm32f4xx_dma2d.o(i.DMA2D_DeInit))
+<P><STRONG><a name="[129]"></a>DMA2D_DeInit</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, stm32f4xx_dma2d.o(i.DMA2D_DeInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = DMA2D_DeInit
 </UL>
-<BR>[Calls]<UL><LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_AHB1PeriphResetCmd
+<BR>[Calls]<UL><LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_AHB1PeriphResetCmd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawLine
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
-<LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Clear
+<BR>[Called By]<UL><LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawLine
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
+<LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Clear
 </UL>
 
 <P><STRONG><a name="[1b5]"></a>DMA2D_GetFlagStatus</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f4xx_dma2d.o(i.DMA2D_GetFlagStatus))
-<BR><BR>[Called By]<UL><LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawLine
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
-<LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Clear
+<BR><BR>[Called By]<UL><LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawLine
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
+<LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Clear
 </UL>
 
 <P><STRONG><a name="[1b3]"></a>DMA2D_Init</STRONG> (Thumb, 170 bytes, Stack size 12 bytes, stm32f4xx_dma2d.o(i.DMA2D_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = DMA2D_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawLine
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
-<LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Clear
+<BR>[Called By]<UL><LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawLine
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
+<LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Clear
 </UL>
 
 <P><STRONG><a name="[1b4]"></a>DMA2D_StartTransfer</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_dma2d.o(i.DMA2D_StartTransfer))
-<BR><BR>[Called By]<UL><LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawLine
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
-<LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Clear
+<BR><BR>[Called By]<UL><LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawLine
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
+<LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Clear
 </UL>
 
 <P><STRONG><a name="[67]"></a>DMA2_Stream3_IRQHandler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, bsp_sdio_sd.o(i.DMA2_Stream3_IRQHandler))
-<BR><BR>[Calls]<UL><LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_ProcessDMAIRQ
+<BR><BR>[Calls]<UL><LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_ProcessDMAIRQ
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f429_439xx.o(RESET)
 </UL>
 <P><STRONG><a name="[209]"></a>DMA_ClearFlag</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, stm32f4xx_dma.o(i.DMA_ClearFlag))
-<BR><BR>[Called By]<UL><LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_ProcessDMAIRQ
+<BR><BR>[Called By]<UL><LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_ProcessDMAIRQ
 <LI><a href="#[20d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_TxConfig
 <LI><a href="#[208]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_RxConfig
 </UL>
@@ -1471,42 +1473,42 @@ Global Symbols
 <LI><a href="#[208]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_RxConfig
 </UL>
 
-<P><STRONG><a name="[12b]"></a>DOT_HANDLE</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, bsp_key.o(i.DOT_HANDLE))
+<P><STRONG><a name="[12c]"></a>DOT_HANDLE</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, bsp_key.o(i.DOT_HANDLE))
 <BR><BR>[Stack]<UL><LI>Max Depth = 132<LI>Call Chain = DOT_HANDLE &rArr; input_num &rArr; LCD_DrawRect &rArr; LCD_DrawLine &rArr; DMA2D_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_num
+<BR>[Calls]<UL><LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_num
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Function
 </UL>
 
-<P><STRONG><a name="[12d]"></a>DOWN_HANDLE</STRONG> (Thumb, 10578 bytes, Stack size 160 bytes, bsp_key.o(i.DOWN_HANDLE))
+<P><STRONG><a name="[12e]"></a>DOWN_HANDLE</STRONG> (Thumb, 10578 bytes, Stack size 160 bytes, bsp_key.o(i.DOWN_HANDLE))
 <BR><BR>[Stack]<UL><LI>Max Depth = 308<LI>Call Chain = DOWN_HANDLE &rArr; maxfocus_on &rArr; DrawInstruction &rArr; LCD_DrawFullRect &rArr; DMA2D_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetBackColor
 <LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine_48
-<LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawhomemenu
+<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawhomemenu
 <LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_CNL_M
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
 <LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawInstruction
 <LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_CNL_S
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Save_flag
-<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ylfocus_on
-<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ylfocus_off
-<LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;yhfocus_off
-<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stimefocus_on
-<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;multifocus_on
-<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_on
-<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_off
+<LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ylfocus_on
+<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ylfocus_off
+<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;yhfocus_off
+<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stimefocus_on
+<LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;multifocus_on
+<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_on
+<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_off
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;maxfocus_on
-<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;maxfocus_off
-<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_on1
-<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_on
-<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_off1
-<LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_off
-<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawType
+<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;maxfocus_off
+<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_on1
+<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_on
+<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_off1
+<LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_off
+<LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawType
 <LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Function
@@ -1515,18 +1517,18 @@ Global Symbols
 <P><STRONG><a name="[29]"></a>DebugMon_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f4xx_it.o(i.DebugMon_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f429_439xx.o(RESET)
 </UL>
-<P><STRONG><a name="[13c]"></a>Debug_USART_Config</STRONG> (Thumb, 188 bytes, Stack size 48 bytes, bsp_debug_usart.o(i.Debug_USART_Config))
+<P><STRONG><a name="[13d]"></a>Debug_USART_Config</STRONG> (Thumb, 188 bytes, Stack size 48 bytes, bsp_debug_usart.o(i.Debug_USART_Config))
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = Debug_USART_Config &rArr; USART_Init &rArr; RCC_GetClocksFreq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_PriorityGroupConfig
-<LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_Init
+<BR>[Calls]<UL><LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_PriorityGroupConfig
+<LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_Init
 <LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinAFConfig
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
 <LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
 <LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_AHB1PeriphClockCmd
-<LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Init
-<LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_ITConfig
-<LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Cmd
+<LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Init
+<LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_ITConfig
+<LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Cmd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1546,7 +1548,7 @@ Global Symbols
 <LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xReadCH376Data
 </UL>
 
-<P><STRONG><a name="[142]"></a>Disp_Factory</STRONG> (Thumb, 52 bytes, Stack size 16 bytes, factory.o(i.Disp_Factory))
+<P><STRONG><a name="[143]"></a>Disp_Factory</STRONG> (Thumb, 52 bytes, Stack size 16 bytes, factory.o(i.Disp_Factory))
 <BR><BR>[Stack]<UL><LI>Max Depth = 92<LI>Call Chain = Disp_Factory &rArr; LCD_DisplayStringLine &rArr; LCD_DisplayChinese &rArr; LCD_DrawChinese
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
@@ -1557,7 +1559,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_factory
 </UL>
 
-<P><STRONG><a name="[143]"></a>Disp_Type</STRONG> (Thumb, 1410 bytes, Stack size 40 bytes, home.o(i.Disp_Type))
+<P><STRONG><a name="[144]"></a>Disp_Type</STRONG> (Thumb, 1410 bytes, Stack size 40 bytes, home.o(i.Disp_Type))
 <BR><BR>[Stack]<UL><LI>Max Depth = 176<LI>Call Chain = Disp_Type &rArr; Save_flag &rArr; SPI_FLASH_BufferWrite &rArr; SPI_FLASH_PageWrite &rArr; SPI_FLASH_WaitForWriteEnd &rArr; SPI_FLASH_SendByte &rArr; SPI_TIMEOUT_UserCallback &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
@@ -1566,59 +1568,59 @@ Global Symbols
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Save_flag
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_home
+<LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC5_HANDLE
 <LI><a href="#[22b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetTctype
 <LI><a href="#[228]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetSTctype
-<LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC5_HANDLE
 </UL>
 
-<P><STRONG><a name="[144]"></a>DrawBattery</STRONG> (Thumb, 270 bytes, Stack size 24 bytes, bsp_lcd.o(i.DrawBattery))
+<P><STRONG><a name="[145]"></a>DrawBattery</STRONG> (Thumb, 270 bytes, Stack size 24 bytes, bsp_lcd.o(i.DrawBattery))
 <BR><BR>[Stack]<UL><LI>Max Depth = 124<LI>Call Chain = DrawBattery &rArr; DrawCharge &rArr; LCD_DrawFullRect &rArr; DMA2D_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawUniLine
-<LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawCharge
+<BR>[Calls]<UL><LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawUniLine
+<LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawCharge
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
 </UL>
 <BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[147]"></a>DrawBrt</STRONG> (Thumb, 76 bytes, Stack size 8 bytes, bsp_lcd.o(i.DrawBrt))
+<P><STRONG><a name="[148]"></a>DrawBrt</STRONG> (Thumb, 76 bytes, Stack size 8 bytes, bsp_lcd.o(i.DrawBrt))
 <BR><BR>[Stack]<UL><LI>Max Depth = 84<LI>Call Chain = DrawBrt &rArr; LCD_DisplayStringLine &rArr; LCD_DisplayChinese &rArr; LCD_DrawChinese
 </UL>
 <BR>[Calls]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
 </UL>
 <BR>[Called By]<UL><LI><a href="#[248]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchHandle
-<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
+<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
 </UL>
 
-<P><STRONG><a name="[145]"></a>DrawCharge</STRONG> (Thumb, 118 bytes, Stack size 16 bytes, bsp_lcd.o(i.DrawCharge))
+<P><STRONG><a name="[146]"></a>DrawCharge</STRONG> (Thumb, 118 bytes, Stack size 16 bytes, bsp_lcd.o(i.DrawCharge))
 <BR><BR>[Stack]<UL><LI>Max Depth = 100<LI>Call Chain = DrawCharge &rArr; LCD_DrawFullRect &rArr; DMA2D_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawUniLine
+<BR>[Calls]<UL><LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawUniLine
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
 </UL>
-<BR>[Called By]<UL><LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawBattery
+<BR>[Called By]<UL><LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawBattery
 </UL>
 
-<P><STRONG><a name="[148]"></a>DrawDim</STRONG> (Thumb, 106 bytes, Stack size 20 bytes, bsp_lcd.o(i.DrawDim))
+<P><STRONG><a name="[149]"></a>DrawDim</STRONG> (Thumb, 106 bytes, Stack size 20 bytes, bsp_lcd.o(i.DrawDim))
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = DrawDim &rArr; LCD_DisplayStringLine &rArr; LCD_DisplayChinese &rArr; LCD_DrawChinese
 </UL>
 <BR>[Calls]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
 </UL>
 <BR>[Called By]<UL><LI><a href="#[248]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchHandle
-<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
+<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
 </UL>
 
-<P><STRONG><a name="[149]"></a>DrawGridLine</STRONG> (Thumb, 182 bytes, Stack size 24 bytes, bsp_lcd.o(i.DrawGridLine))
+<P><STRONG><a name="[14a]"></a>DrawGridLine</STRONG> (Thumb, 182 bytes, Stack size 24 bytes, bsp_lcd.o(i.DrawGridLine))
 <BR><BR>[Stack]<UL><LI>Max Depth = 132<LI>Call Chain = DrawGridLine &rArr; LCD_DrawRect &rArr; LCD_DrawLine &rArr; DMA2D_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawRect
-<LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawLine
+<BR>[Calls]<UL><LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawRect
+<LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawLine
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
 </UL>
-<BR>[Called By]<UL><LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawTime
+<BR>[Called By]<UL><LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawTime
 <LI><a href="#[17a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_graph
 </UL>
 
@@ -1626,8 +1628,8 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 100<LI>Call Chain = DrawInstruction &rArr; LCD_DrawFullRect &rArr; DMA2D_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
-<LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_INS
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
+<LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_INS
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_home
 <LI><a href="#[248]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchHandle
@@ -1639,42 +1641,42 @@ Global Symbols
 <LI><a href="#[186]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_sep
 <LI><a href="#[188]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_gset
 <LI><a href="#[182]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_cal
-<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ylfocus_on
+<LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ylfocus_on
 <LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;yhfocus_on
-<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stimefocus_on
-<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;multifocus_on
-<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_on
+<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stimefocus_on
+<LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;multifocus_on
+<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_on
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;maxfocus_on
 <LI><a href="#[1ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UP_HANDLE
 <LI><a href="#[1ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RIGHT_HANDLE
 <LI><a href="#[1ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LEFT_HANDLE
 <LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC5_HANDLE
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
+<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
 <LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChannelSwtichSml
 <LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChannelSwtichMid
 <LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChannelSwtichBig
 </UL>
 
-<P><STRONG><a name="[14c]"></a>DrawLogo</STRONG> (Thumb, 7154 bytes, Stack size 224 bytes, power_on.o(i.DrawLogo))
+<P><STRONG><a name="[14d]"></a>DrawLogo</STRONG> (Thumb, 7154 bytes, Stack size 224 bytes, power_on.o(i.DrawLogo))
 <BR><BR>[Stack]<UL><LI>Max Depth = 308<LI>Call Chain = DrawLogo &rArr; LCD_DrawLine &rArr; DMA2D_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawLine
+<BR>[Calls]<UL><LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawLine
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;power_on
-<LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawPowOff
+<LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawPowOff
 </UL>
 
-<P><STRONG><a name="[14d]"></a>DrawMenu</STRONG> (Thumb, 128 bytes, Stack size 16 bytes, bsp_lcd.o(i.DrawMenu))
+<P><STRONG><a name="[14e]"></a>DrawMenu</STRONG> (Thumb, 128 bytes, Stack size 16 bytes, bsp_lcd.o(i.DrawMenu))
 <BR><BR>[Stack]<UL><LI>Max Depth = 116<LI>Call Chain = DrawMenu &rArr; DrawUdisk2 &rArr; LCD_DrawFullRect &rArr; DMA2D_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
-<LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawUdisk2
-<LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawUdisk1
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
+<LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawUdisk2
+<LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawUdisk1
 </UL>
-<BR>[Called By]<UL><LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawhomemenu
+<BR>[Called By]<UL><LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawhomemenu
 <LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_home
 <LI><a href="#[248]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchHandle
 <LI><a href="#[185]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_sysinfo
@@ -1695,82 +1697,82 @@ Global Symbols
 <LI><a href="#[175]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC2_HANDLE
 <LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC1_HANDLE
 <LI><a href="#[16b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESC_HANDLE
-<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
-<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawType
+<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
+<LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawType
 </UL>
 
-<P><STRONG><a name="[150]"></a>DrawPowOff</STRONG> (Thumb, 308 bytes, Stack size 32 bytes, bsp_lcd.o(i.DrawPowOff))
+<P><STRONG><a name="[151]"></a>DrawPowOff</STRONG> (Thumb, 308 bytes, Stack size 32 bytes, bsp_lcd.o(i.DrawPowOff))
 <BR><BR>[Stack]<UL><LI>Max Depth = 340<LI>Call Chain = DrawPowOff &rArr; DrawLogo &rArr; LCD_DrawLine &rArr; DMA2D_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawLogo
-<LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawCircle
+<BR>[Calls]<UL><LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawLogo
+<LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawCircle
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
-<LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Clear
+<LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Clear
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PowerOffHandle
 </UL>
 
-<P><STRONG><a name="[153]"></a>DrawTime</STRONG> (Thumb, 276 bytes, Stack size 120 bytes, bsp_rtc.o(i.DrawTime))
+<P><STRONG><a name="[154]"></a>DrawTime</STRONG> (Thumb, 276 bytes, Stack size 120 bytes, bsp_rtc.o(i.DrawTime))
 <BR><BR>[Stack]<UL><LI>Max Depth = 252<LI>Call Chain = DrawTime &rArr; DrawGridLine &rArr; LCD_DrawRect &rArr; LCD_DrawLine &rArr; DMA2D_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetBackColor
-<LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawGridLine
+<LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawGridLine
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
 <LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_CNL_S
 <LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[24a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UARTRECHANDLE
 </UL>
 
-<P><STRONG><a name="[154]"></a>DrawTouch</STRONG> (Thumb, 74 bytes, Stack size 8 bytes, bsp_lcd.o(i.DrawTouch))
+<P><STRONG><a name="[155]"></a>DrawTouch</STRONG> (Thumb, 74 bytes, Stack size 8 bytes, bsp_lcd.o(i.DrawTouch))
 <BR><BR>[Stack]<UL><LI>Max Depth = 84<LI>Call Chain = DrawTouch &rArr; LCD_DisplayStringLine &rArr; LCD_DisplayChinese &rArr; LCD_DrawChinese
 </UL>
 <BR>[Calls]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
 </UL>
 <BR>[Called By]<UL><LI><a href="#[248]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchHandle
-<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
+<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
 </UL>
 
-<P><STRONG><a name="[12f]"></a>DrawType</STRONG> (Thumb, 210 bytes, Stack size 32 bytes, bsp_key.o(i.DrawType))
+<P><STRONG><a name="[130]"></a>DrawType</STRONG> (Thumb, 210 bytes, Stack size 32 bytes, bsp_key.o(i.DrawType))
 <BR><BR>[Stack]<UL><LI>Max Depth = 148<LI>Call Chain = DrawType &rArr; DrawMenu &rArr; DrawUdisk2 &rArr; LCD_DrawFullRect &rArr; DMA2D_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetBackColor
-<LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
+<LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UP_HANDLE
 <LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC5_HANDLE
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
+<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
 </UL>
 
-<P><STRONG><a name="[14e]"></a>DrawUdisk1</STRONG> (Thumb, 184 bytes, Stack size 16 bytes, bsp_lcd.o(i.DrawUdisk1))
+<P><STRONG><a name="[14f]"></a>DrawUdisk1</STRONG> (Thumb, 184 bytes, Stack size 16 bytes, bsp_lcd.o(i.DrawUdisk1))
 <BR><BR>[Stack]<UL><LI>Max Depth = 100<LI>Call Chain = DrawUdisk1 &rArr; LCD_DrawFullRect &rArr; DMA2D_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawUniLine
+<BR>[Calls]<UL><LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawUniLine
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
 </UL>
-<BR>[Called By]<UL><LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
+<BR>[Called By]<UL><LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
 <LI><a href="#[2b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;udisk_scan
 </UL>
 
-<P><STRONG><a name="[14f]"></a>DrawUdisk2</STRONG> (Thumb, 178 bytes, Stack size 16 bytes, bsp_lcd.o(i.DrawUdisk2))
+<P><STRONG><a name="[150]"></a>DrawUdisk2</STRONG> (Thumb, 178 bytes, Stack size 16 bytes, bsp_lcd.o(i.DrawUdisk2))
 <BR><BR>[Stack]<UL><LI>Max Depth = 100<LI>Call Chain = DrawUdisk2 &rArr; LCD_DrawFullRect &rArr; DMA2D_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawUniLine
+<BR>[Calls]<UL><LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawUniLine
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
 </UL>
-<BR>[Called By]<UL><LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
+<BR>[Called By]<UL><LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
 <LI><a href="#[2b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;udisk_scan
 </UL>
 
-<P><STRONG><a name="[155]"></a>DrawUnit</STRONG> (Thumb, 76 bytes, Stack size 8 bytes, bsp_lcd.o(i.DrawUnit))
+<P><STRONG><a name="[156]"></a>DrawUnit</STRONG> (Thumb, 76 bytes, Stack size 8 bytes, bsp_lcd.o(i.DrawUnit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 84<LI>Call Chain = DrawUnit &rArr; LCD_DisplayStringLine &rArr; LCD_DisplayChinese &rArr; LCD_DrawChinese
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
@@ -1788,16 +1790,16 @@ Global Symbols
 <LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC1_HANDLE
 </UL>
 
-<P><STRONG><a name="[156]"></a>Draw_graph</STRONG> (Thumb, 3850 bytes, Stack size 48 bytes, graph.o(i.Draw_graph))
+<P><STRONG><a name="[157]"></a>Draw_graph</STRONG> (Thumb, 3850 bytes, Stack size 48 bytes, graph.o(i.Draw_graph))
 <BR><BR>[Stack]<UL><LI>Max Depth = 92<LI>Call Chain = Draw_graph &rArr; LCD_DrawUniLine
 </UL>
-<BR>[Calls]<UL><LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawUniLine
+<BR>[Calls]<UL><LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawUniLine
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
 </UL>
 <BR>[Called By]<UL><LI><a href="#[24a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UARTRECHANDLE
 </UL>
 
-<P><STRONG><a name="[157]"></a>Drawcalmenu</STRONG> (Thumb, 138 bytes, Stack size 8 bytes, bsp_lcd.o(i.Drawcalmenu))
+<P><STRONG><a name="[158]"></a>Drawcalmenu</STRONG> (Thumb, 138 bytes, Stack size 8 bytes, bsp_lcd.o(i.Drawcalmenu))
 <BR><BR>[Stack]<UL><LI>Max Depth = 84<LI>Call Chain = Drawcalmenu &rArr; LCD_DisplayStringLine &rArr; LCD_DisplayChinese &rArr; LCD_DrawChinese
 </UL>
 <BR>[Calls]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
@@ -1805,17 +1807,17 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[182]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_cal
 </UL>
 
-<P><STRONG><a name="[158]"></a>Drawdate</STRONG> (Thumb, 134 bytes, Stack size 12 bytes, bsp_lcd.o(i.Drawdate))
+<P><STRONG><a name="[159]"></a>Drawdate</STRONG> (Thumb, 134 bytes, Stack size 12 bytes, bsp_lcd.o(i.Drawdate))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = Drawdate &rArr; LCD_DisplayStringLine &rArr; LCD_DisplayChinese &rArr; LCD_DrawChinese
 </UL>
 <BR>[Calls]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
 </UL>
 <BR>[Called By]<UL><LI><a href="#[248]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchHandle
 <LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC5_HANDLE
-<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
+<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
 </UL>
 
-<P><STRONG><a name="[159]"></a>Drawdate2</STRONG> (Thumb, 86 bytes, Stack size 12 bytes, bsp_lcd.o(i.Drawdate2))
+<P><STRONG><a name="[15a]"></a>Drawdate2</STRONG> (Thumb, 86 bytes, Stack size 12 bytes, bsp_lcd.o(i.Drawdate2))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = Drawdate2 &rArr; LCD_DisplayStringLine &rArr; LCD_DisplayChinese &rArr; LCD_DrawChinese
 </UL>
 <BR>[Calls]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
@@ -1824,7 +1826,7 @@ Global Symbols
 <LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC5_HANDLE
 </UL>
 
-<P><STRONG><a name="[15a]"></a>Drawgraphmenu</STRONG> (Thumb, 138 bytes, Stack size 8 bytes, bsp_lcd.o(i.Drawgraphmenu))
+<P><STRONG><a name="[15b]"></a>Drawgraphmenu</STRONG> (Thumb, 138 bytes, Stack size 8 bytes, bsp_lcd.o(i.Drawgraphmenu))
 <BR><BR>[Stack]<UL><LI>Max Depth = 84<LI>Call Chain = Drawgraphmenu &rArr; LCD_DisplayStringLine &rArr; LCD_DisplayChinese &rArr; LCD_DrawChinese
 </UL>
 <BR>[Calls]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
@@ -1832,7 +1834,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[17a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_graph
 </UL>
 
-<P><STRONG><a name="[15b]"></a>Drawgsethmenu</STRONG> (Thumb, 114 bytes, Stack size 8 bytes, bsp_lcd.o(i.Drawgsethmenu))
+<P><STRONG><a name="[15c]"></a>Drawgsethmenu</STRONG> (Thumb, 114 bytes, Stack size 8 bytes, bsp_lcd.o(i.Drawgsethmenu))
 <BR><BR>[Stack]<UL><LI>Max Depth = 84<LI>Call Chain = Drawgsethmenu &rArr; LCD_DisplayStringLine &rArr; LCD_DisplayChinese &rArr; LCD_DrawChinese
 </UL>
 <BR>[Calls]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
@@ -1840,7 +1842,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[188]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_gset
 </UL>
 
-<P><STRONG><a name="[15c]"></a>Drawhishmenu</STRONG> (Thumb, 138 bytes, Stack size 8 bytes, bsp_lcd.o(i.Drawhishmenu))
+<P><STRONG><a name="[15d]"></a>Drawhishmenu</STRONG> (Thumb, 138 bytes, Stack size 8 bytes, bsp_lcd.o(i.Drawhishmenu))
 <BR><BR>[Stack]<UL><LI>Max Depth = 84<LI>Call Chain = Drawhishmenu &rArr; LCD_DisplayStringLine &rArr; LCD_DisplayChinese &rArr; LCD_DrawChinese
 </UL>
 <BR>[Calls]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
@@ -1848,10 +1850,10 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[17b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_his
 </UL>
 
-<P><STRONG><a name="[131]"></a>Drawhomemenu</STRONG> (Thumb, 142 bytes, Stack size 8 bytes, bsp_lcd.o(i.Drawhomemenu))
+<P><STRONG><a name="[132]"></a>Drawhomemenu</STRONG> (Thumb, 142 bytes, Stack size 8 bytes, bsp_lcd.o(i.Drawhomemenu))
 <BR><BR>[Stack]<UL><LI>Max Depth = 124<LI>Call Chain = Drawhomemenu &rArr; DrawMenu &rArr; DrawUdisk2 &rArr; LCD_DrawFullRect &rArr; DMA2D_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
+<BR>[Calls]<UL><LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_home
@@ -1862,19 +1864,19 @@ Global Symbols
 <LI><a href="#[175]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC2_HANDLE
 <LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC1_HANDLE
 <LI><a href="#[16b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESC_HANDLE
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
+<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
 </UL>
 
-<P><STRONG><a name="[15d]"></a>Drawlang</STRONG> (Thumb, 40 bytes, Stack size 8 bytes, bsp_lcd.o(i.Drawlang))
+<P><STRONG><a name="[15e]"></a>Drawlang</STRONG> (Thumb, 40 bytes, Stack size 8 bytes, bsp_lcd.o(i.Drawlang))
 <BR><BR>[Stack]<UL><LI>Max Depth = 84<LI>Call Chain = Drawlang &rArr; LCD_DisplayStringLine &rArr; LCD_DisplayChinese &rArr; LCD_DrawChinese
 </UL>
 <BR>[Calls]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
 </UL>
 <BR>[Called By]<UL><LI><a href="#[248]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchHandle
-<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
+<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
 </UL>
 
-<P><STRONG><a name="[15e]"></a>Drawsetmenu</STRONG> (Thumb, 138 bytes, Stack size 12 bytes, bsp_lcd.o(i.Drawsetmenu))
+<P><STRONG><a name="[15f]"></a>Drawsetmenu</STRONG> (Thumb, 138 bytes, Stack size 12 bytes, bsp_lcd.o(i.Drawsetmenu))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = Drawsetmenu &rArr; LCD_DisplayStringLine &rArr; LCD_DisplayChinese &rArr; LCD_DrawChinese
 </UL>
 <BR>[Calls]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
@@ -1889,7 +1891,7 @@ Global Symbols
 <LI><a href="#[16b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESC_HANDLE
 </UL>
 
-<P><STRONG><a name="[15f]"></a>Drawsptmenu</STRONG> (Thumb, 138 bytes, Stack size 8 bytes, bsp_lcd.o(i.Drawsptmenu))
+<P><STRONG><a name="[160]"></a>Drawsptmenu</STRONG> (Thumb, 138 bytes, Stack size 8 bytes, bsp_lcd.o(i.Drawsptmenu))
 <BR><BR>[Stack]<UL><LI>Max Depth = 84<LI>Call Chain = Drawsptmenu &rArr; LCD_DisplayStringLine &rArr; LCD_DisplayChinese &rArr; LCD_DrawChinese
 </UL>
 <BR>[Calls]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
@@ -1897,7 +1899,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[186]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_sep
 </UL>
 
-<P><STRONG><a name="[160]"></a>Drawsysinfomenu</STRONG> (Thumb, 138 bytes, Stack size 8 bytes, bsp_lcd.o(i.Drawsysinfomenu))
+<P><STRONG><a name="[161]"></a>Drawsysinfomenu</STRONG> (Thumb, 138 bytes, Stack size 8 bytes, bsp_lcd.o(i.Drawsysinfomenu))
 <BR><BR>[Stack]<UL><LI>Max Depth = 84<LI>Call Chain = Drawsysinfomenu &rArr; LCD_DisplayStringLine &rArr; LCD_DisplayChinese &rArr; LCD_DrawChinese
 </UL>
 <BR>[Calls]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
@@ -1906,7 +1908,7 @@ Global Symbols
 <LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_factory
 </UL>
 
-<P><STRONG><a name="[161]"></a>Drawsysmenu</STRONG> (Thumb, 138 bytes, Stack size 8 bytes, bsp_lcd.o(i.Drawsysmenu))
+<P><STRONG><a name="[162]"></a>Drawsysmenu</STRONG> (Thumb, 138 bytes, Stack size 8 bytes, bsp_lcd.o(i.Drawsysmenu))
 <BR><BR>[Stack]<UL><LI>Max Depth = 84<LI>Call Chain = Drawsysmenu &rArr; LCD_DisplayStringLine &rArr; LCD_DisplayChinese &rArr; LCD_DrawChinese
 </UL>
 <BR>[Calls]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
@@ -1919,17 +1921,17 @@ Global Symbols
 <LI><a href="#[16b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESC_HANDLE
 </UL>
 
-<P><STRONG><a name="[162]"></a>Drawtime</STRONG> (Thumb, 134 bytes, Stack size 20 bytes, bsp_lcd.o(i.Drawtime))
+<P><STRONG><a name="[163]"></a>Drawtime</STRONG> (Thumb, 134 bytes, Stack size 20 bytes, bsp_lcd.o(i.Drawtime))
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = Drawtime &rArr; LCD_DisplayStringLine &rArr; LCD_DisplayChinese &rArr; LCD_DrawChinese
 </UL>
 <BR>[Calls]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
 </UL>
 <BR>[Called By]<UL><LI><a href="#[248]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchHandle
 <LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC5_HANDLE
-<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
+<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
 </UL>
 
-<P><STRONG><a name="[163]"></a>Drawtime2</STRONG> (Thumb, 86 bytes, Stack size 12 bytes, bsp_lcd.o(i.Drawtime2))
+<P><STRONG><a name="[164]"></a>Drawtime2</STRONG> (Thumb, 86 bytes, Stack size 12 bytes, bsp_lcd.o(i.Drawtime2))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = Drawtime2 &rArr; LCD_DisplayStringLine &rArr; LCD_DisplayChinese &rArr; LCD_DrawChinese
 </UL>
 <BR>[Calls]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
@@ -1938,19 +1940,19 @@ Global Symbols
 <LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC5_HANDLE
 </UL>
 
-<P><STRONG><a name="[164]"></a>ENTER_HANDLE</STRONG> (Thumb, 10436 bytes, Stack size 160 bytes, bsp_key.o(i.ENTER_HANDLE))
+<P><STRONG><a name="[165]"></a>ENTER_HANDLE</STRONG> (Thumb, 10436 bytes, Stack size 160 bytes, bsp_key.o(i.ENTER_HANDLE))
 <BR><BR>[Stack]<UL><LI>Max Depth = 560<LI>Call Chain = ENTER_HANDLE &rArr; hispage &rArr; Read_history &rArr; SPI_FLASH_BufferRead &rArr; SPI_FLASH_SendByte &rArr; SPI_TIMEOUT_UserCallback &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetBackColor
 <LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine_48
-<LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawtime
-<LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawlang
-<LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawdate
-<LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawTouch
-<LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
-<LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawDim
-<LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawBrt
+<LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawtime
+<LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawlang
+<LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawdate
+<LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawTouch
+<LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
+<LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawDim
+<LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawBrt
 <LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_CNL_M
 <LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
@@ -1960,15 +1962,15 @@ Global Symbols
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Save_flag
 <LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_factory
 <LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hispage
-<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ylfocus_on
+<LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ylfocus_on
 <LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;yhfocus_on
-<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stimefocus_on
-<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;multifocus_on
-<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_on
+<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stimefocus_on
+<LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;multifocus_on
+<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_on
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;maxfocus_on
 <LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clear_input
 <LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atoi
-<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
+<LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
 <LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atof
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Function
@@ -1977,10 +1979,10 @@ Global Symbols
 <P><STRONG><a name="[16b]"></a>ESC_HANDLE</STRONG> (Thumb, 68 bytes, Stack size 16 bytes, bsp_key.o(i.ESC_HANDLE))
 <BR><BR>[Stack]<UL><LI>Max Depth = 140<LI>Call Chain = ESC_HANDLE &rArr; Drawhomemenu &rArr; DrawMenu &rArr; DrawUdisk2 &rArr; LCD_DrawFullRect &rArr; DMA2D_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawsysmenu
-<LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawsetmenu
-<LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawhomemenu
-<LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
+<BR>[Calls]<UL><LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawsysmenu
+<LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawsetmenu
+<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawhomemenu
+<LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Function
 </UL>
@@ -2012,13 +2014,13 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetBackColor
-<LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawsetmenu
-<LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawhomemenu
-<LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawUnit
-<LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
+<LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawsetmenu
+<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawhomemenu
+<LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawUnit
+<LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
 <LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_home
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
 <LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_CNL_S
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Save_flag
@@ -2028,7 +2030,7 @@ Global Symbols
 <LI><a href="#[16d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;plus_sec
 <LI><a href="#[172]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;plus_hour
 <LI><a href="#[170]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;plus_day
-<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_on1
+<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_on1
 <LI><a href="#[174]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dim_set
 <LI><a href="#[173]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;brt_set
 </UL>
@@ -2040,13 +2042,13 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetBackColor
-<LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawsetmenu
-<LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawhomemenu
-<LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawUnit
-<LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
+<LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawsetmenu
+<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawhomemenu
+<LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawUnit
+<LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
 <LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_home
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Save_flag
 <LI><a href="#[16f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_sys
@@ -2057,7 +2059,7 @@ Global Symbols
 <LI><a href="#[176]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minus_sec
 <LI><a href="#[179]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minus_hour
 <LI><a href="#[177]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minus_day
-<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_on1
+<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_on1
 <LI><a href="#[174]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dim_set
 <LI><a href="#[173]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;brt_set
 </UL>
@@ -2069,13 +2071,13 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetBackColor
-<LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawsetmenu
-<LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawhomemenu
-<LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawUnit
-<LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
+<LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawsetmenu
+<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawhomemenu
+<LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawUnit
+<LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
 <LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_home
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
 <LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_CNL_S
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Save_flag
@@ -2083,7 +2085,7 @@ Global Symbols
 <LI><a href="#[2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TP_Adjust
 <LI><a href="#[17d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;plus_mon
 <LI><a href="#[17e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;plus_min
-<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_on1
+<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_on1
 <LI><a href="#[174]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dim_set
 <LI><a href="#[173]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;brt_set
 </UL>
@@ -2095,18 +2097,18 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetBackColor
-<LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawsetmenu
-<LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawhomemenu
-<LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
+<LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawsetmenu
+<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawhomemenu
+<LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Save_flag
 <LI><a href="#[183]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_set
 <LI><a href="#[182]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_cal
 <LI><a href="#[180]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minus_mon
 <LI><a href="#[181]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minus_min
-<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_on1
+<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_on1
 <LI><a href="#[174]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dim_set
 <LI><a href="#[173]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;brt_set
 </UL>
@@ -2119,15 +2121,15 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetBackColor
 <LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine_48
-<LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawtime2
-<LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawtime
-<LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawsetmenu
-<LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawdate2
-<LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawdate
-<LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
+<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawtime2
+<LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawtime
+<LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawsetmenu
+<LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawdate2
+<LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawdate
+<LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
 <LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_CNL_M
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
 <LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawInstruction
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Save_flag
@@ -2136,16 +2138,16 @@ Global Symbols
 <LI><a href="#[185]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_sysinfo
 <LI><a href="#[186]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_sep
 <LI><a href="#[188]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_gset
-<LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Disp_Type
-<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_on
-<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_off
+<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Disp_Type
+<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_on
+<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_off
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;maxfocus_on
-<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;maxfocus_off
-<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_on1
-<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_off1
+<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;maxfocus_off
+<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_on1
+<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_off1
 <LI><a href="#[174]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dim_set
 <LI><a href="#[173]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;brt_set
-<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawType
+<LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawType
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Function
 </UL>
@@ -2159,7 +2161,7 @@ Global Symbols
 <LI><a href="#[235]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIMx_Configuration
 <LI><a href="#[21c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_FLASH_Init
 <LI><a href="#[1af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_GPIO_Config
-<LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Debug_USART_Config
+<LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Debug_USART_Config
 <LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376_GPIO_Init
 <LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Beep_GPIO_Config
 <LI><a href="#[1b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Scan
@@ -2175,7 +2177,7 @@ Global Symbols
 <LI><a href="#[1f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDRAM_GPIO_Config
 <LI><a href="#[235]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIMx_Configuration
 <LI><a href="#[21c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_FLASH_Init
-<LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Debug_USART_Config
+<LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Debug_USART_Config
 <LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376_GPIO_Init
 <LI><a href="#[202]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_Init
 <LI><a href="#[25c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_OTG_BSP_Init
@@ -2184,31 +2186,31 @@ Global Symbols
 <P><STRONG><a name="[1b1]"></a>GPIO_ReadInputDataBit</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, stm32f4xx_gpio.o(i.GPIO_ReadInputDataBit))
 <BR><BR>[Called By]<UL><LI><a href="#[1e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_TimeAndDate_Show
 <LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-<LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM6_DAC_IRQHandler
 <LI><a href="#[1b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Scan
 <LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Query376Interrupt
+<LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM6_DAC_IRQHandler
 </UL>
 
 <P><STRONG><a name="[1b9]"></a>GPIO_ResetBits</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_gpio.o(i.GPIO_ResetBits))
 <BR><BR>[Called By]<UL><LI><a href="#[1b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_GPIO_Config
-<LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM6_DAC_IRQHandler
-<LI><a href="#[22b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetTctype
-<LI><a href="#[228]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetSTctype
 <LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xWriteCH376Cmd
 <LI><a href="#[1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TP_Scan
 <LI><a href="#[240]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TP_Read_AD
+<LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM6_DAC_IRQHandler
+<LI><a href="#[22b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetTctype
+<LI><a href="#[228]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetSTctype
 </UL>
 
 <P><STRONG><a name="[191]"></a>GPIO_SetBits</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_gpio.o(i.GPIO_SetBits))
 <BR><BR>[Called By]<UL><LI><a href="#[1b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_GPIO_Config
 <LI><a href="#[190]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_CH376
-<LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM6_DAC_IRQHandler
-<LI><a href="#[22b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetTctype
-<LI><a href="#[228]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetSTctype
 <LI><a href="#[1b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Scan
 <LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xWriteCH376Cmd
 <LI><a href="#[1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TP_Scan
 <LI><a href="#[240]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TP_Read_AD
+<LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM6_DAC_IRQHandler
+<LI><a href="#[22b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetTctype
+<LI><a href="#[228]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetSTctype
 </UL>
 
 <P><STRONG><a name="[24]"></a>HardFault_Handler</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f4xx_it.o(i.HardFault_Handler))
@@ -2239,7 +2241,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Save_flag
-<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_on1
+<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_on1
 <LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEY9_HANDLE
@@ -2259,7 +2261,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Save_flag
-<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_on1
+<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_on1
 <LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEY9_HANDLE
@@ -2286,9 +2288,9 @@ Global Symbols
 <LI><a href="#[195]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_DeInit
 <LI><a href="#[194]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_Cmd
 <LI><a href="#[19e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_DisableIRQ
-<LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_ITConfig
+<LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_ITConfig
 <LI><a href="#[197]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_DeInit
-<LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Cmd
+<LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Cmd
 <LI><a href="#[196]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ITConfig
 </UL>
 <BR>[Called By]<UL><LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC5_HANDLE
@@ -2298,7 +2300,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = KEY0_HANDLE &rArr; Input_start &rArr; Save_flag &rArr; SPI_FLASH_BufferWrite &rArr; SPI_FLASH_PageWrite &rArr; SPI_FLASH_WaitForWriteEnd &rArr; SPI_FLASH_SendByte &rArr; SPI_TIMEOUT_UserCallback &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_pass
-<LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_num
+<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_num
 <LI><a href="#[193]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Input_start
 <LI><a href="#[192]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Input_end
 </UL>
@@ -2310,7 +2312,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XYCAL
 <LI><a href="#[1a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_pass
-<LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_num
+<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_num
 <LI><a href="#[193]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Input_start
 <LI><a href="#[192]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Input_end
 </UL>
@@ -2322,7 +2324,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XYCAL
 <LI><a href="#[1a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_pass
-<LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_num
+<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_num
 <LI><a href="#[193]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Input_start
 <LI><a href="#[192]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Input_end
 </UL>
@@ -2334,7 +2336,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XYCAL
 <LI><a href="#[1a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_pass
-<LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_num
+<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_num
 <LI><a href="#[193]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Input_start
 <LI><a href="#[192]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Input_end
 </UL>
@@ -2346,7 +2348,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XYCAL
 <LI><a href="#[1a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_pass
-<LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_num
+<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_num
 <LI><a href="#[193]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Input_start
 <LI><a href="#[192]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Input_end
 </UL>
@@ -2358,7 +2360,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XYCAL
 <LI><a href="#[1a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_pass
-<LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_num
+<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_num
 <LI><a href="#[193]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Input_start
 <LI><a href="#[192]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Input_end
 </UL>
@@ -2370,7 +2372,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XYCAL
 <LI><a href="#[1a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_pass
-<LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_num
+<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_num
 <LI><a href="#[193]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Input_start
 <LI><a href="#[192]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Input_end
 </UL>
@@ -2382,7 +2384,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XYCAL
 <LI><a href="#[1a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_pass
-<LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_num
+<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_num
 <LI><a href="#[193]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Input_start
 <LI><a href="#[192]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Input_end
 </UL>
@@ -2394,7 +2396,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XYCAL
 <LI><a href="#[1a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_pass
-<LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_num
+<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_num
 <LI><a href="#[193]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Input_start
 <LI><a href="#[192]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Input_end
 </UL>
@@ -2405,7 +2407,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = KEY9_HANDLE &rArr; Input_start &rArr; Save_flag &rArr; SPI_FLASH_BufferWrite &rArr; SPI_FLASH_PageWrite &rArr; SPI_FLASH_WaitForWriteEnd &rArr; SPI_FLASH_SendByte &rArr; SPI_TIMEOUT_UserCallback &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_pass
-<LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_num
+<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_num
 <LI><a href="#[193]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Input_start
 <LI><a href="#[192]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Input_end
 </UL>
@@ -2440,9 +2442,9 @@ Global Symbols
 <LI><a href="#[175]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC2_HANDLE
 <LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC1_HANDLE
 <LI><a href="#[16b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESC_HANDLE
-<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
-<LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOT_HANDLE
+<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
+<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
+<LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOT_HANDLE
 <LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ButtonSound
 <LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BACK_HANDLE
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ACC_HANDLE
@@ -2470,17 +2472,17 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM6_DAC_IRQHandler
 </UL>
 
-<P><STRONG><a name="[151]"></a>LCD_Clear</STRONG> (Thumb, 84 bytes, Stack size 56 bytes, bsp_lcd.o(i.LCD_Clear))
+<P><STRONG><a name="[152]"></a>LCD_Clear</STRONG> (Thumb, 84 bytes, Stack size 56 bytes, bsp_lcd.o(i.LCD_Clear))
 <BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = LCD_Clear &rArr; DMA2D_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA2D_StartTransfer
 <LI><a href="#[1b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA2D_Init
 <LI><a href="#[1b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA2D_GetFlagStatus
-<LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA2D_DeInit
+<LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA2D_DeInit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;power_on
 <LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_home
-<LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawPowOff
+<LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawPowOff
 <LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[24a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UARTRECHANDLE
 <LI><a href="#[185]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_sysinfo
@@ -2501,28 +2503,28 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[1b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawChar
 </UL>
 <BR>[Called By]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine_48
-<LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_SYS
+<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_SYS
 <LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_CNL_M
 <LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_AVG
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
-<LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_TEMP_S
-<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_TEMP_M
-<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_TEMP_L
-<LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_INS
+<LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_TEMP_S
+<LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_TEMP_M
+<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_TEMP_L
+<LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_INS
 <LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_CNL_S
 </UL>
 
 <P><STRONG><a name="[11c]"></a>LCD_DisplayChinese</STRONG> (Thumb, 68 bytes, Stack size 24 bytes, bsp_lcd.o(i.LCD_DisplayChinese))
 <BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = LCD_DisplayChinese &rArr; LCD_DrawChinese
 </UL>
-<BR>[Calls]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawChinese
+<BR>[Calls]<UL><LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawChinese
 </UL>
 <BR>[Called By]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine_48
 <LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_CNL_M
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
-<LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_TEMP_S
-<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_TEMP_M
-<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_TEMP_L
+<LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_TEMP_S
+<LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_TEMP_M
+<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_TEMP_L
 </UL>
 
 <P><STRONG><a name="[120]"></a>LCD_DisplayStringLine</STRONG> (Thumb, 96 bytes, Stack size 24 bytes, bsp_lcd.o(i.LCD_DisplayStringLine))
@@ -2531,29 +2533,29 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayChinese
 <LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayChar_48
 </UL>
-<BR>[Called By]<UL><LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawtime2
-<LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawtime
-<LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawsysmenu
-<LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawsysinfomenu
-<LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawsptmenu
-<LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawsetmenu
-<LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawlang
-<LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawhomemenu
-<LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawhishmenu
-<LI><a href="#[15b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawgsethmenu
-<LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawgraphmenu
-<LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawdate2
-<LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawdate
-<LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawcalmenu
-<LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawUnit
-<LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawTouch
-<LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawDim
-<LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawBrt
+<BR>[Called By]<UL><LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawtime2
+<LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawtime
+<LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawsysmenu
+<LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawsysinfomenu
+<LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawsptmenu
+<LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawsetmenu
+<LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawlang
+<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawhomemenu
+<LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawhishmenu
+<LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawgsethmenu
+<LI><a href="#[15b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawgraphmenu
+<LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawdate2
+<LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawdate
+<LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawcalmenu
+<LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawUnit
+<LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawTouch
+<LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawDim
+<LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawBrt
 <LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_home
 <LI><a href="#[247]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cal_disp
 <LI><a href="#[248]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchHandle
 <LI><a href="#[1e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_TimeAndDate_Show
-<LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawPowOff
+<LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawPowOff
 <LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sdtest
 <LI><a href="#[244]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TempDisplay
 <LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_HIS_FOLDER
@@ -2566,19 +2568,19 @@ Global Symbols
 <LI><a href="#[17a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_graph
 <LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_factory
 <LI><a href="#[182]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_cal
-<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ylfocus_on
-<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ylfocus_off
+<LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ylfocus_on
+<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ylfocus_off
 <LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;yhfocus_on
-<LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;yhfocus_off
+<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;yhfocus_off
 <LI><a href="#[16e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touch_set
-<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stimefocus_on
+<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stimefocus_on
 <LI><a href="#[24d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stimefocus_off
-<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;multifocus_on
+<LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;multifocus_on
 <LI><a href="#[24e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;multifocus_off
-<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_on
-<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_off
+<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_on
+<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_off
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;maxfocus_on
-<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;maxfocus_off
+<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;maxfocus_off
 <LI><a href="#[174]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dim_set
 <LI><a href="#[173]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;brt_set
 <LI><a href="#[1ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UP_HANDLE
@@ -2591,10 +2593,10 @@ Global Symbols
 <LI><a href="#[17c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC3_HANDLE
 <LI><a href="#[175]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC2_HANDLE
 <LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC1_HANDLE
-<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
-<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawType
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
-<LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Disp_Factory
+<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
+<LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawType
+<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
+<LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Disp_Factory
 </UL>
 
 <P><STRONG><a name="[e5]"></a>LCD_DisplayStringLine_48</STRONG> (Thumb, 96 bytes, Stack size 24 bytes, bsp_lcd.o(i.LCD_DisplayStringLine_48))
@@ -2608,8 +2610,8 @@ Global Symbols
 <LI><a href="#[1ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RIGHT_HANDLE
 <LI><a href="#[1ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LEFT_HANDLE
 <LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC5_HANDLE
-<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
+<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
+<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
 <LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChannelSwtichBig
 </UL>
 
@@ -2619,7 +2621,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayChar_48
 </UL>
 
-<P><STRONG><a name="[121]"></a>LCD_DrawChinese</STRONG> (Thumb, 114 bytes, Stack size 28 bytes, bsp_lcd.o(i.LCD_DrawChinese))
+<P><STRONG><a name="[122]"></a>LCD_DrawChinese</STRONG> (Thumb, 114 bytes, Stack size 28 bytes, bsp_lcd.o(i.LCD_DrawChinese))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = LCD_DrawChinese
 </UL>
 <BR>[Called By]<UL><LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayChinese
@@ -2627,54 +2629,54 @@ Global Symbols
 <LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_INPUT
 </UL>
 
-<P><STRONG><a name="[152]"></a>LCD_DrawCircle</STRONG> (Thumb, 152 bytes, Stack size 32 bytes, bsp_lcd.o(i.LCD_DrawCircle))
+<P><STRONG><a name="[153]"></a>LCD_DrawCircle</STRONG> (Thumb, 152 bytes, Stack size 32 bytes, bsp_lcd.o(i.LCD_DrawCircle))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = LCD_DrawCircle
 </UL>
-<BR>[Called By]<UL><LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawPowOff
+<BR>[Called By]<UL><LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawPowOff
 <LI><a href="#[237]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TP_Drow_Touch_Point
 </UL>
 
-<P><STRONG><a name="[125]"></a>LCD_DrawFullRect</STRONG> (Thumb, 100 bytes, Stack size 72 bytes, bsp_lcd.o(i.LCD_DrawFullRect))
+<P><STRONG><a name="[126]"></a>LCD_DrawFullRect</STRONG> (Thumb, 100 bytes, Stack size 72 bytes, bsp_lcd.o(i.LCD_DrawFullRect))
 <BR><BR>[Stack]<UL><LI>Max Depth = 84<LI>Call Chain = LCD_DrawFullRect &rArr; DMA2D_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA2D_StartTransfer
 <LI><a href="#[1b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA2D_Init
 <LI><a href="#[1b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA2D_GetFlagStatus
-<LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA2D_DeInit
+<LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA2D_DeInit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawLogo
-<LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
-<LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawGridLine
-<LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawCharge
+<BR>[Called By]<UL><LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawLogo
+<LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
+<LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawGridLine
+<LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawCharge
 <LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IRQHandler
 <LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_home
 <LI><a href="#[248]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchHandle
-<LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawUdisk2
-<LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawUdisk1
-<LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawTime
-<LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawPowOff
+<LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawUdisk2
+<LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawUdisk1
+<LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawTime
+<LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawPowOff
 <LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawInstruction
-<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawBattery
-<LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_TEMP_S
-<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_TEMP_M
-<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_TEMP_L
+<LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawBattery
+<LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_TEMP_S
+<LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_TEMP_M
+<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_TEMP_L
 <LI><a href="#[244]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TempDisplay
 <LI><a href="#[16f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_sys
-<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ylfocus_on
-<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ylfocus_off
+<LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ylfocus_on
+<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ylfocus_off
 <LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;yhfocus_on
-<LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;yhfocus_off
+<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;yhfocus_off
 <LI><a href="#[16e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touch_set
-<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stimefocus_on
+<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stimefocus_on
 <LI><a href="#[24d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stimefocus_off
-<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;multifocus_on
+<LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;multifocus_on
 <LI><a href="#[24e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;multifocus_off
-<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_on
-<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_off
+<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_on
+<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_off
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;maxfocus_on
-<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;maxfocus_off
+<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;maxfocus_off
 <LI><a href="#[1a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_pass
-<LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_num
+<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_num
 <LI><a href="#[174]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dim_set
 <LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clear_input
 <LI><a href="#[173]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;brt_set
@@ -2686,44 +2688,44 @@ Global Symbols
 <LI><a href="#[17c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC3_HANDLE
 <LI><a href="#[175]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC2_HANDLE
 <LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC1_HANDLE
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
+<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
 </UL>
 
-<P><STRONG><a name="[14b]"></a>LCD_DrawLine</STRONG> (Thumb, 122 bytes, Stack size 72 bytes, bsp_lcd.o(i.LCD_DrawLine))
+<P><STRONG><a name="[14c]"></a>LCD_DrawLine</STRONG> (Thumb, 122 bytes, Stack size 72 bytes, bsp_lcd.o(i.LCD_DrawLine))
 <BR><BR>[Stack]<UL><LI>Max Depth = 84<LI>Call Chain = LCD_DrawLine &rArr; DMA2D_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA2D_StartTransfer
 <LI><a href="#[1b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA2D_Init
 <LI><a href="#[1b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA2D_GetFlagStatus
-<LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA2D_DeInit
+<LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA2D_DeInit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawLogo
-<LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawRect
-<LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawGridLine
+<BR>[Called By]<UL><LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawLogo
+<LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawRect
+<LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawGridLine
 <LI><a href="#[17a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_graph
 <LI><a href="#[237]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TP_Drow_Touch_Point
 </UL>
 
-<P><STRONG><a name="[14a]"></a>LCD_DrawRect</STRONG> (Thumb, 62 bytes, Stack size 24 bytes, bsp_lcd.o(i.LCD_DrawRect))
+<P><STRONG><a name="[14b]"></a>LCD_DrawRect</STRONG> (Thumb, 62 bytes, Stack size 24 bytes, bsp_lcd.o(i.LCD_DrawRect))
 <BR><BR>[Stack]<UL><LI>Max Depth = 108<LI>Call Chain = LCD_DrawRect &rArr; LCD_DrawLine &rArr; DMA2D_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawLine
+<BR>[Calls]<UL><LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawLine
 </UL>
-<BR>[Called By]<UL><LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawGridLine
+<BR>[Called By]<UL><LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawGridLine
 <LI><a href="#[1a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_pass
-<LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_num
+<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_num
 </UL>
 
-<P><STRONG><a name="[146]"></a>LCD_DrawUniLine</STRONG> (Thumb, 180 bytes, Stack size 44 bytes, bsp_lcd.o(i.LCD_DrawUniLine))
+<P><STRONG><a name="[147]"></a>LCD_DrawUniLine</STRONG> (Thumb, 180 bytes, Stack size 44 bytes, bsp_lcd.o(i.LCD_DrawUniLine))
 <BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = LCD_DrawUniLine
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PutPixel
 </UL>
-<BR>[Called By]<UL><LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawCharge
-<LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Draw_graph
-<LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawUdisk2
-<LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawUdisk1
-<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawBattery
+<BR>[Called By]<UL><LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawCharge
+<LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Draw_graph
+<LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawUdisk2
+<LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawUdisk1
+<LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawBattery
 <LI><a href="#[17a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_graph
 <LI><a href="#[237]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TP_Drow_Touch_Point
 </UL>
@@ -2759,7 +2761,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_home
 <LI><a href="#[248]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchHandle
 <LI><a href="#[1e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_TimeAndDate_Show
-<LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawTime
+<LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawTime
 <LI><a href="#[185]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_sysinfo
 <LI><a href="#[16f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_sys
 <LI><a href="#[183]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_set
@@ -2769,25 +2771,25 @@ Global Symbols
 <LI><a href="#[17a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_graph
 <LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_factory
 <LI><a href="#[182]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_cal
-<LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Disp_Type
-<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ylfocus_on
-<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ylfocus_off
+<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Disp_Type
+<LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ylfocus_on
+<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ylfocus_off
 <LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;yhfocus_on
-<LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;yhfocus_off
-<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stimefocus_on
+<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;yhfocus_off
+<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stimefocus_on
 <LI><a href="#[24d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stimefocus_off
-<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;multifocus_on
+<LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;multifocus_on
 <LI><a href="#[24e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;multifocus_off
-<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_on
-<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_off
+<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_on
+<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_off
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;maxfocus_on
-<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;maxfocus_off
+<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;maxfocus_off
 <LI><a href="#[1a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_pass
-<LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_num
-<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_on1
-<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_on
-<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_off1
-<LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_off
+<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_num
+<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_on1
+<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_on
+<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_off1
+<LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_off
 <LI><a href="#[174]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dim_set
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;del_num
 <LI><a href="#[1ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UP_HANDLE
@@ -2796,55 +2798,55 @@ Global Symbols
 <LI><a href="#[17c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC3_HANDLE
 <LI><a href="#[175]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC2_HANDLE
 <LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC1_HANDLE
-<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
-<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawType
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
+<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
+<LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawType
+<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
 <LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChannelSwtichSml
 <LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChannelSwtichMid
 <LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChannelSwtichBig
-<LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Disp_Factory
+<LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Disp_Factory
 </UL>
 
 <P><STRONG><a name="[ec]"></a>LCD_SetColors</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, bsp_lcd.o(i.LCD_SetColors))
-<BR><BR>[Called By]<UL><LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawLogo
-<LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawUnit
-<LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
-<LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawGridLine
-<LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawCharge
+<BR><BR>[Called By]<UL><LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawLogo
+<LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawUnit
+<LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
+<LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawGridLine
+<LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawCharge
 <LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IRQHandler
 <LI><a href="#[2b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;power_on
 <LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_home
 <LI><a href="#[248]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchHandle
-<LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Draw_graph
-<LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawUdisk2
-<LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawUdisk1
-<LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawTime
-<LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawPowOff
+<LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Draw_graph
+<LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawUdisk2
+<LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawUdisk1
+<LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawTime
+<LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawPowOff
 <LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawInstruction
-<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawBattery
-<LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_TEMP_S
-<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_TEMP_M
-<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_TEMP_L
+<LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawBattery
+<LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_TEMP_S
+<LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_TEMP_M
+<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_TEMP_L
 <LI><a href="#[24a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UARTRECHANDLE
 <LI><a href="#[244]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TempDisplay
 <LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Check_limits
 <LI><a href="#[16f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_sys
 <LI><a href="#[17a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_graph
-<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ylfocus_on
-<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ylfocus_off
+<LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ylfocus_on
+<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ylfocus_off
 <LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;yhfocus_on
-<LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;yhfocus_off
+<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;yhfocus_off
 <LI><a href="#[16e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touch_set
-<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stimefocus_on
+<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stimefocus_on
 <LI><a href="#[24d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stimefocus_off
-<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;multifocus_on
+<LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;multifocus_on
 <LI><a href="#[24e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;multifocus_off
-<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_on
-<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_off
+<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_on
+<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_off
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;maxfocus_on
-<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;maxfocus_off
+<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;maxfocus_off
 <LI><a href="#[1a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_pass
-<LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_num
+<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_num
 <LI><a href="#[174]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dim_set
 <LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clear_input
 <LI><a href="#[173]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;brt_set
@@ -2856,7 +2858,7 @@ Global Symbols
 <LI><a href="#[17c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC3_HANDLE
 <LI><a href="#[175]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC2_HANDLE
 <LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC1_HANDLE
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
+<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
 <LI><a href="#[237]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TP_Drow_Touch_Point
 </UL>
 
@@ -2879,7 +2881,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_home
 <LI><a href="#[248]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchHandle
 <LI><a href="#[1e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_TimeAndDate_Show
-<LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawTime
+<LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawTime
 <LI><a href="#[185]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_sysinfo
 <LI><a href="#[16f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_sys
 <LI><a href="#[183]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_set
@@ -2889,25 +2891,25 @@ Global Symbols
 <LI><a href="#[17a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_graph
 <LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_factory
 <LI><a href="#[182]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_cal
-<LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Disp_Type
-<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ylfocus_on
-<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ylfocus_off
+<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Disp_Type
+<LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ylfocus_on
+<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ylfocus_off
 <LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;yhfocus_on
-<LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;yhfocus_off
-<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stimefocus_on
+<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;yhfocus_off
+<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stimefocus_on
 <LI><a href="#[24d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stimefocus_off
-<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;multifocus_on
+<LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;multifocus_on
 <LI><a href="#[24e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;multifocus_off
-<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_on
-<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_off
+<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_on
+<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_off
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;maxfocus_on
-<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;maxfocus_off
+<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;maxfocus_off
 <LI><a href="#[1a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_pass
-<LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_num
-<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_on1
-<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_on
-<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_off1
-<LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_off
+<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_num
+<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_on1
+<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_on
+<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_off1
+<LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_off
 <LI><a href="#[174]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dim_set
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;del_num
 <LI><a href="#[1ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UP_HANDLE
@@ -2918,13 +2920,13 @@ Global Symbols
 <LI><a href="#[17c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC3_HANDLE
 <LI><a href="#[175]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC2_HANDLE
 <LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC1_HANDLE
-<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
-<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawType
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
+<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
+<LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawType
+<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
 <LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChannelSwtichSml
 <LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChannelSwtichMid
 <LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChannelSwtichBig
-<LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Disp_Factory
+<LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Disp_Factory
 </UL>
 
 <P><STRONG><a name="[1c6]"></a>LCD_SetTransparency</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, bsp_lcd.o(i.LCD_SetTransparency))
@@ -2953,17 +2955,17 @@ Global Symbols
 <LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine_48
 <LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_CNL_M
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
 <LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawInstruction
 <LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_CNL_S
 <LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hispage
-<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_on
-<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;maxfocus_off
-<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_on1
-<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_on
-<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_off1
-<LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_off
+<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_on
+<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;maxfocus_off
+<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_on1
+<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_on
+<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_off1
+<LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_off
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Function
 </UL>
@@ -3008,18 +3010,18 @@ Global Symbols
 <P><STRONG><a name="[23]"></a>NMI_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f4xx_it.o(i.NMI_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f429_439xx.o(RESET)
 </UL>
-<P><STRONG><a name="[13f]"></a>NVIC_Init</STRONG> (Thumb, 96 bytes, Stack size 12 bytes, misc.o(i.NVIC_Init))
+<P><STRONG><a name="[140]"></a>NVIC_Init</STRONG> (Thumb, 96 bytes, Stack size 12 bytes, misc.o(i.NVIC_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = NVIC_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[235]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIMx_Configuration
-<LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Debug_USART_Config
+<LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Debug_USART_Config
 <LI><a href="#[201]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_Init
 <LI><a href="#[25d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_OTG_BSP_EnableInterrupt
 </UL>
 
-<P><STRONG><a name="[13e]"></a>NVIC_PriorityGroupConfig</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, misc.o(i.NVIC_PriorityGroupConfig))
+<P><STRONG><a name="[13f]"></a>NVIC_PriorityGroupConfig</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, misc.o(i.NVIC_PriorityGroupConfig))
 <BR><BR>[Called By]<UL><LI><a href="#[235]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIMx_Configuration
-<LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Debug_USART_Config
+<LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Debug_USART_Config
 <LI><a href="#[201]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_Init
 <LI><a href="#[25d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_OTG_BSP_EnableInterrupt
 </UL>
@@ -3070,13 +3072,13 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[1cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Save_time
 <LI><a href="#[1cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Save_history
 <LI><a href="#[1ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Save_Sflag
-<LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawPowOff
+<LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawPowOff
 </UL>
 <BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[1b7]"></a>PutPixel</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, bsp_lcd.o(i.PutPixel))
-<BR><BR>[Called By]<UL><LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawUniLine
+<BR><BR>[Called By]<UL><LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawUniLine
 </UL>
 
 <P><STRONG><a name="[ca]"></a>Query376Interrupt</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, ch376.o(i.Query376Interrupt))
@@ -3096,7 +3098,7 @@ Global Symbols
 <LI><a href="#[21c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_FLASH_Init
 <LI><a href="#[1ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Init
 <LI><a href="#[1af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_GPIO_Config
-<LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Debug_USART_Config
+<LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Debug_USART_Config
 <LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376_GPIO_Init
 <LI><a href="#[0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TP_Init
 <LI><a href="#[1e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Rheostat_ADC_Mode_Config
@@ -3104,8 +3106,8 @@ Global Symbols
 <LI><a href="#[25c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_OTG_BSP_Init
 </UL>
 
-<P><STRONG><a name="[129]"></a>RCC_AHB1PeriphResetCmd</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(i.RCC_AHB1PeriphResetCmd))
-<BR><BR>[Called By]<UL><LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA2D_DeInit
+<P><STRONG><a name="[12a]"></a>RCC_AHB1PeriphResetCmd</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(i.RCC_AHB1PeriphResetCmd))
+<BR><BR>[Called By]<UL><LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA2D_DeInit
 </UL>
 
 <P><STRONG><a name="[1f6]"></a>RCC_AHB3PeriphClockCmd</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(i.RCC_AHB3PeriphClockCmd))
@@ -3127,10 +3129,10 @@ Global Symbols
 <P><STRONG><a name="[de]"></a>RCC_APB2PeriphClockCmd</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(i.RCC_APB2PeriphClockCmd))
 <BR><BR>[Called By]<UL><LI><a href="#[21c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_FLASH_Init
 <LI><a href="#[1ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Init
-<LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Debug_USART_Config
+<LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Debug_USART_Config
 <LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376_GPIO_Init
-<LI><a href="#[22f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM8_PWMOUTPUT_Config
 <LI><a href="#[1e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Rheostat_ADC_Mode_Config
+<LI><a href="#[22f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM8_PWMOUTPUT_Config
 <LI><a href="#[202]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_Init
 <LI><a href="#[25c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_OTG_BSP_Init
 </UL>
@@ -3148,7 +3150,7 @@ Global Symbols
 <P><STRONG><a name="[252]"></a>RCC_GetClocksFreq</STRONG> (Thumb, 132 bytes, Stack size 16 bytes, stm32f4xx_rcc.o(i.RCC_GetClocksFreq))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = RCC_GetClocksFreq
 </UL>
-<BR>[Called By]<UL><LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Init
+<BR>[Called By]<UL><LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Init
 </UL>
 
 <P><STRONG><a name="[1bf]"></a>RCC_GetFlagStatus</STRONG> (Thumb, 46 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(i.RCC_GetFlagStatus))
@@ -3189,17 +3191,17 @@ Global Symbols
 <LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine_48
 <LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_CNL_M
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
 <LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawInstruction
 <LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_CNL_S
 <LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hispage
-<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_off
+<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_off
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;maxfocus_on
-<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_on1
-<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_on
-<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_off1
-<LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_off
+<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_on1
+<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_on
+<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_off1
+<LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_off
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Function
 </UL>
@@ -3579,8 +3581,8 @@ Global Symbols
 <P><STRONG><a name="[201]"></a>SD_Init</STRONG> (Thumb, 174 bytes, Stack size 24 bytes, bsp_sdio_sd.o(i.SD_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = SD_Init &rArr; SD_EnableWideBusOperation &rArr; SDEnWideBus &rArr; FindSCR &rArr; CmdResp1Error &rArr; SDIO_GetResponse
 </UL>
-<BR>[Calls]<UL><LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_PriorityGroupConfig
-<LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_Init
+<BR>[Calls]<UL><LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_PriorityGroupConfig
+<LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_Init
 <LI><a href="#[1fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDIO_Init
 <LI><a href="#[1f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDIO_DeInit
 <LI><a href="#[206]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_SelectDeselect
@@ -3657,7 +3659,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[201]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_Init
 </UL>
 
-<P><STRONG><a name="[12a]"></a>SD_ProcessDMAIRQ</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, bsp_sdio_sd.o(i.SD_ProcessDMAIRQ))
+<P><STRONG><a name="[12b]"></a>SD_ProcessDMAIRQ</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, bsp_sdio_sd.o(i.SD_ProcessDMAIRQ))
 <BR><BR>[Calls]<UL><LI><a href="#[209]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_ClearFlag
 </UL>
 <BR>[Called By]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA2_Stream3_IRQHandler
@@ -3919,7 +3921,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[248]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchHandle
 <LI><a href="#[274]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UsbDataHandle
 <LI><a href="#[1a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XYCAL
-<LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Disp_Type
+<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Disp_Type
 <LI><a href="#[16e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touch_set
 <LI><a href="#[174]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dim_set
 <LI><a href="#[173]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;brt_set
@@ -3930,8 +3932,8 @@ Global Symbols
 <LI><a href="#[17c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC3_HANDLE
 <LI><a href="#[175]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC2_HANDLE
 <LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC1_HANDLE
-<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
+<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
+<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ACC_HANDLE
 <LI><a href="#[23e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TP_Save_Adjdata
 <LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChannelSwtichSml
@@ -3966,7 +3968,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[191]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
 <LI><a href="#[1b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
 <LI><a href="#[229]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CRC16
-<LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Disp_Type
+<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Disp_Type
 <LI><a href="#[22a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usart_SendByte
 </UL>
 <BR>[Called By]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM6_DAC_IRQHandler
@@ -3978,7 +3980,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[191]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
 <LI><a href="#[1b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
 <LI><a href="#[229]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CRC16
-<LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Disp_Type
+<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Disp_Type
 <LI><a href="#[22a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usart_SendByte
 </UL>
 <BR>[Called By]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM6_DAC_IRQHandler
@@ -4007,10 +4009,10 @@ Global Symbols
 <LI><a href="#[22e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ClearITPendingBit
 <LI><a href="#[18f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_PWMOUTPUT_Config
 <LI><a href="#[22d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_GetITStatus
-<LI><a href="#[22b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetTctype
-<LI><a href="#[228]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetSTctype
 <LI><a href="#[1b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Scan
 <LI><a href="#[22a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usart_SendByte
+<LI><a href="#[22b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetTctype
+<LI><a href="#[228]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetSTctype
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f429_439xx.o(RESET)
 </UL>
@@ -4092,8 +4094,8 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[235]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIMx_Configuration
 <LI><a href="#[18e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitBrt
-<LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM6_DAC_IRQHandler
 <LI><a href="#[173]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;brt_set
+<LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM6_DAC_IRQHandler
 </UL>
 
 <P><STRONG><a name="[230]"></a>TIM_TimeBaseInit</STRONG> (Thumb, 96 bytes, Stack size 12 bytes, stm32f4xx_tim.o(i.TIM_TimeBaseInit))
@@ -4107,8 +4109,8 @@ Global Symbols
 <P><STRONG><a name="[235]"></a>TIMx_Configuration</STRONG> (Thumb, 212 bytes, Stack size 32 bytes, bsp_basic_tim.o(i.TIMx_Configuration))
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = TIMx_Configuration &rArr; TIM_PWMOUTPUT_Config &rArr; TIM_OC3Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_PriorityGroupConfig
-<LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_Init
+<BR>[Calls]<UL><LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_PriorityGroupConfig
+<LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_Init
 <LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinAFConfig
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
 <LI><a href="#[1d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB1PeriphClockCmd
@@ -4131,7 +4133,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 256<LI>Call Chain = TP_Adjust &rArr; TP_Save_Adjdata &rArr; Save_flag &rArr; SPI_FLASH_BufferWrite &rArr; SPI_FLASH_PageWrite &rArr; SPI_FLASH_WaitForWriteEnd &rArr; SPI_FLASH_SendByte &rArr; SPI_TIMEOUT_UserCallback &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
-<LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Clear
+<LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Clear
 <LI><a href="#[238]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
@@ -4152,9 +4154,9 @@ Global Symbols
 <P><STRONG><a name="[237]"></a>TP_Drow_Touch_Point</STRONG> (Thumb, 116 bytes, Stack size 24 bytes, touchscreen.o(i.TP_Drow_Touch_Point))
 <BR><BR>[Stack]<UL><LI>Max Depth = 108<LI>Call Chain = TP_Drow_Touch_Point &rArr; LCD_DrawLine &rArr; DMA2D_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawUniLine
-<LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawLine
-<LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawCircle
+<BR>[Calls]<UL><LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawUniLine
+<LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawLine
+<LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawCircle
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TP_Adjust
@@ -4235,12 +4237,12 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[247]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cal_disp
 <LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
-<LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_TEMP_S
-<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_TEMP_M
-<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_TEMP_L
-<LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_INS
+<LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_TEMP_S
+<LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_TEMP_M
+<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_TEMP_L
+<LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_INS
 <LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_CNL_S
 <LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Check_limits
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BEEPCHECK
@@ -4256,22 +4258,22 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetBackColor
-<LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawtime2
-<LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawtime
-<LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawsysmenu
-<LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawsetmenu
-<LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawlang
-<LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawhomemenu
-<LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawdate2
-<LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawdate
-<LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawUnit
-<LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawTouch
-<LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
-<LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawDim
-<LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawBrt
+<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawtime2
+<LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawtime
+<LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawsysmenu
+<LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawsetmenu
+<LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawlang
+<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawhomemenu
+<LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawdate2
+<LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawdate
+<LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawUnit
+<LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawTouch
+<LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
+<LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawDim
+<LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawBrt
 <LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_home
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
 <LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawInstruction
 <LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_CNL_S
@@ -4297,11 +4299,11 @@ Global Symbols
 <LI><a href="#[181]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minus_min
 <LI><a href="#[179]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minus_hour
 <LI><a href="#[177]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minus_day
-<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_on
-<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_off
-<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;maxfocus_off
-<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_on1
-<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_off1
+<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_on
+<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_off
+<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;maxfocus_off
+<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_on1
+<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_off1
 <LI><a href="#[174]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dim_set
 <LI><a href="#[173]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;brt_set
 <LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ButtonSound
@@ -4332,10 +4334,10 @@ Global Symbols
 <LI><a href="#[1cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Save_history
 <LI><a href="#[1ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Save_Sflag
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
-<LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Clear
-<LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Draw_graph
-<LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawTime
-<LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_INS
+<LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Clear
+<LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Draw_graph
+<LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawTime
+<LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_INS
 <LI><a href="#[18e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitBrt
 <LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay
 <LI><a href="#[229]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CRC16
@@ -4352,27 +4354,27 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetBackColor
 <LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine_48
-<LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawhomemenu
+<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawhomemenu
 <LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_CNL_M
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
 <LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawInstruction
 <LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_CNL_S
-<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ylfocus_on
-<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ylfocus_off
+<LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ylfocus_on
+<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ylfocus_off
 <LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;yhfocus_on
 <LI><a href="#[24d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stimefocus_off
 <LI><a href="#[24e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;multifocus_off
-<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_on
-<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_off
+<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_on
+<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_off
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;maxfocus_on
-<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;maxfocus_off
-<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_on1
-<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_on
-<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_off1
-<LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_off
-<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawType
+<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;maxfocus_off
+<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_on1
+<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_on
+<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_off1
+<LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_off
+<LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawType
 <LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Function
@@ -4382,7 +4384,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 108<LI>Call Chain = USART1_IRQHandler &rArr; LCD_DrawFullRect &rArr; DMA2D_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
 <LI><a href="#[251]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_ReceiveData
 <LI><a href="#[24f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_GetITStatus
 <LI><a href="#[250]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_ClearITPendingBit
@@ -4393,8 +4395,8 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IRQHandler
 </UL>
 
-<P><STRONG><a name="[141]"></a>USART_Cmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_usart.o(i.USART_Cmd))
-<BR><BR>[Called By]<UL><LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Debug_USART_Config
+<P><STRONG><a name="[142]"></a>USART_Cmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_usart.o(i.USART_Cmd))
+<BR><BR>[Called By]<UL><LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Debug_USART_Config
 <LI><a href="#[187]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;JumpBoot
 </UL>
 
@@ -4418,19 +4420,19 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IRQHandler
 </UL>
 
-<P><STRONG><a name="[140]"></a>USART_ITConfig</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, stm32f4xx_usart.o(i.USART_ITConfig))
+<P><STRONG><a name="[141]"></a>USART_ITConfig</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, stm32f4xx_usart.o(i.USART_ITConfig))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = USART_ITConfig
 </UL>
-<BR>[Called By]<UL><LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Debug_USART_Config
+<BR>[Called By]<UL><LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Debug_USART_Config
 <LI><a href="#[187]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;JumpBoot
 </UL>
 
-<P><STRONG><a name="[13d]"></a>USART_Init</STRONG> (Thumb, 164 bytes, Stack size 32 bytes, stm32f4xx_usart.o(i.USART_Init))
+<P><STRONG><a name="[13e]"></a>USART_Init</STRONG> (Thumb, 164 bytes, Stack size 32 bytes, stm32f4xx_usart.o(i.USART_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = USART_Init &rArr; RCC_GetClocksFreq
 </UL>
 <BR>[Calls]<UL><LI><a href="#[252]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_GetClocksFreq
 </UL>
-<BR>[Called By]<UL><LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Debug_USART_Config
+<BR>[Called By]<UL><LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Debug_USART_Config
 </UL>
 
 <P><STRONG><a name="[251]"></a>USART_ReceiveData</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f4xx_usart.o(i.USART_ReceiveData))
@@ -4684,8 +4686,8 @@ Global Symbols
 <P><STRONG><a name="[25d]"></a>USB_OTG_BSP_EnableInterrupt</STRONG> (Thumb, 104 bytes, Stack size 24 bytes, usb_bsp.o(i.USB_OTG_BSP_EnableInterrupt))
 <BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = USB_OTG_BSP_EnableInterrupt &rArr; NVIC_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_PriorityGroupConfig
-<LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_Init
+<BR>[Calls]<UL><LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_PriorityGroupConfig
+<LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[25b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBD_Init
 </UL>
@@ -4988,7 +4990,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[247]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cal_disp
 <LI><a href="#[275]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Utest
 <LI><a href="#[1e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_TimeAndDate_Show
-<LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawTime
+<LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawTime
 <LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sdtest
 <LI><a href="#[24a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UARTRECHANDLE
 <LI><a href="#[244]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TempDisplay
@@ -4998,23 +5000,23 @@ Global Symbols
 <LI><a href="#[16f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_sys
 <LI><a href="#[183]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_set
 <LI><a href="#[17a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_graph
-<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ylfocus_on
-<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ylfocus_off
+<LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ylfocus_on
+<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ylfocus_off
 <LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;yhfocus_on
-<LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;yhfocus_off
-<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stimefocus_on
+<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;yhfocus_off
+<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stimefocus_on
 <LI><a href="#[24d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stimefocus_off
-<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;multifocus_on
+<LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;multifocus_on
 <LI><a href="#[24e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;multifocus_off
-<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_on
-<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_off
+<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_on
+<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_off
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;maxfocus_on
-<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;maxfocus_off
+<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;maxfocus_off
 <LI><a href="#[1ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UP_HANDLE
 <LI><a href="#[193]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Input_start
 <LI><a href="#[192]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Input_end
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
-<LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Disp_Factory
+<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
+<LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Disp_Factory
 </UL>
 
 <P><STRONG><a name="[2cc]"></a>__c89sprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0sprintf), UNUSED)
@@ -5036,7 +5038,7 @@ Global Symbols
 <LI><a href="#[27c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
 <LI><a href="#[27b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__read_errno
 </UL>
-<BR>[Called By]<UL><LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
+<BR>[Called By]<UL><LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
 </UL>
 
 <P><STRONG><a name="[23a]"></a>__hardfp_sqrt</STRONG> (Thumb, 122 bytes, Stack size 32 bytes, sqrt.o(i.__hardfp_sqrt))
@@ -5070,15 +5072,15 @@ Global Symbols
 <P><STRONG><a name="[173]"></a>brt_set</STRONG> (Thumb, 196 bytes, Stack size 24 bytes, bsp_key.o(i.brt_set))
 <BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = brt_set &rArr; Save_flag &rArr; SPI_FLASH_BufferWrite &rArr; SPI_FLASH_PageWrite &rArr; SPI_FLASH_WaitForWriteEnd &rArr; SPI_FLASH_SendByte &rArr; SPI_TIMEOUT_UserCallback &rArr; __2printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawsysmenu
-<LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
+<BR>[Calls]<UL><LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawsysmenu
+<LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
 <LI><a href="#[18f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_PWMOUTPUT_Config
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Save_flag
-<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_on1
-<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_off1
+<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_on1
+<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_off1
 </UL>
 <BR>[Called By]<UL><LI><a href="#[248]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchHandle
 <LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC5_HANDLE
@@ -5104,16 +5106,16 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 92<LI>Call Chain = clear_input &rArr; LCD_DrawFullRect &rArr; DMA2D_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
 </UL>
-<BR>[Called By]<UL><LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ylfocus_on
+<BR>[Called By]<UL><LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ylfocus_on
 <LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;yhfocus_on
-<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stimefocus_on
-<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;multifocus_on
-<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_on
+<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stimefocus_on
+<LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;multifocus_on
+<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_on
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;maxfocus_on
-<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
+<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
 </UL>
 
 <P><STRONG><a name="[291]"></a>clust2sect</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, ff.o(i.clust2sect))
@@ -5129,7 +5131,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetBackColor
 <LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_CNL_S
-<LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_num
+<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_num
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_factory
 <LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BACK_HANDLE
@@ -5154,14 +5156,14 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetBackColor
-<LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawsysmenu
-<LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
+<LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawsysmenu
+<LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Save_flag
-<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_on1
-<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_off1
+<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_on1
+<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_off1
 </UL>
 <BR>[Called By]<UL><LI><a href="#[248]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchHandle
 <LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC5_HANDLE
@@ -5361,7 +5363,7 @@ Global Symbols
 <LI><a href="#[283]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cmp_lfn
 </UL>
 
-<P><STRONG><a name="[130]"></a>focus_off</STRONG> (Thumb, 56 bytes, Stack size 8 bytes, bsp_key.o(i.focus_off))
+<P><STRONG><a name="[131]"></a>focus_off</STRONG> (Thumb, 56 bytes, Stack size 8 bytes, bsp_key.o(i.focus_off))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = focus_off
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
@@ -5370,10 +5372,10 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[1ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UP_HANDLE
 <LI><a href="#[1ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RIGHT_HANDLE
 <LI><a href="#[1ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LEFT_HANDLE
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
+<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
 </UL>
 
-<P><STRONG><a name="[132]"></a>focus_off1</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, bsp_key.o(i.focus_off1))
+<P><STRONG><a name="[133]"></a>focus_off1</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, bsp_key.o(i.focus_off1))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = focus_off1
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
@@ -5387,10 +5389,10 @@ Global Symbols
 <LI><a href="#[1ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RIGHT_HANDLE
 <LI><a href="#[1ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LEFT_HANDLE
 <LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC5_HANDLE
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
+<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
 </UL>
 
-<P><STRONG><a name="[12e]"></a>focus_on</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, bsp_key.o(i.focus_on))
+<P><STRONG><a name="[12f]"></a>focus_on</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, bsp_key.o(i.focus_on))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = focus_on
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
@@ -5399,10 +5401,10 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[1ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UP_HANDLE
 <LI><a href="#[1ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RIGHT_HANDLE
 <LI><a href="#[1ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LEFT_HANDLE
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
+<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
 </UL>
 
-<P><STRONG><a name="[134]"></a>focus_on1</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, bsp_key.o(i.focus_on1))
+<P><STRONG><a name="[135]"></a>focus_on1</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, bsp_key.o(i.focus_on1))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = focus_on1
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
@@ -5422,7 +5424,7 @@ Global Symbols
 <LI><a href="#[17c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC3_HANDLE
 <LI><a href="#[175]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC2_HANDLE
 <LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC1_HANDLE
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
+<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
 </UL>
 
 <P><STRONG><a name="[8d]"></a>fputc</STRONG> (Thumb, 30 bytes, Stack size 16 bytes, bsp_debug_usart.o(i.fputc))
@@ -5467,17 +5469,17 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RIGHT_HANDLE
 <LI><a href="#[1ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LEFT_HANDLE
-<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
+<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
 </UL>
 
-<P><STRONG><a name="[12c]"></a>input_num</STRONG> (Thumb, 262 bytes, Stack size 24 bytes, bsp_key.o(i.input_num))
+<P><STRONG><a name="[12d]"></a>input_num</STRONG> (Thumb, 262 bytes, Stack size 24 bytes, bsp_key.o(i.input_num))
 <BR><BR>[Stack]<UL><LI>Max Depth = 132<LI>Call Chain = input_num &rArr; LCD_DrawRect &rArr; LCD_DrawLine &rArr; DMA2D_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetBackColor
-<LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawRect
+<LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawRect
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
 <LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_CNL_S
 <LI><a href="#[2ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcmp
 <LI><a href="#[246]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcat
@@ -5493,7 +5495,7 @@ Global Symbols
 <LI><a href="#[1a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEY2_HANDLE
 <LI><a href="#[1a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEY1_HANDLE
 <LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KEY0_HANDLE
-<LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOT_HANDLE
+<LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOT_HANDLE
 </UL>
 
 <P><STRONG><a name="[1a0]"></a>input_pass</STRONG> (Thumb, 262 bytes, Stack size 24 bytes, bsp_key.o(i.input_pass))
@@ -5501,9 +5503,9 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetBackColor
-<LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawRect
+<LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawRect
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
 <LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_CNL_S
 <LI><a href="#[2ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcmp
 <LI><a href="#[246]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcat
@@ -5550,12 +5552,12 @@ Global Symbols
 <LI><a href="#[2ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetLayer
 <LI><a href="#[1c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_LayerInit
 <LI><a href="#[1ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Init
-<LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Clear
+<LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Clear
 <LI><a href="#[1af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_GPIO_Config
 <LI><a href="#[1ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Function
 <LI><a href="#[190]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_CH376
-<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawBattery
-<LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Debug_USART_Config
+<LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawBattery
+<LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Debug_USART_Config
 <LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DCD_EP_PrepareRx
 <LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376_GPIO_Init
 <LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Beep_GPIO_Config
@@ -5578,14 +5580,14 @@ Global Symbols
 <LI><a href="#[24a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UARTRECHANDLE
 </UL>
 
-<P><STRONG><a name="[137]"></a>maxfocus_off</STRONG> (Thumb, 288 bytes, Stack size 48 bytes, bsp_key.o(i.maxfocus_off))
+<P><STRONG><a name="[138]"></a>maxfocus_off</STRONG> (Thumb, 288 bytes, Stack size 48 bytes, bsp_key.o(i.maxfocus_off))
 <BR><BR>[Stack]<UL><LI>Max Depth = 132<LI>Call Chain = maxfocus_off &rArr; LCD_DrawFullRect &rArr; DMA2D_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetBackColor
 <LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
 <LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
@@ -5595,7 +5597,7 @@ Global Symbols
 <LI><a href="#[1ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UP_HANDLE
 <LI><a href="#[1ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LEFT_HANDLE
 <LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC5_HANDLE
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
+<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
 </UL>
 
 <P><STRONG><a name="[b4]"></a>maxfocus_on</STRONG> (Thumb, 316 bytes, Stack size 48 bytes, bsp_key.o(i.maxfocus_on))
@@ -5605,7 +5607,7 @@ Global Symbols
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetBackColor
 <LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
 <LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawInstruction
 <LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clear_input
@@ -5615,19 +5617,19 @@ Global Symbols
 <LI><a href="#[1ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UP_HANDLE
 <LI><a href="#[1ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RIGHT_HANDLE
 <LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC5_HANDLE
-<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
+<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
+<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ACC_HANDLE
 </UL>
 
-<P><STRONG><a name="[136]"></a>minfocus_off</STRONG> (Thumb, 270 bytes, Stack size 32 bytes, bsp_key.o(i.minfocus_off))
+<P><STRONG><a name="[137]"></a>minfocus_off</STRONG> (Thumb, 270 bytes, Stack size 32 bytes, bsp_key.o(i.minfocus_off))
 <BR><BR>[Stack]<UL><LI>Max Depth = 116<LI>Call Chain = minfocus_off &rArr; LCD_DrawFullRect &rArr; DMA2D_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetBackColor
 <LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
 <LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
@@ -5636,17 +5638,17 @@ Global Symbols
 <LI><a href="#[1ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UP_HANDLE
 <LI><a href="#[1ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RIGHT_HANDLE
 <LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC5_HANDLE
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
+<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
 </UL>
 
-<P><STRONG><a name="[135]"></a>minfocus_on</STRONG> (Thumb, 298 bytes, Stack size 40 bytes, bsp_key.o(i.minfocus_on))
+<P><STRONG><a name="[136]"></a>minfocus_on</STRONG> (Thumb, 298 bytes, Stack size 40 bytes, bsp_key.o(i.minfocus_on))
 <BR><BR>[Stack]<UL><LI>Max Depth = 140<LI>Call Chain = minfocus_on &rArr; DrawInstruction &rArr; LCD_DrawFullRect &rArr; DMA2D_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetBackColor
 <LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
 <LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawInstruction
 <LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clear_input
@@ -5657,8 +5659,8 @@ Global Symbols
 <LI><a href="#[1ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UP_HANDLE
 <LI><a href="#[1ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LEFT_HANDLE
 <LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC5_HANDLE
-<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
+<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
+<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
 </UL>
 
 <P><STRONG><a name="[177]"></a>minus_day</STRONG> (Thumb, 58 bytes, Stack size 8 bytes, bsp_key.o(i.minus_day))
@@ -5727,7 +5729,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetBackColor
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
 <LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
@@ -5735,20 +5737,20 @@ Global Symbols
 <LI><a href="#[1ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UP_HANDLE
 </UL>
 
-<P><STRONG><a name="[139]"></a>multifocus_on</STRONG> (Thumb, 144 bytes, Stack size 32 bytes, bsp_key.o(i.multifocus_on))
+<P><STRONG><a name="[13a]"></a>multifocus_on</STRONG> (Thumb, 144 bytes, Stack size 32 bytes, bsp_key.o(i.multifocus_on))
 <BR><BR>[Stack]<UL><LI>Max Depth = 132<LI>Call Chain = multifocus_on &rArr; DrawInstruction &rArr; LCD_DrawFullRect &rArr; DMA2D_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetBackColor
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
 <LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawInstruction
 <LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clear_input
 <LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
+<BR>[Called By]<UL><LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
+<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
 </UL>
 
 <P><STRONG><a name="[182]"></a>page_cal</STRONG> (Thumb, 986 bytes, Stack size 32 bytes, calibarate.o(i.page_cal))
@@ -5757,17 +5759,17 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[1c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTransparency
 <LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetBackColor
-<LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawcalmenu
-<LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawUnit
-<LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
+<LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawcalmenu
+<LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawUnit
+<LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
 <LI><a href="#[247]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cal_disp
 <LI><a href="#[2ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetLayer
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
-<LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Clear
+<LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Clear
 <LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawInstruction
 <LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_CNL_S
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;maxfocus_on
-<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;maxfocus_off
+<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;maxfocus_off
 </UL>
 <BR>[Called By]<UL><LI><a href="#[248]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchHandle
 <LI><a href="#[17f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC4_HANDLE
@@ -5779,16 +5781,16 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[1c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTransparency
 <LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetBackColor
-<LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawsysinfomenu
-<LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
+<LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawsysinfomenu
+<LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
 <LI><a href="#[2ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetLayer
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
-<LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Clear
+<LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Clear
 <LI><a href="#[1a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;input_pass
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;del_num
-<LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Disp_Factory
+<LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Disp_Factory
 </UL>
-<BR>[Called By]<UL><LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
+<BR>[Called By]<UL><LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ACC_HANDLE
 </UL>
 
@@ -5798,16 +5800,16 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[1c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTransparency
 <LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetBackColor
-<LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawUniLine
-<LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawLine
-<LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawgraphmenu
-<LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawUnit
-<LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
-<LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawGridLine
+<LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawUniLine
+<LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawLine
+<LI><a href="#[15b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawgraphmenu
+<LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawUnit
+<LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
+<LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawGridLine
 <LI><a href="#[2ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetLayer
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
-<LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Clear
+<LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Clear
 <LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_CNL_S
 <LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
@@ -5821,13 +5823,13 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[1c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTransparency
 <LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetBackColor
-<LI><a href="#[15b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawgsethmenu
-<LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
+<LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawgsethmenu
+<LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
 <LI><a href="#[2ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetLayer
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
-<LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Clear
+<LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Clear
 <LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawInstruction
-<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ylfocus_off
+<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ylfocus_off
 <LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;yhfocus_on
 <LI><a href="#[24e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;multifocus_off
 </UL>
@@ -5841,11 +5843,11 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[1c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTransparency
 <LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetBackColor
-<LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawhishmenu
-<LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
+<LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawhishmenu
+<LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
 <LI><a href="#[2ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetLayer
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
-<LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Clear
+<LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Clear
 </UL>
 <BR>[Called By]<UL><LI><a href="#[248]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchHandle
 <LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hispage
@@ -5859,19 +5861,19 @@ Global Symbols
 <LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetBackColor
 <LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine_48
-<LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawhomemenu
-<LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawUnit
-<LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
+<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawhomemenu
+<LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawUnit
+<LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
 <LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_CNL_M
 <LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_AVG
 <LI><a href="#[2ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetLayer
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
-<LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Clear
+<LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Clear
 <LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawInstruction
 <LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_CNL_S
-<LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Disp_Type
+<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Disp_Type
 </UL>
 <BR>[Called By]<UL><LI><a href="#[248]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchHandle
 <LI><a href="#[24a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UARTRECHANDLE
@@ -5887,17 +5889,17 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[1c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTransparency
 <LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetBackColor
-<LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawsptmenu
-<LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawUnit
-<LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
+<LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawsptmenu
+<LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawUnit
+<LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
 <LI><a href="#[2ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetLayer
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
-<LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Clear
+<LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Clear
 <LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawInstruction
 <LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_CNL_S
-<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_on
-<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_off
-<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;maxfocus_off
+<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_on
+<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_off
+<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;maxfocus_off
 </UL>
 <BR>[Called By]<UL><LI><a href="#[248]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchHandle
 <LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC5_HANDLE
@@ -5909,12 +5911,12 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[1c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTransparency
 <LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetBackColor
-<LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawsetmenu
-<LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawUnit
-<LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
+<LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawsetmenu
+<LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawUnit
+<LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
 <LI><a href="#[2ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetLayer
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
-<LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Clear
+<LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Clear
 <LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawInstruction
 <LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_CNL_S
 <LI><a href="#[24d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stimefocus_off
@@ -5930,13 +5932,13 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[1c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTransparency
 <LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetBackColor
-<LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawsysmenu
-<LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
+<LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawsysmenu
+<LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
 <LI><a href="#[2ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetLayer
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
-<LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Clear
+<LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Clear
 <LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawInstruction
 <LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
@@ -5952,11 +5954,11 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[1c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTransparency
 <LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetBackColor
-<LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawsysinfomenu
-<LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
+<LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawsysinfomenu
+<LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
 <LI><a href="#[2ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetLayer
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
-<LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Clear
+<LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Clear
 <LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawInstruction
 <LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
@@ -6027,13 +6029,13 @@ Global Symbols
 <P><STRONG><a name="[2b1]"></a>power_on</STRONG> (Thumb, 104 bytes, Stack size 8 bytes, power_on.o(i.power_on))
 <BR><BR>[Stack]<UL><LI>Max Depth = 316<LI>Call Chain = power_on &rArr; DrawLogo &rArr; LCD_DrawLine &rArr; DMA2D_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawLogo
+<BR>[Calls]<UL><LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawLogo
 <LI><a href="#[1c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTransparency
-<LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_SYS
+<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_SYS
 <LI><a href="#[2ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetLayer
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
-<LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Clear
-<LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_INS
+<LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Clear
+<LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DISP_INS
 </UL>
 <BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -6047,7 +6049,7 @@ Global Symbols
 <LI><a href="#[285]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;create_chain
 </UL>
 
-<P><STRONG><a name="[ba]"></a>sdtest</STRONG> (Thumb, 332 bytes, Stack size 32 bytes, main.o(i.sdtest))
+<P><STRONG><a name="[ba]"></a>sdtest</STRONG> (Thumb, 334 bytes, Stack size 32 bytes, main.o(i.sdtest))
 <BR><BR>[Stack]<UL><LI>Max Depth = 1524<LI>Call Chain = sdtest &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[2a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;f_write
@@ -6072,7 +6074,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetBackColor
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
 <LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
@@ -6080,33 +6082,33 @@ Global Symbols
 <LI><a href="#[1ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UP_HANDLE
 </UL>
 
-<P><STRONG><a name="[133]"></a>stimefocus_on</STRONG> (Thumb, 144 bytes, Stack size 32 bytes, bsp_key.o(i.stimefocus_on))
+<P><STRONG><a name="[134]"></a>stimefocus_on</STRONG> (Thumb, 144 bytes, Stack size 32 bytes, bsp_key.o(i.stimefocus_on))
 <BR><BR>[Stack]<UL><LI>Max Depth = 132<LI>Call Chain = stimefocus_on &rArr; DrawInstruction &rArr; LCD_DrawFullRect &rArr; DMA2D_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetBackColor
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
 <LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawInstruction
 <LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clear_input
 <LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
+<BR>[Called By]<UL><LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
+<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
 </UL>
 
 <P><STRONG><a name="[16e]"></a>touch_set</STRONG> (Thumb, 148 bytes, Stack size 24 bytes, bsp_key.o(i.touch_set))
 <BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = touch_set &rArr; Save_flag &rArr; SPI_FLASH_BufferWrite &rArr; SPI_FLASH_PageWrite &rArr; SPI_FLASH_WaitForWriteEnd &rArr; SPI_FLASH_SendByte &rArr; SPI_TIMEOUT_UserCallback &rArr; __2printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawsysmenu
-<LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
+<BR>[Calls]<UL><LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drawsysmenu
+<LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawMenu
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Save_flag
-<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_on1
-<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_off1
+<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_on1
+<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focus_off1
 </UL>
 <BR>[Called By]<UL><LI><a href="#[248]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchHandle
 <LI><a href="#[175]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC2_HANDLE
@@ -6116,8 +6118,8 @@ Global Symbols
 <P><STRONG><a name="[2b2]"></a>udisk_scan</STRONG> (Thumb, 66 bytes, Stack size 8 bytes, main.o(i.udisk_scan))
 <BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = udisk_scan &rArr; CH376DiskConnect &rArr; CH376SendCmdWaitInt &rArr; Wait376Interrupt &rArr; CH376GetIntStatus &rArr; xWriteCH376Cmd &rArr; SPIx_ReadWriteByte &rArr; SPI_TIMEOUT_UserCallback &rArr; __2printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawUdisk2
-<LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawUdisk1
+<BR>[Calls]<UL><LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawUdisk2
+<LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawUdisk1
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376DiskMount
 <LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376DiskConnect
 </UL>
@@ -6189,18 +6191,18 @@ Global Symbols
 <LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376ReadVar32
 </UL>
 
-<P><STRONG><a name="[13a]"></a>yhfocus_off</STRONG> (Thumb, 252 bytes, Stack size 32 bytes, bsp_key.o(i.yhfocus_off))
+<P><STRONG><a name="[13b]"></a>yhfocus_off</STRONG> (Thumb, 252 bytes, Stack size 32 bytes, bsp_key.o(i.yhfocus_off))
 <BR><BR>[Stack]<UL><LI>Max Depth = 116<LI>Call Chain = yhfocus_off &rArr; LCD_DrawFullRect &rArr; DMA2D_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetBackColor
 <LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
 <LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
+<BR>[Called By]<UL><LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
 </UL>
 
 <P><STRONG><a name="[167]"></a>yhfocus_on</STRONG> (Thumb, 280 bytes, Stack size 32 bytes, bsp_key.o(i.yhfocus_on))
@@ -6210,7 +6212,7 @@ Global Symbols
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetBackColor
 <LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
 <LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawInstruction
 <LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clear_input
@@ -6218,41 +6220,41 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[188]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_gset
 <LI><a href="#[1ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UP_HANDLE
-<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
+<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
 </UL>
 
-<P><STRONG><a name="[138]"></a>ylfocus_off</STRONG> (Thumb, 252 bytes, Stack size 32 bytes, bsp_key.o(i.ylfocus_off))
+<P><STRONG><a name="[139]"></a>ylfocus_off</STRONG> (Thumb, 252 bytes, Stack size 32 bytes, bsp_key.o(i.ylfocus_off))
 <BR><BR>[Stack]<UL><LI>Max Depth = 116<LI>Call Chain = ylfocus_off &rArr; LCD_DrawFullRect &rArr; DMA2D_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetBackColor
 <LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
 <LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[188]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_gset
 <LI><a href="#[1ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UP_HANDLE
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
+<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
 </UL>
 
-<P><STRONG><a name="[13b]"></a>ylfocus_on</STRONG> (Thumb, 280 bytes, Stack size 32 bytes, bsp_key.o(i.ylfocus_on))
+<P><STRONG><a name="[13c]"></a>ylfocus_on</STRONG> (Thumb, 280 bytes, Stack size 32 bytes, bsp_key.o(i.ylfocus_on))
 <BR><BR>[Stack]<UL><LI>Max Depth = 132<LI>Call Chain = ylfocus_on &rArr; DrawInstruction &rArr; LCD_DrawFullRect &rArr; DMA2D_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetBackColor
 <LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetColors
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawFullRect
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DisplayStringLine
 <LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawInstruction
 <LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clear_input
 <LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UP_HANDLE
-<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
+<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
+<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
 </UL>
 <P>
 <H3>

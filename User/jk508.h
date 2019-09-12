@@ -134,6 +134,7 @@ void sdtest(void);
 void DISP_HIS(void);
 void Creat_New_Folder(void);
 void DISP_HIS_FOLDER(void);
+void Create_His_File(void);
 	
 extern u8 usbbuf[0x40];
 uint16_t CRC16(uint8_t *puchMsg, uint8_t Len);

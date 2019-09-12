@@ -66,9 +66,10 @@ u16 ureadcrc;
 u8 *ucrc;
 extern u8 uartflag;
 //u8 p1,p2,p3,p4,p5,p6,p7,p8;
-u8 filename[20];
+char filename[20];
 char foldername[20];
 FILINFO hisinfo;
+char dirname[10][13];
 DIR dir;
 FATFS fs;													/* FatFs文件系统对象 */
 FIL fnew;													/* 文件对象 */
@@ -568,31 +569,56 @@ void DISP_HIS_FOLDER(void)
 	res_sd = f_opendir(&dir, "");
 	if(res_sd == FR_OK)
 	{
-		res_sd = f_readdir(&dir,&hisinfo);
 		if(res_sd==FR_OK)
 		{
-			do
+			while(1)
 			{
 				res_sd = f_readdir(&dir,&hisinfo);
-//				if(hisinfo.fname[0] == 0)
-//				{
-//					break;
-//				}
-				if(hisinfo.fattrib & AM_DIR)
+				if(res_sd == FR_OK)
 				{
-					sprintf(buf,"%d",i+1);
-					LCD_DisplayStringLine(40+i*35,10,(uint8_t *)buf);
-					LCD_DisplayStringLine(40+i*35,50,(uint8_t *)".");
-					LCD_DisplayStringLine(40+i*35,70,(uint8_t *)hisinfo.fname);
-					i++;
+					if(hisinfo.fname[0]==0)break;
+					
+					if(hisinfo.fattrib & AM_DIR)
+					{
+						sprintf(buf,"%d",i+1);
+						LCD_DisplayStringLine(40+i*35,10,(uint8_t *)buf);
+						LCD_DisplayStringLine(40+i*35,50,(uint8_t *)".");
+						LCD_DisplayStringLine(40+i*35,70,(uint8_t *)hisinfo.fname);
+						strncpy(dirname[i],hisinfo.fname,13);
+						i++;
+					}
 				}
-			}while(hisinfo.fname[0] != 0);
+			}
 		}
 		DrawInstruction("读取目录成功");
 	}else{
 		DrawInstruction("读取目录失败");
 	}
 	i = 0;
+}
+
+//建立文件存储数据
+void Create_His_File(void)
+{
+	static char namebuf[10];
+	
+	memcpy ((void *)filename,"0:",2);
+	sprintf(namebuf,"%02d%02d%02d%d", 
+			usbreadtime[4],
+			usbreadtime[5],
+			usbreadtime[6],
+			i);
+	strcat((char *)filename,(char *)namebuf);
+	strcat((char *)filename,(char *)".xls");	
+	res_sd = f_open(&fnew, (char *)filename,FA_CREATE_ALWAYS | FA_WRITE );
+	if ( res_sd == FR_OK )
+	{
+		DrawInstruction("创建文件成功");
+	}
+	else
+	{	
+		DrawInstruction("创建失败");
+	}
 }
 
 //文件系统返回值提示
@@ -610,7 +636,7 @@ void Creat_New_Folder(void)
 {
 	res_sd = f_mount(&fs,"0:",1);
 	memset(filename,0,100);
-	
+	static u8  testcount;
 	if(res_sd == FR_NO_FILESYSTEM)
 	{
 		DrawInstruction("加载文件系统失败，请重新格式化");
@@ -621,7 +647,7 @@ void Creat_New_Folder(void)
 			usbreadtime[1],
 			usbreadtime[2],
 			usbreadtime[3],
-			i);
+			testcount);
 	res_sd = f_mkdir((char *)foldername);
 	if(res_sd == FR_OK)
 	{
@@ -631,6 +657,7 @@ void Creat_New_Folder(void)
 	}else{
 		DrawInstruction("失败");
 	}
+	testcount++;
 }
 
 //sd卡测试
