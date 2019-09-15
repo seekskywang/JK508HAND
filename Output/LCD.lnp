@@ -59,6 +59,7 @@
 "..\..\output\filesys.o"
 "..\..\output\flash_if.o"
 "..\..\output\bsp_sdio_sd.o"
+"..\..\output\fileoperate.o"
 "..\..\output\home.o"
 "..\..\output\system.o"
 "..\..\output\settings.o"

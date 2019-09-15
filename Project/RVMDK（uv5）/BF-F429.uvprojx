@@ -752,6 +752,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\User\sdio\bsp_sdio_sd.c</FilePath>
             </File>
+            <File>
+              <FileName>fileoperate.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\User\fileoperate.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

@@ -16190,7 +16190,7 @@ void BACK_HANDLE(void)
 	{
 		case display:
 		{
-			sdtest();
+//			sdtest();
 		}break;
 		case separation:
 		{

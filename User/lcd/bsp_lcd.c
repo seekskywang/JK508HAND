@@ -696,6 +696,7 @@ void Drawhishmenu(void)
 	}
 }
 
+
 /*曲线设置页面根菜单*/
 void Drawgsethmenu(void)
 {
