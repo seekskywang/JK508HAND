@@ -42,3 +42,6 @@
 ..\..\output\ch376.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 ..\..\output\ch376.o: ..\..\User\./systick/bsp_SysTick.h
 ..\..\output\ch376.o: ..\..\User\jk508.h
+..\..\output\ch376.o: ..\..\User\FATFS\ff.h
+..\..\output\ch376.o: ..\..\User\FATFS\integer.h
+..\..\output\ch376.o: ..\..\User\FATFS\ffconf.h

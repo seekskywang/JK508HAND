@@ -47,4 +47,7 @@
 ..\..\output\separation.o: ..\..\User\./tim/bsp_basic_tim.h
 ..\..\output\separation.o: ..\..\User\jk508.h
 ..\..\output\separation.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+..\..\output\separation.o: ..\..\User\FATFS\ff.h
+..\..\output\separation.o: ..\..\User\FATFS\integer.h
+..\..\output\separation.o: ..\..\User\FATFS\ffconf.h
 ..\..\output\separation.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h

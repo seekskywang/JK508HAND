@@ -43,4 +43,7 @@
 ..\..\output\bsp_lcd.o: ..\..\User\./font/fonts.h
 ..\..\output\bsp_lcd.o: ..\..\User\jk508.h
 ..\..\output\bsp_lcd.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+..\..\output\bsp_lcd.o: ..\..\User\FATFS\ff.h
+..\..\output\bsp_lcd.o: ..\..\User\FATFS\integer.h
+..\..\output\bsp_lcd.o: ..\..\User\FATFS\ffconf.h
 ..\..\output\bsp_lcd.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h

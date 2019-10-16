@@ -51,6 +51,9 @@
 ..\..\output\main.o: ..\..\User\./RTC/bsp_rtc.h
 ..\..\output\main.o: ..\..\User\jk508.h
 ..\..\output\main.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+..\..\output\main.o: ..\..\User\FATFS\ff.h
+..\..\output\main.o: ..\..\User\FATFS\integer.h
+..\..\output\main.o: ..\..\User\FATFS\ffconf.h
 ..\..\output\main.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 ..\..\output\main.o: ..\..\USBD_FS_HID\usbd_hid_core.h
 ..\..\output\main.o: ..\..\USBD_FS_Lib\USBD_inc\usbd_ioreq.h
@@ -71,6 +74,3 @@
 ..\..\output\main.o: ..\..\User\./ch376/ch376.h
 ..\..\output\main.o: ..\..\User\flash_if.h
 ..\..\output\main.o: ..\..\User\flash_if.h
-..\..\output\main.o: ..\..\User\FATFS\ff.h
-..\..\output\main.o: ..\..\User\FATFS\integer.h
-..\..\output\main.o: ..\..\User\FATFS\ffconf.h

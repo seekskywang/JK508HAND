@@ -48,4 +48,7 @@
 ..\..\output\home.o: ..\..\User\./flash/bsp_spi_flash.h
 ..\..\output\home.o: ..\..\User\jk508.h
 ..\..\output\home.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+..\..\output\home.o: ..\..\User\FATFS\ff.h
+..\..\output\home.o: ..\..\User\FATFS\integer.h
+..\..\output\home.o: ..\..\User\FATFS\ffconf.h
 ..\..\output\home.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h

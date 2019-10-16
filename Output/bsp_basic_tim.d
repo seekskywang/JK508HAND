@@ -61,3 +61,6 @@
 ..\..\output\bsp_basic_tim.o: ..\..\USBD_FS_HID\usbd_usr.h
 ..\..\output\bsp_basic_tim.o: ..\..\USBD_FS_HID\usbd_desc.h
 ..\..\output\bsp_basic_tim.o: ..\..\User\jk508.h
+..\..\output\bsp_basic_tim.o: ..\..\User\FATFS\ff.h
+..\..\output\bsp_basic_tim.o: ..\..\User\FATFS\integer.h
+..\..\output\bsp_basic_tim.o: ..\..\User\FATFS\ffconf.h

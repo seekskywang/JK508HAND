@@ -241,7 +241,7 @@ void DrawType(u8 p)
 		LCD_SetTextColor(LCD_COLOR_YELLOW);
 		LCD_SetBackColor(LCD_COLOR_BLACK);
 		LCD_DisplayStringLine(450,35,"PT100");
-		LCD_DisplayStringLine(450,157,"1V");
+		LCD_DisplayStringLine(450,157,"1~5V");
 		if(LANG == chs)
 		{
 			LCD_DisplayStringLine(450,550,"更多");
@@ -1451,7 +1451,7 @@ void Search_Bit(void)
 			{
 				clear_input();
 				hpage = i;
-				hispage(hpage);
+//				hispage(hpage);
 				break;
 			}
 		}
@@ -2791,7 +2791,7 @@ void FUNC2_HANDLE(void)
 					LCD_DrawFullRect(96,47,100,31);
 					LCD_SetTextColor(LCD_COLOR_BLACK);
 					LCD_SetBackColor(LCD_COLOR_YELLOW);
-					LCD_DisplayStringLine(47,100,"1V");
+					LCD_DisplayStringLine(47,100,"1~5V");
 					op_flag = home_type;
 					TCTYPE = V1;
 					Save_flag();
@@ -3358,7 +3358,7 @@ void FUNC2_HANDLE(void)
 		}break;
 		case history:
 		{
-			page_graph();
+			Format_SD();
 		}break;
 		case calibrate:
 		{
@@ -3861,7 +3861,7 @@ void FUNC3_HANDLE(void)
 		}break;
 		case history:
 		{
-			page_sys();
+			His_Ppage();
 		}break;
 		case calibrate:
 		{
@@ -4303,7 +4303,7 @@ void FUNC4_HANDLE(void)
 		}break;
 		case history:
 		{
-			page_set();
+			His_Npage();
 		}break;
 		case calibrate:
 		{
@@ -4345,7 +4345,7 @@ void FUNC5_HANDLE(void)
 					LCD_SetTextColor(LCD_COLOR_YELLOW);
 					LCD_SetBackColor(LCD_COLOR_BLACK);
 					LCD_DisplayStringLine(450,35,"PT100");
-					LCD_DisplayStringLine(450,157,"1V");
+					LCD_DisplayStringLine(450,157,"1~5V");
 					if(LANG == chs)
 					{
 						LCD_DisplayStringLine(450,550,"更多");
@@ -5619,7 +5619,7 @@ void FUNC5_HANDLE(void)
 						}else if(TCTYPE == PT100){
 							LCD_DisplayStringLine(47,100,"PT100");
 						}else if(TCTYPE == V1){
-							LCD_DisplayStringLine(47,100,"1V");
+							LCD_DisplayStringLine(47,100,"1~5V");
 						}
 						op_flag = home_type;
 						focus_off1();
@@ -8490,20 +8490,21 @@ void ENTER_HANDLE(void)
 		}break;
 		case history:
 		{
-			if(input_flag == 1)
-			{
-				
-				if(atoi(data) > 1000)
-				{
-					clear_input();
-					hispage(hpage);
-				}else{
-					hpage = atoi(data);
-					clear_input();
-					hispage(hpage);
-				}
-				
-			}
+//			if(input_flag == 1)
+//			{
+//				
+//				if(atoi(data) > 1000)
+//				{
+//					clear_input();
+////					hispage(hpage);
+//				}else{
+//					hpage = atoi(data);
+//					clear_input();
+////					hispage(hpage);
+//				}
+//				
+//			}
+			READ_HIS();
 		}break;
 		case factory:
 		{
@@ -8560,7 +8561,7 @@ void UP_HANDLE(void)
 						}else if(TCTYPE == PT100){
 							LCD_DisplayStringLine(47,100,"PT100");
 						}else if(TCTYPE == V1){
-							LCD_DisplayStringLine(47,100,"1V");
+							LCD_DisplayStringLine(47,100,"1~5V");
 						}					
 						
 						
@@ -8612,7 +8613,7 @@ void UP_HANDLE(void)
 						}else if(TCTYPE == PT100){
 							LCD_DisplayStringLine(47,100,"PT100");
 						}else if(TCTYPE == V1){
-							LCD_DisplayStringLine(47,100,"1V");
+							LCD_DisplayStringLine(47,100,"1~5V");
 						}
 						
 						if(ch_page == page1)
@@ -8653,7 +8654,7 @@ void UP_HANDLE(void)
 						}else if(TCTYPE == PT100){
 							LCD_DisplayStringLine(47,100,"PT100");
 						}else if(TCTYPE == V1){
-							LCD_DisplayStringLine(47,100,"1V");
+							LCD_DisplayStringLine(47,100,"1~5V");
 						}
 						
 						if(ch_page == page1)
@@ -8714,7 +8715,7 @@ void UP_HANDLE(void)
 						}else if(TCTYPE == PT100){
 							LCD_DisplayStringLine(47,100,"PT100");
 						}else if(TCTYPE == V1){
-							LCD_DisplayStringLine(47,100,"1V");
+							LCD_DisplayStringLine(47,100,"1~5V");
 						}						
 						if(LANG == chs)
 						{
@@ -8755,7 +8756,7 @@ void UP_HANDLE(void)
 						}else if(TCTYPE == PT100){
 							LCD_DisplayStringLine(47,100,"PT100");
 						}else if(TCTYPE == V1){
-							LCD_DisplayStringLine(47,100,"1V");
+							LCD_DisplayStringLine(47,100,"1~5V");
 						}
 						if(LANG == chs)
 						{
@@ -8793,7 +8794,7 @@ void UP_HANDLE(void)
 						}else if(TCTYPE == PT100){
 							LCD_DisplayStringLine(47,100,"PT100");
 						}else if(TCTYPE == V1){
-							LCD_DisplayStringLine(47,100,"1V");
+							LCD_DisplayStringLine(47,100,"1~5V");
 						}
 						if(LANG == chs)
 						{
@@ -11015,6 +11016,14 @@ void UP_HANDLE(void)
 				}break;
 			}
 		}break;
+		case history:
+		{
+			if(dirflag > 1)
+			{
+				dirflag--;
+			}
+			DISP_HIS_FOLDER();
+		}break;
 	}
 }
 
@@ -11066,7 +11075,7 @@ void DOWN_HANDLE(void)
 					}else if(TCTYPE == PT100){
 						LCD_DisplayStringLine(47,100,"PT100");
 					}else if(TCTYPE == V1){
-						LCD_DisplayStringLine(47,100,"1V");
+						LCD_DisplayStringLine(47,100,"1~5V");
 					}
 					
 					if(FONT == big)
@@ -11374,7 +11383,7 @@ void DOWN_HANDLE(void)
 						}else if(TCTYPE == PT100){
 							LCD_DisplayStringLine(47,100,"PT100");
 						}else if(TCTYPE == V1){
-							LCD_DisplayStringLine(47,100,"1V");
+							LCD_DisplayStringLine(47,100,"1~5V");
 						}
 						if(LANG == chs)
 						{
@@ -11682,7 +11691,7 @@ void DOWN_HANDLE(void)
 							}else if(TCTYPE == PT100){
 								LCD_DisplayStringLine(47,100,"PT100");
 							}else if(TCTYPE == V1){
-								LCD_DisplayStringLine(47,100,"1V");
+								LCD_DisplayStringLine(47,100,"1~5V");
 							}
 							if(LANG == chs)
 							{
@@ -11728,7 +11737,7 @@ void DOWN_HANDLE(void)
 							}else if(TCTYPE == PT100){
 								LCD_DisplayStringLine(47,100,"PT100");
 							}else if(TCTYPE == V1){
-								LCD_DisplayStringLine(47,100,"1V");
+								LCD_DisplayStringLine(47,100,"1~5V");
 							}
 							if(LANG == chs)
 							{
@@ -13298,6 +13307,15 @@ void DOWN_HANDLE(void)
 				
 			}
 		}break;
+		case history:
+		{
+			if(dirflag < 10)
+			{
+				dirflag++;
+			}
+			DISP_HIS_FOLDER();
+//			hispage(hpage);
+		}break;
 	}
 }
 
@@ -13333,7 +13351,7 @@ void RIGHT_HANDLE(void)
 					}else if(TCTYPE == PT100){
 						LCD_DisplayStringLine(47,100,"PT100");
 					}else if(TCTYPE == V1){
-						LCD_DisplayStringLine(47,100,"1V");
+						LCD_DisplayStringLine(47,100,"1~5V");
 					}
 					focus_on1();
 					if(FONT == big){
@@ -14492,11 +14510,7 @@ void RIGHT_HANDLE(void)
 				}break;
 			}
 		}break;
-		case history:
-		{
-			hpage++;
-			hispage(hpage);
-		}break;
+		
 				
 	}
 }
@@ -14533,7 +14547,7 @@ void LEFT_HANDLE(void)
 					}else if(TCTYPE == PT100){
 						LCD_DisplayStringLine(47,100,"PT100");
 					}else if(TCTYPE == V1){
-						LCD_DisplayStringLine(47,100,"1V");
+						LCD_DisplayStringLine(47,100,"1~5V");
 					}
 					focus_off1();
 					if(FONT == big){
@@ -15671,7 +15685,7 @@ void LEFT_HANDLE(void)
 		case history:
 		{
 			hpage--;
-			hispage(hpage);
+//			hispage(hpage);
 		}break;
 	}
 }

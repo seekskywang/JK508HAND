@@ -47,5 +47,8 @@
 ..\..\output\graph.o: ..\..\User\./tim/bsp_basic_tim.h
 ..\..\output\graph.o: ..\..\User\jk508.h
 ..\..\output\graph.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+..\..\output\graph.o: ..\..\User\FATFS\ff.h
+..\..\output\graph.o: ..\..\User\FATFS\integer.h
+..\..\output\graph.o: ..\..\User\FATFS\ffconf.h
 ..\..\output\graph.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 ..\..\output\graph.o: ..\..\User\./RTC/bsp_rtc.h

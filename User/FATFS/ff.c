@@ -3539,7 +3539,7 @@ FRESULT f_unlink (
 	if (res == FR_OK) {
 		INIT_BUF(dj);
 		res = follow_path(&dj, path);		/* Follow the file path */
-		if (_FS_RPATH && res == FR_OK && (dj.fn[NSFLAG] & NS_DOT))
+		if (_FS_RPATH && res == FR_OK && ( dj.fn[NSFLAG] & NS_DOT))
 			res = FR_INVALID_NAME;			/* Cannot remove dot entry */
 #if _FS_LOCK
 		if (res == FR_OK) res = chk_lock(&dj, 2);	/* Cannot remove open object */

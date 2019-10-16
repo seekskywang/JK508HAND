@@ -45,6 +45,9 @@
 ..\..\output\touchscreen.o: ..\..\User\./font/fonts.h
 ..\..\output\touchscreen.o: ..\..\User\jk508.h
 ..\..\output\touchscreen.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+..\..\output\touchscreen.o: ..\..\User\FATFS\ff.h
+..\..\output\touchscreen.o: ..\..\User\FATFS\integer.h
+..\..\output\touchscreen.o: ..\..\User\FATFS\ffconf.h
 ..\..\output\touchscreen.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 ..\..\output\touchscreen.o: ..\..\User\touchscreen.h
 ..\..\output\touchscreen.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h

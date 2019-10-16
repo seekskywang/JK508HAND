@@ -683,15 +683,15 @@ void Drawhishmenu(void)
 	if(LANG == chs)
 	{
 		LCD_DisplayStringLine(450,35,"显示");
-		LCD_DisplayStringLine(450,153,"曲线图");
-		LCD_DisplayStringLine(450,293,"系统");
-		LCD_DisplayStringLine(450,420,"打开");
+		LCD_DisplayStringLine(450,153,"格式化");
+		LCD_DisplayStringLine(450,293,"上一页");
+		LCD_DisplayStringLine(450,420,"下一页");
 		LCD_DisplayStringLine(450,525,"新建目录");
 	}else{
 		LCD_DisplayStringLine(450,10,"DISPLAY");
-		LCD_DisplayStringLine(450,140,"GRAPH");
-		LCD_DisplayStringLine(450,275,"SYSTEM");
-		LCD_DisplayStringLine(450,410,"OPEN");
+		LCD_DisplayStringLine(450,140,"FORMAT");
+		LCD_DisplayStringLine(450,275,"PREV");
+		LCD_DisplayStringLine(450,410,"NEXT");
 		LCD_DisplayStringLine(450,522,"NEW");
 	}
 }

@@ -52,4 +52,7 @@
 ..\..\output\bsp_key.o: ..\..\User\./FILESYS/FILESYS.h
 ..\..\output\bsp_key.o: ..\..\User\./ch376/ch376.h
 ..\..\output\bsp_key.o: ..\..\User\jk508.h
+..\..\output\bsp_key.o: ..\..\User\FATFS\ff.h
+..\..\output\bsp_key.o: ..\..\User\FATFS\integer.h
+..\..\output\bsp_key.o: ..\..\User\FATFS\ffconf.h
 ..\..\output\bsp_key.o: ..\..\User\./usart/bsp_debug_usart.h

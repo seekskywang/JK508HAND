@@ -30,6 +30,7 @@ u8 histime[10][7];
 float YLIMIT[3];
 u16 his_config[10];
 u8 his_time[10][7];
+u8 hispage;
 
 //读取的ID存储位置
 extern __IO uint32_t DeviceID;
@@ -73,16 +74,20 @@ void page_his(void)
 	LCD_DisplayStringLine(0,10, "<      >");
 	LCD_DisplayStringLine(5,26, "历史数据");
 	
+	dirflag  =1;
+	hispage = 1;
+	
 	DrawMenu();
 	Drawhishmenu();
-
-
+	Mount_SD();	
+	READ_HIS_FOLDER();
+	
 	
 //	LCD_SetTextColor(LCD_COLOR_RED);
 //	LCD_SetBackColor(LCD_COLOR_BACK);
 //	for(i = 0;i < 7;i ++)
 //	{
-//		sprintf(buf,"%d",(int)(YHLIMIT - range * i));
+//		sprintf(buf,"%d",(int)(YHLIMIT - range * i))	;
 //		DISP_CNL_S(40 + 50*i,5/*90*/,(uint8_t* )buf);
 //	}
 //	Read_history(1);
@@ -396,9 +401,9 @@ void Read_Sflag(void)
 	SPI_FLASH_BufferRead((void *)his_config,SPI_FLASH_PageSize*16, sizeof(his_config));
 }
 
-void hispage(u16 page)
-{
-	Read_history(page);
-	Read_time(page);
-	page_his();
-}
+//void hispage(u16 page)
+//{
+//	Read_history(page);
+//	Read_time(page);
+//	page_his();
+//}

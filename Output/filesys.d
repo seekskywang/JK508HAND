@@ -43,3 +43,6 @@
 ..\..\output\filesys.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 ..\..\output\filesys.o: ..\..\User\./ch376/ch376.h
 ..\..\output\filesys.o: ..\..\User\jk508.h
+..\..\output\filesys.o: ..\..\User\FATFS\ff.h
+..\..\output\filesys.o: ..\..\User\FATFS\integer.h
+..\..\output\filesys.o: ..\..\User\FATFS\ffconf.h

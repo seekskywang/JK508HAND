@@ -3368,7 +3368,7 @@ void DrawTC(void)
 	}else if(TCTYPE == PT100){
 		LCD_DisplayStringLine(47,100,"PT100");
 	}else if(TCTYPE == AM2305){
-		LCD_DisplayStringLine(47,100,"1V");
+		LCD_DisplayStringLine(47,100,"1~5V");
 	}	
 }
 

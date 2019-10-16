@@ -48,5 +48,8 @@
 ..\..\output\history.o: ..\..\User\./flash/bsp_spi_flash.h
 ..\..\output\history.o: ..\..\User\jk508.h
 ..\..\output\history.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+..\..\output\history.o: ..\..\User\FATFS\ff.h
+..\..\output\history.o: ..\..\User\FATFS\integer.h
+..\..\output\history.o: ..\..\User\FATFS\ffconf.h
 ..\..\output\history.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 ..\..\output\history.o: ..\..\User\./RTC/bsp_rtc.h

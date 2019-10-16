@@ -47,4 +47,7 @@
 ..\..\output\settings.o: ..\..\User\./tim/bsp_basic_tim.h
 ..\..\output\settings.o: ..\..\User\jk508.h
 ..\..\output\settings.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+..\..\output\settings.o: ..\..\User\FATFS\ff.h
+..\..\output\settings.o: ..\..\User\FATFS\integer.h
+..\..\output\settings.o: ..\..\User\FATFS\ffconf.h
 ..\..\output\settings.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h

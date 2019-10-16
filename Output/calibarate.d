@@ -47,4 +47,7 @@
 ..\..\output\calibarate.o: ..\..\User\./tim/bsp_basic_tim.h
 ..\..\output\calibarate.o: ..\..\User\jk508.h
 ..\..\output\calibarate.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+..\..\output\calibarate.o: ..\..\User\FATFS\ff.h
+..\..\output\calibarate.o: ..\..\User\FATFS\integer.h
+..\..\output\calibarate.o: ..\..\User\FATFS\ffconf.h
 ..\..\output\calibarate.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h

@@ -1,5 +1,6 @@
 #include "stm32f4xx.h"
 #include "stdlib.h"
+#include "ff.h"
 #include <string.h>
 
 #ifndef _jk508_h_
@@ -68,6 +69,9 @@ extern u8 tcflag;
 extern u8 passverify;
 extern char SN[8];
 extern char data[17];
+extern u8 hispage;
+extern u8 dirflag;
+
 
 void page_home(void);
 void page_set(void);
@@ -114,7 +118,7 @@ void Save_Sflag(void);
 void Read_Sflag(void);
 int hex_to_bcd(int data);
 void DrawTime(void);
-void hispage(u16 page);
+//void hispage(u16 page);
 void TouchCal(void);
 void XYCAL(u8 step);
 void TouchHandle(u16 x,u16 y);
@@ -131,10 +135,18 @@ void SetSTctype(void);
 void JumpBoot(u8 flag);
 void Disp_Factory(void);
 void sdtest(void);
-void DISP_HIS(void);
+void READ_HIS(void);
 void Creat_New_Folder(void);
 void DISP_HIS_FOLDER(void);
 void Create_His_File(void);
+void Mount_SD(void);
+void Disp_hispagenum(void);
+void READ_HIS_FOLDER(void);
+void His_Npage(void);
+void His_Ppage(void);
+void Open_Dir(void);
+void Format_SD(void);
+void DISP_HIS_FILE(void);
 	
 extern u8 usbbuf[0x40];
 uint16_t CRC16(uint8_t *puchMsg, uint8_t Len);
@@ -157,6 +169,10 @@ extern Touch_save_Typedef    Touch_save;
 //#define STARTM					   trigtime[1]
 //#define ENDH					   trigtime[2]
 //#define ENDM					   trigtime[3]
+
+//文件系统
+#define MAXDIR					   300//最大文件夹个数
+#define MAXFILE					   100//最大文件个数
 
 //平均最大最小值
 #define TEMPAVG					   avg_data[0]
@@ -526,6 +542,7 @@ extern Touch_save_Typedef    Touch_save;
 #define touchcal		 10
 #define poweroff 		 11
 #define factory 		 12
+#define hisfile			 13
 
 /* 选项标志位 */
 #define home_type        0

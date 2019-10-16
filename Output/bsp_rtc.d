@@ -45,4 +45,7 @@
 ..\..\output\bsp_rtc.o: ..\..\User\./font/fonts.h
 ..\..\output\bsp_rtc.o: ..\..\User\jk508.h
 ..\..\output\bsp_rtc.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+..\..\output\bsp_rtc.o: ..\..\User\FATFS\ff.h
+..\..\output\bsp_rtc.o: ..\..\User\FATFS\integer.h
+..\..\output\bsp_rtc.o: ..\..\User\FATFS\ffconf.h
 ..\..\output\bsp_rtc.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h

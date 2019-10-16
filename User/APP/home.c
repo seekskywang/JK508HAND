@@ -135,7 +135,7 @@ extern union
    }BIT_FLAG;
 }FLAG7;
 
-const uint8_t TC_Type[][3]=
+const uint8_t TC_Type[][4]=
 {
 	{"T"},
 	{"K"},
@@ -147,8 +147,8 @@ const uint8_t TC_Type[][3]=
 	{"B"},
 	{"PT"},
 	{"PT"},
-	{"1V"},
-	{"1V"},
+	{"1~5V"},
+	{" "},
 	{"1V"},
 	{"1V"},
 	{"1V"},
@@ -221,7 +221,7 @@ void page_home(void)
 	}else if(TCTYPE == PT100){
 		LCD_DisplayStringLine(47,100,"PT100");
 	}else if(TCTYPE == V1){
-		LCD_DisplayStringLine(47,100,"1V");
+		LCD_DisplayStringLine(47,100,"1~5V");
 	}
 	
 
@@ -1089,7 +1089,8 @@ void page_home(void)
 //显示各通道热电偶类型
 void Disp_Type(void)
 {
-	const u8 (*pt)[3];
+	u8 i;
+	const u8 (*pt)[4];
 	pt = TC_Type;
 	LCD_SetBackColor(LCD_COLOR_BACK);
 	LCD_SetTextColor(LCD_COLOR_YELLOW);
@@ -1097,14 +1098,14 @@ void Disp_Type(void)
 	{	
 		if(ch_page == page1)
 		{
-			DISP_AVG(120,270,"  ");
-			DISP_AVG(200,270,"  ");
-			DISP_AVG(280,270,"  ");
-			DISP_AVG(360,270,"  ");
-			DISP_AVG(120,590,"  ");
-			DISP_AVG(200,590,"  ");
-			DISP_AVG(280,590,"  ");
-			DISP_AVG(360,590,"  ");
+			DISP_AVG(120,270,"    ");
+			DISP_AVG(200,270,"    ");
+			DISP_AVG(280,270,"    ");
+			DISP_AVG(360,270,"    ");
+			DISP_AVG(120,590,"    ");
+			DISP_AVG(200,590,"    ");
+			DISP_AVG(280,590,"    ");
+			DISP_AVG(360,590,"    ");
 			
 			DISP_AVG(120,270,pt[CH1TYPE-1]);
 			DISP_AVG(200,270,pt[CH2TYPE-1]);
@@ -1114,15 +1115,27 @@ void Disp_Type(void)
 			DISP_AVG(200,590,pt[CH6TYPE-1]);
 			DISP_AVG(280,590,pt[CH7TYPE-1]);
 			DISP_AVG(360,590,pt[CH8TYPE-1]);
+			for(i=60;i<67;i++)
+			{
+				if(savedata[i] == 11)
+				{
+					if(i<64)
+					{
+						DISP_TEMP_L(95+80*(i-60),240,(uint8_t *)"%",0);
+					}else{
+						DISP_TEMP_L(95+80*(i-64),560,(uint8_t *)"%",0);
+					}
+				}
+			}
 		}else if(ch_page == page2){
-			DISP_AVG(120,270,"  ");
-			DISP_AVG(200,270,"  ");
-			DISP_AVG(280,270,"  ");
-			DISP_AVG(360,270,"  ");
-			DISP_AVG(120,590,"  ");
-			DISP_AVG(200,590,"  ");
-			DISP_AVG(280,590,"  ");
-			DISP_AVG(360,590,"  ");
+			DISP_AVG(120,270,"    ");
+			DISP_AVG(200,270,"    ");
+			DISP_AVG(280,270,"    ");
+			DISP_AVG(360,270,"    ");
+			DISP_AVG(120,590,"    ");
+			DISP_AVG(200,590,"    ");
+			DISP_AVG(280,590,"    ");
+			DISP_AVG(360,590,"    ");
 			
 			DISP_AVG(120,270,pt[CH9TYPE-1]);
 			DISP_AVG(200,270,pt[CH10TYPE-1]);
@@ -1134,24 +1147,24 @@ void Disp_Type(void)
 			DISP_AVG(360,590,pt[CH16TYPE-1]);
 		}
 	}else if(FONT == middle){
-			DISP_AVG(112,190,"  ");
-			DISP_AVG(152,190,"  ");
-			DISP_AVG(192,190,"  ");
-			DISP_AVG(232,190,"  ");
-			DISP_AVG(272,190,"  ");
-			DISP_AVG(312,190,"  ");
-			DISP_AVG(352,190,"  ");
-			DISP_AVG(392,190,"  ");
+			DISP_AVG(112,190,"    ");
+			DISP_AVG(152,190,"    ");
+			DISP_AVG(192,190,"    ");
+			DISP_AVG(232,190,"    ");
+			DISP_AVG(272,190,"    ");
+			DISP_AVG(312,190,"    ");
+			DISP_AVG(352,190,"    ");
+			DISP_AVG(392,190,"    ");
 			if(CHNUM == 16)
 			{
-				DISP_AVG(112,390,"  ");
-				DISP_AVG(152,390,"  ");
-				DISP_AVG(192,390,"  ");
-				DISP_AVG(232,390,"  ");
-				DISP_AVG(272,390,"  ");
-				DISP_AVG(312,390,"  ");
-				DISP_AVG(352,390,"  ");
-				DISP_AVG(392,390,"  ");
+				DISP_AVG(112,390,"    ");
+				DISP_AVG(152,390,"    ");
+				DISP_AVG(192,390,"    ");
+				DISP_AVG(232,390,"    ");
+				DISP_AVG(272,390,"    ");
+				DISP_AVG(312,390,"    ");
+				DISP_AVG(352,390,"    ");
+				DISP_AVG(392,390,"    ");
 			}
 			
 			DISP_AVG(112,190,pt[CH1TYPE-1]);
@@ -1174,24 +1187,24 @@ void Disp_Type(void)
 				DISP_AVG(392,390,pt[CH16TYPE-1]);
 			}
 	}else if(FONT == small){
-			DISP_AVG(104,115,"  ");
-			DISP_AVG(144,115,"  ");
-			DISP_AVG(184,115,"  ");
-			DISP_AVG(224,115,"  ");
-			DISP_AVG(264,115,"  ");
-			DISP_AVG(304,115,"  ");
-			DISP_AVG(344,115,"  ");
-			DISP_AVG(384,115,"  ");
+			DISP_AVG(104,115,"    ");
+			DISP_AVG(144,115,"    ");
+			DISP_AVG(184,115,"    ");
+			DISP_AVG(224,115,"    ");
+			DISP_AVG(264,115,"    ");
+			DISP_AVG(304,115,"    ");
+			DISP_AVG(344,115,"    ");
+			DISP_AVG(384,115,"    ");
 		    if(CHNUM == 16)
 			{
-				DISP_AVG(104,239,"  ");
-				DISP_AVG(144,239,"  ");
-				DISP_AVG(184,239,"  ");
-				DISP_AVG(224,239,"  ");
-				DISP_AVG(264,239,"  ");
-				DISP_AVG(304,239,"  ");
-				DISP_AVG(344,239,"  ");
-				DISP_AVG(384,239,"  ");
+				DISP_AVG(104,239,"    ");
+				DISP_AVG(144,239,"    ");
+				DISP_AVG(184,239,"    ");
+				DISP_AVG(224,239,"    ");
+				DISP_AVG(264,239,"    ");
+				DISP_AVG(304,239,"    ");
+				DISP_AVG(344,239,"    ");
+				DISP_AVG(384,239,"    ");
 			}
 			
 			DISP_AVG(104,115,pt[CH1TYPE-1]);

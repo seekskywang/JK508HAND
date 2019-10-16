@@ -44,6 +44,9 @@
 ..\..\output\stm32f4xx_it.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 ..\..\output\stm32f4xx_it.o: ..\..\User\jk508.h
 ..\..\output\stm32f4xx_it.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+..\..\output\stm32f4xx_it.o: ..\..\User\FATFS\ff.h
+..\..\output\stm32f4xx_it.o: ..\..\User\FATFS\integer.h
+..\..\output\stm32f4xx_it.o: ..\..\User\FATFS\ffconf.h
 ..\..\output\stm32f4xx_it.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 ..\..\output\stm32f4xx_it.o: ..\..\USBD_FS_Lib\USBD_inc\usb_core.h
 ..\..\output\stm32f4xx_it.o: ..\..\USBD_FS_Lib\USBD_inc\usb_conf.h
