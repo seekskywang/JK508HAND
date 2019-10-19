@@ -3,7 +3,7 @@
 <title>Static Call Graph - [..\..\Output\LCD.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\..\Output\LCD.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Fri Oct 11 08:32:40 2019
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Fri Oct 18 10:15:38 2019
 <BR><P>
 <H3>Maximum Stack Usage =       1604 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1444,40 +1444,40 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f429_439xx.o(RESET)
 </UL>
 <P><STRONG><a name="[20c]"></a>DMA_ClearFlag</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, stm32f4xx_dma.o(i.DMA_ClearFlag))
-<BR><BR>[Called By]<UL><LI><a href="#[210]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_TxConfig
-<LI><a href="#[20b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_RxConfig
+<BR><BR>[Called By]<UL><LI><a href="#[20b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_RxConfig
 <LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_ProcessDMAIRQ
+<LI><a href="#[210]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_TxConfig
 </UL>
 
 <P><STRONG><a name="[1ec]"></a>DMA_Cmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_dma.o(i.DMA_Cmd))
-<BR><BR>[Called By]<UL><LI><a href="#[210]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_TxConfig
-<LI><a href="#[20b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_RxConfig
+<BR><BR>[Called By]<UL><LI><a href="#[20b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_RxConfig
 <LI><a href="#[1ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Rheostat_ADC_Mode_Config
+<LI><a href="#[210]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_TxConfig
 </UL>
 
 <P><STRONG><a name="[20d]"></a>DMA_DeInit</STRONG> (Thumb, 272 bytes, Stack size 28 bytes, stm32f4xx_dma.o(i.DMA_DeInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = DMA_DeInit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[210]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_TxConfig
-<LI><a href="#[20b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_RxConfig
+<BR>[Called By]<UL><LI><a href="#[20b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_RxConfig
+<LI><a href="#[210]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_TxConfig
 </UL>
 
 <P><STRONG><a name="[20f]"></a>DMA_FlowControllerConfig</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_dma.o(i.DMA_FlowControllerConfig))
-<BR><BR>[Called By]<UL><LI><a href="#[210]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_TxConfig
-<LI><a href="#[20b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_RxConfig
+<BR><BR>[Called By]<UL><LI><a href="#[20b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_RxConfig
+<LI><a href="#[210]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_TxConfig
 </UL>
 
 <P><STRONG><a name="[20e]"></a>DMA_ITConfig</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, stm32f4xx_dma.o(i.DMA_ITConfig))
-<BR><BR>[Called By]<UL><LI><a href="#[210]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_TxConfig
-<LI><a href="#[20b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_RxConfig
+<BR><BR>[Called By]<UL><LI><a href="#[20b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_RxConfig
+<LI><a href="#[210]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_TxConfig
 </UL>
 
 <P><STRONG><a name="[1eb]"></a>DMA_Init</STRONG> (Thumb, 80 bytes, Stack size 12 bytes, stm32f4xx_dma.o(i.DMA_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = DMA_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[210]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_TxConfig
-<LI><a href="#[20b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_RxConfig
+<BR>[Called By]<UL><LI><a href="#[20b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_RxConfig
 <LI><a href="#[1ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Rheostat_ADC_Mode_Config
+<LI><a href="#[210]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_TxConfig
 </UL>
 
 <P><STRONG><a name="[127]"></a>DOT_HANDLE</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, bsp_key.o(i.DOT_HANDLE))
@@ -3393,8 +3393,8 @@ Global Symbols
 <LI><a href="#[175]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minus_hour
 </UL>
 
-<P><STRONG><a name="[1e4]"></a>RTC_TimeAndDate_Set</STRONG> (Thumb, 90 bytes, Stack size 24 bytes, bsp_rtc.o(i.RTC_TimeAndDate_Set))
-<BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = RTC_TimeAndDate_Set &rArr; RTC_SetTime &rArr; RTC_WaitForSynchro
+<P><STRONG><a name="[1e4]"></a>RTC_TimeAndDate_Set</STRONG> (Thumb, 82 bytes, Stack size 16 bytes, bsp_rtc.o(i.RTC_TimeAndDate_Set))
+<BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = RTC_TimeAndDate_Set &rArr; RTC_SetTime &rArr; RTC_WaitForSynchro
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_WriteBackupRegister
 <LI><a href="#[1e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_SetTime
@@ -3403,8 +3403,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[1e6]"></a>RTC_TimeAndDate_Show</STRONG> (Thumb, 636 bytes, Stack size 152 bytes, bsp_rtc.o(i.RTC_TimeAndDate_Show))
-<BR><BR>[Stack]<UL><LI>Max Depth = 228<LI>Call Chain = RTC_TimeAndDate_Show &rArr; LCD_DisplayStringLine &rArr; LCD_DisplayChinese &rArr; LCD_DrawChinese
+<P><STRONG><a name="[1e6]"></a>RTC_TimeAndDate_Show</STRONG> (Thumb, 636 bytes, Stack size 144 bytes, bsp_rtc.o(i.RTC_TimeAndDate_Show))
+<BR><BR>[Stack]<UL><LI>Max Depth = 220<LI>Call Chain = RTC_TimeAndDate_Show &rArr; LCD_DisplayStringLine &rArr; LCD_DisplayChinese &rArr; LCD_DrawChinese
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadInputDataBit
 <LI><a href="#[1df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_GetTime
@@ -3795,8 +3795,8 @@ Global Symbols
 <LI><a href="#[215]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDIO_ITConfig
 <LI><a href="#[18a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDIO_DataConfig
 <LI><a href="#[217]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDIO_DMACmd
-<LI><a href="#[210]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_TxConfig
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CmdResp1Error
+<LI><a href="#[210]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_TxConfig
 </UL>
 <BR>[Called By]<UL><LI><a href="#[29e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;disk_write
 </UL>
@@ -5644,7 +5644,7 @@ Global Symbols
 <LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
 </UL>
 
-<P><STRONG><a name="[173]"></a>minus_day</STRONG> (Thumb, 58 bytes, Stack size 8 bytes, bsp_key.o(i.minus_day))
+<P><STRONG><a name="[173]"></a>minus_day</STRONG> (Thumb, 56 bytes, Stack size 8 bytes, bsp_key.o(i.minus_day))
 <BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = minus_day &rArr; RTC_SetDate &rArr; RTC_WaitForSynchro
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_WriteBackupRegister
@@ -5654,7 +5654,7 @@ Global Symbols
 <LI><a href="#[171]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC2_HANDLE
 </UL>
 
-<P><STRONG><a name="[175]"></a>minus_hour</STRONG> (Thumb, 64 bytes, Stack size 8 bytes, bsp_key.o(i.minus_hour))
+<P><STRONG><a name="[175]"></a>minus_hour</STRONG> (Thumb, 60 bytes, Stack size 8 bytes, bsp_key.o(i.minus_hour))
 <BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = minus_hour &rArr; RTC_SetTime &rArr; RTC_WaitForSynchro
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_WriteBackupRegister
@@ -5664,7 +5664,7 @@ Global Symbols
 <LI><a href="#[171]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC2_HANDLE
 </UL>
 
-<P><STRONG><a name="[17f]"></a>minus_min</STRONG> (Thumb, 64 bytes, Stack size 8 bytes, bsp_key.o(i.minus_min))
+<P><STRONG><a name="[17f]"></a>minus_min</STRONG> (Thumb, 60 bytes, Stack size 8 bytes, bsp_key.o(i.minus_min))
 <BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = minus_min &rArr; RTC_SetTime &rArr; RTC_WaitForSynchro
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_WriteBackupRegister
@@ -5674,7 +5674,7 @@ Global Symbols
 <LI><a href="#[17d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC4_HANDLE
 </UL>
 
-<P><STRONG><a name="[17e]"></a>minus_mon</STRONG> (Thumb, 58 bytes, Stack size 8 bytes, bsp_key.o(i.minus_mon))
+<P><STRONG><a name="[17e]"></a>minus_mon</STRONG> (Thumb, 56 bytes, Stack size 8 bytes, bsp_key.o(i.minus_mon))
 <BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = minus_mon &rArr; RTC_SetDate &rArr; RTC_WaitForSynchro
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_WriteBackupRegister
@@ -5684,7 +5684,7 @@ Global Symbols
 <LI><a href="#[17d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC4_HANDLE
 </UL>
 
-<P><STRONG><a name="[172]"></a>minus_sec</STRONG> (Thumb, 64 bytes, Stack size 8 bytes, bsp_key.o(i.minus_sec))
+<P><STRONG><a name="[172]"></a>minus_sec</STRONG> (Thumb, 60 bytes, Stack size 8 bytes, bsp_key.o(i.minus_sec))
 <BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = minus_sec &rArr; RTC_SetTime &rArr; RTC_WaitForSynchro
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_WriteBackupRegister
@@ -5694,7 +5694,7 @@ Global Symbols
 <LI><a href="#[171]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC2_HANDLE
 </UL>
 
-<P><STRONG><a name="[174]"></a>minus_year</STRONG> (Thumb, 58 bytes, Stack size 8 bytes, bsp_key.o(i.minus_year))
+<P><STRONG><a name="[174]"></a>minus_year</STRONG> (Thumb, 56 bytes, Stack size 8 bytes, bsp_key.o(i.minus_year))
 <BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = minus_year &rArr; RTC_SetDate &rArr; RTC_WaitForSynchro
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_WriteBackupRegister
@@ -5948,7 +5948,7 @@ Global Symbols
 <LI><a href="#[183]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC5_HANDLE
 </UL>
 
-<P><STRONG><a name="[16c]"></a>plus_day</STRONG> (Thumb, 58 bytes, Stack size 8 bytes, bsp_key.o(i.plus_day))
+<P><STRONG><a name="[16c]"></a>plus_day</STRONG> (Thumb, 56 bytes, Stack size 8 bytes, bsp_key.o(i.plus_day))
 <BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = plus_day &rArr; RTC_SetDate &rArr; RTC_WaitForSynchro
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_WriteBackupRegister
@@ -5958,7 +5958,7 @@ Global Symbols
 <LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC1_HANDLE
 </UL>
 
-<P><STRONG><a name="[16e]"></a>plus_hour</STRONG> (Thumb, 62 bytes, Stack size 8 bytes, bsp_key.o(i.plus_hour))
+<P><STRONG><a name="[16e]"></a>plus_hour</STRONG> (Thumb, 58 bytes, Stack size 8 bytes, bsp_key.o(i.plus_hour))
 <BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = plus_hour &rArr; RTC_SetTime &rArr; RTC_WaitForSynchro
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_WriteBackupRegister
@@ -5968,7 +5968,7 @@ Global Symbols
 <LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC1_HANDLE
 </UL>
 
-<P><STRONG><a name="[17b]"></a>plus_min</STRONG> (Thumb, 62 bytes, Stack size 8 bytes, bsp_key.o(i.plus_min))
+<P><STRONG><a name="[17b]"></a>plus_min</STRONG> (Thumb, 58 bytes, Stack size 8 bytes, bsp_key.o(i.plus_min))
 <BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = plus_min &rArr; RTC_SetTime &rArr; RTC_WaitForSynchro
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_WriteBackupRegister
@@ -5978,7 +5978,7 @@ Global Symbols
 <LI><a href="#[179]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC3_HANDLE
 </UL>
 
-<P><STRONG><a name="[17a]"></a>plus_mon</STRONG> (Thumb, 58 bytes, Stack size 8 bytes, bsp_key.o(i.plus_mon))
+<P><STRONG><a name="[17a]"></a>plus_mon</STRONG> (Thumb, 56 bytes, Stack size 8 bytes, bsp_key.o(i.plus_mon))
 <BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = plus_mon &rArr; RTC_SetDate &rArr; RTC_WaitForSynchro
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_WriteBackupRegister
@@ -5988,7 +5988,7 @@ Global Symbols
 <LI><a href="#[179]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC3_HANDLE
 </UL>
 
-<P><STRONG><a name="[169]"></a>plus_sec</STRONG> (Thumb, 62 bytes, Stack size 8 bytes, bsp_key.o(i.plus_sec))
+<P><STRONG><a name="[169]"></a>plus_sec</STRONG> (Thumb, 58 bytes, Stack size 8 bytes, bsp_key.o(i.plus_sec))
 <BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = plus_sec &rArr; RTC_SetTime &rArr; RTC_WaitForSynchro
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_WriteBackupRegister
@@ -5998,7 +5998,7 @@ Global Symbols
 <LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC1_HANDLE
 </UL>
 
-<P><STRONG><a name="[16d]"></a>plus_year</STRONG> (Thumb, 58 bytes, Stack size 8 bytes, bsp_key.o(i.plus_year))
+<P><STRONG><a name="[16d]"></a>plus_year</STRONG> (Thumb, 56 bytes, Stack size 8 bytes, bsp_key.o(i.plus_year))
 <BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = plus_year &rArr; RTC_SetDate &rArr; RTC_WaitForSynchro
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_WriteBackupRegister

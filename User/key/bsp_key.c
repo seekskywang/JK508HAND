@@ -1069,7 +1069,7 @@ void del_sn(void)
 
 void plus_year(void)
 {
-	RTC_DateTypeDef RTC_DateStructure;
+//	RTC_DateTypeDef RTC_DateStructure;
 		
 	
 	YEAR = YEAR + 1;
@@ -1086,7 +1086,7 @@ void plus_year(void)
 
 void minus_year(void)
 {
-	RTC_DateTypeDef RTC_DateStructure;
+//	RTC_DateTypeDef RTC_DateStructure;
 		
 	
 	YEAR = YEAR - 1;
@@ -1103,7 +1103,7 @@ void minus_year(void)
 
 void plus_mon(void)
 {
-	RTC_DateTypeDef RTC_DateStructure;
+//	RTC_DateTypeDef RTC_DateStructure;
 	
 	MONTH++;
 	if(MONTH > 12)
@@ -1119,7 +1119,7 @@ void plus_mon(void)
 
 void minus_mon(void)
 {
-	RTC_DateTypeDef RTC_DateStructure;
+//	RTC_DateTypeDef RTC_DateStructure;
 	
 	MONTH--;
 	if(MONTH <1)
@@ -1129,13 +1129,13 @@ void minus_mon(void)
 	RTC_DateStructure.RTC_Date = DATE;
 	RTC_DateStructure.RTC_Month = MONTH;         
 	RTC_DateStructure.RTC_Year = YEAR;
-	RTC_SetDate(RTC_Format_BINorBCD, &RTC_DateStructure);
+	RTC_SetDate(RTC_Format_BIN, &RTC_DateStructure);
 	RTC_WriteBackupRegister(RTC_BKP_DRX, RTC_BKP_DATA);
 }
 
 void plus_day(void)
 {
-	RTC_DateTypeDef RTC_DateStructure;
+//	RTC_DateTypeDef RTC_DateStructure;
 	
 	DATE++;
 	if(DATE > 31)
@@ -1151,7 +1151,7 @@ void plus_day(void)
 
 void minus_day(void)
 {
-	RTC_DateTypeDef RTC_DateStructure;
+//	RTC_DateTypeDef RTC_DateStructure;
 	
 	DATE--;
 	if(DATE < 1)
@@ -1167,7 +1167,7 @@ void minus_day(void)
 
 void plus_hour(void)
 {
-	RTC_TimeTypeDef RTC_TimeStructure;
+//	RTC_TimeTypeDef RTC_TimeStructure;
 	
 	HOURS++;
 	if(HOURS > 23)
@@ -1185,7 +1185,7 @@ void plus_hour(void)
 
 void minus_hour(void)
 {
-	RTC_TimeTypeDef RTC_TimeStructure;
+//	RTC_TimeTypeDef RTC_TimeStructure;
 	
 	HOURS--;
 	if(HOURS == 255)
@@ -1203,7 +1203,7 @@ void minus_hour(void)
 
 void plus_min(void)
 {
-	RTC_TimeTypeDef RTC_TimeStructure;
+//	RTC_TimeTypeDef RTC_TimeStructure;
 	
 	MINUTES++;
 	if(MINUTES > 59)
@@ -1221,7 +1221,7 @@ void plus_min(void)
 
 void minus_min(void)
 {
-	RTC_TimeTypeDef RTC_TimeStructure;
+//	RTC_TimeTypeDef RTC_TimeStructure;
 	
 	MINUTES--;
 	if(MINUTES == 255)
@@ -1239,7 +1239,7 @@ void minus_min(void)
 
 void plus_sec(void)
 {
-	RTC_TimeTypeDef RTC_TimeStructure;
+//	RTC_TimeTypeDef RTC_TimeStructure;
 	
 	SECONDS++;
 	if(SECONDS > 59)
@@ -1257,7 +1257,7 @@ void plus_sec(void)
 
 void minus_sec(void)
 {
-	RTC_TimeTypeDef RTC_TimeStructure;
+//	RTC_TimeTypeDef RTC_TimeStructure;
 	
 	SECONDS--;
 	if(SECONDS == 255)

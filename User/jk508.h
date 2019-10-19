@@ -71,6 +71,8 @@ extern char SN[8];
 extern char data[17];
 extern u8 hispage;
 extern u8 dirflag;
+extern RTC_TimeTypeDef RTC_TimeStructure;
+extern RTC_DateTypeDef RTC_DateStructure;
 
 
 void page_home(void);

@@ -25,6 +25,8 @@ u8 time_buf[10][7];
 u32 rec_num = 0;
 u8 usbreadtime[7];
 u8 trigflag;
+RTC_TimeTypeDef RTC_TimeStructure;
+RTC_DateTypeDef RTC_DateStructure;
 /**
   * @brief  设置时间和日期
   * @param  无
@@ -32,8 +34,8 @@ u8 trigflag;
   */
 void RTC_TimeAndDate_Set(void)
 {
-	RTC_TimeTypeDef RTC_TimeStructure;
-	RTC_DateTypeDef RTC_DateStructure;
+//	RTC_TimeTypeDef RTC_TimeStructure;
+//	RTC_DateTypeDef RTC_DateStructure;
 	
 	// 初始化时间
 	RTC_TimeStructure.RTC_H12 = RTC_H12_AMorPM;
@@ -61,8 +63,7 @@ void RTC_TimeAndDate_Show(void)
 {
 	
 	char LCDTemp[100];
-	RTC_TimeTypeDef RTC_TimeStructure;
-	RTC_DateTypeDef RTC_DateStructure;
+	
 	uint8_t Rtctmp;
 	if(RTC_TimeStructure.RTC_Seconds != 0)
 	{
