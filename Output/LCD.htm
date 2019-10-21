@@ -3,7 +3,7 @@
 <title>Static Call Graph - [..\..\Output\LCD.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\..\Output\LCD.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Fri Oct 18 10:15:38 2019
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sat Oct 19 13:01:23 2019
 <BR><P>
 <H3>Maximum Stack Usage =       1604 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1444,40 +1444,40 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f429_439xx.o(RESET)
 </UL>
 <P><STRONG><a name="[20c]"></a>DMA_ClearFlag</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, stm32f4xx_dma.o(i.DMA_ClearFlag))
-<BR><BR>[Called By]<UL><LI><a href="#[20b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_RxConfig
-<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_ProcessDMAIRQ
+<BR><BR>[Called By]<UL><LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_ProcessDMAIRQ
 <LI><a href="#[210]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_TxConfig
+<LI><a href="#[20b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_RxConfig
 </UL>
 
 <P><STRONG><a name="[1ec]"></a>DMA_Cmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_dma.o(i.DMA_Cmd))
-<BR><BR>[Called By]<UL><LI><a href="#[20b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_RxConfig
-<LI><a href="#[1ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Rheostat_ADC_Mode_Config
+<BR><BR>[Called By]<UL><LI><a href="#[1ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Rheostat_ADC_Mode_Config
 <LI><a href="#[210]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_TxConfig
+<LI><a href="#[20b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_RxConfig
 </UL>
 
 <P><STRONG><a name="[20d]"></a>DMA_DeInit</STRONG> (Thumb, 272 bytes, Stack size 28 bytes, stm32f4xx_dma.o(i.DMA_DeInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = DMA_DeInit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[20b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_RxConfig
-<LI><a href="#[210]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_TxConfig
+<BR>[Called By]<UL><LI><a href="#[210]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_TxConfig
+<LI><a href="#[20b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_RxConfig
 </UL>
 
 <P><STRONG><a name="[20f]"></a>DMA_FlowControllerConfig</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_dma.o(i.DMA_FlowControllerConfig))
-<BR><BR>[Called By]<UL><LI><a href="#[20b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_RxConfig
-<LI><a href="#[210]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_TxConfig
+<BR><BR>[Called By]<UL><LI><a href="#[210]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_TxConfig
+<LI><a href="#[20b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_RxConfig
 </UL>
 
 <P><STRONG><a name="[20e]"></a>DMA_ITConfig</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, stm32f4xx_dma.o(i.DMA_ITConfig))
-<BR><BR>[Called By]<UL><LI><a href="#[20b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_RxConfig
-<LI><a href="#[210]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_TxConfig
+<BR><BR>[Called By]<UL><LI><a href="#[210]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_TxConfig
+<LI><a href="#[20b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_RxConfig
 </UL>
 
 <P><STRONG><a name="[1eb]"></a>DMA_Init</STRONG> (Thumb, 80 bytes, Stack size 12 bytes, stm32f4xx_dma.o(i.DMA_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = DMA_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[20b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_RxConfig
-<LI><a href="#[1ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Rheostat_ADC_Mode_Config
+<BR>[Called By]<UL><LI><a href="#[1ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Rheostat_ADC_Mode_Config
 <LI><a href="#[210]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_TxConfig
+<LI><a href="#[20b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_RxConfig
 </UL>
 
 <P><STRONG><a name="[127]"></a>DOT_HANDLE</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, bsp_key.o(i.DOT_HANDLE))
@@ -1748,8 +1748,8 @@ Global Symbols
 <LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
 </UL>
 
-<P><STRONG><a name="[12b]"></a>DrawType</STRONG> (Thumb, 210 bytes, Stack size 32 bytes, bsp_key.o(i.DrawType))
-<BR><BR>[Stack]<UL><LI>Max Depth = 148<LI>Call Chain = DrawType &rArr; DrawMenu &rArr; DrawUdisk2 &rArr; LCD_DrawFullRect &rArr; DMA2D_Init
+<P><STRONG><a name="[12b]"></a>DrawType</STRONG> (Thumb, 100 bytes, Stack size 24 bytes, bsp_key.o(i.DrawType))
+<BR><BR>[Stack]<UL><LI>Max Depth = 140<LI>Call Chain = DrawType &rArr; DrawMenu &rArr; DrawUdisk2 &rArr; LCD_DrawFullRect &rArr; DMA2D_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
 <LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetBackColor
@@ -1758,6 +1758,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UP_HANDLE
 <LI><a href="#[183]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC5_HANDLE
+<LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ENTER_HANDLE
 <LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DOWN_HANDLE
 </UL>
 
@@ -1951,7 +1952,7 @@ Global Symbols
 <LI><a href="#[183]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC5_HANDLE
 </UL>
 
-<P><STRONG><a name="[160]"></a>ENTER_HANDLE</STRONG> (Thumb, 10402 bytes, Stack size 160 bytes, bsp_key.o(i.ENTER_HANDLE))
+<P><STRONG><a name="[160]"></a>ENTER_HANDLE</STRONG> (Thumb, 10290 bytes, Stack size 160 bytes, bsp_key.o(i.ENTER_HANDLE))
 <BR><BR>[Stack]<UL><LI>Max Depth = 1580<LI>Call Chain = ENTER_HANDLE &rArr; READ_HIS &rArr; f_opendir &rArr; follow_path &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
@@ -1980,6 +1981,7 @@ Global Symbols
 <LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;minfocus_on
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;maxfocus_on
 <LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clear_input
+<LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawType
 <LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
 <LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atof
 <LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atoi
@@ -2020,8 +2022,8 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[1fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDRAM_InitSequence
 </UL>
 
-<P><STRONG><a name="[168]"></a>FUNC1_HANDLE</STRONG> (Thumb, 1742 bytes, Stack size 32 bytes, bsp_key.o(i.FUNC1_HANDLE))
-<BR><BR>[Stack]<UL><LI>Max Depth = 248<LI>Call Chain = FUNC1_HANDLE &rArr; page_home &rArr; Disp_Type &rArr; Save_flag &rArr; SPI_FLASH_BufferWrite &rArr; SPI_FLASH_PageWrite &rArr; SPI_FLASH_WaitForWriteEnd &rArr; SPI_FLASH_SendByte &rArr; SPI_TIMEOUT_UserCallback &rArr; __2printf
+<P><STRONG><a name="[168]"></a>FUNC1_HANDLE</STRONG> (Thumb, 1698 bytes, Stack size 40 bytes, bsp_key.o(i.FUNC1_HANDLE))
+<BR><BR>[Stack]<UL><LI>Max Depth = 256<LI>Call Chain = FUNC1_HANDLE &rArr; page_home &rArr; Disp_Type &rArr; Save_flag &rArr; SPI_FLASH_BufferWrite &rArr; SPI_FLASH_PageWrite &rArr; SPI_FLASH_WaitForWriteEnd &rArr; SPI_FLASH_SendByte &rArr; SPI_TIMEOUT_UserCallback &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
 <LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetBackColor
@@ -2048,7 +2050,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[1ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Function
 </UL>
 
-<P><STRONG><a name="[171]"></a>FUNC2_HANDLE</STRONG> (Thumb, 1704 bytes, Stack size 40 bytes, bsp_key.o(i.FUNC2_HANDLE))
+<P><STRONG><a name="[171]"></a>FUNC2_HANDLE</STRONG> (Thumb, 1602 bytes, Stack size 40 bytes, bsp_key.o(i.FUNC2_HANDLE))
 <BR><BR>[Stack]<UL><LI>Max Depth = 1476<LI>Call Chain = FUNC2_HANDLE &rArr; page_his &rArr; READ_HIS_FOLDER &rArr; f_opendir &rArr; follow_path &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
@@ -2078,8 +2080,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[1ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Function
 </UL>
 
-<P><STRONG><a name="[179]"></a>FUNC3_HANDLE</STRONG> (Thumb, 1312 bytes, Stack size 32 bytes, bsp_key.o(i.FUNC3_HANDLE))
-<BR><BR>[Stack]<UL><LI>Max Depth = 288<LI>Call Chain = FUNC3_HANDLE &rArr; TP_Adjust &rArr; TP_Save_Adjdata &rArr; Save_flag &rArr; SPI_FLASH_BufferWrite &rArr; SPI_FLASH_PageWrite &rArr; SPI_FLASH_WaitForWriteEnd &rArr; SPI_FLASH_SendByte &rArr; SPI_TIMEOUT_UserCallback &rArr; __2printf
+<P><STRONG><a name="[179]"></a>FUNC3_HANDLE</STRONG> (Thumb, 1302 bytes, Stack size 40 bytes, bsp_key.o(i.FUNC3_HANDLE))
+<BR><BR>[Stack]<UL><LI>Max Depth = 296<LI>Call Chain = FUNC3_HANDLE &rArr; TP_Adjust &rArr; TP_Save_Adjdata &rArr; Save_flag &rArr; SPI_FLASH_BufferWrite &rArr; SPI_FLASH_PageWrite &rArr; SPI_FLASH_WaitForWriteEnd &rArr; SPI_FLASH_SendByte &rArr; SPI_TIMEOUT_UserCallback &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
 <LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetBackColor
@@ -2105,7 +2107,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[1ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Function
 </UL>
 
-<P><STRONG><a name="[17d]"></a>FUNC4_HANDLE</STRONG> (Thumb, 1104 bytes, Stack size 32 bytes, bsp_key.o(i.FUNC4_HANDLE))
+<P><STRONG><a name="[17d]"></a>FUNC4_HANDLE</STRONG> (Thumb, 1124 bytes, Stack size 32 bytes, bsp_key.o(i.FUNC4_HANDLE))
 <BR><BR>[Stack]<UL><LI>Max Depth = 212<LI>Call Chain = FUNC4_HANDLE &rArr; page_cal &rArr; maxfocus_on &rArr; DrawInstruction &rArr; LCD_DrawFullRect &rArr; DMA2D_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
@@ -2129,7 +2131,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[1ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Function
 </UL>
 
-<P><STRONG><a name="[183]"></a>FUNC5_HANDLE</STRONG> (Thumb, 8152 bytes, Stack size 40 bytes, bsp_key.o(i.FUNC5_HANDLE))
+<P><STRONG><a name="[183]"></a>FUNC5_HANDLE</STRONG> (Thumb, 7908 bytes, Stack size 40 bytes, bsp_key.o(i.FUNC5_HANDLE))
 <BR><BR>[Stack]<UL><LI>Max Depth = 1548<LI>Call Chain = FUNC5_HANDLE &rArr; Creat_New_Folder &rArr; f_mkdir &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
@@ -3536,12 +3538,12 @@ Global Symbols
 <P><STRONG><a name="[ef]"></a>SDIO_GetResponse</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, stm32f4xx_sdio.o(i.SDIO_GetResponse))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = SDIO_GetResponse
 </UL>
-<BR>[Called By]<UL><LI><a href="#[207]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_InitializeCards
-<LI><a href="#[1f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDEnWideBus
+<BR>[Called By]<UL><LI><a href="#[1f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDEnWideBus
 <LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CmdResp6Error
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CmdResp1Error
 <LI><a href="#[202]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_SendStatus
 <LI><a href="#[206]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_PowerON
+<LI><a href="#[207]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_InitializeCards
 </UL>
 
 <P><STRONG><a name="[5d]"></a>SDIO_IRQHandler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, bsp_sdio_sd.o(i.SDIO_IRQHandler))
@@ -3572,8 +3574,7 @@ Global Symbols
 <P><STRONG><a name="[189]"></a>SDIO_SendCommand</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, stm32f4xx_sdio.o(i.SDIO_SendCommand))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = SDIO_SendCommand
 </UL>
-<BR>[Called By]<UL><LI><a href="#[207]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_InitializeCards
-<LI><a href="#[1f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDEnWideBus
+<BR>[Called By]<UL><LI><a href="#[1f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDEnWideBus
 <LI><a href="#[188]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FindSCR
 <LI><a href="#[21b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_WriteMultiBlocks
 <LI><a href="#[218]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_StopTransfer
@@ -3581,6 +3582,7 @@ Global Symbols
 <LI><a href="#[209]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_SelectDeselect
 <LI><a href="#[216]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_ReadMultiBlocks
 <LI><a href="#[206]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_PowerON
+<LI><a href="#[207]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_InitializeCards
 </UL>
 
 <P><STRONG><a name="[211]"></a>SDIO_SetPowerState</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f4xx_sdio.o(i.SDIO_SetPowerState))
@@ -3638,12 +3640,12 @@ Global Symbols
 <LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_Init
 <LI><a href="#[200]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDIO_Init
 <LI><a href="#[1f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDIO_DeInit
-<LI><a href="#[207]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_InitializeCards
 <LI><a href="#[208]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_GetCardInfo
 <LI><a href="#[1ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_EnableWideBusOperation
 <LI><a href="#[209]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_SelectDeselect
 <LI><a href="#[206]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_PowerON
 <LI><a href="#[205]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_Init
+<LI><a href="#[207]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_InitializeCards
 </UL>
 <BR>[Called By]<UL><LI><a href="#[29a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;disk_initialize
 </UL>
@@ -3735,8 +3737,8 @@ Global Symbols
 <LI><a href="#[215]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDIO_ITConfig
 <LI><a href="#[18a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDIO_DataConfig
 <LI><a href="#[217]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDIO_DMACmd
-<LI><a href="#[20b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_RxConfig
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CmdResp1Error
+<LI><a href="#[20b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_LowLevel_DMA_RxConfig
 </UL>
 <BR>[Called By]<UL><LI><a href="#[29c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;disk_read
 </UL>

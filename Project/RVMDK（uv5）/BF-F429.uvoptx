@@ -120,6 +120,7 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>DLGUARM</Key>
+          <Name>猬鮲磥?磥?趏竤</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -560,6 +561,11 @@
           <count>16</count>
           <WinNumber>2</WinNumber>
           <ItemText>RTC_DateStructure.RTC_Date,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>17</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>dim_time,0x0A</ItemText>
         </Ww>
       </WatchWindow2>
       <MemoryWindow4>

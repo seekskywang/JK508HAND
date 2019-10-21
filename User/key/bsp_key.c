@@ -173,6 +173,31 @@ extern union
    }BIT_FLAG;
 }FLAG8;
 
+const uint8_t TC_Menu[][6]=
+{
+	{"TC-K"},
+	{"TC-J"},
+	{"TC-N"},
+	{"TC-E"},
+	{"TC-S"},
+	{"TC-R"},
+	{"TC-B"},
+	{"PT100"},
+	{"1~5V"},
+	{"    "},
+	{"    "},
+	{"    "},
+//	{"PT"},
+//	{"1~5V"},
+//	{" "},
+//	{"1V"},
+//	{"1V"},
+//	{"1V"},
+//	{"18"},
+//	{"AM"},
+};
+
+
 /// 不精确的延时
 void Key_Delay(__IO u32 nCount)
 {
@@ -207,47 +232,23 @@ void Key_Delay(__IO u32 nCount)
 
 void DrawType(u8 p)
 {
-	if(p == 1)
+	u8 i;
+	const u8 (*pt)[6];
+	pt = TC_Menu;
+	
+	DrawMenu();//重绘菜单栏
+	LCD_SetTextColor(LCD_COLOR_YELLOW);
+	LCD_SetBackColor(LCD_COLOR_BLACK);
+	for(i=0;i<4;i++)
 	{
-		DrawMenu();//重绘菜单栏
-		LCD_SetTextColor(LCD_COLOR_YELLOW);
-		LCD_SetBackColor(LCD_COLOR_BLACK);
-		LCD_DisplayStringLine(450,35,"TC-T");
-		LCD_DisplayStringLine(450,157,"TC-K");
-		LCD_DisplayStringLine(450,295,"TC-J");
-		LCD_DisplayStringLine(450,420,"TC-N");
-		if(LANG == chs)
-		{
-			LCD_DisplayStringLine(450,550,"更多");
-		}else{
-			LCD_DisplayStringLine(450,550,"MORE");
-		}
-	}else if(p == 2){
-		DrawMenu();//重绘菜单栏
-		LCD_SetTextColor(LCD_COLOR_YELLOW);
-		LCD_SetBackColor(LCD_COLOR_BLACK);
-		LCD_DisplayStringLine(450,35,"TC-E");
-		LCD_DisplayStringLine(450,157,"TC-S");
-		LCD_DisplayStringLine(450,295,"TC-R");
-		LCD_DisplayStringLine(450,420,"TC-B");
-		if(LANG == chs)
-		{
-			LCD_DisplayStringLine(450,550,"更多");
-		}else{
-			LCD_DisplayStringLine(450,550,"MORE");
-		}
-	}else if(p == 3){
-		DrawMenu();//重绘菜单栏
-		LCD_SetTextColor(LCD_COLOR_YELLOW);
-		LCD_SetBackColor(LCD_COLOR_BLACK);
-		LCD_DisplayStringLine(450,35,"PT100");
-		LCD_DisplayStringLine(450,157,"1~5V");
-		if(LANG == chs)
-		{
-			LCD_DisplayStringLine(450,550,"更多");
-		}else{
-			LCD_DisplayStringLine(450,550,"MORE");
-		}
+		LCD_DisplayStringLine(450,35+i*120,(uint8_t *)pt[i+4*(p-1)]);
+	}
+
+	if(LANG == chs)
+	{
+		LCD_DisplayStringLine(450,550,"更多");
+	}else{
+		LCD_DisplayStringLine(450,550,"MORE");
 	}
 	tcpage = p;
 }
@@ -2119,6 +2120,9 @@ void Key_Function(void)
 /*按键功能函数FUNC_1*/
 void FUNC1_HANDLE(void)
 {
+	const u8 (*pt)[6];
+	pt = TC_Menu;
+	
 	switch(page_flag)
 	{
 		case factory:
@@ -2136,10 +2140,10 @@ void FUNC1_HANDLE(void)
 					LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BLUE);
 					LCD_DrawFullRect(96,47,100,31);
 					LCD_SetTextColor(LCD_COLOR_BLACK);
-					LCD_SetBackColor(LCD_COLOR_YELLOW);					
-					LCD_DisplayStringLine(47,100,"TC-T");
+					LCD_SetBackColor(LCD_COLOR_YELLOW);										
 					op_flag = home_type;
-					TCTYPE = TCT;
+					TCTYPE = TCK;
+					LCD_DisplayStringLine(47,100,(uint8_t *)pt[TCTYPE-2]);
 					Save_flag();
 					tcflag = TCTYPE+1;
 					}break;
@@ -2151,9 +2155,9 @@ void FUNC1_HANDLE(void)
 					LCD_DrawFullRect(96,47,100,31);
 					LCD_SetTextColor(LCD_COLOR_BLACK);
 					LCD_SetBackColor(LCD_COLOR_YELLOW);
-					LCD_DisplayStringLine(47,100,"TC-E");
 					op_flag = home_type;
-					TCTYPE = TCE;
+					TCTYPE = TCS;
+					LCD_DisplayStringLine(47,100,(uint8_t *)pt[TCTYPE-2]);
 					Save_flag();
 					tcflag = TCTYPE+1;					
 				}break;
@@ -2165,9 +2169,9 @@ void FUNC1_HANDLE(void)
 					LCD_DrawFullRect(96,47,100,31);
 					LCD_SetTextColor(LCD_COLOR_BLACK);
 					LCD_SetBackColor(LCD_COLOR_YELLOW);
-					LCD_DisplayStringLine(47,100,"PT100");
 					op_flag = home_type;
-					TCTYPE = PT100;
+					TCTYPE = V1;
+					LCD_DisplayStringLine(47,100,(uint8_t *)pt[TCTYPE-3]);
 					Save_flag();
 					tcflag = TCTYPE+1;
 				}break;
@@ -2749,6 +2753,8 @@ void FUNC1_HANDLE(void)
 /*按键功能函数FUNC_2*/
 void FUNC2_HANDLE(void)
 {
+	const u8 (*pt)[6];
+	pt = TC_Menu;
 	switch(page_flag)
 	{
 		case display:
@@ -2763,9 +2769,9 @@ void FUNC2_HANDLE(void)
 					LCD_DrawFullRect(96,47,100,31);
 					LCD_SetTextColor(LCD_COLOR_BLACK);
 					LCD_SetBackColor(LCD_COLOR_YELLOW);
-					LCD_DisplayStringLine(47,100,"TC-K");
 					op_flag = home_type;
-					TCTYPE = TCK;
+					TCTYPE = TCJ;
+					LCD_DisplayStringLine(47,100,(uint8_t *)pt[TCTYPE-2]);
 					Save_flag();
 					tcflag = TCTYPE+1;
 				}break;
@@ -2777,23 +2783,9 @@ void FUNC2_HANDLE(void)
 					LCD_DrawFullRect(96,47,100,31);
 					LCD_SetTextColor(LCD_COLOR_BLACK);
 					LCD_SetBackColor(LCD_COLOR_YELLOW);
-					LCD_DisplayStringLine(47,100,"TC-S");
 					op_flag = home_type;
-					TCTYPE = TCS;
-					Save_flag();
-					tcflag = TCTYPE+1;
-				}break;
-				case type_3:
-				{
-					DrawMenu();//重绘菜单栏
-					Drawhomemenu();
-					LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BLUE);
-					LCD_DrawFullRect(96,47,100,31);
-					LCD_SetTextColor(LCD_COLOR_BLACK);
-					LCD_SetBackColor(LCD_COLOR_YELLOW);
-					LCD_DisplayStringLine(47,100,"1~5V");
-					op_flag = home_type;
-					TCTYPE = V1;
+					TCTYPE = TCR;
+					LCD_DisplayStringLine(47,100,(uint8_t *)pt[TCTYPE-2]);
 					Save_flag();
 					tcflag = TCTYPE+1;
 				}break;
@@ -3370,6 +3362,8 @@ void FUNC2_HANDLE(void)
 /*按键功能函数FUNC_3*/
 void FUNC3_HANDLE(void)
 {
+	const u8 (*pt)[6];
+	pt = TC_Menu;
 	switch(page_flag)
 	{
 		case display:
@@ -3384,9 +3378,9 @@ void FUNC3_HANDLE(void)
 					LCD_DrawFullRect(96,47,100,31);
 					LCD_SetTextColor(LCD_COLOR_BLACK);
 					LCD_SetBackColor(LCD_COLOR_YELLOW);
-					LCD_DisplayStringLine(47,100,"TC-J");
 					op_flag = home_type;
-					TCTYPE = TCJ;
+					TCTYPE = TCN;
+					LCD_DisplayStringLine(47,100,(uint8_t *)pt[TCTYPE-2]);
 					Save_flag();
 					tcflag = TCTYPE+1;
 				}break;
@@ -3398,9 +3392,9 @@ void FUNC3_HANDLE(void)
 					LCD_DrawFullRect(96,47,100,31);
 					LCD_SetTextColor(LCD_COLOR_BLACK);
 					LCD_SetBackColor(LCD_COLOR_YELLOW);
-					LCD_DisplayStringLine(47,100,"TC-R");
 					op_flag = home_type;
-					TCTYPE = TCR;
+					TCTYPE = TCB;
+					LCD_DisplayStringLine(47,100,(uint8_t *)pt[TCTYPE-2]);
 					Save_flag();
 					tcflag = TCTYPE+1;
 				}break;
@@ -3873,6 +3867,8 @@ void FUNC3_HANDLE(void)
 /*按键功能函数FUNC_4*/
 void FUNC4_HANDLE(void)
 {
+	const u8 (*pt)[6];
+	pt = TC_Menu;
 	switch(page_flag)
 	{
 		case display:
@@ -3887,9 +3883,9 @@ void FUNC4_HANDLE(void)
 					LCD_DrawFullRect(96,47,100,31);
 					LCD_SetTextColor(LCD_COLOR_BLACK);
 					LCD_SetBackColor(LCD_COLOR_YELLOW);
-					LCD_DisplayStringLine(47,100,"TC-N");
 					op_flag = home_type;
-					TCTYPE = TCN;
+					TCTYPE = TCE;
+					LCD_DisplayStringLine(47,100,(uint8_t *)pt[TCTYPE-2]);
 					Save_flag();
 					tcflag = TCTYPE+1;
 				}break;
@@ -3901,9 +3897,9 @@ void FUNC4_HANDLE(void)
 					LCD_DrawFullRect(96,47,100,31);
 					LCD_SetTextColor(LCD_COLOR_BLACK);
 					LCD_SetBackColor(LCD_COLOR_YELLOW);
-					LCD_DisplayStringLine(47,100,"TC-B");
 					op_flag = home_type;
-					TCTYPE = TCB;
+					TCTYPE = PT100;
+					LCD_DisplayStringLine(47,100,(uint8_t *)pt[TCTYPE-2]);
 					Save_flag();
 					tcflag = TCTYPE+1;
 				}break;
@@ -4324,51 +4320,30 @@ void FUNC5_HANDLE(void)
 			{
 				case type_1:
 				{
-					DrawMenu();//重绘菜单栏
-					LCD_SetTextColor(LCD_COLOR_YELLOW);
-					LCD_SetBackColor(LCD_COLOR_BLACK);
-					LCD_DisplayStringLine(450,35,"TC-E");
-					LCD_DisplayStringLine(450,157,"TC-S");
-					LCD_DisplayStringLine(450,295,"TC-R");
-					LCD_DisplayStringLine(450,420,"TC-B");
-					if(LANG == chs)
-					{
-						LCD_DisplayStringLine(450,550,"更多");
-					}else{
-						LCD_DisplayStringLine(450,550,"MORE");
-					}
+					DrawType(2);
+//					DrawMenu();//重绘菜单栏
+//					LCD_SetTextColor(LCD_COLOR_YELLOW);
+//					LCD_SetBackColor(LCD_COLOR_BLACK);
+//					LCD_DisplayStringLine(450,35,"TC-E");
+//					LCD_DisplayStringLine(450,157,"TC-S");
+//					LCD_DisplayStringLine(450,295,"TC-R");
+//					LCD_DisplayStringLine(450,420,"TC-B");
+//					if(LANG == chs)
+//					{
+//						LCD_DisplayStringLine(450,550,"更多");
+//					}else{
+//						LCD_DisplayStringLine(450,550,"MORE");
+//					}
 					op_flag = type_2;						
 				}break;
 				case type_2:
 				{
-					DrawMenu();//重绘菜单栏
-					LCD_SetTextColor(LCD_COLOR_YELLOW);
-					LCD_SetBackColor(LCD_COLOR_BLACK);
-					LCD_DisplayStringLine(450,35,"PT100");
-					LCD_DisplayStringLine(450,157,"1~5V");
-					if(LANG == chs)
-					{
-						LCD_DisplayStringLine(450,550,"更多");
-					}else{
-						LCD_DisplayStringLine(450,550,"MORE");
-					}
+					DrawType(3);
 					op_flag = type_3;						
 				}break;
 				case type_3:
 				{
-					DrawMenu();//重绘菜单栏
-					LCD_SetTextColor(LCD_COLOR_YELLOW);
-					LCD_SetBackColor(LCD_COLOR_BLACK);
-					LCD_DisplayStringLine(450,35,"TC-T");
-					LCD_DisplayStringLine(450,157,"TC-K");
-					LCD_DisplayStringLine(450,295,"TC-J");
-					LCD_DisplayStringLine(450,420,"TC-N");
-					if(LANG == chs)
-					{
-						LCD_DisplayStringLine(450,550,"更多");
-					}else{
-						LCD_DisplayStringLine(450,550,"MORE");
-					}
+					DrawType(1);
 					op_flag = type_1;						
 				}break;
 				case home_ch1:
@@ -6195,19 +6170,20 @@ void ENTER_HANDLE(void)
 			{
 				case home_type:
 				{
-					DrawMenu();//重绘菜单栏
-					LCD_SetTextColor(LCD_COLOR_YELLOW);
-					LCD_SetBackColor(LCD_COLOR_BLACK);
-					LCD_DisplayStringLine(450,35,"TC-T");
-					LCD_DisplayStringLine(450,157,"TC-K");
-					LCD_DisplayStringLine(450,295,"TC-J");
-					LCD_DisplayStringLine(450,420,"TC-N");
-					if(LANG == chs)
-					{
-						LCD_DisplayStringLine(450,550,"更多");
-					}else{
-						LCD_DisplayStringLine(450,550,"MORE");
-					}
+					DrawType(1);
+//					DrawMenu();//重绘菜单栏
+//					LCD_SetTextColor(LCD_COLOR_YELLOW);
+//					LCD_SetBackColor(LCD_COLOR_BLACK);
+//					LCD_DisplayStringLine(450,35,"TC-T");
+//					LCD_DisplayStringLine(450,157,"TC-K");
+//					LCD_DisplayStringLine(450,295,"TC-J");
+//					LCD_DisplayStringLine(450,420,"TC-N");
+//					if(LANG == chs)
+//					{
+//						LCD_DisplayStringLine(450,550,"更多");
+//					}else{
+//						LCD_DisplayStringLine(450,550,"MORE");
+//					}
 					op_flag = type_1;
 				}break;
 				case set_font:
