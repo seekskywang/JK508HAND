@@ -727,11 +727,11 @@ extern Touch_save_Typedef    Touch_save;
 #define BIGCH2Y1		160			
 #define BIGCH2Y2		210
 
-#define BIGCH3Y1		230			
-#define BIGCH3Y2		280
+#define BIGCH3Y1		240			
+#define BIGCH3Y2		290
 
-#define BIGCH4Y1		300			
-#define BIGCH4Y2		350
+#define BIGCH4Y1		330			
+#define BIGCH4Y2		380
 
 /*中字体*/
 //左列横坐标

@@ -3,7 +3,7 @@
 <title>Static Call Graph - [..\..\Output\LCD.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\..\Output\LCD.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sat Oct 19 13:01:23 2019
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Fri Oct 25 08:22:50 2019
 <BR><P>
 <H3>Maximum Stack Usage =       1604 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -793,7 +793,7 @@ Global Symbols
 <P><STRONG><a name="[2c6]"></a>__decompress1</STRONG> (Thumb, 86 bytes, Stack size unknown bytes, __dczerorl2.o(.text), UNUSED)
 
 <P><STRONG><a name="[b3]"></a>ACC_HANDLE</STRONG> (Thumb, 100 bytes, Stack size 8 bytes, bsp_key.o(i.ACC_HANDLE))
-<BR><BR>[Stack]<UL><LI>Max Depth = 264<LI>Call Chain = ACC_HANDLE &rArr; TP_Adjust &rArr; TP_Save_Adjdata &rArr; Save_flag &rArr; SPI_FLASH_BufferWrite &rArr; SPI_FLASH_PageWrite &rArr; SPI_FLASH_WaitForWriteEnd &rArr; SPI_FLASH_SendByte &rArr; SPI_TIMEOUT_UserCallback &rArr; __2printf
+<BR><BR>[Stack]<UL><LI>Max Depth = 256<LI>Call Chain = ACC_HANDLE &rArr; TP_Adjust &rArr; TP_Save_Adjdata &rArr; Save_flag &rArr; SPI_FLASH_BufferWrite &rArr; SPI_FLASH_PageWrite &rArr; SPI_FLASH_WaitForWriteEnd &rArr; SPI_FLASH_SendByte &rArr; SPI_TIMEOUT_UserCallback &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_home
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Save_flag
@@ -1567,7 +1567,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_factory
 </UL>
 
-<P><STRONG><a name="[13f]"></a>Disp_Type</STRONG> (Thumb, 1562 bytes, Stack size 40 bytes, home.o(i.Disp_Type))
+<P><STRONG><a name="[13f]"></a>Disp_Type</STRONG> (Thumb, 1534 bytes, Stack size 40 bytes, home.o(i.Disp_Type))
 <BR><BR>[Stack]<UL><LI>Max Depth = 176<LI>Call Chain = Disp_Type &rArr; Save_flag &rArr; SPI_FLASH_BufferWrite &rArr; SPI_FLASH_PageWrite &rArr; SPI_FLASH_WaitForWriteEnd &rArr; SPI_FLASH_SendByte &rArr; SPI_TIMEOUT_UserCallback &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
@@ -2022,7 +2022,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[1fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDRAM_InitSequence
 </UL>
 
-<P><STRONG><a name="[168]"></a>FUNC1_HANDLE</STRONG> (Thumb, 1698 bytes, Stack size 40 bytes, bsp_key.o(i.FUNC1_HANDLE))
+<P><STRONG><a name="[168]"></a>FUNC1_HANDLE</STRONG> (Thumb, 1722 bytes, Stack size 40 bytes, bsp_key.o(i.FUNC1_HANDLE))
 <BR><BR>[Stack]<UL><LI>Max Depth = 256<LI>Call Chain = FUNC1_HANDLE &rArr; page_home &rArr; Disp_Type &rArr; Save_flag &rArr; SPI_FLASH_BufferWrite &rArr; SPI_FLASH_PageWrite &rArr; SPI_FLASH_WaitForWriteEnd &rArr; SPI_FLASH_SendByte &rArr; SPI_TIMEOUT_UserCallback &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
@@ -2050,7 +2050,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[1ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Function
 </UL>
 
-<P><STRONG><a name="[171]"></a>FUNC2_HANDLE</STRONG> (Thumb, 1602 bytes, Stack size 40 bytes, bsp_key.o(i.FUNC2_HANDLE))
+<P><STRONG><a name="[171]"></a>FUNC2_HANDLE</STRONG> (Thumb, 1454 bytes, Stack size 40 bytes, bsp_key.o(i.FUNC2_HANDLE))
 <BR><BR>[Stack]<UL><LI>Max Depth = 1476<LI>Call Chain = FUNC2_HANDLE &rArr; page_his &rArr; READ_HIS_FOLDER &rArr; f_opendir &rArr; follow_path &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr;  disk_write (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
@@ -2080,8 +2080,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[1ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Function
 </UL>
 
-<P><STRONG><a name="[179]"></a>FUNC3_HANDLE</STRONG> (Thumb, 1302 bytes, Stack size 40 bytes, bsp_key.o(i.FUNC3_HANDLE))
-<BR><BR>[Stack]<UL><LI>Max Depth = 296<LI>Call Chain = FUNC3_HANDLE &rArr; TP_Adjust &rArr; TP_Save_Adjdata &rArr; Save_flag &rArr; SPI_FLASH_BufferWrite &rArr; SPI_FLASH_PageWrite &rArr; SPI_FLASH_WaitForWriteEnd &rArr; SPI_FLASH_SendByte &rArr; SPI_TIMEOUT_UserCallback &rArr; __2printf
+<P><STRONG><a name="[179]"></a>FUNC3_HANDLE</STRONG> (Thumb, 1300 bytes, Stack size 40 bytes, bsp_key.o(i.FUNC3_HANDLE))
+<BR><BR>[Stack]<UL><LI>Max Depth = 288<LI>Call Chain = FUNC3_HANDLE &rArr; TP_Adjust &rArr; TP_Save_Adjdata &rArr; Save_flag &rArr; SPI_FLASH_BufferWrite &rArr; SPI_FLASH_PageWrite &rArr; SPI_FLASH_WaitForWriteEnd &rArr; SPI_FLASH_SendByte &rArr; SPI_TIMEOUT_UserCallback &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
 <LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetBackColor
@@ -2107,7 +2107,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[1ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Function
 </UL>
 
-<P><STRONG><a name="[17d]"></a>FUNC4_HANDLE</STRONG> (Thumb, 1124 bytes, Stack size 32 bytes, bsp_key.o(i.FUNC4_HANDLE))
+<P><STRONG><a name="[17d]"></a>FUNC4_HANDLE</STRONG> (Thumb, 1090 bytes, Stack size 32 bytes, bsp_key.o(i.FUNC4_HANDLE))
 <BR><BR>[Stack]<UL><LI>Max Depth = 212<LI>Call Chain = FUNC4_HANDLE &rArr; page_cal &rArr; maxfocus_on &rArr; DrawInstruction &rArr; LCD_DrawFullRect &rArr; DMA2D_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
@@ -4182,8 +4182,8 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TP_Adjust
 </UL>
 
-<P><STRONG><a name="[2]"></a>TP_Adjust</STRONG> (Thumb, 1106 bytes, Stack size 120 bytes, touchscreen.o(i.TP_Adjust))
-<BR><BR>[Stack]<UL><LI>Max Depth = 256<LI>Call Chain = TP_Adjust &rArr; TP_Save_Adjdata &rArr; Save_flag &rArr; SPI_FLASH_BufferWrite &rArr; SPI_FLASH_PageWrite &rArr; SPI_FLASH_WaitForWriteEnd &rArr; SPI_FLASH_SendByte &rArr; SPI_TIMEOUT_UserCallback &rArr; __2printf
+<P><STRONG><a name="[2]"></a>TP_Adjust</STRONG> (Thumb, 1102 bytes, Stack size 112 bytes, touchscreen.o(i.TP_Adjust))
+<BR><BR>[Stack]<UL><LI>Max Depth = 248<LI>Call Chain = TP_Adjust &rArr; TP_Save_Adjdata &rArr; Save_flag &rArr; SPI_FLASH_BufferWrite &rArr; SPI_FLASH_PageWrite &rArr; SPI_FLASH_WaitForWriteEnd &rArr; SPI_FLASH_SendByte &rArr; SPI_TIMEOUT_UserCallback &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Clear

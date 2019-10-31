@@ -175,6 +175,7 @@ extern union
 
 const uint8_t TC_Menu[][6]=
 {
+	{"TC-T"},
 	{"TC-K"},
 	{"TC-J"},
 	{"TC-N"},
@@ -182,8 +183,7 @@ const uint8_t TC_Menu[][6]=
 	{"TC-S"},
 	{"TC-R"},
 	{"TC-B"},
-	{"PT100"},
-	{"1~5V"},
+	{"PT100"},	
 	{"    "},
 	{"    "},
 	{"    "},
@@ -2142,8 +2142,8 @@ void FUNC1_HANDLE(void)
 					LCD_SetTextColor(LCD_COLOR_BLACK);
 					LCD_SetBackColor(LCD_COLOR_YELLOW);										
 					op_flag = home_type;
-					TCTYPE = TCK;
-					LCD_DisplayStringLine(47,100,(uint8_t *)pt[TCTYPE-2]);
+					TCTYPE = TCT;
+					LCD_DisplayStringLine(47,100,(uint8_t *)pt[TCTYPE-1]);
 					Save_flag();
 					tcflag = TCTYPE+1;
 					}break;
@@ -2156,8 +2156,8 @@ void FUNC1_HANDLE(void)
 					LCD_SetTextColor(LCD_COLOR_BLACK);
 					LCD_SetBackColor(LCD_COLOR_YELLOW);
 					op_flag = home_type;
-					TCTYPE = TCS;
-					LCD_DisplayStringLine(47,100,(uint8_t *)pt[TCTYPE-2]);
+					TCTYPE = TCE;
+					LCD_DisplayStringLine(47,100,(uint8_t *)pt[TCTYPE-1]);
 					Save_flag();
 					tcflag = TCTYPE+1;					
 				}break;
@@ -2170,8 +2170,8 @@ void FUNC1_HANDLE(void)
 					LCD_SetTextColor(LCD_COLOR_BLACK);
 					LCD_SetBackColor(LCD_COLOR_YELLOW);
 					op_flag = home_type;
-					TCTYPE = V1;
-					LCD_DisplayStringLine(47,100,(uint8_t *)pt[TCTYPE-3]);
+					TCTYPE = PT100;
+					LCD_DisplayStringLine(47,100,(uint8_t *)pt[TCTYPE-1]);
 					Save_flag();
 					tcflag = TCTYPE+1;
 				}break;
@@ -2770,8 +2770,8 @@ void FUNC2_HANDLE(void)
 					LCD_SetTextColor(LCD_COLOR_BLACK);
 					LCD_SetBackColor(LCD_COLOR_YELLOW);
 					op_flag = home_type;
-					TCTYPE = TCJ;
-					LCD_DisplayStringLine(47,100,(uint8_t *)pt[TCTYPE-2]);
+					TCTYPE = TCK;
+					LCD_DisplayStringLine(47,100,(uint8_t *)pt[TCTYPE-1]);
 					Save_flag();
 					tcflag = TCTYPE+1;
 				}break;
@@ -2784,8 +2784,8 @@ void FUNC2_HANDLE(void)
 					LCD_SetTextColor(LCD_COLOR_BLACK);
 					LCD_SetBackColor(LCD_COLOR_YELLOW);
 					op_flag = home_type;
-					TCTYPE = TCR;
-					LCD_DisplayStringLine(47,100,(uint8_t *)pt[TCTYPE-2]);
+					TCTYPE = TCS;
+					LCD_DisplayStringLine(47,100,(uint8_t *)pt[TCTYPE-1]);
 					Save_flag();
 					tcflag = TCTYPE+1;
 				}break;
@@ -2820,7 +2820,7 @@ void FUNC2_HANDLE(void)
 						}else if(tcpage == 2){
 							CH1TYPE = TCS;
 						}else if(tcpage == 3){
-							CH1TYPE = V1;
+//							CH1TYPE = V1;
 						}
 					}else if(ch_page == page2){
 						if(tcpage == 1)
@@ -2829,7 +2829,7 @@ void FUNC2_HANDLE(void)
 						}else if(tcpage == 2){
 							CH9TYPE = TCS;
 						}else if(tcpage == 3){
-							CH9TYPE = V1;
+//							CH9TYPE = V1;
 						}
 					}
 					tcflag = 1;
@@ -2844,7 +2844,7 @@ void FUNC2_HANDLE(void)
 						}else if(tcpage == 2){
 							CH2TYPE = TCS;
 						}else if(tcpage == 3){
-							CH2TYPE = V1;
+//							CH2TYPE = V1;
 						}
 					}else if(ch_page == page2){
 						if(tcpage == 1)
@@ -2853,7 +2853,7 @@ void FUNC2_HANDLE(void)
 						}else if(tcpage == 2){
 							CH10TYPE = TCS;
 						}else if(tcpage == 3){
-							CH10TYPE = V1;
+//							CH10TYPE = V1;
 						}
 					}
 					tcflag = 1;
@@ -2868,7 +2868,7 @@ void FUNC2_HANDLE(void)
 						}else if(tcpage == 2){
 							CH3TYPE = TCS;
 						}else if(tcpage == 3){
-							CH3TYPE = V1;
+//							CH3TYPE = V1;
 						}
 					}else if(ch_page == page2){
 						if(tcpage == 1)
@@ -2877,7 +2877,7 @@ void FUNC2_HANDLE(void)
 						}else if(tcpage == 2){
 							CH11TYPE = TCS;
 						}else if(tcpage == 3){
-							CH11TYPE = V1;
+//							CH11TYPE = V1;
 						}
 					}
 					tcflag = 1;
@@ -2892,7 +2892,7 @@ void FUNC2_HANDLE(void)
 						}else if(tcpage == 2){
 							CH4TYPE = TCS;
 						}else if(tcpage == 3){
-							CH4TYPE = V1;
+//							CH4TYPE = V1;
 						}
 					}else if(ch_page == page2){
 						if(tcpage == 1)
@@ -2901,7 +2901,7 @@ void FUNC2_HANDLE(void)
 						}else if(tcpage == 2){
 							CH12TYPE = TCS;
 						}else if(tcpage == 3){
-							CH12TYPE = V1;
+//							CH12TYPE = V1;
 						}
 					}
 					tcflag = 1;
@@ -2916,7 +2916,7 @@ void FUNC2_HANDLE(void)
 						}else if(tcpage == 2){
 							CH5TYPE = TCS;
 						}else if(tcpage == 3){
-							CH5TYPE = V1;
+//							CH5TYPE = V1;
 						}
 					}else if(ch_page == page2){
 						if(tcpage == 1)
@@ -2925,7 +2925,7 @@ void FUNC2_HANDLE(void)
 						}else if(tcpage == 2){
 							CH13TYPE = TCS;
 						}else if(tcpage == 3){
-							CH13TYPE = V1;
+//							CH13TYPE = V1;
 						}
 					}
 					tcflag = 1;
@@ -2940,7 +2940,7 @@ void FUNC2_HANDLE(void)
 						}else if(tcpage == 2){
 							CH6TYPE = TCS;
 						}else if(tcpage == 3){
-							CH6TYPE = V1;
+//							CH6TYPE = V1;
 						}
 					}else if(ch_page == page2){
 						if(tcpage == 1)
@@ -2949,7 +2949,7 @@ void FUNC2_HANDLE(void)
 						}else if(tcpage == 2){
 							CH14TYPE = TCS;
 						}else if(tcpage == 3){
-							CH14TYPE = V1;
+//							CH14TYPE = V1;
 						}
 					}
 					tcflag = 1;
@@ -2964,7 +2964,7 @@ void FUNC2_HANDLE(void)
 						}else if(tcpage == 2){
 							CH7TYPE = TCS;
 						}else if(tcpage == 3){
-							CH7TYPE = V1;
+//							CH7TYPE = V1;
 						}
 					}else if(ch_page == page2){
 						if(tcpage == 1)
@@ -2973,7 +2973,7 @@ void FUNC2_HANDLE(void)
 						}else if(tcpage == 2){
 							CH15TYPE = TCS;
 						}else if(tcpage == 3){
-							CH15TYPE = V1;
+//							CH15TYPE = V1;
 						}
 					}
 					tcflag = 1;
@@ -2988,7 +2988,7 @@ void FUNC2_HANDLE(void)
 						}else if(tcpage == 2){
 							CH8TYPE = TCS;
 						}else if(tcpage == 3){
-							CH8TYPE = V1;
+//							CH8TYPE = V1;
 						}
 					}else if(ch_page == page2){
 						if(tcpage == 1)
@@ -2997,7 +2997,7 @@ void FUNC2_HANDLE(void)
 						}else if(tcpage == 2){
 							CH16TYPE = TCS;
 						}else if(tcpage == 3){
-							CH16TYPE = V1;
+//							CH16TYPE = V1;
 						}
 					}
 					tcflag = 1;
@@ -3012,7 +3012,7 @@ void FUNC2_HANDLE(void)
 						}else if(tcpage == 2){
 							CH9TYPE = TCS;
 						}else if(tcpage == 3){
-							CH9TYPE = V1;
+//							CH9TYPE = V1;
 						}
 					}
 					tcflag = 1;
@@ -3027,7 +3027,7 @@ void FUNC2_HANDLE(void)
 						}else if(tcpage == 2){
 							CH10TYPE = TCS;
 						}else if(tcpage == 3){
-							CH10TYPE = V1;
+//							CH10TYPE = V1;
 						}
 					}
 					tcflag = 1;
@@ -3042,7 +3042,7 @@ void FUNC2_HANDLE(void)
 						}else if(tcpage == 2){
 							CH11TYPE = TCS;
 						}else if(tcpage == 3){
-							CH11TYPE = V1;
+//							CH11TYPE = V1;
 						}
 					}
 					tcflag = 1;
@@ -3057,7 +3057,7 @@ void FUNC2_HANDLE(void)
 						}else if(tcpage == 2){
 							CH12TYPE = TCS;
 						}else if(tcpage == 3){
-							CH12TYPE = V1;
+//							CH12TYPE = V1;
 						}
 					}
 					tcflag = 1;
@@ -3072,7 +3072,7 @@ void FUNC2_HANDLE(void)
 						}else if(tcpage == 2){
 							CH13TYPE = TCS;
 						}else if(tcpage == 3){
-							CH13TYPE = V1;
+//							CH13TYPE = V1;
 						}
 					}
 					tcflag = 1;
@@ -3087,7 +3087,7 @@ void FUNC2_HANDLE(void)
 						}else if(tcpage == 2){
 							CH14TYPE = TCS;
 						}else if(tcpage == 3){
-							CH14TYPE = V1;
+//							CH14TYPE = V1;
 						}
 					}
 					tcflag = 1;
@@ -3102,7 +3102,7 @@ void FUNC2_HANDLE(void)
 						}else if(tcpage == 2){
 							CH15TYPE = TCS;
 						}else if(tcpage == 3){
-							CH15TYPE = V1;
+//							CH15TYPE = V1;
 						}
 					}
 					tcflag = 1;
@@ -3117,7 +3117,7 @@ void FUNC2_HANDLE(void)
 						}else if(tcpage == 2){
 							CH16TYPE = TCS;
 						}else if(tcpage == 3){
-							CH16TYPE = V1;
+//							CH16TYPE = V1;
 						}
 					}
 					tcflag = 1;
@@ -3379,8 +3379,8 @@ void FUNC3_HANDLE(void)
 					LCD_SetTextColor(LCD_COLOR_BLACK);
 					LCD_SetBackColor(LCD_COLOR_YELLOW);
 					op_flag = home_type;
-					TCTYPE = TCN;
-					LCD_DisplayStringLine(47,100,(uint8_t *)pt[TCTYPE-2]);
+					TCTYPE = TCJ;
+					LCD_DisplayStringLine(47,100,(uint8_t *)pt[TCTYPE-1]);
 					Save_flag();
 					tcflag = TCTYPE+1;
 				}break;
@@ -3393,8 +3393,8 @@ void FUNC3_HANDLE(void)
 					LCD_SetTextColor(LCD_COLOR_BLACK);
 					LCD_SetBackColor(LCD_COLOR_YELLOW);
 					op_flag = home_type;
-					TCTYPE = TCB;
-					LCD_DisplayStringLine(47,100,(uint8_t *)pt[TCTYPE-2]);
+					TCTYPE = TCR;
+					LCD_DisplayStringLine(47,100,(uint8_t *)pt[TCTYPE-1]);
 					Save_flag();
 					tcflag = TCTYPE+1;
 				}break;
@@ -3884,8 +3884,8 @@ void FUNC4_HANDLE(void)
 					LCD_SetTextColor(LCD_COLOR_BLACK);
 					LCD_SetBackColor(LCD_COLOR_YELLOW);
 					op_flag = home_type;
-					TCTYPE = TCE;
-					LCD_DisplayStringLine(47,100,(uint8_t *)pt[TCTYPE-2]);
+					TCTYPE = TCN;
+					LCD_DisplayStringLine(47,100,(uint8_t *)pt[TCTYPE-1]);
 					Save_flag();
 					tcflag = TCTYPE+1;
 				}break;
@@ -3898,8 +3898,8 @@ void FUNC4_HANDLE(void)
 					LCD_SetTextColor(LCD_COLOR_BLACK);
 					LCD_SetBackColor(LCD_COLOR_YELLOW);
 					op_flag = home_type;
-					TCTYPE = PT100;
-					LCD_DisplayStringLine(47,100,(uint8_t *)pt[TCTYPE-2]);
+					TCTYPE = TCB;
+					LCD_DisplayStringLine(47,100,(uint8_t *)pt[TCTYPE-1]);
 					Save_flag();
 					tcflag = TCTYPE+1;
 				}break;

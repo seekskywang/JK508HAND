@@ -529,11 +529,11 @@ void TP_Adjust(void)
 					fac=(float)d1/d2;
 					if(fac<0.95||fac>1.05)//不合格
 					{
-						cnt=0;
- 				    	TP_Drow_Touch_Point(LCD_PIXEL_WIDTH-20,LCD_PIXEL_HEIGHT,LCD_COLOR_WHITE);	//清除点4
-   	 					TP_Drow_Touch_Point(20,20,LCD_COLOR_RED);								//画点1
- 						TP_Adj_Info_Show(pos_temp[0][0],pos_temp[0][1],pos_temp[1][0],pos_temp[1][1],pos_temp[2][0],pos_temp[2][1],pos_temp[3][0],pos_temp[3][1],fac*100);//显示数据   
-						continue;
+//						cnt=0;
+// 				    	TP_Drow_Touch_Point(LCD_PIXEL_WIDTH-20,LCD_PIXEL_HEIGHT,LCD_COLOR_WHITE);	//清除点4
+//   	 					TP_Drow_Touch_Point(20,20,LCD_COLOR_RED);								//画点1
+// 						TP_Adj_Info_Show(pos_temp[0][0],pos_temp[0][1],pos_temp[1][0],pos_temp[1][1],pos_temp[2][0],pos_temp[2][1],pos_temp[3][0],pos_temp[3][1],fac*100);//显示数据   
+//						continue;
 					}//正确了
 								   
 					//对角线相等
