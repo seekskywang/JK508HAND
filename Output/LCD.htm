@@ -3,7 +3,7 @@
 <title>Static Call Graph - [..\..\Output\LCD.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\..\Output\LCD.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Mon Feb 24 15:15:19 2020
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sat May 23 14:12:45 2020
 <BR><P>
 <H3>Maximum Stack Usage =       1604 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1582,7 +1582,7 @@ Global Symbols
 <LI><a href="#[183]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC5_HANDLE
 </UL>
 
-<P><STRONG><a name="[140]"></a>DrawBattery</STRONG> (Thumb, 270 bytes, Stack size 24 bytes, bsp_lcd.o(i.DrawBattery))
+<P><STRONG><a name="[140]"></a>DrawBattery</STRONG> (Thumb, 278 bytes, Stack size 24 bytes, bsp_lcd.o(i.DrawBattery))
 <BR><BR>[Stack]<UL><LI>Max Depth = 124<LI>Call Chain = DrawBattery &rArr; DrawCharge &rArr; LCD_DrawFullRect &rArr; DMA2D_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_DrawUniLine
@@ -3562,9 +3562,9 @@ Global Symbols
 <P><STRONG><a name="[200]"></a>SDIO_Init</STRONG> (Thumb, 40 bytes, Stack size 12 bytes, stm32f4xx_sdio.o(i.SDIO_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = SDIO_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[204]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_Init
-<LI><a href="#[1ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_EnableWideBusOperation
+<BR>[Called By]<UL><LI><a href="#[1ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_EnableWideBusOperation
 <LI><a href="#[206]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_PowerON
+<LI><a href="#[204]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_Init
 </UL>
 
 <P><STRONG><a name="[18c]"></a>SDIO_ReadData</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f4xx_sdio.o(i.SDIO_ReadData))
