@@ -954,6 +954,7 @@ void DrawBattery(u8 cap)
 	static float capercent;
 	static u8 status;
 	static u8 b;
+	static u8 barlen;
 	if(page_flag != poweron && page_flag != poweroff)
 	{
 		if(charge != status || (b != cap && charge == 0x00))
@@ -963,7 +964,7 @@ void DrawBattery(u8 cap)
 		}
 		if(charge == 0x00)
 		{
-			capercent = (float)cap/100;
+			
 			LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_BACK);
 			LCD_DrawUniLine(500-48,10,500-48,30);
 			LCD_DrawUniLine(500-48,10,540-48,10);
@@ -976,8 +977,14 @@ void DrawBattery(u8 cap)
 			
 			if(cap > 0)
 			{
+				capercent = (float)cap/100;
+				barlen = (int)(37*capercent);
+				if(barlen == 0)
+				{
+					barlen = 1;
+				}
 				LCD_SetColors(LCD_COLOR_GREEN,LCD_COLOR_BACK);
-				LCD_DrawFullRect(502-48,12,(int)(37*capercent),17);
+				LCD_DrawFullRect(502-48,12,barlen,17);
 			}
 			status = 0x00;
 			b = cap;
