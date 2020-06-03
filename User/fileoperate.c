@@ -16,7 +16,8 @@ UINT fnum;            					/* 文件成功读写数量 */
 BYTE ReadBuffer[1024]={0};        /* 读缓冲区 */
 char Dirname[MAXDIR][13];
 char Filelist[MAXFILE][13];
-u8 maxhispage,dirflag;
+u8 maxhispage,dirflag,maxfilepage;
+u16 foldernum,filenum;
 //BYTE WriteBuffer[] =              /* 写缓冲区*/
 
 //加载SD卡
@@ -46,7 +47,9 @@ void READ_HIS(void)
 			res_sd = f_readdir(&dir,&hisinfo);
 			if(hisinfo.fname[0] == 0)
 			{		
+				maxfilepage = i/10+1;
 				DISP_HIS_FILE();
+				filenum = i;
 				break;
 			}
 			strncpy(Filelist[i],hisinfo.fname,13);
@@ -73,8 +76,9 @@ void READ_HIS_FOLDER(void)
 			res_sd = f_readdir(&dir,&hisinfo);
 			if(hisinfo.fname[0] == 0)
 			{
-				maxhispage = i/10;
+				maxhispage = i/10+1;
 				DISP_HIS_FOLDER();
+				foldernum = i;
 				break;
 			}
 			if(hisinfo.fattrib&AM_DIR)
@@ -113,7 +117,7 @@ void DISP_HIS_FILE(void)
 		LCD_DisplayStringLine(40+i*35,70,(uint8_t *)Filelist[i+10*(hispage-1)]);
 	}
 	LCD_SetColors(LCD_COLOR_YELLOW,LCD_COLOR_BACK);
-	sprintf(buf,"%d/%d",hispage,maxhispage);
+	sprintf(buf,"%d/%d",hispage,maxfilepage);
 	LCD_DisplayStringLine(400,500,(uint8_t *)buf);
 	page_flag = hisfile;
 }
@@ -123,7 +127,6 @@ void DISP_HIS_FOLDER(void)
 {
 	char buf[10],num[5];
 	u8 i;
-	
 	
 	for(i=0;i<10;i++)
 	{
@@ -189,7 +192,7 @@ void Create_His_File(void)
 	{	
 		DrawInstruction("创建失败");
 	}
-	READ_HIS_FOLDER();
+	DISP_HIS_FILE();
 }
 
 //格式化SD卡
@@ -225,6 +228,7 @@ void Creat_New_Folder(void)
 		DrawInstruction("失败");
 	}
 	testcount++;
+	READ_HIS_FOLDER();
 }
 
 //自动存储数据

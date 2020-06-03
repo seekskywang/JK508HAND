@@ -696,6 +696,26 @@ void Drawhishmenu(void)
 	}
 }
 
+/*历史文件页面根菜单*/
+void Drawfilemenu(void)
+{
+	LCD_SetTextColor(LCD_COLOR_BT);
+	LCD_SetBackColor(LCD_COLOR_BLACK);
+	if(LANG == chs)
+	{
+		LCD_DisplayStringLine(450,35,"打开");
+		LCD_DisplayStringLine(450,153,"返回");
+		LCD_DisplayStringLine(450,293,"上一页");
+		LCD_DisplayStringLine(450,420,"下一页");
+		LCD_DisplayStringLine(450,525,"新建文件");
+	}else{
+		LCD_DisplayStringLine(450,10,"OPEN");
+		LCD_DisplayStringLine(450,140,"BACK");
+		LCD_DisplayStringLine(450,275,"PREV");
+		LCD_DisplayStringLine(450,410,"NEXT");
+		LCD_DisplayStringLine(450,522,"NEW");
+	}
+}
 
 /*曲线设置页面根菜单*/
 void Drawgsethmenu(void)

@@ -6154,7 +6154,6 @@ void FUNC5_HANDLE(void)
 		case history:
 		{
 			Creat_New_Folder();
-//			Search_Bit();
 		}break;
 	}
 }
@@ -8466,20 +8465,6 @@ void ENTER_HANDLE(void)
 		}break;
 		case history:
 		{
-//			if(input_flag == 1)
-//			{
-//				
-//				if(atoi(data) > 1000)
-//				{
-//					clear_input();
-////					hispage(hpage);
-//				}else{
-//					hpage = atoi(data);
-//					clear_input();
-////					hispage(hpage);
-//				}
-//				
-//			}
 			READ_HIS();
 		}break;
 		case factory:
@@ -13285,7 +13270,7 @@ void DOWN_HANDLE(void)
 		}break;
 		case history:
 		{
-			if(dirflag < 10)
+			if(dirflag < foldernum)
 			{
 				dirflag++;
 			}
