@@ -47,3 +47,4 @@
 ..\..\output\bsp_lcd.o: ..\..\User\FATFS\integer.h
 ..\..\output\bsp_lcd.o: ..\..\User\FATFS\ffconf.h
 ..\..\output\bsp_lcd.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+..\..\output\bsp_lcd.o: ..\..\User\./battery/battery.h

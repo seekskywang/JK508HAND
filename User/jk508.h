@@ -74,6 +74,7 @@ extern u8 dirflag;
 extern RTC_TimeTypeDef RTC_TimeStructure;
 extern RTC_DateTypeDef RTC_DateStructure;
 extern u16 foldernum,filenum;
+extern FRESULT res_sd; 
 
 void page_home(void);
 void page_set(void);

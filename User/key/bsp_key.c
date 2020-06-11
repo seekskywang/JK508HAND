@@ -3352,6 +3352,10 @@ void FUNC2_HANDLE(void)
 		{
 			Format_SD();
 		}break;
+		case hisfile:
+		{
+			READ_HIS_FOLDER();
+		}break;
 		case calibrate:
 		{
 			page_graph();
@@ -6154,6 +6158,10 @@ void FUNC5_HANDLE(void)
 		case history:
 		{
 			Creat_New_Folder();
+		}break;
+		case hisfile:
+		{
+			Create_His_File();
 		}break;
 	}
 }

@@ -19,7 +19,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "./lcd/bsp_lcd.h"
 #include "jk508.h"
-
+#include "./battery/battery.h"
 extern union 
 {
    unsigned char FLAG_VAL7;
@@ -675,9 +675,10 @@ void Drawgraphmenu(void)
 	}
 }
 
-/*历史曲线图页面根菜单*/
+/*历史文件页面根菜单*/
 void Drawhishmenu(void)
 {
+	DrawMenu();
 	LCD_SetTextColor(LCD_COLOR_BT);
 	LCD_SetBackColor(LCD_COLOR_BLACK);
 	if(LANG == chs)
@@ -696,9 +697,10 @@ void Drawhishmenu(void)
 	}
 }
 
-/*历史文件页面根菜单*/
+/*历史文件夹页面根菜单*/
 void Drawfilemenu(void)
 {
+	DrawMenu();
 	LCD_SetTextColor(LCD_COLOR_BT);
 	LCD_SetBackColor(LCD_COLOR_BLACK);
 	if(LANG == chs)
@@ -965,6 +967,51 @@ void DrawUnit(void)
 	}else if(UNIT == K){
 		LCD_DisplayStringLine(5,400,"K");
 	}
+}
+
+void DispBattery(void)
+{
+	LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_BACK);
+	LCD_DrawUniLine(500-48-80,10,500-48-80,30);
+	LCD_DrawUniLine(500-48-80,10,540-48-80,10);
+	LCD_DrawUniLine(500-48-80,30,540-48-80,30);
+	LCD_DrawUniLine(540-48-80,10,540-48-80,15);
+	LCD_DrawUniLine(540-48-80,15,545-48-80,15);
+	LCD_DrawUniLine(545-48-80,15,545-48-80,25);
+	LCD_DrawUniLine(540-48-80,25,545-48-80,25);
+	LCD_DrawUniLine(540-48-80,25,540-48-80,30);
+	if(GPIO_ReadInputDataBit(BATCAP_PORT4,BATCAP_PIN4))
+	{
+		LCD_SetColors(LCD_COLOR_GREEN,LCD_COLOR_GREEN);
+	}else{
+		LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
+	}
+	LCD_DrawFullRect(395-20,12,7,17);
+	
+	if(GPIO_ReadInputDataBit(BATCAP_PORT3,BATCAP_PIN3))
+	{
+		LCD_SetColors(LCD_COLOR_GREEN,LCD_COLOR_GREEN);
+	}else{
+		LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
+	}
+	LCD_DrawFullRect(395+9-20,12,7,17);
+	
+	if(GPIO_ReadInputDataBit(BATCAP_PORT2,BATCAP_PIN2))
+	{
+		LCD_SetColors(LCD_COLOR_GREEN,LCD_COLOR_GREEN);
+	}else{
+		LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
+	}
+	LCD_DrawFullRect(395+18-20,12,7,17);
+	
+	if(GPIO_ReadInputDataBit(BATCAP_PORT1,BATCAP_PIN1))
+	{
+		LCD_SetColors(LCD_COLOR_GREEN,LCD_COLOR_GREEN);
+	}else{
+		LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
+	}
+	LCD_DrawFullRect(395+27-20,12,7,17);
+	
 }
 
 

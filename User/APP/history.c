@@ -83,7 +83,6 @@ void page_his(void)
 	READ_HIS_FOLDER();
 	
 	
-
 	page_flag = history;
 }
 

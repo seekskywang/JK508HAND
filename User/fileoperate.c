@@ -58,6 +58,7 @@ void READ_HIS(void)
 	}else{
 		DrawInstruction("读取历史数据失败");
 	}
+	DISP_HIS_FILE();
 	i = 0;
 }
 
@@ -90,7 +91,9 @@ void READ_HIS_FOLDER(void)
 	}else{
 		DrawInstruction("读取目录失败");
 	}
-	i = 0;	
+	i = 0;
+	Drawhishmenu();
+	page_flag = history;
 }
 
 //显示历史文件
@@ -99,11 +102,13 @@ void DISP_HIS_FILE(void)
 	char buf[10],num[5];
 	u8 i;
 	
-	LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-	LCD_DrawFullRect(10,40,100,400);
+//	LCD_SetColors(LCD_COLOR_BACK,LCD_COLO R_BACK);
+//	LCD_DrawFullRect(10,40,100,400);
 	
 	for(i=0;i<10;i++)
 	{
+		LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
+		LCD_DrawFullRect(70,40+i*35,200,32);
 		LCD_SetColors(LCD_COLOR_LIGHTBLUE,LCD_COLOR_BACK);
 		sprintf(num,"%d",i+1);
 		LCD_DisplayStringLine(40+i*35,10,(uint8_t *)num);
@@ -120,6 +125,7 @@ void DISP_HIS_FILE(void)
 	sprintf(buf,"%d/%d",hispage,maxfilepage);
 	LCD_DisplayStringLine(400,500,(uint8_t *)buf);
 	page_flag = hisfile;
+	Drawfilemenu();
 }
 
 //显示历史数据文件夹
@@ -130,6 +136,7 @@ void DISP_HIS_FOLDER(void)
 	
 	for(i=0;i<10;i++)
 	{
+
 		LCD_SetColors(LCD_COLOR_YELLOW,LCD_COLOR_BACK);
 		sprintf(num,"%d",i+1);
 		LCD_DisplayStringLine(40+i*35,10,(uint8_t *)num);
@@ -169,6 +176,7 @@ void His_Ppage(void)
 	dirflag = 1;
 	DISP_HIS_FOLDER();
 }
+
 //建立文件存储数据
 void Create_His_File(void)
 {
@@ -176,7 +184,8 @@ void Create_His_File(void)
 	static u8 i;
 	
 	memcpy ((void *)filename,"0:",2);
-	sprintf(namebuf,"%02d%02d%02d%d", 
+	strcat((char *)filename,(char *)Dirname[(hispage-1)*10+(dirflag-1)]);
+	sprintf(namebuf,"/%02d%02d%02d%d", 
 			usbreadtime[4],
 			usbreadtime[5],
 			usbreadtime[6],
@@ -189,10 +198,10 @@ void Create_His_File(void)
 		DrawInstruction("创建文件成功");
 	}
 	else
-	{	
+	{
 		DrawInstruction("创建失败");
 	}
-	DISP_HIS_FILE();
+	READ_HIS();
 }
 
 //格式化SD卡

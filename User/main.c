@@ -281,6 +281,7 @@ void JumpBoot(u8 flag)
 	}
 }
 
+
 /**
   * @brief  Ö÷º¯Êý
   * @param  ÎÞ
@@ -464,7 +465,12 @@ int main(void)
 
 	//		Touch_Scan();
 	//		CH1TEMP = (RecBuff[21] * 256 + RecBuff[22])/10.0;
-			DrawBattery(battery);
+//			DrawBattery(battery);
+			if(charge == 0x80){
+				DrawCharge();
+			}else{
+				DispBattery();
+			}
 			if(uartflag == 1)
 			{
 				if(SPEED == fast)
