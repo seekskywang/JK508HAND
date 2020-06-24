@@ -118,6 +118,7 @@ void RTC_TimeAndDate_Show(void)
 
 		if(trigflag == 1)
 		{
+
 			if(count == 0)
 			{
 				time_buf[count/50][0] = 20;

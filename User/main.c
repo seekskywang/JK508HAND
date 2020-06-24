@@ -37,6 +37,7 @@
 #include "flash_if.h"
 #include "ff.h"
 #include <string.h>
+#include "sdio/bsp_sdio_sd.h"
 
 /** @defgroup APP_HID_Private_Variables
   * @{
@@ -65,6 +66,7 @@ u16 watch;
 u16 ureadcrc;
 u8 *ucrc;
 extern u8 uartflag;
+SD_CardInfo SDINFO;
 //u8 p1,p2,p3,p4,p5,p6,p7,p8;
 //char filename[20];
 //char foldername[20];
@@ -407,12 +409,21 @@ int main(void)
 		Read_Sflag();
 		Read_Flash_Init_Handle();
 	}
-	power_on();
+//	power_on();
 //	watch = CRC16(test,9);
-//	page_home();
+	page_home();
 //	watch = sizeof(TempHLimits);
 	Touch_GPIO_Config();
 	tp_dev.init();
+	if(SD_Init() == SD_OK)//初始化SD卡
+	{
+		DrawSD2();
+	}else{
+		DrawSD1();
+	}
+	SD_GetCardInfo(&SDINFO);
+	Read_Block_Rec();
+//	BlockNum.Num[0] = 0;
 	while(1)
 	{
 
@@ -465,12 +476,12 @@ int main(void)
 
 	//		Touch_Scan();
 	//		CH1TEMP = (RecBuff[21] * 256 + RecBuff[22])/10.0;
-//			DrawBattery(battery);
-			if(charge == 0x80){
-				DrawCharge();
-			}else{
-				DispBattery();
-			}
+			DrawBattery(battery);
+//			if(charge == 0x80){
+//				DrawCharge();
+//			}else{
+//				DispBattery();
+//			}
 			if(uartflag == 1)
 			{
 				if(SPEED == fast)
@@ -744,55 +755,63 @@ void UARTRECHANDLE(void)
 		{
 			for(i=0;i<16;i++)
 			{
-				G_Data[i][count] = (graphbuf[i][0]/MULTI * 256 + graphbuf[i][1]/MULTI)/10.0 - Correction[i];							
+				G_Data[i][count] = (graphbuf[i][0]/MULTI * 256 + graphbuf[i][1]/MULTI)/10.0 - Correction[i];	
+				SaveBuffer.Temp[i][count] = G_Data[i][count];
 			}
 			if(page_flag == graph)
 			{
 				Draw_graph();
 				DrawTime();
 			}
+			SaveBuffer.Time[count][0]=20;
+			SaveBuffer.Time[count][1] = usbreadtime[1];
+			SaveBuffer.Time[count][2] = usbreadtime[2];
+			SaveBuffer.Time[count][3] = usbreadtime[3];
+			SaveBuffer.Time[count][4] = usbreadtime[4];
+			SaveBuffer.Time[count][5] = usbreadtime[5];
+			SaveBuffer.Time[count][6] = usbreadtime[6];
 //						if(page_flag != history)
 //						{
-			for(i=0;i<16;i++)
-			{
-//								savebuf = hex_to_bcd((int)(graphbuf[i]/MULTI * 10));
-				hisconv = (u16)(hisbuf[i][0]/MULTI)<<8;
-				hisconv = hisconv + hisbuf[i][1]/MULTI;
-				corconv = (u16)(Correction[i]*10);
-//								Data_buf[i][count%8 * 2] = hisbuf[i][0]/MULTI;
-//								Data_buf[i][count%8 * 2 + 1] = hisbuf[i][1]/MULTI;
-				Data_buf[i][count%8 * 2] = (u8)((hisconv - corconv)>>8);
-				Data_buf[i][count%8 * 2 + 1] = (u8)(hisconv - corconv);
-			}
-//							Save_history(1);
-			if(count > 0 && (count + 1) % 8 == 0)
-			{
-//								recflag = 1;
-				if(SECTOR_REC < 62000)
-				{
-					SECTOR_REC ++;
-					Save_history(SECTOR_REC);								
-					Save_Sflag();									
-				}else{
-					SECTOR_REC = 0;
-				}
-				
-			}
-//						}
-			if(count == 450)
-			{
-//				if(TIME_REC < 1000)
-//				{
-//					TIME_REC++;
-//					Save_time(TIME_REC);
-//					Save_Sflag();
-//				}else{
-//					TIME_REC = 0;
-//				}
-			}
+//			for(i=0;i<16;i++)
+//			{
+////								savebuf = hex_to_bcd((int)(graphbuf[i]/MULTI * 10));
+//				hisconv = (u16)(hisbuf[i][0]/MULTI)<<8;
+//				hisconv = hisconv + hisbuf[i][1]/MULTI;
+//				corconv = (u16)(Correction[i]*10);
+////								Data_buf[i][count%8 * 2] = hisbuf[i][0]/MULTI;
+////								Data_buf[i][count%8 * 2 + 1] = hisbuf[i][1]/MULTI;
+//				Data_buf[i][count%8 * 2] = (u8)((hisconv - corconv)>>8);
+//				Data_buf[i][count%8 * 2 + 1] = (u8)(hisconv - corconv);
+//			}
+////							Save_history(1);
+////			if(count > 0 && (count + 1) % 8 == 0)
+////			{
+//////								recflag = 1;
+////				if(SECTOR_REC < 62000)
+////				{
+////					SECTOR_REC ++;
+////					Save_history(SECTOR_REC);								
+////					Save_Sflag();									
+////				}else{
+////					SECTOR_REC = 0;
+////				}
+////			}
+////						}
+//			if(count == 450)
+//			{
+////				if(TIME_REC < 1000)
+////				{
+////					TIME_REC++;
+////					Save_time(TIME_REC);
+////					Save_Sflag();
+////				}else{
+////					TIME_REC = 0;
+////				}
+//			}
 			if(count > 494)
 			{
 				count = 0;
+				Write_His_Data();
 //							memcpy(hisdata,G_Data,sizeof(G_Data));
 //							memcpy(histime,time_buf,sizeof(time_buf));
 			}else{
@@ -3507,7 +3526,7 @@ void PowerOffHandle(void)
 		Save_Sflag();
 	}
 	
-}
+}	
 //计算温度平均值
 void AVGCAL(void)
 {

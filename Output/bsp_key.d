@@ -56,3 +56,4 @@
 ..\..\output\bsp_key.o: ..\..\User\FATFS\integer.h
 ..\..\output\bsp_key.o: ..\..\User\FATFS\ffconf.h
 ..\..\output\bsp_key.o: ..\..\User\./usart/bsp_debug_usart.h
+..\..\output\bsp_key.o: ..\..\User\sdio/bsp_sdio_sd.h

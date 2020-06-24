@@ -74,3 +74,4 @@
 ..\..\output\main.o: ..\..\User\./ch376/ch376.h
 ..\..\output\main.o: ..\..\User\flash_if.h
 ..\..\output\main.o: ..\..\User\flash_if.h
+..\..\output\main.o: ..\..\User\sdio/bsp_sdio_sd.h

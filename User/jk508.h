@@ -5,6 +5,16 @@
 
 #ifndef _jk508_h_
 #define _jk508_h_
+typedef struct{
+	char Date[8];
+	char Time[500][8];
+	float Temp[16][500];
+	char add[344];
+}SAVE_SD;
+
+typedef struct{
+	u32 Num[128];
+}BLOCK_REC;
 
 extern u8 op_flag;
 extern u8 page_flag;
@@ -68,13 +78,17 @@ extern u8 tcpage;
 extern u8 tcflag;
 extern u8 passverify;
 extern char SN[8];
+extern char SearchBuffer[8];
 extern char data[17];
-extern u8 hispage;
+extern u16 hispage;
 extern u8 dirflag;
 extern RTC_TimeTypeDef RTC_TimeStructure;
 extern RTC_DateTypeDef RTC_DateStructure;
 extern u16 foldernum,filenum;
 extern FRESULT res_sd; 
+extern SAVE_SD SaveBuffer;
+extern SAVE_SD ReadBuffer;
+extern u16 hiscursor;
 
 void page_home(void);
 void page_set(void);
@@ -150,8 +164,12 @@ void His_Ppage(void);
 void Open_Dir(void);
 void Format_SD(void);
 void DISP_HIS_FILE(void);
-	
+void Write_His_Data(void);
+void Read_His_Data(u32 block);
+void Read_Block_Rec(void);
+
 extern u8 usbbuf[0x40];
+extern BLOCK_REC BlockNum;
 uint16_t CRC16(uint8_t *puchMsg, uint8_t Len);
 uint32_t Flash_EnableReadProtection(void);
 uint32_t Flash_DisableReadProtection(void);
@@ -165,6 +183,8 @@ typedef struct
 	float y_pos;
 	
 } Touch_save_Typedef;
+
+
 
 extern Touch_save_Typedef    Touch_save;
 //´¥·¢Ê±¼ä¶Î

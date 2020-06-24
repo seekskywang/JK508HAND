@@ -37,6 +37,7 @@ extern union
 
 u8 passverify;
 char SN[8];
+char SearchBuffer[8];
 const uint8_t calch[][3] =
 {
 	{"001"},

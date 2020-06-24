@@ -98,7 +98,7 @@ typedef struct {                                                 /* 汉字字模数据
 
 typedef struct {                                                 /* 汉字字模数据结构             */
     unsigned char Index[2];                                             /* 汉字内码索引                 */
-    unsigned char Msk[40];                                              /* 点阵码数据                   */
+    unsigned char Msk[36];                                              /* 点阵码数据                   */
 }FNT_GB16x20;
 
 extern const FNT_GB24 Chinese24x24_Table[];

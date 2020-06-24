@@ -99,7 +99,7 @@ typedef struct
 #define LCD_COLOR_GR5          	 0x330059
 #define LCD_COLOR_GR6          	 0xE205FF
 #define LCD_COLOR_GR7          	 0xFF9300
-
+#define LCD_COLOR_GRID           0x005000
 
 /** 
   * @brief  LCD Lines depending on the chosen fonts.  
@@ -622,6 +622,8 @@ void 	 DispBattery(void);
 void 	 DrawCharge(void);
 void 	 DrawUdisk1(void);
 void 	 DrawUdisk2(void);
+void 	 DrawSD1(void);
+void 	 DrawSD2(void);
 void 	 DrawPowOff(void);
 void 	 DrawInstruction(uint8_t *ptr);
 void     LCD_DrawChar(uint16_t Xpos, uint16_t Ypos, const uint16_t *c);

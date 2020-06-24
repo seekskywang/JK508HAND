@@ -53,3 +53,4 @@
 ..\..\output\history.o: ..\..\User\FATFS\ffconf.h
 ..\..\output\history.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 ..\..\output\history.o: ..\..\User\./RTC/bsp_rtc.h
+..\..\output\history.o: ..\..\User\sdio/bsp_sdio_sd.h

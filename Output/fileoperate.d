@@ -47,3 +47,4 @@
 ..\..\output\fileoperate.o: ..\..\User\./sdram/bsp_sdram.h
 ..\..\output\fileoperate.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 ..\..\output\fileoperate.o: ..\..\User\./font/fonts.h
+..\..\output\fileoperate.o: ..\..\User\sdio/bsp_sdio_sd.h

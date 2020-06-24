@@ -2,7 +2,7 @@
 #include "ff.h"
 #include "jk508.h"
 #include "./lcd/bsp_lcd.h"
-
+#include "sdio/bsp_sdio_sd.h"
 
 
 char filename[20];
@@ -13,13 +13,17 @@ FATFS fs;													/* FatFs文件系统对象 */
 FIL fnew;													/* 文件对象 */
 FRESULT res_sd;                /* 文件操作结果 */
 UINT fnum;            					/* 文件成功读写数量 */
-BYTE ReadBuffer[1024]={0};        /* 读缓冲区 */
+u8 WriteBuffer[512];        /* 读缓冲区 */
+//u8 ReadBuffer[512];        /* 读缓冲区 */
 char Dirname[MAXDIR][13];
 char Filelist[MAXFILE][13];
 u8 maxhispage,dirflag,maxfilepage;
 u16 foldernum,filenum;
 //BYTE WriteBuffer[] =              /* 写缓冲区*/
-
+BLOCK_REC BlockNum;
+SAVE_SD SaveBuffer;
+SAVE_SD ReadBuffer;
+uint64_t sizewatch;
 //加载SD卡
 void Mount_SD(void)
 {
@@ -31,7 +35,38 @@ void Mount_SD(void)
 		DrawInstruction("加载文件系统成功");
 	}
 }
+void Read_Block_Rec(void)
+{
+	SD_ReadBlock((uint8_t *)&BlockNum,0,512);
+	SD_WaitWriteOperation();
+	while(SD_GetStatus() != SD_TRANSFER_OK);
+}
 
+void Write_His_Data(void)
+{
+	SD_WriteBlock((uint8_t *)&BlockNum,0,512);
+	SD_WaitWriteOperation();	
+	while(SD_GetStatus() != SD_TRANSFER_OK);
+	SD_WriteMultiBlocks((uint8_t *)&SaveBuffer,512+sizeof(SaveBuffer)*BlockNum.Num[0],512,sizeof(SaveBuffer)/512);
+	SD_WaitWriteOperation();	
+	while(SD_GetStatus() != SD_TRANSFER_OK);
+	BlockNum.Num[0]++;
+}
+
+void Search_Handle(void)
+{
+	u16 i;
+	
+}
+
+void Read_His_Data(u32 block)
+{	
+//	sizewatch = 512+(sizeof(SaveBuffer)*block);
+	SD_ReadMultiBlocks((uint8_t *)&ReadBuffer,512+(sizeof(SaveBuffer)*block),512,sizeof(SaveBuffer)/512);
+	SD_WaitWriteOperation();
+	while(SD_GetStatus() != SD_TRANSFER_OK);
+	
+}
 //读取历史文件列表
 void READ_HIS(void)
 {
@@ -53,7 +88,7 @@ void READ_HIS(void)
 				break;
 			}
 			strncpy(Filelist[i],hisinfo.fname,13);
-		}
+		}	
 		DrawInstruction("读取历史数据成功");
 	}else{
 		DrawInstruction("读取历史数据失败");
@@ -65,7 +100,7 @@ void READ_HIS(void)
 //读取文件夹列表
 void READ_HIS_FOLDER(void)
 {
-	static u16 i;
+	static u16 i;	
 	char buf[5];
 
 	
@@ -211,7 +246,7 @@ void Format_SD(void)
 }
 
 
-//新建文件夹
+//新建文件夹	
 void Creat_New_Folder(void)
 {
 //	res_sd = f_mount(&fs,"0:",1);

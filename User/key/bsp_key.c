@@ -25,6 +25,7 @@
 #include "./FILESYS/FILESYS.h"
 #include "jk508.h"
 #include "./usart/bsp_debug_usart.h"
+#include "sdio/bsp_sdio_sd.h"
 
 u8 key_value;
 extern u16 count;
@@ -50,6 +51,7 @@ u8 date_time[6] = {0,1,1,0,0,0};
 u8 tcpage;
 u8 fileflag;
 u8 tcflag = 0;
+SD_Error watchres;
 extern union 
 {
    unsigned char FLAG_VAL;
@@ -960,7 +962,7 @@ void input_pass(char* num)
 	}
 }
 
-//输入密码
+//输入序列号
 void input_sn(char* num)
 {
 	if(bit_flag < 9){
@@ -993,6 +995,128 @@ void input_sn(char* num)
 			LCD_SetBackColor(LCD_COLOR_BLACK);
 			LCD_SetTextColor(LCD_COLOR_BLACK);
 			DISP_CNL_S(410,314 + bit_flag*8," ");
+			
+			if(dot_flag == 0 && strcmp(num,".") == 0)
+			{
+				dot_flag = bit_flag;
+			}
+			bit_flag ++;
+		}
+	}
+}
+
+//输入序列号
+void input_search(char* num)
+{
+	if(bit_flag < 9){
+		if(bit_flag == 1)
+		{
+			memset(SearchBuffer,0,8);
+			LCD_SetColors(LCD_COLOR_LIGHTGREY,LCD_COLOR_LIGHTGREY);
+			LCD_DrawRect(224,405,250,30);
+			LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_WHITE);
+			LCD_DrawFullRect(225,406,249,29);
+			
+			LCD_SetColors(LCD_COLOR_LIGHTGREY,LCD_COLOR_LIGHTGREY);
+//			LCD_DrawRect(312,408,150,24); 
+			LCD_DrawRect(312,408,20,24);
+			LCD_DrawRect(352,408,20,24);
+			LCD_DrawRect(392,408,20,24); 
+			LCD_DrawRect(432,408,20,24);  			
+			
+			LCD_SetBackColor(LCD_COLOR_WHITE);
+			LCD_SetTextColor(LCD_COLOR_BLACK);
+			DISP_CNL_S(411,230,"输入时间");
+			DISP_CNL_S(410,295,"20");
+			DISP_CNL_S(411,334,"年");
+			DISP_CNL_S(411,374,"月");
+			DISP_CNL_S(411,414,"日");
+			DISP_CNL_S(411,454,"时");
+		}
+		
+		
+		input_flag = 1;
+		if(dot_flag != 0 && strcmp(num,".") == 0)
+		{
+			
+		}else{
+			strcat(SearchBuffer,num);
+			if(bit_flag < 3)//年
+			{
+				LCD_SetBackColor(LCD_COLOR_WHITE);
+				LCD_SetTextColor(LCD_COLOR_BLACK);
+				DISP_CNL_S(410,306 + bit_flag*8,(uint8_t*)num);
+				if(bit_flag < 2)
+				{
+					LCD_SetBackColor(LCD_COLOR_WHITE);
+					LCD_SetTextColor(LCD_COLOR_WHITE);
+					DISP_CNL_S(410,314 + bit_flag*8," ");		
+					LCD_SetBackColor(LCD_COLOR_BLACK);
+					LCD_SetTextColor(LCD_COLOR_BLACK);
+					DISP_CNL_S(410,314 + bit_flag*8," ");
+				}else if(bit_flag == 2){
+					LCD_SetBackColor(LCD_COLOR_WHITE);
+					LCD_SetTextColor(LCD_COLOR_WHITE);
+					DISP_CNL_S(410,354," ");		
+					LCD_SetBackColor(LCD_COLOR_BLACK);
+					LCD_SetTextColor(LCD_COLOR_BLACK);
+					DISP_CNL_S(410,354," ");
+				}
+			}else if(bit_flag >= 3 && bit_flag < 5){//月
+				LCD_SetBackColor(LCD_COLOR_WHITE);
+				LCD_SetTextColor(LCD_COLOR_BLACK);
+				DISP_CNL_S(410,346 + (bit_flag-2)*8,(uint8_t*)num);
+				if(bit_flag < 4)
+				{
+					LCD_SetBackColor(LCD_COLOR_WHITE);
+					LCD_SetTextColor(LCD_COLOR_WHITE);
+					DISP_CNL_S(410,354 + (bit_flag-2)*8," ");				
+					LCD_SetBackColor(LCD_COLOR_BLACK);
+					LCD_SetTextColor(LCD_COLOR_BLACK);
+					DISP_CNL_S(410,354 + (bit_flag-2)*8," ");
+				}else if(bit_flag == 4){
+					LCD_SetBackColor(LCD_COLOR_WHITE);
+					LCD_SetTextColor(LCD_COLOR_WHITE);
+					DISP_CNL_S(410,394," ");		
+					LCD_SetBackColor(LCD_COLOR_BLACK);
+					LCD_SetTextColor(LCD_COLOR_BLACK);
+					DISP_CNL_S(410,394," ");
+				}
+			}else if(bit_flag >= 5 && bit_flag < 7){//日
+				LCD_SetBackColor(LCD_COLOR_WHITE);
+				LCD_SetTextColor(LCD_COLOR_BLACK);
+				DISP_CNL_S(410,386 + (bit_flag-4)*8,(uint8_t*)num);
+				if(bit_flag < 6)
+				{
+					LCD_SetBackColor(LCD_COLOR_WHITE);
+					LCD_SetTextColor(LCD_COLOR_WHITE);
+					DISP_CNL_S(410,394 + (bit_flag-4)*8," ");				
+					LCD_SetBackColor(LCD_COLOR_BLACK);
+					LCD_SetTextColor(LCD_COLOR_BLACK);
+					DISP_CNL_S(410,394 + (bit_flag-4)*8," ");
+				}else if(bit_flag == 6){
+					LCD_SetBackColor(LCD_COLOR_WHITE);
+					LCD_SetTextColor(LCD_COLOR_WHITE);
+					DISP_CNL_S(410,434," ");		
+					LCD_SetBackColor(LCD_COLOR_BLACK);
+					LCD_SetTextColor(LCD_COLOR_BLACK);
+					DISP_CNL_S(410,434," ");
+				}
+			}else if(bit_flag >= 7 && bit_flag < 9){//时
+				LCD_SetBackColor(LCD_COLOR_WHITE);
+				LCD_SetTextColor(LCD_COLOR_BLACK);
+				DISP_CNL_S(410,426 + (bit_flag-6)*8,(uint8_t*)num);
+				if(bit_flag < 8)
+				{
+					LCD_SetBackColor(LCD_COLOR_WHITE);
+					LCD_SetTextColor(LCD_COLOR_WHITE);
+					DISP_CNL_S(410,434 + (bit_flag-6)*8," ");
+					
+					LCD_SetBackColor(LCD_COLOR_BLACK);
+					LCD_SetTextColor(LCD_COLOR_BLACK);
+					DISP_CNL_S(410,434 + (bit_flag-6)*8," ");
+				}
+			}
 			
 			if(dot_flag == 0 && strcmp(num,".") == 0)
 			{
@@ -1967,150 +2091,175 @@ void Key_Scan(void)
 	}
 	
 }
-
+void Key_Handle(void)
+{
+	ButtonSound();//按键音
+	switch(key_value)
+	{
+		case KEY_1:
+		{
+			KEY1_HANDLE();
+		}
+		break;
+		case KEY_2:
+		{
+			KEY2_HANDLE();
+		}
+		break;
+		case KEY_3:
+		{
+			KEY3_HANDLE();
+		}
+		break;
+		case KEY_4:
+		{
+			KEY4_HANDLE();
+		}
+		break;
+		case KEY_5:
+		{
+			KEY5_HANDLE();
+		}
+		break;
+		case KEY_6:
+		{
+			KEY6_HANDLE();
+		}
+		break;
+		case KEY_7:
+		{
+			KEY7_HANDLE();
+		}
+		break;
+		case KEY_8:
+		{
+			KEY8_HANDLE();
+		}
+		break;
+		case KEY_9:
+		{
+			KEY9_HANDLE();
+		}
+		break;
+		case KEY_0:
+		{
+			KEY0_HANDLE();
+		}
+		break;
+		case KEY_ACC:
+		{
+			ACC_HANDLE();
+		}
+		break;
+		case KEY_BACK:
+		{
+			BACK_HANDLE();
+		}
+		break;
+		case KEY_DOT:
+		{
+			DOT_HANDLE();
+		}
+		break;
+		case KEY_UP:
+		{
+			UP_HANDLE();
+		}
+		break;
+		case KEY_DOWN:
+		{
+			DOWN_HANDLE();
+		}
+		break;
+		case KEY_LEFT:
+		{
+			LEFT_HANDLE();
+		}
+		break;
+		case KEY_RIGHT:
+		{
+			RIGHT_HANDLE();
+		}
+		break;
+		case KEY_ENTER:
+		{
+			ENTER_HANDLE();
+			count_flag = 1;
+		}
+		break;
+		case KEY_ESC:
+		{
+			ESC_HANDLE();
+		}
+		break;
+		case KEY_FUNC1:
+		{					
+			FUNC1_HANDLE();
+		}
+		break;
+		case KEY_FUNC2:
+		{
+			FUNC2_HANDLE();
+		}
+		break;
+		case KEY_FUNC3:
+		{
+			FUNC3_HANDLE();
+		}
+		break;
+		case KEY_FUNC4:
+		{
+			FUNC4_HANDLE();
+		}
+		break;
+		case KEY_FUNC5:
+		{
+			FUNC5_HANDLE();
+		}
+		break;
+		default:break;
+	}
+}
 //按键功能
 void Key_Function(void)
 {	
 	static u8 key_old;
 	static u8 key_new;
+	static u8 longflag;
+	static u16 presscount;
 	key_new = key_value;
 	if(key_value != 0XFF)
 	{		
 		if(key_old != key_new && keystat == 0)
 		{
-			ButtonSound();//按键音
-			switch(key_value)
-			{
-				case KEY_1:
-				{
-					KEY1_HANDLE();
-				}
-				break;
-				case KEY_2:
-				{
-					KEY2_HANDLE();
-				}
-				break;
-				case KEY_3:
-				{
-					KEY3_HANDLE();
-				}
-				break;
-				case KEY_4:
-				{
-					KEY4_HANDLE();
-				}
-				break;
-				case KEY_5:
-				{
-					KEY5_HANDLE();
-				}
-				break;
-				case KEY_6:
-				{
-					KEY6_HANDLE();
-				}
-				break;
-				case KEY_7:
-				{
-					KEY7_HANDLE();
-				}
-				break;
-				case KEY_8:
-				{
-					KEY8_HANDLE();
-				}
-				break;
-				case KEY_9:
-				{
-					KEY9_HANDLE();
-				}
-				break;
-				case KEY_0:
-				{
-					KEY0_HANDLE();
-				}
-				break;
-				case KEY_ACC:
-				{
-					ACC_HANDLE();
-				}
-				break;
-				case KEY_BACK:
-				{
-					BACK_HANDLE();
-				}
-				break;
-				case KEY_DOT:
-				{
-					DOT_HANDLE();
-				}
-				break;
-				case KEY_UP:
-				{
-					UP_HANDLE();
-				}
-				break;
-				case KEY_DOWN:
-				{
-					DOWN_HANDLE();
-				}
-				break;
-				case KEY_LEFT:
-				{
-					LEFT_HANDLE();
-				}
-				break;
-				case KEY_RIGHT:
-				{
-					RIGHT_HANDLE();
-				}
-				break;
-				case KEY_ENTER:
-				{
-					ENTER_HANDLE();
-					count_flag = 1;
-				}
-				break;
-				case KEY_ESC:
-				{
-					ESC_HANDLE();
-				}
-				break;
-				case KEY_FUNC1:
-				{					
-					FUNC1_HANDLE();
-				}
-				break;
-				case KEY_FUNC2:
-				{
-					FUNC2_HANDLE();
-				}
-				break;
-				case KEY_FUNC3:
-				{
-					FUNC3_HANDLE();
-				}
-				break;
-				case KEY_FUNC4:
-				{
-					FUNC4_HANDLE();
-				}
-				break;
-				case KEY_FUNC5:
-				{
-					FUNC5_HANDLE();
-				}
-				break;
-				default:break;
-			}
+			Key_Handle();
 			keystat = 1;
 			key_old = key_value;
+		}else if(key_old == key_new && keystat == 1){
+			presscount ++;
+			if(longflag == 0)
+			{
+				if(presscount == 150)
+				{
+					Key_Handle();
+					longflag = 1;
+					presscount = 0;
+				}
+			}else{
+				if(presscount == 50)
+				{
+					Key_Handle();
+					presscount = 0;
+				}
+			}
+			
 		}			
 	}else{
 		keystat = 0;
 		key_value = 0xff;
 		key_old = 0;
+		presscount = 0;
+		longflag = 0;
 	}		
 	
 
@@ -3350,7 +3499,7 @@ void FUNC2_HANDLE(void)
 		}break;
 		case history:
 		{
-			Format_SD();
+			Read_His_Data(1);
 		}break;
 		case hisfile:
 		{
@@ -3859,7 +4008,12 @@ void FUNC3_HANDLE(void)
 		}break;
 		case history:
 		{
-			His_Ppage();
+			if(hispage > 0)
+			{
+				hispage--;
+				Read_His_Data(hispage);
+				Draw_His_Graph();
+			}
 		}break;
 		case calibrate:
 		{
@@ -4303,7 +4457,12 @@ void FUNC4_HANDLE(void)
 		}break;
 		case history:
 		{
-			His_Npage();
+			if(hispage < BlockNum.Num[0]-1)
+			{
+				hispage++;
+				Read_His_Data(hispage);
+				Draw_His_Graph();
+			}
 		}break;
 		case calibrate:
 		{
@@ -6157,7 +6316,9 @@ void FUNC5_HANDLE(void)
 		}break;
 		case history:
 		{
-			Creat_New_Folder();
+			bit_flag = 1;
+			input_search("0");
+			del_num();
 		}break;
 		case hisfile:
 		{
@@ -8473,7 +8634,7 @@ void ENTER_HANDLE(void)
 		}break;
 		case history:
 		{
-			READ_HIS();
+			
 		}break;
 		case factory:
 		{
@@ -10987,11 +11148,11 @@ void UP_HANDLE(void)
 		}break;
 		case history:
 		{
-			if(dirflag > 1)
-			{
-				dirflag--;
-			}
-			DISP_HIS_FOLDER();
+//			if(dirflag > 1)
+//			{
+//				dirflag--;
+//			}
+//			DISP_HIS_FOLDER();
 		}break;
 	}
 }
@@ -13278,11 +13439,11 @@ void DOWN_HANDLE(void)
 		}break;
 		case history:
 		{
-			if(dirflag < foldernum)
-			{
-				dirflag++;
-			}
-			DISP_HIS_FOLDER();
+//			if(dirflag < foldernum)
+//			{
+//				dirflag++;
+//			}
+//			DISP_HIS_FOLDER();
 //			hispage(hpage);
 		}break;
 	}
@@ -14479,7 +14640,14 @@ void RIGHT_HANDLE(void)
 				}break;
 			}
 		}break;
-		
+		case history:
+		{
+			if(hiscursor < 495)
+			{
+				hiscursor ++;
+				Draw_His_Graph();
+			}
+		}break;
 				
 	}
 }
@@ -15653,8 +15821,11 @@ void LEFT_HANDLE(void)
 		}break;
 		case history:
 		{
-			hpage--;
-//			hispage(hpage);
+			if(hiscursor > 0)
+			{
+				hiscursor --;
+				Draw_His_Graph();
+			}
 		}break;
 	}
 }
@@ -15686,7 +15857,7 @@ void KEY1_HANDLE(void)
 		}break;
 		case history:
 		{
-			input_num("1");			
+			input_search("1");			
 		}break;
 		case touchcal:
 		{
@@ -15740,7 +15911,7 @@ void KEY2_HANDLE(void)
 		}break;
 		case history:
 		{
-			input_num("2");			
+			input_search("2");			
 		}break;
 		case display:
 		{
@@ -15798,7 +15969,7 @@ void KEY3_HANDLE(void)
 		}break;
 		case history:
 		{
-			input_num("3");			
+			input_search("3");			
 		}break;
 		case settings:
 		{
@@ -15845,7 +16016,7 @@ void KEY4_HANDLE(void)
 		}break;
 		case history:
 		{
-			input_num("4");			
+			input_search("4");			
 		}break;
 		case settings:
 		{
@@ -15892,7 +16063,7 @@ void KEY5_HANDLE(void)
 		}break;
 		case history:
 		{
-			input_num("5");			
+			input_search("5");			
 		}break;
 		case settings:
 		{
@@ -15939,7 +16110,7 @@ void KEY6_HANDLE(void)
 		}break;
 		case history:
 		{
-			input_num("6");			
+			input_search("6");			
 		}break;
 		case settings:
 		{
@@ -15986,7 +16157,7 @@ void KEY7_HANDLE(void)
 		}break;
 		case history:
 		{
-			input_num("7");			
+			input_search("7");			
 		}break;
 		case settings:
 		{
@@ -16033,7 +16204,7 @@ void KEY8_HANDLE(void)
 		}break;
 		case history:
 		{
-			input_num("8");			
+			input_search("8");			
 		}break;
 		case settings:
 		{
@@ -16080,7 +16251,7 @@ void KEY9_HANDLE(void)
 		}break;
 		case history:
 		{
-			input_num("9");			
+			input_search("9");			
 		}break;
 		case settings:
 		{
@@ -16123,7 +16294,7 @@ void KEY0_HANDLE(void)
 		}break;
 		case history:
 		{
-			input_num("0");			
+			input_search("0");			
 		}break;
 		case settings:
 		{
@@ -16277,7 +16448,7 @@ void ACC_HANDLE(void)
 		}break;
 		case history:
 		{
-			DISP_HIS_FOLDER();
+			
 		}break;
 		default:break;
 	}

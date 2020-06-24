@@ -149,9 +149,13 @@ void LCD_Init(void)
     /* LTDC 时钟频率 = PLLLCDCLK / DIV = 420/6/8 = 8.75 Mhz */
 	/* LTDC时钟太高会导花屏，若对刷屏速度要求不高，降低时钟频率可减少花屏现象*/
 	/* 以下函数三个参数分别为：PLLSAIN,PLLSAIQ,PLLSAIR，其中PLLSAIQ与LTDC无关*/
-  RCC_PLLSAIConfig(440,20, 26);
+//  RCC_PLLSAIConfig(400,20, 2);
+  RCC_PLLSAIConfig(320,7, 4);
+//  RCC_PLLSAIConfig(400,7, 6);
+//   RCC_PLLSAIConfig(440,20, 26);
 	/*以下函数的参数为DIV值*/
-  RCC_LTDCCLKDivConfig(RCC_PLLSAIDivR_Div8);
+//  RCC_LTDCCLKDivConfig(RCC_PLLSAIDivR_Div8);
+  RCC_LTDCCLKDivConfig(RCC_PLLSAIDivR_Div4);
   
   /* 使能 PLLSAI 时钟 */
   RCC_PLLSAICmd(ENABLE);
@@ -687,13 +691,13 @@ void Drawhishmenu(void)
 		LCD_DisplayStringLine(450,153,"格式化");
 		LCD_DisplayStringLine(450,293,"上一页");
 		LCD_DisplayStringLine(450,420,"下一页");
-		LCD_DisplayStringLine(450,525,"新建目录");
+		LCD_DisplayStringLine(450,540,"搜索");
 	}else{
 		LCD_DisplayStringLine(450,10,"DISPLAY");
 		LCD_DisplayStringLine(450,140,"FORMAT");
 		LCD_DisplayStringLine(450,275,"PREV");
 		LCD_DisplayStringLine(450,410,"NEXT");
-		LCD_DisplayStringLine(450,522,"NEW");
+		LCD_DisplayStringLine(450,522,"SEARCH");
 	}
 }
 
@@ -935,7 +939,7 @@ void DrawGridLine(void)
 	LCD_DrawRect(110-80,50,498,351);
 	LCD_SetColors(LCD_COLOR_BLACK,LCD_COLOR_BLACK);
 	LCD_DrawFullRect(111-80,51,497,350);
-	LCD_SetColors(LCD_COLOR_LIGHTBLUE,LCD_COLOR_GREY);
+	LCD_SetColors(LCD_COLOR_GRID,LCD_COLOR_GREY);
 	for(j = 0;j < 6;j++)
 	{
 		for(i = 0;i < 50 ;i++)
@@ -1113,6 +1117,44 @@ void DrawUdisk2(void)
 	LCD_DrawFullRect(448-16,31,15,2);
 	LCD_DrawUniLine(451-16,25,454-16,28);
 	LCD_DrawUniLine(455-16,27,459-16,23);
+	
+}
+
+
+//绘制SD卡读取成功图标
+void DrawSD1(void)
+{
+	LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
+	LCD_DrawFullRect(370,10+2,15,19);
+	LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_BACK);
+	LCD_DrawFullRect(371,10+2,2,19);
+	LCD_DrawFullRect(371+2,10+2,8,2);
+	LCD_DrawUniLine(381,11+2,383,13+2);
+	LCD_DrawUniLine(381,12+2,383,13+2);
+	LCD_DrawFullRect(383,14+2,2,15);
+	LCD_DrawFullRect(370+2,27+2,11,2);
+	LCD_DrawLine(374,13+2,3,LCD_DIR_VERTICAL);
+	LCD_DrawLine(374+2,13+2,3,LCD_DIR_VERTICAL);
+	LCD_DrawLine(374+4,13+2,3,LCD_DIR_VERTICAL);
+	LCD_DrawLine(374+6,13+2,3,LCD_DIR_VERTICAL);
+}
+
+//绘制SD卡读取失败图标
+void DrawSD2(void)
+{
+	LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
+	LCD_DrawFullRect(370,10+2,15,19);
+	LCD_SetColors(LCD_COLOR_GREEN,LCD_COLOR_BACK);
+	LCD_DrawFullRect(371,10+2,2,19);
+	LCD_DrawFullRect(371+2,10+2,8,2);
+	LCD_DrawUniLine(381,11+2,383,13+2);
+	LCD_DrawUniLine(381,12+2,383,13+2);
+	LCD_DrawFullRect(383,14+2,2,15);
+	LCD_DrawFullRect(370+2,27+2,11,2);
+	LCD_DrawLine(374,13+2,3,LCD_DIR_VERTICAL);
+	LCD_DrawLine(374+2,13+2,3,LCD_DIR_VERTICAL);
+	LCD_DrawLine(374+4,13+2,3,LCD_DIR_VERTICAL);
+	LCD_DrawLine(374+6,13+2,3,LCD_DIR_VERTICAL);
 	
 }
 
@@ -3298,6 +3340,7 @@ static void LCD_GPIO_Config(void)
   
   //控制信号线
   GPIO_InitStruct.GPIO_Pin = LTDC_CLK_GPIO_PIN;
+  GPIO_InitStruct.GPIO_Speed = GPIO_Speed_50MHz;
   GPIO_Init(LTDC_CLK_GPIO_PORT, &GPIO_InitStruct);
   GPIO_PinAFConfig(LTDC_CLK_GPIO_PORT, LTDC_CLK_PINSOURCE, LTDC_CLK_AF);
   
