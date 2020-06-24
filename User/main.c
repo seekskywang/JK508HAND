@@ -409,9 +409,9 @@ int main(void)
 		Read_Sflag();
 		Read_Flash_Init_Handle();
 	}
-//	power_on();
+	power_on();
 //	watch = CRC16(test,9);
-	page_home();
+//	page_home();
 //	watch = sizeof(TempHLimits);
 	Touch_GPIO_Config();
 	tp_dev.init();

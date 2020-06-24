@@ -27,19 +27,35 @@ Project File Date:  06/11/2020
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'LCD'
-compiling bsp_lcd.c...
-..\..\User\./battery/battery.h(46): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\..\User\lcd\bsp_lcd.c(2300): warning:  #550-D: variable "k"  was set but never used
-    float k = 0, rad1 = 0, rad2 = 0;
-..\..\User\lcd\bsp_lcd.c(2357): warning:  #550-D: variable "k"  was set but never used
-    float k = 0, rad1 = 0, rad2 = 0;
-..\..\User\lcd\bsp_lcd.c: 3 warnings, 0 errors
+compiling main.c...
+..\..\User\main.c(298): warning:  #177-D: variable "buf"  was declared but never referenced
+        uint8_t  buf[0x40];
+..\..\User\main.c(300): warning:  #177-D: variable "test"  was declared but never referenced
+        u8 test[9] = {0X01,0X03,0X02,0X58,0X00,0X01,0X02,0X00,0X05};
+..\..\User\main.c(302): warning:  #177-D: variable "reqtempcount"  was declared but never referenced
+        static u8 reqtempcount;
+..\..\User\main.c(306): warning:  #177-D: variable "sendcount"  was declared but never referenced
+        static u16 sendcount;
+..\..\User\main.c(758): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+                                G_Data[i][count] = (graphbuf[i][0]/MULTI * 256 + graphbuf[i][1]/MULTI)/10.0 - Correction[i];    
+..\..\User\main.c(681): warning:  #177-D: variable "ucTemp"  was declared but never referenced
+        static uint8_t ucTemp;
+..\..\User\main.c(682): warning:  #177-D: variable "Total_Len"  was declared but never referenced
+        static u8 Total_Len = 0;
+..\..\User\main.c(683): warning:  #177-D: variable "uinitflag"  was declared but never referenced
+        static u8 uinitflag = 0;
+..\..\User\main.c(688): warning:  #177-D: variable "hisconv"  was declared but never referenced
+        static u16 hisconv;
+..\..\User\main.c(689): warning:  #177-D: variable "corconv"  was declared but never referenced
+        static u16 corconv;
+..\..\User\main.c(693): warning:  #177-D: variable "usave"  was declared but never referenced
+        static u8 usave;
+..\..\User\main.c: 11 warnings, 0 errors
 linking...
-Program Size: Code=185164 RO-data=276992 RW-data=832 ZI-data=156296  
+Program Size: Code=185464 RO-data=283072 RW-data=840 ZI-data=156296  
 FromELF: creating hex file...
 After Build - User command #1: D:\Keil_v5\ARM\ARMCC\bin\fromelf.exe --bin -o ..\..\Output\update.bin ..\..\Output\LCD.axf
-"..\..\Output\LCD.axf" - 0 Error(s), 3 Warning(s).
+"..\..\Output\LCD.axf" - 0 Error(s), 11 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -53,7 +69,7 @@ Package Vendor: Keil
   D:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:03
+Build Time Elapsed:  00:00:07
 </pre>
 </body>
 </html>
