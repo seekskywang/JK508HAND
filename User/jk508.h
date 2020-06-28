@@ -13,6 +13,13 @@ typedef struct{
 }SAVE_SD;
 
 typedef struct{
+	char Date[40][8];
+	u32 Index[40];
+	u32 ext[8];
+}SAVE_INDEX;
+
+
+typedef struct{
 	u32 Num[128];
 }BLOCK_REC;
 
@@ -88,7 +95,9 @@ extern u16 foldernum,filenum;
 extern FRESULT res_sd; 
 extern SAVE_SD SaveBuffer;
 extern SAVE_SD ReadBuffer;
+extern SAVE_INDEX HisIndex;
 extern u16 hiscursor;
+extern u8 indexflag;
 
 void page_home(void);
 void page_set(void);

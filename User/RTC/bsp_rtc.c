@@ -27,6 +27,7 @@ u8 usbreadtime[7];
 u8 trigflag;
 RTC_TimeTypeDef RTC_TimeStructure;
 RTC_DateTypeDef RTC_DateStructure;
+u8 oldhour;
 /**
   * @brief  设置时间和日期
   * @param  无
@@ -82,6 +83,11 @@ void RTC_TimeAndDate_Show(void)
 	HOURS = RTC_TimeStructure.RTC_Hours;
 	MINUTES = RTC_TimeStructure.RTC_Minutes;
 	SECONDS = RTC_TimeStructure.RTC_Seconds;
+	if(oldhour != HOURS)
+	{
+		oldhour = HOURS;
+		indexflag = 1;
+	}
 	if(TIMETIRG == trig_off)
 	{
 		trigflag = 1;

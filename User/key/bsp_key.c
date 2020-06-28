@@ -3501,10 +3501,10 @@ void FUNC2_HANDLE(void)
 		{
 			Read_His_Data(1);
 		}break;
-		case hisfile:
-		{
-			READ_HIS_FOLDER();
-		}break;
+//		case hisfile:
+//		{
+//			READ_HIS_FOLDER();
+//		}break;
 		case calibrate:
 		{
 			page_graph();
@@ -6320,10 +6320,10 @@ void FUNC5_HANDLE(void)
 			input_search("0");
 			del_num();
 		}break;
-		case hisfile:
-		{
-			Create_His_File();
-		}break;
+//		case hisfile:
+//		{
+//			Create_His_File();
+//		}break;
 	}
 }
 

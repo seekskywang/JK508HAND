@@ -66,7 +66,7 @@ u16 watch;
 u16 ureadcrc;
 u8 *ucrc;
 extern u8 uartflag;
-SD_CardInfo SDINFO;
+//SD_CardInfo SDINFO;
 //u8 p1,p2,p3,p4,p5,p6,p7,p8;
 //char filename[20];
 //char foldername[20];
@@ -421,9 +421,10 @@ int main(void)
 	}else{
 		DrawSD1();
 	}
-	SD_GetCardInfo(&SDINFO);
+//	SD_GetCardInfo(&SDINFO);
 	Read_Block_Rec();
-//	BlockNum.Num[0] = 0;
+	
+	BlockNum.Num[0] = 0;
 	while(1)
 	{
 
