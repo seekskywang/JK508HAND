@@ -77,8 +77,8 @@ void page_his(void)
 	LCD_DisplayStringLine(0,10, "<      >");
 	LCD_DisplayStringLine(5,26, "历史数据");
 	
-	dirflag  =1;
-	hispage = 1;
+//	dirflag  =1;
+//	hispage = 1;
 	
 	DrawMenu();
 	Drawhishmenu();

@@ -8634,7 +8634,11 @@ void ENTER_HANDLE(void)
 		}break;
 		case history:
 		{
-			
+			if(input_flag == 1)
+			{
+				clear_input();
+				Search_Handle();
+			}
 		}break;
 		case factory:
 		{

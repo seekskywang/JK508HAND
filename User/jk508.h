@@ -212,6 +212,9 @@ extern Touch_save_Typedef    Touch_save;
 #define UDISK_READY					1
 #define UDISK_NOTREADY				2
 
+//SD卡相关
+#define SD_MAX_BLOCK				200000
+
 //修正值
 #define COR1					   Correction[0]
 #define COR2					   Correction[1] 

@@ -24,6 +24,9 @@ BLOCK_REC BlockNum;
 SAVE_SD SaveBuffer;
 SAVE_SD ReadBuffer;
 uint64_t sizewatch;
+u8 infoflag;
+char scomp1[8];
+char scomp2[8];
 //加载SD卡
 void Mount_SD(void)
 {
@@ -35,6 +38,25 @@ void Mount_SD(void)
 		DrawInstruction("加载文件系统成功");
 	}
 }
+
+//////////////////////////////////////////////////////////////////
+void Disp_Search_Info(u8 info)
+{
+	LCD_SetColors(LCD_COLOR_GREY,LCD_COLOR_GREY);
+	LCD_DrawFullRect(269-30,199,160,34);
+	LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_WHITE);
+	LCD_DrawFullRect(270-30,200,162,32);
+	LCD_SetColors(LCD_COLOR_RED,LCD_COLOR_WHITE);
+	if(info == 0)
+	{		
+		LCD_DisplayStringLine(203,280-30,"正在搜索");
+		LCD_DisplayStringLine(200,380-30,"...");
+	}else if(info == 1){
+		LCD_DisplayStringLine(203,280,"无结果");
+	}
+}
+
+
 void Read_Block_Rec(void)
 {
 	SD_ReadBlock((uint8_t *)&BlockNum,0,512);
@@ -51,22 +73,59 @@ void Write_His_Data(void)
 	SD_WaitWriteOperation();	
 	while(SD_GetStatus() != SD_TRANSFER_OK);
 	BlockNum.Num[0]++;
+	if(BlockNum.Num[0] > SD_MAX_BLOCK)
+	{
+		BlockNum.Num[0] = 0;
+	}
 }
 
-void Search_Handle(void)
-{
-	u16 i;
-	
-}
+
 
 void Read_His_Data(u32 block)
 {	
-//	sizewatch = 512+(sizeof(SaveBuffer)*block);
+	sizewatch =(sizeof(SaveBuffer)*block);
 	SD_ReadMultiBlocks((uint8_t *)&ReadBuffer,512+(sizeof(SaveBuffer)*block),512,sizeof(SaveBuffer)/512);
 	SD_WaitWriteOperation();
 	while(SD_GetStatus() != SD_TRANSFER_OK);
 	
 }
+
+void Search_Handle(void)
+{
+	u16 i,j;
+	Disp_Search_Info(0);
+	for(i=0;i<BlockNum.Num[0];i ++)
+	{
+		Read_His_Data(i);
+//		SD_WaitWriteOperation();
+//		while(SD_GetStatus() != SD_TRANSFER_OK);
+		sprintf(scomp1,"%0.2d%0.2d%0.2d%0.2d",ReadBuffer.Time[0][1],
+											  ReadBuffer.Time[0][2],
+											  ReadBuffer.Time[0][3],
+											  ReadBuffer.Time[0][4]);
+		sprintf(scomp2,"%0.2d%0.2d%0.2d%0.2d",ReadBuffer.Time[495][1],
+											  ReadBuffer.Time[495][2],
+											  ReadBuffer.Time[495][3],
+											  ReadBuffer.Time[495][4]);
+		if(strcmp(SearchBuffer,scomp1) == 0 || strcmp(SearchBuffer,scomp2) == 0)
+		{
+			hispage = i;
+			infoflag = 0;
+			break;
+		}else{
+			infoflag = 1;
+		}
+	}
+	page_his();
+	if(infoflag == 1)
+	{
+		Disp_Search_Info(1);
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
 //读取历史文件列表
 void READ_HIS(void)
 {
