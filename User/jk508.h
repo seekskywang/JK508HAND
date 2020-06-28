@@ -176,6 +176,7 @@ void DISP_HIS_FILE(void);
 void Write_His_Data(void);
 void Read_His_Data(u32 block);
 void Read_Block_Rec(void);
+void Read_Index(u32 indexnum);
 
 extern u8 usbbuf[0x40];
 extern BLOCK_REC BlockNum;

@@ -423,7 +423,7 @@ int main(void)
 	}
 //	SD_GetCardInfo(&SDINFO);
 	Read_Block_Rec();
-	
+	Read_Index(BlockNum.Num[1]/40);
 	BlockNum.Num[0] = 0;
 	while(1)
 	{
