@@ -66,6 +66,7 @@ u16 watch;
 u16 ureadcrc;
 u8 *ucrc;
 extern u8 uartflag;
+u8 recordflag;
 //SD_CardInfo SDINFO;
 //u8 p1,p2,p3,p4,p5,p6,p7,p8;
 //char filename[20];
@@ -417,20 +418,22 @@ int main(void)
 	tp_dev.init();
 	if(SD_Init() == SD_OK)//初始化SD卡
 	{
-		DrawSD2();
+//		DrawSD2();
+		Read_Block_Rec();
+		Read_Index(BlockNum.Num[1]/40);
 	}else{
-		DrawSD1();
+//		DrawSD1();
 	}
 //	SD_GetCardInfo(&SDINFO);
-	Read_Block_Rec();
-	Read_Index(BlockNum.Num[1]/40);
-	BlockNum.Num[0] = 0;
+	trigflag = 1;
+//	BlockNum.Num[0] = 0;
+//	BlockNum.Num[1] = 0;
 	while(1)
 	{
 
 //		LED1_ON;
 //		ledstat = GPIO_ReadInputDataBit(GPIOB,GPIO_Pin_1);
-//		watch = GPIO_ReadInputDataBit(TOUCH_YPLUS_GPIO_PORT,TOUCH_YPLUS_GPIO_PIN);
+//		watxiansch = GPIO_ReadInputDataBit(TOUCH_YPLUS_GPIO_PORT,TOUCH_YPLUS_GPIO_PIN);
 		/* 显示时间和日期 */	
 		
 		powerstat = GPIO_ReadInputDataBit(GPIOI,GPIO_Pin_11);
@@ -756,21 +759,27 @@ void UARTRECHANDLE(void)
 		{
 			for(i=0;i<16;i++)
 			{
-				G_Data[i][count] = (graphbuf[i][0]/MULTI * 256 + graphbuf[i][1]/MULTI)/10.0 - Correction[i];	
-				SaveBuffer.Temp[i][count] = G_Data[i][count];
+				G_Data[i][count] = (graphbuf[i][0]/MULTI * 256 + graphbuf[i][1]/MULTI)/10.0 - Correction[i];
+				if(recordflag == 1)
+				{
+					SaveBuffer.Temp[i][count] = G_Data[i][count];
+				}
 			}
 			if(page_flag == graph)
 			{
 				Draw_graph();
 				DrawTime();
 			}
-			SaveBuffer.Time[count][0]=20;
-			SaveBuffer.Time[count][1] = usbreadtime[1];
-			SaveBuffer.Time[count][2] = usbreadtime[2];
-			SaveBuffer.Time[count][3] = usbreadtime[3];
-			SaveBuffer.Time[count][4] = usbreadtime[4];
-			SaveBuffer.Time[count][5] = usbreadtime[5];
-			SaveBuffer.Time[count][6] = usbreadtime[6];
+			if(recordflag == 1)
+			{
+				SaveBuffer.Time[count][0]=20;
+				SaveBuffer.Time[count][1] = usbreadtime[1];
+				SaveBuffer.Time[count][2] = usbreadtime[2];
+				SaveBuffer.Time[count][3] = usbreadtime[3];
+				SaveBuffer.Time[count][4] = usbreadtime[4];
+				SaveBuffer.Time[count][5] = usbreadtime[5];
+				SaveBuffer.Time[count][6] = usbreadtime[6];
+			}
 //						if(page_flag != history)
 //						{
 //			for(i=0;i<16;i++)
@@ -812,7 +821,10 @@ void UARTRECHANDLE(void)
 			if(count > 494)
 			{
 				count = 0;
-				Write_His_Data();
+				if(recordflag == 1)
+				{
+					Write_His_Data();
+				}
 //							memcpy(hisdata,G_Data,sizeof(G_Data));
 //							memcpy(histime,time_buf,sizeof(time_buf));
 			}else{
@@ -913,7 +925,7 @@ void TempDisplay(void)
 	char buf[10];
 	static u8 eqmtstatus,dataupdate;
 //	u8 i;
-	if((page_flag == display || page_flag == graph) && trigflag == 1)
+	if((page_flag == display || page_flag == graph) && recordflag == 1)
 	{
 		if(eqmtstatus < 60)
 		{
@@ -3518,14 +3530,16 @@ void PowerOffHandle(void)
 	page_flag = poweroff;
 	static u8 offflag;
 	DrawPowOff();
-	if(offflag == 0)
-	{
-		TIME_REC++;
-		SECTOR_REC = TIME_REC * 62;
-		Save_history(SECTOR_REC);								
-		Save_time(TIME_REC);
-		Save_Sflag();
-	}
+	Write_His_Data();
+	Read_Block_Rec();
+//	if(offflag == 0)
+//	{
+//		TIME_REC++;
+//		SECTOR_REC = TIME_REC * 62;
+//		Save_history(SECTOR_REC);								
+//		Save_time(TIME_REC);
+//		Save_Sflag();
+//	}
 	
 }	
 //计算温度平均值

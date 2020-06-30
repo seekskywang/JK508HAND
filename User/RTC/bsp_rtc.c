@@ -90,12 +90,12 @@ void RTC_TimeAndDate_Show(void)
 	}
 	if(TIMETIRG == trig_off)
 	{
-		trigflag = 1;
+//		trigflag = 1;
 	}else{
 		if((HOURS*60 + MINUTES >= STARTH*60 + STARTM) && (HOURS*60 + MINUTES < ENDH*60 + ENDM)){
-			trigflag = 1;
+			recordflag = 1;
 		}else{
-			trigflag = 0;
+			recordflag = 0;
 		}
 	}
 	// 每秒打印一次

@@ -3886,7 +3886,16 @@ void FUNC3_HANDLE(void)
 				}break;
 				default:
 				{
-					page_sys();
+					if(recordflag == 0)
+					{
+						recordflag = 1;
+						Drawhomemenu();
+					}else if(recordflag == 1){
+						Write_His_Data();
+						recordflag = 0;
+						Drawhomemenu();
+						Write_Block_Rec();					
+					}
 				}break;
 			}
 		}break;
@@ -16413,6 +16422,14 @@ void ESC_HANDLE(void)
 		{
 			
 		}break;
+		case history:
+		{
+			if(input_flag == 1)
+			{
+				clear_input();
+				page_his();
+			}
+		}break;
 	}
 }
 void ACC_HANDLE(void)
@@ -16450,10 +16467,7 @@ void ACC_HANDLE(void)
 //			TouchCal();
 //			JumpBoot(55);
 		}break;
-		case history:
-		{
-			
-		}break;
+		
 		default:break;
 	}
 }

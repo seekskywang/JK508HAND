@@ -66,6 +66,12 @@ void Read_Block_Rec(void)
 	while(SD_GetStatus() != SD_TRANSFER_OK);
 }
 
+void Write_Block_Rec(void)
+{
+	SD_WriteBlock((uint8_t *)&BlockNum,0,512);
+	SD_WaitWriteOperation();	
+	while(SD_GetStatus() != SD_TRANSFER_OK);
+}
 
 void Write_His_Data(void)
 {
@@ -78,7 +84,7 @@ void Write_His_Data(void)
 	while(SD_GetStatus() != SD_TRANSFER_OK);	
 	if(indexflag == 1)
 	{
-		strcpy(HisIndex.Date[BlockNum.Num[1]%40],SaveBuffer.Time[0]);
+		strcpy(HisIndex.Date[BlockNum.Num[1]%40],SaveBuffer.Time[495]);
 		HisIndex.Index[BlockNum.Num[1]%40] = BlockNum.Num[0];
 //		for(i=0;i<8;i++)
 //		{
@@ -99,7 +105,10 @@ void Write_His_Data(void)
 	{
 		BlockNum.Num[0] = 0;
 	}
+	memset(SaveBuffer.Time,0,sizeof(SaveBuffer.Time));
+	memset(SaveBuffer.Temp,0,sizeof(SaveBuffer.Temp));
 }
+
 
 
 void Read_Index(u32 indexnum)
@@ -122,28 +131,28 @@ void Search_Handle(void)
 {
 	u16 i,j;
 	Disp_Search_Info(0);
-	for(i=0;i<BlockNum.Num[1]/40;i++)
+	for(i=0;i<BlockNum.Num[1]/40+1;i++)
 	{
 		Read_Index(i);
 		for(j=0;j<40;j++)
 		{
-			sprintf(scomp1,"%0.2d%0.2d%0.2d%0.2d",HisIndex.Date[i][1],
-												  HisIndex.Date[i][2],
-												  HisIndex.Date[i][3],
-												  HisIndex.Date[i][4]);
-			
+			sprintf(scomp1,"%0.2d%0.2d%0.2d%0.2d",HisIndex.Date[j][1],
+												  HisIndex.Date[j][2],
+												  HisIndex.Date[j][3],
+												  HisIndex.Date[j][4]);
+			if(strcmp(SearchBuffer,scomp1) == 0)
+			{
+				hispage = HisIndex.Index[j];
+				infoflag = 0;
+				break;
+			}else{
+				infoflag = 1;
+			}
 		}
 //		SD_WaitWriteOperation();
 //		while(SD_GetStatus() != SD_TRANSFER_OK);
 		
-		if(strcmp(SearchBuffer,scomp1) == 0 || strcmp(SearchBuffer,scomp2) == 0)
-		{
-			hispage = i;
-			infoflag = 0;
-			break;
-		}else{
-			infoflag = 1;
-		}
+		
 	}
 	page_his();
 	if(infoflag == 1)

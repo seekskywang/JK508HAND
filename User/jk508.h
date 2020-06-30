@@ -98,6 +98,7 @@ extern SAVE_SD ReadBuffer;
 extern SAVE_INDEX HisIndex;
 extern u16 hiscursor;
 extern u8 indexflag;
+extern u8 recordflag;
 
 void page_home(void);
 void page_set(void);
@@ -176,6 +177,7 @@ void DISP_HIS_FILE(void);
 void Write_His_Data(void);
 void Read_His_Data(u32 block);
 void Read_Block_Rec(void);
+void Write_Block_Rec(void);
 void Read_Index(u32 indexnum);
 
 extern u8 usbbuf[0x40];

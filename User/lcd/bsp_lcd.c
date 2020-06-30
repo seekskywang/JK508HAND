@@ -561,16 +561,38 @@ void Drawhomemenu(void)
 	if(LANG == chs)
 	{
 		LCD_DisplayStringLine(450,35,"显示");
-		LCD_DisplayStringLine(450,153,"曲线图");
-		LCD_DisplayStringLine(450,293,"系统");
+		LCD_DisplayStringLine(450,153,"曲线图");		
 		LCD_DisplayStringLine(450,420,"设置");
 		LCD_DisplayStringLine(450,548,"翻页");
 	}else{
 		LCD_DisplayStringLine(450,10,"DISPLAY");
-		LCD_DisplayStringLine(450,153,"GRAPH");
-		LCD_DisplayStringLine(450,275,"SYSTEM");
+		LCD_DisplayStringLine(450,153,"GRAPH");		
 		LCD_DisplayStringLine(450,410,"SETUP");
 		LCD_DisplayStringLine(450,545,"PAGE");
+	}
+	if(LANG == chs)
+	{
+		if(recordflag == 1)
+		{
+			LCD_SetTextColor(LCD_COLOR_RED);
+			LCD_SetBackColor(LCD_COLOR_BLACK);
+			LCD_DisplayStringLine(450,293,"停止");
+		}else if(recordflag == 0){
+			LCD_SetTextColor(LCD_COLOR_BT);
+			LCD_SetBackColor(LCD_COLOR_BLACK);
+			LCD_DisplayStringLine(450,293,"开始");
+		}
+	}else{
+		if(recordflag == 1)
+		{
+			LCD_SetTextColor(LCD_COLOR_RED);
+			LCD_SetBackColor(LCD_COLOR_BLACK);
+			LCD_DisplayStringLine(450,275,"STOP");
+		}else if(recordflag == 0){
+			LCD_SetTextColor(LCD_COLOR_BT);
+			LCD_SetBackColor(LCD_COLOR_BLACK);
+			LCD_DisplayStringLine(450,275,"START");
+		}
 	}
 }
 
