@@ -51,6 +51,7 @@ u8 date_time[6] = {0,1,1,0,0,0};
 u8 tcpage;
 u8 fileflag;
 u8 tcflag = 0;
+u8 confirmflag;
 SD_Error watchres;
 extern union 
 {
@@ -1124,6 +1125,34 @@ void input_search(char* num)
 			}
 			bit_flag ++;
 		}
+	}
+}
+
+
+//É¾³ıËÑË÷
+void del_search(void)
+{
+	if(bit_flag > 1 && bit_flag < 3)//Äê
+	{
+		LCD_SetBackColor(LCD_COLOR_WHITE);
+		LCD_SetTextColor(LCD_COLOR_WHITE);
+		DISP_CNL_S(410,306 + bit_flag*8," ");
+		LCD_SetBackColor(LCD_COLOR_BLACK);
+		LCD_SetTextColor(LCD_COLOR_BLACK);
+		DISP_CNL_S(410,298 + bit_flag*8," ");
+		bit_flag --;
+		data[bit_flag-1] = '\0';
+		if(bit_flag == dot_flag)
+		{
+			dot_flag = 0;
+		}
+		if(bit_flag == 2)
+		{
+			neg_flag = 0;
+		}
+	}else if(bit_flag >= 3 && bit_flag < 5){//ÔÂ
+		input_num("-");
+		neg_flag = 1;
 	}
 }
 
@@ -2890,7 +2919,18 @@ void FUNC1_HANDLE(void)
 		}break;
 		case history:
 		{
-			page_home();
+			if(confirmflag == 0)
+			{
+				page_home();
+			}else{
+				BlockNum.Num[0] = 0;
+				BlockNum.Num[1] = 0;
+				Write_Block_Rec();
+				SD_Erase(0,61952+sizeof(SaveBuffer));
+				Drawhishmenu();
+				confirmflag = 0;
+			}
+			
 		}break;
 		case calibrate:
 		{
@@ -3499,7 +3539,15 @@ void FUNC2_HANDLE(void)
 		}break;
 		case history:
 		{
-			Read_His_Data(1);
+//			Read_His_Data(1);
+			if(confirmflag == 0)
+			{
+				Drawformatcon();
+				confirmflag = 1;
+			}else{
+				Drawhishmenu();
+				confirmflag = 0;
+			}
 		}break;
 //		case hisfile:
 //		{
@@ -4466,7 +4514,7 @@ void FUNC4_HANDLE(void)
 		}break;
 		case history:
 		{
-			if(hispage < BlockNum.Num[0]-1)
+			if(hispage < BlockNum.Num[0]-1 && BlockNum.Num[0] != 0)
 			{
 				hispage++;
 				Read_His_Data(hispage);
@@ -16373,7 +16421,7 @@ void BACK_HANDLE(void)
 		}break;
 		case history:
 		{
-			del_num();			
+//			del_num();			
 		}break;
 		case settings:
 		{

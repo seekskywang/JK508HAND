@@ -951,6 +951,15 @@ void TempDisplay(void)
 		}else if(eqmtstatus >= 120){
 			eqmtstatus = 0;
 		}
+	}else if(recordflag == 0 && page_flag == display){
+		if(LANG == chs)
+		{
+			LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
+			LCD_DrawFullRect(180,5,130,32);
+		}else if(LANG == eng){
+			LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
+			LCD_DrawFullRect(130,10,235,25);
+		}
 	}
 	if(page_flag == display)
 	{		

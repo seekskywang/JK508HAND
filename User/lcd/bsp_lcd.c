@@ -723,6 +723,27 @@ void Drawhishmenu(void)
 	}
 }
 
+/*历史文件页面根菜单*/
+void Drawformatcon(void)
+{
+	DrawMenu();
+	LCD_SetTextColor(LCD_COLOR_BT);
+	LCD_SetBackColor(LCD_COLOR_BLACK);
+	if(LANG == chs)
+	{
+		LCD_DisplayStringLine(450,35,"确认");
+		LCD_DisplayStringLine(450,153,"取消");
+//		LCD_DisplayStringLine(450,293,"上一页");
+//		LCD_DisplayStringLine(450,420,"下一页");
+//		LCD_DisplayStringLine(450,540,"搜索");
+	}else{
+		LCD_DisplayStringLine(450,10,"CONFIRM");
+		LCD_DisplayStringLine(450,140,"CANCEL");
+//		LCD_DisplayStringLine(450,275,"PREV");
+//		LCD_DisplayStringLine(450,410,"NEXT");
+//		LCD_DisplayStringLine(450,522,"SEARCH");
+	}
+}
 /*历史文件夹页面根菜单*/
 void Drawfilemenu(void)
 {

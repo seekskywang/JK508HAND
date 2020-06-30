@@ -22,17 +22,56 @@ Dialog DLL:      TCM.DLL V1.35.1.0
  
 <h2>Project:</h2>
 F:\JK508\Project\RVMDK£¨uv5£©\BF-F429.uvprojx
-Project File Date:  06/28/2020
+Project File Date:  06/30/2020
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'LCD'
-compiling sysinfo.c...
+compiling bsp_key.c...
+..\..\User\key\bsp_key.c(1592): warning:  #177-D: variable "ymd"  was declared but never referenced
+        u32 ymd;
+..\..\User\key\bsp_key.c(1593): warning:  #177-D: variable "y3"  was declared but never referenced
+        u8 y1,y2,y3,m1,d1;
+..\..\User\key\bsp_key.c(1598): warning:  #177-D: variable "timetemp"  was declared but never referenced
+        char timetemp[100];
+..\..\User\key\bsp_key.c(3980): warning:  #223-D: function "TP_Adjust" declared implicitly
+                                TP_Adjust();
+..\..\User\key\bsp_key.c(4072): warning:  #223-D: function "Draw_His_Graph" declared implicitly
+                                Draw_His_Graph();
+..\..\User\key\bsp_key.c(4521): warning:  #223-D: function "Draw_His_Graph" declared implicitly
+                                Draw_His_Graph();
+..\..\User\key\bsp_key.c(4534): warning:  #177-D: variable "i"  was declared but never referenced
+        static u16 i;
+..\..\User\key\bsp_key.c(8697): warning:  #223-D: function "Search_Handle" declared implicitly
+                                Search_Handle();
+..\..\User\key\bsp_key.c(8706): warning:  #223-D: function "page_factory" declared implicitly
+                                page_factory();
+..\..\User\key\bsp_key.c(14709): warning:  #223-D: function "Draw_His_Graph" declared implicitly
+                                Draw_His_Graph();
+..\..\User\key\bsp_key.c(15888): warning:  #223-D: function "Draw_His_Graph" declared implicitly
+                                Draw_His_Graph();
+..\..\User\key\bsp_key.c(15896): warning:  #177-D: variable "i"  was declared but never referenced
+        u8 i;
+..\..\User\key\bsp_key.c(16510): warning:  #223-D: function "page_factory" declared implicitly
+                        page_factory();
+..\..\User\key\bsp_key.c(16514): warning:  #223-D: function "TP_Adjust" declared implicitly
+                        TP_Adjust();
+..\..\User\key\bsp_key.c(16541): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "const char *restrict"
+                strcpy((char *)TarName,filename);
+..\..\User\key\bsp_key.c(16633): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "const char *restrict"
+        strcpy((char *)TarName,filename);
+..\..\User\key\bsp_key.c(16646): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "char *restrict"
+        sprintf(buf, "\n%d\t20%02d-%02d-%02d\t%02d:%02d:%02d"
+..\..\User\key\bsp_key.c(16665): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "char *restrict"
+                        strcpy(buf,"\tN/A");
+..\..\User\key\bsp_key.c(16667): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "char *restrict"
+                        sprintf(buf,"\t%.1f",ch_temp[i]);
+..\..\User\key\bsp_key.c: 19 warnings, 0 errors
 linking...
-Program Size: Code=179828 RO-data=106992 RW-data=840 ZI-data=143120  
+Program Size: Code=180304 RO-data=101208 RW-data=832 ZI-data=143120  
 FromELF: creating hex file...
 After Build - User command #1: D:\Keil_v5\ARM\ARMCC\bin\fromelf.exe --bin -o ..\..\Output\update.bin ..\..\Output\LCD.axf
-"..\..\Output\LCD.axf" - 0 Error(s), 0 Warning(s).
+"..\..\Output\LCD.axf" - 0 Error(s), 19 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -46,7 +85,7 @@ Package Vendor: Keil
   D:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:05
+Build Time Elapsed:  00:00:09
 </pre>
 </body>
 </html>

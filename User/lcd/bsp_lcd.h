@@ -606,6 +606,7 @@ void 	 Drawgraphmenu(void);
 void 	 Drawgsethmenu(void);
 void 	 Drawcalmenu(void);
 void 	 Drawhishmenu(void);
+void 	 Drawformatcon(void);
 void 	 Drawfilemenu(void);
 void 	 Drawlang(void);
 void 	 Drawdate(void);
