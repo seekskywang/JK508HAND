@@ -156,7 +156,11 @@ const uint8_t TC_Type[][4]=
 	{"AM"},
 };
 
-
+void Draw_Frame(void)
+{
+	LCD_SetColors();
+	LCD_DrawFullRect();
+}
 void page_home(void)
 {
 //	CHNUM = 16;
