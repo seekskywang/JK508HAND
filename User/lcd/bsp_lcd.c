@@ -1245,7 +1245,7 @@ void DrawPowOff(void)
 		LCD_DisplayStringLine(85+315,120+90+20+144-170,"...");
 	}
 	
-	DrawLogo(10,80);
+//	DrawLogo(10,80);
 }
 
 

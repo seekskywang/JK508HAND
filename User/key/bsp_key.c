@@ -2264,7 +2264,7 @@ void Key_Function(void)
 			Key_Handle();
 			keystat = 1;
 			key_old = key_value;
-		}else if(key_old == key_new && keystat == 1){
+		}else if(key_old == key_new && keystat == 1 && page_flag != factory){
 			presscount ++;
 			if(longflag == 0)
 			{
