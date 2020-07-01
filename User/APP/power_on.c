@@ -44,7 +44,7 @@ void power_on(void)
 //		Delay(500);
 //	}
 	
-	DrawLogo(140,250);
+	
 
 ////	Delay(0xffffff);
 ////	Delay(0xffffff);
@@ -55,6 +55,8 @@ void power_on(void)
 ////	LCD_SetColors(LCD_COLOR_BLACK,LCD_COLOR_BLACK);
 ////	LCD_DrawFullRect(200,200,150,150);
 ////	LCD_Clear(LCD_COLOR_BLACK);
+#ifdef LOGO
+	DrawLogo(140,250);
 	LCD_SetColors(LCD_COLOR_GR7,LCD_COLOR_BLACK);
 	DISP_SYS(0,0,"JKOS");
 	LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_BLACK);
@@ -65,6 +67,7 @@ void power_on(void)
 	}else if(CHNUM == 16){
 		DISP_INS(80,0,"JK516 Multi-channel Temp.Meter");
 	}
+#endif
 //	DISP_INS(30,0,"REV 1.0");
 	
 	

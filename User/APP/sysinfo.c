@@ -87,6 +87,7 @@ void page_sysinfo(void)
 	LCD_SetBackColor(LCD_COLOR_BACK);
 	if(LANG == chs)
 	{
+#ifdef LOGO
 		if(CHNUM == 8)
 		{
 			LCD_DisplayStringLine(50,170,"JK508");
@@ -94,8 +95,9 @@ void page_sysinfo(void)
 			LCD_DisplayStringLine(50,170,"JK516");
 		}
 		LCD_DisplayStringLine(94,170,"手持多路温度测试仪");
-		
-//		LCD_DisplayStringLine(50,170,"手持多路温度测试仪");
+#else		
+		LCD_DisplayStringLine(50,170,"手持多路温度测试仪");
+#endif
 		LCD_DisplayStringLine(130,170,"T,K,J,N,E,S,R,B,PT100");
 		sprintf(buf,"%03d",CHNUM);
 		LCD_DisplayStringLine(170,170,(uint8_t *)buf);
@@ -105,13 +107,16 @@ void page_sysinfo(void)
 		LCD_DisplayStringLine(330,170,(uint8_t *)SN);
 		//1.3增加SD卡历史数据和开始停止采集功能
 	}else{
+#ifdef LOGO
 		if(CHNUM == 8)
 		{		
 			LCD_DisplayStringLine(50,220,"JK508 Handheld");
 		}else if(CHNUM == 16){
 			LCD_DisplayStringLine(50,170,"JK516 Handheld");
 		}
-//		LCD_DisplayStringLine(90,220,"Muti-Channel Temp Meter");
+#else
+		LCD_DisplayStringLine(90,220,"Muti-Channel Temp Meter");
+#endif
 		LCD_DisplayStringLine(130,220,"T,K,J,N,E,S,R,B,PT100");
 		sprintf(buf,"%03d",CHNUM);
 		LCD_DisplayStringLine(170,220,(uint8_t *)buf);

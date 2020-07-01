@@ -1244,8 +1244,9 @@ void DrawPowOff(void)
 		LCD_DisplayStringLine(85+318,120+90+20-170,"POWER OFF");
 		LCD_DisplayStringLine(85+315,120+90+20+144-170,"...");
 	}
-	
+#ifdef LOGO
 	DrawLogo(10,80);
+#endif
 }
 
 
