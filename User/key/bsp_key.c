@@ -1132,7 +1132,7 @@ void input_search(char* num)
 //删除搜索
 void del_search(void)
 {
-	if(bit_flag > 1 && bit_flag < 3)//年
+	if(bit_flag == 2)//年1
 	{
 		LCD_SetBackColor(LCD_COLOR_WHITE);
 		LCD_SetTextColor(LCD_COLOR_WHITE);
@@ -1142,17 +1142,76 @@ void del_search(void)
 		DISP_CNL_S(410,298 + bit_flag*8," ");
 		bit_flag --;
 		data[bit_flag-1] = '\0';
-		if(bit_flag == dot_flag)
-		{
-			dot_flag = 0;
-		}
-		if(bit_flag == 2)
-		{
-			neg_flag = 0;
-		}
-	}else if(bit_flag >= 3 && bit_flag < 5){//月
-		input_num("-");
-		neg_flag = 1;
+	}else if(bit_flag == 3){//年2
+		
+		LCD_SetBackColor(LCD_COLOR_WHITE);
+		LCD_SetTextColor(LCD_COLOR_WHITE);
+		DISP_CNL_S(410,354," ");
+		LCD_SetBackColor(LCD_COLOR_BLACK);
+		LCD_SetTextColor(LCD_COLOR_BLACK);
+		DISP_CNL_S(410,298 + bit_flag*8," ");
+		bit_flag --;
+		data[bit_flag-1] = '\0';
+	}else if(bit_flag == 4){//月1
+		
+		LCD_SetBackColor(LCD_COLOR_WHITE);
+		LCD_SetTextColor(LCD_COLOR_WHITE);
+		DISP_CNL_S(410,362," ");
+		LCD_SetBackColor(LCD_COLOR_BLACK);
+		LCD_SetTextColor(LCD_COLOR_BLACK);
+		DISP_CNL_S(410,354," ");
+		bit_flag --;
+		data[bit_flag-1] = '\0';
+	}else if(bit_flag == 5){//月2
+		
+		LCD_SetBackColor(LCD_COLOR_WHITE);
+		LCD_SetTextColor(LCD_COLOR_WHITE);
+		DISP_CNL_S(410,394," ");
+		LCD_SetBackColor(LCD_COLOR_BLACK);
+		LCD_SetTextColor(LCD_COLOR_BLACK);
+		DISP_CNL_S(410,362," ");
+		bit_flag --;
+		data[bit_flag-1] = '\0';
+	}else if(bit_flag == 6){//日1
+		
+		LCD_SetBackColor(LCD_COLOR_WHITE);
+		LCD_SetTextColor(LCD_COLOR_WHITE);
+		DISP_CNL_S(410,402," ");
+		LCD_SetBackColor(LCD_COLOR_BLACK);
+		LCD_SetTextColor(LCD_COLOR_BLACK);
+		DISP_CNL_S(410,394," ");
+		bit_flag --;
+		data[bit_flag-1] = '\0';
+	}else if(bit_flag == 7){//日2
+		
+		LCD_SetBackColor(LCD_COLOR_WHITE);
+		LCD_SetTextColor(LCD_COLOR_WHITE);
+		DISP_CNL_S(410,434," ");
+		LCD_SetBackColor(LCD_COLOR_BLACK);
+		LCD_SetTextColor(LCD_COLOR_BLACK);
+		DISP_CNL_S(410,402," ");
+		bit_flag --;
+		data[bit_flag-1] = '\0';
+	}else if(bit_flag == 8){//时1
+		
+		LCD_SetBackColor(LCD_COLOR_WHITE);
+		LCD_SetTextColor(LCD_COLOR_WHITE);
+		DISP_CNL_S(410,442," ");
+		LCD_SetBackColor(LCD_COLOR_BLACK);
+		LCD_SetTextColor(LCD_COLOR_BLACK);
+		DISP_CNL_S(410,434," ");
+		bit_flag --;
+		data[bit_flag-1] = '\0';
+	}else if(bit_flag == 9){//时2
+		
+//		LCD_SetBackColor(LCD_COLOR_WHITE);
+//		LCD_SetTextColor(LCD_COLOR_WHITE);
+//		DISP_CNL_S(410,474," ");
+		LCD_SetBackColor(LCD_COLOR_BLACK);
+		LCD_SetTextColor(LCD_COLOR_BLACK);
+		DISP_CNL_S(410,442," ");
+		bit_flag --;
+		data[bit_flag-1] = '\0';
 	}
 }
 
@@ -3939,7 +3998,7 @@ void FUNC3_HANDLE(void)
 						recordflag = 1;
 						Drawhomemenu();
 					}else if(recordflag == 1){
-						Write_His_Data();
+						Write_His_Data_Man();
 						recordflag = 0;
 						Drawhomemenu();
 						Write_Block_Rec();					
@@ -16421,7 +16480,7 @@ void BACK_HANDLE(void)
 		}break;
 		case history:
 		{
-//			del_num();			
+			del_search();			
 		}break;
 		case settings:
 		{

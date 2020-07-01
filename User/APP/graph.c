@@ -75,7 +75,12 @@ void page_graph(void)
 	Drawgraphmenu();
 	DrawUnit();
 //	DrawCharge();
-	
+	if(sdstatus == 1)//≥ı ºªØSDø®
+	{
+		DrawSD2();
+	}else{
+		DrawSD1();
+	}
 	LCD_SetTextColor(LCD_COLOR_RED);
 	LCD_SetBackColor(LCD_COLOR_BACK);
 	for(i = 0;i < 7;i ++)

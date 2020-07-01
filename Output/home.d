@@ -52,3 +52,4 @@
 ..\..\output\home.o: ..\..\User\FATFS\integer.h
 ..\..\output\home.o: ..\..\User\FATFS\ffconf.h
 ..\..\output\home.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+..\..\output\home.o: ..\..\User\sdio/bsp_sdio_sd.h

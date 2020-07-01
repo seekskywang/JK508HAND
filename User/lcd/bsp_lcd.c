@@ -576,11 +576,11 @@ void Drawhomemenu(void)
 		{
 			LCD_SetTextColor(LCD_COLOR_RED);
 			LCD_SetBackColor(LCD_COLOR_BLACK);
-			LCD_DisplayStringLine(450,293,"停止");
+			LCD_DisplayStringLine(450,293-25,"停止收录");
 		}else if(recordflag == 0){
 			LCD_SetTextColor(LCD_COLOR_BT);
 			LCD_SetBackColor(LCD_COLOR_BLACK);
-			LCD_DisplayStringLine(450,293,"开始");
+			LCD_DisplayStringLine(450,293-25,"开始收录");
 		}
 	}else{
 		if(recordflag == 1)
@@ -1164,7 +1164,7 @@ void DrawUdisk2(void)
 }
 
 
-//绘制SD卡读取成功图标
+//绘制SD卡读取失败图标
 void DrawSD1(void)
 {
 	LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
@@ -1182,7 +1182,7 @@ void DrawSD1(void)
 	LCD_DrawLine(374+6,13+2,3,LCD_DIR_VERTICAL);
 }
 
-//绘制SD卡读取失败图标
+//绘制SD卡读取成功图标
 void DrawSD2(void)
 {
 	LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);

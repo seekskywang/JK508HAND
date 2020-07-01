@@ -67,6 +67,7 @@ u16 ureadcrc;
 u8 *ucrc;
 extern u8 uartflag;
 u8 recordflag;
+u8 sdstatus;
 //SD_CardInfo SDINFO;
 //u8 p1,p2,p3,p4,p5,p6,p7,p8;
 //char filename[20];
@@ -418,6 +419,7 @@ int main(void)
 	tp_dev.init();
 	if(SD_Init() == SD_OK)//初始化SD卡
 	{
+		sdstatus = 1;
 //		DrawSD2();
 		Read_Block_Rec();
 		Read_Index(BlockNum.Num[1]/40);
@@ -932,10 +934,11 @@ void TempDisplay(void)
 			if(LANG == chs)
 			{
 				LCD_SetColors(LCD_COLOR_RED,LCD_COLOR_BACK);
-				LCD_DisplayStringLine(5,180,"数据采集中");
+				LCD_DisplayStringLine(2,180,"SD");
+				LCD_DisplayStringLine(5,180+32,"卡收录中");
 			}else if(LANG == eng){
 				LCD_SetColors(LCD_COLOR_RED,LCD_COLOR_BACK);
-				DISP_INS(10,130,"Collecting data");
+				DISP_INS(10,130,"SD card recording");
 			}
 			eqmtstatus++;
 		}else if(eqmtstatus >= 60 && eqmtstatus < 120){
@@ -3539,8 +3542,11 @@ void PowerOffHandle(void)
 	page_flag = poweroff;
 	static u8 offflag;
 	DrawPowOff();
-	Write_His_Data();
-	Read_Block_Rec();
+	if(recordflag == 1)
+	{
+		Write_His_Data_Man();
+		Write_Block_Rec();
+	}
 //	if(offflag == 0)
 //	{
 //		TIME_REC++;

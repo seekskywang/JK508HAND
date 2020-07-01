@@ -99,6 +99,8 @@ extern SAVE_INDEX HisIndex;
 extern u16 hiscursor;
 extern u8 indexflag;
 extern u8 recordflag;
+extern u8 sdstatus;
+extern u16 count;
 
 void page_home(void);
 void page_set(void);
@@ -175,6 +177,7 @@ void Open_Dir(void);
 void Format_SD(void);
 void DISP_HIS_FILE(void);
 void Write_His_Data(void);
+void Write_His_Data_Man(void);
 void Read_His_Data(u32 block);
 void Read_Block_Rec(void);
 void Write_Block_Rec(void);

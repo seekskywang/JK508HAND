@@ -109,7 +109,41 @@ void Write_His_Data(void)
 	memset(SaveBuffer.Temp,0,sizeof(SaveBuffer.Temp));
 }
 
-
+void Write_His_Data_Man(void)
+{
+	u16 i;
+	SD_WriteBlock((uint8_t *)&BlockNum,0,512);
+	SD_WaitWriteOperation();	
+	while(SD_GetStatus() != SD_TRANSFER_OK);
+	SD_WriteMultiBlocks((uint8_t *)&SaveBuffer,61952+sizeof(SaveBuffer)*BlockNum.Num[0],512,sizeof(SaveBuffer)/512);
+	SD_WaitWriteOperation();	
+	while(SD_GetStatus() != SD_TRANSFER_OK);	
+	if(indexflag == 1)
+	{
+		strcpy(HisIndex.Date[BlockNum.Num[1]%40],SaveBuffer.Time[count - 1]);
+		HisIndex.Index[BlockNum.Num[1]%40] = BlockNum.Num[0];
+//		for(i=0;i<8;i++)
+//		{
+//			HisIndex.Date[BlockNum.Num[1]][i]=SaveBuffer.Time[0][i]; 
+//		}
+		SD_WriteBlock((uint8_t *)&HisIndex,512+512*(BlockNum.Num[1]/40),512);
+		SD_WaitWriteOperation();	
+		while(SD_GetStatus() != SD_TRANSFER_OK);
+		BlockNum.Num[1] ++;
+		indexflag = 0;
+	}
+	BlockNum.Num[0]++;
+	if(BlockNum.Num[1] > 4800)
+	{
+		BlockNum.Num[0] = 0;
+	}
+	if(BlockNum.Num[0] > SD_MAX_BLOCK)
+	{
+		BlockNum.Num[0] = 0;
+	}
+	memset(SaveBuffer.Time,0,sizeof(SaveBuffer.Time));
+	memset(SaveBuffer.Temp,0,sizeof(SaveBuffer.Temp));
+}
 
 void Read_Index(u32 indexnum)
 {

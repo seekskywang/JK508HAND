@@ -22,7 +22,7 @@
 #include "./tim/bsp_basic_tim.h"
 #include "./flash/bsp_spi_flash.h"
 #include "jk508.h"
-
+#include "sdio/bsp_sdio_sd.h"
 
 
 extern union 
@@ -172,7 +172,12 @@ void page_home(void)
 	tcpage = 1;
 	DrawMenu();
 	DrawUnit();
-	
+	if(sdstatus == 1)//≥ı ºªØSDø®
+	{
+		DrawSD2();
+	}else{
+		DrawSD1();
+	}
 	if(LANG == chs)
 	{
 		LCD_SetTextColor(LCD_COLOR_HLT);  	
