@@ -158,8 +158,17 @@ const uint8_t TC_Type[][4]=
 
 void Draw_Frame(void)
 {
-	LCD_SetColors();
-	LCD_DrawFullRect();
+	u8 i;
+	LCD_SetColors(LCD_COLOR_GR3,LCD_COLOR_BACK);
+	for(i=0;i<5;i++)
+	{
+		LCD_DrawLine(0,90+80*i,630,LCD_DIR_HORIZONTAL);
+	}
+	LCD_DrawLine(0,90,320,LCD_DIR_VERTICAL);
+	LCD_DrawLine(90,90,320,LCD_DIR_VERTICAL);
+	LCD_DrawLine(320,90,320,LCD_DIR_VERTICAL);
+	LCD_DrawLine(410,90,320,LCD_DIR_VERTICAL);
+	LCD_DrawLine(630,90,320,LCD_DIR_VERTICAL);
 }
 void page_home(void)
 {
@@ -209,7 +218,7 @@ void page_home(void)
 	LCD_SetBackColor(LCD_COLOR_YELLOW);
 	
 	
-	
+//	Draw_Frame();
 	
 	if(TCTYPE == TCK)
 	{

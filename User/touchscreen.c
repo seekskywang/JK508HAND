@@ -890,7 +890,16 @@ void TouchHandle(u16 x,u16 y)
 						}break;
 						default:
 						{
-							page_sys();
+							if(recordflag == 0)
+							{
+								recordflag = 1;
+								Drawhomemenu();
+							}else if(recordflag == 1){
+								Write_His_Data_Man();
+								recordflag = 0;
+								Drawhomemenu();
+								Write_Block_Rec();					
+							}
 						}break;
 					}
 					press = 1;

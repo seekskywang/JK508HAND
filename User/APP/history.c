@@ -413,7 +413,7 @@ void Draw_His_Graph(void)
 		sprintf(buf,"%6.1f",ReadBuffer.Temp[15][hiscursor]);
 		DISP_CNL_S(340+20,585,(uint8_t*)buf);
 	}
-	LCD_SetColors(LCD_COLOR_GREY,LCD_COLOR_BACK);
+	LCD_SetColors(LCD_COLOR_LIGHTGREY,LCD_COLOR_BACK);
 	LCD_DrawLine(31 + hiscursor,51,350,LCD_DIR_VERTICAL);
 }
 
