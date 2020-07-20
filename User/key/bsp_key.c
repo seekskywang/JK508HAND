@@ -39,6 +39,8 @@ u8 spt_page;
 u8 cor_page;
 u8 date_page;
 u8 time_page;
+u8 indexpage;
+u8 graphpage;
 u8 bit_flag = 1;
 u8 dot_flag = 0;
 u8 neg_flag = 0;
@@ -3997,6 +3999,8 @@ void FUNC3_HANDLE(void)
 					{
 						recordflag = 1;
 						Drawhomemenu();
+						count = 0;
+						indexflag = 1;
 					}else if(recordflag == 1){
 						Write_His_Data_Man();
 						recordflag = 0;
@@ -4124,12 +4128,27 @@ void FUNC3_HANDLE(void)
 		}break;
 		case history:
 		{
-			if(hispage > 0)
+			if(indexpage > 0)
 			{
-				hispage--;
-				Read_His_Data(hispage);
-				Draw_His_Graph();
+				indexpage --;
+				op_flag = 0;
+				Draw_His_Index(indexpage);
 			}
+//			if(hispage > 0)
+//			{
+//				hispage--;
+//				Read_His_Data(hispage);
+//				Draw_His_Graph();
+//			}
+		}break;
+		case hisgraph:
+		{
+			if(hispage > hispagestart)
+			{
+				hispage --;
+				graph_his();
+			}
+
 		}break;
 		case calibrate:
 		{
@@ -4573,12 +4592,27 @@ void FUNC4_HANDLE(void)
 		}break;
 		case history:
 		{
-			if(hispage < BlockNum.Num[0]-1 && BlockNum.Num[0] != 0)
+			if(indexpage < BlockNum.Num[1]/10)
 			{
-				hispage++;
-				Read_His_Data(hispage);
-				Draw_His_Graph();
+				indexpage ++;
+				op_flag = 0;
+				Draw_His_Index(indexpage);
 			}
+//			if(hispage < BlockNum.Num[0]-1 && BlockNum.Num[0] != 0)
+//			{
+//				hispage++;
+//				Read_His_Data(hispage);
+//				Draw_His_Graph();
+//			}
+		}break;
+		case hisgraph:
+		{
+			if(hispage < hispageend)
+			{
+				hispage ++;
+				graph_his();
+			}
+
 		}break;
 		case calibrate:
 		{
@@ -6435,6 +6469,10 @@ void FUNC5_HANDLE(void)
 			bit_flag = 1;
 			input_search("0");
 			del_num();
+		}break;
+		case hisgraph:
+		{
+			back_his();
 		}break;
 //		case hisfile:
 //		{
@@ -8750,11 +8788,14 @@ void ENTER_HANDLE(void)
 		}break;
 		case history:
 		{
-			if(input_flag == 1)
-			{
-				clear_input();
-				Search_Handle();
-			}
+//			if(input_flag == 1)
+//			{
+//				clear_input();
+//				Search_Handle();
+//			}
+//			Read_His_Data(hispage);
+//			Draw_His_Graph();
+			graph_his();
 		}break;
 		case factory:
 		{
@@ -11268,6 +11309,11 @@ void UP_HANDLE(void)
 		}break;
 		case history:
 		{
+			if(op_flag > 0)
+			{
+				op_flag --;
+			}
+			Draw_His_Index(indexpage);
 //			if(dirflag > 1)
 //			{
 //				dirflag--;
@@ -13559,6 +13605,11 @@ void DOWN_HANDLE(void)
 		}break;
 		case history:
 		{
+			if(op_flag < foldernum-1)
+			{
+				op_flag ++;
+			}
+			Draw_His_Index(indexpage);
 //			if(dirflag < foldernum)
 //			{
 //				dirflag++;

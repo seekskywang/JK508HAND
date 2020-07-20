@@ -32,10 +32,12 @@ float YLIMIT[3];
 u16 his_config[10];
 u8 his_time[10][7];
 u16 hispage;
+u16 hispagestart;
+u16 hispageend;
 u16 hiscursor;
 
 
-void Draw_His_Graph(void);
+
 //读取的ID存储位置
 extern __IO uint32_t DeviceID;
 extern __IO uint32_t FlashID;
@@ -88,13 +90,103 @@ void page_his(void)
 	}else{
 		DrawSD1();
 	}
-//	Mount_SD();	
-//	READ_HIS_FOLDER();
-	Read_His_Data(hispage);
-	Draw_His_Graph();
+
+//	Read_His_Data(hispage);
+//	Draw_His_Graph();
+	
+	
 	page_flag = history;
+	op_flag = 0;
+	Draw_His_Index(indexpage);
 }
 
+void back_his(void)
+{
+	range = (YHLIMIT - YLLIMIT) / 7;
+	enrate = 350/(float)(YHLIMIT - YLLIMIT);
+	u8 i;
+	u16 j;
+	
+	
+	
+	
+	
+   /*初始化后默认使用前景层*/
+	LCD_SetLayer(LCD_FOREGROUND_LAYER);
+	/*默认设置不透明	，该函数参数为不透明度，范围 0-0xff ，0为全透明，0xff为不透明*/
+    LCD_SetTransparency(0xFF);
+	LCD_Clear(LCD_COLOR_BACK);
+	/*经过LCD_SetLayer(LCD_FOREGROUND_LAYER)函数后，
+	以下液晶操作都在前景层刷新，除非重新调用过LCD_SetLayer函数设置背景层*/
+	LCD_SetTextColor(LCD_COLOR_HLT);
+	LCD_SetBackColor(LCD_COLOR_BACK);
+	LCD_DisplayStringLine(0,10, "<      >");
+	LCD_DisplayStringLine(5,26, "历史数据");
+	
+//	dirflag  =1;
+//	hispage = 1;
+	
+	DrawMenu();
+	Drawhishmenu();
+	if(SD_Init() == SD_OK)//初始化SD卡
+	{
+		DrawSD2();
+	}else{
+		DrawSD1();
+	}
+
+//	Read_His_Data(hispage);
+//	Draw_His_Graph();
+	
+	
+	page_flag = history;
+	Draw_His_Index(indexpage);
+}
+
+void graph_his(void)
+{
+	range = (YHLIMIT - YLLIMIT) / 7;
+	enrate = 350/(float)(YHLIMIT - YLLIMIT);
+	u8 i;
+	u16 j;
+	u16 pages;
+	u16 cpage;
+	char pagebuf[10];
+	
+	
+	pages = hispageend - hispagestart + 1;
+	cpage = hispage - hispagestart + 1;
+   /*初始化后默认使用前景层*/
+	LCD_SetLayer(LCD_FOREGROUND_LAYER);
+	/*默认设置不透明	，该函数参数为不透明度，范围 0-0xff ，0为全透明，0xff为不透明*/
+    LCD_SetTransparency(0xFF);
+	LCD_Clear(LCD_COLOR_BACK);
+	/*经过LCD_SetLayer(LCD_FOREGROUND_LAYER)函数后，
+	以下液晶操作都在前景层刷新，除非重新调用过LCD_SetLayer函数设置背景层*/
+	LCD_SetTextColor(LCD_COLOR_HLT);
+	LCD_SetBackColor(LCD_COLOR_BACK);
+	LCD_DisplayStringLine(0,10, "<      >");
+	LCD_DisplayStringLine(5,26, "历史数据");
+	
+//	dirflag  =1;
+//	hispage = 1;
+	sprintf(pagebuf,"%0.4d/%0.4d",cpage,pages);
+	DISP_CNL_S(30,250,(uint8_t* )pagebuf);
+	DrawMenu();
+	Drawhisgraph();
+	if(SD_Init() == SD_OK)//初始化SD卡
+	{
+		DrawSD2();
+	}else{
+		DrawSD1();
+	}
+
+	Read_His_Data(hispage);
+	Draw_His_Graph();
+	
+	
+	page_flag = hisgraph;
+}
 void Draw_His_Graph(void)
 {
 	char timetemp[100];

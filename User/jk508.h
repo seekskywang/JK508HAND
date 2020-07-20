@@ -80,6 +80,7 @@ extern u8 time_page;
 extern u8 press;
 extern u8 spt_page;
 extern u8 cor_page;
+extern u8 indexpage;
 extern u8 trigflag;
 extern u8 tcpage;
 extern u8 tcflag;
@@ -88,6 +89,8 @@ extern char SN[8];
 extern char SearchBuffer[8];
 extern char data[17];
 extern u16 hispage;
+extern u16 hispageend;
+extern u16 hispagestart;
 extern u8 dirflag;
 extern RTC_TimeTypeDef RTC_TimeStructure;
 extern RTC_DateTypeDef RTC_DateStructure;
@@ -109,11 +112,13 @@ void page_sep(void);
 void page_sysinfo(void);
 void page_graph(void);
 void page_his(void);
+void back_his(void);
 void page_gset(void);
 void page_cal(void);
 void power_on(void);
 void Save_flag(void);
 void Read_flag(void);
+void graph_his(void);
 void Save_history(u16 rec);
 void Read_history(u16 rec);
 void Save_time(u16 rec);
@@ -123,6 +128,8 @@ void Erase_all(void);
 u8 PowerOffDetect(void);
 void PowerOffHandle(void);
 void ButtonSound(void);
+void Draw_His_Index(u8 page);
+void Draw_His_Graph(void);
 
 u8 udisk_scan(void);
 void Delay(__IO u32 nCount);
@@ -584,6 +591,7 @@ extern Touch_save_Typedef    Touch_save;
 #define poweroff 		 11
 #define factory 		 12
 #define hisfile			 13
+#define hisgraph		 14
 
 /* 选项标志位 */
 #define home_type        0

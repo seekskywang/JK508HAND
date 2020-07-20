@@ -18,7 +18,7 @@
 //char Dirname[MAXDIR][13];
 //char Filelist[MAXFILE][13];
 //u8 maxhispage,dirflag,maxfilepage;
-//u16 foldernum,filenum;
+u16 foldernum;
 //BYTE WriteBuffer[] =              /* 写缓冲区*/
 BLOCK_REC BlockNum;
 SAVE_INDEX HisIndex;
@@ -29,6 +29,7 @@ u8 infoflag;
 u8 indexflag;
 char scomp1[8];
 char scomp2[8];
+char indexname[20];
 ////加载SD卡
 //void Mount_SD(void)
 //{
@@ -82,20 +83,20 @@ void Write_His_Data(void)
 	SD_WriteMultiBlocks((uint8_t *)&SaveBuffer,61952+sizeof(SaveBuffer)*BlockNum.Num[0],512,sizeof(SaveBuffer)/512);
 	SD_WaitWriteOperation();	
 	while(SD_GetStatus() != SD_TRANSFER_OK);	
-	if(indexflag == 1)
-	{
-		strcpy(HisIndex.Date[BlockNum.Num[1]%40],SaveBuffer.Time[495]);
-		HisIndex.Index[BlockNum.Num[1]%40] = BlockNum.Num[0];
-//		for(i=0;i<8;i++)
-//		{
-//			HisIndex.Date[BlockNum.Num[1]][i]=SaveBuffer.Time[0][i]; 
-//		}
-		SD_WriteBlock((uint8_t *)&HisIndex,512+512*(BlockNum.Num[1]/40),512);
-		SD_WaitWriteOperation();	
-		while(SD_GetStatus() != SD_TRANSFER_OK);
-		BlockNum.Num[1] ++;
-		indexflag = 0;
-	}
+//	if(indexflag == 1)
+//	{
+//		strcpy(HisIndex.Date[BlockNum.Num[1]%40],SaveBuffer.Time[495]);
+//		HisIndex.Index[BlockNum.Num[1]%40] = BlockNum.Num[0];
+////		for(i=0;i<8;i++)
+////		{
+////			HisIndex.Date[BlockNum.Num[1]][i]=SaveBuffer.Time[0][i]; 
+////		}
+//		SD_WriteBlock((uint8_t *)&HisIndex,512+512*(BlockNum.Num[1]/40),512);
+//		SD_WaitWriteOperation();	
+//		while(SD_GetStatus() != SD_TRANSFER_OK);
+//		BlockNum.Num[1] ++;//目录计数
+//		indexflag = 0;
+//	}
 	BlockNum.Num[0]++;
 	if(BlockNum.Num[1] > 4800)
 	{
@@ -160,7 +161,48 @@ void Read_His_Data(u32 block)
 	while(SD_GetStatus() != SD_TRANSFER_OK);
 	
 }
+
+void Draw_His_Index(u8 page)
+{
+	u16 i,j;
+	char buf[14],num[5];
+	Read_Index(page/4);
 	
+	LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
+	LCD_DrawFullRect(10,40,400,400);
+	if(page < BlockNum.Num[1]/10)
+	{
+		foldernum = 10;
+	}else{
+		foldernum = BlockNum.Num[1]%10;
+	}
+	hispage = HisIndex.Index[op_flag+10*page-1]+1;
+	hispagestart = hispage;
+	hispageend = HisIndex.Index[op_flag+10*page];
+	for(i=0;i<foldernum;i++)
+	{
+		
+		sprintf(indexname,"%0.2d%0.2d-%0.2d-%0.2d-%0.2d:%0.2d:%0.2d",	  HisIndex.Date[i+10*page][0],
+																		  HisIndex.Date[i+10*page][1],
+																		  HisIndex.Date[i+10*page][2],
+																		  HisIndex.Date[i+10*page][3],
+																		  HisIndex.Date[i+10*page][4],
+																		  HisIndex.Date[i+10*page][5],
+																		  HisIndex.Date[i+10*page][6]);
+		LCD_SetColors(LCD_COLOR_YELLOW,LCD_COLOR_BACK);
+		sprintf(num,"%d",i+1);
+		LCD_DisplayStringLine(40+i*35,10,(uint8_t *)num);
+		LCD_DisplayStringLine(40+i*35,40,(uint8_t *)".");
+		if(i == op_flag)
+		{
+			LCD_SetColors(LCD_COLOR_BLACK,LCD_COLOR_YELLOW);
+		}else{
+			LCD_SetColors(LCD_COLOR_YELLOW,LCD_COLOR_BACK);
+		}
+		LCD_DisplayStringLine(40+i*35,60,(uint8_t *)indexname);
+	}
+}
+
 void Search_Handle(void)
 {
 	u16 i,j;
