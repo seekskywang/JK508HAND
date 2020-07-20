@@ -8788,14 +8788,15 @@ void ENTER_HANDLE(void)
 		}break;
 		case history:
 		{
-//			if(input_flag == 1)
-//			{
-//				clear_input();
-//				Search_Handle();
-//			}
+			if(input_flag == 1)
+			{
+				clear_input();
+				Search_Handle();
+			}else{
 //			Read_His_Data(hispage);
 //			Draw_His_Graph();
-			graph_his();
+				graph_his();
+			}
 		}break;
 		case factory:
 		{
@@ -14811,15 +14812,22 @@ void RIGHT_HANDLE(void)
 				}break;
 			}
 		}break;
-		case history:
+//		case history:
+//		{
+//			if(hiscursor < 495)
+//			{
+//				hiscursor ++;
+//				Draw_His_Graph();
+//			}
+//		}break;
+		case hisgraph:
 		{
 			if(hiscursor < 495)
 			{
 				hiscursor ++;
 				Draw_His_Graph();
 			}
-		}break;
-				
+		}break;		
 	}
 }
 
@@ -15990,7 +15998,7 @@ void LEFT_HANDLE(void)
 				}break;
 			}
 		}break;
-		case history:
+		case hisgraph:
 		{
 			if(hiscursor > 0)
 			{

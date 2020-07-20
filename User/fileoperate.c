@@ -165,17 +165,22 @@ void Read_His_Data(u32 block)
 void Draw_His_Index(u8 page)
 {
 	u16 i,j;
-	char buf[14],num[5];
+	char buf[14],num[5],indexpages[10];
 	Read_Index(page/4);
 	
 	LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
 	LCD_DrawFullRect(10,40,400,400);
+	
+	LCD_SetColors(LCD_COLOR_HLT,LCD_COLOR_BACK);
+	sprintf(indexpages,"%0.4d/%0.4d",page+1,BlockNum.Num[1]/10+1);
+	LCD_DisplayStringLine(40+9*35,480,(uint8_t *)indexpages);
+	
 	if(page < BlockNum.Num[1]/10)
 	{
 		foldernum = 10;
 	}else{
 		foldernum = BlockNum.Num[1]%10;
-	}
+	}	
 	hispage = HisIndex.Index[op_flag+10*page-1]+1;
 	hispagestart = hispage;
 	hispageend = HisIndex.Index[op_flag+10*page];
@@ -203,6 +208,40 @@ void Draw_His_Index(u8 page)
 	}
 }
 
+//void Search_Handle(void)
+//{
+//	u16 i,j;
+//	Disp_Search_Info(0);
+//	for(i=0;i<BlockNum.Num[1]/40+1;i++)
+//	{
+//		Read_Index(i);
+//		for(j=0;j<40;j++)
+//		{
+//			sprintf(scomp1,"%0.2d%0.2d%0.2d%0.2d",HisIndex.Date[j][1],
+//												  HisIndex.Date[j][2],
+//												  HisIndex.Date[j][3],
+//												  HisIndex.Date[j][4]);
+//			if(strcmp(SearchBuffer,scomp1) == 0)
+//			{
+//				hispage = HisIndex.Index[j];
+//				infoflag = 0;
+//				break;
+//			}else{
+//				infoflag = 1;
+//			}
+//		}
+////		SD_WaitWriteOperation();
+////		while(SD_GetStatus() != SD_TRANSFER_OK);
+//		
+//		
+//	}
+//	graph_his();
+//	if(infoflag == 1)
+//	{
+//		Disp_Search_Info(1);
+//	}
+//}
+
 void Search_Handle(void)
 {
 	u16 i,j;
@@ -218,6 +257,8 @@ void Search_Handle(void)
 												  HisIndex.Date[j][4]);
 			if(strcmp(SearchBuffer,scomp1) == 0)
 			{
+				indexpage = (i*40+j)/10;
+				op_flag = j%10;
 				hispage = HisIndex.Index[j];
 				infoflag = 0;
 				break;
@@ -230,7 +271,7 @@ void Search_Handle(void)
 		
 		
 	}
-	page_his();
+	back_his();
 	if(infoflag == 1)
 	{
 		Disp_Search_Info(1);
