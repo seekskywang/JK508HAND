@@ -3610,6 +3610,10 @@ void FUNC2_HANDLE(void)
 				confirmflag = 0;
 			}
 		}break;
+		case hisgraph:
+		{
+			his_gset();
+		}break;
 //		case hisfile:
 //		{
 //			READ_HIS_FOLDER();
@@ -6474,6 +6478,10 @@ void FUNC5_HANDLE(void)
 		{
 			back_his();
 		}break;
+		case hisgset:
+		{
+			graph_his();
+		}break;
 //		case hisfile:
 //		{
 //			Create_His_File();
@@ -8708,6 +8716,59 @@ void ENTER_HANDLE(void)
 			
 		}break;
 		case graphset:
+		{
+			char dest[6];
+			switch(op_flag)
+			{
+				case set_yhigh:
+				{
+					if(dot_flag == 0){
+						YHLIMIT = atoi(data);					
+					}else if(dot_flag != 0){
+						memset(dest, '\0', sizeof(dest));
+						strncpy(dest,data,dot_flag + 1);
+						YHLIMIT = atof(dest);
+					}
+					if(YHLIMIT > 1800 || YHLIMIT < YLLIMIT)
+					{
+						YHLIMIT = 1800;
+					}
+					yhfocus_on(YHLIMIT);
+					Save_flag();
+				}break;
+				case set_ylow:
+				{
+					if(dot_flag == 0){
+						YLLIMIT = atoi(data);					
+					}else if(dot_flag != 0){
+						memset(dest, '\0', sizeof(dest));
+						strncpy(dest,data,dot_flag + 1);
+						YHLIMIT = atof(dest);
+					}
+					if(YLLIMIT > YHLIMIT || YLLIMIT < -200)
+					{
+						YLLIMIT = -200;
+					}
+					ylfocus_on(YLLIMIT);
+					Save_flag();
+				}break;
+				case set_multi:
+				{
+					MULTI = atoi(data);
+					if(MULTI > 300)
+					{
+						MULTI = 300;
+					}
+					if(MULTI < 1)
+					{
+						MULTI = 1;
+					}
+					multifocus_on(MULTI);
+					Save_flag();
+				}break;
+			}
+		}break;	
+		case hisgset:
 		{
 			char dest[6];
 			switch(op_flag)
@@ -11308,6 +11369,18 @@ void UP_HANDLE(void)
 				}break;
 			}
 		}break;
+		case hisgset:
+		{
+			switch(op_flag)
+			{
+				case set_ylow:
+				{
+					ylfocus_off(YLLIMIT);
+					yhfocus_on(YHLIMIT);
+					op_flag = set_yhigh;
+				}break;
+			}
+		}break;
 		case history:
 		{
 			if(op_flag > 0)
@@ -13602,6 +13675,18 @@ void DOWN_HANDLE(void)
 					op_flag = set_multi;
 				}break;				
 				
+			}
+		}break;
+		case hisgset:
+		{
+			switch(op_flag)
+			{
+				case set_yhigh:
+				{
+					yhfocus_off(YHLIMIT);
+					ylfocus_on(YLLIMIT);
+					op_flag = set_ylow;
+				}break;			
 			}
 		}break;
 		case history:
@@ -16030,6 +16115,10 @@ void KEY1_HANDLE(void)
 		{
 			input_num("1");			
 		}break;
+		case hisgset:
+		{
+			input_num("1");			
+		}break;
 		case calibrate:
 		{
 			input_num("1");			
@@ -16083,6 +16172,10 @@ void KEY2_HANDLE(void)
 		case graphset:
 		{
 			input_num ("2");
+		}break;
+		case hisgset:
+		{
+			input_num("2");			
 		}break;
 		case calibrate:
 		{
@@ -16142,6 +16235,10 @@ void KEY3_HANDLE(void)
 		{
 			input_num("3");
 		}break;
+		case hisgset:
+		{
+			input_num("3");			
+		}break;
 		case calibrate:
 		{
 			input_num("3");			
@@ -16188,6 +16285,10 @@ void KEY4_HANDLE(void)
 		case graphset:
 		{
 			input_num("4");
+		}break;
+		case hisgset:
+		{
+			input_num("4");			
 		}break;
 		case calibrate:
 		{
@@ -16240,6 +16341,10 @@ void KEY5_HANDLE(void)
 		{
 			input_num("5");			
 		}break;
+		case hisgset:
+		{
+			input_num("5");			
+		}break;
 		case history:
 		{
 			input_search("5");			
@@ -16282,6 +16387,10 @@ void KEY6_HANDLE(void)
 		case graphset:
 		{
 			input_num("6");
+		}break;
+		case hisgset:
+		{
+			input_num("6");			
 		}break;
 		case calibrate:
 		{
@@ -16330,6 +16439,10 @@ void KEY7_HANDLE(void)
 		{
 			input_num("7");
 		}break;
+		case hisgset:
+		{
+			input_num("7");			
+		}break;
 		case calibrate:
 		{
 			input_num("7");			
@@ -16376,6 +16489,10 @@ void KEY8_HANDLE(void)
 		case graphset:
 		{
 			input_num("8");
+		}break;
+		case hisgset:
+		{
+			input_num("8");			
 		}break;
 		case calibrate:
 		{
@@ -16424,6 +16541,10 @@ void KEY9_HANDLE(void)
 		{
 			input_num("9");
 		}break;
+		case hisgset:
+		{
+			input_num("9");			
+		}break;
 		case calibrate:
 		{
 			input_num("9");			
@@ -16466,6 +16587,10 @@ void KEY0_HANDLE(void)
 		case graphset:
 		{
 			input_num("0");
+		}break;
+		case hisgset:
+		{
+			input_num("0");			
 		}break;
 		case calibrate:
 		{
@@ -16510,6 +16635,10 @@ void DOT_HANDLE(void)
 		{
 			input_num(".");
 		}break;
+		case hisgset:
+		{
+			input_num(".");			
+		}break;
 		case calibrate:
 		{
 			input_num(".");			
@@ -16532,6 +16661,10 @@ void BACK_HANDLE(void)
 		case graphset:
 		{
 			del_num();
+		}break;
+		case hisgset:
+		{
+			del_num();		
 		}break;
 		case calibrate:
 		{

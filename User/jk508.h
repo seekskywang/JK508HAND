@@ -592,6 +592,8 @@ extern Touch_save_Typedef    Touch_save;
 #define factory 		 12
 #define hisfile			 13
 #define hisgraph		 14
+#define hisgset		 	 15
+
 
 /* 选项标志位 */
 #define home_type        0

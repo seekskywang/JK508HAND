@@ -506,7 +506,7 @@ int main(void)
 						UARTRECHANDLE();
 						urecount = 0;
 					}
-				}					
+				}
 				if(usbstatus == CONNECTED)
 				{
 					if(ucount ==4*SAVETIME)
@@ -1831,10 +1831,10 @@ void TempDisplay(void)
 					}
 					if(CH9TEMP < 1999)
 					{
-						DISP_TEMP_M(100,290,(uint8_t*)buf,CH9_SW);
+						DISP_TEMP_M(100,290+120,(uint8_t*)buf,CH9_SW);
 					}else{
 						LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-						LCD_DrawFullRect(290,100,96,28);
+						LCD_DrawFullRect(290+120,100,96,28);
 					}					
 					Check_limits(10);
 					sprintf(buf,"%.1f",CH10TEMP - COR10);
@@ -1858,10 +1858,10 @@ void TempDisplay(void)
 					}
 					if(CH10TEMP < 1999)
 					{
-						DISP_TEMP_M(140,290,(uint8_t*)buf,CH10_SW);
+						DISP_TEMP_M(140,290+120,(uint8_t*)buf,CH10_SW);
 					}else{
 						LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-						LCD_DrawFullRect(290,140,96,28);
+						LCD_DrawFullRect(290+120,140,96,28);
 					}
 					
 					Check_limits(11);
@@ -1886,10 +1886,10 @@ void TempDisplay(void)
 					}
 					if(CH11TEMP < 1999)
 					{
-						DISP_TEMP_M(180,290,(uint8_t*)buf,CH11_SW);
+						DISP_TEMP_M(180,290+120,(uint8_t*)buf,CH11_SW);
 					}else{
 						LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-						LCD_DrawFullRect(290,180,96,28);
+						LCD_DrawFullRect(290+120,180,96,28);
 					}
 					
 					Check_limits(12);
@@ -1914,10 +1914,10 @@ void TempDisplay(void)
 					}
 					if(CH12TEMP < 1999)
 					{
-						DISP_TEMP_M(220,290,(uint8_t*)buf,CH12_SW);
+						DISP_TEMP_M(220,290+120,(uint8_t*)buf,CH12_SW);
 					}else{
 						LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-						LCD_DrawFullRect(290,220,96,28);
+						LCD_DrawFullRect(290+120,220,96,28);
 					}
 					
 					Check_limits(13);
@@ -1942,10 +1942,10 @@ void TempDisplay(void)
 					}
 					if(CH13TEMP < 1999)
 					{
-						DISP_TEMP_M(260,290,(uint8_t*)buf,CH13_SW);
+						DISP_TEMP_M(260,290+120,(uint8_t*)buf,CH13_SW);
 					}else{
 						LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-						LCD_DrawFullRect(290,260,96,28);
+						LCD_DrawFullRect(290+120,260,96,28);
 					}
 					
 					Check_limits(14);
@@ -1970,10 +1970,10 @@ void TempDisplay(void)
 					}
 					if(CH14TEMP < 1999)
 					{
-						DISP_TEMP_M(300,290,(uint8_t*)buf,CH14_SW);
+						DISP_TEMP_M(300,290+120,(uint8_t*)buf,CH14_SW);
 					}else{
 						LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-						LCD_DrawFullRect(290,300,96,28);
+						LCD_DrawFullRect(290+120,300,96,28);
 					}
 					
 					Check_limits(15);
@@ -1998,10 +1998,10 @@ void TempDisplay(void)
 					}
 					if(CH15TEMP < 1999)
 					{
-						DISP_TEMP_M(340,290,(uint8_t*)buf,CH15_SW);
+						DISP_TEMP_M(340,290+120,(uint8_t*)buf,CH15_SW);
 					}else{
 						LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-						LCD_DrawFullRect(290,340,96,28);
+						LCD_DrawFullRect(290+120,340,96,28);
 					}
 					
 					Check_limits(16);
@@ -2026,10 +2026,10 @@ void TempDisplay(void)
 					}
 					if(CH16TEMP < 1999)
 					{
-						DISP_TEMP_M(380,290,(uint8_t*)buf,CH16_SW);
+						DISP_TEMP_M(380,290+120,(uint8_t*)buf,CH16_SW);
 					}else{
 						LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-						LCD_DrawFullRect(290,380,96,28);
+						LCD_DrawFullRect(290+120,380,96,28);
 					}
 					if(CHNUM > 16)
 					{
@@ -3564,8 +3564,8 @@ void AVGCAL(void)
 	u8 chnum = 0;
 	float temp = 0;
 	u8 extflag;
-	TEMPMAX = 0;
-	TEMPMIN = 1999;
+//	TEMPMAX = 0;
+//	TEMPMIN = 1999;
 	for(i=0;i<CHNUM;i++)
 	{
 		if(savedata[i] == ch_on && ch_temp[i] < 1999)

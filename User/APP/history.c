@@ -56,6 +56,9 @@ extern union
 }FLAG7;
 
 
+
+
+
 void page_his(void)
 {
 	range = (YHLIMIT - YLLIMIT) / 7;
@@ -96,7 +99,6 @@ void page_his(void)
 	
 	
 	page_flag = history;
-	op_flag = 0;
 	Draw_His_Index(indexpage);
 }
 
@@ -138,7 +140,7 @@ void back_his(void)
 //	Read_His_Data(hispage);
 //	Draw_His_Graph();
 	
-	
+	op_flag = 0;
 	page_flag = history;
 	Draw_His_Index(indexpage);
 }
@@ -190,7 +192,7 @@ void graph_his(void)
 void Draw_His_Graph(void)
 {
 	char timetemp[100];
-	u16 i,j;
+	u16 i,j,k;
 	char buf[10];
 	
 	DrawGridLine();

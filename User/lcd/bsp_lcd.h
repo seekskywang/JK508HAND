@@ -604,6 +604,7 @@ void 	 Drawsysinfomenu(void);
 void 	 Drawsptmenu(void);
 void 	 Drawgraphmenu(void);
 void 	 Drawgsethmenu(void);
+void 	 Drawhisgsethmenu(void);
 void 	 Drawcalmenu(void);
 void 	 Drawhishmenu(void);
 void	 Drawhisgraph(void);
