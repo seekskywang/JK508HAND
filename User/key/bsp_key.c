@@ -9642,14 +9642,14 @@ void UP_HANDLE(void)
 						if(ch_page == page1)
 						{
 							focus_on(CH16_SW);
-							DISP_CNL_M(380,210,"016");
+							DISP_CNL_M(380,330,"016");
 							focus_off(CH9_SW);
-							DISP_CNL_M(100,210,"009");
+							DISP_CNL_M(100,330,"009");
 						}else if(ch_page == page2){
 							focus_on(CH40_SW);
-							DISP_CNL_M(380,210,"040");
+							DISP_CNL_M(380,330,"040");
 							focus_off(CH33_SW);
-							DISP_CNL_M(100,210,"033");
+							DISP_CNL_M(100,330,"033");
 						}
 						op_flag = home_ch16;
 					}else if(FONT == small){																		
@@ -9671,14 +9671,14 @@ void UP_HANDLE(void)
 						if(ch_page == page1)
 						{
 							focus_on(CH9_SW);
-							DISP_CNL_M(100,210,"009");
+							DISP_CNL_M(100,330,"009");
 							focus_off(CH10_SW);
-							DISP_CNL_M(140,210,"010");
+							DISP_CNL_M(140,330,"010");
 						}else if(ch_page == page2){
 							focus_on(CH33_SW);
-							DISP_CNL_M(100,210,"033");
+							DISP_CNL_M(100,330,"033");
 							focus_off(CH34_SW);
-							DISP_CNL_M(140,210,"034");
+							DISP_CNL_M(140,330,"034");
 						}
 						op_flag = home_ch9;
 					}else if(FONT == small){																		
@@ -9699,14 +9699,14 @@ void UP_HANDLE(void)
 						if(ch_page == page1)
 						{
 							focus_on(CH10_SW);
-							DISP_CNL_M(140,210,"010");
+							DISP_CNL_M(140,330,"010");
 							focus_off(CH11_SW);
-							DISP_CNL_M(180,210,"011");
+							DISP_CNL_M(180,330,"011");
 						}else if(ch_page == page2){
 							focus_on(CH34_SW);
-							DISP_CNL_M(140,210,"034");
+							DISP_CNL_M(140,330,"034");
 							focus_off(CH35_SW);
-							DISP_CNL_M(180,210,"035");
+							DISP_CNL_M(180,330,"035");
 						}
 						op_flag = home_ch10;
 					}else if(FONT == small){																		
@@ -9728,14 +9728,14 @@ void UP_HANDLE(void)
 						if(ch_page == page1)
 						{
 							focus_on(CH11_SW);
-							DISP_CNL_M(180,210,"011");
+							DISP_CNL_M(180,330,"011");
 							focus_off(CH12_SW);
-							DISP_CNL_M(220,210,"012");
+							DISP_CNL_M(220,330,"012");
 						}else if(ch_page == page2){
 							focus_on(CH35_SW);
-							DISP_CNL_M(180,210,"035");
+							DISP_CNL_M(180,330,"035");
 							focus_off(CH36_SW);
-							DISP_CNL_M(220,210,"036");
+							DISP_CNL_M(220,330,"036");
 						}
 						op_flag = home_ch11;
 					}else if(FONT == small){																		
@@ -9757,14 +9757,14 @@ void UP_HANDLE(void)
 						if(ch_page == page1)
 						{
 							focus_on(CH12_SW);
-							DISP_CNL_M(220,210,"012");
+							DISP_CNL_M(220,330,"012");
 							focus_off(CH13_SW);
-							DISP_CNL_M(260,210,"013");
+							DISP_CNL_M(260,330,"013");
 						}else if(ch_page == page2){
 							focus_on(CH36_SW);
-							DISP_CNL_M(220,210,"036");
+							DISP_CNL_M(220,330,"036");
 							focus_off(CH37_SW);
-							DISP_CNL_M(260,210,"037");
+							DISP_CNL_M(260,330,"037");
 						}
 						op_flag = home_ch12;
 					}else if(FONT == small){																		
@@ -9786,14 +9786,14 @@ void UP_HANDLE(void)
 						if(ch_page == page1)
 						{
 							focus_on(CH13_SW);
-							DISP_CNL_M(260,210,"013");
+							DISP_CNL_M(260,330,"013");
 							focus_off(CH14_SW);
-							DISP_CNL_M(300,210,"014");
+							DISP_CNL_M(300,330,"014");
 						}else if(ch_page == page2){
 							focus_on(CH37_SW);
-							DISP_CNL_M(260,210,"037");
+							DISP_CNL_M(260,330,"037");
 							focus_off(CH38_SW);
-							DISP_CNL_M(300,210,"038");
+							DISP_CNL_M(300,330,"038");
 						}
 						op_flag = home_ch13;
 					}else if(FONT == small){																		
@@ -9815,14 +9815,14 @@ void UP_HANDLE(void)
 						if(ch_page == page1)
 						{
 							focus_on(CH14_SW);
-							DISP_CNL_M(300,210,"014");
+							DISP_CNL_M(300,330,"014");
 							focus_off(CH15_SW);
-							DISP_CNL_M(340,210,"015");
+							DISP_CNL_M(340,330,"015");
 						}else if(ch_page == page2){
 							focus_on(CH38_SW);
-							DISP_CNL_M(300,210,"038");
+							DISP_CNL_M(300,330,"038");
 							focus_off(CH39_SW);
-							DISP_CNL_M(340,210,"039");
+							DISP_CNL_M(340,330,"039");
 						}
 						op_flag = home_ch14;
 					}else if(FONT == small){																		
@@ -9844,14 +9844,14 @@ void UP_HANDLE(void)
 						if(ch_page == page1)
 						{
 							focus_on(CH15_SW);
-							DISP_CNL_M(340,210,"015");
+							DISP_CNL_M(340,330,"015");
 							focus_off(CH16_SW);
-							DISP_CNL_M(380,210,"016");
+							DISP_CNL_M(380,330,"016");
 						}else if(ch_page == page2){
 							focus_on(CH39_SW);
-							DISP_CNL_M(340,210,"039");
+							DISP_CNL_M(340,330,"039");
 							focus_off(CH40_SW);
-							DISP_CNL_M(380,210,"040");
+							DISP_CNL_M(380,330,"040");
 						}
 						op_flag = home_ch15;
 					}else if(FONT == small){																		
@@ -12127,14 +12127,14 @@ void DOWN_HANDLE(void)
 						if(ch_page == page1)
 						{
 							focus_off(CH9_SW);
-							DISP_CNL_M(100,210,"009");
+							DISP_CNL_M(100,330,"009");
 							focus_on(CH10_SW);
-							DISP_CNL_M(140,210,"010");
+							DISP_CNL_M(140,330,"010");
 						}else if(ch_page == page2){
 							focus_off(CH33_SW);
-							DISP_CNL_M(100,210,"033");
+							DISP_CNL_M(100,330,"033");
 							focus_on(CH34_SW);
-							DISP_CNL_M(140,210,"034");
+							DISP_CNL_M(140,330,"034");
 						}
 						op_flag = home_ch10;
 					}else if(FONT == small){
@@ -12155,14 +12155,14 @@ void DOWN_HANDLE(void)
 						if(ch_page == page1)
 						{
 							focus_off(CH10_SW);
-							DISP_CNL_M(140,210,"010");
+							DISP_CNL_M(140,330,"010");
 							focus_on(CH11_SW);
-							DISP_CNL_M(180,210,"011");
+							DISP_CNL_M(180,330,"011");
 						}else if(ch_page == page2){
 							focus_off(CH34_SW);
-							DISP_CNL_M(140,210,"034");
+							DISP_CNL_M(140,330,"034");
 							focus_on(CH35_SW);
-							DISP_CNL_M(180,210,"035");
+							DISP_CNL_M(180,330,"035");
 						}
 						op_flag = home_ch11;
 					}else if(FONT == small){
@@ -12183,14 +12183,14 @@ void DOWN_HANDLE(void)
 						if(ch_page == page1)
 						{
 							focus_off(CH11_SW);
-							DISP_CNL_M(180,210,"011");
+							DISP_CNL_M(180,330,"011");
 							focus_on(CH12_SW);
-							DISP_CNL_M(220,210,"012");
+							DISP_CNL_M(220,330,"012");
 						}else if(ch_page == page2){
 							focus_off(CH35_SW);
-							DISP_CNL_M(180,210,"035");
+							DISP_CNL_M(180,330,"035");
 							focus_on(CH35_SW);
-							DISP_CNL_M(220,210,"036");
+							DISP_CNL_M(220,330,"036");
 						}
 						op_flag = home_ch12;
 					}else if(FONT == small){
@@ -12211,14 +12211,14 @@ void DOWN_HANDLE(void)
 						if(ch_page == page1)
 						{
 							focus_off(CH12_SW);
-							DISP_CNL_M(220,210,"012");
+							DISP_CNL_M(220,330,"012");
 							focus_on(CH13_SW);
-							DISP_CNL_M(260,210,"013");
+							DISP_CNL_M(260,330,"013");
 						}else if(ch_page == page2){
 							focus_off(CH36_SW);
-							DISP_CNL_M(220,210,"036");
+							DISP_CNL_M(220,330,"036");
 							focus_on(CH37_SW);
-							DISP_CNL_M(260,210,"037");
+							DISP_CNL_M(260,330,"037");
 						}
 						op_flag = home_ch13;
 					}else if(FONT == small){
@@ -12239,14 +12239,14 @@ void DOWN_HANDLE(void)
 						if(ch_page == page1)
 						{
 							focus_off(CH13_SW);
-							DISP_CNL_M(260,210,"013");
+							DISP_CNL_M(260,330,"013");
 							focus_on(CH14_SW);
-							DISP_CNL_M(300,210,"014");
+							DISP_CNL_M(300,330,"014");
 						}else if(ch_page == page2){
 							focus_off(CH37_SW);
-							DISP_CNL_M(260,210,"037");
+							DISP_CNL_M(260,330,"037");
 							focus_on(CH38_SW);
-							DISP_CNL_M(300,210,"038");
+							DISP_CNL_M(300,330,"038");
 						}
 						op_flag = home_ch14;
 					}else if(FONT == small){
@@ -12267,14 +12267,14 @@ void DOWN_HANDLE(void)
 						if(ch_page == page1)
 						{
 							focus_off(CH14_SW);
-							DISP_CNL_M(300,210,"014");
+							DISP_CNL_M(300,330,"014");
 							focus_on(CH15_SW);
-							DISP_CNL_M(340,210,"015");
+							DISP_CNL_M(340,330,"015");
 						}else if(ch_page == page2){
 							focus_off(CH38_SW);
-							DISP_CNL_M(300,210,"038");
+							DISP_CNL_M(300,330,"038");
 							focus_on(CH39_SW);
-							DISP_CNL_M(340,210,"039");
+							DISP_CNL_M(340,330,"039");
 						}
 						op_flag = home_ch15;
 					}else if(FONT == small){
@@ -12295,14 +12295,14 @@ void DOWN_HANDLE(void)
 						if(ch_page == page1)
 						{
 							focus_off(CH15_SW);
-							DISP_CNL_M(340,210,"015");
+							DISP_CNL_M(340,330,"015");
 							focus_on(CH15_SW);
-							DISP_CNL_M(380,210,"016");
+							DISP_CNL_M(380,330,"016");
 						}else if(ch_page == page2){
 							focus_off(CH39_SW);
-							DISP_CNL_M(340,210,"039");
+							DISP_CNL_M(340,330,"039");
 							focus_on(CH40_SW);
-							DISP_CNL_M(380,210,"040");
+							DISP_CNL_M(380,330,"040");
 						}
 						op_flag = home_ch16;
 					}else if(FONT == small){
@@ -12323,14 +12323,14 @@ void DOWN_HANDLE(void)
 						if(ch_page == page1)
 						{
 							focus_off(CH16_SW);
-							DISP_CNL_M(380,210,"016");
+							DISP_CNL_M(380,330,"016");
 							focus_on(CH9_SW);
-							DISP_CNL_M(100,210,"009");
+							DISP_CNL_M(100,330,"009");
 						}else if(ch_page == page2){
 							focus_off(CH40_SW);
-							DISP_CNL_M(380,210,"040");
+							DISP_CNL_M(380,330,"040");
 							focus_on(CH33_SW);
-							DISP_CNL_M(100,210,"033");
+							DISP_CNL_M(100,330,"033");
 						}
 						op_flag = home_ch9;
 					}else if(FONT == small){
@@ -13812,12 +13812,12 @@ void RIGHT_HANDLE(void)
 							focus_off(CH1_SW);
 							DISP_CNL_M(100,10,"001");
 							focus_on(CH9_SW);
-							DISP_CNL_M(100,210,"009");
+							DISP_CNL_M(100,330,"009");
 						}else if(ch_page == page2){
 							focus_off(CH25_SW);
 							DISP_CNL_M(100,10,"025");
 							focus_on(CH33_SW);
-							DISP_CNL_M(100,210,"033");
+							DISP_CNL_M(100,330,"033");
 						}
 						op_flag = home_ch9;
 					}else if(FONT == small && CHNUM > 8){
@@ -13879,12 +13879,12 @@ void RIGHT_HANDLE(void)
 							focus_off(CH2_SW);
 							DISP_CNL_M(140,10,"002");
 							focus_on(CH10_SW);
-							DISP_CNL_M(140,210,"010");
+							DISP_CNL_M(140,330,"010");
 						}else if(ch_page == page2){
 							focus_off(CH26_SW);
 							DISP_CNL_M(140,10,"026");
 							focus_on(CH34_SW);
-							DISP_CNL_M(140,210,"034");
+							DISP_CNL_M(140,330,"034");
 						}
 						op_flag = home_ch10;
 					}else if(FONT == small && CHNUM > 8){
@@ -13946,12 +13946,12 @@ void RIGHT_HANDLE(void)
 							focus_off(CH3_SW);
 							DISP_CNL_M(180,10,"003");
 							focus_on(CH11_SW);
-							DISP_CNL_M(180,210,"011");
+							DISP_CNL_M(180,330,"011");
 						}else if(ch_page == page2){
 							focus_off(CH27_SW);
 							DISP_CNL_M(180,10,"027");
 							focus_on(CH35_SW);
-							DISP_CNL_M(180,210,"035");
+							DISP_CNL_M(180,330,"035");
 						}
 						op_flag = home_ch11;
 					}else if(FONT == small && CHNUM > 8){
@@ -14013,12 +14013,12 @@ void RIGHT_HANDLE(void)
 							focus_off(CH4_SW);
 							DISP_CNL_M(220,10,"004");
 							focus_on(CH12_SW);
-							DISP_CNL_M(220,210,"012");
+							DISP_CNL_M(220,330,"012");
 						}else if(ch_page == page2){
 							focus_off(CH28_SW);
 							DISP_CNL_M(220,10,"028");
 							focus_on(CH36_SW);
-							DISP_CNL_M(220,210,"036");
+							DISP_CNL_M(220,330,"036");
 						}
 						op_flag = home_ch12;
 						
@@ -14042,12 +14042,12 @@ void RIGHT_HANDLE(void)
 							focus_off(CH5_SW);
 							DISP_CNL_M(260,10,"005");
 							focus_on(CH13_SW);
-							DISP_CNL_M(260,210,"013");
+							DISP_CNL_M(260,330,"013");
 						}else if(ch_page == page2){
 							focus_off(CH29_SW);
 							DISP_CNL_M(260,10,"029");
 							focus_on(CH37_SW);
-							DISP_CNL_M(260,210,"037");
+							DISP_CNL_M(260,330,"037");
 						}
 						op_flag = home_ch13;
 					}else if(FONT == small && CHNUM > 8){
@@ -14069,12 +14069,12 @@ void RIGHT_HANDLE(void)
 							focus_off(CH6_SW);
 							DISP_CNL_M(300,10,"006");
 							focus_on(CH14_SW);
-							DISP_CNL_M(300,210,"014");
+							DISP_CNL_M(300,330,"014");
 						}else if(ch_page == page2){
 							focus_off(CH30_SW);
 							DISP_CNL_M(300,10,"030");
 							focus_on(CH38_SW);
-							DISP_CNL_M(300,210,"038");
+							DISP_CNL_M(300,330,"038");
 						}
 						op_flag = home_ch14;
 					}else if(FONT == small && CHNUM > 8){
@@ -14096,12 +14096,12 @@ void RIGHT_HANDLE(void)
 							focus_off(CH7_SW);
 							DISP_CNL_M(340,10,"007");
 							focus_on(CH15_SW);
-							DISP_CNL_M(340,210,"015");
+							DISP_CNL_M(340,330,"015");
 						}else if(ch_page == page2){
 							focus_off(CH31_SW);
 							DISP_CNL_M(340,10,"031");
 							focus_on(CH39_SW);
-							DISP_CNL_M(340,210,"039");
+							DISP_CNL_M(340,330,"039");
 						}
 						op_flag = home_ch15;
 					}else if(FONT == small && CHNUM > 8){
@@ -14123,12 +14123,12 @@ void RIGHT_HANDLE(void)
 							focus_off(CH8_SW);
 							DISP_CNL_M(380,10,"008");
 							focus_on(CH16_SW);
-							DISP_CNL_M(380,210,"016");
+							DISP_CNL_M(380,330,"016");
 						}else if(ch_page == page2){
 							focus_off(CH32_SW);
 							DISP_CNL_M(380,10,"032");
 							focus_on(CH40_SW);
-							DISP_CNL_M(380,210,"040");
+							DISP_CNL_M(380,330,"040");
 						}
 						op_flag = home_ch16;
 					}else if(FONT == small && CHNUM > 8){
@@ -15142,12 +15142,12 @@ void LEFT_HANDLE(void)
 						if(ch_page == page1)
 						{
 							focus_off(CH9_SW);
-							DISP_CNL_M(100,210,"009");
+							DISP_CNL_M(100,330,"009");
 							focus_on(CH1_SW);
 							DISP_CNL_M(100,10,"001");
 						}else if(ch_page == page2){
 							focus_off(CH33_SW);
-							DISP_CNL_M(100,210,"033");
+							DISP_CNL_M(100,330,"033");
 							focus_on(CH25_SW);
 							DISP_CNL_M(100,10,"025");
 						}
@@ -15169,12 +15169,12 @@ void LEFT_HANDLE(void)
 						if(ch_page == page1)
 						{
 							focus_off(CH10_SW);
-							DISP_CNL_M(140,210,"010");
+							DISP_CNL_M(140,330,"010");
 							focus_on(CH2_SW);
 							DISP_CNL_M(140,10,"002");
 						}else if(ch_page == page2){
 							focus_off(CH34_SW);
-							DISP_CNL_M(140,210,"034");
+							DISP_CNL_M(140,330,"034");
 							focus_on(CH26_SW);
 							DISP_CNL_M(140,10,"026");
 						}
@@ -15196,12 +15196,12 @@ void LEFT_HANDLE(void)
 						if(ch_page == page1)
 						{
 							focus_off(CH11_SW);
-							DISP_CNL_M(180,210,"011");
+							DISP_CNL_M(180,330,"011");
 							focus_on(CH3_SW);
 							DISP_CNL_M(180,10,"003");
 						}else if(ch_page == page2){
 							focus_off(CH35_SW);
-							DISP_CNL_M(180,210,"035");
+							DISP_CNL_M(180,330,"035");
 							focus_on(CH27_SW);
 							DISP_CNL_M(180,10,"027");
 						}
@@ -15223,12 +15223,12 @@ void LEFT_HANDLE(void)
 						if(ch_page == page1)
 						{
 							focus_off(CH12_SW);
-							DISP_CNL_M(220,210,"012");
+							DISP_CNL_M(220,330,"012");
 							focus_on(CH4_SW);
 							DISP_CNL_M(220,10,"004");
 						}else if(ch_page == page2){
 							focus_off(CH36_SW);
-							DISP_CNL_M(220,210,"036");
+							DISP_CNL_M(220,330,"036");
 							focus_on(CH28_SW);
 							DISP_CNL_M(220,10,"028");
 						}
@@ -15250,12 +15250,12 @@ void LEFT_HANDLE(void)
 						if(ch_page == page1)
 						{
 							focus_off(CH13_SW);
-							DISP_CNL_M(260,210,"013");
+							DISP_CNL_M(260,330,"013");
 							focus_on(CH5_SW);
 							DISP_CNL_M(260,10,"005");
 						}else if(ch_page == page2){
 							focus_off(CH37_SW);
-							DISP_CNL_M(260,210,"037");
+							DISP_CNL_M(260,330,"037");
 							focus_on(CH29_SW);
 							DISP_CNL_M(260,10,"029");
 						}
@@ -15277,12 +15277,12 @@ void LEFT_HANDLE(void)
 						if(ch_page == page1)
 						{
 							focus_off(CH14_SW);
-							DISP_CNL_M(300,210,"014");
+							DISP_CNL_M(300,330,"014");
 							focus_on(CH6_SW);
 							DISP_CNL_M(300,10,"006");
 						}else if(ch_page == page2){
 							focus_off(CH38_SW);
-							DISP_CNL_M(300,210,"038");
+							DISP_CNL_M(300,330,"038");
 							focus_on(CH30_SW);
 							DISP_CNL_M(300,10,"030");
 						}
@@ -15304,12 +15304,12 @@ void LEFT_HANDLE(void)
 						if(ch_page == page1)
 						{
 							focus_off(CH15_SW);
-							DISP_CNL_M(340,210,"015");
+							DISP_CNL_M(340,330,"015");
 							focus_on(CH7_SW);
 							DISP_CNL_M(340,10,"007");
 						}else if(ch_page == page2){
 							focus_off(CH39_SW);
-							DISP_CNL_M(340,210,"039");
+							DISP_CNL_M(340,330,"039");
 							focus_on(CH31_SW);
 							DISP_CNL_M(340,10,"031");
 						}
@@ -15331,12 +15331,12 @@ void LEFT_HANDLE(void)
 						if(ch_page == page1)
 						{
 							focus_off(CH16_SW);
-							DISP_CNL_M(380,210,"016");
+							DISP_CNL_M(380,330,"016");
 							focus_on(CH8_SW);
 							DISP_CNL_M(380,10,"008");
 						}else if(ch_page == page2){
 							focus_off(CH40_SW);
-							DISP_CNL_M(380,210,"040");
+							DISP_CNL_M(380,330,"040");
 							focus_on(CH32_SW);
 							DISP_CNL_M(380,10,"032");
 						}

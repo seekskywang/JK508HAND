@@ -181,6 +181,16 @@ void Draw_Frame(void)
 		LCD_DrawLine(320,90,320,LCD_DIR_VERTICAL);
 //		LCD_DrawLine(270,90,320,LCD_DIR_VERTICAL);
 		LCD_DrawLine(630,90,320,LCD_DIR_VERTICAL);
+	}else if(FONT == small){
+//		for(i=0;i<10;i++)
+//		{
+//			LCD_DrawLine(0,90+40*i,630,LCD_DIR_HORIZONTAL);
+//		}
+//		LCD_DrawLine(0,90,320,LCD_DIR_VERTICAL);
+//		LCD_DrawLine(126,90,320,LCD_DIR_VERTICAL);
+//		LCD_DrawLine(320,90,320,LCD_DIR_VERTICAL);
+////		LCD_DrawLine(270,90,320,LCD_DIR_VERTICAL);
+//		LCD_DrawLine(630,90,320,LCD_DIR_VERTICAL);
 	}
 }
 void page_home(void)
