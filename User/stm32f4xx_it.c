@@ -68,6 +68,7 @@ u8 g_mods_timeout = 0;
 //static u8 watchcount;
 extern u8 sendflag;
 u8 uartflag;
+
 /** @addtogroup STM32F429I_DISCOVERY_Examples
   * @{
   */
@@ -176,7 +177,9 @@ void PendSV_Handler(void)
   * @retval None
   */
 void SysTick_Handler(void)
-{}
+{
+	
+}
 
 /******************************************************************************/
 /*                 STM32F4xx Peripherals Interrupt Handlers                   */

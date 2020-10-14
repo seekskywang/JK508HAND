@@ -104,6 +104,7 @@ extern u8 indexflag;
 extern u8 recordflag;
 extern u8 sdstatus;
 extern u16 count;
+extern u16 usavetime[2];
 
 void page_home(void);
 void page_set(void);
@@ -787,8 +788,8 @@ extern Touch_save_Typedef    Touch_save;
 #define MIDCHLX1		5			
 #define MIDCHLX2		55
 //中列横坐标
-#define MIDCHMX1		205			
-#define MIDCHMX2		255
+#define MIDCHMX1		325			
+#define MIDCHMX2		375
 //右列横坐标
 #define MIDCHRX1		405			
 #define MIDCHRX2		455

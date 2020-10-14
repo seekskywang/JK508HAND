@@ -3,7 +3,7 @@
 <title>Static Call Graph - [..\..\Output\LCD.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\..\Output\LCD.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Mon Aug 03 14:11:26 2020
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Fri Aug 14 16:25:11 2020
 <BR><P>
 <H3>Maximum Stack Usage =        540 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1114,7 +1114,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[253]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TouchHandle
 </UL>
 
-<P><STRONG><a name="[e6]"></a>ChannelSwtichMid</STRONG> (Thumb, 1898 bytes, Stack size 40 bytes, touchscreen.o(i.ChannelSwtichMid))
+<P><STRONG><a name="[e6]"></a>ChannelSwtichMid</STRONG> (Thumb, 1902 bytes, Stack size 40 bytes, touchscreen.o(i.ChannelSwtichMid))
 <BR><BR>[Stack]<UL><LI>Max Depth = 176<LI>Call Chain = ChannelSwtichMid &rArr; Save_flag &rArr; SPI_FLASH_BufferWrite &rArr; SPI_FLASH_PageWrite &rArr; SPI_FLASH_WaitForWriteEnd &rArr; SPI_FLASH_SendByte &rArr; SPI_TIMEOUT_UserCallback &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Save_flag
@@ -1443,7 +1443,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[1b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Handle
 </UL>
 
-<P><STRONG><a name="[124]"></a>DOWN_HANDLE</STRONG> (Thumb, 10644 bytes, Stack size 184 bytes, bsp_key.o(i.DOWN_HANDLE))
+<P><STRONG><a name="[124]"></a>DOWN_HANDLE</STRONG> (Thumb, 10656 bytes, Stack size 184 bytes, bsp_key.o(i.DOWN_HANDLE))
 <BR><BR>[Stack]<UL><LI>Max Depth = 396<LI>Call Chain = DOWN_HANDLE &rArr; Draw_His_Index &rArr; Read_Index &rArr; SD_ReadBlock &rArr; SD_LowLevel_DMA_RxConfig &rArr; DMA_DeInit
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;maxfocus_on
@@ -2025,7 +2025,7 @@ Global Symbols
 <LI><a href="#[18c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC5_HANDLE
 </UL>
 
-<P><STRONG><a name="[168]"></a>ENTER_HANDLE</STRONG> (Thumb, 10238 bytes, Stack size 168 bytes, bsp_key.o(i.ENTER_HANDLE))
+<P><STRONG><a name="[168]"></a>ENTER_HANDLE</STRONG> (Thumb, 10254 bytes, Stack size 168 bytes, bsp_key.o(i.ENTER_HANDLE))
 <BR><BR>[Stack]<UL><LI>Max Depth = 508<LI>Call Chain = ENTER_HANDLE &rArr; graph_his &rArr; Draw_His_Graph &rArr; DrawGridLine &rArr; LCD_DrawRect &rArr; LCD_DrawLine &rArr; DMA2D_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;maxfocus_on
@@ -3595,7 +3595,7 @@ Global Symbols
 <LI><a href="#[1f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Read_flag
 </UL>
 
-<P><STRONG><a name="[1f3]"></a>Read_flag</STRONG> (Thumb, 102 bytes, Stack size 8 bytes, main.o(i.Read_flag))
+<P><STRONG><a name="[1f3]"></a>Read_flag</STRONG> (Thumb, 112 bytes, Stack size 8 bytes, main.o(i.Read_flag))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = Read_flag &rArr; SPI_FLASH_BufferRead &rArr; SPI_FLASH_SendByte &rArr; SPI_TIMEOUT_UserCallback &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_FLASH_BufferRead
@@ -4133,7 +4133,7 @@ Global Symbols
 <P><STRONG><a name="[28]"></a>SVC_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f4xx_it.o(i.SVC_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f429_439xx.o(RESET)
 </UL>
-<P><STRONG><a name="[b6]"></a>Save_flag</STRONG> (Thumb, 104 bytes, Stack size 8 bytes, main.o(i.Save_flag))
+<P><STRONG><a name="[b6]"></a>Save_flag</STRONG> (Thumb, 114 bytes, Stack size 8 bytes, main.o(i.Save_flag))
 <BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = Save_flag &rArr; SPI_FLASH_BufferWrite &rArr; SPI_FLASH_PageWrite &rArr; SPI_FLASH_WaitForWriteEnd &rArr; SPI_FLASH_SendByte &rArr; SPI_TIMEOUT_UserCallback &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[22b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_FLASH_SectorErase
@@ -4212,7 +4212,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f429_439xx.o(.text)
 </UL>
-<P><STRONG><a name="[62]"></a>TIM6_DAC_IRQHandler</STRONG> (Thumb, 402 bytes, Stack size 40 bytes, bsp_basic_tim.o(i.TIM6_DAC_IRQHandler))
+<P><STRONG><a name="[62]"></a>TIM6_DAC_IRQHandler</STRONG> (Thumb, 430 bytes, Stack size 40 bytes, bsp_basic_tim.o(i.TIM6_DAC_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 304<LI>Call Chain = TIM6_DAC_IRQHandler &rArr; SetTctype &rArr; Disp_Type &rArr; Save_flag &rArr; SPI_FLASH_BufferWrite &rArr; SPI_FLASH_PageWrite &rArr; SPI_FLASH_WaitForWriteEnd &rArr; SPI_FLASH_SendByte &rArr; SPI_TIMEOUT_UserCallback &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[19b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
@@ -4465,7 +4465,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[253]"></a>TouchHandle</STRONG> (Thumb, 10064 bytes, Stack size 56 bytes, touchscreen.o(i.TouchHandle))
+<P><STRONG><a name="[253]"></a>TouchHandle</STRONG> (Thumb, 9808 bytes, Stack size 56 bytes, touchscreen.o(i.TouchHandle))
 <BR><BR>[Stack]<UL><LI>Max Depth = 372<LI>Call Chain = TouchHandle &rArr; page_graph &rArr; DrawGridLine &rArr; LCD_DrawRect &rArr; LCD_DrawLine &rArr; DMA2D_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[18a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;page_cal
@@ -4561,7 +4561,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[1b9]"></a>UP_HANDLE</STRONG> (Thumb, 10688 bytes, Stack size 192 bytes, bsp_key.o(i.UP_HANDLE))
+<P><STRONG><a name="[1b9]"></a>UP_HANDLE</STRONG> (Thumb, 10692 bytes, Stack size 192 bytes, bsp_key.o(i.UP_HANDLE))
 <BR><BR>[Stack]<UL><LI>Max Depth = 404<LI>Call Chain = UP_HANDLE &rArr; Draw_His_Index &rArr; Read_Index &rArr; SD_ReadBlock &rArr; SD_LowLevel_DMA_RxConfig &rArr; DMA_DeInit
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;maxfocus_on
@@ -5650,7 +5650,7 @@ Global Symbols
 <LI><a href="#[18c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FUNC5_HANDLE
 </UL>
 
-<P><STRONG><a name="[87]"></a>main</STRONG> (Thumb, 542 bytes, Stack size 8 bytes, main.o(i.main))
+<P><STRONG><a name="[87]"></a>main</STRONG> (Thumb, 532 bytes, Stack size 8 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 540<LI>Call Chain = main &rArr; Key_Function &rArr; Key_Handle &rArr; ENTER_HANDLE &rArr; graph_his &rArr; Draw_His_Graph &rArr; DrawGridLine &rArr; LCD_DrawRect &rArr; LCD_DrawLine &rArr; DMA2D_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[28f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_SetVectorTable
@@ -6179,7 +6179,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[259]"></a>stimefocus_off</STRONG> (Thumb, 120 bytes, Stack size 32 bytes, bsp_key.o(i.stimefocus_off))
+<P><STRONG><a name="[259]"></a>stimefocus_off</STRONG> (Thumb, 144 bytes, Stack size 32 bytes, bsp_key.o(i.stimefocus_off))
 <BR><BR>[Stack]<UL><LI>Max Depth = 116<LI>Call Chain = stimefocus_off &rArr; LCD_DrawFullRect &rArr; DMA2D_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor
@@ -6193,7 +6193,7 @@ Global Symbols
 <LI><a href="#[1b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UP_HANDLE
 </UL>
 
-<P><STRONG><a name="[12c]"></a>stimefocus_on</STRONG> (Thumb, 146 bytes, Stack size 32 bytes, bsp_key.o(i.stimefocus_on))
+<P><STRONG><a name="[12c]"></a>stimefocus_on</STRONG> (Thumb, 170 bytes, Stack size 32 bytes, bsp_key.o(i.stimefocus_on))
 <BR><BR>[Stack]<UL><LI>Max Depth = 132<LI>Call Chain = stimefocus_on &rArr; DrawInstruction &rArr; LCD_DrawFullRect &rArr; DMA2D_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetTextColor

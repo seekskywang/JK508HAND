@@ -39,6 +39,8 @@ u8 brightness;
 u32 Tick_10ms=0;
 u32 OldTick;
 u8 udflag;
+extern u16 ucount;
+u32 syscount;
 extern u8 ReCount;
 extern u8 g_mods_timeout;
 extern __ALIGN_BEGIN USB_OTG_CORE_HANDLE  USB_OTG_dev __ALIGN_END;
@@ -90,7 +92,7 @@ static void TIM_Mode_Config(void)
   //				PCLK1 = HCLK / 4 
   //				=> TIMxCLK=HCLK/2=SystemCoreClock/2=90MHz
 	// 设定定时器频率为=TIMxCLK/(TIM_Prescaler+1)=10000Hz
-  TIM_TimeBaseStructure.TIM_Prescaler = 9000-1;	
+  TIM_TimeBaseStructure.TIM_Prescaler = 8400-1;	
 	
 	// 初始化定时器TIMx, x[2,3,4,5]
 	TIM_TimeBaseInit(BASIC_TIM, &TIM_TimeBaseStructure);
@@ -418,6 +420,17 @@ void BASIC_TIM_IRQHandler (void)
 ////			}
 ////			usave = 0;
 //		}
+		if(usbstatus == CONNECTED)
+		{
+			syscount++;
+			if(syscount > 99)
+			{
+				ucount++;
+				syscount = 0;
+			}
+		}else{
+			syscount = 0;
+		}
 		if(key_value == 0xFF && dimflag == 0)
 		{			
 			if(DIM == DOFF)
