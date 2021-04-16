@@ -509,7 +509,7 @@ int main(void)
 						urecount = 0;
 					}
 				}
-				if(usbstatus == CONNECTED)
+				if(usbstatus == CONNECTED && page_flag != hisgraph)
 				{
 					if(ucount == usavetime[0])
 					{

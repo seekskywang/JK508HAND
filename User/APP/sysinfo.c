@@ -101,13 +101,14 @@ void page_sysinfo(void)
 		LCD_DisplayStringLine(130,170,"T,K,J,N,E,S,R,B,PT100");
 		sprintf(buf,"%03d",CHNUM);
 		LCD_DisplayStringLine(170,170,(uint8_t *)buf);
-		LCD_DisplayStringLine(210,170,"REV 1.6");
+		LCD_DisplayStringLine(210,170,"REV 1.7");
 		LCD_DisplayStringLine(250,170,"");
 		LCD_DisplayStringLine(290,170,"REV A0");
 		LCD_DisplayStringLine(330,170,(uint8_t *)SN);
 		//1.3增加SD卡历史数据和开始停止采集功能
 		//1.5增加显示线框
 		//1.6增加U盘定时时间上限
+		//1.7支持sd卡数据导出到U盘
 	}else{
 #ifdef LOGO
 		if(CHNUM == 8)
@@ -122,7 +123,7 @@ void page_sysinfo(void)
 		LCD_DisplayStringLine(130,220,"T,K,J,N,E,S,R,B,PT100");
 		sprintf(buf,"%03d",CHNUM);
 		LCD_DisplayStringLine(170,220,(uint8_t *)buf);
-		LCD_DisplayStringLine(210,220,"REV 1.6");
+		LCD_DisplayStringLine(210,220,"REV 1.7");
 		LCD_DisplayStringLine(250,220,"");
 		LCD_DisplayStringLine(290,220,"REV A0");
 		LCD_DisplayStringLine(330,220,(uint8_t *)SN);

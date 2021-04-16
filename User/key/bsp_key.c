@@ -928,7 +928,7 @@ void input_num(char* num)
 	}
 }
 
-//输入密码
+//输入密码	
 void input_pass(char* num)
 {
 	if(bit_flag < 18){
@@ -2998,6 +2998,11 @@ void FUNC1_HANDLE(void)
 				confirmflag = 0;
 			}
 			
+		}break;
+		case hisgraph:
+		{
+			EXPSDDATA();
+//			Utest();
 		}break;
 		case calibrate:
 		{
@@ -16934,6 +16939,193 @@ void Utest(void)
 	
 	//printf("s=%02x \n",(unsigned short)s );
 	s = CH376FileClose(TRUE);
+	if(s != 0x14)
+	{
+		//fileflag = 0;
+	}
+}
+
+void EXPPROCESS(u32 per,u32 total)
+{
+	u8 i;
+	static float process;
+	static u8 percentage;
+	char buf[10];
+	LCD_SetColors(LCD_COLOR_LIGHTGREY,LCD_COLOR_LIGHTGREY);
+	LCD_DrawRect(224,405,250,30);
+	LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_WHITE);
+	LCD_DrawFullRect(225,406,249,29);
+	
+	
+	LCD_SetColors(LCD_COLOR_LIGHTGREY,LCD_COLOR_LIGHTGREY);
+	LCD_DrawRect(312,408,150,24); 
+	LCD_SetBackColor(LCD_COLOR_WHITE);
+	LCD_SetTextColor(LCD_COLOR_BLACK);
+	DISP_CNL_S(409,240,"导出进度");
+	
+	
+//	
+//	for(i = 0;i < 8;i ++)
+//	{
+
+		percentage = (int)(((float)per/(float)total)*100);
+		process = (130*(float)per/total);
+		if(process < 1)
+		{
+			process = 1;
+		}
+		sprintf(buf,"%d",percentage);
+		LCD_SetColors(LCD_COLOR_GREEN,LCD_COLOR_GREEN);
+		LCD_DrawFullRect(321,410,(int)process,20);
+		if(percentage<50)
+		{
+			LCD_SetColors(LCD_COLOR_BLACK,LCD_COLOR_WHITE);
+		}else{
+			LCD_SetColors(LCD_COLOR_BLACK,LCD_COLOR_GREEN);
+		}
+		DISP_CNL_S(410,380,buf);
+//	}
+}
+
+void EXPSDDATA(void)
+{
+	u8 buf[200],pcs[5],tempbuf[6];
+	u16 i,j,k;
+	static u8 filename[64];
+	static u8 TarName[64];
+	static u8 s;
+	u8 year,month,date,hours,minutes,seconds;
+	static u32 udcount,udtotal;
+
+	Read_His_Data(hispageend);
+	for(i=0;i<495;i++)
+	{
+		if(ReadBuffer.Time[i][1] == 0 && ReadBuffer.Time[i][2] == 0 && ReadBuffer.Time[i][3] == 0)
+		{
+			udtotal = (hispageend-hispagestart)*495+i;
+			break;
+		}
+	}
+	
+	
+	
+	udcount = 0;
+	month =  HisIndex.Date[op_flag+10*indexpage][2];
+	date =  HisIndex.Date[op_flag+10*indexpage][3];
+	hours =  HisIndex.Date[op_flag+10*indexpage][4];
+	minutes =  HisIndex.Date[op_flag+10*indexpage][5];
+	sprintf((char *)filename, "/%02d%02d%02d%02d.XLS",month
+										,date
+										,hours
+										,minutes); /* 目标文件名 */
+
+	strcpy((char *)TarName,filename);
+
+	s = CH376FileCreatePath(TarName);
+	if(s != 0x14)
+	{
+		//fileflag = 0;
+	}
+	
+
+	CH376ByteLocate(0xFFFFFFFF);
+	if(CHNUM == 16)
+	{
+		sprintf((char *)buf,"\t日期\t时间\t通道1\t通道2\t通道3\t通道4\t通道5\t通道6\t通道7\t通道8\t通道9\t通道10\t通道11\t通道12\t通道13\t通道14\t通道15\t通道16");
+	}else if(CHNUM == 8){
+		sprintf((char *)buf,"\t日期\t时间\t通道1\t通道2\t通道3\t通道4\t通道5\t通道6\t通道7\t通道8");
+	}
+	s = CH376ByteWrite(buf, strlen((const char *)buf), NULL );
+	if(s != 0x14)
+	{
+		//fileflag = 0;
+	}
+	s = CH376FileClose(TRUE);
+	if(s != 0x14)
+	{
+		//fileflag = 0;
+	}
+
+	Delay(100);
+
+	strcpy((char *)TarName,filename);
+	s = CH376FileOpenPath(TarName);
+	CH376ByteLocate(0xFFFFFFFF);
+	if(s != 0x14)
+	{
+		//fileflag = 0;
+	}
+
+	
+	for( i=0;i<hispageend-hispagestart+1;i++)
+	{
+		
+		Read_His_Data(i+hispagestart);
+		for(j=0;j<495;j++)
+		{
+			udcount++;
+			s = CH376FileOpenPath(TarName);
+			CH376ByteLocate(0xFFFFFFFF);
+			year = ReadBuffer.Time[j][1];
+			month = ReadBuffer.Time[j][2];
+			date = ReadBuffer.Time[j][3];
+			hours = ReadBuffer.Time[j][4];
+			minutes = ReadBuffer.Time[j][5];
+			seconds = ReadBuffer.Time[j][6];
+			if(year == 0 && month == 0 && date == 0)
+			{
+				break;
+			}
+			sprintf(buf, "\n%d\t20%02d-%02d-%02d\t%02d:%02d:%02d"
+											,udcount
+											,year
+											,month
+											,date
+											,hours
+											,minutes
+											,seconds
+											); 
+//			CH376ByteWrite( buf, strlen((const char *)buf), NULL ); 
+//			s = CH376FileClose(TRUE);
+			
+			EXPPROCESS(udcount,udtotal);
+			s = CH376FileOpenPath(TarName);
+			CH376ByteLocate(0xFFFFFFFF);			
+			for(k=0;k<CHNUM;k++)
+			{
+				if(ReadBuffer.Temp[k][j] > 1999)
+				{
+					strcat(buf,"\tN/A");
+				}else{
+					sprintf(tempbuf,"\t%.1f",ReadBuffer.Temp[k][j]);
+					strcat(buf,tempbuf);
+				}
+			}
+			CH376ByteWrite( buf, strlen((const char *)buf), NULL );
+			s = CH376FileClose(TRUE);
+			
+//			for(k=0;k<CHNUM;k++)
+//			{				
+////				sprintf(pcs,"%02d",(int)((float)udcount/(float)udtotal*100));
+//				EXPPROCESS(udcount,udtotal);
+////				DISP_CNL_S(5,200,pcs);
+//				s = CH376FileOpenPath(TarName);
+//				CH376ByteLocate(0xFFFFFFFF);
+//				if(ReadBuffer.Temp[k][j] > 1999)
+//				{
+//					strcpy(buf,"\tN/A");
+//				}else{
+//					sprintf(buf,"\t%.1f",ReadBuffer.Temp[k][j]);
+//				}
+//				CH376ByteWrite( buf, strlen((const char *)buf), NULL );
+//				s = CH376FileClose(TRUE);
+//				
+//			}
+		}
+	}
+	udcount = 0;
+	strcpy((char *)TarName,filename);
+	s = CH376FileOpenPath(TarName);
 	if(s != 0x14)
 	{
 		//fileflag = 0;

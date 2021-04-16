@@ -27,6 +27,253 @@ Project File Date:  06/30/2020
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'LCD'
+compiling home.c...
+..\..\User\APP\home.c(1117): warning:  #223-D: function "DISP_AVG" declared implicitly
+        DISP_AVG(420+2,400-5,"AVG");
+..\..\User\APP\home.c(1143): warning:  #223-D: function "DISP_AVG" declared implicitly
+                        DISP_AVG(120,270,"    ");
+..\..\User\APP\home.c(1173): warning:  #223-D: function "DISP_AVG" declared implicitly
+                        DISP_AVG(120,270,"    ");
+..\..\User\APP\home.c(1192): warning:  #223-D: function "DISP_AVG" declared implicitly
+                        DISP_AVG(112,190,"   ");
+..\..\User\APP\home.c(1232): warning:  #223-D: function "DISP_AVG" declared implicitly
+                        DISP_AVG(104,115,"  ");
+..\..\User\APP\home.c(1274): warning:  #1-D: last line of file ends without a newline
+  }
+..\..\User\APP\home.c: 6 warnings, 0 errors
+compiling system.c...
+compiling settings.c...
+compiling separation.c...
+compiling sysinfo.c...
+compiling graph.c...
+compiling graphset.c...
+..\..\User\APP\graphset.c(25): warning:  #177-D: variable "i"  was declared but never referenced
+        u8 i,j;
+..\..\User\APP\graphset.c(25): warning:  #177-D: variable "j"  was declared but never referenced
+        u8 i,j;
+..\..\User\APP\graphset.c(26): warning:  #177-D: variable "buf"  was declared but never referenced
+        char buf[5];
+..\..\User\APP\graphset.c(163): warning:  #1-D: last line of file ends without a newline
+  }
+..\..\User\APP\graphset.c(96): warning:  #177-D: variable "i"  was declared but never referenced
+        u8 i,j;
+..\..\User\APP\graphset.c(96): warning:  #177-D: variable "j"  was declared but never referenced
+        u8 i,j;
+..\..\User\APP\graphset.c(97): warning:  #177-D: variable "buf"  was declared but never referenced
+        char buf[5];
+..\..\User\APP\graphset.c: 7 warnings, 0 errors
+compiling history.c...
+..\..\User\APP\history.c(66): warning:  #177-D: variable "i"  was declared but never referenced
+        u8 i;
+..\..\User\APP\history.c(67): warning:  #177-D: variable "j"  was declared but never referenced
+        u16 j;
+..\..\User\APP\history.c(109): warning:  #177-D: variable "i"  was declared but never referenced
+        u8 i;
+..\..\User\APP\history.c(110): warning:  #177-D: variable "j"  was declared but never referenced
+        u16 j;
+..\..\User\APP\history.c(152): warning:  #177-D: variable "i"  was declared but never referenced
+        u8 i;
+..\..\User\APP\history.c(153): warning:  #177-D: variable "j"  was declared but never referenced
+        u16 j;
+..\..\User\APP\history.c(195): warning:  #177-D: variable "k"  was declared but never referenced
+        u16 i,j,k;
+..\..\User\APP\history.c: 7 warnings, 0 errors
+compiling calibarate.c...
+compiling power_on.c...
+..\..\User\APP\power_on.c(27): warning:  #177-D: variable "i"  was declared but never referenced
+        u8 i;
+..\..\User\APP\power_on.c(619): warning:  #1-D: last line of file ends without a newline
+  }
+..\..\User\APP\power_on.c: 2 warnings, 0 errors
+compiling factory.c...
+..\..\User\APP\factory.c(65): warning:  #177-D: variable "buf"  was declared but never referenced
+        char buf[10];
+..\..\User\APP\factory.c(112): warning:  #1-D: last line of file ends without a newline
+  }
+..\..\User\APP\factory.c: 2 warnings, 0 errors
+compiling main.c...
+..\..\User\main.c(302): warning:  #177-D: variable "buf"  was declared but never referenced
+        uint8_t  buf[0x40];
+..\..\User\main.c(304): warning:  #177-D: variable "test"  was declared but never referenced
+        u8 test[9] = {0X01,0X03,0X02,0X58,0X00,0X01,0X02,0X00,0X05};
+..\..\User\main.c(306): warning:  #177-D: variable "reqtempcount"  was declared but never referenced
+        static u8 reqtempcount;
+..\..\User\main.c(310): warning:  #177-D: variable "sendcount"  was declared but never referenced
+        static u16 sendcount;
+..\..\User\main.c(768): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+                                G_Data[i][count] = (graphbuf[i][0]/MULTI * 256 + graphbuf[i][1]/MULTI)/10.0 - Correction[i];
+..\..\User\main.c(691): warning:  #177-D: variable "ucTemp"  was declared but never referenced
+        static uint8_t ucTemp;
+..\..\User\main.c(692): warning:  #177-D: variable "Total_Len"  was declared but never referenced
+        static u8 Total_Len = 0;
+..\..\User\main.c(693): warning:  #177-D: variable "uinitflag"  was declared but never referenced
+        static u8 uinitflag = 0;
+..\..\User\main.c(698): warning:  #177-D: variable "hisconv"  was declared but never referenced
+        static u16 hisconv;
+..\..\User\main.c(699): warning:  #177-D: variable "corconv"  was declared but never referenced
+        static u16 corconv;
+..\..\User\main.c(703): warning:  #177-D: variable "usave"  was declared but never referenced
+        static u8 usave;
+..\..\User\main.c(3549): warning:  #177-D: variable "offflag"  was declared but never referenced
+        static u8 offflag;
+..\..\User\main.c: 12 warnings, 0 errors
+compiling fileoperate.c...
+..\..\User\fileoperate.c(79): warning:  #177-D: variable "i"  was declared but never referenced
+        u16 i;
+..\..\User\fileoperate.c(115): warning:  #177-D: variable "i"  was declared but never referenced
+        u16 i;
+..\..\User\fileoperate.c(167): warning:  #177-D: variable "j"  was declared but never referenced
+        u16 i,j;
+..\..\User\fileoperate.c(168): warning:  #177-D: variable "buf"  was declared but never referenced
+        char buf[14],num[5],indexpages[10];
+..\..\User\fileoperate.c: 4 warnings, 0 errors
+compiling stm32f4xx_it.c...
+compiling touchscreen.c...
+..\..\User\touchscreen.c(334): warning:  #223-D: function "delay_us" declared implicitly
+      delay_us(20);
+..\..\User\touchscreen.c(376): warning:  #177-D: variable "temp"  was declared but never referenced
+        s32 temp;                        
+..\..\User\touchscreen.c(596): warning:  #223-D: function "delay_us" declared implicitly
+                delay_ms(10);
+..\..\User\touchscreen.c(655): warning:  #223-D: function "focus_on1" declared implicitly
+                                        focus_on1();
+..\..\User\touchscreen.c(758): warning:  #223-D: function "focus_on1" declared implicitly
+                                                                focus_on1();
+..\..\User\touchscreen.c(817): warning:  #223-D: function "focus_on1" declared implicitly
+                                                                focus_on1();
+..\..\User\touchscreen.c(876): warning:  #223-D: function "focus_on1" declared implicitly
+                                                                focus_on1();
+..\..\User\touchscreen.c(2159): warning:  #223-D: function "plus_year" declared implicitly
+                                                                        plus_year();
+..\..\User\touchscreen.c(2161): warning:  #223-D: function "plus_day" declared implicitly
+                                                                        plus_day();
+..\..\User\touchscreen.c(2170): warning:  #223-D: function "plus_hour" declared implicitly
+                                                                        plus_hour();                                                    
+..\..\User\touchscreen.c(2172): warning:  #223-D: function "plus_sec" declared implicitly
+                                                                        plus_sec();
+..\..\User\touchscreen.c(2180): warning:  #223-D: function "brt_set" declared implicitly
+                                                                brt_set(1);
+..\..\User\touchscreen.c(2194): warning:  #223-D: function "touch_set" declared implicitly
+                                                                touch_set(1);
+..\..\User\touchscreen.c(2228): warning:  #223-D: function "minus_year" declared implicitly
+                                                                        minus_year();
+..\..\User\touchscreen.c(2230): warning:  #223-D: function "minus_day" declared implicitly
+                                                                        minus_day();
+..\..\User\touchscreen.c(2239): warning:  #223-D: function "minus_hour" declared implicitly
+                                                                        minus_hour();
+..\..\User\touchscreen.c(2241): warning:  #223-D: function "minus_sec" declared implicitly
+                                                                        minus_sec();
+..\..\User\touchscreen.c(2249): warning:  #223-D: function "brt_set" declared implicitly
+                                                                brt_set(2);
+..\..\User\touchscreen.c(2263): warning:  #223-D: function "touch_set" declared implicitly
+                                                                touch_set(2);
+..\..\User\touchscreen.c(2285): warning:  #223-D: function "plus_mon" declared implicitly
+                                                                        plus_mon();
+..\..\User\touchscreen.c(2294): warning:  #223-D: function "plus_min" declared implicitly
+                                                                        plus_min();
+..\..\User\touchscreen.c(2302): warning:  #223-D: function "brt_set" declared implicitly
+                                                                brt_set(3);
+..\..\User\touchscreen.c(2330): warning:  #223-D: function "minus_mon" declared implicitly
+                                                                        minus_mon();
+..\..\User\touchscreen.c(2339): warning:  #223-D: function "minus_min" declared implicitly
+                                                                        minus_min();
+..\..\User\touchscreen.c(2347): warning:  #223-D: function "brt_set" declared implicitly
+                                                                brt_set(4);
+..\..\User\touchscreen.c(2416): warning:  #223-D: function "brt_set" declared implicitly
+                                                                        brt_set(5);
+..\..\User\touchscreen.c(2546): warning:  #223-D: function "focus_off1" declared implicitly
+                                                                        focus_off1();
+..\..\User\touchscreen.c(2568): warning:  #223-D: function "focus_off1" declared implicitly
+                                                                        focus_off1();
+..\..\User\touchscreen.c(2609): warning:  #223-D: function "focus_off1" declared implicitly
+                                                                        focus_off1();
+..\..\User\touchscreen.c(2631): warning:  #223-D: function "focus_off1" declared implicitly
+                                                                        focus_off1();
+..\..\User\touchscreen.c(2662): warning:  #223-D: function "focus_off1" declared implicitly
+                                                                        focus_off1();
+..\..\User\touchscreen.c(2682): warning:  #223-D: function "focus_off1" declared implicitly
+                                                                        focus_off1();
+..\..\User\touchscreen.c(2724): warning:  #223-D: function "focus_off1" declared implicitly
+                                                                        focus_off1();
+..\..\User\touchscreen.c(2746): warning:  #223-D: function "focus_off1" declared implicitly
+                                                                        focus_off1();
+..\..\User\touchscreen.c(2797): warning:  #223-D: function "focus_off1" declared implicitly
+                                                                        focus_off1();
+..\..\User\touchscreen.c(2819): warning:  #223-D: function "focus_off1" declared implicitly
+                                                                        focus_off1();
+..\..\User\touchscreen.c(2850): warning:  #223-D: function "focus_off1" declared implicitly
+                                                                        focus_off1();
+..\..\User\touchscreen.c(2880): warning:  #223-D: function "focus_off1" declared implicitly
+                                                                        focus_off1();
+..\..\User\touchscreen.c(4878): warning:  #1-D: last line of file ends without a newline
+  }
+..\..\User\touchscreen.c(58): warning:  #177-D: function "set_mid"  was declared but never referenced
+  static void set_mid(void){    X_P0;   X_N1;   Y_P1;   Y_N0;}
+..\..\User\touchscreen.c: 40 warnings, 0 errors
+compiling bsp_lcd.c...
+..\..\User\./battery/battery.h(46): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\..\User\lcd\bsp_lcd.c(2388): warning:  #550-D: variable "k"  was set but never used
+    float k = 0, rad1 = 0, rad2 = 0;
+..\..\User\lcd\bsp_lcd.c(2445): warning:  #550-D: variable "k"  was set but never used
+    float k = 0, rad1 = 0, rad2 = 0;
+..\..\User\lcd\bsp_lcd.c: 3 warnings, 0 errors
+compiling bsp_key.c...
+..\..\User\key\bsp_key.c(1659): warning:  #177-D: variable "ymd"  was declared but never referenced
+        u32 ymd;
+..\..\User\key\bsp_key.c(1660): warning:  #177-D: variable "y3"  was declared but never referenced
+        u8 y1,y2,y3,m1,d1;
+..\..\User\key\bsp_key.c(1665): warning:  #177-D: variable "timetemp"  was declared but never referenced
+        char timetemp[100];
+..\..\User\key\bsp_key.c(3626): warning:  #223-D: function "his_gset" declared implicitly
+                        his_gset();
+..\..\User\key\bsp_key.c(4058): warning:  #223-D: function "TP_Adjust" declared implicitly
+                                TP_Adjust();
+..\..\User\key\bsp_key.c(4642): warning:  #177-D: variable "i"  was declared but never referenced
+        static u16 i;
+..\..\User\key\bsp_key.c(8866): warning:  #223-D: function "Search_Handle" declared implicitly
+                                Search_Handle();
+..\..\User\key\bsp_key.c(8879): warning:  #223-D: function "page_factory" declared implicitly
+                                page_factory();
+..\..\User\key\bsp_key.c(16110): warning:  #177-D: variable "i"  was declared but never referenced
+        u8 i;
+..\..\User\key\bsp_key.c(16772): warning:  #223-D: function "page_factory" declared implicitly
+                        page_factory();
+..\..\User\key\bsp_key.c(16776): warning:  #223-D: function "TP_Adjust" declared implicitly
+                        TP_Adjust();
+..\..\User\key\bsp_key.c(16803): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "const char *restrict"
+                strcpy((char *)TarName,filename);
+..\..\User\key\bsp_key.c(16895): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "const char *restrict"
+        strcpy((char *)TarName,filename);
+..\..\User\key\bsp_key.c(16908): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "char *restrict"
+        sprintf(buf, "\n%d\t20%02d-%02d-%02d\t%02d:%02d:%02d"
+..\..\User\key\bsp_key.c(16927): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "char *restrict"
+                        strcpy(buf,"\tN/A");
+..\..\User\key\bsp_key.c(16929): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "char *restrict"
+                        sprintf(buf,"\t%.1f",ch_temp[i]);
+..\..\User\key\bsp_key.c(16986): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+                DISP_CNL_S(410,380,buf);
+..\..\User\key\bsp_key.c(16950): warning:  #177-D: variable "i"  was declared but never referenced
+        u8 i;
+..\..\User\key\bsp_key.c(17022): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "const char *restrict"
+        strcpy((char *)TarName,filename);
+..\..\User\key\bsp_key.c(17051): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "const char *restrict"
+        strcpy((char *)TarName,filename);
+..\..\User\key\bsp_key.c(17079): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "char *restrict"
+                        sprintf(buf, "\n%d\t20%02d-%02d-%02d\t%02d:%02d:%02d"
+..\..\User\key\bsp_key.c(17098): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "char *restrict"
+                                        strcat(buf,"\tN/A");
+..\..\User\key\bsp_key.c(17100): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "char *restrict"
+                                        sprintf(tempbuf,"\t%.1f",ReadBuffer.Temp[k][j]);
+..\..\User\key\bsp_key.c(17101): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "char *restrict"
+                                        strcat(buf,tempbuf);
+..\..\User\key\bsp_key.c(17101): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "const char *restrict"
+                                        strcat(buf,tempbuf);
+..\..\User\key\bsp_key.c(17127): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "const char *restrict"
+        strcpy((char *)TarName,filename);
+..\..\User\key\bsp_key.c(16992): warning:  #177-D: variable "pcs"  was declared but never referenced
+        u8 buf[200],pcs[5],tempbuf[6];
+..\..\User\key\bsp_key.c: 27 warnings, 0 errors
 compiling bsp_basic_tim.c...
 ..\..\User\tim\bsp_basic_tim.c(259): warning:  #177-D: variable "TIM_BDTRInitStructure"  was declared but never referenced
         TIM_BDTRInitTypeDef TIM_BDTRInitStructure;
@@ -45,11 +292,17 @@ compiling bsp_basic_tim.c...
 ..\..\User\tim\bsp_basic_tim.c(111): warning:  #177-D: function "TIM_7_Config"  was declared but never referenced
   static void TIM_7_Config(void)
 ..\..\User\tim\bsp_basic_tim.c: 8 warnings, 0 errors
+compiling bsp_rtc.c...
+compiling ch376.c...
+..\..\User\ch376\ch376.c(238): warning:  #223-D: function "printf" declared implicitly
+        FLASH_ERROR("SPI µÈ´ý³¬Ê±!errorCode = %d",errorCode);
+..\..\User\ch376\ch376.c: 1 warning, 0 errors
+compiling FILESYS.c...
 linking...
-Program Size: Code=182920 RO-data=107508 RW-data=852 ZI-data=143140  
+Program Size: Code=183976 RO-data=107736 RW-data=868 ZI-data=143268  
 FromELF: creating hex file...
 After Build - User command #1: D:\Keil_v5\ARM\ARMCC\bin\fromelf.exe --bin -o ..\..\Output\update.bin ..\..\Output\LCD.axf
-"..\..\Output\LCD.axf" - 0 Error(s), 8 Warning(s).
+"..\..\Output\LCD.axf" - 0 Error(s), 119 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -63,7 +316,7 @@ Package Vendor: Keil
   D:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:09
+Build Time Elapsed:  00:00:32
 </pre>
 </body>
 </html>

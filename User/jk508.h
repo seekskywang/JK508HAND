@@ -129,6 +129,7 @@ void Erase_all(void);
 u8 PowerOffDetect(void);
 void PowerOffHandle(void);
 void ButtonSound(void);
+void EXPSDDATA(void);
 void Draw_His_Index(u8 page);
 void Draw_His_Graph(void);
 
