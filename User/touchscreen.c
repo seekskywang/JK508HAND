@@ -507,14 +507,14 @@ void TP_Adjust(void)
 					tem2*=tem2;
 					d2=sqrt(tem1+tem2);//得到3,4的距离
 					fac=(float)d1/d2;
-					if(fac<0.95||fac>1.05||d1==0||d2==0)//不合格
-					{
-						cnt=0;
- 				    	TP_Drow_Touch_Point(LCD_PIXEL_WIDTH-20,LCD_PIXEL_HEIGHT-20,LCD_COLOR_WHITE);	//清除点4
-   	 					TP_Drow_Touch_Point(20,20,LCD_COLOR_RED);								//画点1
- 						TP_Adj_Info_Show(pos_temp[0][0],pos_temp[0][1],pos_temp[1][0],pos_temp[1][1],pos_temp[2][0],pos_temp[2][1],pos_temp[3][0],pos_temp[3][1],fac*100);//显示数据   
- 						continue;
-					}
+//					if(fac<0.95||fac>1.05||d1==0||d2==0)//不合格
+//					{
+//						cnt=0;
+// 				    	TP_Drow_Touch_Point(LCD_PIXEL_WIDTH-20,LCD_PIXEL_HEIGHT-20,LCD_COLOR_WHITE);	//清除点4
+//   	 					TP_Drow_Touch_Point(20,20,LCD_COLOR_RED);								//画点1
+// 						TP_Adj_Info_Show(pos_temp[0][0],pos_temp[0][1],pos_temp[1][0],pos_temp[1][1],pos_temp[2][0],pos_temp[2][1],pos_temp[3][0],pos_temp[3][1],fac*100);//显示数据   
+// 						continue;
+//					}
 					tem1=abs(pos_temp[0][0]-pos_temp[2][0]);//x1-x3
 					tem2=abs(pos_temp[0][1]-pos_temp[2][1]);//y1-y3
 					tem1*=tem1;
@@ -527,14 +527,14 @@ void TP_Adjust(void)
 					tem2*=tem2;
 					d2=sqrt(tem1+tem2);//得到2,4的距离
 					fac=(float)d1/d2;
-					if(fac<0.95||fac>1.05)//不合格
-					{
+//					if(fac<0.95||fac>1.05)//不合格
+//					{
 //						cnt=0;
 // 				    	TP_Drow_Touch_Point(LCD_PIXEL_WIDTH-20,LCD_PIXEL_HEIGHT,LCD_COLOR_WHITE);	//清除点4
 //   	 					TP_Drow_Touch_Point(20,20,LCD_COLOR_RED);								//画点1
 // 						TP_Adj_Info_Show(pos_temp[0][0],pos_temp[0][1],pos_temp[1][0],pos_temp[1][1],pos_temp[2][0],pos_temp[2][1],pos_temp[3][0],pos_temp[3][1],fac*100);//显示数据   
 //						continue;
-					}//正确了
+//					}//正确了
 								   
 					//对角线相等
 					tem1=abs(pos_temp[1][0]-pos_temp[2][0]);//x1-x3
@@ -549,46 +549,46 @@ void TP_Adjust(void)
 					tem2*=tem2;
 					d2=sqrt(tem1+tem2);//得到2,3的距离
 					fac=(float)d1/d2;
-					if(fac<0.95||fac>1.05)//不合格
-					{
-						cnt=0;
+//					if(fac<0.95||fac>1.05)//不合格
+//					{
+//						cnt=0;
 
-						TP_Drow_Touch_Point(LCD_PIXEL_WIDTH-20,LCD_PIXEL_HEIGHT-20,LCD_COLOR_WHITE);	//清除点4
-   	 					TP_Drow_Touch_Point(20,20,LCD_COLOR_RED);	
- 						TP_Adj_Info_Show(pos_temp[0][0],pos_temp[0][1],pos_temp[1][0],pos_temp[1][1],pos_temp[2][0],pos_temp[2][1],pos_temp[3][0],pos_temp[3][1],fac*100);//显示数据   
-						continue;
-					}//正确了
+//						TP_Drow_Touch_Point(LCD_PIXEL_WIDTH-20,LCD_PIXEL_HEIGHT-20,LCD_COLOR_WHITE);	//清除点4
+//   	 					TP_Drow_Touch_Point(20,20,LCD_COLOR_RED);	
+// 						TP_Adj_Info_Show(pos_temp[0][0],pos_temp[0][1],pos_temp[1][0],pos_temp[1][1],pos_temp[2][0],pos_temp[2][1],pos_temp[3][0],pos_temp[3][1],fac*100);//显示数据   
+//						continue;
+//					}//正确了
 					//计算结果
 					tp_dev.xfac=(float)(LCD_PIXEL_WIDTH-40)/(pos_temp[1][0]-pos_temp[0][0]);//得到xfac		 
 					tp_dev.xoff=(LCD_PIXEL_WIDTH-tp_dev.xfac*(pos_temp[1][0]+pos_temp[0][0]))/2;//得到xoff
 						  
 					tp_dev.yfac=(float)(LCD_PIXEL_HEIGHT-40)/(pos_temp[2][1]-pos_temp[0][1]);//得到yfac
 					tp_dev.yoff=(LCD_PIXEL_HEIGHT-tp_dev.yfac*(pos_temp[2][1]+pos_temp[0][1]))/2;//得到yoff  
-					if(fabs(tp_dev.xfac)>2||fabs(tp_dev.yfac)>2)//触屏和预设的相反了.
-					{
-						cnt=0;
- 				    	TP_Drow_Touch_Point(LCD_PIXEL_WIDTH-20,LCD_PIXEL_HEIGHT-20,LCD_COLOR_WHITE);	//清除点4
-   	 					TP_Drow_Touch_Point(20,20,LCD_COLOR_RED);								//画点1
-						//LCD_ShowString(40,26,lcddev.width,lcddev.height,16,"TP Need readjust!");
-//						tp_dev.touchtype=!tp_dev.touchtype;//修改触屏类型.
-//						if(tp_dev.touchtype)//X,Y方向与屏幕相反
-//						{
-//							CMD_RDX=0;
-//							CMD_RDY=1;	 
-//						}else				   //X,Y方向与屏幕相同
-//						{
-//							CMD_RDX=1;
-//							CMD_RDY=0;	 
-//						}		
-//						page_home();
-						continue;
-					}		
+//					if(fabs(tp_dev.xfac)>2||fabs(tp_dev.yfac)>2)//触屏和预设的相反了.
+//					{
+//						cnt=0;
+// 				    	TP_Drow_Touch_Point(LCD_PIXEL_WIDTH-20,LCD_PIXEL_HEIGHT-20,LCD_COLOR_WHITE);	//清除点4
+//   	 					TP_Drow_Touch_Point(20,20,LCD_COLOR_RED);								//画点1
+//						//LCD_ShowString(40,26,lcddev.width,lcddev.height,16,"TP Need readjust!");
+////						tp_dev.touchtype=!tp_dev.touchtype;//修改触屏类型.
+////						if(tp_dev.touchtype)//X,Y方向与屏幕相反
+////						{
+////							CMD_RDX=0;
+////							CMD_RDY=1;	 
+////						}else				   //X,Y方向与屏幕相同
+////						{
+////							CMD_RDX=1;
+////							CMD_RDY=0;	 
+////						}		
+////						page_home();
+//						continue;
+//					}		
 //					POINT_COLOR=BLUE;
 //					LCD_Clear(WHITE);//清屏
 //					LCD_ShowString(35,110,lcddev.width,lcddev.height,16,"Touch Screen Adjust OK!");//校正完成
 //					delay_ms(1000);
 					TP_Save_Adjdata();  
-					
+					page_sys();
 // 					LCD_Clear(WHITE);//清屏   
 					return;//校正完成				 
 			}

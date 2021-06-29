@@ -16776,7 +16776,7 @@ void ACC_HANDLE(void)
 		}break;
 		case sysinfo:
 		{
-			TP_Adjust();
+//			TP_Adjust();
 //			TouchCal();
 //			JumpBoot(55);
 		}break;

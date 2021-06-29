@@ -674,7 +674,7 @@ void Drawsysmenu(void)
 	}else{
 		LCD_DisplayStringLine(450,10,"DISPLAY");
 		LCD_DisplayStringLine(450,153,"GRAPH");
-		LCD_DisplayStringLine(450,260,"TOUCHCAL");
+		LCD_DisplayStringLine(450,260,"TCAL");
 		LCD_DisplayStringLine(450,410,"SETUP");
 		LCD_DisplayStringLine(450,522,"SYSINFO");
 	}
