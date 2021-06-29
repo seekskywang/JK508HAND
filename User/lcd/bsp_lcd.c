@@ -1153,8 +1153,16 @@ void DrawBattery(u8 cap)
 				}else if(cap <= 25){
 					LCD_DrawFullRect(502-48,12,8,17);
 				}
-				LCD_SetColors(LCD_COLOR_GREEN,LCD_COLOR_BACK);
-				LCD_DrawFullRect(502-48,12,barlen,17);
+				
+				
+//				capercent = (float)cap/100;	
+//				barlen = (int)(37*capercent);
+//				if(barlen == 0)
+//				{
+//					barlen = 1;
+//				}
+//				LCD_SetColors(LCD_COLOR_GREEN,LCD_COLOR_BACK);
+//				LCD_DrawFullRect(502-48,12,barlen,17);
 			}
 			status = 0x00;
 			b = cap;
