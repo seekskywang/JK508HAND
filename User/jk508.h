@@ -170,6 +170,7 @@ void stimefocus_on(int lmt);
 void stimefocus_off(int lmt);
 void Disp_Type(void);
 void SetSTctype(void);
+void SetUnit(void);
 void JumpBoot(u8 flag);
 void Disp_Factory(void);
 void sdtest(void);

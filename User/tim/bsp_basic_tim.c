@@ -763,6 +763,45 @@ void SetSTctype(void)
 	trigflag = 1;
 	Disp_Type();
 }
+
+void SetUnit(void)
+{
+	u8 tcbuf[28];
+	u8 i;
+	static u16 tccrc;
+	u8 tcrc[25];
+	
+	tcbuf[0]=0X01;
+	tcbuf[1]=0X10;
+	tcbuf[2]=0X00;
+	tcbuf[3]=0X00;
+	tcbuf[4]=0X00;
+	tcbuf[5]=0X09;
+	tcbuf[6]=0X12;
+	for(i=0;i<16;i++)
+	{
+		tcbuf[i+7]=savedata[60+i];
+	}
+	tcbuf[23] = UNIT;
+	tcbuf[24] = CHNUM;
+	for(i=0;i<25;i++)
+	{
+		tcrc[i] = tcbuf[i];
+	}
+	tccrc = CRC16(tcrc,25);
+	tcbuf[26] = (u8)(tccrc >> 8);
+	tcbuf[25] = (u8)(tccrc);
+	tcbuf[27] = 0xff;
+	trigflag = 0;
+	GPIO_SetBits(GPIOA,GPIO_Pin_8);
+	for(i=0;i<28;i++)
+	{
+		Usart_SendByte(DEBUG_USART,tcbuf[i]);
+	}
+	GPIO_ResetBits(GPIOA,GPIO_Pin_8);
+	trigflag = 1;
+}
+
 ///**
 //  * @brief  初始化高级控制定时器定时，1ms产生一次中断
 //  * @param  无

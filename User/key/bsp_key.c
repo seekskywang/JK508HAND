@@ -2919,6 +2919,7 @@ void FUNC1_HANDLE(void)
 						op_sw = op_off;
 						Save_flag();
 						DrawUnit();
+						SetUnit();
 					}else{
 						page_home();
 					}
@@ -3542,6 +3543,7 @@ void FUNC2_HANDLE(void)
 						op_sw = op_off;
 						Save_flag();
 						DrawUnit();
+						SetUnit();
 					}else{
 						page_graph();
 					}
@@ -4077,6 +4079,7 @@ void FUNC3_HANDLE(void)
 						op_sw = op_off;
 						Save_flag();
 						DrawUnit();
+						SetUnit();
 					}else{
 						page_sys();
 					}

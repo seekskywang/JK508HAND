@@ -1131,15 +1131,27 @@ void DrawBattery(u8 cap)
 			LCD_DrawUniLine(540-48,15,545-48,15);
 			LCD_DrawUniLine(545-48,15,545-48,25);
 			LCD_DrawUniLine(540-48,25,545-48,25);
+			
 			LCD_DrawUniLine(540-48,25,540-48,30);
 			
 			if(cap > 0)
 			{
-				capercent = (float)cap/100;
-				barlen = (int)(37*capercent);
-				if(barlen == 0)
+				LCD_SetColors(LCD_COLOR_GREEN,LCD_COLOR_BACK);
+				if(cap > 75)
 				{
-					barlen = 1;
+					LCD_DrawFullRect(502-48,12,8,17);
+					LCD_DrawFullRect(502-48+10,12,8,17);
+					LCD_DrawFullRect(502-48+20,12,8,17);
+					LCD_DrawFullRect(502-48+30,12,8,17);
+				}else if(cap >50 && cap <= 75){
+					LCD_DrawFullRect(502-48,12,8,17);
+					LCD_DrawFullRect(502-48+10,12,8,17);
+					LCD_DrawFullRect(502-48+20,12,8,17);
+				}else if(cap >25 && cap <= 50){
+					LCD_DrawFullRect(502-48,12,8,17);
+					LCD_DrawFullRect(502-48+10,12,8,17);
+				}else if(cap <= 25){
+					LCD_DrawFullRect(502-48,12,8,17);
 				}
 				LCD_SetColors(LCD_COLOR_GREEN,LCD_COLOR_BACK);
 				LCD_DrawFullRect(502-48,12,barlen,17);
