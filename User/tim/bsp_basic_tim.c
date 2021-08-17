@@ -375,6 +375,9 @@ void BASIC_TIM_IRQHandler (void)
 					if(tcflag == 1)
 					{
 						SetSTctype();//单独通道设置
+					}else if(tcflag == 30)
+					{
+						SetUnit();
 					}else{
 						SetTctype(tcflag-1);//统一设置
 					}
@@ -399,7 +402,7 @@ void BASIC_TIM_IRQHandler (void)
 		}else{
 			for(i=0;i<CHNUM;i++)
 			{
-				ch_temp[i] = 1999.9;
+				ch_temp[i] = 3276.7;
 			}
 		}
 //		Delay(1000);

@@ -1001,7 +1001,7 @@ void TempDisplay(void)
 					strcat(buf," ");
 				}
 			}
-			if(TEMPAVG < 1999)
+			if(TEMPAVG < 3276)
 			{
 				DISP_TEMP_S(419,421,(uint8_t*)buf,0);
 			}else{
@@ -1028,7 +1028,7 @@ void TempDisplay(void)
 					strcat(buf," ");
 				}
 			}
-			if(TEMPMAX < 1999)
+			if(TEMPMAX < 3276)
 			{
 				DISP_TEMP_S(419,501,(uint8_t*)buf,0);
 			}else{
@@ -1055,7 +1055,7 @@ void TempDisplay(void)
 					strcat(buf," ");
 				}
 			}
-			if(TEMPMIN < 1999)
+			if(TEMPMIN < 3276)
 			{
 				DISP_TEMP_S(419,581,(uint8_t*)buf,0);
 			}else{
@@ -1097,7 +1097,7 @@ void TempDisplay(void)
 				
 				
 //				DISP_TEMP_L(95,120,(uint8_t*)buf,CH1_SW);
-				if(CH1TEMP < 1999 || CH1TEMP < -200)
+				if(CH1TEMP < 3276 || CH1TEMP < -200)
 				{
 					DISP_TEMP_L(95,120,(uint8_t*)buf,CH1_SW);
 				}else{
@@ -1124,7 +1124,7 @@ void TempDisplay(void)
 						strcat(buf," ");
 					}
 				}
-				if(CH2TEMP < 1999)
+				if(CH2TEMP < 3276)
 				{
 					DISP_TEMP_L(165+10,120,(uint8_t*)buf,CH2_SW);
 				}else{
@@ -1152,7 +1152,7 @@ void TempDisplay(void)
 						strcat(buf," ");
 					}
 				}
-				if(CH3TEMP < 1999)
+				if(CH3TEMP < 3276)
 				{
 					DISP_TEMP_L(235+20,120,(uint8_t*)buf,CH3_SW);
 				}else{
@@ -1179,7 +1179,7 @@ void TempDisplay(void)
 						strcat(buf," ");
 					}
 				}
-				if(CH4TEMP < 1999)
+				if(CH4TEMP < 3276)
 				{
 					DISP_TEMP_L(305+30,120,(uint8_t*)buf,CH4_SW);
 				}else{
@@ -1206,7 +1206,7 @@ void TempDisplay(void)
 						strcat(buf," ");
 					}
 				}
-				if(CH5TEMP < 1999)
+				if(CH5TEMP < 3276)
 				{
 					DISP_TEMP_L(95,440,(uint8_t*)buf,CH5_SW);
 				}else{
@@ -1233,7 +1233,7 @@ void TempDisplay(void)
 						strcat(buf," ");
 					}
 				}
-				if(CH6TEMP < 1999)
+				if(CH6TEMP < 3276)
 				{
 					DISP_TEMP_L(165+10,440,(uint8_t*)buf,CH6_SW);
 				}else{
@@ -1260,7 +1260,7 @@ void TempDisplay(void)
 						strcat(buf," ");
 					}
 				}
-				if(CH7TEMP < 1999)
+				if(CH7TEMP < 3276)
 				{
 					DISP_TEMP_L(235+20,440,(uint8_t*)buf,CH7_SW);
 				}else{
@@ -1287,7 +1287,7 @@ void TempDisplay(void)
 						strcat(buf," ");
 					}
 				}
-				if(CH8TEMP - COR8 < 1999)
+				if(CH8TEMP - COR8 < 3276)
 				{
 					DISP_TEMP_L(305+30,440,(uint8_t*)buf,CH8_SW);
 				}else{
@@ -1316,7 +1316,7 @@ void TempDisplay(void)
 						strcat(buf," ");
 					}
 				}
-				if(CH9TEMP < 1999)
+				if(CH9TEMP < 3276)
 				{
 					DISP_TEMP_L(95,120,(uint8_t*)buf,CH9_SW);
 				}else{
@@ -1344,7 +1344,7 @@ void TempDisplay(void)
 						strcat(buf," ");
 					}
 				}
-				if(CH10TEMP < 1999)
+				if(CH10TEMP < 3276)
 				{
 					DISP_TEMP_L(165+10,120,(uint8_t*)buf,CH10_SW);
 				}else{
@@ -1372,7 +1372,7 @@ void TempDisplay(void)
 						strcat(buf," ");
 					}
 				}
-				if(CH11TEMP < 1999)
+				if(CH11TEMP < 3276)
 				{
 					DISP_TEMP_L(235+20,120,(uint8_t*)buf,CH11_SW);
 				}else{
@@ -1400,7 +1400,7 @@ void TempDisplay(void)
 						strcat(buf," ");
 					}
 				}
-				if(CH12TEMP < 1999)
+				if(CH12TEMP < 3276)
 				{
 					DISP_TEMP_L(305+30,120,(uint8_t*)buf,CH12_SW);
 				}else{
@@ -1428,7 +1428,7 @@ void TempDisplay(void)
 						strcat(buf," ");
 					}
 				}
-				if(CH13TEMP < 1999)
+				if(CH13TEMP < 3276)
 				{
 					DISP_TEMP_L(95,440,(uint8_t*)buf,CH13_SW);
 				}else{
@@ -1456,7 +1456,7 @@ void TempDisplay(void)
 						strcat(buf," ");
 					}
 				}
-				if(CH14TEMP < 1999)
+				if(CH14TEMP < 3276)
 				{
 					DISP_TEMP_L(165+10,440,(uint8_t*)buf,CH14_SW);
 				}else{
@@ -1484,7 +1484,7 @@ void TempDisplay(void)
 						strcat(buf," ");
 					}
 				}
-				if(CH15TEMP < 1999)
+				if(CH15TEMP < 3276)
 				{
 					DISP_TEMP_L(235+20,440,(uint8_t*)buf,CH15_SW);
 				}else{
@@ -1512,7 +1512,7 @@ void TempDisplay(void)
 						strcat(buf," ");
 					}
 				}
-				if(CH16TEMP < 1999)
+				if(CH16TEMP < 3276)
 				{
 					DISP_TEMP_L(305+30,440,(uint8_t*)buf,CH16_SW); 
 				}else{
@@ -1607,7 +1607,7 @@ void TempDisplay(void)
 						strcat(buf," ");
 					}
 				}
-				if(CH1TEMP < 1999)
+				if(CH1TEMP < 3276)
 				{
 					DISP_TEMP_M(100,90,(uint8_t*)buf,CH1_SW);
 				}else{
@@ -1635,7 +1635,7 @@ void TempDisplay(void)
 						strcat(buf," ");
 					}
 				}
-				if(CH2TEMP < 1999)
+				if(CH2TEMP < 3276)
 				{
 					DISP_TEMP_M(140,90,(uint8_t*)buf,CH2_SW);
 				}else{
@@ -1663,7 +1663,7 @@ void TempDisplay(void)
 						strcat(buf," ");
 					}
 				}
-				if(CH3TEMP < 1999)
+				if(CH3TEMP < 3276)
 				{
 					DISP_TEMP_M(180,90,(uint8_t*)buf,CH3_SW);
 				}else{
@@ -1691,7 +1691,7 @@ void TempDisplay(void)
 						strcat(buf," ");
 					}
 				}
-				if(CH4TEMP < 1999)
+				if(CH4TEMP < 3276)
 				{
 					DISP_TEMP_M(220,90,(uint8_t*)buf,CH4_SW);
 				}else{
@@ -1719,7 +1719,7 @@ void TempDisplay(void)
 						strcat(buf," ");
 					}
 				}
-				if(CH5TEMP < 1999)
+				if(CH5TEMP < 3276)
 				{
 					DISP_TEMP_M(260,90,(uint8_t*)buf,CH5_SW);
 				}else{
@@ -1747,7 +1747,7 @@ void TempDisplay(void)
 						strcat(buf," ");
 					}
 				}
-				if(CH6TEMP < 1999)
+				if(CH6TEMP < 3276)
 				{
 					DISP_TEMP_M(300,90,(uint8_t*)buf,CH6_SW);
 				}else{
@@ -1775,7 +1775,7 @@ void TempDisplay(void)
 						strcat(buf," ");
 					}
 				}
-				if(CH7TEMP < 1999)
+				if(CH7TEMP < 3276)
 				{
 					DISP_TEMP_M(340,90,(uint8_t*)buf,CH7_SW);
 				}else{
@@ -1803,7 +1803,7 @@ void TempDisplay(void)
 						strcat(buf," ");
 					}
 				}
-				if(CH8TEMP < 1999)
+				if(CH8TEMP < 3276)
 				{
 					DISP_TEMP_M(380,90,(uint8_t*)buf,CH8_SW);
 				}else{
@@ -1833,7 +1833,7 @@ void TempDisplay(void)
 							strcat(buf," ");
 						}
 					}
-					if(CH9TEMP < 1999)
+					if(CH9TEMP < 3276)
 					{
 						DISP_TEMP_M(100,290+120,(uint8_t*)buf,CH9_SW);
 					}else{
@@ -1860,7 +1860,7 @@ void TempDisplay(void)
 							strcat(buf," ");
 						}
 					}
-					if(CH10TEMP < 1999)
+					if(CH10TEMP < 3276)
 					{
 						DISP_TEMP_M(140,290+120,(uint8_t*)buf,CH10_SW);
 					}else{
@@ -1888,7 +1888,7 @@ void TempDisplay(void)
 							strcat(buf," ");
 						}
 					}
-					if(CH11TEMP < 1999)
+					if(CH11TEMP < 3276)
 					{
 						DISP_TEMP_M(180,290+120,(uint8_t*)buf,CH11_SW);
 					}else{
@@ -1916,7 +1916,7 @@ void TempDisplay(void)
 							strcat(buf," ");
 						}
 					}
-					if(CH12TEMP < 1999)
+					if(CH12TEMP < 3276)
 					{
 						DISP_TEMP_M(220,290+120,(uint8_t*)buf,CH12_SW);
 					}else{
@@ -1944,7 +1944,7 @@ void TempDisplay(void)
 							strcat(buf," ");
 						}
 					}
-					if(CH13TEMP < 1999)
+					if(CH13TEMP < 3276)
 					{
 						DISP_TEMP_M(260,290+120,(uint8_t*)buf,CH13_SW);
 					}else{
@@ -1972,7 +1972,7 @@ void TempDisplay(void)
 							strcat(buf," ");
 						}
 					}
-					if(CH14TEMP < 1999)
+					if(CH14TEMP < 3276)
 					{
 						DISP_TEMP_M(300,290+120,(uint8_t*)buf,CH14_SW);
 					}else{
@@ -2000,7 +2000,7 @@ void TempDisplay(void)
 							strcat(buf," ");
 						}
 					}
-					if(CH15TEMP < 1999)
+					if(CH15TEMP < 3276)
 					{
 						DISP_TEMP_M(340,290+120,(uint8_t*)buf,CH15_SW);
 					}else{
@@ -2028,7 +2028,7 @@ void TempDisplay(void)
 							strcat(buf," ");
 						}
 					}
-					if(CH16TEMP < 1999)
+					if(CH16TEMP < 3276)
 					{
 						DISP_TEMP_M(380,290+120,(uint8_t*)buf,CH16_SW);
 					}else{
@@ -2113,7 +2113,7 @@ void TempDisplay(void)
 						strcat(buf," ");
 					}
 				}
-				if(CH1TEMP < 1999)
+				if(CH1TEMP < 3276)
 				{
 					DISP_TEMP_S(100,60,(uint8_t*)buf,CH1_SW);
 				}else{
@@ -2140,7 +2140,7 @@ void TempDisplay(void)
 						strcat(buf," ");
 					}
 				}
-				if(CH2TEMP < 1999)
+				if(CH2TEMP < 3276)
 				{
 					DISP_TEMP_S(140,60,(uint8_t*)buf,CH2_SW);
 				}else{
@@ -2167,7 +2167,7 @@ void TempDisplay(void)
 						strcat(buf," ");
 					}
 				}
-				if(CH3TEMP < 1999)
+				if(CH3TEMP < 3276)
 				{
 					DISP_TEMP_S(180,60,(uint8_t*)buf,CH3_SW);
 				}else{
@@ -2194,7 +2194,7 @@ void TempDisplay(void)
 						strcat(buf," ");
 					}
 				}
-				if(CH4TEMP < 1999)
+				if(CH4TEMP < 3276)
 				{
 					DISP_TEMP_S(220,60,(uint8_t*)buf,CH4_SW);
 				}else{
@@ -2221,7 +2221,7 @@ void TempDisplay(void)
 						strcat(buf," ");
 					}
 				}
-				if(CH5TEMP < 1999)
+				if(CH5TEMP < 3276)
 				{
 					DISP_TEMP_S(260,60,(uint8_t*)buf,CH5_SW);
 				}else{
@@ -2248,7 +2248,7 @@ void TempDisplay(void)
 						strcat(buf," ");
 					}
 				}
-				if(CH6TEMP < 1999)
+				if(CH6TEMP < 3276)
 				{
 					DISP_TEMP_S(300,60,(uint8_t*)buf,CH6_SW);
 				}else{
@@ -2275,7 +2275,7 @@ void TempDisplay(void)
 						strcat(buf," ");
 					}
 				}
-				if(CH7TEMP < 1999)
+				if(CH7TEMP < 3276)
 				{
 					DISP_TEMP_S(340,60,(uint8_t*)buf,CH7_SW);
 				}else{
@@ -2302,7 +2302,7 @@ void TempDisplay(void)
 						strcat(buf," ");
 					}
 				}	
-				if(CH8TEMP < 1999)
+				if(CH8TEMP < 3276)
 				{
 					DISP_TEMP_S(380,60,(uint8_t*)buf,CH8_SW);
 				}else{
@@ -2331,7 +2331,7 @@ void TempDisplay(void)
 							strcat(buf," ");
 						}
 					}
-					if(CH9TEMP < 1999)
+					if(CH9TEMP < 3276)
 					{
 						DISP_TEMP_S(100,184,(uint8_t*)buf,CH9_SW);
 					}else{
@@ -2359,7 +2359,7 @@ void TempDisplay(void)
 							strcat(buf," ");
 						}
 					}
-					if(CH10TEMP < 1999)
+					if(CH10TEMP < 3276)
 					{
 						DISP_TEMP_S(140,184,(uint8_t*)buf,CH10_SW);
 					}else{
@@ -2387,7 +2387,7 @@ void TempDisplay(void)
 							strcat(buf," ");
 						}
 					}
-					if(CH11TEMP < 1999)
+					if(CH11TEMP < 3276)
 					{
 						DISP_TEMP_S(180,184,(uint8_t*)buf,CH11_SW);
 					}else{
@@ -2415,7 +2415,7 @@ void TempDisplay(void)
 							strcat(buf," ");
 						}
 					}
-					if(CH12TEMP < 1999)
+					if(CH12TEMP < 3276)
 					{
 						DISP_TEMP_S(220,184,(uint8_t*)buf,CH12_SW);
 					}else{
@@ -2443,7 +2443,7 @@ void TempDisplay(void)
 							strcat(buf," ");
 						}
 					}
-					if(CH13TEMP < 1999)
+					if(CH13TEMP < 3276)
 					{
 						DISP_TEMP_S(260,184,(uint8_t*)buf,CH13_SW);
 					}else{
@@ -2471,7 +2471,7 @@ void TempDisplay(void)
 							strcat(buf," ");
 						}
 					}
-					if(CH14TEMP < 1999)
+					if(CH14TEMP < 3276)
 					{
 						DISP_TEMP_S(300,184,(uint8_t*)buf,CH14_SW);
 					}else{
@@ -2499,7 +2499,7 @@ void TempDisplay(void)
 							strcat(buf," ");
 						}
 					}
-					if(CH15TEMP < 1999)
+					if(CH15TEMP < 3276)
 					{
 						DISP_TEMP_S(340,184,(uint8_t*)buf,CH15_SW);
 					}else{
@@ -2527,7 +2527,7 @@ void TempDisplay(void)
 							strcat(buf," ");
 						}
 					}
-					if(CH16TEMP < 1999)
+					if(CH16TEMP < 3276)
 					{
 						DISP_TEMP_S(380,184,(uint8_t*)buf,CH16_SW);
 					}else{
@@ -3488,7 +3488,7 @@ void Erase_all(void)
 void Read_Flash_Init_Handle(void)
 {
 	u16 i;
-	for(i=0;i<39;i++)
+	for(i=0;i<40;i++)
 	{
 		if(Correction[i] < -1800)
 		{
@@ -3571,10 +3571,10 @@ void AVGCAL(void)
 	float temp = 0;
 	u8 extflag;
 	TEMPMAX = -200;
-	TEMPMIN = 1999;
+	TEMPMIN = 3276;
 	for(i=0;i<CHNUM;i++)
 	{
-		if(savedata[i] == ch_on && ch_temp[i] < 1999)
+		if(savedata[i] == ch_on && ch_temp[i] < 3276)
 		{
 			extflag = 1;
 			break;
@@ -3584,7 +3584,7 @@ void AVGCAL(void)
 	{
 		for(i=0;i<CHNUM;i++)
 		{
-			if(savedata[i] == ch_on && ch_temp[i] < 1999)
+			if(savedata[i] == ch_on && ch_temp[i] < 3276)
 			{
 				temp += ch_temp[i] - Correction[i];	
 				chnum ++;

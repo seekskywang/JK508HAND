@@ -120,7 +120,7 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>DLGUARM</Key>
-          <Name>猬鑧,h?,h?趏蘡</Name>
+          <Name>猬鉾\?\?趏?</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -721,6 +721,16 @@
           <count>47</count>
           <WinNumber>2</WinNumber>
           <ItemText>udcount,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>48</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>RecBuff</ItemText>
+        </Ww>
+        <Ww>
+          <count>49</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>RecBuff</ItemText>
         </Ww>
       </WatchWindow2>
       <MemoryWindow4>

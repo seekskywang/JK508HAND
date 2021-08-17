@@ -217,7 +217,7 @@ extern Touch_save_Typedef    Touch_save;
 //#define STARTM					   trigtime[1]
 //#define ENDH					   trigtime[2]
 //#define ENDM					   trigtime[3]
-#define LOGO			1
+//#define LOGO			1
 //文件系统
 #define MAXDIR					   300//最大文件夹个数
 #define MAXFILE					   100//最大文件个数

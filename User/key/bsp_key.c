@@ -1500,7 +1500,7 @@ void brt_set(u8 key)
 	DrawMenu();//重绘菜单栏
 	Drawsysmenu();
 	LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-	LCD_DrawFullRect(170,130,55,32);
+	LCD_DrawFullRect(170+30,130,55,32);
 	if(press != 1)
 	{
 		focus_on1();
@@ -1509,23 +1509,23 @@ void brt_set(u8 key)
 	}
 	if(key == 1)
 	{
-		LCD_DisplayStringLine(130,170,"10");
+		LCD_DisplayStringLine(130,170+30,"10");
 		BRTS = L0;
 		brightness = 5;
 	}else if(key == 2){
-		LCD_DisplayStringLine(130,170,"25");
+		LCD_DisplayStringLine(130,170+30,"25");
 		BRTS = L1;
 		brightness = 15;
 	}else if(key == 3){
-		LCD_DisplayStringLine(130,170,"50");
+		LCD_DisplayStringLine(130,170+30,"50");
 		BRTS = L2;
 		brightness = 30;
 	}else if(key == 4){
-		LCD_DisplayStringLine(130,170,"75");
+		LCD_DisplayStringLine(130,170+30,"75");
 		BRTS = L3;
 		brightness = 45;
 	}else if(key == 5){
-		LCD_DisplayStringLine(130,170,"100");
+		LCD_DisplayStringLine(130,170+30,"100");
 		BRTS = L4;
 		brightness = 60;
 	}
@@ -1540,7 +1540,7 @@ void dim_set(u8 key)
 	DrawMenu();//重绘菜单栏
 	Drawsysmenu();
 	LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-	LCD_DrawFullRect(170,172,55,32);
+	LCD_DrawFullRect(170+30,172,55,32);
 	if(press != 1)
 	{
 		focus_on1();
@@ -1551,65 +1551,65 @@ void dim_set(u8 key)
 	{
 		if(key == 1)
 		{
-			LCD_DisplayStringLine(174,170,"关闭");
+			LCD_DisplayStringLine(174,170+30,"关闭");
 			LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-			LCD_DrawFullRect(230,172,55,32);
+			LCD_DrawFullRect(230+30,172,55,32);
 			DIM = DOFF;
 		}else if(key == 2){
-			LCD_DisplayStringLine(172,170,"5");
+			LCD_DisplayStringLine(172,170+30,"5");
 			LCD_SetTextColor(LCD_COLOR_YELLOW);
 			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_DisplayStringLine(172,230,"Min");
+			LCD_DisplayStringLine(172,230+30,"Min");
 			DIM = D5;
 		}else if(key == 3){
-			LCD_DisplayStringLine(172,170,"10");
+			LCD_DisplayStringLine(172,170+30,"10");
 			LCD_SetTextColor(LCD_COLOR_YELLOW);
 			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_DisplayStringLine(172,230,"Min");
+			LCD_DisplayStringLine(172,230+30,"Min");
 			DIM = D10;
 		}else if(key == 4){
-			LCD_DisplayStringLine(172,170,"15");
+			LCD_DisplayStringLine(172,170+30,"15");
 			LCD_SetTextColor(LCD_COLOR_YELLOW);
 			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_DisplayStringLine(172,230,"Min");
+			LCD_DisplayStringLine(172,230+30,"Min");
 			DIM = D15;
 		}else if(key == 5){
-			LCD_DisplayStringLine(172,170,"30");
+			LCD_DisplayStringLine(172,170+30,"30");
 			LCD_SetTextColor(LCD_COLOR_YELLOW);
 			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_DisplayStringLine(172,230,"Min");
+			LCD_DisplayStringLine(172,230+30,"Min");
 			DIM = D30;
 		}
 	}else if(LANG == eng){
 		if(key == 1)
 		{
-			LCD_DisplayStringLine(174,170,"OFF");
+			LCD_DisplayStringLine(174,170+30,"OFF");
 			LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-			LCD_DrawFullRect(230,172,55,32);
+			LCD_DrawFullRect(230+30,172,55,32);
 			DIM = DOFF;
 		}else if(key == 2){
-			LCD_DisplayStringLine(174,170,"5");
+			LCD_DisplayStringLine(174,170+30,"5");
 			LCD_SetTextColor(LCD_COLOR_YELLOW);
 			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_DisplayStringLine(172,230,"Min");
+			LCD_DisplayStringLine(172,230+30,"Min");
 			DIM = D5;
 		}else if(key == 3){
-			LCD_DisplayStringLine(174,170,"10");
+			LCD_DisplayStringLine(174,170+30,"10");
 			LCD_SetTextColor(LCD_COLOR_YELLOW);
 			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_DisplayStringLine(172,230,"Min");
+			LCD_DisplayStringLine(172,230+30,"Min");
 			DIM = D10;
 		}else if(key == 4){
-			LCD_DisplayStringLine(174,170,"15");
+			LCD_DisplayStringLine(174,170+30,"15");
 			LCD_SetTextColor(LCD_COLOR_YELLOW);
 			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_DisplayStringLine(172,230,"Min");
+			LCD_DisplayStringLine(172,230+30,"Min");
 			DIM = D15;
 		}else if(key == 5){
-			LCD_DisplayStringLine(174,170,"30");
+			LCD_DisplayStringLine(174,170+30,"30");
 			LCD_SetTextColor(LCD_COLOR_YELLOW);
 			LCD_SetBackColor(LCD_COLOR_BACK);
-			LCD_DisplayStringLine(172,230,"Min");
+			LCD_DisplayStringLine(172,230+30,"Min");
 			DIM = D30;
 		}
 	}
@@ -1622,7 +1622,7 @@ void touch_set(u8 key)
 	DrawMenu();//重绘菜单栏
 	Drawsysmenu();
 	LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-	LCD_DrawFullRect(170,210,55,32);
+	LCD_DrawFullRect(170+30,210,55,32);
 	if(press != 1)
 	{
 		focus_on1();
@@ -1633,19 +1633,19 @@ void touch_set(u8 key)
 	{
 		if(key == 1)
 		{
-			LCD_DisplayStringLine(214,170,"打开");
+			LCD_DisplayStringLine(214,170+30,"打开");
 			TOUCH = op_on;
 		}else if(key == 2){
-			LCD_DisplayStringLine(214,170,"关闭");
+			LCD_DisplayStringLine(214,170+30,"关闭");
 			TOUCH = op_off;
 		}
 	}else if(LANG == eng){
 		if(key == 1)
 		{
-			LCD_DisplayStringLine(212,170,"ON");
+			LCD_DisplayStringLine(212,170+30,"ON");
 			TOUCH = op_on;
 		}else if(key == 2){
-			LCD_DisplayStringLine(212,170,"OFF");
+			LCD_DisplayStringLine(212,170+30,"OFF");
 			TOUCH = op_off;
 		}
 	}
@@ -2771,7 +2771,7 @@ void FUNC1_HANDLE(void)
 //						Drawsysmenu();						
 						LCD_SetTextColor(LCD_COLOR_BLACK);
 						LCD_SetBackColor(LCD_COLOR_YELLOW);
-						LCD_DisplayStringLine(50,170,"CHINESE");
+						LCD_DisplayStringLine(50,170+30,"CHINESE");
 						LANG = chs;
 						page_sys();
 						op_sw =op_off;
@@ -2919,7 +2919,7 @@ void FUNC1_HANDLE(void)
 						op_sw = op_off;
 						Save_flag();
 						DrawUnit();
-						SetUnit();
+						tcflag = 30;
 					}else{
 						page_home();
 					}
@@ -3402,7 +3402,7 @@ void FUNC2_HANDLE(void)
 //						Drawsysmenu();
 						LCD_SetTextColor(LCD_COLOR_BLACK);
 						LCD_SetBackColor(LCD_COLOR_YELLOW);
-						LCD_DisplayStringLine(50,170+10,"ENGLISH");
+						LCD_DisplayStringLine(50,170+10+30,"ENGLISH");
 						LANG = eng;
 						page_sys();
 						op_sw = op_off;
@@ -3543,7 +3543,7 @@ void FUNC2_HANDLE(void)
 						op_sw = op_off;
 						Save_flag();
 						DrawUnit();
-						SetUnit();
+						tcflag = 30;
 					}else{
 						page_graph();
 					}
@@ -4079,7 +4079,7 @@ void FUNC3_HANDLE(void)
 						op_sw = op_off;
 						Save_flag();
 						DrawUnit();
-						SetUnit();
+						tcflag = 30;
 					}else{
 						page_sys();
 					}
@@ -11209,10 +11209,10 @@ void UP_HANDLE(void)
 					focus_on1();
 					if(LANG == chs)
 					{
-						LCD_DisplayStringLine(50,170,"CHINESE");
+						LCD_DisplayStringLine(50,170+30,"CHINESE");
 						DrawInstruction("系统语言选择");
 					}else{
-						LCD_DisplayStringLine(50,170,"ENGLISH");
+						LCD_DisplayStringLine(50,170+30,"ENGLISH");
 						DrawInstruction("Select system language");
 					}					
 					op_flag = set_lang;
@@ -11232,7 +11232,7 @@ void UP_HANDLE(void)
 					}else if(BRTS == L4){
 						sprintf(buf,"%d",100);
 					}			
-					LCD_DisplayStringLine(130,170,(uint8_t*)buf);
+					LCD_DisplayStringLine(130,170+30,(uint8_t*)buf);
 					if(LANG == chs)
 					{
 						DrawInstruction("降低亮度时间");
@@ -11249,37 +11249,37 @@ void UP_HANDLE(void)
 						if(DIM == DOFF)
 						{
 //							brightness = 10;
-							LCD_DisplayStringLine(174,170,"关闭");
+							LCD_DisplayStringLine(174,170+30,"关闭");
 						}else if(DIM == D5){
 							sprintf(buf,"%d",5);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+30,(uint8_t*)buf);
 						}else if(DIM == D10){
 							sprintf(buf,"%d",10);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+30,(uint8_t*)buf);
 						}else if(DIM == D15){
 							sprintf(buf,"%d",15);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+30,(uint8_t*)buf);
 						}else if(DIM == D30){
 							sprintf(buf,"%d",30);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+30,(uint8_t*)buf);
 						}
 					}else{
 						if(DIM == DOFF)
 						{
 //							brightness = 10;
-							LCD_DisplayStringLine(172,170,"OFF");
+							LCD_DisplayStringLine(172,170+30,"OFF");
 						}else if(DIM == D5){
 							sprintf(buf,"%d",5);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+30,(uint8_t*)buf);
 						}else if(DIM == D10){
 							sprintf(buf,"%d",10);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+30,(uint8_t*)buf);
 						}else if(DIM == D15){
 							sprintf(buf,"%d",15);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+30,(uint8_t*)buf);
 						}else if(DIM == D30){
 							sprintf(buf,"%d",30);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+30,(uint8_t*)buf);
 						}
 					}	
 					focus_on1();
@@ -11295,7 +11295,7 @@ void UP_HANDLE(void)
 					}else if(BRTS == L4){
 						sprintf(buf,"%d",100);
 					}
-					LCD_DisplayStringLine(130,170,(uint8_t*)buf);
+					LCD_DisplayStringLine(130,170+30,(uint8_t*)buf);
 					if(LANG == chs)
 					{
 						DrawInstruction("背光亮度设置");
@@ -11312,36 +11312,36 @@ void UP_HANDLE(void)
 					{
 						if(DIM == DOFF)
 						{
-							LCD_DisplayStringLine(174,170,"关闭");
+							LCD_DisplayStringLine(174,170+30,"关闭");
 						}else if(DIM == D5){
 							sprintf(buf,"%d",5);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+30,(uint8_t*)buf);
 						}else if(DIM == D10){
 							sprintf(buf,"%d",10);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+30,(uint8_t*)buf);
 						}else if(DIM == D15){
 							sprintf(buf,"%d",15);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+30,(uint8_t*)buf);
 						}else if(DIM == D30){
 							sprintf(buf,"%d",30);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+30,(uint8_t*)buf);
 						}
 					}else if(LANG  == eng){
 						if(DIM == DOFF)
 						{
-							LCD_DisplayStringLine(172,170,"OFF");
+							LCD_DisplayStringLine(172,170+30,"OFF");
 						}else if(DIM == D5){
 							sprintf(buf,"%d",5);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+30,(uint8_t*)buf);
 						}else if(DIM == D10){
 							sprintf(buf,"%d",10);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+30,(uint8_t*)buf);
 						}else if(DIM == D15){
 							sprintf(buf,"%d",15);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+30,(uint8_t*)buf);
 						}else if(DIM == D30){
 							sprintf(buf,"%d",30);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+30,(uint8_t*)buf);
 						}
 					}
 					focus_off1();
@@ -11349,16 +11349,16 @@ void UP_HANDLE(void)
 					{
 						if(TOUCH == op_on)
 						{
-							LCD_DisplayStringLine(214,170,"打开");
+							LCD_DisplayStringLine(214,170+30,"打开");
 						}else{
-							LCD_DisplayStringLine(214,170,"关闭");
+							LCD_DisplayStringLine(214,170+30,"关闭");
 						}
 					}else if(LANG  == eng){
 						if(TOUCH == op_on)
 						{
-							LCD_DisplayStringLine(212,170,"ON");
+							LCD_DisplayStringLine(212,170+30,"ON");
 						}else{
-							LCD_DisplayStringLine(212,170,"OFF");
+							LCD_DisplayStringLine(212,170+30,"OFF");
 						}
 					}
 					op_flag = set_dim;
@@ -13517,10 +13517,10 @@ void DOWN_HANDLE(void)
 					focus_off1();
 					if(LANG == chs)
 					{
-						LCD_DisplayStringLine(50,170,"CHINESE");
+						LCD_DisplayStringLine(50,170+30,"CHINESE");
 						DrawInstruction("年-月-日");
 					}else{
-						LCD_DisplayStringLine(50,170,"ENGLISH");
+						LCD_DisplayStringLine(50,170+30,"ENGLISH");
 						DrawInstruction("YEAR-MONTH-DAY");
 					}
 
@@ -13542,7 +13542,7 @@ void DOWN_HANDLE(void)
 						sprintf(buf,"%d",100);
 					}	
 					focus_on1();					
-					LCD_DisplayStringLine(130,170,(uint8_t*)buf);
+					LCD_DisplayStringLine(130,170+30,(uint8_t*)buf);
 					if(LANG == chs)
 					{
 						DrawInstruction("背光亮度设置");
@@ -13566,42 +13566,42 @@ void DOWN_HANDLE(void)
 					}else if(BRTS == L4){
 						sprintf(buf,"%d",100);
 					}		
-					LCD_DisplayStringLine(130,170,(uint8_t*)buf);
+					LCD_DisplayStringLine(130,170+30,(uint8_t*)buf);
 					focus_on1();
 					if(LANG == chs)
 					{
 						if(DIM == DOFF)
 						{
-							LCD_DisplayStringLine(174,170,"关闭");
+							LCD_DisplayStringLine(174,170+30,"关闭");
 						}else if(DIM == D5){
 							sprintf(buf,"%d",5);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+30,(uint8_t*)buf);
 						}else if(DIM == D10){
 							sprintf(buf,"%d",10);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+30,(uint8_t*)buf);
 						}else if(DIM == D15){
 							sprintf(buf,"%d",15);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+30,(uint8_t*)buf);
 						}else if(DIM == D30){
 							sprintf(buf,"%d",30);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+30,(uint8_t*)buf);
 						}
 					}else if(LANG  == eng){
 						if(DIM == DOFF)
 						{
-							LCD_DisplayStringLine(172,170,"OFF");
+							LCD_DisplayStringLine(172,170+30,"OFF");
 						}else if(DIM == D5){
 							sprintf(buf,"%d",5);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+30,(uint8_t*)buf);
 						}else if(DIM == D10){
 							sprintf(buf,"%d",10);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+30,(uint8_t*)buf);
 						}else if(DIM == D15){
 							sprintf(buf,"%d",15);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+30,(uint8_t*)buf);
 						}else if(DIM == D30){
 							sprintf(buf,"%d",30);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+30,(uint8_t*)buf);
 						}
 					}
 					if(LANG == chs)
@@ -13619,36 +13619,36 @@ void DOWN_HANDLE(void)
 					{
 						if(DIM == DOFF)
 						{
-							LCD_DisplayStringLine(174,170,"关闭");
+							LCD_DisplayStringLine(174,170+30,"关闭");
 						}else if(DIM == D5){
 							sprintf(buf,"%d",5);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+30,(uint8_t*)buf);
 						}else if(DIM == D10){
 							sprintf(buf,"%d",10);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+30,(uint8_t*)buf);
 						}else if(DIM == D15){
 							sprintf(buf,"%d",15);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+30,(uint8_t*)buf);
 						}else if(DIM == D30){
 							sprintf(buf,"%d",30);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+30,(uint8_t*)buf);
 						}
 					}else if(LANG  == eng){
 						if(DIM == DOFF)
 						{
-							LCD_DisplayStringLine(172,170,"OFF");
+							LCD_DisplayStringLine(172,170+30,"OFF");
 						}else if(DIM == D5){
 							sprintf(buf,"%d",5);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+30,(uint8_t*)buf);
 						}else if(DIM == D10){
 							sprintf(buf,"%d",10);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+30,(uint8_t*)buf);
 						}else if(DIM == D15){
 							sprintf(buf,"%d",15);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+30,(uint8_t*)buf);
 						}else if(DIM == D30){
 							sprintf(buf,"%d",30);
-							LCD_DisplayStringLine(172,170,(uint8_t*)buf);
+							LCD_DisplayStringLine(172,170+30,(uint8_t*)buf);
 						}
 					}
 					focus_on1();
@@ -13656,16 +13656,16 @@ void DOWN_HANDLE(void)
 					{
 						if(TOUCH == op_on)
 						{
-							LCD_DisplayStringLine(214,170,"打开");
+							LCD_DisplayStringLine(214,170+30,"打开");
 						}else{
-							LCD_DisplayStringLine(214,170,"关闭");
+							LCD_DisplayStringLine(214,170+30,"关闭");
 						}
 					}else if(LANG  == eng){
 						if(TOUCH == op_on)
 						{
-							LCD_DisplayStringLine(212,170,"ON");
+							LCD_DisplayStringLine(212,170+30,"ON");
 						}else{
-							LCD_DisplayStringLine(212,170,"OFF");
+							LCD_DisplayStringLine(212,170+30,"OFF");
 						}
 					}
 					op_flag = set_touch;
@@ -16925,7 +16925,7 @@ void Utest(void)
 	for(i=0;i<CHNUM;i++)
 	{
 
-		if(ch_temp[i] > 1999)
+		if(ch_temp[i] > 3276)
 		{
 			strcpy(buf,"\tN/A");
 		}else{
@@ -17096,7 +17096,7 @@ void EXPSDDATA(void)
 			CH376ByteLocate(0xFFFFFFFF);			
 			for(k=0;k<CHNUM;k++)
 			{
-				if(ReadBuffer.Temp[k][j] > 1999)
+				if(ReadBuffer.Temp[k][j] > 3276)
 				{
 					strcat(buf,"\tN/A");
 				}else{

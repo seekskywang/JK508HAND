@@ -228,7 +228,7 @@ void RTC_TimeAndDate_Show(void)
 				LCD_SetTextColor(LCD_COLOR_YELLOW);  		
 				LCD_SetBackColor(LCD_COLOR_BACK);
 			}
-			LCD_DisplayStringLine(90,170,(uint8_t *)LCDTemp);
+			LCD_DisplayStringLine(90,170+30,(uint8_t *)LCDTemp);
 
 
 			//“∫æßœ‘ æ ±º‰
