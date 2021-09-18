@@ -27,8 +27,23 @@ Project File Date:  05/18/2021
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'E:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'LCD'
+compiling bsp_lcd.c...
+..\..\User\./battery/battery.h(46): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\..\User\lcd\bsp_lcd.c(1112): warning:  #177-D: variable "capercent"  was declared but never referenced
+        static float capercent;
+..\..\User\lcd\bsp_lcd.c(1115): warning:  #177-D: variable "barlen"  was declared but never referenced
+        static u8 barlen;
+..\..\User\lcd\bsp_lcd.c(2408): warning:  #550-D: variable "k"  was set but never used
+    float k = 0, rad1 = 0, rad2 = 0;
+..\..\User\lcd\bsp_lcd.c(2465): warning:  #550-D: variable "k"  was set but never used
+    float k = 0, rad1 = 0, rad2 = 0;
+..\..\User\lcd\bsp_lcd.c: 5 warnings, 0 errors
+linking...
+Program Size: Code=178232 RO-data=101656 RW-data=860 ZI-data=143268  
+FromELF: creating hex file...
 After Build - User command #1: E:\Keil_v5\ARM\ARMCC\bin\fromelf.exe --bin -o ..\..\Output\update.bin ..\..\Output\LCD.axf
-"..\..\Output\LCD.axf" - 0 Error(s), 0 Warning(s).
+"..\..\Output\LCD.axf" - 0 Error(s), 5 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -42,7 +57,7 @@ Package Vendor: Keil
   D:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:01
+Build Time Elapsed:  00:00:05
 </pre>
 </body>
 </html>

@@ -201,7 +201,7 @@ void Draw_His_Graph(void)
 	for(i = 0;i < 7;i ++)
 	{
 		sprintf(buf,"%d",(int)(YHLIMIT - range * i));
-		DISP_CNL_S(40 + 50*i,5/*90*/,(uint8_t* )buf);
+		DISP_CNL_S(40 + 50*i,0/*90*/,(uint8_t* )buf);
 	}
 	
 
@@ -222,84 +222,84 @@ void Draw_His_Graph(void)
 		if(CH1_SW == ch_on && ReadBuffer.Temp[0][j] < YHLIMIT && ReadBuffer.Temp[0][j] > YLLIMIT && ReadBuffer.Temp[0][j+1] < YHLIMIT && ReadBuffer.Temp[0][j+1] > YLLIMIT)
 		{
 			LCD_SetColors(LCD_COLOR_RED,LCD_COLOR_BACK);
-			LCD_DrawUniLine(111-80 + j,(int)(400-((ReadBuffer.Temp[0][j] - YLLIMIT)*enrate)),112 - 80 + j,(400-((ReadBuffer.Temp[0][j+1] - YLLIMIT)*enrate)));
+			LCD_DrawUniLine(111-80+3 + j,(int)(400-((ReadBuffer.Temp[0][j] - YLLIMIT)*enrate)),112 - 80+3 + j,(400-((ReadBuffer.Temp[0][j+1] - YLLIMIT)*enrate)));
 		}
 		if(CH2_SW == ch_on && ReadBuffer.Temp[1][j] < YHLIMIT && ReadBuffer.Temp[1][j] > YLLIMIT && ReadBuffer.Temp[1][j+1] < YHLIMIT && ReadBuffer.Temp[1][j+1] > YLLIMIT)
 		{         
 			LCD_SetColors(LCD_COLOR_GREEN,LCD_COLOR_BACK);
-			LCD_DrawUniLine(111-80 + j,(int)(400-((ReadBuffer.Temp[1][j] - YLLIMIT)*enrate)),112 - 80 + j,(400-((ReadBuffer.Temp[1][j+1] - YLLIMIT)*enrate)));
+			LCD_DrawUniLine(111-80+3 + j,(int)(400-((ReadBuffer.Temp[1][j] - YLLIMIT)*enrate)),112 - 80+3 + j,(400-((ReadBuffer.Temp[1][j+1] - YLLIMIT)*enrate)));
 		}
 		if(CH3_SW == ch_on && ReadBuffer.Temp[2][j] < YHLIMIT && ReadBuffer.Temp[2][j] > YLLIMIT && ReadBuffer.Temp[2][j+1] < YHLIMIT && ReadBuffer.Temp[2][j+1] > YLLIMIT)
 		{
 			LCD_SetColors(LCD_COLOR_MAGENTA,LCD_COLOR_BACK);
-			LCD_DrawUniLine(111-80 + j,(int)(400-((ReadBuffer.Temp[2][j] - YLLIMIT)*enrate)),112 - 80 + j,(400-((ReadBuffer.Temp[2][j+1] - YLLIMIT)*enrate)));
+			LCD_DrawUniLine(111-80+3 + j,(int)(400-((ReadBuffer.Temp[2][j] - YLLIMIT)*enrate)),112 - 80+3 + j,(400-((ReadBuffer.Temp[2][j+1] - YLLIMIT)*enrate)));
 		}
 		if(CH4_SW == ch_on && ReadBuffer.Temp[3][j] < YHLIMIT && ReadBuffer.Temp[3][j] > YLLIMIT && ReadBuffer.Temp[3][j+1] < YHLIMIT && ReadBuffer.Temp[3][j+1] > YLLIMIT)
 		{
 			LCD_SetColors(LCD_COLOR_CYAN,LCD_COLOR_BACK);
-			LCD_DrawUniLine(111-80 + j,(int)(400-((ReadBuffer.Temp[3][j] - YLLIMIT)*enrate)),112 - 80 + j,(400-((ReadBuffer.Temp[3][j+1] - YLLIMIT)*enrate)));
+			LCD_DrawUniLine(111-80+3 + j,(int)(400-((ReadBuffer.Temp[3][j] - YLLIMIT)*enrate)),112 - 80+3 + j,(400-((ReadBuffer.Temp[3][j+1] - YLLIMIT)*enrate)));
 		}		
 		if(CH5_SW == ch_on && ReadBuffer.Temp[4][j] < YHLIMIT && ReadBuffer.Temp[4][j] > YLLIMIT && ReadBuffer.Temp[4][j+1] < YHLIMIT && ReadBuffer.Temp[4][j+1] > YLLIMIT)
 		{
 			LCD_SetColors(LCD_COLOR_YELLOW,LCD_COLOR_BACK);
-			LCD_DrawUniLine(111-80 + j,(int)(400-((ReadBuffer.Temp[4][j] - YLLIMIT)*enrate)),112 - 80 + j,(400-((ReadBuffer.Temp[4][j+1] - YLLIMIT)*enrate)));
+			LCD_DrawUniLine(111-80+3 + j,(int)(400-((ReadBuffer.Temp[4][j] - YLLIMIT)*enrate)),112 - 80+3 + j,(400-((ReadBuffer.Temp[4][j+1] - YLLIMIT)*enrate)));
 		}
 		if(CH6_SW == ch_on && ReadBuffer.Temp[5][j] < YHLIMIT && ReadBuffer.Temp[5][j] > YLLIMIT && ReadBuffer.Temp[5][j+1] < YHLIMIT && ReadBuffer.Temp[5][j+1] > YLLIMIT)
 		{
 			LCD_SetColors(LCD_COLOR_HLT,LCD_COLOR_BACK);
-			LCD_DrawUniLine(111-80 + j,(int)(400-((ReadBuffer.Temp[5][j] - YLLIMIT)*enrate)),112 - 80 + j,(400-((ReadBuffer.Temp[5][j+1] - YLLIMIT)*enrate)));
+			LCD_DrawUniLine(111-80+3 + j,(int)(400-((ReadBuffer.Temp[5][j] - YLLIMIT)*enrate)),112 - 80+3 + j,(400-((ReadBuffer.Temp[5][j+1] - YLLIMIT)*enrate)));
 		}
 		if(CH7_SW == ch_on && ReadBuffer.Temp[6][j] < YHLIMIT && ReadBuffer.Temp[6][j] > YLLIMIT && ReadBuffer.Temp[6][j+1] < YHLIMIT && ReadBuffer.Temp[6][j+1] > YLLIMIT)
 		{
 			LCD_SetColors(LCD_COLOR_BT,LCD_COLOR_BACK);
-			LCD_DrawUniLine(111-80 + j,(int)(400-((ReadBuffer.Temp[6][j] - YLLIMIT)*enrate)),112 - 80 + j,(400-((ReadBuffer.Temp[6][j+1] - YLLIMIT)*enrate)));
+			LCD_DrawUniLine(111-80+3 + j,(int)(400-((ReadBuffer.Temp[6][j] - YLLIMIT)*enrate)),112 - 80+3 + j,(400-((ReadBuffer.Temp[6][j+1] - YLLIMIT)*enrate)));
 		}
 		if(CH8_SW == ch_on && ReadBuffer.Temp[7][j] < YHLIMIT && ReadBuffer.Temp[7][j] > YLLIMIT && ReadBuffer.Temp[7][j+1] < YHLIMIT && ReadBuffer.Temp[7][j+1] > YLLIMIT)
 		{
 			LCD_SetColors(LCD_COLOR_BLUE,LCD_COLOR_BACK);
-			LCD_DrawUniLine(111-80 + j,(int)(400-((ReadBuffer.Temp[7][j] - YLLIMIT)*enrate)),112 - 80 + j,(400-((ReadBuffer.Temp[7][j+1] - YLLIMIT)*enrate)));
+			LCD_DrawUniLine(111-80+3 + j,(int)(400-((ReadBuffer.Temp[7][j] - YLLIMIT)*enrate)),112 - 80+3 + j,(400-((ReadBuffer.Temp[7][j+1] - YLLIMIT)*enrate)));
 		}
 		if(CHNUM > 8)
 		{
 			if(CH9_SW == ch_on && ReadBuffer.Temp[8][j] < YHLIMIT && ReadBuffer.Temp[8][j] > YLLIMIT && ReadBuffer.Temp[8][j+1] < YHLIMIT && ReadBuffer.Temp[8][j+1] > YLLIMIT)
 			{
 				LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_BACK);
-				LCD_DrawUniLine(111-80 + j,(int)(400-((ReadBuffer.Temp[8][j] - YLLIMIT)*enrate)),112 - 80 + j,(400-((ReadBuffer.Temp[8][j+1] - YLLIMIT)*enrate)));
+				LCD_DrawUniLine(111-80+3 + j,(int)(400-((ReadBuffer.Temp[8][j] - YLLIMIT)*enrate)),112 - 80+3 + j,(400-((ReadBuffer.Temp[8][j+1] - YLLIMIT)*enrate)));
 			}
 			if(CH10_SW == ch_on && ReadBuffer.Temp[1][9] < YHLIMIT && ReadBuffer.Temp[1][9] > YLLIMIT && ReadBuffer.Temp[9][j+1] < YHLIMIT && ReadBuffer.Temp[9][j+1] > YLLIMIT)
 			{
 				LCD_SetColors(LCD_COLOR_GR1,LCD_COLOR_BACK);
-				LCD_DrawUniLine(111-80 + j,(int)(400-((ReadBuffer.Temp[9][j] - YLLIMIT)*enrate)),112 - 80 + j,(400-((ReadBuffer.Temp[9][j+1] - YLLIMIT)*enrate)));
+				LCD_DrawUniLine(111-80+3 + j,(int)(400-((ReadBuffer.Temp[9][j] - YLLIMIT)*enrate)),112 - 80+3 + j,(400-((ReadBuffer.Temp[9][j+1] - YLLIMIT)*enrate)));
 			}
 			if(CH11_SW == ch_on && ReadBuffer.Temp[10][j] < YHLIMIT && ReadBuffer.Temp[10][j] > YLLIMIT && ReadBuffer.Temp[10][j+1] < YHLIMIT && ReadBuffer.Temp[10][j+1] > YLLIMIT)
 			{
 				LCD_SetColors(LCD_COLOR_GR2,LCD_COLOR_BACK);
-				LCD_DrawUniLine(111-80 + j,(int)(400-((ReadBuffer.Temp[10][j] - YLLIMIT)*enrate)),112 - 80 + j,(400-((ReadBuffer.Temp[10][j+1] - YLLIMIT)*enrate)));
+				LCD_DrawUniLine(111-80+3 + j,(int)(400-((ReadBuffer.Temp[10][j] - YLLIMIT)*enrate)),112 - 80+3 + j,(400-((ReadBuffer.Temp[10][j+1] - YLLIMIT)*enrate)));
 			}
 			if(CH12_SW == ch_on && ReadBuffer.Temp[11][j] < YHLIMIT && ReadBuffer.Temp[11][j] > YLLIMIT && ReadBuffer.Temp[11][j+1] < YHLIMIT && ReadBuffer.Temp[11][j+1] > YLLIMIT)
 			{
 				LCD_SetColors(LCD_COLOR_GR3,LCD_COLOR_BACK);
-				LCD_DrawUniLine(111-80 + j,(int)(400-((ReadBuffer.Temp[11][j] - YLLIMIT)*enrate)),112 - 80 + j,(400-((ReadBuffer.Temp[11][j+1] - YLLIMIT)*enrate)));
+				LCD_DrawUniLine(111-80+3 + j,(int)(400-((ReadBuffer.Temp[11][j] - YLLIMIT)*enrate)),112 - 80+3 + j,(400-((ReadBuffer.Temp[11][j+1] - YLLIMIT)*enrate)));
 			}
 			if(CH13_SW == ch_on && ReadBuffer.Temp[12][j] < YHLIMIT && ReadBuffer.Temp[12][j] > YLLIMIT && ReadBuffer.Temp[12][j+1] < YHLIMIT && ReadBuffer.Temp[12][j+1] > YLLIMIT)
 			{
 				LCD_SetColors(LCD_COLOR_GR4,LCD_COLOR_BACK);
-				LCD_DrawUniLine(111-80 + j,(int)(400-((ReadBuffer.Temp[12][j] - YLLIMIT)*enrate)),112 - 80 + j,(400-((ReadBuffer.Temp[12][j+1] - YLLIMIT)*enrate)));
+				LCD_DrawUniLine(111-80+3 + j,(int)(400-((ReadBuffer.Temp[12][j] - YLLIMIT)*enrate)),112 - 80+3 + j,(400-((ReadBuffer.Temp[12][j+1] - YLLIMIT)*enrate)));
 			}
 			if(CH14_SW == ch_on && ReadBuffer.Temp[13][j] < YHLIMIT && ReadBuffer.Temp[13][j] > YLLIMIT && ReadBuffer.Temp[13][j+1] < YHLIMIT && ReadBuffer.Temp[13][j+1] > YLLIMIT)
 			{
 				LCD_SetColors(LCD_COLOR_GR5,LCD_COLOR_BACK);
-				LCD_DrawUniLine(111-80 + j,(int)(400-((ReadBuffer.Temp[13][j] - YLLIMIT)*enrate)),112 - 80 + j,(400-((ReadBuffer.Temp[13][j+1] - YLLIMIT)*enrate)));
+				LCD_DrawUniLine(111-80+3 + j,(int)(400-((ReadBuffer.Temp[13][j] - YLLIMIT)*enrate)),112 - 80+3 + j,(400-((ReadBuffer.Temp[13][j+1] - YLLIMIT)*enrate)));
 			}
 			if(CH15_SW == ch_on && ReadBuffer.Temp[14][j] < YHLIMIT && ReadBuffer.Temp[14][j] > YLLIMIT && ReadBuffer.Temp[14][j+1] < YHLIMIT && ReadBuffer.Temp[14][j+1] > YLLIMIT)
 			{
 				LCD_SetColors(LCD_COLOR_GR6,LCD_COLOR_BACK);
-				LCD_DrawUniLine(111-80 + j,(int)(400-((ReadBuffer.Temp[14][j] - YLLIMIT)*enrate)),112 - 80 + j,(400-((ReadBuffer.Temp[14][j+1] - YLLIMIT)*enrate)));
+				LCD_DrawUniLine(111-80+3 + j,(int)(400-((ReadBuffer.Temp[14][j] - YLLIMIT)*enrate)),112 - 80+3 + j,(400-((ReadBuffer.Temp[14][j+1] - YLLIMIT)*enrate)));
 			}
 			if(CH16_SW == ch_on && ReadBuffer.Temp[15][j] < YHLIMIT && ReadBuffer.Temp[15][j] > YLLIMIT && ReadBuffer.Temp[15][j+1] < YHLIMIT && ReadBuffer.Temp[15][j+1] > YLLIMIT)
 			{
 				LCD_SetColors(LCD_COLOR_GR7,LCD_COLOR_BACK);
-				LCD_DrawUniLine(111-80 + j,(int)(400-((ReadBuffer.Temp[15][j] - YLLIMIT)*enrate)),112 - 80 + j,(400-((ReadBuffer.Temp[15][j+1] - YLLIMIT)*enrate)));
+				LCD_DrawUniLine(111-80+3 + j,(int)(400-((ReadBuffer.Temp[15][j] - YLLIMIT)*enrate)),112 - 80+3 + j,(400-((ReadBuffer.Temp[15][j+1] - YLLIMIT)*enrate)));
 			}
 		}
 	}
@@ -508,7 +508,7 @@ void Draw_His_Graph(void)
 		DISP_CNL_S(340+20,585,(uint8_t*)buf);
 	}
 	LCD_SetColors(LCD_COLOR_LIGHTGREY,LCD_COLOR_BACK);
-	LCD_DrawLine(31 + hiscursor,51,350,LCD_DIR_VERTICAL);
+	LCD_DrawLine(31 + hiscursor+3,51,350,LCD_DIR_VERTICAL);
 }
 
 
