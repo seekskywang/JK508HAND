@@ -101,7 +101,7 @@ void page_sysinfo(void)
 		LCD_DisplayStringLine(130,170,"T,K,J,N,E,S,R,B,PT100");
 		sprintf(buf,"%03d",CHNUM);
 		LCD_DisplayStringLine(170,170,(uint8_t *)buf);
-		LCD_DisplayStringLine(210,170,"REV 2.1");
+		LCD_DisplayStringLine(210,170,"REV 2.3");
 		LCD_DisplayStringLine(250,170,"");
 		LCD_DisplayStringLine(290,170,"REV A0");
 		LCD_DisplayStringLine(330,170,(uint8_t *)SN);
@@ -111,6 +111,8 @@ void page_sysinfo(void)
 		//1.7支持sd卡数据导出到U盘
 		//1.8	
 		//2.1修复曲线负温度显示bug	
+		//2.2修复上位机开路数据bug和U盘开录数据bug
+		//2.3修改上位机开路数据为7FFF
 	}else{
 #ifdef LOGO
 		if(CHNUM == 8)
@@ -125,7 +127,7 @@ void page_sysinfo(void)
 		LCD_DisplayStringLine(130,220,"T,K,J,N,E,S,R,B,PT100");
 		sprintf(buf,"%03d",CHNUM);
 		LCD_DisplayStringLine(170,220,(uint8_t *)buf);
-		LCD_DisplayStringLine(210,220,"REV 2.0");
+		LCD_DisplayStringLine(210,220,"REV 2.3");
 		LCD_DisplayStringLine(250,220,"");
 		LCD_DisplayStringLine(290,220,"REV A0");
 		LCD_DisplayStringLine(330,220,(uint8_t *)SN);
