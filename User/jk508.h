@@ -409,7 +409,7 @@ extern Touch_save_Typedef    Touch_save;
 #define   CH40MAX                   TempHLimits[39]
 #define   YHLIMIT                   YLIMIT[0]
 #define   YLLIMIT                   YLIMIT[1]
-#define   MULTI						YLIMIT[2]
+#define   MULTI											YLIMIT[2]
 
 
 ////需要储存的标志位
@@ -545,13 +545,14 @@ extern Touch_save_Typedef    Touch_save;
 #define   CH7TYPE					savedata[66]//热电偶类型7
 #define   CH8TYPE					savedata[67]//热电偶类型8
 #define   CH9TYPE					savedata[68]//热电偶类型9
-#define   CH10TYPE					savedata[69]//热电偶类型10
-#define   CH11TYPE					savedata[70]//热电偶类型11
-#define   CH12TYPE					savedata[71]//热电偶类型12
-#define   CH13TYPE					savedata[72]//热电偶类型13
-#define   CH14TYPE					savedata[73]//热电偶类型14
-#define   CH15TYPE					savedata[74]//热电偶类型15
-#define   CH16TYPE					savedata[75]//热电偶类型16
+#define   CH10TYPE				savedata[69]//热电偶类型10
+#define   CH11TYPE				savedata[70]//热电偶类型11
+#define   CH12TYPE				savedata[71]//热电偶类型12
+#define   CH13TYPE				savedata[72]//热电偶类型13
+#define   CH14TYPE				savedata[73]//热电偶类型14
+#define   CH15TYPE				savedata[74]//热电偶类型15
+#define   CH16TYPE				savedata[75]//热电偶类型16
+#define   JKFLAG					savedata[76]//热电偶类型16
 
 /* 校准参数 */
 #define   XCOR						corpara[0]  

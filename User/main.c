@@ -3937,6 +3937,8 @@ void Read_Flash_Init_Handle(void)
 	{
 		savedata[51] = 8;
 	}
+	if(JKFLAG != 1 && JKFLAG != 0)
+		JKFLAG=1;
 }
 //¹Ø»ú¼ì²â
 u8 PowerOffDetect(void)

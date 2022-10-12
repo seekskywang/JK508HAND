@@ -8898,6 +8898,17 @@ void UP_HANDLE(void)
 	char buf[10];
 	switch(page_flag)
 	{
+		case factory:
+		{
+			if(JKFLAG == 0)
+			{
+				JKFLAG = 1;
+			}else if(JKFLAG == 1){
+				JKFLAG = 0;
+			}
+			Save_flag();
+			Disp_Factory();
+		}break;
 		case display:
 		{
 			switch(op_flag)

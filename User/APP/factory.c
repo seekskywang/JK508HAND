@@ -58,6 +58,7 @@ const uint8_t calch[][3] =
 	{"016"},
 };
 
+
 u8 caltype;
 
 void page_factory(void)
@@ -89,9 +90,9 @@ void page_factory(void)
 
 		LCD_DisplayStringLine(54,10,"通道数");
 		LCD_DisplayStringLine(94,10,"仪器序列号");
-		LCD_DisplayStringLine(134,10,"校准通道");
-		LCD_DisplayStringLine(174,10,"传感器类型");
-	
+//		LCD_DisplayStringLine(134,10,"校准通道");
+//		LCD_DisplayStringLine(174,10,"传感器类型");
+		LCD_DisplayStringLine(134,10,"LOGO");
 		
 		Disp_Factory();
 	
@@ -108,5 +109,6 @@ void Disp_Factory(void)
 	sprintf(buf,"%03d",CHNUM);
 	LCD_DisplayStringLine(50,170,(uint8_t *)buf);
 	LCD_DisplayStringLine(90,170,(uint8_t *)SN);
-	
+	sprintf(buf,"%d",JKFLAG);
+	LCD_DisplayStringLine(130,170,(uint8_t *)buf);
 }
