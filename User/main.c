@@ -235,11 +235,18 @@ void Delay(__IO u32 nCount);
 void LCD_Test(void);
 void Printf_Charater(void);
 void AVGCAL(void);
-int i;
+void ChStatic(void);
+//int i;
 u16 count = 0;
 
 float ch_temp[40];
 float avg_data[3];
+
+float avgtemp[16];
+float maxtemp[16];
+float mintemp[16];
+double tempsum[16];//开始采集后的温度总和
+u32 chncount[16];
 
 void JumpBoot(u8 flag)
 {
@@ -287,6 +294,189 @@ void JumpBoot(u8 flag)
 	}
 }
 
+static void InitChnStatics(void)
+{
+	for(u8 i=0;i<CHNUM;i++)
+	{
+		chncount[i]=0;
+		avgtemp[i]=0;
+		maxtemp[i]=-200;
+		mintemp[i]=3276;
+	}
+}
+
+static void StaticsDisp(u8 font,u8 maxch,u8 page)
+{
+	u8 i,j;
+	float dispdatatemp;
+	char buf[10];
+	LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_BACK);
+	if(font== big)
+	{
+		for(i=0;i<2;i++)
+		{
+			for(j=0;j<4;j++)
+			{
+				dispdatatemp=maxtemp[page*8+i*4+j];
+				sprintf(buf,"%.1f",dispdatatemp);
+				if(dispdatatemp >= 0)
+				{
+					if(dispdatatemp < 10)
+					{
+						strcat(buf,"   ");
+					}else if(dispdatatemp < 100){
+						strcat(buf,"  ");
+					}else if(dispdatatemp < 1000){
+						strcat(buf," ");
+					}
+				}else{
+					if(dispdatatemp > -10)
+					{
+						strcat(buf,"  ");
+					}else if(dispdatatemp > -100){
+						strcat(buf," ");
+					}
+				}
+				if(ch_temp[page*8+i*4+j] > 3276)
+					DISP_TEMP_S(MAXBIGY1+j*MAXBIGYOFFSET+DATAOFFSETY,MAXBIGX1+i*MAXBIGXOFFSET+DATAOFFSETX,(uint8_t*)buf,1);
+				else
+					DISP_TEMP_S(MAXBIGY1+j*MAXBIGYOFFSET+DATAOFFSETY,MAXBIGX1+i*MAXBIGXOFFSET+DATAOFFSETX,(uint8_t*)buf,savedata[page*8+i*4+j]);
+				
+				dispdatatemp=mintemp[page*8+i*4+j];
+				sprintf(buf,"%.1f",dispdatatemp);
+				if(dispdatatemp >= 0)
+				{
+					if(dispdatatemp < 10)
+					{
+						strcat(buf,"   ");
+					}else if(dispdatatemp < 100){
+						strcat(buf,"  ");
+					}else if(dispdatatemp < 1000){
+						strcat(buf," ");
+					}
+				}else{
+					if(dispdatatemp > -10)
+					{
+						strcat(buf,"  ");
+					}else if(dispdatatemp > -100){
+						strcat(buf," ");
+					}
+				}
+				if(ch_temp[page*8+i*4+j] > 3276)
+					DISP_TEMP_S(MINBIGY1+j*MINBIGYOFFSET+DATAOFFSETY,MINBIGX1+i*MINBIGXOFFSET+DATAOFFSETX,(uint8_t*)buf,1);
+				else
+					DISP_TEMP_S(MINBIGY1+j*MINBIGYOFFSET+DATAOFFSETY,MINBIGX1+i*MINBIGXOFFSET+DATAOFFSETX,(uint8_t*)buf,savedata[page*8+i*4+j]);
+				
+				dispdatatemp=avgtemp[page*8+i*4+j];
+				sprintf(buf,"%.1f",dispdatatemp);
+				if(dispdatatemp >= 0)
+				{
+					if(dispdatatemp < 10)
+					{
+						strcat(buf,"   ");
+					}else if(dispdatatemp < 100){
+						strcat(buf,"  ");
+					}else if(dispdatatemp < 1000){
+						strcat(buf," ");
+					}
+				}else{
+					if(dispdatatemp > -10)
+					{
+						strcat(buf,"  ");
+					}else if(dispdatatemp > -100){
+						strcat(buf," ");
+					}
+				}
+				if(ch_temp[page*8+i*4+j] > 3276)
+					DISP_TEMP_S(AVEBIGY1+j*AVEBIGYOFFSET+DATAOFFSETY,AVEBIGX1+i*AVEBIGXOFFSET+DATAOFFSETX,(uint8_t*)buf,1);
+				else
+					DISP_TEMP_S(AVEBIGY1+j*AVEBIGYOFFSET+DATAOFFSETY,AVEBIGX1+i*AVEBIGXOFFSET+DATAOFFSETX,(uint8_t*)buf,savedata[page*8+i*4+j]);
+			}
+		}
+	}else if(font == middle){
+		for(i=0;i<2;i++)
+		{
+			for(j=0;j<8;j++)
+			{
+				dispdatatemp=maxtemp[page*16+i*8+j];
+				sprintf(buf,"%.1f",dispdatatemp);
+				if(dispdatatemp >= 0)
+				{
+					if(dispdatatemp < 10)
+					{
+						strcat(buf,"   ");
+					}else if(dispdatatemp < 100){
+						strcat(buf,"  ");
+					}else if(dispdatatemp < 1000){
+						strcat(buf," ");
+					}
+				}else{
+					if(dispdatatemp > -10)
+					{
+						strcat(buf,"  ");
+					}else if(dispdatatemp > -100){
+						strcat(buf," ");
+					}
+				}
+				if(ch_temp[page*8+i*4+j] > 3276)
+					DISP_TEMP_S(MAXMIDY1+j*MAXMIDYOFFSET+DATAOFFSETY,MAXMIDX1+i*MAXMIDXOFFSET+DATAOFFSETX,(uint8_t*)buf,1);
+				else
+					DISP_TEMP_S(MAXMIDY1+j*MAXMIDYOFFSET+DATAOFFSETY,MAXMIDX1+i*MAXMIDXOFFSET+DATAOFFSETX,(uint8_t*)buf,savedata[page*16+i*8+j]);
+				dispdatatemp=mintemp[page*16+i*8+j];
+				sprintf(buf,"%.1f",dispdatatemp);
+				if(dispdatatemp >= 0)
+				{
+					if(dispdatatemp < 10)
+					{
+						strcat(buf,"   ");
+					}else if(dispdatatemp < 100){
+						strcat(buf,"  ");
+					}else if(dispdatatemp < 1000){
+						strcat(buf," ");
+					}
+				}else{
+					if(dispdatatemp > -10)
+					{
+						strcat(buf,"  ");
+					}else if(dispdatatemp > -100){
+						strcat(buf," ");
+					}
+				}
+				if(ch_temp[page*8+i*4+j] > 3276)
+					DISP_TEMP_S(MINMIDY1+j*MINMIDYOFFSET+DATAOFFSETY,MINMIDX1+i*MINMIDXOFFSET+DATAOFFSETX,(uint8_t*)buf,1);
+				else
+					DISP_TEMP_S(MINMIDY1+j*MINMIDYOFFSET+DATAOFFSETY,MINMIDX1+i*MINMIDXOFFSET+DATAOFFSETX,(uint8_t*)buf,savedata[page*16+i*8+j]);
+				
+				dispdatatemp=avgtemp[page*16+i*8+j];
+				sprintf(buf,"%.1f",dispdatatemp);
+				if(dispdatatemp >= 0)
+				{
+					if(dispdatatemp < 10)
+					{
+						strcat(buf,"   ");
+					}else if(dispdatatemp < 100){
+						strcat(buf,"  ");
+					}else if(dispdatatemp < 1000){
+						strcat(buf," ");
+					}
+				}else{
+					if(dispdatatemp > -10)
+					{
+						strcat(buf,"  ");
+					}else if(dispdatatemp > -100){
+						strcat(buf," ");
+					}
+				}
+				if(ch_temp[page*8+i*4+j] > 3276)
+					DISP_TEMP_S(AVEMIDY1+j*AVEMIDYOFFSET+DATAOFFSETY,AVEMIDX1+i*AVEMIDXOFFSET+DATAOFFSETX,(uint8_t*)buf,1);
+				else
+					DISP_TEMP_S(AVEMIDY1+j*AVEMIDYOFFSET+DATAOFFSETY,AVEMIDX1+i*AVEMIDXOFFSET+DATAOFFSETX,(uint8_t*)buf,savedata[page*16+i*8+j]);
+			}
+		}
+	}else if(font == small){
+
+	}
+}
 
 /**
   * @brief  主函数
@@ -430,6 +620,7 @@ int main(void)
 	}
 //	SD_GetCardInfo(&SDINFO);
 	trigflag = 1;
+//	InitChnStatics();
 //	BlockNum.Num[0] = 0;
 //	BlockNum.Num[1] = 0;
 	while(1)
@@ -496,6 +687,7 @@ int main(void)
 				{
 					UARTRECHANDLE();
 					urecount = 0;
+					
 				}else if(SPEED == middle){
 					if(urecount == 5)
 					{
@@ -757,6 +949,7 @@ void UARTRECHANDLE(void)
 				DISP_INS(165,5,"Done!");
 			}
 			Delay(0xffffff);
+			InitChnStatics();
 			page_home();
 			multicount = 0;
 		}
@@ -970,6 +1163,7 @@ void TempDisplay(void)
 	}
 	if(page_flag == display)
 	{		
+		ChStatic();
 //		LCD_SetColors(LCD_COLOR_YELLOW,LCD_COLOR_BACK);
 //		sprintf(buf,"%03d",charge);
 //		LCD_DisplayStringLine_48(47,200,(uint8_t*)buf);
@@ -1609,10 +1803,10 @@ void TempDisplay(void)
 				}
 				if(CH1TEMP < 3276)
 				{
-					DISP_TEMP_M(100,90,(uint8_t*)buf,CH1_SW);
+					DISP_TEMP_M(100-2,90-32,(uint8_t*)buf,CH1_SW);
 				}else{
 					LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-					LCD_DrawFullRect(90,100,96,28);
+					LCD_DrawFullRect(90-32,100-2,96,28);
 				}
 				
 				Check_limits(2);
@@ -1637,10 +1831,10 @@ void TempDisplay(void)
 				}
 				if(CH2TEMP < 3276)
 				{
-					DISP_TEMP_M(140,90,(uint8_t*)buf,CH2_SW);
+					DISP_TEMP_M(140-2,90-32,(uint8_t*)buf,CH2_SW);
 				}else{
 					LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-					LCD_DrawFullRect(90,140,96,28);
+					LCD_DrawFullRect(90-32,140-2,96,28);
 				}
 				
 				Check_limits(3);
@@ -1665,10 +1859,10 @@ void TempDisplay(void)
 				}
 				if(CH3TEMP < 3276)
 				{
-					DISP_TEMP_M(180,90,(uint8_t*)buf,CH3_SW);
+					DISP_TEMP_M(180-2,90-32,(uint8_t*)buf,CH3_SW);
 				}else{
 					LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-					LCD_DrawFullRect(90,180,96,28);
+					LCD_DrawFullRect(90-32,180-2,96,28);
 				}
 				
 				Check_limits(4);
@@ -1693,10 +1887,10 @@ void TempDisplay(void)
 				}
 				if(CH4TEMP < 3276)
 				{
-					DISP_TEMP_M(220,90,(uint8_t*)buf,CH4_SW);
+					DISP_TEMP_M(220-2,90-32,(uint8_t*)buf,CH4_SW);
 				}else{
 					LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-					LCD_DrawFullRect(90,220,96,28);
+					LCD_DrawFullRect(90-32,220-2,96,28);
 				}
 				
 				Check_limits(5);
@@ -1721,10 +1915,10 @@ void TempDisplay(void)
 				}
 				if(CH5TEMP < 3276)
 				{
-					DISP_TEMP_M(260,90,(uint8_t*)buf,CH5_SW);
+					DISP_TEMP_M(260-2,90-32,(uint8_t*)buf,CH5_SW);
 				}else{
 					LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-					LCD_DrawFullRect(90,260,96,28);
+					LCD_DrawFullRect(90-32,260-2,96,28);
 				}
 				
 				Check_limits(6);
@@ -1749,10 +1943,10 @@ void TempDisplay(void)
 				}
 				if(CH6TEMP < 3276)
 				{
-					DISP_TEMP_M(300,90,(uint8_t*)buf,CH6_SW);
+					DISP_TEMP_M(300-2,90-32,(uint8_t*)buf,CH6_SW);
 				}else{
 					LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-					LCD_DrawFullRect(90,300,96,28);
+					LCD_DrawFullRect(90-32,300-2,96,28);
 				}
 				
 				Check_limits(7);
@@ -1777,10 +1971,10 @@ void TempDisplay(void)
 				}
 				if(CH7TEMP < 3276)
 				{
-					DISP_TEMP_M(340,90,(uint8_t*)buf,CH7_SW);
+					DISP_TEMP_M(340-2,90-32,(uint8_t*)buf,CH7_SW);
 				}else{
 					LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-					LCD_DrawFullRect(90,340,96,28);
+					LCD_DrawFullRect(90-32,340-2,96,28);
 				}
 				
 				Check_limits(8);
@@ -1805,10 +1999,10 @@ void TempDisplay(void)
 				}
 				if(CH8TEMP < 3276)
 				{
-					DISP_TEMP_M(380,90,(uint8_t*)buf,CH8_SW);
+					DISP_TEMP_M(380-2,90-32,(uint8_t*)buf,CH8_SW);
 				}else{
 					LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-					LCD_DrawFullRect(90,380,96,28);
+					LCD_DrawFullRect(90-32,380-2,96,28);
 				}
 				
 				if(CHNUM > 8)
@@ -1835,10 +2029,10 @@ void TempDisplay(void)
 					}
 					if(CH9TEMP < 3276)
 					{
-						DISP_TEMP_M(100,290+120,(uint8_t*)buf,CH9_SW);
+						DISP_TEMP_M(100-2,290+120-32,(uint8_t*)buf,CH9_SW);
 					}else{
 						LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-						LCD_DrawFullRect(290+120,100,96,28);
+						LCD_DrawFullRect(290+120-32,100-2,96,28);
 					}					
 					Check_limits(10);
 					sprintf(buf,"%.1f",CH10TEMP - COR10);
@@ -1862,10 +2056,10 @@ void TempDisplay(void)
 					}
 					if(CH10TEMP < 3276)
 					{
-						DISP_TEMP_M(140,290+120,(uint8_t*)buf,CH10_SW);
+						DISP_TEMP_M(140-2,290+120-32,(uint8_t*)buf,CH10_SW);
 					}else{
 						LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-						LCD_DrawFullRect(290+120,140,96,28);
+						LCD_DrawFullRect(290+120-32,140-2,96,28);
 					}
 					
 					Check_limits(11);
@@ -1890,10 +2084,10 @@ void TempDisplay(void)
 					}
 					if(CH11TEMP < 3276)
 					{
-						DISP_TEMP_M(180,290+120,(uint8_t*)buf,CH11_SW);
+						DISP_TEMP_M(180-2,290+120-32,(uint8_t*)buf,CH11_SW);
 					}else{
 						LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-						LCD_DrawFullRect(290+120,180,96,28);
+						LCD_DrawFullRect(290+120-32,180-2,96,28);
 					}
 					
 					Check_limits(12);
@@ -1918,10 +2112,10 @@ void TempDisplay(void)
 					}
 					if(CH12TEMP < 3276)
 					{
-						DISP_TEMP_M(220,290+120,(uint8_t*)buf,CH12_SW);
+						DISP_TEMP_M(220-2,290+120-32,(uint8_t*)buf,CH12_SW);
 					}else{
 						LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-						LCD_DrawFullRect(290+120,220,96,28);
+						LCD_DrawFullRect(290+120-32,220-2,96,28);
 					}
 					
 					Check_limits(13);
@@ -1946,10 +2140,10 @@ void TempDisplay(void)
 					}
 					if(CH13TEMP < 3276)
 					{
-						DISP_TEMP_M(260,290+120,(uint8_t*)buf,CH13_SW);
+						DISP_TEMP_M(260-2,290+120-32,(uint8_t*)buf,CH13_SW);
 					}else{
 						LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-						LCD_DrawFullRect(290+120,260,96,28);
+						LCD_DrawFullRect(290+120-32,260-2,96,28);
 					}
 					
 					Check_limits(14);
@@ -1974,10 +2168,10 @@ void TempDisplay(void)
 					}
 					if(CH14TEMP < 3276)
 					{
-						DISP_TEMP_M(300,290+120,(uint8_t*)buf,CH14_SW);
+						DISP_TEMP_M(300-2,290+120-32,(uint8_t*)buf,CH14_SW);
 					}else{
 						LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-						LCD_DrawFullRect(290+120,300,96,28);
+						LCD_DrawFullRect(290+120-32,300-2,96,28);
 					}
 					
 					Check_limits(15);
@@ -2002,10 +2196,10 @@ void TempDisplay(void)
 					}
 					if(CH15TEMP < 3276)
 					{
-						DISP_TEMP_M(340,290+120,(uint8_t*)buf,CH15_SW);
+						DISP_TEMP_M(340-2,290+120-32,(uint8_t*)buf,CH15_SW);
 					}else{
 						LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-						LCD_DrawFullRect(290+120,340,96,28);
+						LCD_DrawFullRect(290+120-32,340-2,96,28);
 					}
 					
 					Check_limits(16);
@@ -2030,10 +2224,10 @@ void TempDisplay(void)
 					}
 					if(CH16TEMP < 3276)
 					{
-						DISP_TEMP_M(380,290+120,(uint8_t*)buf,CH16_SW);
+						DISP_TEMP_M(380-2,290+120-32,(uint8_t*)buf,CH16_SW);
 					}else{
 						LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-						LCD_DrawFullRect(290+120,380,96,28);
+						LCD_DrawFullRect(290+120-32,380-2,96,28);
 					}
 					if(CHNUM > 16)
 					{
@@ -2254,7 +2448,7 @@ void TempDisplay(void)
 				}else{
 					LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
 					LCD_DrawFullRect(60,300,48,20);
-				}
+				} 
 				Check_limits(7);
 				sprintf(buf,"%.1f",CH7TEMP - COR7);
 				if(CH7TEMP - COR7 >= 0)
@@ -4010,6 +4204,40 @@ void AVGCAL(void)
 		TEMPMIN = 0;
 		
 	}
+}
+
+//各通道数据统计
+void ChStatic(void)
+{
+	u8 i;
+
+	for(i=0;i<CHNUM;i++)
+	{
+		if(savedata[i] == ch_off || ch_temp[i] > 3276)
+		{
+			avgtemp[i]=0;
+			maxtemp[i]=0;
+			mintemp[i]=0;
+			chncount[i]=0;
+			tempsum[i]=0;
+			maxtemp[i]=-200;
+			mintemp[i]=3276;
+		}else{
+			chncount[i]++;//计数
+			tempsum[i]+=ch_temp[i] - Correction[i];
+			avgtemp[i]=tempsum[i]/chncount[i];
+			
+			if((ch_temp[i] - Correction[i]) > maxtemp[i])
+			{
+				maxtemp[i] = ch_temp[i] - Correction[i];
+			}
+			if((ch_temp[i] - Correction[i]) < mintemp[i])
+			{
+				mintemp[i] = ch_temp[i] - Correction[i];
+			}
+		}
+	}
+	StaticsDisp(FONT,CHNUM,ch_page);
 }
 
 void BEEPCHECK(void)

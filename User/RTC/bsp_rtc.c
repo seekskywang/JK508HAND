@@ -28,6 +28,7 @@ u8 trigflag;
 RTC_TimeTypeDef RTC_TimeStructure;
 RTC_DateTypeDef RTC_DateStructure;
 u8 oldhour;
+u8 timetrigflag;
 /**
   * @brief  设置时间和日期
   * @param  无
@@ -93,9 +94,23 @@ void RTC_TimeAndDate_Show(void)
 //		trigflag = 1;
 	}else{
 		if((HOURS*60 + MINUTES >= STARTH*60 + STARTM) && (HOURS*60 + MINUTES < ENDH*60 + ENDM)){
-			recordflag = 1;
+			if(recordflag == 0)
+			{
+				recordflag = 1;
+				count = 0;
+				indexflag = 1;
+				if(page_flag == display)
+					Drawhomemenu();
+			}
 		}else{
-			recordflag = 0;
+			if(recordflag == 1)
+			{
+				Write_His_Data_Man();
+				recordflag = 0;
+				Write_Block_Rec();
+				if(page_flag == display)
+				Drawhomemenu();
+			}
 		}
 	}
 	// 每秒打印一次

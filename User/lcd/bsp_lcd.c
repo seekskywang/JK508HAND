@@ -1757,7 +1757,7 @@ void DISP_TEMP_S(uint16_t x,uint16_t y, uint8_t *ptr,u8 sw)
 	  }
   }else if(sw == ch_off){
 	 LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-	 LCD_DrawFullRect(y,x,50,20);
+	 LCD_DrawFullRect(y,x,48,20);
 	 LCD_SetColors(LCD_COLOR_WHITE,LCD_COLOR_BACK);
  }
 }

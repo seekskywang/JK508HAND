@@ -644,13 +644,13 @@ void TouchHandle(u16 x,u16 y)
 					LCD_SetBackColor(LCD_COLOR_BLACK);
 					if(LANG == chs)
 					{
-						LCD_DisplayStringLine(445,48,"小");
-						LCD_DisplayStringLine(445,173,"中");
-						LCD_DisplayStringLine(445,298,"大");
+						LCD_DisplayStringLine(445,48,"中");
+						LCD_DisplayStringLine(445,173,"大");
+//						LCD_DisplayStringLine(445,298,"大");
 					}else{
-						LCD_DisplayStringLine(445,48,"S");
-						LCD_DisplayStringLine(445,173,"M");
-						LCD_DisplayStringLine(445,298,"L");
+						LCD_DisplayStringLine(445,48,"M");
+						LCD_DisplayStringLine(445,173,"L");
+//						LCD_DisplayStringLine(445,298,"L");
 					}
 					focus_on1();
 					if(FONT == big){
@@ -758,11 +758,11 @@ void TouchHandle(u16 x,u16 y)
 								focus_on1();
 								if(LANG == chs)
 								{
-									LCD_DisplayStringLine(47,290,"小");
+									LCD_DisplayStringLine(47,290,"中");
 								}else{
-									LCD_DisplayStringLine(47,290,"S");
+									LCD_DisplayStringLine(47,290,"M");
 								}
-								FONT = small;
+								FONT = middle;
 								op_sw = op_off;
 								Save_flag();
 								page_home();
@@ -817,9 +817,9 @@ void TouchHandle(u16 x,u16 y)
 								focus_on1();
 								if(LANG == chs)
 								{
-									LCD_DisplayStringLine(47,290,"中");
+									LCD_DisplayStringLine(47,290,"大");
 								}else{
-									LCD_DisplayStringLine(47,290,"M");
+									LCD_DisplayStringLine(47,290,"L");
 								}
 								FONT = middle;
 								op_sw = op_off;
@@ -867,33 +867,35 @@ void TouchHandle(u16 x,u16 y)
 							TCTYPE = TCR;
 							Save_flag();
 						}break;
-						case set_font:
-						{
-							if(op_sw == op_on)
-							{
-								DrawMenu();//重绘菜单栏
-								Drawsetmenu();
-								focus_on1();
-								if(LANG == chs)
-								{
-									LCD_DisplayStringLine(47,290,"大");
-								}else{
-									LCD_DisplayStringLine(47,290,"L");
-								}
-								FONT = big;
-								op_sw = op_off;
-								Save_flag();
-								page_home();
-							}else{
-								page_sys();
-							}
-						}break;
+//						case set_font:
+//						{
+//							if(op_sw == op_on)
+//							{
+//								DrawMenu();//重绘菜单栏
+//								Drawsetmenu();
+//								focus_on1();
+//								if(LANG == chs)
+//								{
+//									LCD_DisplayStringLine(47,290,"大");
+//								}else{
+//									LCD_DisplayStringLine(47,290,"L");
+//								}
+//								FONT = big;
+//								op_sw = op_off;
+//								Save_flag();
+//								page_home();
+//							}else{
+//								page_sys();
+//							}
+//						}break;
 						default:
 						{
 							if(recordflag == 0)
 							{
 								recordflag = 1;
 								Drawhomemenu();
+								count = 0;
+								indexflag = 1;
 							}else if(recordflag == 1){
 								Write_His_Data_Man();
 								recordflag = 0;

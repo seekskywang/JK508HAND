@@ -69,7 +69,7 @@ void power_on(void)
 			DISP_INS(80,0,"JK516 Multi-channel Temp.Meter");
 		}
 	}
-
+	Delay(0xfffff);
 //	DISP_INS(30,0,"REV 1.0");
 	
 	

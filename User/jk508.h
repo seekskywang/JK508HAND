@@ -132,6 +132,8 @@ void ButtonSound(void);
 void EXPSDDATA(void);
 void Draw_His_Index(u8 page);
 void Draw_His_Graph(void);
+void Draw_Frame(void);
+void DispStaLable(void);
 
 u8 udisk_scan(void);
 void Delay(__IO u32 nCount);
@@ -948,7 +950,41 @@ extern Touch_save_Typedef    Touch_save;
 #define SETBLANKY1		155
 #define SETBLANKY2		278
 
-/*校正和分选*/
+/*MAX MIN AVG LABLE*/
+#define MAXBIGX1				10			
+#define MAXBIGXOFFSET		320
+#define MAXBIGY1				143			
+#define MAXBIGYOFFSET		80
 
+#define MINBIGX1				10+80			
+#define MINBIGXOFFSET		320
+#define MINBIGY1				143			
+#define MINBIGYOFFSET		80
+
+#define AVEBIGX1				10+160			
+#define AVEBIGXOFFSET		320
+#define AVEBIGY1				143			
+#define AVEBIGYOFFSET		80
+
+#define DATAOFFSETX			32			
+#define DATAOFFSETY			-4	
+
+#define MAXMIDX1				154			
+#define MAXMIDXOFFSET		320
+#define MAXMIDY1				96			
+#define MAXMIDYOFFSET		40
+
+#define MINMIDX1				154+80			
+#define MINMIDXOFFSET		320
+#define MINMIDY1				96			
+#define MINMIDYOFFSET		40
+
+#define AVEMIDX1				154+80			
+#define AVEMIDXOFFSET		320
+#define AVEMIDY1				114			
+#define AVEMIDYOFFSET		40
+
+#define DATAOFFSETX			32			
+#define DATAOFFSETY			-4	
 
 #endif
