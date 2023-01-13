@@ -504,6 +504,11 @@
           <WinNumber>1</WinNumber>
           <ItemText>chncount,0x0A</ItemText>
         </Ww>
+        <Ww>
+          <count>70</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>battery,0x0A</ItemText>
+        </Ww>
       </WatchWindow1>
       <WatchWindow2>
         <Ww>
