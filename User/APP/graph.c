@@ -46,13 +46,14 @@ extern union
 
 void page_graph(void)
 {
-	range = (YHLIMIT - YLLIMIT) / 7;
+	
 	u8 i;
 	u16 j;
 	char timetemp[100];
-	enrate = 350/(float)(YHLIMIT - YLLIMIT);
-	char buf[10];
 	
+	char buf[10];
+	enrate = 350/(float)(YHLIMIT - YLLIMIT);
+	range = (YHLIMIT - YLLIMIT) / 7;
 	
    /*初始化后默认使用前景层*/
 	LCD_SetLayer(LCD_FOREGROUND_LAYER); 

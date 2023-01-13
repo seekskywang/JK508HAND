@@ -61,12 +61,12 @@ extern union
 
 void page_his(void)
 {
-	range = (YHLIMIT - YLLIMIT) / 7;
-	enrate = 350/(float)(YHLIMIT - YLLIMIT);
+	
 	u8 i;
 	u16 j;
 	
-	
+	range = (YHLIMIT - YLLIMIT) / 7;
+	enrate = 350/(float)(YHLIMIT - YLLIMIT);
 	
 	
 	
@@ -104,11 +104,11 @@ void page_his(void)
 
 void back_his(void)
 {
-	range = (YHLIMIT - YLLIMIT) / 7;
-	enrate = 350/(float)(YHLIMIT - YLLIMIT);
+	
 	u8 i;
 	u16 j;
-	
+	range = (YHLIMIT - YLLIMIT) / 7;
+	enrate = 350/(float)(YHLIMIT - YLLIMIT);
 	
 	
 	
@@ -147,15 +147,15 @@ void back_his(void)
 
 void graph_his(void)
 {
-	range = (YHLIMIT - YLLIMIT) / 7;
-	enrate = 350/(float)(YHLIMIT - YLLIMIT);
+	
 	u8 i;
 	u16 j;
 	u16 pages;
 	u16 cpage;
 	char pagebuf[10];
 	
-	
+	range = (YHLIMIT - YLLIMIT) / 7;
+	enrate = 350/(float)(YHLIMIT - YLLIMIT);
 	pages = hispageend - hispagestart + 1;
 	cpage = hispage - hispagestart + 1;
    /*初始化后默认使用前景层*/

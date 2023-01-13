@@ -296,7 +296,8 @@ void JumpBoot(u8 flag)
 
 static void InitChnStatics(void)
 {
-	for(u8 i=0;i<CHNUM;i++)
+	u8 i;
+	for(i=0;i<CHNUM;i++)
 	{
 		chncount[i]=0;
 		avgtemp[i]=0;
@@ -487,7 +488,7 @@ static void StaticsDisp(u8 font,u8 maxch,u8 page)
 int main(void)
 
 {
-	NVIC_SetVectorTable(NVIC_VectTab_FLASH, 0x00000);
+	
 	static u8 powerstat;
 	uint8_t  buf[0x40];
 //	static u8 ledstat;
@@ -499,6 +500,8 @@ int main(void)
 	static u16 usavecount;
 	static u16 sendcount;
 	static u8 touched;
+
+	NVIC_SetVectorTable(NVIC_VectTab_FLASH, 0x00000);
 //	u8 res;
   /*!< At this stage the microcontroller clock setting is already configured, 
   this is done through SystemInit() function which is called from startup
@@ -3416,7 +3419,8 @@ void UsbDataHandle(void)
 	uint16_t sendcrc;
 	u8 creclen;
 	u8 csendlen;
-
+	RTC_DateTypeDef RTC_DateStructure;
+	RTC_TimeTypeDef RTC_TimeStructure;
 //	u16 voltage;//电压
 //	u16 current;
 //	u32 power;  //功率
@@ -3860,8 +3864,7 @@ void UsbDataHandle(void)
 					usbsendbuf[4] = 0x00;
 					usbsendbuf[5] = 0x00;
 					
-					RTC_DateTypeDef RTC_DateStructure;
-					RTC_TimeTypeDef RTC_TimeStructure;
+					
 					
 					YEAR = usbbuf[8];
 					MONTH = usbbuf[9];
@@ -4142,8 +4145,9 @@ u8 PowerOffDetect(void)
 //检测到关机后的处理
 void PowerOffHandle(void)
 {
-	page_flag = poweroff;
 	static u8 offflag;
+	page_flag = poweroff;
+	
 	DrawPowOff();
 	if(recordflag == 1)
 	{

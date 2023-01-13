@@ -5187,117 +5187,117 @@ Image Symbol Table
     i.UsageFault_Handler                     0x0802621a   Section        0  stm32f4xx_it.o(i.UsageFault_Handler)
     i.Usart_SendByte                         0x0802621c   Section        0  bsp_debug_usart.o(i.Usart_SendByte)
     i.UsbDataHandle                          0x08026234   Section        0  main.o(i.UsbDataHandle)
-    i.Utest                                  0x08026ac4   Section        0  bsp_key.o(i.Utest)
-    i.Wait376Interrupt                       0x08026df4   Section        0  filesys.o(i.Wait376Interrupt)
-    i.Write_Block_Rec                        0x08026e18   Section        0  fileoperate.o(i.Write_Block_Rec)
-    i.Write_His_Data                         0x08026e40   Section        0  fileoperate.o(i.Write_His_Data)
-    i.Write_His_Data_Man                     0x08026ed4   Section        0  fileoperate.o(i.Write_His_Data_Man)
-    i.XYCAL                                  0x08026fe0   Section        0  touchscreen.o(i.XYCAL)
-    i.__0printf                              0x08027140   Section        0  printfa.o(i.__0printf)
-    i.__0sprintf                             0x08027160   Section        0  printfa.o(i.__0sprintf)
-    i.__aeabi_errno_addr                     0x08027188   Section        0  errno.o(i.__aeabi_errno_addr)
-    i.__hardfp_atof                          0x08027190   Section        0  atof.o(i.__hardfp_atof)
-    i.__hardfp_sqrt                          0x080271c8   Section        0  sqrt.o(i.__hardfp_sqrt)
-    i.__read_errno                           0x08027244   Section        0  errno.o(i.__read_errno)
-    i.__scatterload_copy                     0x08027250   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_null                     0x0802725e   Section        2  handlers.o(i.__scatterload_null)
-    i.__scatterload_zeroinit                 0x08027260   Section       14  handlers.o(i.__scatterload_zeroinit)
-    i.__set_errno                            0x08027270   Section        0  errno.o(i.__set_errno)
-    i._fp_digits                             0x0802727c   Section        0  printfa.o(i._fp_digits)
-    _fp_digits                               0x0802727d   Thumb Code   366  printfa.o(i._fp_digits)
-    i._is_digit                              0x08027400   Section        0  scanf_fp.o(i._is_digit)
-    i._printf_core                           0x08027410   Section        0  printfa.o(i._printf_core)
-    _printf_core                             0x08027411   Thumb Code  1744  printfa.o(i._printf_core)
-    i._printf_post_padding                   0x08027aec   Section        0  printfa.o(i._printf_post_padding)
-    _printf_post_padding                     0x08027aed   Thumb Code    36  printfa.o(i._printf_post_padding)
-    i._printf_pre_padding                    0x08027b10   Section        0  printfa.o(i._printf_pre_padding)
-    _printf_pre_padding                      0x08027b11   Thumb Code    46  printfa.o(i._printf_pre_padding)
-    i._sputc                                 0x08027b3e   Section        0  printfa.o(i._sputc)
-    _sputc                                   0x08027b3f   Thumb Code    10  printfa.o(i._sputc)
-    i.back_his                               0x08027b48   Section        0  history.o(i.back_his)
-    i.brt_set                                0x08027c08   Section        0  bsp_key.o(i.brt_set)
-    i.cal_disp                               0x08027cf0   Section        0  bsp_key.o(i.cal_disp)
-    i.clear_input                            0x08027e04   Section        0  bsp_key.o(i.clear_input)
-    i.del_num                                0x08027e3c   Section        0  bsp_key.o(i.del_num)
-    i.del_search                             0x08027ecc   Section        0  bsp_key.o(i.del_search)
-    i.delay_1us                              0x08027fe0   Section        0  bsp_systick.o(i.delay_1us)
-    i.delay_us                               0x08028002   Section        0  bsp_systick.o(i.delay_us)
-    i.dim_set                                0x0802800c   Section        0  bsp_key.o(i.dim_set)
-    i.focus_off                              0x080281a8   Section        0  bsp_key.o(i.focus_off)
-    i.focus_off1                             0x080281ec   Section        0  bsp_key.o(i.focus_off1)
-    i.focus_on                               0x08028218   Section        0  bsp_key.o(i.focus_on)
-    i.focus_on1                              0x08028238   Section        0  bsp_key.o(i.focus_on1)
-    i.fputc                                  0x08028264   Section        0  bsp_debug_usart.o(i.fputc)
-    i.free                                   0x08028288   Section        0  malloc.o(i.free)
-    i.graph_his                              0x080282d8   Section        0  history.o(i.graph_his)
-    i.his_gset                               0x080283c4   Section        0  graphset.o(i.his_gset)
-    i.input_num                              0x0802852c   Section        0  bsp_key.o(i.input_num)
-    i.input_pass                             0x08028654   Section        0  bsp_key.o(i.input_pass)
-    i.input_search                           0x0802877c   Section        0  bsp_key.o(i.input_search)
-    i.main                                   0x08028a5c   Section        0  main.o(i.main)
-    i.malloc                                 0x08028d00   Section        0  malloc.o(i.malloc)
-    i.maxfocus_off                           0x08028d6c   Section        0  bsp_key.o(i.maxfocus_off)
-    i.maxfocus_on                            0x08028e9c   Section        0  bsp_key.o(i.maxfocus_on)
-    i.minfocus_off                           0x08029004   Section        0  bsp_key.o(i.minfocus_off)
-    i.minfocus_on                            0x08029120   Section        0  bsp_key.o(i.minfocus_on)
-    i.minus_day                              0x08029274   Section        0  bsp_key.o(i.minus_day)
-    i.minus_hour                             0x080292b4   Section        0  bsp_key.o(i.minus_hour)
-    i.minus_min                              0x080292f8   Section        0  bsp_key.o(i.minus_min)
-    i.minus_mon                              0x0802933c   Section        0  bsp_key.o(i.minus_mon)
-    i.minus_sec                              0x0802937c   Section        0  bsp_key.o(i.minus_sec)
-    i.minus_year                             0x080293c0   Section        0  bsp_key.o(i.minus_year)
-    i.multifocus_off                         0x08029400   Section        0  bsp_key.o(i.multifocus_off)
-    i.multifocus_on                          0x08029480   Section        0  bsp_key.o(i.multifocus_on)
-    i.page_cal                               0x08029534   Section        0  calibarate.o(i.page_cal)
-    i.page_factory                           0x080299d0   Section        0  factory.o(i.page_factory)
-    i.page_graph                             0x08029a9c   Section        0  graph.o(i.page_graph)
-    i.page_gset                              0x0802b0d0   Section        0  graphset.o(i.page_gset)
-    i.page_his                               0x0802b26c   Section        0  history.o(i.page_his)
-    i.page_home                              0x0802b324   Section        0  home.o(i.page_home)
-    i.page_sep                               0x0802c3d4   Section        0  separation.o(i.page_sep)
-    i.page_set                               0x0802c834   Section        0  settings.o(i.page_set)
-    i.page_sys                               0x0802cd28   Section        0  system.o(i.page_sys)
-    i.page_sysinfo                           0x0802d0e0   Section        0  sysinfo.o(i.page_sysinfo)
-    i.plus_day                               0x0802d48c   Section        0  bsp_key.o(i.plus_day)
-    i.plus_hour                              0x0802d4cc   Section        0  bsp_key.o(i.plus_hour)
-    i.plus_min                               0x0802d510   Section        0  bsp_key.o(i.plus_min)
-    i.plus_mon                               0x0802d554   Section        0  bsp_key.o(i.plus_mon)
-    i.plus_sec                               0x0802d594   Section        0  bsp_key.o(i.plus_sec)
-    i.plus_year                              0x0802d5d8   Section        0  bsp_key.o(i.plus_year)
-    i.power_on                               0x0802d618   Section        0  power_on.o(i.power_on)
-    i.stimefocus_off                         0x0802d6f0   Section        0  bsp_key.o(i.stimefocus_off)
-    i.stimefocus_on                          0x0802d788   Section        0  bsp_key.o(i.stimefocus_on)
-    i.touch_set                              0x0802d860   Section        0  bsp_key.o(i.touch_set)
-    i.udisk_scan                             0x0802d918   Section        0  main.o(i.udisk_scan)
-    i.xEndCH376Cmd                           0x0802d964   Section        0  ch376.o(i.xEndCH376Cmd)
-    i.xReadCH376Data                         0x0802d970   Section        0  ch376.o(i.xReadCH376Data)
-    i.xWriteCH376Cmd                         0x0802d984   Section        0  ch376.o(i.xWriteCH376Cmd)
-    i.xWriteCH376Data                        0x0802d9cc   Section        0  ch376.o(i.xWriteCH376Data)
-    i.yhfocus_off                            0x0802d9dc   Section        0  bsp_key.o(i.yhfocus_off)
-    i.yhfocus_on                             0x0802dae4   Section        0  bsp_key.o(i.yhfocus_on)
-    i.ylfocus_off                            0x0802dc24   Section        0  bsp_key.o(i.ylfocus_off)
-    i.ylfocus_on                             0x0802dd2c   Section        0  bsp_key.o(i.ylfocus_on)
-    .constdata                               0x0802de68   Section       68  home.o(.constdata)
-    .constdata                               0x0802deac   Section       72  bsp_key.o(.constdata)
-    .constdata                               0x0802def4   Section     4560  fonts.o(.constdata)
-    .constdata                               0x0802f0c4   Section    13616  fonts.o(.constdata)
-    .constdata                               0x080325f4   Section     2822  fonts.o(.constdata)
-    .constdata                               0x080330fa   Section     7493  fonts.o(.constdata)
-    .constdata                               0x08034e3f   Section      494  fonts.o(.constdata)
-    .constdata                               0x0803502e   Section    11780  fonts.o(.constdata)
-    .constdata                               0x08037e32   Section     7220  fonts.o(.constdata)
-    .constdata                               0x08039a66   Section     3800  fonts.o(.constdata)
-    .constdata                               0x0803a93e   Section     2660  fonts.o(.constdata)
-    .constdata                               0x0803b3a2   Section     3800  fonts.o(.constdata)
-    .constdata                               0x0803c27a   Section     9120  fonts.o(.constdata)
-    .constdata                               0x0803e61a   Section    22560  fonts.o(.constdata)
-    .constdata                               0x08043e3a   Section    10640  fonts.o(.constdata)
-    .constdata                               0x080467ca   Section     6080  fonts.o(.constdata)
-    .constdata                               0x08047f8a   Section      238  fonts.o(.constdata)
-    .constdata                               0x08048078   Section      129  ctype_o.o(.constdata)
-    .constdata                               0x080480fc   Section        4  ctype_o.o(.constdata)
-    table                                    0x080480fc   Data           4  ctype_o.o(.constdata)
-    .conststring                             0x08048100   Section      114  bsp_key.o(.conststring)
+    i.Utest                                  0x08026aa4   Section        0  bsp_key.o(i.Utest)
+    i.Wait376Interrupt                       0x08026dd4   Section        0  filesys.o(i.Wait376Interrupt)
+    i.Write_Block_Rec                        0x08026df8   Section        0  fileoperate.o(i.Write_Block_Rec)
+    i.Write_His_Data                         0x08026e20   Section        0  fileoperate.o(i.Write_His_Data)
+    i.Write_His_Data_Man                     0x08026eb4   Section        0  fileoperate.o(i.Write_His_Data_Man)
+    i.XYCAL                                  0x08026fc0   Section        0  touchscreen.o(i.XYCAL)
+    i.__0printf                              0x08027120   Section        0  printfa.o(i.__0printf)
+    i.__0sprintf                             0x08027140   Section        0  printfa.o(i.__0sprintf)
+    i.__aeabi_errno_addr                     0x08027168   Section        0  errno.o(i.__aeabi_errno_addr)
+    i.__hardfp_atof                          0x08027170   Section        0  atof.o(i.__hardfp_atof)
+    i.__hardfp_sqrt                          0x080271a8   Section        0  sqrt.o(i.__hardfp_sqrt)
+    i.__read_errno                           0x08027224   Section        0  errno.o(i.__read_errno)
+    i.__scatterload_copy                     0x08027230   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x0802723e   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x08027240   Section       14  handlers.o(i.__scatterload_zeroinit)
+    i.__set_errno                            0x08027250   Section        0  errno.o(i.__set_errno)
+    i._fp_digits                             0x0802725c   Section        0  printfa.o(i._fp_digits)
+    _fp_digits                               0x0802725d   Thumb Code   366  printfa.o(i._fp_digits)
+    i._is_digit                              0x080273e0   Section        0  scanf_fp.o(i._is_digit)
+    i._printf_core                           0x080273f0   Section        0  printfa.o(i._printf_core)
+    _printf_core                             0x080273f1   Thumb Code  1744  printfa.o(i._printf_core)
+    i._printf_post_padding                   0x08027acc   Section        0  printfa.o(i._printf_post_padding)
+    _printf_post_padding                     0x08027acd   Thumb Code    36  printfa.o(i._printf_post_padding)
+    i._printf_pre_padding                    0x08027af0   Section        0  printfa.o(i._printf_pre_padding)
+    _printf_pre_padding                      0x08027af1   Thumb Code    46  printfa.o(i._printf_pre_padding)
+    i._sputc                                 0x08027b1e   Section        0  printfa.o(i._sputc)
+    _sputc                                   0x08027b1f   Thumb Code    10  printfa.o(i._sputc)
+    i.back_his                               0x08027b28   Section        0  history.o(i.back_his)
+    i.brt_set                                0x08027be8   Section        0  bsp_key.o(i.brt_set)
+    i.cal_disp                               0x08027cd0   Section        0  bsp_key.o(i.cal_disp)
+    i.clear_input                            0x08027de4   Section        0  bsp_key.o(i.clear_input)
+    i.del_num                                0x08027e1c   Section        0  bsp_key.o(i.del_num)
+    i.del_search                             0x08027eac   Section        0  bsp_key.o(i.del_search)
+    i.delay_1us                              0x08027fc0   Section        0  bsp_systick.o(i.delay_1us)
+    i.delay_us                               0x08027fe2   Section        0  bsp_systick.o(i.delay_us)
+    i.dim_set                                0x08027fec   Section        0  bsp_key.o(i.dim_set)
+    i.focus_off                              0x08028188   Section        0  bsp_key.o(i.focus_off)
+    i.focus_off1                             0x080281cc   Section        0  bsp_key.o(i.focus_off1)
+    i.focus_on                               0x080281f8   Section        0  bsp_key.o(i.focus_on)
+    i.focus_on1                              0x08028218   Section        0  bsp_key.o(i.focus_on1)
+    i.fputc                                  0x08028244   Section        0  bsp_debug_usart.o(i.fputc)
+    i.free                                   0x08028268   Section        0  malloc.o(i.free)
+    i.graph_his                              0x080282b8   Section        0  history.o(i.graph_his)
+    i.his_gset                               0x080283a4   Section        0  graphset.o(i.his_gset)
+    i.input_num                              0x0802850c   Section        0  bsp_key.o(i.input_num)
+    i.input_pass                             0x08028634   Section        0  bsp_key.o(i.input_pass)
+    i.input_search                           0x0802875c   Section        0  bsp_key.o(i.input_search)
+    i.main                                   0x08028a3c   Section        0  main.o(i.main)
+    i.malloc                                 0x08028ce0   Section        0  malloc.o(i.malloc)
+    i.maxfocus_off                           0x08028d4c   Section        0  bsp_key.o(i.maxfocus_off)
+    i.maxfocus_on                            0x08028e7c   Section        0  bsp_key.o(i.maxfocus_on)
+    i.minfocus_off                           0x08028fe4   Section        0  bsp_key.o(i.minfocus_off)
+    i.minfocus_on                            0x08029100   Section        0  bsp_key.o(i.minfocus_on)
+    i.minus_day                              0x08029254   Section        0  bsp_key.o(i.minus_day)
+    i.minus_hour                             0x08029294   Section        0  bsp_key.o(i.minus_hour)
+    i.minus_min                              0x080292d8   Section        0  bsp_key.o(i.minus_min)
+    i.minus_mon                              0x0802931c   Section        0  bsp_key.o(i.minus_mon)
+    i.minus_sec                              0x0802935c   Section        0  bsp_key.o(i.minus_sec)
+    i.minus_year                             0x080293a0   Section        0  bsp_key.o(i.minus_year)
+    i.multifocus_off                         0x080293e0   Section        0  bsp_key.o(i.multifocus_off)
+    i.multifocus_on                          0x08029460   Section        0  bsp_key.o(i.multifocus_on)
+    i.page_cal                               0x08029514   Section        0  calibarate.o(i.page_cal)
+    i.page_factory                           0x080299b0   Section        0  factory.o(i.page_factory)
+    i.page_graph                             0x08029a7c   Section        0  graph.o(i.page_graph)
+    i.page_gset                              0x0802b0b0   Section        0  graphset.o(i.page_gset)
+    i.page_his                               0x0802b24c   Section        0  history.o(i.page_his)
+    i.page_home                              0x0802b304   Section        0  home.o(i.page_home)
+    i.page_sep                               0x0802c3b4   Section        0  separation.o(i.page_sep)
+    i.page_set                               0x0802c814   Section        0  settings.o(i.page_set)
+    i.page_sys                               0x0802cd08   Section        0  system.o(i.page_sys)
+    i.page_sysinfo                           0x0802d0c0   Section        0  sysinfo.o(i.page_sysinfo)
+    i.plus_day                               0x0802d46c   Section        0  bsp_key.o(i.plus_day)
+    i.plus_hour                              0x0802d4ac   Section        0  bsp_key.o(i.plus_hour)
+    i.plus_min                               0x0802d4f0   Section        0  bsp_key.o(i.plus_min)
+    i.plus_mon                               0x0802d534   Section        0  bsp_key.o(i.plus_mon)
+    i.plus_sec                               0x0802d574   Section        0  bsp_key.o(i.plus_sec)
+    i.plus_year                              0x0802d5b8   Section        0  bsp_key.o(i.plus_year)
+    i.power_on                               0x0802d5f8   Section        0  power_on.o(i.power_on)
+    i.stimefocus_off                         0x0802d6d0   Section        0  bsp_key.o(i.stimefocus_off)
+    i.stimefocus_on                          0x0802d768   Section        0  bsp_key.o(i.stimefocus_on)
+    i.touch_set                              0x0802d840   Section        0  bsp_key.o(i.touch_set)
+    i.udisk_scan                             0x0802d8f8   Section        0  main.o(i.udisk_scan)
+    i.xEndCH376Cmd                           0x0802d944   Section        0  ch376.o(i.xEndCH376Cmd)
+    i.xReadCH376Data                         0x0802d950   Section        0  ch376.o(i.xReadCH376Data)
+    i.xWriteCH376Cmd                         0x0802d964   Section        0  ch376.o(i.xWriteCH376Cmd)
+    i.xWriteCH376Data                        0x0802d9ac   Section        0  ch376.o(i.xWriteCH376Data)
+    i.yhfocus_off                            0x0802d9bc   Section        0  bsp_key.o(i.yhfocus_off)
+    i.yhfocus_on                             0x0802dac4   Section        0  bsp_key.o(i.yhfocus_on)
+    i.ylfocus_off                            0x0802dc04   Section        0  bsp_key.o(i.ylfocus_off)
+    i.ylfocus_on                             0x0802dd0c   Section        0  bsp_key.o(i.ylfocus_on)
+    .constdata                               0x0802de48   Section       68  home.o(.constdata)
+    .constdata                               0x0802de8c   Section       72  bsp_key.o(.constdata)
+    .constdata                               0x0802ded4   Section     4560  fonts.o(.constdata)
+    .constdata                               0x0802f0a4   Section    13616  fonts.o(.constdata)
+    .constdata                               0x080325d4   Section     2822  fonts.o(.constdata)
+    .constdata                               0x080330da   Section     7493  fonts.o(.constdata)
+    .constdata                               0x08034e1f   Section      494  fonts.o(.constdata)
+    .constdata                               0x0803500e   Section    11780  fonts.o(.constdata)
+    .constdata                               0x08037e12   Section     7220  fonts.o(.constdata)
+    .constdata                               0x08039a46   Section     3800  fonts.o(.constdata)
+    .constdata                               0x0803a91e   Section     2660  fonts.o(.constdata)
+    .constdata                               0x0803b382   Section     3800  fonts.o(.constdata)
+    .constdata                               0x0803c25a   Section     9120  fonts.o(.constdata)
+    .constdata                               0x0803e5fa   Section    22560  fonts.o(.constdata)
+    .constdata                               0x08043e1a   Section    10640  fonts.o(.constdata)
+    .constdata                               0x080467aa   Section     6080  fonts.o(.constdata)
+    .constdata                               0x08047f6a   Section      238  fonts.o(.constdata)
+    .constdata                               0x08048058   Section      129  ctype_o.o(.constdata)
+    .constdata                               0x080480dc   Section        4  ctype_o.o(.constdata)
+    table                                    0x080480dc   Data           4  ctype_o.o(.constdata)
+    .conststring                             0x080480e0   Section      114  bsp_key.o(.conststring)
     .data                                    0x20000000   Section       20  system_stm32f4xx.o(.data)
     .data                                    0x20000014   Section       16  stm32f4xx_rcc.o(.data)
     APBAHBPrescTable                         0x20000014   Data          16  stm32f4xx_rcc.o(.data)
@@ -6037,116 +6037,116 @@ Image Symbol Table
     USB_OTG_WritePacket                      0x080261f3   Thumb Code    40  usb_core.o(i.USB_OTG_WritePacket)
     UsageFault_Handler                       0x0802621b   Thumb Code     2  stm32f4xx_it.o(i.UsageFault_Handler)
     Usart_SendByte                           0x0802621d   Thumb Code    22  bsp_debug_usart.o(i.Usart_SendByte)
-    UsbDataHandle                            0x08026235   Thumb Code  2190  main.o(i.UsbDataHandle)
-    Utest                                    0x08026ac5   Thumb Code   462  bsp_key.o(i.Utest)
-    Wait376Interrupt                         0x08026df5   Thumb Code    32  filesys.o(i.Wait376Interrupt)
-    Write_Block_Rec                          0x08026e19   Thumb Code    34  fileoperate.o(i.Write_Block_Rec)
-    Write_His_Data                           0x08026e41   Thumb Code   130  fileoperate.o(i.Write_His_Data)
-    Write_His_Data_Man                       0x08026ed5   Thumb Code   240  fileoperate.o(i.Write_His_Data_Man)
-    XYCAL                                    0x08026fe1   Thumb Code   342  touchscreen.o(i.XYCAL)
-    __0printf                                0x08027141   Thumb Code    22  printfa.o(i.__0printf)
-    __1printf                                0x08027141   Thumb Code     0  printfa.o(i.__0printf)
-    __2printf                                0x08027141   Thumb Code     0  printfa.o(i.__0printf)
-    __c89printf                              0x08027141   Thumb Code     0  printfa.o(i.__0printf)
-    printf                                   0x08027141   Thumb Code     0  printfa.o(i.__0printf)
-    __0sprintf                               0x08027161   Thumb Code    34  printfa.o(i.__0sprintf)
-    __1sprintf                               0x08027161   Thumb Code     0  printfa.o(i.__0sprintf)
-    __2sprintf                               0x08027161   Thumb Code     0  printfa.o(i.__0sprintf)
-    __c89sprintf                             0x08027161   Thumb Code     0  printfa.o(i.__0sprintf)
-    sprintf                                  0x08027161   Thumb Code     0  printfa.o(i.__0sprintf)
-    __aeabi_errno_addr                       0x08027189   Thumb Code     4  errno.o(i.__aeabi_errno_addr)
-    __rt_errno_addr                          0x08027189   Thumb Code     0  errno.o(i.__aeabi_errno_addr)
-    __hardfp_atof                            0x08027191   Thumb Code    44  atof.o(i.__hardfp_atof)
-    __hardfp_sqrt                            0x080271c9   Thumb Code   122  sqrt.o(i.__hardfp_sqrt)
-    __read_errno                             0x08027245   Thumb Code     6  errno.o(i.__read_errno)
-    __scatterload_copy                       0x08027251   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_null                       0x0802725f   Thumb Code     2  handlers.o(i.__scatterload_null)
-    __scatterload_zeroinit                   0x08027261   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    __set_errno                              0x08027271   Thumb Code     6  errno.o(i.__set_errno)
-    _is_digit                                0x08027401   Thumb Code    14  scanf_fp.o(i._is_digit)
-    back_his                                 0x08027b49   Thumb Code   140  history.o(i.back_his)
-    brt_set                                  0x08027c09   Thumb Code   196  bsp_key.o(i.brt_set)
-    cal_disp                                 0x08027cf1   Thumb Code   254  bsp_key.o(i.cal_disp)
-    clear_input                              0x08027e05   Thumb Code    48  bsp_key.o(i.clear_input)
-    del_num                                  0x08027e3d   Thumb Code   126  bsp_key.o(i.del_num)
-    del_search                               0x08027ecd   Thumb Code   262  bsp_key.o(i.del_search)
-    delay_1us                                0x08027fe1   Thumb Code    34  bsp_systick.o(i.delay_1us)
-    delay_us                                 0x08028003   Thumb Code    10  bsp_systick.o(i.delay_us)
-    dim_set                                  0x0802800d   Thumb Code   364  bsp_key.o(i.dim_set)
-    focus_off                                0x080281a9   Thumb Code    56  bsp_key.o(i.focus_off)
-    focus_off1                               0x080281ed   Thumb Code    36  bsp_key.o(i.focus_off1)
-    focus_on                                 0x08028219   Thumb Code    28  bsp_key.o(i.focus_on)
-    focus_on1                                0x08028239   Thumb Code    34  bsp_key.o(i.focus_on1)
-    fputc                                    0x08028265   Thumb Code    30  bsp_debug_usart.o(i.fputc)
-    free                                     0x08028289   Thumb Code    76  malloc.o(i.free)
-    graph_his                                0x080282d9   Thumb Code   176  history.o(i.graph_his)
-    his_gset                                 0x080283c5   Thumb Code   236  graphset.o(i.his_gset)
-    input_num                                0x0802852d   Thumb Code   262  bsp_key.o(i.input_num)
-    input_pass                               0x08028655   Thumb Code   262  bsp_key.o(i.input_pass)
-    input_search                             0x0802877d   Thumb Code   684  bsp_key.o(i.input_search)
-    main                                     0x08028a5d   Thumb Code   540  main.o(i.main)
-    malloc                                   0x08028d01   Thumb Code    92  malloc.o(i.malloc)
-    maxfocus_off                             0x08028d6d   Thumb Code   290  bsp_key.o(i.maxfocus_off)
-    maxfocus_on                              0x08028e9d   Thumb Code   318  bsp_key.o(i.maxfocus_on)
-    minfocus_off                             0x08029005   Thumb Code   270  bsp_key.o(i.minfocus_off)
-    minfocus_on                              0x08029121   Thumb Code   300  bsp_key.o(i.minfocus_on)
-    minus_day                                0x08029275   Thumb Code    54  bsp_key.o(i.minus_day)
-    minus_hour                               0x080292b5   Thumb Code    60  bsp_key.o(i.minus_hour)
-    minus_min                                0x080292f9   Thumb Code    60  bsp_key.o(i.minus_min)
-    minus_mon                                0x0802933d   Thumb Code    54  bsp_key.o(i.minus_mon)
-    minus_sec                                0x0802937d   Thumb Code    60  bsp_key.o(i.minus_sec)
-    minus_year                               0x080293c1   Thumb Code    54  bsp_key.o(i.minus_year)
-    multifocus_off                           0x08029401   Thumb Code   120  bsp_key.o(i.multifocus_off)
-    multifocus_on                            0x08029481   Thumb Code   146  bsp_key.o(i.multifocus_on)
-    page_cal                                 0x08029535   Thumb Code   986  calibarate.o(i.page_cal)
-    page_factory                             0x080299d1   Thumb Code   138  factory.o(i.page_factory)
-    page_graph                               0x08029a9d   Thumb Code  5592  graph.o(i.page_graph)
-    page_gset                                0x0802b0d1   Thumb Code   270  graphset.o(i.page_gset)
-    page_his                                 0x0802b26d   Thumb Code   134  history.o(i.page_his)
-    page_home                                0x0802b325   Thumb Code  4190  home.o(i.page_home)
-    page_sep                                 0x0802c3d5   Thumb Code   926  separation.o(i.page_sep)
-    page_set                                 0x0802c835   Thumb Code   852  settings.o(i.page_set)
-    page_sys                                 0x0802cd29   Thumb Code   700  system.o(i.page_sys)
-    page_sysinfo                             0x0802d0e1   Thumb Code   564  sysinfo.o(i.page_sysinfo)
-    plus_day                                 0x0802d48d   Thumb Code    54  bsp_key.o(i.plus_day)
-    plus_hour                                0x0802d4cd   Thumb Code    58  bsp_key.o(i.plus_hour)
-    plus_min                                 0x0802d511   Thumb Code    58  bsp_key.o(i.plus_min)
-    plus_mon                                 0x0802d555   Thumb Code    54  bsp_key.o(i.plus_mon)
-    plus_sec                                 0x0802d595   Thumb Code    58  bsp_key.o(i.plus_sec)
-    plus_year                                0x0802d5d9   Thumb Code    54  bsp_key.o(i.plus_year)
-    power_on                                 0x0802d619   Thumb Code   118  power_on.o(i.power_on)
-    stimefocus_off                           0x0802d6f1   Thumb Code   144  bsp_key.o(i.stimefocus_off)
-    stimefocus_on                            0x0802d789   Thumb Code   170  bsp_key.o(i.stimefocus_on)
-    touch_set                                0x0802d861   Thumb Code   148  bsp_key.o(i.touch_set)
-    udisk_scan                               0x0802d919   Thumb Code    66  main.o(i.udisk_scan)
-    xEndCH376Cmd                             0x0802d965   Thumb Code     8  ch376.o(i.xEndCH376Cmd)
-    xReadCH376Data                           0x0802d971   Thumb Code    18  ch376.o(i.xReadCH376Data)
-    xWriteCH376Cmd                           0x0802d985   Thumb Code    68  ch376.o(i.xWriteCH376Cmd)
-    xWriteCH376Data                          0x0802d9cd   Thumb Code    16  ch376.o(i.xWriteCH376Data)
-    yhfocus_off                              0x0802d9dd   Thumb Code   252  bsp_key.o(i.yhfocus_off)
-    yhfocus_on                               0x0802dae5   Thumb Code   280  bsp_key.o(i.yhfocus_on)
-    ylfocus_off                              0x0802dc25   Thumb Code   252  bsp_key.o(i.ylfocus_off)
-    ylfocus_on                               0x0802dd2d   Thumb Code   280  bsp_key.o(i.ylfocus_on)
-    TC_Type                                  0x0802de68   Data          68  home.o(.constdata)
-    TC_Menu                                  0x0802deac   Data          72  bsp_key.o(.constdata)
-    ASCII16x24_Table                         0x0802def4   Data        4560  fonts.o(.constdata)
-    Chinese24x24_Table                       0x0802f0c4   Data       13616  fonts.o(.constdata)
-    Chinese24x27_Table                       0x080325f4   Data        2822  fonts.o(.constdata)
-    Chinese24x19_Table                       0x080330fa   Data        7493  fonts.o(.constdata)
-    Chinese16x20_Table                       0x08034e3f   Data         494  fonts.o(.constdata)
-    ASCII16x31_Table                         0x0803502e   Data       11780  fonts.o(.constdata)
-    INS_Table                                0x08037e32   Data        7220  fonts.o(.constdata)
-    Channel_8x20B_Table                      0x08039a66   Data        3800  fonts.o(.constdata)
-    Channel_8x14_Table                       0x0803a93e   Data        2660  fonts.o(.constdata)
-    Channel_8x20_Table                       0x0803b3a2   Data        3800  fonts.o(.constdata)
-    Channel_16x24_Table                      0x0803c27a   Data        9120  fonts.o(.constdata)
-    Temp_24x40_Table                         0x0803e61a   Data       22560  fonts.o(.constdata)
-    Temp_16x28_Table                         0x08043e3a   Data       10640  fonts.o(.constdata)
-    SYS_16x16_Table                          0x080467ca   Data        6080  fonts.o(.constdata)
-    SONG_16x16_Table                         0x08047f8a   Data         238  fonts.o(.constdata)
-    __ctype_table                            0x08048078   Data         129  ctype_o.o(.constdata)
-    Region$$Table$$Base                      0x08048174   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08048194   Number         0  anon$$obj.o(Region$$Table)
+    UsbDataHandle                            0x08026235   Thumb Code  2160  main.o(i.UsbDataHandle)
+    Utest                                    0x08026aa5   Thumb Code   462  bsp_key.o(i.Utest)
+    Wait376Interrupt                         0x08026dd5   Thumb Code    32  filesys.o(i.Wait376Interrupt)
+    Write_Block_Rec                          0x08026df9   Thumb Code    34  fileoperate.o(i.Write_Block_Rec)
+    Write_His_Data                           0x08026e21   Thumb Code   130  fileoperate.o(i.Write_His_Data)
+    Write_His_Data_Man                       0x08026eb5   Thumb Code   240  fileoperate.o(i.Write_His_Data_Man)
+    XYCAL                                    0x08026fc1   Thumb Code   342  touchscreen.o(i.XYCAL)
+    __0printf                                0x08027121   Thumb Code    22  printfa.o(i.__0printf)
+    __1printf                                0x08027121   Thumb Code     0  printfa.o(i.__0printf)
+    __2printf                                0x08027121   Thumb Code     0  printfa.o(i.__0printf)
+    __c89printf                              0x08027121   Thumb Code     0  printfa.o(i.__0printf)
+    printf                                   0x08027121   Thumb Code     0  printfa.o(i.__0printf)
+    __0sprintf                               0x08027141   Thumb Code    34  printfa.o(i.__0sprintf)
+    __1sprintf                               0x08027141   Thumb Code     0  printfa.o(i.__0sprintf)
+    __2sprintf                               0x08027141   Thumb Code     0  printfa.o(i.__0sprintf)
+    __c89sprintf                             0x08027141   Thumb Code     0  printfa.o(i.__0sprintf)
+    sprintf                                  0x08027141   Thumb Code     0  printfa.o(i.__0sprintf)
+    __aeabi_errno_addr                       0x08027169   Thumb Code     4  errno.o(i.__aeabi_errno_addr)
+    __rt_errno_addr                          0x08027169   Thumb Code     0  errno.o(i.__aeabi_errno_addr)
+    __hardfp_atof                            0x08027171   Thumb Code    44  atof.o(i.__hardfp_atof)
+    __hardfp_sqrt                            0x080271a9   Thumb Code   122  sqrt.o(i.__hardfp_sqrt)
+    __read_errno                             0x08027225   Thumb Code     6  errno.o(i.__read_errno)
+    __scatterload_copy                       0x08027231   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x0802723f   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x08027241   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    __set_errno                              0x08027251   Thumb Code     6  errno.o(i.__set_errno)
+    _is_digit                                0x080273e1   Thumb Code    14  scanf_fp.o(i._is_digit)
+    back_his                                 0x08027b29   Thumb Code   140  history.o(i.back_his)
+    brt_set                                  0x08027be9   Thumb Code   196  bsp_key.o(i.brt_set)
+    cal_disp                                 0x08027cd1   Thumb Code   254  bsp_key.o(i.cal_disp)
+    clear_input                              0x08027de5   Thumb Code    48  bsp_key.o(i.clear_input)
+    del_num                                  0x08027e1d   Thumb Code   126  bsp_key.o(i.del_num)
+    del_search                               0x08027ead   Thumb Code   262  bsp_key.o(i.del_search)
+    delay_1us                                0x08027fc1   Thumb Code    34  bsp_systick.o(i.delay_1us)
+    delay_us                                 0x08027fe3   Thumb Code    10  bsp_systick.o(i.delay_us)
+    dim_set                                  0x08027fed   Thumb Code   364  bsp_key.o(i.dim_set)
+    focus_off                                0x08028189   Thumb Code    56  bsp_key.o(i.focus_off)
+    focus_off1                               0x080281cd   Thumb Code    36  bsp_key.o(i.focus_off1)
+    focus_on                                 0x080281f9   Thumb Code    28  bsp_key.o(i.focus_on)
+    focus_on1                                0x08028219   Thumb Code    34  bsp_key.o(i.focus_on1)
+    fputc                                    0x08028245   Thumb Code    30  bsp_debug_usart.o(i.fputc)
+    free                                     0x08028269   Thumb Code    76  malloc.o(i.free)
+    graph_his                                0x080282b9   Thumb Code   176  history.o(i.graph_his)
+    his_gset                                 0x080283a5   Thumb Code   236  graphset.o(i.his_gset)
+    input_num                                0x0802850d   Thumb Code   262  bsp_key.o(i.input_num)
+    input_pass                               0x08028635   Thumb Code   262  bsp_key.o(i.input_pass)
+    input_search                             0x0802875d   Thumb Code   684  bsp_key.o(i.input_search)
+    main                                     0x08028a3d   Thumb Code   540  main.o(i.main)
+    malloc                                   0x08028ce1   Thumb Code    92  malloc.o(i.malloc)
+    maxfocus_off                             0x08028d4d   Thumb Code   290  bsp_key.o(i.maxfocus_off)
+    maxfocus_on                              0x08028e7d   Thumb Code   318  bsp_key.o(i.maxfocus_on)
+    minfocus_off                             0x08028fe5   Thumb Code   270  bsp_key.o(i.minfocus_off)
+    minfocus_on                              0x08029101   Thumb Code   300  bsp_key.o(i.minfocus_on)
+    minus_day                                0x08029255   Thumb Code    54  bsp_key.o(i.minus_day)
+    minus_hour                               0x08029295   Thumb Code    60  bsp_key.o(i.minus_hour)
+    minus_min                                0x080292d9   Thumb Code    60  bsp_key.o(i.minus_min)
+    minus_mon                                0x0802931d   Thumb Code    54  bsp_key.o(i.minus_mon)
+    minus_sec                                0x0802935d   Thumb Code    60  bsp_key.o(i.minus_sec)
+    minus_year                               0x080293a1   Thumb Code    54  bsp_key.o(i.minus_year)
+    multifocus_off                           0x080293e1   Thumb Code   120  bsp_key.o(i.multifocus_off)
+    multifocus_on                            0x08029461   Thumb Code   146  bsp_key.o(i.multifocus_on)
+    page_cal                                 0x08029515   Thumb Code   986  calibarate.o(i.page_cal)
+    page_factory                             0x080299b1   Thumb Code   138  factory.o(i.page_factory)
+    page_graph                               0x08029a7d   Thumb Code  5592  graph.o(i.page_graph)
+    page_gset                                0x0802b0b1   Thumb Code   270  graphset.o(i.page_gset)
+    page_his                                 0x0802b24d   Thumb Code   134  history.o(i.page_his)
+    page_home                                0x0802b305   Thumb Code  4190  home.o(i.page_home)
+    page_sep                                 0x0802c3b5   Thumb Code   926  separation.o(i.page_sep)
+    page_set                                 0x0802c815   Thumb Code   852  settings.o(i.page_set)
+    page_sys                                 0x0802cd09   Thumb Code   700  system.o(i.page_sys)
+    page_sysinfo                             0x0802d0c1   Thumb Code   564  sysinfo.o(i.page_sysinfo)
+    plus_day                                 0x0802d46d   Thumb Code    54  bsp_key.o(i.plus_day)
+    plus_hour                                0x0802d4ad   Thumb Code    58  bsp_key.o(i.plus_hour)
+    plus_min                                 0x0802d4f1   Thumb Code    58  bsp_key.o(i.plus_min)
+    plus_mon                                 0x0802d535   Thumb Code    54  bsp_key.o(i.plus_mon)
+    plus_sec                                 0x0802d575   Thumb Code    58  bsp_key.o(i.plus_sec)
+    plus_year                                0x0802d5b9   Thumb Code    54  bsp_key.o(i.plus_year)
+    power_on                                 0x0802d5f9   Thumb Code   118  power_on.o(i.power_on)
+    stimefocus_off                           0x0802d6d1   Thumb Code   144  bsp_key.o(i.stimefocus_off)
+    stimefocus_on                            0x0802d769   Thumb Code   170  bsp_key.o(i.stimefocus_on)
+    touch_set                                0x0802d841   Thumb Code   148  bsp_key.o(i.touch_set)
+    udisk_scan                               0x0802d8f9   Thumb Code    66  main.o(i.udisk_scan)
+    xEndCH376Cmd                             0x0802d945   Thumb Code     8  ch376.o(i.xEndCH376Cmd)
+    xReadCH376Data                           0x0802d951   Thumb Code    18  ch376.o(i.xReadCH376Data)
+    xWriteCH376Cmd                           0x0802d965   Thumb Code    68  ch376.o(i.xWriteCH376Cmd)
+    xWriteCH376Data                          0x0802d9ad   Thumb Code    16  ch376.o(i.xWriteCH376Data)
+    yhfocus_off                              0x0802d9bd   Thumb Code   252  bsp_key.o(i.yhfocus_off)
+    yhfocus_on                               0x0802dac5   Thumb Code   280  bsp_key.o(i.yhfocus_on)
+    ylfocus_off                              0x0802dc05   Thumb Code   252  bsp_key.o(i.ylfocus_off)
+    ylfocus_on                               0x0802dd0d   Thumb Code   280  bsp_key.o(i.ylfocus_on)
+    TC_Type                                  0x0802de48   Data          68  home.o(.constdata)
+    TC_Menu                                  0x0802de8c   Data          72  bsp_key.o(.constdata)
+    ASCII16x24_Table                         0x0802ded4   Data        4560  fonts.o(.constdata)
+    Chinese24x24_Table                       0x0802f0a4   Data       13616  fonts.o(.constdata)
+    Chinese24x27_Table                       0x080325d4   Data        2822  fonts.o(.constdata)
+    Chinese24x19_Table                       0x080330da   Data        7493  fonts.o(.constdata)
+    Chinese16x20_Table                       0x08034e1f   Data         494  fonts.o(.constdata)
+    ASCII16x31_Table                         0x0803500e   Data       11780  fonts.o(.constdata)
+    INS_Table                                0x08037e12   Data        7220  fonts.o(.constdata)
+    Channel_8x20B_Table                      0x08039a46   Data        3800  fonts.o(.constdata)
+    Channel_8x14_Table                       0x0803a91e   Data        2660  fonts.o(.constdata)
+    Channel_8x20_Table                       0x0803b382   Data        3800  fonts.o(.constdata)
+    Channel_16x24_Table                      0x0803c25a   Data        9120  fonts.o(.constdata)
+    Temp_24x40_Table                         0x0803e5fa   Data       22560  fonts.o(.constdata)
+    Temp_16x28_Table                         0x08043e1a   Data       10640  fonts.o(.constdata)
+    SYS_16x16_Table                          0x080467aa   Data        6080  fonts.o(.constdata)
+    SONG_16x16_Table                         0x08047f6a   Data         238  fonts.o(.constdata)
+    __ctype_table                            0x08048058   Data         129  ctype_o.o(.constdata)
+    Region$$Table$$Base                      0x08048154   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08048174   Number         0  anon$$obj.o(Region$$Table)
     SystemCoreClock                          0x20000000   Data           4  system_stm32f4xx.o(.data)
     AHBPrescTable                            0x20000004   Data          16  system_stm32f4xx.o(.data)
     range                                    0x20000024   Data           4  graph.o(.data)
@@ -6307,9 +6307,9 @@ Memory Map of the image
 
   Image Entry point : 0x080001ad
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x000484f8, Max: 0x00100000, ABSOLUTE, COMPRESSED[0x00048308])
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x000484d8, Max: 0x00100000, ABSOLUTE, COMPRESSED[0x000482e8])
 
-    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00048194, Max: 0x00100000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00048174, Max: 0x00100000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -6845,124 +6845,123 @@ Memory Map of the image
     0x0802621a   0x0802621a   0x00000002   Code   RO         7292    i.UsageFault_Handler  stm32f4xx_it.o
     0x0802621c   0x0802621c   0x00000016   Code   RO         8206    i.Usart_SendByte    bsp_debug_usart.o
     0x08026232   0x08026232   0x00000002   PAD
-    0x08026234   0x08026234   0x0000088e   Code   RO         6945    i.UsbDataHandle     main.o
-    0x08026ac2   0x08026ac2   0x00000002   PAD
-    0x08026ac4   0x08026ac4   0x00000330   Code   RO         8423    i.Utest             bsp_key.o
-    0x08026df4   0x08026df4   0x00000024   Code   RO         9262    i.Wait376Interrupt  filesys.o
-    0x08026e18   0x08026e18   0x00000028   Code   RO         7197    i.Write_Block_Rec   fileoperate.o
-    0x08026e40   0x08026e40   0x00000094   Code   RO         7198    i.Write_His_Data    fileoperate.o
-    0x08026ed4   0x08026ed4   0x0000010c   Code   RO         7199    i.Write_His_Data_Man  fileoperate.o
-    0x08026fe0   0x08026fe0   0x00000160   Code   RO         7403    i.XYCAL             touchscreen.o
-    0x08027140   0x08027140   0x00000020   Code   RO        10045    i.__0printf         mc_w.l(printfa.o)
-    0x08027160   0x08027160   0x00000028   Code   RO        10047    i.__0sprintf        mc_w.l(printfa.o)
-    0x08027188   0x08027188   0x00000008   Code   RO        10138    i.__aeabi_errno_addr  mc_w.l(errno.o)
-    0x08027190   0x08027190   0x00000038   Code   RO         9773    i.__hardfp_atof     m_wm.l(atof.o)
-    0x080271c8   0x080271c8   0x0000007a   Code   RO         9779    i.__hardfp_sqrt     m_wm.l(sqrt.o)
-    0x08027242   0x08027242   0x00000002   PAD
-    0x08027244   0x08027244   0x0000000c   Code   RO        10139    i.__read_errno      mc_w.l(errno.o)
-    0x08027250   0x08027250   0x0000000e   Code   RO        10213    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x0802725e   0x0802725e   0x00000002   Code   RO        10214    i.__scatterload_null  mc_w.l(handlers.o)
-    0x08027260   0x08027260   0x0000000e   Code   RO        10215    i.__scatterload_zeroinit  mc_w.l(handlers.o)
-    0x0802726e   0x0802726e   0x00000002   PAD
-    0x08027270   0x08027270   0x0000000c   Code   RO        10140    i.__set_errno       mc_w.l(errno.o)
-    0x0802727c   0x0802727c   0x00000184   Code   RO        10052    i._fp_digits        mc_w.l(printfa.o)
-    0x08027400   0x08027400   0x0000000e   Code   RO        10198    i._is_digit         mc_w.l(scanf_fp.o)
-    0x0802740e   0x0802740e   0x00000002   PAD
-    0x08027410   0x08027410   0x000006dc   Code   RO        10053    i._printf_core      mc_w.l(printfa.o)
-    0x08027aec   0x08027aec   0x00000024   Code   RO        10054    i._printf_post_padding  mc_w.l(printfa.o)
-    0x08027b10   0x08027b10   0x0000002e   Code   RO        10055    i._printf_pre_padding  mc_w.l(printfa.o)
-    0x08027b3e   0x08027b3e   0x0000000a   Code   RO        10057    i._sputc            mc_w.l(printfa.o)
-    0x08027b48   0x08027b48   0x000000c0   Code   RO         5434    i.back_his          history.o
-    0x08027c08   0x08027c08   0x000000e8   Code   RO         8424    i.brt_set           bsp_key.o
-    0x08027cf0   0x08027cf0   0x00000114   Code   RO         8425    i.cal_disp          bsp_key.o
-    0x08027e04   0x08027e04   0x00000038   Code   RO         8426    i.clear_input       bsp_key.o
-    0x08027e3c   0x08027e3c   0x00000090   Code   RO         8427    i.del_num           bsp_key.o
-    0x08027ecc   0x08027ecc   0x00000114   Code   RO         8428    i.del_search        bsp_key.o
-    0x08027fe0   0x08027fe0   0x00000022   Code   RO         8890    i.delay_1us         bsp_systick.o
-    0x08028002   0x08028002   0x0000000a   Code   RO         8891    i.delay_us          bsp_systick.o
-    0x0802800c   0x0802800c   0x0000019c   Code   RO         8430    i.dim_set           bsp_key.o
-    0x080281a8   0x080281a8   0x00000044   Code   RO         8431    i.focus_off         bsp_key.o
-    0x080281ec   0x080281ec   0x0000002c   Code   RO         8432    i.focus_off1        bsp_key.o
-    0x08028218   0x08028218   0x00000020   Code   RO         8433    i.focus_on          bsp_key.o
-    0x08028238   0x08028238   0x0000002c   Code   RO         8434    i.focus_on1         bsp_key.o
-    0x08028264   0x08028264   0x00000024   Code   RO         8210    i.fputc             bsp_debug_usart.o
-    0x08028288   0x08028288   0x00000050   Code   RO        10073    i.free              mc_w.l(malloc.o)
-    0x080282d8   0x080282d8   0x000000ec   Code   RO         5435    i.graph_his         history.o
-    0x080283c4   0x080283c4   0x00000168   Code   RO         5393    i.his_gset          graphset.o
-    0x0802852c   0x0802852c   0x00000128   Code   RO         8435    i.input_num         bsp_key.o
-    0x08028654   0x08028654   0x00000128   Code   RO         8436    i.input_pass        bsp_key.o
-    0x0802877c   0x0802877c   0x000002e0   Code   RO         8437    i.input_search      bsp_key.o
-    0x08028a5c   0x08028a5c   0x000002a4   Code   RO         6947    i.main              main.o
-    0x08028d00   0x08028d00   0x0000006c   Code   RO        10074    i.malloc            mc_w.l(malloc.o)
-    0x08028d6c   0x08028d6c   0x00000130   Code   RO         8439    i.maxfocus_off      bsp_key.o
-    0x08028e9c   0x08028e9c   0x00000168   Code   RO         8440    i.maxfocus_on       bsp_key.o
-    0x08029004   0x08029004   0x0000011c   Code   RO         8441    i.minfocus_off      bsp_key.o
-    0x08029120   0x08029120   0x00000154   Code   RO         8442    i.minfocus_on       bsp_key.o
-    0x08029274   0x08029274   0x00000040   Code   RO         8443    i.minus_day         bsp_key.o
-    0x080292b4   0x080292b4   0x00000044   Code   RO         8444    i.minus_hour        bsp_key.o
-    0x080292f8   0x080292f8   0x00000044   Code   RO         8445    i.minus_min         bsp_key.o
-    0x0802933c   0x0802933c   0x00000040   Code   RO         8446    i.minus_mon         bsp_key.o
-    0x0802937c   0x0802937c   0x00000044   Code   RO         8447    i.minus_sec         bsp_key.o
-    0x080293c0   0x080293c0   0x00000040   Code   RO         8448    i.minus_year        bsp_key.o
-    0x08029400   0x08029400   0x00000080   Code   RO         8449    i.multifocus_off    bsp_key.o
-    0x08029480   0x08029480   0x000000b4   Code   RO         8450    i.multifocus_on     bsp_key.o
-    0x08029534   0x08029534   0x0000049c   Code   RO         5515    i.page_cal          calibarate.o
-    0x080299d0   0x080299d0   0x000000cc   Code   RO         5578    i.page_factory      factory.o
-    0x08029a9c   0x08029a9c   0x00001634   Code   RO         5351    i.page_graph        graph.o
-    0x0802b0d0   0x0802b0d0   0x0000019c   Code   RO         5394    i.page_gset         graphset.o
-    0x0802b26c   0x0802b26c   0x000000b8   Code   RO         5436    i.page_his          history.o
-    0x0802b324   0x0802b324   0x000010b0   Code   RO         5149    i.page_home         home.o
-    0x0802c3d4   0x0802c3d4   0x00000460   Code   RO         5293    i.page_sep          separation.o
-    0x0802c834   0x0802c834   0x000004f4   Code   RO         5268    i.page_set          settings.o
-    0x0802cd28   0x0802cd28   0x000003b8   Code   RO         5243    i.page_sys          system.o
-    0x0802d0e0   0x0802d0e0   0x000003ac   Code   RO         5325    i.page_sysinfo      sysinfo.o
-    0x0802d48c   0x0802d48c   0x00000040   Code   RO         8451    i.plus_day          bsp_key.o
-    0x0802d4cc   0x0802d4cc   0x00000044   Code   RO         8452    i.plus_hour         bsp_key.o
-    0x0802d510   0x0802d510   0x00000044   Code   RO         8453    i.plus_min          bsp_key.o
-    0x0802d554   0x0802d554   0x00000040   Code   RO         8454    i.plus_mon          bsp_key.o
-    0x0802d594   0x0802d594   0x00000044   Code   RO         8455    i.plus_sec          bsp_key.o
-    0x0802d5d8   0x0802d5d8   0x00000040   Code   RO         8456    i.plus_year         bsp_key.o
-    0x0802d618   0x0802d618   0x000000d8   Code   RO         5548    i.power_on          power_on.o
-    0x0802d6f0   0x0802d6f0   0x00000098   Code   RO         8457    i.stimefocus_off    bsp_key.o
-    0x0802d788   0x0802d788   0x000000d8   Code   RO         8458    i.stimefocus_on     bsp_key.o
-    0x0802d860   0x0802d860   0x000000b8   Code   RO         8459    i.touch_set         bsp_key.o
-    0x0802d918   0x0802d918   0x0000004c   Code   RO         6948    i.udisk_scan        main.o
-    0x0802d964   0x0802d964   0x0000000c   Code   RO         9147    i.xEndCH376Cmd      ch376.o
-    0x0802d970   0x0802d970   0x00000012   Code   RO         9148    i.xReadCH376Data    ch376.o
-    0x0802d982   0x0802d982   0x00000002   PAD
-    0x0802d984   0x0802d984   0x00000048   Code   RO         9149    i.xWriteCH376Cmd    ch376.o
-    0x0802d9cc   0x0802d9cc   0x00000010   Code   RO         9150    i.xWriteCH376Data   ch376.o
-    0x0802d9dc   0x0802d9dc   0x00000108   Code   RO         8460    i.yhfocus_off       bsp_key.o
-    0x0802dae4   0x0802dae4   0x00000140   Code   RO         8461    i.yhfocus_on        bsp_key.o
-    0x0802dc24   0x0802dc24   0x00000108   Code   RO         8462    i.ylfocus_off       bsp_key.o
-    0x0802dd2c   0x0802dd2c   0x0000013c   Code   RO         8463    i.ylfocus_on        bsp_key.o
-    0x0802de68   0x0802de68   0x00000044   Data   RO         5150    .constdata          home.o
-    0x0802deac   0x0802deac   0x00000048   Data   RO         8466    .constdata          bsp_key.o
-    0x0802def4   0x0802def4   0x000011d0   Data   RO         9702    .constdata          fonts.o
-    0x0802f0c4   0x0802f0c4   0x00003530   Data   RO         9706    .constdata          fonts.o
-    0x080325f4   0x080325f4   0x00000b06   Data   RO         9707    .constdata          fonts.o
-    0x080330fa   0x080330fa   0x00001d45   Data   RO         9709    .constdata          fonts.o
-    0x08034e3f   0x08034e3f   0x000001ee   Data   RO         9710    .constdata          fonts.o
-    0x0803502d   0x0803502d   0x00000001   PAD
-    0x0803502e   0x0803502e   0x00002e04   Data   RO         9711    .constdata          fonts.o
-    0x08037e32   0x08037e32   0x00001c34   Data   RO         9712    .constdata          fonts.o
-    0x08039a66   0x08039a66   0x00000ed8   Data   RO         9713    .constdata          fonts.o
-    0x0803a93e   0x0803a93e   0x00000a64   Data   RO         9714    .constdata          fonts.o
-    0x0803b3a2   0x0803b3a2   0x00000ed8   Data   RO         9715    .constdata          fonts.o
-    0x0803c27a   0x0803c27a   0x000023a0   Data   RO         9717    .constdata          fonts.o
-    0x0803e61a   0x0803e61a   0x00005820   Data   RO         9719    .constdata          fonts.o
-    0x08043e3a   0x08043e3a   0x00002990   Data   RO         9720    .constdata          fonts.o
-    0x080467ca   0x080467ca   0x000017c0   Data   RO         9722    .constdata          fonts.o
-    0x08047f8a   0x08047f8a   0x000000ee   Data   RO         9723    .constdata          fonts.o
-    0x08048078   0x08048078   0x00000081   Data   RO        10169    .constdata          mc_w.l(ctype_o.o)
-    0x080480f9   0x080480f9   0x00000003   PAD
-    0x080480fc   0x080480fc   0x00000004   Data   RO        10170    .constdata          mc_w.l(ctype_o.o)
-    0x08048100   0x08048100   0x00000072   Data   RO         8467    .conststring        bsp_key.o
-    0x08048172   0x08048172   0x00000002   PAD
-    0x08048174   0x08048174   0x00000020   Data   RO        10211    Region$$Table       anon$$obj.o
+    0x08026234   0x08026234   0x00000870   Code   RO         6945    i.UsbDataHandle     main.o
+    0x08026aa4   0x08026aa4   0x00000330   Code   RO         8423    i.Utest             bsp_key.o
+    0x08026dd4   0x08026dd4   0x00000024   Code   RO         9262    i.Wait376Interrupt  filesys.o
+    0x08026df8   0x08026df8   0x00000028   Code   RO         7197    i.Write_Block_Rec   fileoperate.o
+    0x08026e20   0x08026e20   0x00000094   Code   RO         7198    i.Write_His_Data    fileoperate.o
+    0x08026eb4   0x08026eb4   0x0000010c   Code   RO         7199    i.Write_His_Data_Man  fileoperate.o
+    0x08026fc0   0x08026fc0   0x00000160   Code   RO         7403    i.XYCAL             touchscreen.o
+    0x08027120   0x08027120   0x00000020   Code   RO        10045    i.__0printf         mc_w.l(printfa.o)
+    0x08027140   0x08027140   0x00000028   Code   RO        10047    i.__0sprintf        mc_w.l(printfa.o)
+    0x08027168   0x08027168   0x00000008   Code   RO        10138    i.__aeabi_errno_addr  mc_w.l(errno.o)
+    0x08027170   0x08027170   0x00000038   Code   RO         9773    i.__hardfp_atof     m_wm.l(atof.o)
+    0x080271a8   0x080271a8   0x0000007a   Code   RO         9779    i.__hardfp_sqrt     m_wm.l(sqrt.o)
+    0x08027222   0x08027222   0x00000002   PAD
+    0x08027224   0x08027224   0x0000000c   Code   RO        10139    i.__read_errno      mc_w.l(errno.o)
+    0x08027230   0x08027230   0x0000000e   Code   RO        10213    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x0802723e   0x0802723e   0x00000002   Code   RO        10214    i.__scatterload_null  mc_w.l(handlers.o)
+    0x08027240   0x08027240   0x0000000e   Code   RO        10215    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x0802724e   0x0802724e   0x00000002   PAD
+    0x08027250   0x08027250   0x0000000c   Code   RO        10140    i.__set_errno       mc_w.l(errno.o)
+    0x0802725c   0x0802725c   0x00000184   Code   RO        10052    i._fp_digits        mc_w.l(printfa.o)
+    0x080273e0   0x080273e0   0x0000000e   Code   RO        10198    i._is_digit         mc_w.l(scanf_fp.o)
+    0x080273ee   0x080273ee   0x00000002   PAD
+    0x080273f0   0x080273f0   0x000006dc   Code   RO        10053    i._printf_core      mc_w.l(printfa.o)
+    0x08027acc   0x08027acc   0x00000024   Code   RO        10054    i._printf_post_padding  mc_w.l(printfa.o)
+    0x08027af0   0x08027af0   0x0000002e   Code   RO        10055    i._printf_pre_padding  mc_w.l(printfa.o)
+    0x08027b1e   0x08027b1e   0x0000000a   Code   RO        10057    i._sputc            mc_w.l(printfa.o)
+    0x08027b28   0x08027b28   0x000000c0   Code   RO         5434    i.back_his          history.o
+    0x08027be8   0x08027be8   0x000000e8   Code   RO         8424    i.brt_set           bsp_key.o
+    0x08027cd0   0x08027cd0   0x00000114   Code   RO         8425    i.cal_disp          bsp_key.o
+    0x08027de4   0x08027de4   0x00000038   Code   RO         8426    i.clear_input       bsp_key.o
+    0x08027e1c   0x08027e1c   0x00000090   Code   RO         8427    i.del_num           bsp_key.o
+    0x08027eac   0x08027eac   0x00000114   Code   RO         8428    i.del_search        bsp_key.o
+    0x08027fc0   0x08027fc0   0x00000022   Code   RO         8890    i.delay_1us         bsp_systick.o
+    0x08027fe2   0x08027fe2   0x0000000a   Code   RO         8891    i.delay_us          bsp_systick.o
+    0x08027fec   0x08027fec   0x0000019c   Code   RO         8430    i.dim_set           bsp_key.o
+    0x08028188   0x08028188   0x00000044   Code   RO         8431    i.focus_off         bsp_key.o
+    0x080281cc   0x080281cc   0x0000002c   Code   RO         8432    i.focus_off1        bsp_key.o
+    0x080281f8   0x080281f8   0x00000020   Code   RO         8433    i.focus_on          bsp_key.o
+    0x08028218   0x08028218   0x0000002c   Code   RO         8434    i.focus_on1         bsp_key.o
+    0x08028244   0x08028244   0x00000024   Code   RO         8210    i.fputc             bsp_debug_usart.o
+    0x08028268   0x08028268   0x00000050   Code   RO        10073    i.free              mc_w.l(malloc.o)
+    0x080282b8   0x080282b8   0x000000ec   Code   RO         5435    i.graph_his         history.o
+    0x080283a4   0x080283a4   0x00000168   Code   RO         5393    i.his_gset          graphset.o
+    0x0802850c   0x0802850c   0x00000128   Code   RO         8435    i.input_num         bsp_key.o
+    0x08028634   0x08028634   0x00000128   Code   RO         8436    i.input_pass        bsp_key.o
+    0x0802875c   0x0802875c   0x000002e0   Code   RO         8437    i.input_search      bsp_key.o
+    0x08028a3c   0x08028a3c   0x000002a4   Code   RO         6947    i.main              main.o
+    0x08028ce0   0x08028ce0   0x0000006c   Code   RO        10074    i.malloc            mc_w.l(malloc.o)
+    0x08028d4c   0x08028d4c   0x00000130   Code   RO         8439    i.maxfocus_off      bsp_key.o
+    0x08028e7c   0x08028e7c   0x00000168   Code   RO         8440    i.maxfocus_on       bsp_key.o
+    0x08028fe4   0x08028fe4   0x0000011c   Code   RO         8441    i.minfocus_off      bsp_key.o
+    0x08029100   0x08029100   0x00000154   Code   RO         8442    i.minfocus_on       bsp_key.o
+    0x08029254   0x08029254   0x00000040   Code   RO         8443    i.minus_day         bsp_key.o
+    0x08029294   0x08029294   0x00000044   Code   RO         8444    i.minus_hour        bsp_key.o
+    0x080292d8   0x080292d8   0x00000044   Code   RO         8445    i.minus_min         bsp_key.o
+    0x0802931c   0x0802931c   0x00000040   Code   RO         8446    i.minus_mon         bsp_key.o
+    0x0802935c   0x0802935c   0x00000044   Code   RO         8447    i.minus_sec         bsp_key.o
+    0x080293a0   0x080293a0   0x00000040   Code   RO         8448    i.minus_year        bsp_key.o
+    0x080293e0   0x080293e0   0x00000080   Code   RO         8449    i.multifocus_off    bsp_key.o
+    0x08029460   0x08029460   0x000000b4   Code   RO         8450    i.multifocus_on     bsp_key.o
+    0x08029514   0x08029514   0x0000049c   Code   RO         5515    i.page_cal          calibarate.o
+    0x080299b0   0x080299b0   0x000000cc   Code   RO         5578    i.page_factory      factory.o
+    0x08029a7c   0x08029a7c   0x00001634   Code   RO         5351    i.page_graph        graph.o
+    0x0802b0b0   0x0802b0b0   0x0000019c   Code   RO         5394    i.page_gset         graphset.o
+    0x0802b24c   0x0802b24c   0x000000b8   Code   RO         5436    i.page_his          history.o
+    0x0802b304   0x0802b304   0x000010b0   Code   RO         5149    i.page_home         home.o
+    0x0802c3b4   0x0802c3b4   0x00000460   Code   RO         5293    i.page_sep          separation.o
+    0x0802c814   0x0802c814   0x000004f4   Code   RO         5268    i.page_set          settings.o
+    0x0802cd08   0x0802cd08   0x000003b8   Code   RO         5243    i.page_sys          system.o
+    0x0802d0c0   0x0802d0c0   0x000003ac   Code   RO         5325    i.page_sysinfo      sysinfo.o
+    0x0802d46c   0x0802d46c   0x00000040   Code   RO         8451    i.plus_day          bsp_key.o
+    0x0802d4ac   0x0802d4ac   0x00000044   Code   RO         8452    i.plus_hour         bsp_key.o
+    0x0802d4f0   0x0802d4f0   0x00000044   Code   RO         8453    i.plus_min          bsp_key.o
+    0x0802d534   0x0802d534   0x00000040   Code   RO         8454    i.plus_mon          bsp_key.o
+    0x0802d574   0x0802d574   0x00000044   Code   RO         8455    i.plus_sec          bsp_key.o
+    0x0802d5b8   0x0802d5b8   0x00000040   Code   RO         8456    i.plus_year         bsp_key.o
+    0x0802d5f8   0x0802d5f8   0x000000d8   Code   RO         5548    i.power_on          power_on.o
+    0x0802d6d0   0x0802d6d0   0x00000098   Code   RO         8457    i.stimefocus_off    bsp_key.o
+    0x0802d768   0x0802d768   0x000000d8   Code   RO         8458    i.stimefocus_on     bsp_key.o
+    0x0802d840   0x0802d840   0x000000b8   Code   RO         8459    i.touch_set         bsp_key.o
+    0x0802d8f8   0x0802d8f8   0x0000004c   Code   RO         6948    i.udisk_scan        main.o
+    0x0802d944   0x0802d944   0x0000000c   Code   RO         9147    i.xEndCH376Cmd      ch376.o
+    0x0802d950   0x0802d950   0x00000012   Code   RO         9148    i.xReadCH376Data    ch376.o
+    0x0802d962   0x0802d962   0x00000002   PAD
+    0x0802d964   0x0802d964   0x00000048   Code   RO         9149    i.xWriteCH376Cmd    ch376.o
+    0x0802d9ac   0x0802d9ac   0x00000010   Code   RO         9150    i.xWriteCH376Data   ch376.o
+    0x0802d9bc   0x0802d9bc   0x00000108   Code   RO         8460    i.yhfocus_off       bsp_key.o
+    0x0802dac4   0x0802dac4   0x00000140   Code   RO         8461    i.yhfocus_on        bsp_key.o
+    0x0802dc04   0x0802dc04   0x00000108   Code   RO         8462    i.ylfocus_off       bsp_key.o
+    0x0802dd0c   0x0802dd0c   0x0000013c   Code   RO         8463    i.ylfocus_on        bsp_key.o
+    0x0802de48   0x0802de48   0x00000044   Data   RO         5150    .constdata          home.o
+    0x0802de8c   0x0802de8c   0x00000048   Data   RO         8466    .constdata          bsp_key.o
+    0x0802ded4   0x0802ded4   0x000011d0   Data   RO         9702    .constdata          fonts.o
+    0x0802f0a4   0x0802f0a4   0x00003530   Data   RO         9706    .constdata          fonts.o
+    0x080325d4   0x080325d4   0x00000b06   Data   RO         9707    .constdata          fonts.o
+    0x080330da   0x080330da   0x00001d45   Data   RO         9709    .constdata          fonts.o
+    0x08034e1f   0x08034e1f   0x000001ee   Data   RO         9710    .constdata          fonts.o
+    0x0803500d   0x0803500d   0x00000001   PAD
+    0x0803500e   0x0803500e   0x00002e04   Data   RO         9711    .constdata          fonts.o
+    0x08037e12   0x08037e12   0x00001c34   Data   RO         9712    .constdata          fonts.o
+    0x08039a46   0x08039a46   0x00000ed8   Data   RO         9713    .constdata          fonts.o
+    0x0803a91e   0x0803a91e   0x00000a64   Data   RO         9714    .constdata          fonts.o
+    0x0803b382   0x0803b382   0x00000ed8   Data   RO         9715    .constdata          fonts.o
+    0x0803c25a   0x0803c25a   0x000023a0   Data   RO         9717    .constdata          fonts.o
+    0x0803e5fa   0x0803e5fa   0x00005820   Data   RO         9719    .constdata          fonts.o
+    0x08043e1a   0x08043e1a   0x00002990   Data   RO         9720    .constdata          fonts.o
+    0x080467aa   0x080467aa   0x000017c0   Data   RO         9722    .constdata          fonts.o
+    0x08047f6a   0x08047f6a   0x000000ee   Data   RO         9723    .constdata          fonts.o
+    0x08048058   0x08048058   0x00000081   Data   RO        10169    .constdata          mc_w.l(ctype_o.o)
+    0x080480d9   0x080480d9   0x00000003   PAD
+    0x080480dc   0x080480dc   0x00000004   Data   RO        10170    .constdata          mc_w.l(ctype_o.o)
+    0x080480e0   0x080480e0   0x00000072   Data   RO         8467    .conststring        bsp_key.o
+    0x08048152   0x08048152   0x00000002   PAD
+    0x08048154   0x08048154   0x00000020   Data   RO        10211    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08048194, Size: 0x00023490, Max: 0x00030000, ABSOLUTE, COMPRESSED[0x00000174])
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08048174, Size: 0x00023490, Max: 0x00030000, ABSOLUTE, COMPRESSED[0x00000174])
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -7065,11 +7064,11 @@ Image component sizes
       1380        256          0         24      73748      20911   fileoperate.o
        852          4          0          0          0      13360   filesys.o
          0          0     106883        120          0       4053   fonts.o
-      9538        260          0          8      32000       5076   graph.o
+      9538        260          0          8      32000       5064   graph.o
        772        266          0          0          0       1347   graphset.o
-      5556        408          0          8      32360       5649   history.o
+      5556        408          0          8      32360       5641   history.o
       6216        522         68          0          0      20171   home.o
-     22802        946          0         56       2584      70419   main.o
+     22772        946          0         56       2584      70371   main.o
        140         22          0          0          0       2261   misc.o
       7370        102          0          0          0       2890   power_on.o
       1120        194          0          0        320       1859   separation.o
@@ -7106,9 +7105,9 @@ Image component sizes
         64          8          0         28          0      30084   usbd_usr.o
 
     ----------------------------------------------------------------------
-    181376      15626     107600        852     143660     997673   Object Totals
+    181344      15626     107600        852     143660     997605   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-        72          0          3         12         15          0   (incl. Padding)
+        70          0          3         12         15          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -7188,15 +7187,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-    187580      15814     107736        868     143660     949453   Grand Totals
-    187580      15814     107736        372     143660     949453   ELF Image Totals (compressed)
-    187580      15814     107736        372          0          0   ROM Totals
+    187548      15814     107736        868     143660     949385   Grand Totals
+    187548      15814     107736        372     143660     949385   ELF Image Totals (compressed)
+    187548      15814     107736        372          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)               295316 ( 288.39kB)
+    Total RO  Size (Code + RO Data)               295284 ( 288.36kB)
     Total RW  Size (RW Data + ZI Data)            144528 ( 141.14kB)
-    Total ROM Size (Code + RO Data + RW Data)     295688 ( 288.76kB)
+    Total ROM Size (Code + RO Data + RW Data)     295656 ( 288.73kB)
 
 ==============================================================================
 
