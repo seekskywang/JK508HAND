@@ -297,18 +297,19 @@ void JumpBoot(u8 flag)
 int main(void)
 
 {
-	NVIC_SetVectorTable(NVIC_VectTab_FLASH, 0x00000);
+	
 	static u8 powerstat;
-	uint8_t  buf[0x40];
-//	static u8 ledstat;
-	u8 test[9] = {0X01,0X03,0X02,0X58,0X00,0X01,0X02,0X00,0X05};
-	 __IO uint32_t i = 0;
-	static u8 reqtempcount;
+		static u8 reqtempcount;
 //	static u16 ucount;
 	static u8 urecount;
 	static u16 usavecount;
 	static u16 sendcount;
 	static u8 touched;
+	uint8_t  buf[0x40];
+//	static u8 ledstat;
+	u8 test[9] = {0X01,0X03,0X02,0X58,0X00,0X01,0X02,0X00,0X05};
+	 __IO uint32_t i = 0;
+	NVIC_SetVectorTable(NVIC_VectTab_FLASH, 0x00000);
 //	u8 res;
   /*!< At this stage the microcontroller clock setting is already configured, 
   this is done through SystemInit() function which is called from startup
@@ -3036,7 +3037,7 @@ void TempDisplay(void)
 				DISP_CNL_S(340+20,585,(uint8_t*)buf);
 			}else{
 				LCD_SetColors(LCD_COLOR_BACK,LCD_COLOR_BACK);
-				LCD_DrawFullRect(585,320+20,48,16);
+				LCD_DrawFullRect(585,340+20,48,16);
 			}
 			
 		}
@@ -3217,6 +3218,8 @@ void Read_flag(void)
 
 void UsbDataHandle(void)
 {
+	RTC_DateTypeDef RTC_DateStructure;
+	RTC_TimeTypeDef RTC_TimeStructure;
 	u8 i;
 //	u8 j;
 	uint16_t sendcrc;
@@ -3666,8 +3669,7 @@ void UsbDataHandle(void)
 					usbsendbuf[4] = 0x00;
 					usbsendbuf[5] = 0x00;
 					
-					RTC_DateTypeDef RTC_DateStructure;
-					RTC_TimeTypeDef RTC_TimeStructure;
+					
 					
 					YEAR = usbbuf[8];
 					MONTH = usbbuf[9];
@@ -3948,8 +3950,9 @@ u8 PowerOffDetect(void)
 //检测到关机后的处理
 void PowerOffHandle(void)
 {
-	page_flag = poweroff;
 	static u8 offflag;
+	page_flag = poweroff;
+	
 	DrawPowOff();
 	if(recordflag == 1)
 	{
