@@ -1,11 +1,11 @@
 ..\..\output\usbd_storage_msd.o: ..\..\User\usb\usbd_storage_msd.c
 ..\..\output\usbd_storage_msd.o: ..\..\Libraries\STM32_USB_Device_Library\Class\msc\inc\usbd_msc_mem.h
-..\..\output\usbd_storage_msd.o: ..\..\Libraries\STM32_USB_Device_Library\Core\inc\usbd_def.h
-..\..\output\usbd_storage_msd.o: ..\..\User\usb\usbd_conf.h
-..\..\output\usbd_storage_msd.o: ..\..\User\usb\usb_conf.h
+..\..\output\usbd_storage_msd.o: ..\..\USBD_FS_Lib\USBD_inc\usbd_def.h
+..\..\output\usbd_storage_msd.o: ..\..\USBD_FS_Lib\USBD_inc\usbd_conf.h
+..\..\output\usbd_storage_msd.o: ..\..\USBD_FS_Lib\USBD_inc\usb_conf.h
 ..\..\output\usbd_storage_msd.o: ..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h
 ..\..\output\usbd_storage_msd.o: ..\..\Libraries\CMSIS\Include\core_cm4.h
-..\..\output\usbd_storage_msd.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\..\output\usbd_storage_msd.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\..\output\usbd_storage_msd.o: ..\..\Libraries\CMSIS\Include\core_cmInstr.h
 ..\..\output\usbd_storage_msd.o: ..\..\Libraries\CMSIS\Include\core_cmFunc.h
 ..\..\output\usbd_storage_msd.o: ..\..\Libraries\CMSIS\Include\core_cmSimd.h
@@ -41,5 +41,5 @@
 ..\..\output\usbd_storage_msd.o: ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_fmc.h
 ..\..\output\usbd_storage_msd.o: ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_ltdc.h
 ..\..\output\usbd_storage_msd.o: ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sai.h
-..\..\output\usbd_storage_msd.o: ..\..\User\./flash/bsp_spi_flash.h
-..\..\output\usbd_storage_msd.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+..\..\output\usbd_storage_msd.o: ..\..\User\usb\usb_conf.h
+..\..\output\usbd_storage_msd.o: ..\..\User\sdio/bsp_sdio_sd.h

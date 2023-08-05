@@ -28,8 +28,9 @@
 /* Includes ------------------------------------------------------------------*/
 #include "usbd_msc_mem.h"
 #include "usb_conf.h"
-#include "./bsp/flash/bsp_spi_flash.h"
 
+// #include "./bsp/flash/bsp_spi_flash.h"
+#include "sdio/bsp_sdio_sd.h"
 /** @addtogroup STM32_USB_OTG_DEVICE_LIBRARY
   * @{
   */
@@ -69,6 +70,8 @@
 /** @defgroup STORAGE_Private_Variables
   * @{
   */ 
+	
+extern  SD_CardInfo SDCardInfo;
 /* USB Mass storage Standard Inquiry Data */
 const int8_t  STORAGE_Inquirydata[] = {//36
   
@@ -132,7 +135,7 @@ USBD_STORAGE_cb_TypeDef USBD_MICRO_SDIO_fops =
 
 USBD_STORAGE_cb_TypeDef  *USBD_STORAGE_fops = &USBD_MICRO_SDIO_fops;
 
-__IO uint32_t count = 0;
+//__IO uint32_t count = 0;
 /**
   * @}
   */ 
@@ -151,7 +154,7 @@ __IO uint32_t count = 0;
 
 int8_t STORAGE_Init (uint8_t lun)
 {
-  return SPI_FLASH_Init();
+  return SD_Init();
 }
 
 /**
@@ -163,8 +166,8 @@ int8_t STORAGE_Init (uint8_t lun)
   */
 int8_t STORAGE_GetCapacity (uint8_t lun, uint32_t *block_num, uint32_t *block_size)
 {
-  *block_size =  4096;  
-  *block_num =  2560;  
+  *block_size =  SDCardInfo.CardBlockSize;  
+  *block_num =  SDCardInfo.CardCapacity;  
   return (0);
   
 }
@@ -176,7 +179,7 @@ int8_t STORAGE_GetCapacity (uint8_t lun, uint32_t *block_num, uint32_t *block_si
   */
 int8_t  STORAGE_IsReady (uint8_t lun)
 {  
-	return GET_SPIFLASH_STATE();
+	return SD_GetState();
 }
 
 /**
@@ -202,8 +205,11 @@ int8_t STORAGE_Read (uint8_t lun,
                  uint32_t blk_addr,                       
                  uint16_t blk_len)
 {
-	blk_addr+=1536;
-  SPI_FLASH_BufferRead((uint8_t *)buf, blk_addr<<12, blk_len<<12);	
+	SD_ReadBlock((uint8_t *)buf,blk_addr,blk_len);
+	SD_WaitWriteOperation();
+	while(SD_GetStatus() != SD_TRANSFER_OK)
+	{}
+	
   return 0;
 }
 /**
@@ -219,9 +225,10 @@ int8_t STORAGE_Write (uint8_t lun,
                   uint32_t blk_addr,
                   uint16_t blk_len)
 {
-	blk_addr+=1536;
-  SPI_FLASH_SectorErase(blk_addr<<12);
-	SPI_FLASH_BufferWrite((uint8_t *)buf,blk_addr<< 12,blk_len<<12);	
+	SD_WriteBlock((uint8_t *)buf,blk_addr,blk_len);
+	SD_WaitWriteOperation();	
+	while(SD_GetStatus() != SD_TRANSFER_OK)
+	{}
   return (0);
 }
 

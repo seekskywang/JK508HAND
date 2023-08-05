@@ -75,3 +75,4 @@
 ..\..\output\main.o: ..\..\User\flash_if.h
 ..\..\output\main.o: ..\..\User\flash_if.h
 ..\..\output\main.o: ..\..\User\sdio/bsp_sdio_sd.h
+..\..\output\main.o: ..\..\Libraries\STM32_USB_Device_Library\Class\msc\inc\usbd_msc_core.h

@@ -120,10 +120,10 @@ void USB_OTG_BSP_mDelay (const uint32_t msec)
 
 
 //--------------------------------------------------------------
-void OTG_HS_IRQHandler(void)
-{
-  USBD_OTG_ISR_Handler (&USB_OTG_dev);
-}
+//void OTG_HS_IRQHandler(void)
+//{
+//  USBD_OTG_ISR_Handler (&USB_OTG_dev);
+//}
 
 //--------------------------------------------------------------
 void OTG_HS_EP1_IN_IRQHandler(void)
