@@ -167,7 +167,8 @@ int8_t STORAGE_Init (uint8_t lun)
 int8_t STORAGE_GetCapacity (uint8_t lun, uint32_t *block_num, uint32_t *block_size)
 {
   *block_size =  SDCardInfo.CardBlockSize;  
-  *block_num =  SDCardInfo.CardCapacity;  
+//  *block_num =  SDCardInfo.CardCapacity/SDCardInfo.CardBlockSize;  
+	*block_num =  61820928;  
   return (0);
   
 }

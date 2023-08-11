@@ -60,17 +60,26 @@
 #define USBD_LANGID_STRING            0x409
 #define USBD_MANUFACTURER_STRING      "STMicroelectronics"
 
-#define USBD_PRODUCT_HS_STRING        "Joystick in HS mode"
-#define USBD_SERIALNUMBER_HS_STRING   "00000000011B"
+#define USBD_PRODUCT_HS_STRING        "Mass Storage in HS Mode"
+#define USBD_SERIALNUMBER_HS_STRING   "00000000001A"
+#define USBD_PRODUCT_FS_STRING        "Mass Storage in FS Mode"
+#define USBD_SERIALNUMBER_FS_STRING   "00000000001B"
+#define USBD_CONFIGURATION_HS_STRING  "MSC Config"
+#define USBD_INTERFACE_HS_STRING      "MSC Interface"
+#define USBD_CONFIGURATION_FS_STRING  "MSC Config"
+#define USBD_INTERFACE_FS_STRING      "MSC Interface"
 
-#define USBD_PRODUCT_FS_STRING        "Custom device in FS Mode"
-#define USBD_SERIALNUMBER_FS_STRING   "00000000011C"
+//#define USBD_PRODUCT_HS_STRING        "Joystick in HS mode"
+//#define USBD_SERIALNUMBER_HS_STRING   "00000000011B"
 
-#define USBD_CONFIGURATION_HS_STRING  "HID Config"
-#define USBD_INTERFACE_HS_STRING      "HID Interface"
+//#define USBD_PRODUCT_FS_STRING        "Custom device in FS Mode"
+//#define USBD_SERIALNUMBER_FS_STRING   "00000000011C"
 
-#define USBD_CONFIGURATION_FS_STRING  "HID Config"
-#define USBD_INTERFACE_FS_STRING      "HID Interface"
+//#define USBD_CONFIGURATION_HS_STRING  "HID Config"
+//#define USBD_INTERFACE_HS_STRING      "HID Interface"
+
+//#define USBD_CONFIGURATION_FS_STRING  "HID Config"
+//#define USBD_INTERFACE_FS_STRING      "HID Interface"
 /**
   * @}
   */ 

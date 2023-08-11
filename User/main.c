@@ -490,7 +490,7 @@ int main(void)
 //		LED_RED;
 //		printf("！！打开/创建文件失败。\r\n");
 //	}
-
+//	res_sd = f_mount(&fs,"0:",0);
 	while(1)
 	{
 
