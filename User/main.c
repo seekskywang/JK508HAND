@@ -422,75 +422,75 @@ int main(void)
 	Touch_GPIO_Config();
 	tp_dev.init();
 	
-//	if(SD_Init() == SD_OK)//初始化SD卡
-//	{
-//		sdstatus = 1;
-////		DrawSD2();
-////		Read_Block_Rec();
-////		Read_Index(BlockNum.Num[1]/40);
-//	}else{
-////		DrawSD1();
-//	}
+	if(SD_Init() == SD_OK)//初始化SD卡
+	{
+		sdstatus = 1;
+//		DrawSD2();
+//		Read_Block_Rec();
+//		Read_Index(BlockNum.Num[1]/40);
+	}else{
+//		DrawSD1();
+	}
 //	SD_GetCardInfo(&SDINFO);
 //	trigflag = 1;
 //	BlockNum.Num[0] = 0;
 //	BlockNum.Num[1] = 0;
 	
-//	res_sd = f_mount(&fs,"0:",1);
-//	/* 如果没有文件系统就格式化创建创建文件系统 */
-//	if(res_sd == FR_NO_FILESYSTEM)
-//	{
-//		printf("》SD卡还没有文件系统，即将进行格式化...\r\n");
-//    /* 格式化 */
-//		res_sd=f_mkfs("0:",0,0);							
-//		
-//		if(res_sd == FR_OK)
-//		{
-//			printf("》SD卡已成功格式化文件系统。\r\n");
-//      /* 格式化后，先取消挂载 */
-//			res_sd = f_mount(NULL,"0:",1);			
-//      /* 重新挂载	*/			
-//			res_sd = f_mount(&fs,"0:",1);
-//		}
-//		else
-//		{
-////			LED_RED;
-//			printf("《《格式化失败。》》\r\n");
-////			while(1);
-//		}
-//	}else if(res_sd!=FR_OK){
-//    printf("！！SD卡挂载文件系统失败。(%d)\r\n",res_sd);
-//    printf("！！可能原因：SD卡初始化不成功。\r\n");
-////		while(1);
-//  }
-//  else
-//  {
-//    printf("》文件系统挂载成功，可以进行读写测试\r\n");
-//  }
-//	res_sd = f_open(&fnew, "0:FatFs读写测试文件.txt",FA_CREATE_ALWAYS | FA_WRITE );
-//	if ( res_sd == FR_OK )
-//	{
-//		printf("》打开/创建FatFs读写测试文件.txt文件成功，向文件写入数据。\r\n");
-//    /* 将指定存储区内容写入到文件内 */
-//		res_sd=f_write(&fnew,WriteBuffer,sizeof(WriteBuffer),&fnum);
-//    if(res_sd==FR_OK)
-//    {
-//      printf("》文件写入成功，写入字节数据：%d\n",fnum);
-//      printf("》向文件写入的数据为：\r\n%s\r\n",WriteBuffer);
-//    }
-//    else
-//    {
-//      printf("！！文件写入失败：(%d)\n",res_sd);
-//    }    
-//		/* 不再读写，关闭文件 */
-//    f_close(&fnew);
-//	}
-//	else
-//	{	
-//		LED_RED;
-//		printf("！！打开/创建文件失败。\r\n");
-//	}
-//	res_sd = f_mount(&fs,"0:",0);
+	res_sd = f_mount(&fs,"0:",1);
+	/* 如果没有文件系统就格式化创建创建文件系统 */
+	if(res_sd == FR_NO_FILESYSTEM)
+	{
+		printf("》SD卡还没有文件系统，即将进行格式化...\r\n");
+    /* 格式化 */
+		res_sd=f_mkfs("0:",0,0);							
+		
+		if(res_sd == FR_OK)
+		{
+			printf("》SD卡已成功格式化文件系统。\r\n");
+      /* 格式化后，先取消挂载 */
+			res_sd = f_mount(NULL,"0:",1);			
+      /* 重新挂载	*/			
+			res_sd = f_mount(&fs,"0:",1);
+		}
+		else
+		{
+//			LED_RED;
+			printf("《《格式化失败。》》\r\n");
+//			while(1);
+		}
+	}else if(res_sd!=FR_OK){
+    printf("！！SD卡挂载文件系统失败。(%d)\r\n",res_sd);
+    printf("！！可能原因：SD卡初始化不成功。\r\n");
+//		while(1);
+  }
+  else
+  {
+    printf("》文件系统挂载成功，可以进行读写测试\r\n");
+  }
+	res_sd = f_open(&fnew, "0:FatFs读写测试文件.txt",FA_CREATE_ALWAYS | FA_WRITE );
+	if ( res_sd == FR_OK )
+	{
+		printf("》打开/创建FatFs读写测试文件.txt文件成功，向文件写入数据。\r\n");
+    /* 将指定存储区内容写入到文件内 */
+		res_sd=f_write(&fnew,WriteBuffer,sizeof(WriteBuffer),&fnum);
+    if(res_sd==FR_OK)
+    {
+      printf("》文件写入成功，写入字节数据：%d\n",fnum);
+      printf("》向文件写入的数据为：\r\n%s\r\n",WriteBuffer);
+    }
+    else
+    {
+      printf("！！文件写入失败：(%d)\n",res_sd);
+    }    
+		/* 不再读写，关闭文件 */
+    f_close(&fnew);
+	}
+	else
+	{	
+		LED_RED;
+		printf("！！打开/创建文件失败。\r\n");
+	}
+	res_sd = f_mount(&fs,"0:",0);
 	while(1)
 	{
 
