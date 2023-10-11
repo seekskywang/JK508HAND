@@ -180,7 +180,11 @@ int8_t STORAGE_GetCapacity (uint8_t lun, uint32_t *block_num, uint32_t *block_si
   */
 int8_t  STORAGE_IsReady (uint8_t lun)
 {  
-	return SD_GetState();
+	if(SD_GetState() == SD_CARD_TRANSFER)
+		return 0;
+	else
+		return 2;
+//	return SD_GetState();
 }
 
 /**

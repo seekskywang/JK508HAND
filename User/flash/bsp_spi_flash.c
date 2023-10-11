@@ -601,4 +601,15 @@ static  uint16_t SPI_TIMEOUT_UserCallback(uint8_t errorCode)
   return 0;
 }
    
+int8_t GET_SPIFLASH_STATE(void)
+{
+	if(sFLASH_ID == SPI_FLASH_ReadID())			/*检测FLASH是否正常工作*/
+	{    
+		return 0;
+	}else
+	{    
+    FLASH_ERROR(" No W25Q64 !");
+		return -1;
+	}
+}
 /*********************************************END OF FILE**********************/

@@ -336,7 +336,7 @@ int main(void)
 //	LED_GPIO_Config();	 
 	
 	/* 16M串行flash W25Q128初始化 */
-	SPI_FLASH_Init();
+//	SPI_FLASH_Init();
 	
 		/*串口初始化*/
 	Debug_USART_Config();
@@ -407,14 +407,14 @@ int main(void)
 		/* 获取 SPI Flash ID */
 	
 	
-	FlashID = SPI_FLASH_ReadID();
-	if (FlashID == sFLASH_ID) 
-	{
-//		Delay(500);
-		Read_flag();
-		Read_Sflag();
-		Read_Flash_Init_Handle();
-	}
+//	FlashID = SPI_FLASH_ReadID();
+//	if (FlashID == sFLASH_ID) 
+//	{
+////		Delay(500);
+//		Read_flag();
+//		Read_Sflag();
+//		Read_Flash_Init_Handle();
+//	}
 	power_on();
 //	watch = CRC16(test,9);
 //	page_home();
