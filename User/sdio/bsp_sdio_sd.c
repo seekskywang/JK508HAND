@@ -1408,11 +1408,7 @@ SD_Error SD_ReadBlock(uint8_t *readbuff, uint64_t ReadAddr, uint16_t BlockSize)
   
   SDIO->DCTRL = 0x0;
 
-#if defined (SD_DMA_MODE)
-  SDIO_ITConfig(SDIO_IT_DCRCFAIL | SDIO_IT_DTIMEOUT | SDIO_IT_DATAEND | SDIO_IT_RXOVERR | SDIO_IT_STBITERR, ENABLE);
-  SDIO_DMACmd(ENABLE);
-  SD_LowLevel_DMA_RxConfig((uint32_t *)readbuff, BlockSize);
-#endif
+
   
   if (CardType == SDIO_HIGH_CAPACITY_SD_CARD)
   {
@@ -1509,7 +1505,11 @@ SD_Error SD_ReadBlock(uint8_t *readbuff, uint64_t ReadAddr, uint16_t BlockSize)
   SDIO_ClearFlag(SDIO_STATIC_FLAGS);
 
 #endif
-
+#if defined (SD_DMA_MODE)
+  SDIO_ITConfig(SDIO_IT_DCRCFAIL | SDIO_IT_DTIMEOUT | SDIO_IT_DATAEND | SDIO_IT_RXOVERR | SDIO_IT_STBITERR, ENABLE);
+  SDIO_DMACmd(ENABLE);
+  SD_LowLevel_DMA_RxConfig((uint32_t *)readbuff, BlockSize);
+#endif
   return(errorstatus);
 }
 
@@ -1670,11 +1670,7 @@ SD_Error SD_WriteBlock(uint8_t *writebuff, uint64_t WriteAddr, uint16_t BlockSiz
   
   SDIO->DCTRL = 0x0;
 
-#if defined (SD_DMA_MODE)
-  SDIO_ITConfig(SDIO_IT_DCRCFAIL | SDIO_IT_DTIMEOUT | SDIO_IT_DATAEND | SDIO_IT_RXOVERR | SDIO_IT_STBITERR, ENABLE);
-  SD_LowLevel_DMA_TxConfig((uint32_t *)writebuff, BlockSize);
-  SDIO_DMACmd(ENABLE);
-#endif
+
 
   if (CardType == SDIO_HIGH_CAPACITY_SD_CARD)
   {
@@ -1771,7 +1767,11 @@ SD_Error SD_WriteBlock(uint8_t *writebuff, uint64_t WriteAddr, uint16_t BlockSiz
   }
 
 #endif
-
+#if defined (SD_DMA_MODE)
+  SDIO_ITConfig(SDIO_IT_DCRCFAIL | SDIO_IT_DTIMEOUT | SDIO_IT_DATAEND | SDIO_IT_RXOVERR | SDIO_IT_STBITERR, ENABLE);
+  SD_LowLevel_DMA_TxConfig((uint32_t *)writebuff, BlockSize);
+  SDIO_DMACmd(ENABLE);
+#endif
   return(errorstatus);
 }
 
@@ -2232,6 +2232,21 @@ SD_Error SD_SendSDStatus(uint32_t *psdstatus)
   */
 SD_Error SD_ProcessIRQSrc(void)
 { 
+	if (StopCondition == 1)    //发送读、写命令时设置为1
+  {
+    SDIO->ARG = 0x0;    //命令参数寄存器
+    SDIO->CMD = 0x44C;    //命令寄存器 0100-0100-1100
+                          /*    CPSMEN[10]    WAITRESP[7:6]  CMDINDEX[5:0]
+                           *    0100          01             001100
+                           *    开启命令状态机  短响应         命令索引：CMD12
+                           */
+    TransferError = CmdResp1Error(SD_CMD_STOP_TRANSMISSION);
+  }
+  else
+  {
+    TransferError = SD_OK;
+  }
+
   if (SDIO_GetITStatus(SDIO_IT_DATAEND) != RESET)
   {
     TransferError = SD_OK;

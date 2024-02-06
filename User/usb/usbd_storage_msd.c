@@ -210,7 +210,7 @@ int8_t STORAGE_Read (uint8_t lun,
                  uint32_t blk_addr,                       
                  uint16_t blk_len)
 {
-	SD_ReadBlock((uint8_t *)buf,blk_addr,blk_len);
+	SD_ReadBlock((uint8_t *)buf,blk_addr,512);
 	SD_WaitWriteOperation();
 	while(SD_GetStatus() != SD_TRANSFER_OK)
 	{}
@@ -230,7 +230,7 @@ int8_t STORAGE_Write (uint8_t lun,
                   uint32_t blk_addr,
                   uint16_t blk_len)
 {
-	SD_WriteBlock((uint8_t *)buf,blk_addr,blk_len);
+	SD_WriteBlock((uint8_t *)buf,blk_addr,512);
 	SD_WaitWriteOperation();	
 	while(SD_GetStatus() != SD_TRANSFER_OK)
 	{}
